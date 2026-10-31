@@ -1980,6 +1980,9 @@ async function sendQuestion(question) {
   let waitSec = 0;
   let streamedAnswer = "";
   let rafPending = false;
+  // 最终答案已经写回气泡后置 true：挡住尾部 requestAnimationFrame 用旧内容覆盖
+  // （否则最后一帧会把溯源面板和「复制/重新生成」按钮一起抹掉）
+  let streamFinalized = false;
   // 多机并行：并发打满时后端会让新问排队，这里实时显示「第几位 / 预计还需多久」
   let queueInfo = null;
 
@@ -2006,6 +2009,7 @@ async function sendQuestion(question) {
     rafPending = true;
     requestAnimationFrame(() => {
       rafPending = false;
+      if (streamFinalized) return;
       if (!bubbleEl || !typingEl.isConnected) return;
       if (streamedAnswer) {
         bubbleEl.classList.add("md-body");
@@ -2087,6 +2091,10 @@ async function sendQuestion(question) {
     const finalAnswer = data && data.answer ? data.answer : streamedAnswer;
     streamedAnswer = finalAnswer;
     if (finalAnswer && typingEl.isConnected) {
+      // 生成结束必须摘掉 typing，否则 .msg.typing .bubble::after 的打字光标会一直闪
+      // （它是 bubble 的 ::after，位置在「复制/重新生成」按钮之后，看起来就是末尾一根绿竖杠）
+      streamFinalized = true;
+      typingEl.classList.remove("typing");
       bubbleEl.classList.add("md-body");
       bubbleEl.innerHTML = mdToHtml(finalAnswer);
       appendProvenancePanel(bubbleEl, finalAnswer, data); // 流式分支不走 appendMessage，面板单独补
@@ -2129,6 +2137,10 @@ async function sendQuestion(question) {
     finishConversationTurn(failText, null);
   } finally {
     clearInterval(heartbeat);
+    // 兜底：不论本轮走到哪条分支（正常 / 空答案 / 异常），占位消息都不该再挂 typing，
+    // 否则 .bubble::after 的打字光标会一直闪下去。
+    streamFinalized = true;
+    if (typingEl.isConnected) typingEl.classList.remove("typing");
   }
 }
 
