@@ -1,0 +1,185 @@
+{
+ "assembly": "GRCz12tu (GCF_049306965.2)",
+ "source_fasta": "/data/zoujin/deng/zebrafish_runtime/blast/grcz12tu_genome.fna",
+ "total_length": 1448791966,
+ "n_sequences": 25,
+ "built_at": "2026-10-13 19:13:52",
+ "elapsed_s": 35.5,
+ "chromosomes": [
+  {
+   "name": "NC_133176.1",
+   "chr": "1",
+   "desc": "NC_133176.1 Danio rerio strain Tuebingen ecotype United States chromosome 1, alternate assembly GRCz12tu, whole genome s",
+   "length": 63108402,
+   "gc": 36.31
+  },
+  {
+   "name": "NC_133177.1",
+   "chr": "2",
+   "desc": "NC_133177.1 Danio rerio strain Tuebingen ecotype United States chromosome 2, alternate assembly GRCz12tu, whole genome s",
+   "length": 63578853,
+   "gc": 36.91
+  },
+  {
+   "name": "NC_133178.1",
+   "chr": "3",
+   "desc": "NC_133178.1 Danio rerio strain Tuebingen ecotype United States chromosome 3, alternate assembly GRCz12tu, whole genome s",
+   "length": 67698726,
+   "gc": 37.94
+  },
+  {
+   "name": "NC_133179.1",
+   "chr": "4",
+   "desc": "NC_133179.1 Danio rerio strain Tuebingen ecotype United States chromosome 4, alternate assembly GRCz12tu, whole genome s",
+   "length": 76376419,
+   "gc": 38.2
+  },
+  {
+   "name": "NC_133180.1",
+   "chr": "5",
+   "desc": "NC_133180.1 Danio rerio strain Tuebingen ecotype United States chromosome 5, alternate assembly GRCz12tu, whole genome s",
+   "length": 78929807,
+   "gc": 37.53
+  },
+  {
+   "name": "NC_133181.1",
+   "chr": "6",
+   "desc": "NC_133181.1 Danio rerio strain Tuebingen ecotype United States chromosome 6, alternate assembly GRCz12tu, whole genome s",
+   "length": 63407686,
+   "gc": 36.4
+  },
+  {
+   "name": "NC_133182.1",
+   "chr": "7",
+   "desc": "NC_133182.1 Danio rerio strain Tuebingen ecotype United States chromosome 7, alternate assembly GRCz12tu, whole genome s",
+   "length": 80416488,
+   "gc": 37.46
+  },
+  {
+   "name": "NC_133183.1",
+   "chr": "8",
+   "desc": "NC_133183.1 Danio rerio strain Tuebingen ecotype United States chromosome 8, alternate assembly GRCz12tu, whole genome s",
+   "length": 64512798,
+   "gc": 37.72
+  },
+  {
+   "name": "NC_133184.1",
+   "chr": "9",
+   "desc": "NC_133184.1 Danio rerio strain Tuebingen ecotype United States chromosome 9, alternate assembly GRCz12tu, whole genome s",
+   "length": 59035420,
+   "gc": 36.35
+  },
+  {
+   "name": "NC_133185.1",
+   "chr": "10",
+   "desc": "NC_133185.1 Danio rerio strain Tuebingen ecotype United States chromosome 10, alternate assembly GRCz12tu, whole genome ",
+   "length": 50855184,
+   "gc": 37.94
+  },
+  {
+   "name": "NC_133186.1",
+   "chr": "11",
+   "desc": "NC_133186.1 Danio rerio strain Tuebingen ecotype United States chromosome 11, alternate assembly GRCz12tu, whole genome ",
+   "length": 47978265,
+   "gc": 36.23
+  },
+  {
+   "name": "NC_133187.1",
+   "chr": "12",
+   "desc": "NC_133187.1 Danio rerio strain Tuebingen ecotype United States chromosome 12, alternate assembly GRCz12tu, whole genome ",
+   "length": 51766578,
+   "gc": 36.18
+  },
+  {
+   "name": "NC_133188.1",
+   "chr": "13",
+   "desc": "NC_133188.1 Danio rerio strain Tuebingen ecotype United States chromosome 13, alternate assembly GRCz12tu, whole genome ",
+   "length": 56637657,
+   "gc": 36.89
+  },
+  {
+   "name": "NC_133189.1",
+   "chr": "14",
+   "desc": "NC_133189.1 Danio rerio strain Tuebingen ecotype United States chromosome 14, alternate assembly GRCz12tu, whole genome ",
+   "length": 58912081,
+   "gc": 37.29
+  },
+  {
+   "name": "NC_133190.1",
+   "chr": "15",
+   "desc": "NC_133190.1 Danio rerio strain Tuebingen ecotype United States chromosome 15, alternate assembly GRCz12tu, whole genome ",
+   "length": 52006389,
+   "gc": 37.29
+  },
+  {
+   "name": "NC_133191.1",
+   "chr": "16",
+   "desc": "NC_133191.1 Danio rerio strain Tuebingen ecotype United States chromosome 16, alternate assembly GRCz12tu, whole genome ",
+   "length": 59833720,
+   "gc": 37.29
+  },
+  {
+   "name": "NC_133192.1",
+   "chr": "17",
+   "desc": "NC_133192.1 Danio rerio strain Tuebingen ecotype United States chromosome 17, alternate assembly GRCz12tu, whole genome ",
+   "length": 59639751,
+   "gc": 37.75
+  },
+  {
+   "name": "NC_133193.1",
+   "chr": "18",
+   "desc": "NC_133193.1 Danio rerio strain Tuebingen ecotype United States chromosome 18, alternate assembly GRCz12tu, whole genome ",
+   "length": 54272776,
+   "gc": 36.5
+  },
+  {
+   "name": "NC_133194.1",
+   "chr": "19",
+   "desc": "NC_133194.1 Danio rerio strain Tuebingen ecotype United States chromosome 19, alternate assembly GRCz12tu, whole genome ",
+   "length": 51759963,
+   "gc": 36.31
+  },
+  {
+   "name": "NC_133195.1",
+   "chr": "20",
+   "desc": "NC_133195.1 Danio rerio strain Tuebingen ecotype United States chromosome 20, alternate assembly GRCz12tu, whole genome ",
+   "length": 59305174,
+   "gc": 37.14
+  },
+  {
+   "name": "NC_133196.1",
+   "chr": "21",
+   "desc": "NC_133196.1 Danio rerio strain Tuebingen ecotype United States chromosome 21, alternate assembly GRCz12tu, whole genome ",
+   "length": 50219970,
+   "gc": 37.29
+  },
+  {
+   "name": "NC_133197.1",
+   "chr": "22",
+   "desc": "NC_133197.1 Danio rerio strain Tuebingen ecotype United States chromosome 22, alternate assembly GRCz12tu, whole genome ",
+   "length": 41392508,
+   "gc": 37.44
+  },
+  {
+   "name": "NC_133198.1",
+   "chr": "23",
+   "desc": "NC_133198.1 Danio rerio strain Tuebingen ecotype United States chromosome 23, alternate assembly GRCz12tu, whole genome ",
+   "length": 50457056,
+   "gc": 37.37
+  },
+  {
+   "name": "NC_133199.1",
+   "chr": "24",
+   "desc": "NC_133199.1 Danio rerio strain Tuebingen ecotype United States chromosome 24, alternate assembly GRCz12tu, whole genome ",
+   "length": 46235565,
+   "gc": 37.49
+  },
+  {
+   "name": "NC_133200.1",
+   "chr": "25",
+   "desc": "NC_133200.1 Danio rerio strain Tuebingen ecotype United States chromosome 25, alternate assembly GRCz12tu, whole genome ",
+   "length": 40454730,
+   "gc": 36.44
+  }
+ ]
+}

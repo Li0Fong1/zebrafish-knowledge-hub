@@ -1,0 +1,35 @@
+== hub.log tail ==
+2026-09-30 19:42:08,300 - 信息 - 📝 执行查询SQL：SELECT build_id, norm_version FROM zebrafish_gene_v2_20260922.name_resolve_meta WHERE is_active=1 LI
+2026-09-30 19:42:11,939 - 信息 - [富集] GO ORA：46 项 padj≤0.05
+2026-09-30 19:42:11,995 - 信息 - 📝 执行查询SQL：SELECT query_norm, status, zfin_id, gene_id_count, match_kind, source_mask FROM zebrafish_gene_v2_20
+2026-09-30 19:42:12,006 - 信息 - 📝 执行查询SQL：SELECT * FROM zebrafish_gene_v2_20260922.gene_card WHERE zfin_id=:zfin_id LIMIT 1
+2026-09-30 19:42:12,049 - 信息 - 📝 执行查询SQL：SELECT db, acc, is_primary FROM zebrafish_gene_v2_20260922.gene_xref WHERE zfin_id=:zfin_id ORDER BY
+2026-09-30 19:42:12,086 - 信息 - 📝 执行查询SQL：SELECT build_id, norm_version FROM zebrafish_gene_v2_20260922.name_resolve_meta WHERE is_active=1 LI
+2026-09-30 19:42:13,262 - 信息 - [序列] 本地 FASTA 命中 tp53 ← grcz12tu_cds.fna NP_001258749.1
+2026-09-30 19:42:16,824 - 信息 - 📝 执行查询SQL：SELECT query_norm, status, zfin_id, gene_id_count, match_kind, source_mask FROM zebrafish_gene_v2_20
+2026-09-30 19:42:16,836 - 信息 - 📝 执行查询SQL：SELECT * FROM zebrafish_gene_v2_20260922.gene_card WHERE zfin_id=:zfin_id LIMIT 1
+2026-09-30 19:42:16,846 - 信息 - 📝 执行查询SQL：SELECT db, acc, is_primary FROM zebrafish_gene_v2_20260922.gene_xref WHERE zfin_id=:zfin_id ORDER BY
+2026-09-30 19:42:16,861 - 信息 - 📝 执行查询SQL：SELECT build_id, norm_version FROM zebrafish_gene_v2_20260922.name_resolve_meta WHERE is_active=1 LI
+2026-09-30 19:42:20,364 - 信息 - [富集] GO ORA：46 项 padj≤0.05
+2026-09-30 19:42:20,468 - 信息 - 📝 执行查询SQL：SELECT query_norm, status, zfin_id, gene_id_count, match_kind, source_mask FROM zebrafish_gene_v2_20
+2026-09-30 19:42:20,499 - 信息 - 📝 执行查询SQL：SELECT * FROM zebrafish_gene_v2_20260922.gene_card WHERE zfin_id=:zfin_id LIMIT 1
+2026-09-30 19:42:20,513 - 信息 - 📝 执行查询SQL：SELECT db, acc, is_primary FROM zebrafish_gene_v2_20260922.gene_xref WHERE zfin_id=:zfin_id ORDER BY
+2026-09-30 19:42:20,529 - 信息 - 📝 执行查询SQL：SELECT build_id, norm_version FROM zebrafish_gene_v2_20260922.name_resolve_meta WHERE is_active=1 LI
+2026-09-30 19:42:20,905 - 信息 - 📝 执行查询SQL：SELECT query_norm, status, zfin_id, gene_id_count, match_kind, source_mask FROM zebrafish_gene_v2_20
+2026-09-30 19:42:20,907 - 信息 - 📝 执行查询SQL：SELECT * FROM zebrafish_gene_v2_20260922.gene_card WHERE zfin_id=:zfin_id LIMIT 1
+2026-09-30 19:42:20,909 - 信息 - 📝 执行查询SQL：SELECT db, acc, is_primary FROM zebrafish_gene_v2_20260922.gene_xref WHERE zfin_id=:zfin_id ORDER BY
+2026-09-30 19:42:20,912 - 信息 - 📝 执行查询SQL：SELECT build_id, norm_version FROM zebrafish_gene_v2_20260922.name_resolve_meta WHERE is_active=1 LI
+2026-09-30 19:42:21,421 - 信息 - 📝 执行查询SQL：SELECT query_norm, status, zfin_id, gene_id_count, match_kind, source_mask FROM zebrafish_gene_v2_20
+2026-09-30 19:42:21,424 - 信息 - 📝 执行查询SQL：SELECT * FROM zebrafish_gene_v2_20260922.gene_card WHERE zfin_id=:zfin_id LIMIT 1
+2026-09-30 19:42:21,428 - 信息 - 📝 执行查询SQL：SELECT db, acc, is_primary FROM zebrafish_gene_v2_20260922.gene_xref WHERE zfin_id=:zfin_id ORDER BY
+2026-09-30 19:42:21,433 - 信息 - 📝 执行查询SQL：SELECT build_id, norm_version FROM zebrafish_gene_v2_20260922.name_resolve_meta WHERE is_active=1 LI
+INFO:     127.0.0.1:47052 - "POST /api/chat HTTP/1.1" 200 OK
+
+== pid/ps ==
+2400737
+    PID     ELAPSED STAT
+== tunnel url ==
+https://explains-laden-main-acres.trycloudflare.com
+== files ==
+-rw-rw-r-- 1 deng deng 430503 Sep 30 20:43 /data/zoujin/deng/zebrafish_runtime/logs/cloudflared_hub.log
+-rw-rw-r-- 1 deng deng  19938 Sep 30 19:42 /data/zoujin/deng/zebrafish_runtime/logs/hub.log

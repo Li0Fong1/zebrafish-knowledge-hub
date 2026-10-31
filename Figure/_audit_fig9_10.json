@@ -1,0 +1,665 @@
+{
+  "generated_at": "2026-09-28T10:32:49",
+  "seeds": [
+    42,
+    7,
+    2026
+  ],
+  "n": 300,
+  "server_available": true,
+  "runs": [],
+  "fig10": {
+    "hub_vers": 6,
+    "llm_vers": 3,
+    "hub_pmid": 3,
+    "llm_pmid": 0,
+    "summary": {
+      "hub_full": 8,
+      "llm_full": 1,
+      "llm_part": 1,
+      "llm_miss": 6
+    }
+  },
+  "fig10_verdict": [
+    {
+      "point": "最新版本精确命名（GRCz12tu）",
+      "hub": "full",
+      "llm": "miss",
+      "hub_ev": "GRCz12tu",
+      "llm_ev": ""
+    },
+    {
+      "point": "发布年份（2025）",
+      "hub": "full",
+      "llm": "miss",
+      "hub_ev": "GRCz12tu（GCF_049306965.1，2025",
+      "llm_ev": ""
+    },
+    {
+      "point": "RefSeq 接入号与版本对应",
+      "hub": "full",
+      "llm": "full",
+      "hub_ev": "GCF_049306965.1",
+      "llm_ev": "GCF_049306965.1"
+    },
+    {
+      "point": "Ensembl 注释版本一致（release 116）",
+      "hub": "full",
+      "llm": "miss",
+      "hub_ev": "release 116",
+      "llm_ev": ""
+    },
+    {
+      "point": "版本谱系完整（Zv1–Zv7 → GRCz12tu）",
+      "hub": "full",
+      "llm": "part",
+      "hub_ev": "Zv1–Zv7",
+      "llm_ev": " (列出版本数 3/6，Hub 6/6)"
+    },
+    {
+      "point": "品系信息（Tuebingen/TU）",
+      "hub": "full",
+      "llm": "miss",
+      "hub_ev": "Tuebingen",
+      "llm_ev": ""
+    },
+    {
+      "point": "双锚定策略说明",
+      "hub": "full",
+      "llm": "miss",
+      "hub_ev": "锚定",
+      "llm_ev": ""
+    },
+    {
+      "point": "条目级可追溯引用",
+      "hub": "full",
+      "llm": "miss",
+      "hub_ev": "PMID 23594743",
+      "llm_ev": " (PMID 数 Hub=3 LLM=0)"
+    }
+  ],
+  "records": [
+    {
+      "layer": "D0",
+      "id": "D0-fig9-pct",
+      "claim": "图注百分比与数据一致",
+      "status": "ok",
+      "detail": "数据 17.35% → 显示应为 17.4%；en 含=True zh 含=True",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig9-sampled",
+      "claim": "图注抽样规模与数据一致",
+      "status": "ok",
+      "detail": "sampled=999 seed=42",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig10-source",
+      "claim": "图注/图内标注了回答来源",
+      "status": "ok",
+      "detail": "图注须写明取自真实运行日志（可追溯）",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-readme-56,122",
+      "claim": "README 含真实数值 原始正文均值 56,122",
+      "status": "ok",
+      "detail": "token=56,122",
+      "severity": "low",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-readme-46,904",
+      "claim": "README 含真实数值 清洗后均值 46,904",
+      "status": "ok",
+      "detail": "token=46,904",
+      "severity": "low",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-readme-17.35",
+      "claim": "README 含真实数值 去除比例 17.35",
+      "status": "ok",
+      "detail": "token=17.35",
+      "severity": "low",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-readme-193",
+      "claim": "README 含真实数值 段/篇 193",
+      "status": "ok",
+      "detail": "token=193",
+      "severity": "low",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig9-canvas-56,122",
+      "claim": "Fig9 图内含 56,122",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig9-canvas-46,904",
+      "claim": "Fig9 图内含 46,904",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig9-canvas-193",
+      "claim": "Fig9 图内含 193",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig9-canvas-289",
+      "claim": "Fig9 图内含 289",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig9-canvas-FAISS",
+      "claim": "Fig9 图内含 FAISS",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig10-canvas-GRCz12tu",
+      "claim": "Fig10 图内含 GRCz12tu",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig10-canvas-GRCz11",
+      "claim": "Fig10 图内含 GRCz11",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig10-canvas-GCF_049306965.1",
+      "claim": "Fig10 图内含 GCF_049306965.1",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D0",
+      "id": "D0-fig10-canvas-8/8",
+      "claim": "Fig10 图内含 8/8",
+      "status": "ok",
+      "detail": "",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D1",
+      "id": "D1-recompute",
+      "claim": "统计复算（--light 模式本轮跳过）",
+      "status": "unknown",
+      "detail": "直接采用冻结值 n=999 seed=42；需重算时去掉 --light",
+      "severity": "low",
+      "evidence": ""
+    },
+    {
+      "layer": "D1",
+      "id": "D1-sections",
+      "claim": "图件「11 canonical sections」与实现一致",
+      "status": "ok",
+      "detail": "rag/fulltext_sections.py CANONICAL_SECTIONS = 11 类",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D1",
+      "id": "D1-sections-counted",
+      "claim": "抽样语料每篇均含全部规范章节键",
+      "status": "ok",
+      "detail": "冻结计数 11 类，每类 [999] 篇（frozen n=999）",
+      "severity": "low",
+      "evidence": ""
+    },
+    {
+      "layer": "D1",
+      "id": "D1-disclose-scope",
+      "claim": "图件声明抽样范围与生产索引口径差异",
+      "status": "ok",
+      "detail": "段数仅刻画抽样语料；生产索引为章节感知切分，不得混用",
+      "severity": "high",
+      "evidence": ""
+    },
+    {
+      "layer": "D1",
+      "id": "D1-disclose-cap",
+      "claim": "图件披露语料 120,000 字符上限",
+      "status": "ok",
+      "detail": "图注含 120,000=True；上限命中率 7.2%",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D1",
+      "id": "D1-disclose-stability",
+      "claim": "图件披露跨抽样稳定性",
+      "status": "ok",
+      "detail": "跨种子极差 3.41%",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-src-hub",
+      "claim": "Fig10(A) 来源日志存在",
+      "status": "ok",
+      "detail": "_a3_answer.txt 2845 字符",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-src-llm",
+      "claim": "Fig10(B) 来源日志存在",
+      "status": "ok",
+      "detail": "_llm_compare_deepseek.txt 1143 字符",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-matrix-summary",
+      "claim": "Fig10 汇总与取证重判一致",
+      "status": "ok",
+      "detail": "图件 ('8', '1', '1', '6') vs 重判 (8,1,1,6)；Hub 8/8 完整 · 通用模型 1 完整 / 1 部分 / 6 缺失",
+      "severity": "info",
+      "evidence": "Hub 8/8 complete  ·  general model 1/8 complete, 1/8 partial, 6/8 missing"
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-1",
+      "claim": "矩阵第 1 项与取证一致",
+      "status": "ok",
+      "detail": "要点「最新版本精确命名（GRCz12tu）」图件=(完整,缺失) 重判=(完整,缺失)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-2",
+      "claim": "矩阵第 2 项与取证一致",
+      "status": "ok",
+      "detail": "要点「发布年份（2025）」图件=(完整,缺失) 重判=(完整,缺失)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-3",
+      "claim": "矩阵第 3 项与取证一致",
+      "status": "ok",
+      "detail": "要点「RefSeq 接入号与版本对应」图件=(完整,完整) 重判=(完整,完整)；LLM 证据：GCF_049306965.1",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-4",
+      "claim": "矩阵第 4 项与取证一致",
+      "status": "ok",
+      "detail": "要点「Ensembl 注释版本一致（release 116）」图件=(完整,缺失) 重判=(完整,缺失)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-5",
+      "claim": "矩阵第 5 项与取证一致",
+      "status": "ok",
+      "detail": "要点「版本谱系完整（Zv1–Zv7 → GRCz12tu）」图件=(完整,部分) 重判=(完整,部分)；LLM 证据： (列出版本数 3/6，Hub 6/6)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-6",
+      "claim": "矩阵第 6 项与取证一致",
+      "status": "ok",
+      "detail": "要点「品系信息（Tuebingen/TU）」图件=(完整,缺失) 重判=(完整,缺失)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-7",
+      "claim": "矩阵第 7 项与取证一致",
+      "status": "ok",
+      "detail": "要点「双锚定策略说明」图件=(完整,缺失) 重判=(完整,缺失)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-cell-8",
+      "claim": "矩阵第 8 项与取证一致",
+      "status": "ok",
+      "detail": "要点「条目级可追溯引用」图件=(完整,缺失) 重判=(完整,缺失)；LLM 证据： (PMID 数 Hub=3 LLM=0)",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-B1",
+      "claim": "(B) 措辞「称最新版本为「GRCz12（2024 年发布）」」有原文依据",
+      "status": "ok",
+      "detail": "原文称 GRCz12 / 2024",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-B2",
+      "claim": "(B) 措辞「图内未出现「把 UCSC 别名当作独立版本」的失实描述」有原文依据",
+      "status": "ok",
+      "detail": "原文已把 DanRer11 标注为「UCSC 对 GRCz11 的命名」，故图件不得反过来说它被当作独立版本；当前图内已清除该表述=True",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-B3",
+      "claim": "(B) 措辞「称对应「Ensembl release 113」」有原文依据",
+      "status": "ok",
+      "detail": "原文称 113",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-B4",
+      "claim": "(B) 措辞「未提及品系（Tuebingen/TU）与双锚定策略」有原文依据",
+      "status": "ok",
+      "detail": "原文含品系=False 含锚定=False（两者均无则成立）",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-B5",
+      "claim": "(B) 措辞「引用为数据库主页链接，非条目级可追溯」有原文依据",
+      "status": "ok",
+      "detail": "原文 PMID 数=0，链接均为数据库顶层页",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D4",
+      "id": "D4-A-links",
+      "claim": "(A) 「4 条官方条目级直链」表述准确",
+      "status": "ok",
+      "detail": "回答含 13 条链接，其中条目级 4 条；«未源】区 4 条为顶层/分类页（taxonomy、Info/Index、zfin.org、hgGateway）",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-local-rag/text_clean.py",
+      "claim": "本机模块存在且关键常量命中",
+      "status": "ok",
+      "detail": "sha256[:16]=e59500a1e127a8a3 常量命中={}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-rag/text_clean.py",
+      "claim": "与服务器同名模块逐字节一致",
+      "status": "ok",
+      "detail": "local=e59500a1e127a8a3 server=e59500a1e127a8a3",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-local-rag/paragraph_split.py",
+      "claim": "本机模块存在且关键常量命中",
+      "status": "ok",
+      "detail": "sha256[:16]=c29ac64ba7b304f0 常量命中={}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-rag/paragraph_split.py",
+      "claim": "与服务器同名模块逐字节一致",
+      "status": "ok",
+      "detail": "local=c29ac64ba7b304f0 server=c29ac64ba7b304f0",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-local-rag/fulltext_sections.py",
+      "claim": "本机模块存在且关键常量命中",
+      "status": "ok",
+      "detail": "sha256[:16]=58d85c390c898fc6 常量命中={}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-rag/fulltext_sections.py",
+      "claim": "与服务器同名模块逐字节一致",
+      "status": "ok",
+      "detail": "local=58d85c390c898fc6 server=58d85c390c898fc6",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-local-rag/pubmed_yes_chunking.py",
+      "claim": "本机模块存在且关键常量命中",
+      "status": "ok",
+      "detail": "sha256[:16]=af82f92d7ef0cfe1 常量命中={}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-rag/pubmed_yes_chunking.py",
+      "claim": "与服务器同名模块逐字节一致",
+      "status": "ok",
+      "detail": "local=af82f92d7ef0cfe1 server=af82f92d7ef0cfe1",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-local-rag/pdf_fulltext_align.py",
+      "claim": "本机模块存在且关键常量命中",
+      "status": "ok",
+      "detail": "sha256[:16]=705e6bb68522a785 常量命中={}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-rag/pdf_fulltext_align.py",
+      "claim": "与服务器同名模块逐字节一致",
+      "status": "ok",
+      "detail": "local=705e6bb68522a785 server=705e6bb68522a785",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-local-core/config.py",
+      "claim": "本机模块存在且关键常量命中",
+      "status": "ok",
+      "detail": "sha256[:16]=11cce1a74bf31178 常量命中={'PUBMED_YES_SECTION_CHUNKING': True, 'EXIST_ENO_MAX_BODY_CHARS': True, 'PUBMED_YES_SPLIT_MODE': True}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-core/config.py",
+      "claim": "服务器 config.py 分岔仅限图集配置块（关键常量一致）",
+      "status": "ok",
+      "detail": "整文件哈希 local=11cce1a74bf31178 / server=3247aeac3511997b（本机新增 FIG_* 配置块，差异属预期）；服务器常量命中={'PUBMED_YES_SECTION_CHUNKING': True, 'EXIST_ENO_MAX_BODY_CHARS': True, 'PUBMED_YES_SPLIT_MODE': True}",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D2",
+      "id": "D2-srv-chunking",
+      "claim": "服务器切分/截断开关与本机一致（0 = 不截断）",
+      "status": "ok",
+      "detail": "FAISS_PUBMED_YES_DIR=/data/zoujin/deng/zebrafish_runtime/faiss_pubmed_yes_qwen3_4b_v2_merged|EXIST_ENO_MAX_BODY_CHARS=0|PUBMED_YES_SPLIT_MODE=paragraph|CORPUS audit_round_01.json|audit_round_02.json|b",
+      "severity": "high",
+      "evidence": ""
+    },
+    {
+      "layer": "D3",
+      "id": "D3-chunks-per-paper",
+      "claim": "图件已声明「段/篇」与「块/篇」的口径差异（不得混用）",
+      "status": "ok",
+      "detail": "本地抽样段/篇 192.6 vs 生产索引 7,651,942/32,532 = 235.2 块/篇（差异 22.1%，索引切分模式 paragraph_section）；图件已声明=True",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D3",
+      "id": "D3-index-scope",
+      "claim": "图件显式限定抽样语料范围",
+      "status": "ok",
+      "detail": "索引 32,532 篇 / 7,651,942 块；抽样目录 yes_fulltext_gold",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D3",
+      "id": "D3-corpus-lineage",
+      "claim": "抽样语料与服务器语料同源可证",
+      "status": "ok",
+      "detail": "本机 batch_* 目录 393 个；服务器 393 个；服务器目录前几项 未取到",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-year",
+      "claim": "Fig10(A)「2025」发布年份由 NCBI 记录佐证",
+      "status": "ok",
+      "detail": "NCBI assembly_date = 2025-04-04（Apr 4, 2025）；本地注册表无年份列，故以 NCBI 记录为权威依据；来源 https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.1/",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-grcz12tu-facts",
+      "claim": "GRCz12tu 的品系/命名/级别与 NCBI 一致",
+      "status": "ok",
+      "detail": "name=GRCz12tu strain=Tuebingen level=Complete Genome",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-successor",
+      "claim": "图件已披露该接入号已被后继版本取代（时效性）",
+      "status": "ok",
+      "detail": "NCBI 标注 GCF_049306965.1 状态 = replaced，后继 = GCF_049306965.2；图件已披露 = True",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-grcz11-status",
+      "claim": "记录了 GRCz11 的 RefSeq 状态（suppressed）",
+      "status": "ok",
+      "detail": "refseq_status = suppressed，date = 2017-05-09；本地锚定依赖 Ensembl release 116 而非 NCBI RefSeq 记录，故不受该状态影响",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-assembly-GRCz12tu",
+      "claim": "注册表：GRCz12tu 为 NCBI 参考且接入号匹配",
+      "status": "ok",
+      "detail": "{'accession': 'GCF_049306965.1', 'strain': 'Tuebingen', 'local_anchor': '0', 'ncbi_reference': '1', 'ensembl_release': 'NULL'}",
+      "severity": "high",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-assembly-GRCz11",
+      "claim": "注册表：GRCz11 为本地锚定且 Ensembl release = 116",
+      "status": "ok",
+      "detail": "{'accession': 'GCF_000002035.6', 'strain': 'Tuebingen', 'local_anchor': '1', 'ncbi_reference': '0', 'ensembl_release': '116'}",
+      "severity": "high",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-strain",
+      "claim": "注册表：两个组装品系均为 Tuebingen（支撑 Fig10(A) 的品系声明）",
+      "status": "ok",
+      "detail": "GRCz12tu=Tuebingen / GRCz11=Tuebingen",
+      "severity": "medium",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-year-db",
+      "claim": "Fig10(A) 的「2025」可由注册表直接证实",
+      "status": "unknown",
+      "detail": "注册表无年份列；已改由 D5-year（NCBI 快照）佐证",
+      "severity": "info",
+      "evidence": ""
+    },
+    {
+      "layer": "D5",
+      "id": "D5-xref",
+      "claim": "标识符映射计数可复现（与 Fig6/Fig8 一致）",
+      "status": "ok",
+      "detail": "gene_assembly_xref = 22628",
+      "severity": "medium",
+      "evidence": ""
+    }
+  ],
+  "summary": {
+    "total": 64,
+    "ok": 62,
+    "mismatch": 0,
+    "unknown": 2
+  }
+}

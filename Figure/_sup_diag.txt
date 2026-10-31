@@ -1,0 +1,18 @@
+== children of supervisor ==
+    PID STAT     ELAPSED CMD
+== all python in user ==
+2412031 2412030 Ss         00:00  3424 bash -c echo "== children of supervisor =="; ps --ppid 2409712 -o pid,stat,etime,cmd 2>/dev/null echo "== all python in user =="; ps -u deng -o pid,ppid,stat,etime,rss,cmd | grep -E "[u]vicorn|[h]ub_supervise|[p]ython -m" | head -10 echo "== defunct =="; ps -eo pid,ppid,stat,cmd | grep -c defunct echo "== sup log =="; cat /data/zoujin/deng/zebrafish_runtime/logs/hub_supervise.log 2>/dev/null | tail -6 echo "== hub log tail =="; tail -5 /data/zoujin/deng/zebrafish_runtime/logs/hub.log 2>/dev/null | tr -d "\000" echo "== port =="; ss -ltn 2>/dev/null | grep 8080 | head -3
+== defunct ==
+2
+== sup log ==
+[2026-09-30 20:46:31] supervisor start pid=2407188
+[2026-09-30 20:46:31] launching uvicorn
+[2026-09-30 21:05:23] supervisor start pid=2409712
+[2026-09-30 21:05:23] launching uvicorn
+== hub log tail ==
+INFO:     223.104.134.142:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     223.104.134.142:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     223.104.134.142:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     223.104.134.142:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     223.104.134.142:0 - "GET /api/health HTTP/1.1" 200 OK
+== port ==

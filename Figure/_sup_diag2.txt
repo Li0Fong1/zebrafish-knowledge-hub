@@ -1,0 +1,12 @@
+== supervisor state ==
+    PID STAT WCHAN                      ELAPSED CMD
+== /proc status ==
+== cron daemon ==
+2412116 bash -c echo "== supervisor state =="; ps -o pid,stat,wchan:22,etime,cmd -p 2409712 2>/dev/null echo "== /proc status =="; grep -E "^(State|PPid|Threads|VmRSS)" /proc/2409712/status 2>/dev/null echo "== cron daemon =="; ps -eo pid,cmd | grep -E "[c]ron|[c]rond" | head -5 echo "== cron service =="; (systemctl is-active crond 2>/dev/null || systemctl is-active cron 2>/dev/null || echo "no systemd cron info") echo "== recent guard log =="; ls -la /data/zoujin/deng/zebrafish_runtime/logs/hub_guard.log 2>/dev/null || echo "guard log missing" echo "== cron syslog hints =="; tail -5 /var/log/cron 2>/dev/null || echo "no /var/log/cron access"
+== cron service ==
+inactive
+active
+== recent guard log ==
+-rw-rw-r-- 1 deng deng 0 Sep 30 21:10 /data/zoujin/deng/zebrafish_runtime/logs/hub_guard.log
+== cron syslog hints ==
+no /var/log/cron access

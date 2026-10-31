@@ -1,0 +1,964 @@
+{
+  "rubric": {
+    "dimensions": [
+      {
+        "id": "direct_first",
+        "name": "第一句直接答完",
+        "max": 2
+      },
+      {
+        "id": "factor_structure",
+        "name": "按因素/机制组织而非论文章节",
+        "max": 2
+      },
+      {
+        "id": "ge_formula",
+        "name": "性状题出现 G+E 或等价表述",
+        "max": 1
+      },
+      {
+        "id": "inline_cite",
+        "name": "正文 [n] 与文末参考文献对应",
+        "max": 2
+      },
+      {
+        "id": "ref_count",
+        "name": "相关参考文献数量适中(约8-15)",
+        "max": 1
+      },
+      {
+        "id": "recency",
+        "name": "近年文献可见、不无故堆经典",
+        "max": 1
+      },
+      {
+        "id": "no_review_shell",
+        "name": "无综述腔/无关章节",
+        "max": 1
+      }
+    ],
+    "blind_scale": "每维 0=差 1=中 满分=好；两系统同题对照"
+  },
+  "sheets": [
+    {
+      "pair_id": "P01",
+      "type": "trait",
+      "zebrafish_q": "斑马鱼的外形性状与什么有关",
+      "potato_q": "马铃薯的外形性状和什么有关",
+      "system_A_answer": "斑马鱼的外形性状由**遗传、环境及二者互作共同决定**，可用公式表达为：**表型 = 基因型 + 环境 + G×E**。这里的外形主要指体长、体色、鳍条形态、颅面骨骼结构及体型比例。\n\n- **遗传因素**：核心基因变异直接决定基础形态。例如 **cyp1b1** 活性缺失会导致颅面骨骼缺陷，且缺陷程度因个体遗传背景不同而呈现可变性 [2]；多个基因间的**上位效应（epistasis）** 可显著调控体长、体型等形态性状，说明外形并非单个基因的简单叠加 [5]。\n- **环境因素**：栖息地环境压力会重塑外形。河流野生群体在挑战性环境中，通过**行为可塑性**配合**广义形态**（如流线型体型）来适应，其感官与代谢生理也发生协同改变 [3]。\n- **饲养与性别**：驯化品系中，**自然性别决定因子丢失**，性别比例受饲养密度、温度等环境调控，而性别本身又影响成体体型和鳍条长度等次级性征 [4]。实验室饲养条件（如营养、光照）也会间接影响生长速率和最终体长。\n\n综合来看，**基础骨骼框架和体色模式更偏遗传决定**，而**体长、体型比例和鳍条细节更偏环境与饲养条件调控**；颅面形态则典型地受遗传与环境互作（G×E）影响 [2][3]。\n\n参考文献：\n[1] Phenotyping Zebrafish Mutant Models to Assess Candidate Genes Associated with Aortic Aneurysm. 2022. ENO:15161.\n[2] Null cyp1b1 Activity in Zebrafish Leads to Variable Craniofacial Defects Associated with Altered Expression of Extracellular Matrix and Lipid Metabolism Genes. 2021. PMID:34208498.\n[3] River zebrafish combine behavioral plasticity and generalized morphology with specialized sensory and metabolic physiology to survive in a challenging environment. 2023. PMID:37773260.\n[4] Wild Sex in Zebrafish: Loss of the Natural Sex Determinant in Domesticated Strains. 2014. PMID:25233988.\n[5] Epistatic regulation of behavioural and morphological traits in the zebrafish (Danio rerio). 2006. PMID:16752096.",
+      "system_B_answer": "马铃薯的**外形性状主要由遗传因素、环境条件以及二者的互作共同决定**。如果指块茎外观，主要包括薯形、大小、表皮颜色与质地、芽眼深浅和整齐度。\n\n- **遗传因素（品种/基因型）**：通常是薯形、皮色、肉色和芽眼深浅的主要决定因素。例如，薯形和芽眼深浅均存在主效基因座及多个数量性状位点；芽眼深浅的遗传力通常较高。\n- **环境条件**：温度、水分、光照、土壤质地和养分都会影响外观。高温、干旱或水分忽高忽低容易造成薯形不规则、裂薯和大小不均；块茎见光则会变绿。\n- **栽培管理**：种植密度、施肥、灌溉、培土、播种与收获时间会显著影响块茎大小、数量、表皮成熟度及商品薯率。\n- **病虫害与机械损伤**：疮痂病、病毒病、地下害虫以及收获碰伤，会造成表皮斑痕、畸形或开裂。\n- **贮藏条件**：温湿度、光照和贮藏时间会影响失水皱缩、萌芽、绿化和表皮品质。\n\n概括来说：**薯形、皮色和芽眼深浅偏重遗传控制；块茎大小、均匀度和表皮状态更容易受到环境与栽培管理影响。**\n\n参考文献：  \n- *Genome-Wide Association Studies for Key Agronomic and Quality Traits in Potato*，DOI：10.3390/agronomy14102214  \n- *Insights into the genetic determination of tuber shape and eye depth in potato*，DOI：10.3389/fpls.2023.1080666  \n- *Genetic architecture and major genes for tuber skin texture in potato*，DOI：10.1093/hr/uhag102",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P02",
+      "type": "trait",
+      "zebrafish_q": "斑马鱼体色由哪些因素决定",
+      "potato_q": "块茎皮色主要由什么决定",
+      "system_A_answer": "马铃薯**块茎皮色主要由周皮细胞中花青素的种类和积累量决定**，遗传基因型起主导作用：\n\n- **红色皮**：主要积累天竺葵素、矢车菊素类花青素；\n- **紫色或蓝紫色皮**：主要积累飞燕草素、锦葵素、牵牛花素类花青素；\n- **黄色或白色皮**：通常是花青素积累较少或不积累，底色还受类胡萝卜素影响。\n\n其遗传调控涉及花青素合成结构基因和调控基因，例如：\n\n- **R位点（DFR）**：参与红色色素合成；\n- **P位点（F3′5′H）**：促进紫色色素形成；\n- **D/I类调控位点（R2R3-MYB转录因子）**：决定花青素是否在块茎表皮表达和积累。\n\n光照、温度、成熟度和贮藏条件也会改变颜色深浅，但一般来说，**品种基因型和花青素代谢是决定皮色的核心因素**。  \n参考文献：DOI **10.1111/PPL.12265**、**10.3390/PLANTS14101544**。",
+      "system_B_answer": "斑马鱼体色由**遗传、环境及二者互作共同决定**，公式为：**表型 = 基因型 + 环境 + G×E**。这里的“体色”指成体皮肤上黑素细胞（黑色条纹）、黄色素细胞（黄色条纹）与虹彩细胞（银白色条纹）三类色素细胞的分布、密度与排列图案。\n\n- **遗传（主因）**：色素细胞谱系定型与图案形成由一系列基因严格调控。甲状腺激素信号决定成体色素细胞谱系分化 [1]；连接蛋白41.8/39.4组成的间隙连接对条纹图案形成至关重要 [2]；虹彩细胞结晶型的原位分化是条纹图案的基础 [9]；Tetraspanin 3c 调控色素细胞间相互作用与边界形成 [10]；紧密连接蛋白1a 调控色素细胞组织 [5]。此外，嘌呤从头合成基因（gart、paics）突变影响色素沉着 [14]，mc2r 功能缺失导致皮肤色素过度沉积 [11]。\n- **环境（修饰）**：组织损伤引发的炎症会招募色素细胞至伤口部位，导致局部色素过度沉着（伤口色素加深）[7]；甲状腺激素水平等内分泌环境变化可改变成体色素细胞谱系 [1]。\n- **饲养与性别（间接影响）**：驯化品系中自然性别决定因子丢失，性别决定机制与体色图案存在遗传关联 [6][8]；不同品系遗传背景差异直接影响条纹数量与粗细 [16]。\n\n**一句话概括：体色图案的“蓝图”由遗传决定（基因型），环境（如炎症、激素）和饲养条件（品系背景）在既定蓝图基础上修饰最终表现；其中遗传因素占主导，环境因素为修饰性调节。**\n\n参考文献：\n[1] 甲状腺激素依赖的成年斑马鱼色素细胞谱系和图案形成. 2014. PMID:25170046.\n[2] 由连接蛋白41.8和39.4组成的间隙连接对斑马鱼颜色图案形成至关重要. 2014. PMID:25535837.\n[3] 通过银沉积显微CT对斑马鱼黑色素进行全生物体3D定量表征. 2021. PMID:34528510.\n[4] 与虹彩细胞和组织环境的相互作用对斑马鱼成体色素条纹形成中黑素细胞和黄素细胞图案化的需求. 2013. PMID:23737760.\n[5] 紧密连接蛋白 1a 调控斑马鱼颜色模式中的色素细胞组织. 2015. PMID:25915619.\n[6] 斑马鱼的野生性别：驯化品系中自然性别决定因子的丢失. 2014. PMID:25233988.\n[7] Inflammation drives wound hyperpigmentation in zebrafish by recruiting pigment cells to sites of tissue damage. 2012. ENO:24219.\n[8] Genetic mechanism underlying sexual plasticity and its association with colour patterning in zebrafish (Danio rerio). 2019. ENO:16212.\n[9] 虹色细胞结晶型的原位分化是斑马鱼条纹图案的基础. 2020. PMID:33319779.\n[10] Tetraspanin 3c在斑马鱼成体色素条纹中色素细胞相互作用和边界形成中的需求. 2014. PMID:24734316.\n[11] Loss-of-function mutations in the melanocortin-2-receptor (mc2r) lead to skin hyperpigmentation in teleost fish. 2026. ENO:38191.\n[12] 彩色视觉刺激在斑马鱼幼鱼中枢神经系统中引发光谱调谐的神经元反应. 2020. PMID:33243249.\n[13] Foxq2 determines blue cone identity in zebrafish. 2021. ENO:28316.\n[14] 斑马鱼gart和paics突变揭示从头嘌呤合成在脊椎动物色素沉着和眼部发育中的关键作用. 2009. PMID:19570845.\n[15] 【PDFKU ENO:26821】 摘要（英）：Colour patterns of adult fish are produced by several ty…. 2013. ENO:26821.\n[16] 斑马鱼色素图案发育的进化遗传学. 2015. PMID:26701906.",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P03",
+      "type": "trait",
+      "zebrafish_q": "斑马鱼体型和饲养密度有没有关系",
+      "potato_q": "块茎大小和栽培密度有没有关系",
+      "system_A_answer": "**斑马鱼体型与饲养密度有关，且关系是“遗传 + 环境 + 互作”共同决定的：表型 = 基因型 + 环境 + G×E，其中饲养密度属于典型的环境因素，通过影响生长、应激和活动量来改变体型。**\n\n- **遗传因素**：不同品系（如野生型 vs 实验室驯化品系）在生长速率和最终体长上存在固有差异，这是体型上限的“底版”[11]。密度本身不改变基因，但会通过 G×E 互作调节生长相关基因的表达，例如高密度下的应激激素通路可能抑制促生长信号[12][14]。\n- **环境因素（饲养密度）**：高密度饲养直接增加个体间竞争和代谢消耗，减少摄食机会，导致生长迟缓、体型偏小；低密度或富集环境则因活动空间大、运动量增加，可能促进肌肉肥大，使体型更健壮[1][9]。此外，密度影响群体内社会压力，高密度下慢性应激会抑制食欲和生长激素分泌，最终反映在体长和体重上[16]。\n- **饲养与互作**：密度与水质、微生物组、温度等环境因素存在交互作用——高密度下排泄物积累恶化水质，改变肠道微生物组成，进而影响营养吸收和生长效率[2][4][7]；温度与细胞大小的互作也会改变幼虫期的生长轨迹，从而影响成体体型[14]。性别隔离饲养可提高早期存活率，间接影响群体内个体大小分布[15]。\n\n**综合排序：体型上限更偏遗传（基因决定生长潜力），而实际达到的体型大小更偏环境（密度、营养、应激等决定潜力实现程度），两者通过 G×E 互作最终决定表型。**\n\n[1] Effects of Habitat Complexity on Pair-Housed Zebrafish. 2015. PMID:26224437\n[2] Molecular and culture-based assessment of the microbiome in a zebrafish housing system during set-up and equilibration. 2021. PMID:34353374\n[4] The Intestinal Mycobiota in Wild Zebrafish Comprises Mainly Dothideomycetes While Saccharomycetes Predominate in Their Laboratory-Reared Counterparts. 2018. PMID:29559965\n[7] Internal Versus External Pressures: Effect of Housing Systems on the Zebrafish Microbiome. 2019. PMID:31145047\n[9] Exercise quantity-dependent muscle hypertrophy in adult zebrafish. 2016. PMID:26951149\n[11] Spatial cognition in zebrafish: the role of strain and rearing environment. 2011. PMID:21360117\n[12] Zebrafish as a model organism for nutrition and growth: towards comparative studies of nutritional genomics applied to aquacultured fishes. 2017. ENO:1860\n[14] Interacting Effects of Cell Size and Temperature on Gene Expression, Growth, Development and Swimming Performance in Larval Zebrafish. 2021. PMID:34950046\n[15] Sexually segregated housing results in improved early larval survival in zebrafish. 2010. PMID:20485358\n[16] Housing Conditions Differentially Affect Physiological and Behavioural Stress Responses of Zebrafish, as well as the Response to Anxiolytics. 2012. PMID:22509375\n\n参考文献：\n[1] 栖息地复杂性对成对饲养斑马鱼的影响. 2015. PMID:26224437.\n[2] 基于分子和培养的斑马鱼饲养系统在建立和平衡期间微生物组评估. 2021. PMID:34353374.\n[3] 环境富集对斑马鱼繁殖力和生育力的影响. 2026. PMID:41461284.\n[4] 野生斑马鱼的肠道真菌群主要由座囊菌纲组成，而实验室饲养的斑马鱼中酵母菌纲占优势. 2018. PMID:29559965.\n[5] 群体大小和水生植被调节野生斑马鱼雄性对雌性鱼群的偏好. 2021. PMID:33441931.\n[6] 单独饲养和环境富集对成年斑马鱼行为的影响. 2015. PMID:26045453.\n[7] 内部与外部压力：饲养系统对斑马鱼微生物组的影响. 2019. PMID:31145047.\n[8] 斑马鱼中的动态秩序和多体相关性表明三人成众. 2024. PMID:38519478.\n[9] 成年斑马鱼运动量依赖性肌肉肥大. 2016. PMID:26951149.\n[10] 斑马鱼的鳞片：从蛋白质到种群的宿主-微生物相互作用. 2017. PMID:28618368.\n[11] 斑马鱼的空间认知：品系和饲养环境的作用. 2011. PMID:21360117.\n[12] 斑马鱼作为营养和生长的模式生物：迈向应用于水产养殖鱼类的营养基因组学比较研究. 2017. ENO:1860.\n[13] 河流斑马鱼结合行为可塑性和广义形态与专门的感官和代谢生理学在挑战性环境中生存. 2023. PMID:37773260.\n[14] 细胞大小和温度对斑马鱼幼虫基因表达、生长、发育和游泳性能的交互影响. 2021. PMID:34950046.\n[15] 性别隔离饲养可提高斑马鱼早期幼体存活率. 2010. PMID:20485358.\n[16] 饲养条件差异影响斑马鱼的生理和行为应激反应以及对抗焦虑药物的反应. 2012. PMID:22509375.",
+      "system_B_answer": "**有明显关系。**总体规律是：\n\n- **栽培密度增大**：植株间竞争增强，单位面积结薯数通常增加，但**单株结薯数、平均单薯重和大薯比例往往下降**，块茎整体偏小。\n- **栽培密度降低**：单株获得的光照、水分和养分较多，**平均块茎较大、大薯率提高**，但单位面积结薯数减少。\n- **总产量不是密度越高越好**：通常随密度增加先上升，达到适宜密度后趋于稳定或下降，呈近似“倒U形”关系。\n\n生产上可据目标调整：\n\n| 生产目标 | 密度选择 |\n|---|---|\n| 商品大薯、加工薯 | 适当降低密度、增大株距 |\n| 种薯、小规格薯 | 适当提高密度、缩小株距 |\n| 追求总产量 | 采用品种和当地条件下的适宜中等密度 |\n\n此外，真正直接影响块茎大小的是**单位面积主茎数**，它还受种薯大小、芽数和切块方式影响。品种、土壤肥力、水分、温度及生育期也会改变密度效应，因此不能用一个固定株距适用于所有地区和品种。\n\n文献证据：DOI **10.3389/FPLS.2016.00365**、**10.1016/J.AGWAT.2019.105982**。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P04",
+      "type": "trait",
+      "zebrafish_q": "温度会不会影响斑马鱼外形发育",
+      "potato_q": "温度如何影响马铃薯块茎外观",
+      "system_A_answer": "**会，温度是斑马鱼外形发育的重要环境塑造因素，且效应具有持久性和性别二态性**。表型 = 基因型 + 环境（温度）+ G×E 互作，其中温度主要通过影响发育速率、细胞大小和生理代谢来改变身体比例与形态。\n\n- **发育温度决定成年体形**：在 22°C 与 28–32°C 下发育的斑马鱼，成年后身体形状可被显著区分，说明早期温度对体形的塑造是持久性的 [6]。这种热诱导的形状变异与性别独立叠加，但效应在雌雄间不同 [1][6]。\n- **温度影响心脏等器官形态**：发育温度对心脏解剖结构有持久且性别二态性的影响 [1]；低温可减轻胚胎心脏分叉（cardia bifida）的严重程度 [7]，说明温度直接干预器官形态发生。\n- **温度与细胞大小互作改变生长轨迹**：细胞大小和温度交互影响幼虫的基因表达、生长、发育速率及游泳性能 [2]，细胞层面的热响应是外形差异的微观基础。\n- **温度影响能量代谢与行为输出**：温度与饮食共同改变能量利用与 ATP 生产效率，进而影响行为表现 [11]；急性温度变化还会改变脑蛋白表达、焦虑和探索行为 [5]，这些间接影响整体活动与体型维持。\n\n**一句话概括**：温度对斑马鱼外形的影响以发育早期最为关键，效应持久且随性别分化，遗传背景决定反应范围，温度则决定实际表型落点。\n\n参考文献：\n[1] Developmental temperature has persistent, sexually dimorphic effects on zebrafish cardiac anatomy. 2018. PMID:29802254\n[2] Interacting Effects of Cell Size and Temperature on Gene Expression, Growth, Development and Swimming Performance in Larval Zebrafish. 2021. PMID:34950046\n[5] Acute environmental temperature variation affects brain protein expression, anxiety and explorative behaviour in adult zebrafish. 2021. PMID:33510219\n[6] Developmental temperature and sex significantly affected the body shape of adult zebrafish. 2010. ENO:24031\n[7] Low Temperature Mitigates Cardia Bifida in Zebrafish Embryos. 2013. PMID:23922799\n[11] Diet and temperature modify the relationship between energy use and ATP production to influence behavior in zebrafish. 2021. ENO:31906",
+      "system_B_answer": "温度主要通过影响**块茎形成、膨大、周皮发育和色素积累**来改变马铃薯外观，其中**土壤温度比单纯气温更直接**。\n\n| 温度条件 | 常见外观表现 |\n|---|---|\n| **凉爽且较稳定** | 块茎形成和膨大较正常，薯形较整齐、表皮相对平滑；块茎形成适宜土温通常约为 **15–18 ℃**，但因品种而异 |\n| **持续高温** | 结薯延迟，块茎偏小；容易出现畸形、瘤状突起、串薯、二次生长及田间发芽 |\n| **膨大期高温** | 增加生长裂纹、粗皮或网纹化风险；部分品种的周皮增厚、表面粗糙 |\n| **温度剧烈波动** | 块茎生长暂停后重新膨大，较容易出现二次生长、尖头、瘤状块和裂薯 |\n| **适度低温** | 可促进部分红皮或紫皮品种花青素积累，使皮色加深 |\n| **过低或冻害** | 膨大变慢；严重时产生冻伤、表皮凹陷和组织坏死 |\n\n尤其需要注意：\n\n1. **块茎形成期和膨大期最敏感**。  \n2. 高温常与干旱、灌水波动共同作用，外观缺陷会更严重。  \n3. 对红皮、紫皮品种，高温可能抑制花青素积累，造成**皮色变浅或着色不均**。  \n4. 具体温度反应受品种影响很大，耐热品种的畸形和裂薯发生率通常较低。\n\n相关文献：DOI **10.3390/plants13050616**、**10.1093/JXB/ERP281**、**10.1016/j.plaphy.2024.109407**。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P05",
+      "type": "trait",
+      "zebrafish_q": "斑马鱼鳍长更偏遗传还是环境",
+      "potato_q": "芽眼深浅更偏遗传还是环境",
+      "system_A_answer": "斑马鱼鳍长**更偏遗传，但环境（尤其社会环境和温度）可显著调节其最终表型**，即 表型 = 基因型 + 环境 + G×E [4][5][8]。这里的“鳍长”主要指成年雄鱼背鳍、臀鳍和尾鳍的相对长度，是求偶展示和雌性选择的重要性状 [4]。\n\n- **遗传因素**：成体形态（包括鳍长）受**显性突变**和数量性状位点控制，遗传筛选已鉴定出多个影响鳍条长度和形态的基因 [5]。不同品系间存在显著的种群遗传多样性，为鳍长差异提供遗传基础 [15]。\n- **环境因素**：**亲代社会环境**（如亲鱼密度、社交压力）可跨代影响子代生长，包括鳍的发育 [8]；**慢性环境温度**改变成年斑马鱼眼部蛋白质表达，间接影响感觉-运动整合，可能波及鳍的维持与再生 [9]。\n- **G×E 互作**：**环境富集**（如丰富的水流、躲避物）通过改变激素和应激水平影响繁殖力，而繁殖投入与鳍条生长存在权衡 [3]；发育期暴露于内分泌干扰物（如 BPA、PFAS）会改变生长和条件因子，但效应强度取决于个体遗传背景 [6][7]。\n\n**一句话概括：鳍长的基础框架由遗传决定，但环境（社会、温度、化学暴露）通过 G×E 互作在个体发育中“微调”最终长度；遗传权重 > 环境权重，而互作效应在应激条件下尤为显著。**\n\n参考文献：\n[1] Transgenic Zebrafish Reveal Tissue-Specific Differences in Estrogen Signaling in Response to Environmental Water Samples. 2014. PMID:24425189\n[2] Environmental epigenetics in zebrafish. 2017. PMID:28982377\n[3] Effects of Environmental Enrichment on the Fertility and Fecundity of Zebrafish (Danio rerio). 2026. PMID:41461284\n[4] Fin-mutant female zebrafish (Danio rerio) exhibit differences in association preferences for male fin length. 2009. PMID:18848866\n[5] Genetic Screen for Postembryonic Development in the Zebrafish: Dominant Mutations Affecting Adult Form. 2017. PMID:28835471\n[6] Multi- and Transgenerational Effects of Developmental Exposure to Environmental Levels of PFAS and PFAS Mixture in Zebrafish. 2022. PMID:35736942\n[7] Long-term exposure to environmentally relevant Bisphenol-A levels affects growth, swimming, condition factor, sex ratio and histology of juvenile zebrafish. 2024. PMID:39424622\n[8] Parental social environment has transgenerational effects on zebrafish growth. 2025. ENO:25457\n[9] Chronic environmental temperature affects protein expression in the eye of adult zebrafish. 2025. PMID:41318778\n[10] Environmental enrichment improves zebrafish attention. 2025. PMID:39753676\n[12] River zebrafish combine behavioral plasticity and generalized morphology with specialized sensory and metabolic physiology to survive in a challenging environment. 2023. PMID:37773260\n[15] Population genetic diversity in zebrafish lines. 2018. PMID:29368091\n[16] Genetic and Environmental Factors Co-Contributing to Behavioral Abnormalities in adnp/adnp2 Mutant Zebrafish. 2024. ENO:15837",
+      "system_B_answer": "如果说的是**马铃薯块茎芽眼深浅**，总体上是**遗传因素占主导，环境起修饰作用**。\n\n- **遗传效应较强**：芽眼深度具有较高遗传力，主要受第10染色体上的主效位点 **Eyd** 控制，同时还有多个小效应QTL和修饰基因参与。\n- **环境也会影响表现**：种植地点、年份、温度、水肥、土壤条件及其与基因型的互作，可能使同一品种的芽眼略深或略浅。\n- **育种和生产意义**：品种之间稳定的深浅差异主要来自基因型；栽培措施只能在一定范围内调整，难以把遗传上深芽眼的品种长期变成浅芽眼。\n\n简而言之：**更偏遗传，但表型是“遗传＋环境＋二者互作”的结果。**育种筛选浅芽眼材料时，仍应进行多年、多点鉴定。\n\n参考证据：马铃薯芽眼深度精细定位研究（DOI：`10.1016/j.hpj.2024.03.006`）及遗传定位研究（DOI：`10.1007/s00122-005-1927-6`）。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P06",
+      "type": "gene",
+      "zebrafish_q": "tp53 是什么基因，有什么功能",
+      "potato_q": "StCDF1 是什么基因，有什么功能？",
+      "system_A_answer": "**StCDF1** 全称为 ***Solanum tuberosum CYCLING DOF FACTOR 1***，即“马铃薯周期性 DOF 因子1”。它编码一个具有 **DOF 型锌指 DNA 结合结构域**的转录因子，是连接**昼夜节律、光周期、块茎形成和植株成熟期**的关键调控基因。\n\n### 基因信息\n\n- **DMv8.2基因号**：`DM8.2_chr05G04850`\n- **染色体位置**：5号染色体，约 `4,697,563–4,700,345 bp`\n- **历史编号**：`PGSC0003DMG400018408`、`Soltu.DM.05G005140`\n- **常用别名**：`CDF1`、`StDof19`\n- **蛋白类型**：DOF家族转录因子\n\n### 核心功能：调控结薯和成熟期\n\nStCDF1主要在叶片中参与下面的光周期调控通路：\n\n```text\nStCDF1 ┤ StCO1/StCO2（或StCOL）\n                    ↓\n              StSP5G/StSP6A\n                    ↓\n             块茎形成和成熟期\n```\n\n简化理解：\n\n1. **StCDF1蛋白积累时**，会抑制`StCO`类基因；\n2. 从而解除对结薯信号 **StSP6A** 的抑制；\n3. StSP6A作为可移动的“结薯素”从叶片运输到匍匐茎顶端；\n4. 促进块茎起始和植株提早成熟。\n\n因此，StCDF1不是结薯信号本身，而是位于StSP6A上游的**光周期转录调控因子**。\n\n### 不同等位基因的作用\n\nStCDF1具有多个天然等位变异，其中最经典的是：\n\n- **StCDF1.1**：编码较完整的蛋白。在长日照下容易被`StGI–StFKF1`复合体识别并降解，通常表现为**长日照结薯较晚、成熟较晚**。\n- **StCDF1.2、StCDF1.3**：编码C端截短蛋白，缺少或破坏了与StFKF1相互作用的区域，因此不容易在长日照下降解，可持续抑制StCO，通常表现为**长日照下仍能结薯、成熟较早**。\n\n这些截短等位基因是栽培马铃薯适应欧洲及其他北方长日照地区的重要遗传基础。不过在四倍体马铃薯中，最终成熟期还会受到**等位基因剂量、遗传背景和环境条件**影响，不能只根据一个等位基因完全判断早晚熟。\n\n### 其他作用\n\n现有研究还表明，StCDF1具有多效性，可能参与：\n\n- 氮代谢和氮素稳态；\n- 硝酸还原酶活性调节；\n- 地上部衰老和养分向块茎转运；\n- 影响块茎产量、薯重及糖含量等与成熟期相关的性状。\n\n**一句话概括：StCDF1是控制马铃薯“在什么日长条件下开始结薯、何时成熟”的关键DOF转录因子，截短型等位基因通常促进长日照适应和早熟。**\n\n关键文献：\n\n- *Naturally occurring allele diversity allows potato cultivation in northern latitudes*，DOI：**10.1038/nature11912**\n- *BEL1-like protein (StBEL5) regulates CYCLING DOF FACTOR1 (StCDF1)*，DOI：**10.1016/j.jplph.2019.153014**",
+      "system_B_answer": "**tp53 是斑马鱼的肿瘤抑制基因 p53（官方符号 tp53，别名 p53），核心功能是 DNA 损伤应答和细胞凋亡调控，相当于人类 TP53 的功能同源物。** 它编码一个转录因子，在基因组受损时启动修复或程序性死亡，防止突变积累。\n\n- **全称与别名**：tumor protein p53，常用别名 p53 [1]。\n- **本地库 ID 与位置**：Ensembl ENSDARG00000035559；ZFIN ZDB-GENE-040918-1；位于染色体 5；参考基因组 GRCz11（GCF_000002035.6）[1]。\n- **核心通路**：DNA 损伤 → tp53 激活 → 转录调控下游靶基因 → 细胞周期阻滞 / 凋亡（apoptotic process）[1][2]。GO 注释明确包含 DNA damage response、regulation of apoptotic process、p53 binding、double-strand break repair 调控等 10 条 [1]。\n- **突变体/等位差异**：斑马鱼 tp53 突变体（如 M214K 显性负性突变）表现为神经管发育缺陷，且对 DNA 损伤诱导的凋亡显著抵抗 [2]。该突变体常用于致癌与化疗敏感性研究。\n- **表达特征**：胚胎早期（cleaving embryo，Score 97.9）和体节中胚层表达极高；成体胸腺 TPM 45.2、精巢 38.7，提示在发育和生殖组织中活跃 [1]。\n- **同源关系**：与人 TP53 相似度 72.5%，与小鼠 Trp53 相似度 71.8% [1]。\n\n**一句话概括**：tp53 是斑马鱼中高度保守的抑癌基因，负责 DNA 损伤后的凋亡与修复决策，其突变体是研究肿瘤发生和神经发育的重要模型 [2][3]。\n\n参考文献：\n[1] tp53 gene entry. Ensembl GRCz11 release 116 / ZFIN ZDB-GENE-040918-1. 2024.\n[2] Zebrafish tp53 mutant exhibits defective neural tube development. 2004. PMID 15292172.\n[3] Neurotoxic potential of imatinib in aquatic vertebrates: Behavioral and biochemical effects. 2024. WOS:001630296700001.\n[4] Monobutyl phthalate (MBP) can dysregulate the antioxidant system and induce apoptosis. 2020. WOS:000514746800048.\n[5] Effects of combined stressors to cadmium and high temperature on antioxidant defense. 2020. WOS:000519987300055.\n[6] Cypermethrin has the potential to induce hepatic oxidative stress, DNA damage. 2011. WOS:000286493800013.",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P07",
+      "type": "gene",
+      "zebrafish_q": "shha 的功能是什么",
+      "potato_q": "StSP6A 在结薯中起什么作用",
+      "system_A_answer": "**shha（常用别名 shh）是斑马鱼中 Hedgehog 信号通路的经典配体，核心功能是胚胎图式形成（patterning），尤其决定神经管、体节和鳍/肢的背腹轴与前后轴极性** [1][2]。\n\n- **基因身份与位置**：官方符号 `shha`，位于 7 号染色体；Ensembl ID `ENSDARG00000068567`，ZFIN ID `ZDB-GENE-980526-1`（GRCz11，Ensembl r116）[1]。\n- **核心通路**：Shh 配体分泌 → 结合 Ptch1 受体 → 解除 Smo 抑制 → Gli 转录因子激活 → 靶基因表达（如 `ptch1`、`gli1`）。纯文本示意：`Shh → Ptch1 → Smo → Gli → 靶基因` [2][3]。\n- **表达特征**：胚胎期峰值在 24hpf（神经管 TPM 340.2、体节 280.5）；成体/幼鱼期高表达于尾芽轴旁中胚层（Bgee 评分 91.64）和尾鳍（71.72），与体节发生和鳍再生直接相关 [1][4]。\n- **突变体/功能差异**：`shha` 突变体（如 `syu` 等位）表现为单眼（cyclopia）、体节边界紊乱和鳍条缺失，与人类 SHH 突变导致的独眼畸形/前脑无裂畸形表型同源 [2][5]。\n- **GO 注释**：除 pattern specification process 外，还参与 `cell-cell signaling`、`multicellular organism development`，以及蛋白质自加工（autoprocessing）[1]。\n\n**一句话概括**：shha 是斑马鱼胚胎背腹轴建立和体节/鳍发育的主控分泌信号，其功能缺失直接破坏中线结构与附肢形成 [1][2]。\n\n参考文献：\n[1] Shh signaling in zebrafish somite development. 1997. PMID 9006083.\n[2] Mutations affecting the development of the embryonic zebrafish brain. 1996. PMID 8980664.\n[3] Hedgehog signaling in the zebrafish embryo. 2000. PMID 11092810.\n[4] Cadmium impairs zebrafish swim bladder development via ROS mediated inhibition of Shh signaling. 2022. WOS:000796190900001.\n[5] Disruption of the creb3l1 gene causes defects in caudal fin regeneration and patterning. 2024. WOS:001267281400001.\n[6] Identification of signalling pathways involved in gill regeneration in zebrafish. 2023. WOS:001184190200018.\n[7] Developmental neurotoxicity of triphenyl phosphate in zebrafish larvae. 2018. WOS:000446147500009.",
+      "system_B_answer": "**StSP6A 是马铃薯结薯过程中的核心正调控因子，相当于可移动的“结薯素”（tuberigen）。**  \n在 DMv8.2 中对应基因 **DM8.2_chr05G25210**，编码一个与拟南芥 **FT** 同源的 PEBP 家族蛋白。\n\n### 主要作用过程\n\n1. **感受并整合环境信号**  \n   短日照、较凉爽温度等结薯诱导条件可促进叶片中 **StSP6A** 的表达；长日照和高温通常抑制其表达或蛋白积累。\n\n2. **从叶片运输到匍匐茎**  \n   StSP6A蛋白在叶片产生后，经**韧皮部远距离运输**到地下匍匐茎顶端，是连接地上环境感知与地下结薯的系统性信号。\n\n3. **启动块茎形成程序**  \n   到达匍匐茎顶端后，StSP6A与 **14-3-3蛋白、StFDL1** 等形成“**结薯素激活复合体**”（TAC），引起转录重编程，使匍匐茎停止纵向伸长并转向径向膨大，启动块茎形成。\n\n4. **增强块茎库强和糖分运输**  \n   StSP6A还参与调节蔗糖向块茎的卸载和分配，促进匍匐茎顶端由普通营养组织转变为强“库”器官。\n\n### 功能证据\n\n- **过表达StSP6A**：可使植株提前结薯，甚至在不利的长日照条件下促进结薯；\n- **RNAi抑制StSP6A**：结薯明显延迟，严重时几乎不能形成块茎；\n- **高温抑制StSP6A**：是高温导致结薯延迟和产量下降的重要分子原因之一。\n\n可概括为：\n\n> **短日照/适宜低温 → 叶片StSP6A增加 → 韧皮部运输至匍匐茎 → 形成TAC复合体 → 启动块茎形成。**\n\n主要参考：DOI **10.1038/NATURE10431**、**10.1093/PCP/PCW197**、**10.1016/J.CUB.2019.02.018**。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P08",
+      "type": "gene",
+      "zebrafish_q": "hif1aa 和缺氧有什么关系",
+      "potato_q": "StCO 和光周期结薯有什么关系",
+      "system_A_answer": "**hif1aa 是斑马鱼低氧应答的核心转录因子，直接编码 HIF-1α 同源蛋白，缺氧时其蛋白稳定性升高并驱动下游促适应基因表达 [1][2]。**\n\nhif1aa 与缺氧的关系主要体现在以下机制层面：\n\n- **低氧感知与稳定化**：常氧下 HIF-1α 被脯氨酰羟化酶修饰后降解；缺氧时降解被抑制，蛋白积累并转入核内，与 ARNT 形成异二聚体 [1][2]。\n- **转录调控功能**：hif1aa 通过 GO:0006355（DNA 模板转录调控）和 GO:0000981（RNA pol II 特异性 DNA 结合转录因子活性）直接调控血管生成、糖酵解和红细胞生成等缺氧适应基因 [1][3]。\n- **组织表达模式**：Bgee 数据显示其表达峰值在视网膜（Score=90.88），其次为成熟卵巢卵泡（84.74）和心脏（82.71），提示这些高耗氧组织对缺氧调控更敏感 [1]。\n- **造血与免疫关联**：GO 注释包含造血干细胞分化（GO:0060218），且文献提示其参与缺氧诱导的粒细胞募集和线粒体-免疫互作 [2][3]。\n- **功能冗余与特异性**：斑马鱼另有 hif1ab 旁系同源，hif1aa 在胚胎早期和特定组织（如视网膜）的缺氧应答中作用更突出 [1][3]。\n\n一句话概括：**hif1aa 是斑马鱼缺氧信号通路的“主开关”，其表达组织分布和转录因子活性共同决定了低氧条件下的细胞适应性反应 [1][2][3]。**\n\n参考文献：\n[1] Enhanced angiogenesis, hypoxia and neutrophil recruitment during Myc-induced liver tumorigenesis. 2016. PMID:27549025\n[2] Mitochondrial connections with immune system in Zebrafish. 2022. PMID:36420514\n[3] Disruption of sirtuin 7 in zebrafish facilitates hypoxia tolerance. 2023. PMID:37481210",
+      "system_B_answer": "**StCO 是马铃薯光周期结薯途径中的“抑制开关”**：它把叶片感知到的日长信号传递给结薯素通路，通常在长日条件下抑制块茎形成。\n\n### 核心调控关系\n\n```text\n长日照\nStGI–StFKF1 → 降解 StCDF1\n                    ↓\n            StCO/StCOL1 积累\n                    ↓\n       激活 StSP5G，并抑制 StSP6A\n                    ↓\n               延迟结薯\n```\n\n```text\n短日照\nStCDF1 稳定积累\n       ↓\n抑制 StCO/StCOL1\n       ↓\n解除对 StSP6A 的抑制\n       ↓\nStSP6A 蛋白从叶片运输到匍匐茎\n       ↓\n              诱导结薯\n```\n\n具体来说：\n\n- **StSP6A** 是类似拟南芥 FT 的可移动“结薯素”，在叶片产生后运输到匍匐茎，启动块茎形成。\n- **StCO/StCOL1** 在非诱导性的长日条件下抑制结薯：既可直接或间接压低 **StSP6A**，也可通过激活结薯抑制因子 **StSP5G** 来抑制 StSP6A。\n- StCO 过表达会使结薯推迟，而沉默 StCO 可促进结薯，甚至使部分材料在长日条件下结薯。\n- 上游的 **StCDF1** 抑制 StCO。因此，许多适应温带长日环境的栽培马铃薯具有不易被 GI–FKF1 降解的截短型 **StCDF1** 等位基因，从而减弱长日对结薯的抑制、促进早熟。\n\n需要注意，文献中常见 **StCO、StCO1/2、StCOL1** 等命名，不同研究对成员分工的描述略有差异；但总体结论一致：  \n**StCO 类蛋白主要是光周期结薯的负调控因子，StCDF1 抑制 StCO，而 StSP6A 最终执行结薯诱导。**\n\n参考证据：\n\n- StCO 功能研究：DOI [10.1111/j.1365-313X.2012.04909.x](https://doi.org/10.1111/j.1365-313X.2012.04909.x)\n- StCDF1 与长日适应：DOI [10.1038/nature11912](https://doi.org/10.1038/nature11912)\n- StSP6A 结薯素调控综述：DOI [10.1016/j.tplants.2013.09.010](https://doi.org/10.1016/j.tplants.2013.09.010)",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P09",
+      "type": "fact",
+      "zebrafish_q": "斑马鱼有几条染色体",
+      "potato_q": "马铃薯基因组有几条染色体？",
+      "system_A_answer": "[提示] 未识别基因或 ID。示例：\n  · 符号：tp53、p53、shh\n  · Ensembl：ENSDARG0000000001\n  · ZFIN：ZDB-GENE-990415-270（tp53）\n  · NCBI Gene：30590\n  · RefSeq：NM_131558",
+      "system_B_answer": "马铃薯的**基本染色体数是12条**，记作 **x = 12**。\n\n不同倍性材料的体细胞染色体数不同：\n\n- **单倍体参考基因组**：12条染色体  \n- **二倍体马铃薯**：`2n = 2x = 24`  \n- **三倍体马铃薯**：`2n = 3x = 36`  \n- **四倍体栽培马铃薯**：`2n = 4x = 48`  \n\n因此，常见栽培马铃薯通常有 **48条体细胞染色体**，但基因组研究中常说的“12条染色体”，指的是一套基本染色体组。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P10",
+      "type": "fact",
+      "zebrafish_q": "本库锚定的是哪个斑马鱼参考基因组",
+      "potato_q": "常见栽培马铃薯一般是几倍体",
+      "system_A_answer": "常见栽培马铃薯一般是**同源四倍体（autotetraploid）**：\n\n- **染色体组成：2n = 4x = 48**\n- 基本染色体数：**x = 12**\n\n即有4套染色体，共48条。少数栽培种和育种材料也有二倍体、三倍体等，但主流商业品种多为四倍体。",
+      "system_B_answer": "【直接结论】斑马鱼参考基因组现行主流组装为 1 个：GRCz11（NCBI GCF_000002035.6，taxon 7955，Ensembl release 116）[Ensembl/NCBI]；本系统基因库锚定于此组装。\n\n【组装沿革】\n  1. GRCz11（当前本库锚定，Zv11）— Ensembl / NCBI 长期默认参考；本库数据版本 [本地库锚定]。\n  2. GRCz12tu — NCBI Datasets 近年公布的现行参考组装（GCF_049306965.1），与 GRCz11 坐标/部分 ID 不兼容。\n  3. GRCz10（Zv10）— 上一代参考组装，部分旧文献仍引用。\n  4. Zv9 / Zv8 及更早 — 早期 Sanger 组装，新研究较少使用。\n\n【使用注意】\n  · GRCz11 与 GRCz12tu（以及 GRCz10）的基因组坐标、部分 Ensembl ID 不可直接混用；跨版本必须先做 ID/坐标映射。\n  · Ensembl ID 可带版本后缀（如 ENSDARG0000000001.5），换组装后部分 ID 会变化。\n  · 品系差异：参考基因组多基于 Tuebingen（TU）；AB 品系另有 DrAB1 等补充组装，≠ GRCz11。\n\n【官方入口】NCBI Datasets → \n维护方：Wellcome Sanger Institute + ZFIN 社区（Ensembl Danio rerio）。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P11",
+      "type": "method",
+      "zebrafish_q": "斑马鱼基因敲除常用哪些方法",
+      "potato_q": "马铃薯基因编辑常用哪些方法",
+      "system_A_answer": "斑马鱼基因敲除目前最常用的是 **CRISPR/Cas9**，其次是 **TALEN 和锌指核酸酶（ZFN）**，其中 CRISPR/Cas9 因效率高、操作简便已成为主流 [2][4][6]。这些方法均通过引入 DNA 双链断裂，经非同源末端连接（NHEJ）产生移码突变，或经同源重组（HDR）实现精确敲入 [3][7]。\n\n- **CRISPR/Cas9**：当前首选，可高效敲除单个或多个基因，且支持点突变敲入和条件性敲除 [1][3][6]。不同 Cas 蛋白（如 SpCas9 与 LbCas12a）产生的敲除结果有差异，需根据目标位点选择 [8]。\n- **TALEN 与 ZFN**：早期常用，ZFN 是最早实现可遗传靶向破坏的工具，但设计和筛选较繁琐，现多被 CRISPR 替代 [13]。\n- **敲入与条件性敲除**：若需引入点突变或表位标签，可采用优化的 CRISPR 敲入流程，结合荧光 PCR 筛选提高效率 [7][14]；通用条件性敲除方法也已从斑马鱼扩展至人 iPSC [1]。\n- **敲低替代方案**：若仅需临时抑制基因功能，可用 RNaseH 介导的 piggyback 敲低，实现成年斑马鱼多基因同时敲低 [5]。\n\n**一句话概括**：CRISPR/Cas9 是当前斑马鱼基因敲除的核心工具，敲入和条件性敲除依赖 HDR 修复，而 ZFN/TALEN 为早期替代方案。\n\n参考文献：\n[1] Universal conditional knockout approach to multiple species, from fish to human induced pluripotent stem cells. 2026. PMID:42132111.\n[2] A Comprehensive Review of Indel Detection Methods for Identification of Zebrafish Knockout Mutants Generated by Genome-Editing Nucleases. 2022. PMID:35627242.\n[3] Optimized knock-in of point mutations in zebrafish using CRISPR/Cas9. 2018. PMID:29905858.\n[4] Highly efficient gene knockout in mice and zebrafish with RNA-guided endonucleases. 2014. PMID:24253447.\n[5] RNaseH-mediated simultaneous piggyback knockdown of multiple genes in adult zebrafish. 2020. PMID:33214638.\n[6] Orthogonal CRISPR-Cas tools for genome editing, inhibition, and CRISPR recording in zebrafish embryos. 2022. PMID:34735006.\n[7] A robust pipeline for efficient knock-in of point mutations and epitope tags in zebrafish using fluorescent PCR based screening. 2022. PMID:36476416.\n[8] SpCas9-and LbCas12a-Mediated DNA Editing Produce Different Gene Knockout Outcomes in Zebrafish Embryos. 2020. PMID:32635161.\n[13] Heritable targeted gene disruption in zebrafish using designed zinc-finger nucleases. 2008. PMID:18500334.\n[14] Efficient knock-in method enabling lineage tracing in zebrafish. 2023. PMID:36878640.",
+      "system_B_answer": "马铃薯基因编辑通常同时涉及两部分：**采用什么编辑系统**，以及**如何将编辑元件导入细胞并再生植株**。\n\n### 常用编辑系统\n\n| 方法 | 主要用途 | 在马铃薯中的特点 |\n|---|---|---|\n| **CRISPR/Cas9** | 基因敲除、小片段插入/缺失、多基因编辑 | **目前最常用**；成本低、效率较高，可同时设计多个sgRNA编辑四倍体的多个等位基因 |\n| **CRISPR/Cas12a（Cpf1）** | 基因敲除、多靶点编辑 | PAM和切割方式不同于Cas9，可补充Cas9靶位点不足，但应用不如Cas9普遍 |\n| **碱基编辑（CBE/ABE）** | C→T或A→G等单碱基替换 | 不需要DNA双链断裂，适合创制点突变、除草剂抗性或酶活性改变；受编辑窗口和旁观者突变限制 |\n| **Prime editing** | 多种碱基替换及精确小片段插入/缺失 | 精确性和修改类型更广，但目前在四倍体马铃薯中的效率通常低于普通CRISPR/Cas9 |\n| **TALEN** | 定点敲除、等位基因编辑 | 早期用于降低糖苷生物碱、敲除液泡转化酶等；构建复杂，现多被CRISPR取代 |\n| **ZFN** | 定点切割 | 属于早期技术，在马铃薯中已较少使用 |\n| **CRISPR/Cas13** | 靶向RNA，例如病毒RNA | 主要用于PVY等RNA病毒抗性研究，不属于永久性的基因组DNA编辑 |\n\n### 常用递送方式\n\n1. **农杆菌介导稳定转化**\n   - 将Cas9和sgRNA作为T-DNA导入叶片、茎段或愈伤组织。\n   - 技术成熟、再生体系相对稳定。\n   - 缺点是外源DNA可能整合，需要检测转基因拷贝和嵌合体。\n\n2. **原生质体PEG转染**\n   - 可导入质粒、Cas9/sgRNA RNA，或直接导入**Cas9–sgRNA核糖核蛋白复合物（RNP）**。\n   - RNP瞬时编辑可获得**无外源DNA整合**的植株，并减少持续表达造成的脱靶风险。\n   - 主要瓶颈是原生质体再生强烈依赖品种，且可能产生体细胞变异。\n\n3. **基因枪轰击**\n   - 将质粒、RNA或RNP直接导入细胞。\n   - 适用范围较广，但设备和材料损伤问题使其在马铃薯中不如农杆菌或PEG原生质体常用。\n\n4. **病毒或双生病毒复制子递送**\n   - 可提高编辑元件或修复模板的拷贝数，用于促进定点修复。\n   - 目前更多属于研究型方案，常规应用较少。\n\n### 实际选择建议\n\n- **普通基因敲除**：CRISPR/Cas9＋农杆菌转化  \n- **一次敲除四倍体全部等位基因**：多sgRNA CRISPR/Cas9，并进行深度测序分型  \n- **希望无转基因成分**：Cas9 RNP＋原生质体PEG转染  \n- **制造特定点突变**：CBE或ABE碱基编辑  \n- **精确替换或小片段插入**：Prime editing，但需接受效率偏低的问题  \n- **RNA病毒抗性**：Cas13系统  \n\n马铃薯的特殊难点是很多栽培品种为**高度杂合的四倍体**，因此不仅要判断“有没有编辑”，还要确认4个等位基因分别是否被编辑，并注意嵌合、脱靶、倍性变化和组织培养变异。\n\n参考检索证据：CRISPR/Cas9马铃薯综述（DOI：`10.1016/j.plantsci.2022.111474`）、Prime editing研究（DOI：`10.1016/j.plantsci.2021.111162`）、遗传工程综述（DOI：`10.1080/21645698.2021.1993688`）。PlantScience.ai知识图谱也将ZFN和TALEN归为较早期的作物基因编辑工具，但图谱关系属于自动整理证据。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P12",
+      "type": "compare",
+      "zebrafish_q": "比较 AB 和 TU 品系外形差异",
+      "potato_q": "比较早熟与晚熟马铃薯的遗传差异",
+      "system_A_answer": "AB 与 TU 品系在外形上的核心差异在于**色素沉着模式**：AB 为条纹型（具黑色素条纹），TU 为斑点型（无条纹、色素呈斑点状），且 TU 因色素减少而更透明，利于成像观察 [1][9]。\n\n- **遗传背景**：AB 与 TU 的色素差异主要由**基因型决定**，涉及色素细胞（黑色素细胞、黄色素细胞）的分布与数量调控；TU 的斑点表型源于特定色素相关基因的突变或等位变异，属稳定遗传性状 [1][2]。\n- **环境与饲养**：环境因素（如温度、光照周期）可影响色素表达的**强度**，但不改变品系间的基本模式；AB 与 TU 在相同饲养条件下仍保持各自典型外形 [3][7]。\n- **行为与生理关联**：TU 因色素减少，其群游行为、光偏好等表型在成像实验中更易量化，但外形差异本身不直接改变这些行为 [2][7]。\n\n一句话概括：**AB 与 TU 的外形差异主要由遗传背景（色素基因型）决定，环境仅调节色素表达程度，不改变品系特征**。\n\n参考文献：\n[1] DOI 10.1038/s41467-026-70989-w. 2026. ENO:20055.\n[2] Further characterisation of differences between TL and AB zebrafish (Danio rerio): Gene expression, physiology and behaviour at day 5 of the larval stage. 2017. ENO:24248.\n[3] The AB strain of zebrafish was obtained from stocks held at the Institute of Cellular and Organismic Biology, Academia Sinica. 2014. ENO:3627.\n[7] Effects of Environmental Temperature Variation on the Spatio-Temporal Shoaling Behaviour of Adult Zebrafish (Danio rerio): A Two- and Three-Dimensional Analysis. 2025. ENO:23283.\n[9] Zebrafish—Topical, Transparent, and Tractable for Ultrastructural Studies. 2008. ENO:38165.",
+      "system_B_answer": "## 核心结论\n\n早熟与晚熟马铃薯并不是由某一个“早熟基因”简单决定，而是呈现 **“主效基因＋多个修饰位点＋等位基因剂量＋环境互作”** 的遗传结构。其中，染色体5上的 **StCDF1** 是目前证据最充分的主效基因。\n\n| 比较方面 | 早熟型马铃薯 | 晚熟型马铃薯 |\n|---|---|---|\n| 主要等位基因 | 常携带截短型 **StCDF1.2、StCDF1.3**，部分材料还有其他早熟等位型 | 常携带完整型 **StCDF1.1** |\n| 光周期反应 | 对长日照抑制块茎形成不敏感或较弱 | 长日照下块茎形成受抑制，短日照响应较强 |\n| StCDF1蛋白 | 缺失部分C端结构域，不易被StGI–StFKF1复合体降解 | 蛋白完整，可与StGI/StFKF1互作并发生降解 |\n| 下游通路 | StCOL1/CO和StSP5G活性较低，**StSP6A较早表达** | StSP5G抑制StSP6A，块茎诱导延迟 |\n| 发育表现 | 结薯早、植株较快停止营养生长、地上部早衰 | 结薯较晚、冠层维持时间长、营养生长期较长 |\n| 产量形成 | 膨大开始早，但有效生长期较短 | 膨大期长，在长季节环境中通常产量潜力较高 |\n\n### 1. 最主要差异：StCDF1等位基因结构\n\n在长日照条件下，晚熟型的完整 **StCDF1.1** 蛋白可被StGI–StFKF1复合体识别并降解，随后发生：\n\n```text\nStCDF1降解\n→ StCOL1/CO表达升高\n→ StSP5G升高\n→ 抑制块茎形成信号StSP6A\n→ 结薯和成熟推迟\n```\n\n早熟型的 **StCDF1.2、StCDF1.3** 等位基因含有插入或移码等结构变异，产生C端截短蛋白，失去或削弱与StFKF1的结合。其蛋白在长日照下仍较稳定，因此持续抑制StCOL1/CO，使StSP6A能够较早启动块茎形成。\n\n其中，StCDF1.3与较大的转座元件插入有关，说明早晚熟差异不只是普通SNP，也涉及**插入缺失和结构变异**。\n\n### 2. 早熟是数量性状，不完全由StCDF1决定\n\n不同研究中，染色体5成熟度QTL可解释约三分之一以上的表型变异：\n\n- 四倍体群体中，染色体5短臂早熟QTL解释约 **33.55%** 的变异；\n- 在586份四倍体材料中，StCDF1相关标记解释约 **33%** 的藤蔓成熟变异；\n- 采用多等位基因连锁模型时，StCDF1区域可解释约 **44%** 的变异。\n\n剩余变异可能来自：\n\n- **StSP6A、StSP5G、StCOL1/2、StGI、StFKF1** 等光周期—结薯通路基因；\n- 其他染色体上的小效应QTL；\n- 激素、糖运输和衰老调控基因；\n- 基因间上位互作；\n- 温度、日长、氮肥和水分条件下的基因型×环境互作。\n\n转录组研究还提出PIF5、CBF3、ERF109、TCP19、YABBY1、StMADS18和部分SWEET基因等候选因子，但这些多为表达关联或候选基因，证据强度目前低于StCDF1。\n\n### 3. 四倍体中的“等位基因剂量”很重要\n\n多数栽培马铃薯为同源四倍体，一个位点最多有4个等位基因拷贝。因此不能简单按“有无早熟等位基因”分类。例如：\n\n```text\nCDF1.1/CDF1.1/CDF1.1/CDF1.1\nCDF1.1/CDF1.1/CDF1.1/CDF1.3\nCDF1.1/CDF1.1/CDF1.2/CDF1.3\nCDF1.2/CDF1.2/CDF1.3/CDF1.3\n```\n\n不同组合和剂量可能产生从极早熟到极晚熟的连续变化；同时还会受到亲本单倍型背景和其他QTL修饰。因此育种中最好进行 **StCDF1完整单倍型或等位基因剂量检测**，而不是只检测一个连锁SNP。\n\n### 4. 需要区分三种“成熟”\n\n遗传分析时尤其要避免混淆：\n\n1. **藤蔓/地上部成熟**：冠层衰老和植株停止生长，主要受StCDF1影响；\n2. **块茎表皮成熟**：薯皮是否牢固、是否易擦伤，遗传结构相对独立，已发现的主效程度较低；\n3. **收获后休眠期**：块茎多久开始萌芽，是另一个性状，不能直接用早晚熟推断。\n\n研究显示，块茎表皮成熟主要由多个小效应位点控制，其中染色体9上的较大QTL也只解释约8%的变异；因此“早熟”不一定等于“薯皮早熟”或“休眠期短”。\n\n### 5. 育种上的实际含义\n\n- **早熟材料**：适合短生育期、复种或需要避开晚疫病高发期的地区，但长期产量积累",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P13",
+      "type": "lit",
+      "zebrafish_q": "斑马鱼性别决定相关关键文献",
+      "potato_q": "马铃薯块茎形状遗传相关关键文献怎么说",
+      "system_A_answer": "斑马鱼性别决定是**多基因、可塑、受环境与表观遗传共同调控**的系统，而非单一染色体决定 [3][12][14]。其性别表型 = 遗传（性连锁 rDNA、dmrt1、amh/gsdf 等）+ 环境（温度、化学物）+ 表观遗传（DNA 甲基化）+ 群体互作（如密度），且驯化品系与野生群体机制不同 [3][8][9]。\n\n- **遗传主效因子**：性连锁的**变异核糖体 DNA（rDNA）** 是雌性分化必需，雌性化过程中 rDNA 被扩增并去甲基化 [1][8]；**dmrt1** 为雄性发育必需 [10]；**amh/gsdf** 在性别决定关键期被雌激素信号抑制 [2]；**ddx5** 参与性别分化与卵母细胞成熟 [4]；**adamts9** 维持雌性性别与初级卵泡发育 [11]；**myoc** 敲除通过下调 Wnt 信号影响性别决定 [6]。\n- **表观遗传**：DNA 甲基化重塑性别发育，种系甲基化在雌性化中保留而性连锁 rDNA 去甲基化 [8][9]。\n- **环境与化学物**：草甘膦、毒死蜱等诱导氧化应激，可能影响性别决定 [5]；化学物可诱导肝脏代谢基因表达的性别二态性 [7]。\n- **品系差异**：驯化品系丢失了野生群体的自然性别决定因子，机制不可直接外推 [3][14]。\n\n**一句话概括**：斑马鱼性别决定以性连锁 rDNA 与 dmrt1/amh/gsdf 等基因为核心，受雌激素、DNA 甲基化及环境化学物多重调节，遗传因素占主导但环境可显著偏移性别比例 [1][2][3][10]。\n\n[1] Variant ribosomal DNA is essential for female differentiation in zebrafish. 2025. PMID:40045777  \n[2] Estrogen Signaling Inhibits the Expression of anti-Müllerian hormone (amh) and gonadal-soma-derived factor (gsdf) during the Critical Time of Sexual Fate Determination in Zebrafish. 2024. PMID:38339020  \n[3] Wild Sex in Zebrafish: Loss of the Natural Sex Determinant in Domesticated Strains. 2014. PMID:25233988  \n[4] Critical roles of the ddx5 gene in zebrafish sex differentiation and oocyte maturation. 2020. PMID:32873816  \n[5] Exposure to Glyphosate and Chlorpyrifos Induces Oxidative Stress, Potentially Impacting Sex Determination in Zebrafish (Danio rerio). 2026. ENO:34561  \n[6] Knockout of myoc Provides Evidence for the Role of Myocilin in Zebrafish Sex Determination Associated with Wnt Signalling Downregulation. 2021. ENO:29360  \n[7] Toxicogenomic Analysis Suggests Chemical-Induced Sexual Dimorphism in the Expression of Metabolic Genes in Zebrafish Liver. 2012. PMID:23272195  \n[8] Zebrafish preserve global germline DNA methylation while sex-linked rDNA is amplified and demethylated during feminisation. 2019. PMID:31311924  \n[9] DNA Methylation Reshapes Sex Development in Zebrafish. 2021. PMID:33713849  \n[10] Dmrt1 is necessary for male sexual development in zebrafish. 2017. PMID:27940159  \n[11] Adamts9 is required for the development of primary ovarian follicles and maintenance of female sex in zebrafish. 2024. PMID:39180722  \n[12] Finding clues to the riddle of sex determination in zebrafish. 2016. PMID:26949096  \n[13] A single-cell multiomics roadmap of zebrafish spermatogenesis reveals regulatory principles of male germline formation. 2026. PMID:41087739  \n[14] Sexual determination in zebrafish. 2022. ENO:33564  \n[15] Top-Down Proteomics Study of Aging and Sexual Dimorphism of Zebrafish Brains. 2026. PMID:41467253  \n[16] Zebrafish Establish Female Germ Cell Identity by Advancing Cell Proliferation and Meiosis. 2022. ENO:37941\n\n参考文献：\n[1] 变异核糖体DNA对斑马鱼雌性分化至关重要. 2025. PMID:40045777.\n[2] 雌激素信号在斑马鱼性别决定关键时期抑制抗苗勒氏管激素和性腺体细胞衍生因子的表达. 2024. PMID:38339020.\n[3] 斑马鱼的野生性别：驯化品系中自然性别决定因子的丢失. 2014. PMID:25233988.\n[4] ddx5基因在斑马鱼性别分化和卵母细胞成熟中的关键作用. 2020. PMID:32873816.\n[5] Exposure to Glyphosate and Chlorpyrifos Induces Oxidative Stress, Potentially Impacting Sex Determination in Zebrafish (Danio rerio). 2026. ENO:34561.\n[6] Knockout of myoc Provides Evidence for the Role of Myocilin in Zebrafish Sex Determination Associated with Wnt Signalling Downregulation. 2021. ENO:29360.\n[7] 毒理基因组学分析表明化学物质诱导斑马鱼肝脏代谢基因表达的性别二态性. 2012. PMID:23272195.\n[8] 斑马鱼在雌性化过程中保留全局种系DNA甲基化，而性连锁rDNA被扩增并去甲基化. 2019. PMID:31311924.\n[9] DNA甲基化重塑斑马鱼的性别发育. 2021. PMID:33713849.\n[10] Dmrt1是斑马鱼雄性性发育所必需的. 2017. PMID:27940159.\n[11] Adamts9是斑马鱼初级卵泡发育和维持雌性性别所必需的. 2024. PMID:39180722.\n[12] 寻找斑马鱼性别决定之谜的线索. 2016. PMID:26949096.\n[13] 斑马鱼精子发生的单细胞多组学图谱揭示雄性生殖系形成的调控原理. 2026. PMID:41087739.\n[14] Sexual determination in zebrafish. 2022. ENO:33564.\n[15] 斑马鱼大脑衰老和性别二态性的自上而下蛋白质组学研究. 2026. PMID:41467253.\n[16] Zebrafish Establish Female Germ Cell Identity by Advancing Cell Proliferation and Meiosis. 2022. ENO:37941.",
+      "system_B_answer": "## 核心结论\n\n马铃薯块茎形状并非简单的“单基因性状”，目前较一致的遗传模型是：\n\n> **10号染色体上的主效位点 Ro／候选因果基因 StOFP20 决定圆形—长形的主要方向；其他染色体上的修饰位点、等位基因剂量和环境共同决定具体的长宽比、扁平度及形状规则性。**\n\n其中，**StOFP20 是目前证据最强的 Ro 候选因果基因**。\n\n---\n\n## 关键文献及其主要观点\n\n| 文献 | 主要结果 | 遗传学意义 |\n|---|---|---|\n| **De Jong & Burns, 1993**，[DOI: 10.1007/BF02849314](https://doi.org/10.1007/BF02849314) | 二倍体材料中，圆形和长形的主要差异可由一个主效基因解释，**圆形对长形呈显性**。 | 奠定了“主效基因控制块茎形状”的经典模型。 |\n| **van Eck et al., 1994, Genetics**，[DOI: 10.1093/genetics/137.1.303](https://doi.org/10.1093/genetics/137.1.303) | 将 **Ro 定位到10号染色体**；块茎长宽比广义遗传力约 **0.80**，Ro 可解释约 **75%遗传变异**；不同 Ro 等位基因效应不完全相同。 | 最关键的奠基论文：块茎形状是数量性状，但存在一个效应非常大的主位点。 |\n| **Li et al., 2005**，[DOI: 10.1007/s00122-005-1927-6](https://doi.org/10.1007/s00122-005-1927-6) | 眼深主位点 **Eyd** 也位于10号染色体，与 Ro 约相距 **4 cM**；该群体中圆形块茎经常伴随深眼。 | 说明形状选择可能连带影响眼深，但这是**紧密连锁，不宜直接认为是同一个基因**。 |\n| **Prashar et al., 2014**，[DOI: 10.1007/s00122-014-2369-9](https://doi.org/10.1007/s00122-014-2369-9) | 高密度SNP图谱再次检测到形状相关QTL，同时在2、9、10号染色体发现相关区域。 | 支持“10号染色体主效位点＋其他背景依赖型修饰位点”的模型。 |\n| **Lindqvist-Kreuze et al., 2015**，[DOI: 10.1186/s12863-015-0213-0](https://doi.org/10.1186/s12863-015-0213-0) | 在安第斯二倍体群体中检测到10号染色体主QTL，并报道5、12号染色体的小效应QTL。 | 表明不同种质背景下，次级控制位点会发生变化。 |\n| **Endelman & Jansky, 2016**，[DOI: 10.1007/s00122-016-2673-7](https://doi.org/10.1007/s00122-016-2673-7) | 两年田间试验中形状遗传力约 **0.79**；10号染色体单个QTL解释约 **41%** 变异，表现为部分显性。 | 在近交衍生F₂群体中进一步验证 Ro 的稳定主效作用。 |\n| **Fan et al., 2022**，[DOI: 10.3390/ijms23031470](https://doi.org/10.3390/ijms23031470) | 10号染色体 Ro QTL解释 **61.7%–72.9%** 的形状变异，并被精细定位到 **193.43 kb、18个基因**的区间；圆形与长形的发育差异在匍匐茎“钩状期”已经出现。 | 将经典遗传位点缩小到可开展候选基因验证的范围，并提示形状决定发生得很早。 |\n| **Huang et al., 2022**，[DOI: 10.3389/fpls.2022.1046287](https://doi.org/10.3389/fpls.2022.1046287) | 在一个特殊二倍体群体中没有检出分离的Ro，而是在6号染色体发现 **TScha6**，解释约 **10.2%–17.5%** 变异。 | 说明当 Ro 在亲本中固定、不分离时，其他修饰QTL会成为主要可检测来源。 |\n| **Park et al., 2021**，[DOI: 10.1186/s12870-021-03265-2](https://doi.org/10.1186/s12870-021-03265-2) | 四倍体薯条加工型群体中，10号染色体QTL跨环境稳定；4、7号染色体QTL分别具有环境特异性。 | 证明 Ro 的效应可以跨倍性和遗传背景保持，但次级位点更容易受环境影响。 |\n| **Ai et al., 2023**，[DOI: 10.1016/j.jia.2022.08.069](https://doi.org/10.1016/j.jia.2022.08.069) | **突变 StOFP20 可使圆形块茎转为椭圆形**；其表达在块茎起始期最高；StOFP20与若干TRM蛋白发生互作。 | 提供了直接功能证据，支持 **StOFP20 是 Ro 的遗传基础**。 |\n\n---\n\n## StOFP20 的功能证据有多强？\n\n目前主要有三层证据：\n\n1. **共定位证据**  \n   StOFP20 位于反复检测到的10号染色体 Ro 区域。\n\n2. **遗传与结构变异证据**  \n   Ai等报道，相关材料中圆形块茎具有 StOFP20，而部分椭圆形材料缺失该基因。  \n   van Eck等对136份材料的预印本分析还指出，不同 **StOFP20 单倍型及等位基因剂量**与圆、长形状相关。\n\n3. **功能验证证据**  \n   - StOFP20 突变：圆形变为椭圆形；  \n   - 在圆形品种中RNAi降低表达：趋向椭圆或长椭圆；  \n   - 在长形品种中过表达：趋向圆形。\n\nvan Eck等的这项工作目前检索到的是**未经正式期刊同行评议的预印本**，引用时应明确标注：  \n[DOI: 10.21203/rs.3.rs-1807189/v1](https://doi.org/10.21203/rs.3.rs-1807189/v1)。\n\n---\n\n## 可能的分子机制\n\nStOFP20 属于 **OVATE family protein，OFP** 家族。现有模型认为：\n\n- StOFP20 与 **TONNEAU1 Recruiting Motif，TRM** 蛋白互作；\n- OFP–TRM–TON/TTP系统可能影响皮层微管和细胞分裂面的组织；\n- 进而改变块茎形成早期细胞在纵向和径向上的分裂、膨大比例；\n- StOFP20活性较强时通常更倾向径向膨大、形成较圆块茎；功能降低或缺失时更倾向纵向伸长。\n\n不过，**从蛋白互作到整个块茎三维形状形成的完整体内调控链条尚未完全解析**；其中部分机制借鉴了番茄果形的 OFP–TRM 模型。\n\n---\n\n## 对育种最实际的启示\n\n1. **圆形与长形的早代选择可以优先检测 Ro/StOFP20**，但四倍体材料必须考虑等位基因剂量。\n2. 不宜只用一个通用SNP标记：不同种质中可能存在**不同单倍型、缺失或其他结构变异**，应先在目标育种群体中验证标记。\n3. 需要同时选择眼深，因为 **Ro 与 Eyd 紧密连锁**；只选择圆形可能连带保留深眼。\n4. 对形状规则性、扁平度和极端长形，仍需结合4、6、7等染色体上的修饰位点以及多环境表型。\n5. 表型最好同时记录：\n   - 长/宽比；\n   - 宽/厚比；\n   - 形状规则性；\n   - 单株多个块茎间的变异。  \n   单纯把块茎分成“圆/长”会遗漏不少遗传信息。\n\n### 一句话概括\n\n**Ro/StOFP20 是马铃薯圆—长块茎形状的主开关，但最终商品形状是该主效基因、等位基因剂量、次级QTL及环境共同作用的结果。**\n\n以上主要依据 Potato Knowledge Hub 的文献片段并结合学术数据库核对标题和 DOI；PlantScience.ai 知识图谱也返回了 StOFP20–Ro 的关系，但图谱关系属于自动抽取证据，结论仍以原始论文为准。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P14",
+      "type": "lit",
+      "zebrafish_q": "斑马鱼 CRISPR 形态发生相关文献怎么说",
+      "potato_q": "马铃薯抗晚疫病相关文献要点",
+      "system_A_answer": "斑马鱼 CRISPR 研究中，**形态发生（morphogenesis）相关表型主要由靶基因的遗传功能决定，但染色质可及性等表观遗传状态会显著影响 CRISPR 编辑效率，进而间接改变形态发生结果**，即 表型 = 基因型 + 环境 + G×E [1][2]。\n\n- **靶基因直接调控形态发生**：如生物晶体形态发生受特定基因遗传控制 [2]；`comp`（软骨寡聚基质蛋白）CRISPR 突变体在肌隔（myosepta）中呈现显性形态表型 [11]；`tnfaip1` 敲除影响早期发育形态 [13]；Natterin 样蛋白缺失损害胚胎发育形态 [16]。\n- **染色质可及性决定编辑效率，间接影响形态表型**：染色质开放区域 CRISPR-Cas9 效率更高，若靶位点处于关闭染色质，编辑失败则无法观察到预期形态发生改变 [1]。\n- **编辑技术选择影响形态表型读出**：Prime editing 在变异敲入中优于同源定向修复，能更精确模拟人类致病变异，从而更可靠地关联基因型与形态发生表型 [12]；条件性敲除-敲入可见开关可实时追踪形态变化 [6]。\n- **环境与互作因素**：如 `pxr` 突变后，孕烯醇酮诱导的 `cyp3a65` 表达仍保留，说明化学环境可补偿部分遗传缺失，影响最终形态或生理表型 [7]。\n\n**一句话概括**：形态发生表型首先由靶基因功能决定，但 CRISPR 编辑效率（受染色质状态影响）和编辑技术（如 Prime editing vs HDR）会决定能否正确读出该遗传效应，环境因素（如化学诱导）可部分掩盖遗传缺失。\n\n参考文献：\n[1] Chromatin accessibility is associated with CRISPR-Cas9 efficiency in the zebrafish (Danio rerio). 2018. ENO:29218.\n[2] Genetic control over biogenic crystal morphogenesis in zebrafish. 2025. PMID:39215102.\n[6] One-step generation of zebrafish carrying a conditional knockout-knockin visible switch via CRISPR/Cas9-mediated intron targeting. 2020. PMID:31872378.\n[7] CRISPR-Cas9-Mutated Pregnane X Receptor (pxr) Retains Pregnenolone-induced Expression of cyp3a65 in Zebrafish (Danio rerio) Larvae. 2020. PMID:31868891.\n[11] Structure, evolution and expression of zebrafish cartilage oligomeric matrix protein (COMP, TSP5). CRISPR-Cas mutants show a dominant phenotype in myosepta. 2022. ENO:22661.\n[12] Prime editing outperforms homology-directed repair as a tool for CRISPR-mediated variant knock-in in zebrafish. 2025. PMID:40437234.\n[13] CRISPR/Cas9-Mediated Knockout of tnfaip1 in Zebrafish Plays a Role in Early Development. 2023. PMID:37239365.\n[16] Natterin-like depletion by CRISPR/Cas9 impairs zebrafish (Danio rerio) embryonic development. 2022. PMID:35151271.",
+      "system_B_answer": "## 马铃薯抗晚疫病文献要点\n\n基于 Potato Knowledge Hub 文献片段及学术数据库检索，当前研究共识可概括为以下几方面。\n\n### 1. 抗性主要分为两类\n\n- **主效抗病基因介导的定性抗性**\n  - 多为NLR/NBS-LRR类基因，通过识别 *Phytophthora infestans* 的AVR效应蛋白触发超敏反应。\n  - 抗性强、育种选择方便，但通常具有菌株或生理小种特异性。\n  - 早期从 *Solanum demissum* 导入的R1–R11曾广泛应用，但病原菌可通过效应蛋白缺失、变异或表达改变迅速突破抗性。\n\n- **多基因控制的定量抗性**\n  - 表现为病斑扩展慢、潜育期长、产孢量低等“部分抗性”。\n  - 通常被认为比单一R基因更持久、对病原群体适用范围更广，但遗传效应较小、受环境影响明显，育种选择更困难。\n\n### 2. 野生马铃薯是核心抗源\n\n常用抗性资源及代表基因包括：\n\n| 野生种 | 代表抗性基因 |\n|---|---|\n| *S. bulbocastanum* | **RB/Rpi-blb1、Rpi-blb2、Rpi-blb3** |\n| *S. venturii* | **Rpi-vnt1.1** |\n| *S. stoloniferum* | **Rpi-sto1** |\n| *S. americanum* | **Rpi-amr1、Rpi-amr3** |\n| *S. demissum* | **R1–R11、R8、R9a等** |\n\n传统杂交导入这些基因常受到四倍体遗传、杂合度高、远缘杂交障碍和连锁累赘影响，因此标记辅助选择、桥梁杂交、体细胞杂交、顺式基因和转基因导入均有研究价值。\n\n### 3. R基因聚合是目前最有直接田间证据的策略\n\n- 单个R基因容易被病原群体突破，因此研究重点已转向把识别不同AVR效应子的多个R基因聚合到同一品种中。\n- **Rpi-sto1 + Rpi-vnt1.1 + Rpi-blb3**三基因聚合已证明能够在同一植株中保持功能。\n- **RB + Rpi-blb2 + Rpi-vnt1.1**导入非洲农户偏好品种后，在多个季节的田间试验中对当地晚疫病菌群表现完全抗性。\n- 但“聚合”等同于“永久抗性”并不成立：2023年的研究表明，能够克服所聚合基因的强毒菌株仍可能造成发病，只是基因数量增加可延缓病害发生。\n\n因此，更准确的概念是：**R基因聚合提高病原菌突破抗性所需的进化门槛，但不能保证绝对持久性。**\n\n### 4. R基因部署必须与病原菌效应子监测配套\n\n- *P. infestans* 群体变异快，可进行无性扩繁，也可发生有性重组。\n- RXLR效应蛋白是病原致病和逃避免疫的重要分子基础。\n- “效应组学”可利用已知AVR蛋白快速筛选野生种中的对应R基因，并评价不同R基因的识别谱。\n- 例如R8识别AVR8；R8被认为是相对广谱、较持久的抗源之一，但其有效性仍取决于区域病原群体是否保留功能性AVR8。\n\n育种前应尽量回答三个问题：\n\n1. 当地优势菌株携带哪些AVR等位变异？\n2. 候选R基因识别的效应子是否仍广泛存在？\n3. 聚合基因之间的识别谱是否互补，而不是重复？\n\n### 5. 定量抗性研究需特别控制成熟期效应\n\n- 晚熟材料常因生育期和叶片生理状态表现出较低病情，因此晚疫病抗性QTL可能与成熟期、藤蔓生长等性状发生混淆。\n- 定量抗性位点还可能在感染的不同时期表现不同，即“条件QTL”或时间依赖QTL。\n- 较可靠的表型评价应包含：\n  - 多年份、多地点田间鉴定；\n  - 多个代表性菌株接种；\n  - 病程曲线下面积（AUDPC或rAUDPC）；\n  - 成熟期校正后的抗性指标；\n  - 叶片抗性和块茎抗性分别评价。\n\n这也是部分QTL在不同群体或环境中难以重复的主要原因之一。\n\n### 6. 现代育种技术的作用定位\n\n- **GWAS/QTL定位**：寻找定量抗性位点和可用于选择的分子标记。\n- **效应组学**：根据AVR识别反应筛选R基因，适合加速抗源鉴定。\n- **RenSeq、长读长测序与等位基因挖掘**：解析复杂NLR基因簇和发现新R基因。\n- **标记辅助选择**：适合追踪已知主效基因及构建基因聚合材料。\n- **顺式基因/转基因**：可把多个克隆R基因直接导入成熟栽培品种，避免反复回交导致优良品种性状改变。\n- **基因编辑**：可用于修饰感病基因、免疫负调控因子或扩大R蛋白识别范围，但长期、多地点田间证据目前仍少于经典R基因聚合。\n- **二倍体育种和基因组选择**：有望提高多基因抗性聚合效率，但仍需处理抗性、成熟期、产量和品质之间的综合选择。\n\n### 7. “持久抗性”更应被视为一个管理系统\n\n文献越来越强调，持久性不仅由抗性基因本身决定，还取决于：\n\n- 聚合基因的数量及识别谱；\n- 区域病原群体的毒力结构；\n- 抗性品种种植面积及连续使用时间；\n- 不同基因组合的空间或时间轮换；\n- 预警监测、栽培措施和必要的杀菌剂保护。\n\nDuRPh项目提出的“动态品种”概念，即在保持品种遗传背景基本一致的情况下，按地区和时间更换R基因组合，以降低病原菌持续定向选择压力。\n\n---\n\n## 建议优先阅读的代表性文献\n\n1. **Modern Breeding Strategies and Tools for Durable Late Blight Resistance in Potato**（2024）  \n   现代抗性育种、效应组学、GWAS、基因编辑和R基因利用综述。  \n   DOI：[10.3390/plants13121711](https://doi.org/10.3390/plants13121711)\n\n2. **Understanding and Exploiting Late Blight Resistance in the Age of Effectors**（2011）  \n   R–AVR对应关系、RXLR效应蛋白及效应组学的经典综述。  \n   DOI：[10.1146/annurev-phyto-072910-095326](https://doi.org/10.1146/annurev-phyto-072910-095326)\n\n3. **Solanum Resistance Genes Against Phytophthora infestans and Their Corresponding Avirulence Genes**  \n   系统总结茄属R基因、对应AVR基因及抗性突破机制。  \n   DOI：[10.1111/mpp.12036](https://doi.org/10.1111/mpp.12036)\n\n4. **Functional Stacking of Three Resistance Genes Against Phytophthora infestans in Potato**（2011）  \n   Rpi-sto1、Rpi-vnt1.1和Rpi-blb3三基因功能聚合。  \n   DOI：[10.1007/s11248-011-9510-1](https://doi.org/10.1007/s11248-011-9510-1)\n\n5. **Stacking Three Late Blight Resistance Genes…Confers Complete Field Resistance to Local Blight Races**（2018/2019）  \n   RB、Rpi-blb2和Rpi-vnt1.1在非洲品种中的多年田间证据。  \n   DOI：[10.1111/pbi.13042](https://doi.org/10.1111/pbi.13042)\n\n6. **Durable Late Blight Resistance in Potato Through Dynamic Varieties Obtained by Cisgenesis**（2016）  \n   DuRPh项目、顺式基因聚合和动态部署策略。  \n   DOI：[10.1007/s11540-015-9312-6](https://doi.org/10.1007/s11540-015-9312-6)\n\n7. **Conditional QTL Underlying Resistance to Late Blight in a Diploid Potato Population**（2012）  \n   揭示抗性QTL随病程阶段变化。  \n   DOI：[10.1007/s00122-012-1791-0](https://doi.org/10.1007/s00122-012-1791-0)\n\n8. **Identification of QTL…in a Tetraploid Potato Population Derived from Late Blight-Resistant Palisade Russet**（2023）  \n   四倍体群体中晚疫病抗性、成熟期和藤蔓性状的联合分析。  \n   DOI：[10.3389/fpls.2023.1222596](https://doi.org/10.3389/fpls.2023.1222596)\n\n9. **A Phytophthora infestans RXLR Effector AVR8 Suppresses Plant Immunity…**（2023）  \n   AVR8致病功能以及R8抗性研究背景。  \n   DOI：[10.1111/tpj.16232](https://doi.org/10.1111/tpj.16232)\n\n### 总结\n\n现阶段最合理的抗晚疫病育种路线不是依赖单一“强抗基因”，而是：\n\n> **广谱R基因聚合 + 定量抗性背景 + 多菌株/多年田间验证 + 病原菌AVR监测 + 动态部署和综合防控。**\n\n其中，R基因聚合已有较强田间证据；定量抗性更可能提高长期稳定性，但遗传解析和选择难度更高。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P15",
+      "type": "expr",
+      "zebrafish_q": "myl7 主要在哪个组织表达",
+      "potato_q": "StSP6A 主要在哪些组织起作用",
+      "system_A_answer": "**myl7 主要在心脏（cardiac ventricle，Expression Score=99.99）表达，是斑马鱼心肌发育的核心标记基因**[1]。\n\n该基因编码肌球蛋白轻链 7，表达谱几乎完全局限于心脏及其前体结构，按强度排序如下：\n\n- **心脏本体**：cardiac ventricle（99.99）、heart（99.96）、heart tube（98.22）、myocardium（96.67）、primitive heart tube（96.3）[1]\n- **心肌细胞与心房**：cardiac muscle tissue（95.46）、cardiac muscle cell（92.86）、cardiac atrium（91.67）、myocardium of ventricle（85.71）、myocardium of atrium（83.33）[1]\n- **发育早期心脏原基**：heart primordium（94.74）、heart rudiment（91.37）、future cardiac ventricle（80）、future cardiac atrium（80）[1]\n- **非心脏组织**：仅 head kidney（75.77）和 larva（89.5）有中等信号，其余 18 个有表达调用的组织中 16 个为心脏相关[1]\n\n功能上，myl7 参与 **cardiac muscle contraction、heart development 和 sarcomere organization**，其 GO 注释包括钙离子结合（GO:0005509）和金属离子结合（GO:0046872）[2]。该基因位于染色体 8，Ensembl ID 为 ENSDARG00000019096，ZFIN ID 为 ZDB-GENE-991019-1[2]。\n\n一句话概括：**myl7 是高度心脏特异性的基因，从心脏原基到成体心室全程高表达，是研究心肌分化和心脏发育的首选 marker**[1][2]。\n\n参考文献：\n[1] Bgee v15.2 expression data for myl7 (Danio rerio). 2024. https://www.bgee.org\n[2] Ensembl release 116, ENSDARG00000019096. 2024. https://www.ensembl.org\n[3] Yelon D, et al. Restricted expression of cardiac myosin genes reveals regulated aspects of heart tube assembly in zebrafish. Dev Biol. 1999. PMID: 10433969\n[4] Berdougo E, et al. Mutation of weak atrium/atrial myosin heavy chain disrupts atrial function and influences ventricular morphogenesis in zebrafish. Development. 2003. PMID: 14530294\n[5] Sampath SC, et al. Myosin light chain kinase expression and function in the zebrafish heart. J Mol Cell Cardiol. 2011. PMID: 21620872\n[6] Singleman C, Holtzman NG. Growth and maturation of the zebrafish heart. Dev Dyn. 2014. PMID: 24449423\n[7] Staudt DW, et al. High-resolution imaging of cardiomyocyte behavior reveals two distinct steps in ventricular trabeculation. Development. 2014. PMID: 24553285\n[8] Gupta V, Poss KD. Clonally dominant cardiomyocytes direct heart morphogenesis. Nature. 2012. PMID: 22407321\n[9] Cao J, et al. Single-cell analysis of the zebrafish heart reveals a conserved transcriptional program. Cell Rep. 2023. PMID: 37289638\n[10] Hu B, et al. Single-cell transcriptomic atlas of zebrafish heart regeneration. Cell Rep. 2022. PMID: 35613583",
+      "system_B_answer": "**StSP6A 主要在“叶片—匍匐茎尖端”这一长距离信号通路中发挥作用，但真正诱导块茎形成的核心作用部位是匍匐茎顶端。**\n\n- **叶片：信号产生部位**  \n  在短日照等适宜块茎诱导条件下，StSP6A主要在成熟叶片中表达并合成蛋白，作为类似成花素FT的可移动“块茎形成素”。\n\n- **韧皮部：运输通道**  \n  StSP6A蛋白从叶片经韧皮部向地下匍匐茎运输；韧皮部主要负责运输，并非最终作用组织。\n\n- **匍匐茎尖端及其亚顶端分生组织：主要作用部位**  \n  到达匍匐茎顶端后，StSP6A与St14-3-3、StFDL1或StABL1等蛋白形成块茎形成激活复合物，引起局部转录重编程，促进匍匐茎停止伸长、径向膨大并启动块茎形成。\n\n- **幼嫩及发育中的块茎：持续表达和反馈调控**  \n  StSP6A在幼块茎和发育块茎中也常有较高表达，可能通过局部正反馈维持早期块茎发育；但其最关键的诱导作用仍发生在**匍匐茎顶端**。\n\n因此可以概括为：**叶片负责产生StSP6A，韧皮部负责运输，匍匐茎尖端是最主要的功能执行部位。**\n\n参考证据：DOI [10.3390/ijms23169126](https://doi.org/10.3390/ijms23169126)、[10.1093/plphys/kiae138](https://doi.org/10.1093/plphys/kiae138)、[10.1093/pcp/pcw197](https://doi.org/10.1093/pcp/pcw197)。在DMv8.2中，正确的StSP6A基因对应 **DM8.2_chr05G25210**。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P16",
+      "type": "trait",
+      "zebrafish_q": "斑马鱼脊柱弯曲和遗传有关吗",
+      "potato_q": "贮藏条件会不会改变块茎外观",
+      "system_A_answer": "斑马鱼脊柱弯曲**主要由遗传决定，但环境（如饲养密度、水温、运动负荷）和遗传×环境互作（G×E）也显著影响其外显率和严重程度**，表型 = 基因型 + 环境 + G×E [1][2][5]。这里的“脊柱弯曲”指脊柱侧弯（scoliosis）、前弯（lordosis）及椎骨形态变异，涉及椎体发育、体节分化和脊柱轴向维持。\n\n- **遗传因素（主因）**：多个基因突变可直接导致脊柱弯曲，如 **Dstyk** 突变通过失调 mTORC1/TFEB 通路引起先天性脊柱侧弯样椎骨畸形 [1]；**MSGN1** 双等位基因功能获得性变异与骨骼发育不良综合征相关 [8]；**efemp1**（细胞外基质蛋白基因）突变体表现为脊柱骨关节炎样改变 [10]。此外，细胞骨架角蛋白（keratins）在特发性脊柱侧弯模型中过表达 [6]，而脊柱侧弯相关基因的调控网络参与体节头尾模式建立 [11]，提示遗传通路在脊柱形态形成中的核心作用 [2][13]。\n- **环境因素（修饰作用）**：幼年斑马鱼能够从前弯症（lordosis）中恢复，说明脊柱弯曲在一定发育阶段具有可塑性，受饲养条件或力学环境影响 [5]；环境应激可能改变突变体的表型外显率，同一突变在不同环境下可表现为可变外显率 [9]。\n- **遗传×环境互作（G×E）**：脊柱弯曲的表型多样性（畸形 vs 正常变异）提示遗传背景与环境因素共同决定最终脊柱形态 [15]；突变体的表型严重程度往往取决于环境修饰，而非单纯基因型 [9]。\n\n**一句话概括**：脊柱弯曲的“开关”由遗传决定（如 Dstyk、MSGN1、efemp1 等基因），而环境（饲养条件、发育阶段力学刺激）主要调节其严重程度和可逆性，因此遗传更偏“决定性”，环境更偏“修饰性”。\n\n[1] Dstyk mutation leads to congenital scoliosis-like vertebral malformations in zebrafish via dysregulated mTORC1/TFEB pathway. 2020. PMID:31980602\n[2] Turning the Curve Into Straight: Phenogenetics of the Spine Morphology and Coordinate Maintenance in the Zebrafish. 2021. PMID:35155449\n[5] Juvenile zebrafish (Danio rerio) are able to recover from lordosis. 2022. PMID:36513797\n[6] Cytoskeletal Keratins Are Overexpressed in a Zebrafish Model of Idiopathic Scoliosis. 2023. PMID:37239418\n[8] Zebrafish as a model to investigate a biallelic gain-of-function variant in MSGN1, associated with a novel skeletal dysplasia syndrome. 2024. PMID:38448978\n[9] Molecular-Genetic Mapping of Zebrafish Mutants with Variable Phenotypic Penetrance. 2011. PMID:22039502\n[10] A Zebrafish Mutant in the Extracellular Matrix Protein Gene efemp1 as a Model for Spinal Osteoarthritis. 2023. PMID:38200805\n[11] Regulatory Network of the Scoliosis-Associated Genes Establishes Rostrocaudal Patterning of Somites in Zebrafish. 2019. ENO:19388\n[13] Genetically engineered zebrafish as models of skeletal development and regeneration. 2023. PMID:36395960\n[15] Deformity or variation? Phenotypic diversity in the zebrafish vertebral column. 2023. PMID:37424444\n\n参考文献：\n[1] Dstyk突变通过失调mTORC1/TFEB通路导致斑马鱼先天性脊柱侧弯样椎骨畸形. 2020. PMID:31980602.\n[2] 将曲线变直：斑马鱼脊柱形态和协调维持的表型遗传学. 2021. PMID:35155449.\n[3] 斑马鱼胚胎中spastin依赖性轴突生长的遗传和化学调控表明微管动力学受损在遗传性痉挛性截瘫中的作用. 2010. PMID:20829563.\n[4] 斑马鱼遗传学与脊椎动物心脏形成. 2001. PMID:11253067.\n[5] 幼年斑马鱼能够从脊柱前弯症中恢复. 2022. PMID:36513797.\n[6] 细胞骨架角蛋白在特发性脊柱侧弯斑马鱼模型中过表达. 2023. PMID:37239418.\n[7] Genetic Modeling of the Neurodegenerative Disease Spinocerebellar Ataxia Type 1 in Zebrafish. 2021. ENO:2492.\n[8] 斑马鱼作为模型研究MSGN1双等位基因功能获得性变异，与一种新型骨骼发育不良综合征相关. 2024. PMID:38448978.\n[9] 斑马鱼突变体的分子遗传定位，具有可变表型外显率. 2011. PMID:22039502.\n[10] 细胞外基质蛋白基因efemp1斑马鱼突变体作为脊柱骨关节炎模型. 2023. PMID:38200805.\n[11] Regulatory Network of the Scoliosis-Associated Genes Establishes Rostrocaudal Patterning of Somites in Zebrafish. 2019. ENO:19388.\n[12] Phenotyping Zebrafish Mutant Models to Assess Candidate Genes Associated with Aortic Aneurysm. 2022. ENO:15161.\n[13] 基因工程斑马鱼作为骨骼发育和再生的模型. 2023. PMID:36395960.\n[14] 斑马鱼脊髓修复伴随瞬时组织硬化. 2020. PMID:31870536.\n[15] 畸形还是变异？斑马鱼脊柱的表型多样性. 2023. PMID:37424444.\n[16] A genetic labeling system to study dendritic spine development in zebrafish models of neurodevelopmental disorders. 2022. ENO:22590.",
+      "system_B_answer": "会，而且影响可以很明显。**贮藏通常不会改变块茎原有的基本遗传形状、眼数和自然皮色，但会显著改变表面颜色、饱满度、硬度、芽眼状态和病斑，从而干扰“外观性状”评价。**\n\n## 不同条件造成的典型外观变化\n\n| 贮藏因素 | 常见外观变化 | 主要原因 |\n|---|---|---|\n| **光照** | 表皮变绿，严重时局部或整体绿色 | 叶绿素积累；同时可能伴随糖苷生物碱升高 |\n| **温度偏高** | 提早萌芽、芽伸长、表皮老化、失重皱缩，腐烂加快 | 呼吸和芽生长加速 |\n| **空气湿度过低** | 块茎萎蔫、皱缩、变软，外形不再饱满 | 水分蒸发 |\n| **湿度过高或结露** | 表面潮湿，出现软腐、霉斑或凹陷病斑 | 病原繁殖及伤口感染 |\n| **通风不足、堆放过厚** | 压扁、压伤，内部可能出现黑心，局部腐败 | 缺氧、积热和机械压力 |\n| **低温下碰撞** | 黑斑、裂伤或碰伤，部分症状数天后才出现 | 低温块茎更容易发生机械伤和黑斑伤 |\n| **接近或低于冰点** | 解冻后组织水渍状、变软、表皮发暗，随后腐烂 | 冻害导致细胞破裂 |\n| **贮藏时间过长** | 萌芽、皱缩、失去光泽，干腐或软腐病斑增加 | 生理衰老、失水及病害发展 |\n\n### 低温的特殊影响\n\n在不发生冻害的情况下，低温保存可能让块茎外表暂时保持较完整，但低于约 **8°C** 长期贮藏容易发生“低温糖化”。这通常不会立即明显改变生薯外观，却会使：\n\n- 油炸薯片或薯条颜色过深；\n- 出现棕黑色；\n- 加工品质下降。\n\n因此，**鲜食外观良好不等于加工品质没有变化**。\n\n## 哪些外观性状比较稳定？\n\n相对稳定、主要由品种遗传决定的性状：\n\n- 基本薯形，如圆形、椭圆形或长椭圆形；\n- 原始皮色和肉色；\n- 芽眼数量和基本深浅；\n- 皮纹类型。\n\n容易受贮藏条件干扰的性状：\n\n- 表皮是否绿色、暗褐或有黑斑；\n- 表面光泽和粗糙程度；\n- 饱满度、硬度和表观形状；\n- 萌芽状态；\n- 裂伤、碰伤及腐烂病斑。\n\n严重失水或堆压时，甚至基本形状也可能因皱缩、凹陷或压扁而发生表观改变。\n\n## 如果用于品种外观评价\n\n建议在两个时间点分别记录：\n\n1. **采收后或完成愈伤后**：评价遗传性薯形、皮色、眼深和整齐度；\n2. **统一贮藏后**：评价耐贮性、绿化、皱缩、萌芽、失重和病害。\n\n不同材料必须统一：\n\n- 采收成熟度；\n- 愈伤时间；\n- 贮藏温度和相对湿度；\n- 光照条件；\n- 贮藏时长；\n- 堆放方式和机械搬运强度。\n\n否则，贮藏差异可能被误判为品种本身的外观差异。\n\n## 实用建议\n\n家庭鲜食马铃薯宜放在**避光、凉爽、通风、无结露**的环境中；避免透明袋、阳光照射和高温。块茎若已经**大面积变绿、明显发苦、严重萌芽或腐烂**，不建议食用。\n\n参考综述：  \n- *Climate Change Impacts on Potato Storage*，DOI：[10.3390/foods13071119](https://doi.org/10.3390/foods13071119)  \n- 马铃薯绿化颜色评价研究，DOI：[10.1016/j.postharvbio.2005.12.018](https://doi.org/10.1016/j.postharvbio.2005.12.018)",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P17",
+      "type": "gene",
+      "zebrafish_q": "ZDB-GENE-040918-1 是哪个基因",
+      "potato_q": "PGSC0003DMG400018408 对应什么基因",
+      "system_A_answer": "**PGSC0003DMG400018408 对应马铃薯的 StCDF1（CYCLING DOF FACTOR 1）基因。**\n\n对应关系如下：\n\n| 注释版本 | 基因编号 |\n|---|---|\n| PGSC基因ID | **PGSC0003DMG400018408** |\n| PGSC转录本ID | PGSC0003DMT400047370 |\n| DMv6.1 | Soltu.DM.05G005140 |\n| DMv8.1 | DM8C05G04930 |\n| **DMv8.2** | **DM8.2_chr05G04850** |\n| DMv8.2代表转录本 | DM8.2_chr05G04850.1 |\n| 染色体位置 | chr05: 4,697,563–4,700,345 |\n\n### 基因功能\n\nStCDF1也称 **Dof19**，编码一个含 **Dof型锌指结构域**的转录因子，是马铃薯光周期响应和成熟期调控的核心基因，主要涉及：\n\n- 调控成熟早晚；\n- 促进短日条件下块茎形成；\n- 参与 **StCDF1–StCO/StCOL–StSP5G–StSP6A** 调控通路；\n- 不同自然等位基因与马铃薯适应长日照和高纬度栽培密切相关。\n\n其中StCDF1的截短型等位基因常不能被StFKF1–StGI复合体正常降解，从而促进早熟和长日条件下成薯。\n\n需要注意：数据库把该位点关联到 **CDF1.1、CDF1a、CDF1b、CDF1c、CDF1d** 等多个别名，但仅凭PGSC基因编号只能确定它是 **StCDF1位点**，不能直接判断具体材料携带的是哪个功能等位基因；确定等位型需要比较基因序列。",
+      "system_B_answer": "【基因命名与 ID 映射】\n  查询输入：ZDB-GENE-040918-1\n  参考基因组：GRCz11（NCBI GCF_000002035.6，taxon 7955）\n  数据锚点：Ensembl release 116 | NCBI: \n\n  官方符号（canonical）：tp53\n  Ensembl：ENSDARG00000035559\n  ZFIN：ZDB-GENE-040918-1\n  染色体：5\n  · Ensembl: ENSDARG00000035559 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000035559\n  · ZFIN: ZDB-GENE-040918-1 → https://zfin.org/ZDB-GENE-040918-1\n  · NCBI Gene: 30590 → https://www.ncbi.nlm.nih.gov/gene/30590\n\n  跨库 ID：\n    · ensembl: ENSDARG00000035559\n    · ncbi_gene: 30590\n    · ncbi_gene_grcz12tu: 30590\n    · zfin: ZDB-GENE-990415-270\n    · zfin: ZDB-GENE-040918-1\n\n  Ensembl ID 版本：\n    · ENSDARG00000004359（当前）\n    · ENSDARG00000035559\n\n  Bgee 组织表达（Top）：\n    · cleaving embryo: 97.9000\n    · tail bud paraxial mesoderm: 97.4000\n    · presomitic mesoderm: 96.7700\n    · paraxial mesoderm: 96.7500\n    · early embryo: 95.4200\n    · granulocyte: 94.9800\n\n  已知别名（9 条，展示部分）：brp53, drp53, etid22686.5, fb40d06, p53, wu:fb40d06, zdb-gene-990415-270, zgc:111919",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P18",
+      "type": "id",
+      "zebrafish_q": "GRCz11 和 GRCz12tu 能混用坐标吗",
+      "potato_q": "马铃薯参考基因组常用组装名有哪些",
+      "system_A_answer": "马铃薯研究中常见的参考基因组/组装名主要有以下几类：\n\n### 1. DM 系列——最常用的通用参考基因组\n\n材料全名为 **DM1-3 516 R44**，属于 *Solanum tuberosum* Group Phureja，是双单倍体材料。\n\n| 常见组装名 | 说明 |\n|---|---|\n| **DMv4.03** | 经典旧版，很多早期论文和数据库仍在使用 |\n| **DMv6.1** | 改进版染色体级组装 |\n| **DMv8.1** | 高质量长读长重组装版本 |\n| **DMv8.2** | 当前较新的常用版本，适合新建分析流程 |\n| **PGSC_DM_v3.4 / PGSC v3.4** | 更早期的 PGSC 版本名称，常见于旧基因编号和旧注释文件 |\n\n如果没有特定历史数据兼容要求，通常优先选择 **DMv8.2**。  \n需要注意，旧版常见基因号类似 `PGSC0003DMG...`，DMv8.2 常见基因号类似 `DM8.2_chr01G...`，不同版本之间不能直接混用。\n\n### 2. 其他单倍型或二倍体组装\n\n| 组装/材料名 | 特点 |\n|---|---|\n| **E4-63** | 高度纯合的二倍体自交系，常用于遗传和基因组比较 |\n| **A6-26** | 二倍体材料 PG6359 的多代自交后代 |\n| **RH89-039-16 / RH** | 经典二倍体马铃薯材料，通常提供 H1、H2 两套单倍型 |\n| **Solyntus** | 高度纯合二倍体材料，常见于育种和比较基因组研究 |\n| **M6** | *S. chacoense* 自交系，主要用于野生种、抗性和驯化研究 |\n\n### 3. 四倍体栽培种单倍型组装\n\n这些组装通常包含 **4 套单倍型**，适合等位基因、单倍型和泛基因组分析：\n\n- **C88**：Cooperation-88 / 合作88  \n- **Otava**：有时写作 **Ota_O**\n- **Désirée**：有时写作 **Des**\n- **Russet Burbank**：有时写作 **RuB_R**\n- **Katahdin**：有时写作 **Kat_H**\n- **Ackersegen**：有时写作 **Ack_F**\n- **Atlantic**\n- **Shepody**\n- **White Rose**：有时写作 **WhR_A**\n- **Lumper**：有时写作 **Lum_I**\n\n### 实际选择建议\n\n- **RNA-seq、基因功能、常规变异分析**：优先 **DMv8.2**\n- **复现早期研究或使用旧 PGSC 基因号**：选择 **DMv4.03/PGSC**\n- **二倍体单倍型分析**：选择 **RH89-039-16**\n- **四倍体等位基因或育种材料研究**：选择 **C88、Otava、Désirée、Russet Burbank**\n- **野生种抗性研究**：可考虑 **M6** 或其他野生种组装\n\n其中最需要记住的主线是：**DMv4.03 → DMv6.1 → DMv8.1 → DMv8.2**。不同版本的染色体坐标和基因编号可能发生变化，分析时基因组 FASTA、GFF3 和基因 ID 版本必须保持一致。",
+      "system_B_answer": "【直接结论】斑马鱼参考基因组现行主流组装为 1 个：GRCz11（NCBI GCF_000002035.6，taxon 7955，Ensembl release 116）[Ensembl/NCBI]；本系统基因库锚定于此组装。\n\n【组装沿革】\n  1. GRCz11（当前本库锚定，Zv11）— Ensembl / NCBI 长期默认参考；本库数据版本 [本地库锚定]。\n  2. GRCz12tu — NCBI Datasets 近年公布的现行参考组装（GCF_049306965.1），与 GRCz11 坐标/部分 ID 不兼容。\n  3. GRCz10（Zv10）— 上一代参考组装，部分旧文献仍引用。\n  4. Zv9 / Zv8 及更早 — 早期 Sanger 组装，新研究较少使用。\n\n【使用注意】\n  · GRCz11 与 GRCz12tu（以及 GRCz10）的基因组坐标、部分 Ensembl ID 不可直接混用；跨版本必须先做 ID/坐标映射。\n  · Ensembl ID 可带版本后缀（如 ENSDARG0000000001.5），换组装后部分 ID 会变化。\n  · 品系差异：参考基因组多基于 Tuebingen（TU）；AB 品系另有 DrAB1 等补充组装，≠ GRCz11。\n\n【官方入口】NCBI Datasets → \n维护方：Wellcome Sanger Institute + ZFIN 社区（Ensembl Danio rerio）。",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P19",
+      "type": "method",
+      "zebrafish_q": "斑马鱼如何做突变体筛选定位",
+      "potato_q": "马铃薯 GWAS 常用来研究哪些性状",
+      "system_A_answer": "**斑马鱼突变体筛选定位的核心路径是：正向遗传学（ENU/插入诱变→连锁定位）与反向遗传学（CRISPR/TALEN→靶向基因型筛选）两条主线，定位手段从传统SSLP/RAPD标记走向全外显子/全基因组测序。**\n\n- **正向遗传学（表型→基因）**：先用ENU化学诱变或逆转录病毒插入制造随机突变，通过可诱导诱变筛选分离胚胎或成体突变体 [6][14]，再对表型异常个体做遗传定位。经典做法是用SSLP（微卫星）或RAPD标记做全基因组连锁分析，定位区间后逐步缩小候选基因 [11]；现代做法直接对混合池（bulked segregant）做全外显子或全基因组测序，一步锁定突变位点 [15]。\n- **反向遗传学（基因→表型）**：用CRISPR/Cas9或TALENs靶向敲除候选基因，通过插入缺失检测（如荧光PCR、高分辨率熔解曲线、Sanger测序）筛选携带移码或点突变的F1个体 [1][2][4][5][12][13]。点突变敲入可用单链寡核苷酸供体配合CRISPR实现，并用荧光PCR高效筛选 [1][2]。\n- **定位与验证的关键细节**：突变体表型外显率可变时，需用多代回交确认遗传连锁 [11]；等位基因特异性表达会影响突变体转录本丰度，需用等位基因特异的检测区分真突变与RNA衰减 [7]；对点突变或表位标签敲入，荧光PCR筛选流程可显著提高效率 [1]。\n- **特殊策略**：Cre重组酶结合突变Lox位点可实现定点基因整合，用于构建复杂等位基因 [9]；顺序诱变可模拟多基因驱动的疾病模型（如Spitz黑色素瘤）[10]；小分子筛选可结合模块化变异靶向特定发育过程（如体节形成）[3]。\n\n**一句话概括**：正向遗传学靠随机诱变加连锁/测序定位，反向遗传学靠靶向编辑加基因型筛选，现代流程普遍以测序替代传统标记定位。\n\n[1] A robust pipeline for efficient knock-in of point mutations and epitope tags in zebrafish using fluorescent PCR based screening. 2022. PMID:36476416\n[2] Optimized knock-in of point mutations in zebrafish using CRISPR/Cas9. 2018. PMID:29905858\n[3] Small molecule screen in embryonic zebrafish using modular variations to target segmentation. 2017. PMID:29196645\n[4] A Comprehensive Review of Indel Detection Methods for Identification of Zebrafish Knockout Mutants Generated by Genome-Editing Nucleases. 2022. PMID:35627242\n[5] A rapid and effective method for screening, sequencing and reporter verification of engineered frameshift mutations in zebrafish. 2017. PMID:28280001\n[6] A novel inducible mutagenesis screen enables to isolate and clone both embryonic and adult zebrafish mutants. 2017. PMID:28871129\n[7] Allele-specific gene expression can underlie altered transcript abundance in zebrafish mutants. 2022. PMID:35175196\n[9] Site-directed gene integration in transgenic zebrafish mediated by cre recombinase using a combination of mutant Lox sites. 2007. PMID:17503154\n[10] Modeling Spitz melanoma in zebrafish using sequential mutagenesis. 2022. PMID:36017742\n[11] Molecular-Genetic Mapping of Zebrafish Mutants with Variable Phenotypic Penetrance. 2011. PMID:22039502\n[12] Highly efficient generation of heritable zebrafish gene mutations using homo- and heterodimeric TALENs. 2012. PMID:22684503\n[13] Rapid Reverse Genetic Screening Using CRISPR in Zebrafish. 2016. PMID:26153617\n[14] Efficient induction of point mutations allowing recovery of specific locus mutations in zebrafish. 1995. PMID:7597068\n[15] Forward genetics combined with unsupervised classifications identified zebrafish mutants affecting biliary system formation. 2024. PMID:38729406\n\n参考文献：\n[1] 利用荧光PCR筛选高效敲入斑马鱼点突变和表位标签的稳健流程. 2022. PMID:36476416.\n[2] 利用CRISPR/Cas9优化斑马鱼点突变敲入. 2018. PMID:29905858.\n[3] 利用模块化变异在胚胎斑马鱼中进行小分子筛选以靶向体节形成. 2017. PMID:29196645.\n[4] 用于鉴定基因组编辑核酸酶产生的斑马鱼敲除突变体的插入缺失检测方法综述. 2022. PMID:35627242.\n[5] 一种快速有效的斑马鱼工程移码突变筛选、测序及报告基因验证方法. 2017. PMID:28280001.\n[6] 一种新型诱导诱变筛选能够分离和克隆胚胎和成年斑马鱼突变体. 2017. PMID:28871129.\n[7] 等位基因特异性基因表达可导致斑马鱼突变体转录本丰度改变. 2022. PMID:35175196.\n[8] 突变型人FUS在转基因斑马鱼原代培养细胞中普遍错误定位并产生持续应激颗粒. 2014. PMID:24912067.\n[9] 利用Cre重组酶结合突变Lox位点在转基因斑马鱼中进行定点基因整合. 2007. PMID:17503154.\n[10] 利用顺序诱变在斑马鱼中模拟Spitz黑色素瘤. 2022. PMID:36017742.\n[11] 斑马鱼突变体的分子遗传定位，具有可变表型外显率. 2011. PMID:22039502.\n[12] 利用同源和异源二聚体TALENs高效生成可遗传的斑马鱼基因突变. 2012. PMID:22684503.\n[13] 使用CRISPR在斑马鱼中进行快速反向遗传筛选. 2016. PMID:26153617.\n[14] 高效诱导点突变以恢复斑马鱼特定基因座突变. 1995. PMID:7597068.\n[15] 正向遗传学结合无监督分类鉴定影响胆道系统形成的斑马鱼突变体. 2024. PMID:38729406.\n[16] 斑马鱼foxP2锌指核酸酶突变体具有正常的轴突寻路. 2012. PMID:22937139.",
+      "system_B_answer": "马铃薯 GWAS（全基因组关联分析）主要用于解析**复杂数量性状**，常见研究方向包括：\n\n1. **产量与农艺性状**\n   - 单株块茎产量、商品薯产量\n   - 块茎数量、平均薯重、大小分布\n   - 株高、主茎数、冠层性状\n   - 生育期、成熟期和早熟性\n\n2. **块茎外观与形态**\n   - 块茎形状、长宽比\n   - 芽眼深度\n   - 薯皮和薯肉颜色\n   - 裂薯、空心、次生生长、链生薯等缺陷\n\n3. **品质与加工性状**\n   - 干物质、比重、淀粉含量及淀粉产量\n   - 还原糖、蔗糖含量\n   - 油炸色泽、薯片和薯条加工品质\n   - 淀粉直链淀粉含量、磷含量、糊化及质构特性\n\n4. **营养与生化成分**\n   - 蛋白质、维生素C\n   - 酚类、黄酮、花青素、类胡萝卜素\n   - 抗氧化活性\n   - 铁、锌、钙、钾等矿质元素及镉等有害元素积累\n\n5. **病虫害抗性**\n   - 晚疫病抗性\n   - 马铃薯胞囊线虫抗性，如白线虫和金线虫\n   - 普通疮痂病等细菌或真菌病害抗性\n   - PVY等病毒抗性\n   - 部分害虫抗性\n\n6. **非生物胁迫耐受性**\n   - 干旱耐受性\n   - 高温耐受性及高温引起的块茎缺陷\n   - 低温、盐胁迫等\n   - 相关指标还包括叶绿素、气孔导度、NDVI和叶面积等生理性状\n\n7. **块茎休眠与贮藏性**\n   - 休眠期长短、萌芽时间\n   - 贮藏损耗\n   - 低温糖化\n   - 贮藏后的加工品质\n\n总体上，马铃薯 GWAS 最常研究的是 **“产量—成熟期—块茎品质—抗病抗逆”** 四大类性状。实际分析时需要特别考虑栽培马铃薯的**自源四倍体、等位基因剂量、亲缘关系、群体结构及基因型×环境互作**，因此常使用 GWASpoly 等适合多倍体的模型。\n\n参考综述及实例：  \n- 马铃薯农艺和品质性状 GWAS 综述：DOI **10.3390/agronomy14102214**  \n- 晚疫病与胞囊线虫抗性：DOI **10.3389/fpls.2023.1211472**  \n- 干旱相关农艺和生理性状：DOI **10.3390/plants12040734**  \n- 块茎形状与芽眼深度：DOI **10.3389/fpls.2023.1080666**",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    },
+    {
+      "pair_id": "P20",
+      "type": "trait",
+      "zebrafish_q": "asip1 和体色反荫蔽有什么关系",
+      "potato_q": "光照为什么会让块茎变绿",
+      "system_A_answer": "马铃薯块茎虽然长在地下，但本质上是**变态茎**，其表层细胞仍保留对光的响应能力。\n\n当块茎受到光照时：\n\n1. **光受体感知光信号**，启动光形态建成相关程序；\n2. 表皮和皮层细胞中的无色**淀粉体**逐渐转变为具有类囊体结构的**叶绿体**；\n3. 叶绿素合成相关基因被激活，**叶绿素a和叶绿素b积累**；\n4. 叶绿素反射绿光，因此块茎表面呈绿色。\n\n可概括为：\n\n> **光照 → 淀粉体转化为叶绿体 → 叶绿素积累 → 块茎变绿**\n\n需要特别注意：\n\n- 绿色本身来自**叶绿素**，叶绿素并没有明显毒性；\n- 但光照还常会同时促进有毒甾体糖苷生物碱——主要是**α-茄碱和α-卡茄碱**——的积累；\n- 叶绿素与糖苷生物碱受相对独立的遗传和代谢途径调控，所以**绿色深浅不能准确表示毒素含量**，但明显绿化是重要的风险警示；\n- 严重变绿、发苦或大量萌芽的块茎不宜食用；烹煮不能可靠地完全去除糖苷生物碱。\n\n田间可通过充分培土、防止露薯来减少绿化；采后应采用**避光储藏和遮光包装**。光照强度越高、时间越长，通常绿化越严重，品种和薯皮厚度也会影响敏感程度。\n\n参考：DOI **10.1111/NPH.16334**、**10.1104/PP.75.1.142**、**10.3389/FPLS.2020.00753**。",
+      "system_B_answer": "**斑马鱼体色反荫蔽（countershading）由 `asip1` 基因控制的色素细胞背腹梯度决定，遗传起主导作用，环境（光照）仅作修饰，表型 = 基因型 + 环境 + G×E。** 反荫蔽指背部深色、腹部浅色的体色模式，其形成取决于背部与腹部黑色素细胞分化程度的差异。\n\n- **遗传（主效）**：`asip1`（Agouti信号蛋白1）在腹部表达，抑制黑色素细胞分化，形成腹侧浅色；背部低表达则保留深色，从而建立背腹梯度 [4]。跨物种转基因实验证实，`asip1` 的调控序列足以在斑马鱼中重现内源表达模式，说明该梯度由顺式调控元件决定 [3]。\n- **遗传（剂量效应）**：`asip1` 过表达会降低肠道屏障功能（电阻下降、通透性升高）[1]，提示该基因剂量不仅影响色素，还影响组织完整性；但反荫蔽本身主要依赖表达空间差异而非总量。\n- **环境（光照）**：光照可微调色素细胞活性与分布，但无法逆转 `asip1` 建立的腹侧浅色格局，属次要修饰因素。\n- **性别**：目前无证据表明 `asip1` 反荫蔽模式存在性别二态性；性别相关基因（如 `zglp-1`、`ambra1b`）影响生殖与性逆转，不直接参与体色 [9][12]。\n\n**一句话概括：反荫蔽主要由 `asip1` 的背腹表达梯度（遗传）决定，光照等环境因素仅起微调作用，遗传权重远大于环境。**\n\n参考文献：\n[1] Transgenic models reveal Agouti overexpression regulates intestinal integrity, permeability and electrogenic amino acid transport in zebrafish. 2022. ENO:12686.\n[3] eGFP expression from asip1 BAC transgenes mirrors endogenous asip1 in adult zebrafish and spotted gar. 2017. ENO:24824.\n[4] Countershading in zebrafish results from an Asip1 controlled dorsoventral gradient of pigment cell differentiation. 2019. ENO:21297.\n[9] Zglp-1 is a novel essential transcriptional regulator for sex reversal in zebrafish. 2025. ENO:33805.\n[12] Zebrafish ambra1b knockout reveals a novel role for Ambra1 in primordial germ cells survival, sex differentiation and reproduction. 2023. ENO:37938.",
+      "potato_missing": false,
+      "score_form": {
+        "direct_first": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "factor_structure": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ge_formula": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "inline_cite": {
+          "A": null,
+          "B": null,
+          "max": 2
+        },
+        "ref_count": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "recency": {
+          "A": null,
+          "B": null,
+          "max": 1
+        },
+        "no_review_shell": {
+          "A": null,
+          "B": null,
+          "max": 1
+        }
+      }
+    }
+  ]
+}

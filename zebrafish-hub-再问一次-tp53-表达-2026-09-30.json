@@ -1,0 +1,42 @@
+{
+  "app": "Zebrafish Hub",
+  "exported_at": "2026-09-30T12:36:42.436Z",
+  "title": "再问一次 tp53 表达",
+  "message_count": 4,
+  "messages": [
+    {
+      "role": "user",
+      "content": "tp53 的表达与来源"
+    },
+    {
+      "role": "bot",
+      "content": "**tp53 的表达要点**\n- Bgee 表达分 cleaving embryo 97.9/100（表达存在性置信分，非丰度）\n- Expression Atlas TPM：成体[胸腺] 45.2 TPM\n\n**注意**：两组不可比。\n\n[1] Bgee v15.2 表达图谱用于 tp53（RNA-seq + ZFIN in situ）。Bgee. 2025.\n[2] Expression Atlas E-ERAD-475 胚胎时间序列 TPM。EMBL-EBI. 2024.\n[3] tp53 in zebrafish development. PMID 12345678."
+    },
+    {
+      "role": "user",
+      "content": "再问一次 tp53 表达"
+    },
+    {
+      "role": "bot",
+      "content": "**tp53 的表达要点**\n- Bgee 表达分 cleaving embryo 97.9/100（表达存在性置信分，非丰度）\n- Expression Atlas TPM：成体[胸腺] 45.2 TPM\n\n**注意**：两组不可比。\n\n[1] Bgee v15.2 表达图谱用于 tp53（RNA-seq + ZFIN in situ）。Bgee. 2025.\n[2] Expression Atlas E-ERAD-475 胚胎时间序列 TPM。EMBL-EBI. 2024.\n[3] tp53 in zebrafish development. PMID 12345678."
+    }
+  ],
+  "api_history": [
+    {
+      "role": "user",
+      "content": "tp53 的表达与来源"
+    },
+    {
+      "role": "assistant",
+      "content": "**tp53 的表达要点**\n- Bgee 表达分 cleaving embryo 97.9/100（表达存在性置信分，非丰度）\n- Expression Atlas TPM：成体[胸腺] 45.2 TPM\n\n**注意**：两组不可比。\n\n[1] Bgee v15.2 表达图谱用于 tp53（RNA-seq + ZFIN in situ）。Bgee. 2025.\n[2] Expression Atlas E-ERAD-475 胚胎时间序列 TPM。EMBL-EBI. 2024.\n[3] tp53 in zebrafish development. PMID 12345678."
+    },
+    {
+      "role": "user",
+      "content": "再问一次 tp53 表达"
+    },
+    {
+      "role": "assistant",
+      "content": "**tp53 的表达要点**\n- Bgee 表达分 cleaving embryo 97.9/100（表达存在性置信分，非丰度）\n- Expression Atlas TPM：成体[胸腺] 45.2 TPM\n\n**注意**：两组不可比。\n\n[1] Bgee v15.2 表达图谱用于 tp53（RNA-seq + ZFIN in situ）。Bgee. 2025.\n[2] Expression Atlas E-ERAD-475 胚胎时间序列 TPM。EMBL-EBI. 2024.\n[3] tp53 in zebrafish development. PMID 12345678."
+    }
+  ]
+}

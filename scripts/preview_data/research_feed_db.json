@@ -1,0 +1,75 @@
+{
+  "_fetched_at": "2026-10-15 20:16:38",
+  "_source": "<lab-server> via -h127.0.0.1 -P3307 -uzebrafish",
+  "papers_total": 32549,
+  "years": [
+    {
+      "year": "2026",
+      "count": 670
+    },
+    {
+      "year": "2025",
+      "count": 1509
+    },
+    {
+      "year": "2024",
+      "count": 1362
+    },
+    {
+      "year": "2023",
+      "count": 1439
+    },
+    {
+      "year": "2022",
+      "count": 2019
+    },
+    {
+      "year": "2021",
+      "count": 2406
+    }
+  ],
+  "updates": [
+    {
+      "event_time": "2026-08-27 12:24:10",
+      "actor": "inbox_register",
+      "action": "register_pdfku_gold",
+      "index_version": "",
+      "detail": "{\"campaign\": \"pdfku_inbox_172_v1\", \"inserted_paper\": 0, \"updated_paper\": 34, \"upserted_gold\": 34, \"skipped\": 0}"
+    },
+    {
+      "event_time": "2026-08-16 17:14:14",
+      "actor": "inbox_register",
+      "action": "register_pdfku_gold",
+      "index_version": "",
+      "detail": "{\"campaign\": \"pdfku_inbox_172_v1\", \"inserted_paper\": 33, \"updated_paper\": 1, \"upserted_gold\": 34, \"skipped\": 0}"
+    },
+    {
+      "event_time": "2026-08-15 13:55:45",
+      "actor": "strict_compliance_fix",
+      "action": "upgrade_gold_status_ready",
+      "index_version": "",
+      "detail": "{\"action\": \"upgrade_meta_preview_to_ready\", \"ok_files\": 13478, \"short_file\": 0, \"definition\": \"gold_status=ready means body_path points to gold fulltext JSON; body_text optional/NULL (not stuffed into"
+    },
+    {
+      "event_time": "2026-08-14 22:25:56",
+      "actor": "system",
+      "action": "register_shards",
+      "index_version": "qwen3_4b_v1",
+      "detail": "{\"registered\": 669, \"index_dir\": \"/data/zoujin/deng/zebrafish_runtime/faiss_pubmed_yes_qwen3_4b_v1\"}"
+    },
+    {
+      "event_time": "2026-08-14 14:38:52",
+      "actor": "system",
+      "action": "register_shards",
+      "index_version": "gte_mbase_v1",
+      "detail": "{\"registered\": 267, \"index_dir\": \"/data/zoujin/deng/zebrafish_runtime/faiss_pubmed_yes_gte_mbase_v1\"}"
+    },
+    {
+      "event_time": "2026-08-14 14:38:48",
+      "actor": "backfill_literature_fulltext_gold_from_corpus",
+      "action": "backfill_fulltext_gold_meta",
+      "index_version": "",
+      "detail": "{\"corpus\": \"data/literature/exist_eno_corpus.jsonl\", \"scanned\": 8012, \"upserted\": 7957, \"skipped\": 55}"
+    }
+  ]
+}

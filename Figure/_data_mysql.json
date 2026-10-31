@@ -1,0 +1,209 @@
+{
+  "tables": [
+    {
+      "table": "gene_expression",
+      "rows_approx": 315032,
+      "data_mb": 37.6
+    },
+    {
+      "table": "gene_alias",
+      "rows_approx": 145945,
+      "data_mb": 10.5
+    },
+    {
+      "table": "gene_reference",
+      "rows_approx": 142854,
+      "data_mb": 7.5
+    },
+    {
+      "table": "name_hit_unique",
+      "rows_approx": 126480,
+      "data_mb": 17.5
+    },
+    {
+      "table": "gene_go",
+      "rows_approx": 113410,
+      "data_mb": 8.5
+    },
+    {
+      "table": "gene_xref",
+      "rows_approx": 81012,
+      "data_mb": 5.5
+    },
+    {
+      "table": "literature_pubmed",
+      "rows_approx": 51311,
+      "data_mb": 1693.9
+    },
+    {
+      "table": "gene_kegg",
+      "rows_approx": 36590,
+      "data_mb": 4.5
+    },
+    {
+      "table": "literature_paper",
+      "rows_approx": 32863,
+      "data_mb": 15.5
+    },
+    {
+      "table": "literature_vector_chunk",
+      "rows_approx": 32651,
+      "data_mb": 4.5
+    },
+    {
+      "table": "literature_fulltext_gold",
+      "rows_approx": 29221,
+      "data_mb": 2753.1
+    },
+    {
+      "table": "gene_basic",
+      "rows_approx": 26428,
+      "data_mb": 5.5
+    },
+    {
+      "table": "gene_name_bundle",
+      "rows_approx": 25865,
+      "data_mb": 5.5
+    },
+    {
+      "table": "gene_assembly_xref",
+      "rows_approx": 22721,
+      "data_mb": 2.5
+    },
+    {
+      "table": "ensembl_id_version",
+      "rows_approx": 14008,
+      "data_mb": 1.5
+    },
+    {
+      "table": "name_resolve_collision",
+      "rows_approx": 6923,
+      "data_mb": 1.5
+    },
+    {
+      "table": "literature_vector_shard",
+      "rows_approx": 1892,
+      "data_mb": 1.5
+    },
+    {
+      "table": "literature_wos",
+      "rows_approx": 1225,
+      "data_mb": 81.5
+    },
+    {
+      "table": "homology_gene",
+      "rows_approx": 254,
+      "data_mb": 0.0
+    },
+    {
+      "table": "journal_metric",
+      "rows_approx": 50,
+      "data_mb": 0.0
+    },
+    {
+      "table": "hub_user_session",
+      "rows_approx": 10,
+      "data_mb": 0.0
+    },
+    {
+      "table": "hub_user",
+      "rows_approx": 8,
+      "data_mb": 0.0
+    },
+    {
+      "table": "literature_pipeline_job",
+      "rows_approx": 6,
+      "data_mb": 0.0
+    },
+    {
+      "table": "literature_sync_log",
+      "rows_approx": 6,
+      "data_mb": 0.0
+    },
+    {
+      "table": "workflow_run_step",
+      "rows_approx": 6,
+      "data_mb": 0.0
+    },
+    {
+      "table": "workflow_definition",
+      "rows_approx": 5,
+      "data_mb": 0.0
+    },
+    {
+      "table": "workflow_run",
+      "rows_approx": 4,
+      "data_mb": 0.0
+    },
+    {
+      "table": "assembly_registry",
+      "rows_approx": 2,
+      "data_mb": 0.0
+    },
+    {
+      "table": "hub_user_conversations",
+      "rows_approx": 2,
+      "data_mb": 0.0
+    },
+    {
+      "table": "literature_import_job",
+      "rows_approx": 1,
+      "data_mb": 0.0
+    },
+    {
+      "table": "literature_pubmed_judgement",
+      "rows_approx": 0,
+      "data_mb": 0.0
+    },
+    {
+      "table": "tenant",
+      "rows_approx": 0,
+      "data_mb": 0.0
+    },
+    {
+      "table": "gene",
+      "rows_approx": 0,
+      "data_mb": 0.0
+    }
+  ],
+  "exact": {
+    "gene_expression": 319344,
+    "gene_reference": 161298,
+    "gene_alias": 145439,
+    "gene_go": 110966,
+    "gene_xref": 80212,
+    "gene_kegg": 36959,
+    "literature_paper": 32549,
+    "gene_basic": 26321,
+    "gene_assembly_xref": 22628,
+    "homology_gene": 268,
+    "assembly_registry": 2
+  },
+  "extra": {
+    "kegg_pathways": [
+      "1520"
+    ],
+    "go_terms": [],
+    "genes_with_refs": [
+      "12882"
+    ],
+    "genes_with_expr": [
+      "24245"
+    ],
+    "xref_grc12tu": [
+      "22628"
+    ],
+    "xref_grc11": [
+      "0"
+    ],
+    "homology_species": [
+      "2"
+    ],
+    "homology_genes": [
+      "136"
+    ],
+    "genes_ensembl": [
+      "25432"
+    ]
+  }
+}

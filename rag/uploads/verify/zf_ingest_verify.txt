@@ -1,0 +1,3 @@
+【Zebrafish Hub ingest verify】
+Danio rerio tp53 is a tumor suppressor frequently used in zebrafish models.
+This fixture validates upload → store → list_knowledge_sources.

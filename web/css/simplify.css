@@ -1,0 +1,530 @@
+/* ==========================================================================
+   Zebrafish Hub · SIMPLIFY 层（M1）
+   目标：简单又高级 —— 单一强调色 / 大留白 / 去变色与波浪动效 / 单栏导航
+   加载顺序：必须在 style.css 之后；本文件可整文件删除即回退到旧观感
+   保留：首页精灵鱼（fish-swim.css 不受影响）、消息入场动画
+   ========================================================================== */
+
+/* ── 1. 设计令牌（统一收敛） ─────────────────────────────────────────────── */
+:root {
+  --bg: #FBFCFD;
+  --panel: #FFFFFF;
+  --panel-2: #F6F8FA;
+  --line: #E6EAF0;
+  --line-strong: #D5DBE3;
+  --ink: #0F1720;
+  --ink-2: #48525E;
+  --ink-3: #7B8592;
+  --accent: #0F766E;
+  --accent-ink: #0B5F58;
+  --accent-weak: #E9F4F2;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, .05);
+  --font-ui: "Figtree", "Segoe UI", system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+  --font-display: "Figtree", "Segoe UI", system-ui, "Microsoft YaHei", sans-serif;
+  --composer-h: 104px;
+}
+
+/* ── 2. 画布：静态柔和渐变，去掉极光 + 网格 + 固定附着 ───────────────────── */
+/* 注意：旧层在多个位置写了极光底（body.theme-reef / body.theme-atelier），
+   此处用同等选择器 + !important 强制收敛，避免层层追加重叠。 */
+body.theme-atelier,
+body.theme-reef,
+body.theme-atelier.theme-reef {
+  background: linear-gradient(180deg, #F6F8FB 0%, #FBFCFD 46%, #F4F7F8 100%) !important;
+  background-attachment: fixed;
+  color: var(--ink);
+}
+body.theme-atelier::before,
+body.theme-reef::before,
+body.theme-atelier::after,
+body.theme-reef::after { display: none !important; }
+
+/* ── 3. 顶栏：单栏、实色、无玻璃、无流光 ─────────────────────────────────── */
+body.theme-atelier .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  padding: 8px 18px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+body.theme-atelier .brand h1 { font-size: 17px; letter-spacing: -.01em; }
+body.theme-atelier .brand p {
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+body.theme-atelier .logo,
+body.theme-atelier .logo-mark { box-shadow: none; border-radius: 10px; }
+body.theme-atelier .logo { border: 1px solid var(--line); }
+
+/* 导航：6 项 + 2 下拉（旧层在 ≤1100px 把 .top-nav 隐藏了，这里必须强制可见） */
+.top-nav { display: flex !important; align-items: center; }
+body.theme-atelier .top-nav { gap: 2px; flex-wrap: wrap; align-items: center; }
+body.theme-atelier .top-nav-link {
+  padding: 7px 11px;
+  border-radius: 8px;
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: 13.5px;
+  transition: background .12s linear, color .12s linear;
+}
+body.theme-atelier .top-nav-link:hover {
+  background: var(--accent-weak);
+  color: var(--accent-ink);
+  transform: none;
+}
+body.theme-atelier .top-nav-link.active {
+  background: var(--accent-weak);
+  color: var(--accent-ink);
+  box-shadow: none;
+}
+
+.nav-item { position: relative; }
+.nav-caret { font-size: 9px; opacity: .55; margin-left: 3px; }
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 236px;
+  padding: 6px;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(16, 24, 40, .10);
+  z-index: 80;
+  display: none;
+}
+.nav-item.open > .nav-menu { display: block; }
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--ink-2);
+  font-size: 13px;
+  text-decoration: none;
+}
+.nav-menu a:hover { background: var(--panel-2); color: var(--ink); }
+.nav-menu a.active { background: var(--accent-weak); color: var(--accent-ink); }
+.nav-menu a small { color: var(--ink-3); font-size: 11px; }
+.nav-menu .nav-sep { height: 1px; margin: 5px 8px; background: var(--line); }
+
+/* ── 3.5 去掉与顶部重复的左侧栏（保留 DOM，删除本文件即回退） ─────────── */
+.shell { grid-template-columns: minmax(0, 1fr) !important; }
+.side-rail { display: none !important; }
+
+/* ── 4. 去装饰动效（波浪 / 浮动 / 呼吸 / 流光） ─────────────────────────── */
+.wave-layer,
+.wave-thumb,
+.wave-strip,
+.wave-orb,
+.wave-delay,
+.home-stage-caustic,
+.home-stage-veil,
+.chat-empty-glow,
+.viz-a, .viz-b, .viz-c,
+.module-card::before, .module-card::after {
+  animation: none !important;
+  transition: none !important;
+}
+.wave-layer, .home-stage-caustic, .home-stage-veil, .chat-empty-glow { display: none !important; }
+.module-card.wave-card:hover { transform: none; }
+.module-thumb {
+  background: linear-gradient(180deg, #EEF4F3, #E6F0EE) !important;
+}
+.module-thumb::after { display: none !important; }
+
+/* 卡片：去掉彩色渐变，改素底 + 描边 */
+body.theme-atelier .badge,
+.badge {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+/* ── 5. 首页：三段式（Hero 搜索 / Tools 宫格 / 今日文献） ───────────────── */
+.home-stage { min-height: 240px; padding: 28px 24px 22px; }
+.home-stage-media { display: none !important; }
+.home-brand-hero { font-size: 13px !important; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-ink) !important; text-shadow: none !important; margin: 0 0 6px !important; }
+.home-headline { font-size: 26px !important; text-shadow: none !important; color: var(--ink) !important; }
+.home-lead { font-size: 13.5px; color: var(--ink-2); max-width: 620px; }
+.home-search { max-width: 720px; }
+.home-metrics { padding: 18px 24px; }
+.home-stat strong { font-size: 19px; }
+.home-stat span { font-size: 11.5px; color: var(--ink-3); }
+
+.module-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+  padding: 0 24px 8px;
+}
+.module-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: none;
+  overflow: hidden;
+}
+.module-card:hover { border-color: var(--accent); box-shadow: var(--shadow-1); }
+.module-card h4 { margin: 10px 12px 3px; font-size: 14px; }
+.module-card p { margin: 0 12px 12px; font-size: 11.5px; color: var(--ink-3); }
+.module-thumb { height: 56px; }
+
+/* ── 6. 问答页：查询区收窄、结果区放大、输入框不再遮挡 ─────────────────── */
+#view-chat { display: flex; flex-direction: column; overflow: hidden; }
+#view-chat .chat-topbar { flex: none; padding: 8px 16px 0; }
+#view-chat .messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding-bottom: 16px !important;
+}
+#view-chat .input-area {
+  flex: none;
+  position: sticky;
+  bottom: 0;
+  margin: 0;
+  padding: 10px 16px 12px;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+#view-chat .input-area textarea { min-height: 40px; max-height: 132px; }
+
+/* 空态瘦身（原来占掉大半个屏） */
+.chat-empty-state { padding: 18px 16px 8px !important; }
+.chat-hero-mark img { width: 56px; height: 56px; }
+.chat-empty-brand { display: none !important; }
+.chat-empty-title { font-size: 19px !important; margin-bottom: 4px !important; }
+.chat-empty-sub { font-size: 12.5px; color: var(--ink-3); max-width: 560px; margin: 0 auto 10px; }
+.chat-quick-prompts { gap: 6px; }
+.quick-prompt { padding: 5px 10px; font-size: 12px; }
+
+/* 右侧详情栏更突出 */
+.detail-panel {
+  border-left: 1px solid var(--line);
+  background: var(--panel);
+}
+.detail-panel h3 { font-size: 13px; color: var(--ink-3); letter-spacing: .04em; text-transform: uppercase; }
+
+/* ── 7. 来源徽标 / 溯源 / 单位（要求 3、4、8 的样式基座） ────────────────── */
+.src-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-2);
+  font-size: 11px;
+  line-height: 18px;
+  text-decoration: none;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.src-badge:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+.src-badge .src-db { font-weight: 600; }
+.src-badge .src-ver { color: var(--ink-3); }
+.src-badge.is-local { border-style: dashed; }
+.src-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+
+.metric-unit { color: var(--ink-3); font-size: 11.5px; margin-left: 2px; }
+.metric-info {
+  display: inline-block;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--ink-3);
+  font-size: 9.5px;
+  line-height: 11px;
+  text-align: center;
+  cursor: help;
+  vertical-align: super;
+}
+
+.provenance {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+.provenance summary { cursor: pointer; color: var(--ink-2); font-weight: 600; }
+.provenance .prov-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+
+/* ── 7.5 功能页（Tools）：输入窄、结果宽（原来 1.05fr:.95fr，输入反而比结果宽） ── */
+.feature-stage { padding: 20px 24px 14px !important; min-height: 0 !important; background: none !important; }
+body.theme-atelier .feature-stage { background: none !important; }
+body.theme-atelier .feature-lead,
+.feature-lead { color: var(--ink-2) !important; opacity: 1 !important; }
+.feature-eyebrow { color: var(--ink-3) !important; }
+#featureTitle, .feature-stage-copy h2 { color: var(--ink) !important; }
+.feature-foot-note { color: var(--ink-3) !important; }
+.feature-stage-media,
+.feature-stage-caustic,
+.feature-stage-veil,
+.feature-empty-orb { display: none !important; }
+.feature-brand-line { font-size: 12px !important; letter-spacing: .16em; color: var(--accent-ink) !important; text-shadow: none !important; }
+.feature-stage-copy h2 { font-size: 23px !important; text-shadow: none !important; }
+.feature-lead { font-size: 13px; color: var(--ink-2); max-width: 720px; }
+.feature-pill { background: var(--panel-2) !important; border: 1px solid var(--line) !important; color: var(--ink-2) !important; }
+
+.feature-atelier .feature-layout,
+.feature-layout {
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: start;
+}
+.feature-atelier .feature-card { min-height: 0 !important; padding: 16px 18px 18px !important; }
+.feature-form-card { align-self: start; }
+.feature-out-card {
+  border: 1px solid var(--line-strong) !important;
+  box-shadow: var(--shadow-1) !important;
+  min-height: 320px !important;
+}
+.feature-out-card .feature-out-title { font-size: 15px !important; }
+.feature-card-title { font-size: 13px !important; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3) !important; }
+.feature-mount .tool-panel { max-width: none; }
+
+/* ── 8. 关于弹层（About / 数据来源与快照） ──────────────────────────────── */
+.zf-modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 32, .38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.zf-modal {
+  width: min(760px, 100%);
+  max-height: 82vh;
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(16, 24, 40, .18);
+  padding: 20px 22px;
+}
+.zf-modal h2 { margin: 0 0 6px; font-size: 17px; }
+.zf-modal h3 { margin: 16px 0 6px; font-size: 13px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+.zf-modal table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.zf-modal th, .zf-modal td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.zf-modal a { color: var(--accent-ink); }
+.zf-modal-close { float: right; }
+
+/* 按钮对比度：旧层假设按钮坐在深色/彩色渐变上，改成静态底后会白字白底 */
+.home-cta,
+.home-cta:not(.primary) {
+  background: var(--panel) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line-strong) !important;
+  box-shadow: var(--shadow-1) !important;
+  text-shadow: none !important;
+}
+.home-cta:hover { border-color: var(--accent) !important; color: var(--accent-ink) !important; }
+.home-cta.primary {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+}
+.home-cta.primary:hover { background: var(--accent-ink) !important; color: #fff !important; }
+#homeSearchBtn, .input-area button[type="submit"] {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+  text-shadow: none !important;
+}
+
+/* ── 9. 窄屏：导航仍然可用（旧层直接隐藏，现改为换行 + 精简） ──────────── */
+@media (max-width: 1100px) {
+  body.theme-atelier .top-nav { display: flex !important; }
+  .top-nav-link { padding: 6px 9px !important; font-size: 12.5px !important; }
+  .nav-menu a small { display: none; }
+}
+@media (max-width: 720px) {
+  .brand p { display: none; }
+  .nav-item.open > .nav-menu { min-width: 200px; }
+}
+
+/* ── 10. 减少动效偏好 ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ── 11. 表达数值可读性（要求 6：单位 + 来源 + 解释） ────────────────────── */
+.gene-expr-chart { display: flex; flex-direction: column; gap: 10px; }
+.gene-expr-block { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 8px 10px; background: var(--panel-2); }
+.gene-expr-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 2px; }
+.gene-expr-head strong { font-size: 12.5px; color: var(--ink); }
+.gene-expr-note { margin: 2px 0 6px; font-size: 11px; color: var(--ink-3); line-height: 1.5; }
+.gene-expr-lead { margin: 0 0 8px; font-size: 11.5px; color: var(--ink-2); line-height: 1.6; }
+.gene-expr-lead b { color: var(--ink); }
+.tissue-bar-row { display: grid; grid-template-columns: minmax(90px, 168px) 1fr auto; align-items: center; gap: 8px; padding: 2px 0; }
+.tissue-bar-row > span:first-child { font-size: 11.5px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tissue-bar-row .metric-unit { font-variant-numeric: tabular-nums; min-width: 62px; text-align: right; }
+.tissue-bar-track { height: 7px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.tissue-bar-fill { height: 100%; border-radius: 999px; background: var(--accent); opacity: .8; }
+
+/* 工具页统一溯源块：贴在面板底部，不打断表单与结果 */
+.tool-panel > .provenance { margin-top: 12px; }
+.provenance .prov-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+.provenance .prov-head strong { color: var(--ink-2); font-size: 11.5px; }
+.provenance ul { margin: 4px 0 0; padding-left: 16px; }
+.provenance li { margin: 1px 0; }
+.prov-answer-badges { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line-strong); }
+
+/* ── 12. 工具结果卡溯源（结果来自哪个库 + 本页口径） ───────────────────── */
+.tool-source-row {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line-strong);
+  align-items: center;
+}
+.tool-source-note {
+  margin: 2px 0 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+/* ── 13. 对话上文指示条（M3-1：让用户看见并能清空上下文） ───────────────── */
+.ctx-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  padding: 3px 8px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  line-height: 18px;
+  width: fit-content;
+}
+.ctx-chip button {
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 10.5px;
+  padding: 0 7px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.ctx-chip button:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+.ctx-chip.hidden { display: none !important; }
+
+/* ── 14. 工具编排时间线（M3-2） ─────────────────────────────────────────── */
+.orch-steps {
+  margin: 8px 0 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+}
+.orch-title { margin: 0 0 6px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.orch-list { margin: 0; padding: 0; list-style: none; counter-reset: orch; }
+.orch-step {
+  display: grid;
+  grid-template-columns: 20px minmax(84px, 132px) minmax(0, 1fr);
+  gap: 8px;
+  align-items: baseline;
+  padding: 3px 0;
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+.orch-step + .orch-step { border-top: 1px dashed var(--line); }
+.orch-idx {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--accent-weak);
+  color: var(--accent-ink);
+  font-size: 10px;
+  font-weight: 600;
+  transform: translateY(1px);
+}
+.orch-label { font-weight: 600; color: var(--ink); }
+.orch-meta { color: var(--ink-3); }
+.orch-open { margin-left: 6px; color: var(--accent-ink); text-decoration: none; white-space: nowrap; }
+.orch-open:hover { text-decoration: underline; }
+.orch-say { margin: 6px 0 0; font-size: 11px; color: var(--ink-3); }
+.auto-tool-open { margin-left: 8px; font-size: 11px; font-weight: 400; color: var(--accent-ink); text-decoration: none; }
+.auto-tool-open:hover { text-decoration: underline; }
+
+/* ── 15. 回答级「引用与溯源」面板（M3-3） ───────────────────────────────── */
+.prov-panel {
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+.prov-panel > summary {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: var(--ink-2);
+  font-weight: 600;
+  list-style: none;
+}
+.prov-panel > summary::-webkit-details-marker { display: none; }
+.prov-panel > summary::before { content: "▸ "; color: var(--ink-3); }
+.prov-panel[open] > summary::before { content: "▾ "; }
+.prov-panel > *:not(summary) { padding: 0 10px; }
+.prov-block + .prov-block { border-top: 1px dashed var(--line); }
+.prov-block { padding: 8px 10px; }
+.prov-block-title { margin: 0 0 4px; font-size: 11px; font-weight: 600; color: var(--ink-2); }
+.prov-kv { margin: 0; color: var(--ink-3); }
+.prov-kv b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.cit-list { margin: 0; padding-left: 4px; list-style: none; }
+.cit-list li { display: flex; gap: 6px; align-items: baseline; padding: 2px 0; color: var(--ink-3); }
+.cit-list .cit-n { color: var(--accent-ink); font-weight: 600; flex: 0 0 auto; }
+.cit-list .cit-src { flex: 0 0 auto; }
+.prov-panel .orch-steps { margin: 6px 0; border: none; background: transparent; padding: 0; }
+
+/* ── 16. 会话导出工具栏（M3-4） ───────────────────────────────────────── */
+.chat-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 6px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.chat-tools button {
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-2);
+  font-size: 11px;
+  padding: 2px 9px;
+  line-height: 18px;
+  cursor: pointer;
+}
+.chat-tools button:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+.chat-tools-note { color: var(--ink-3); }
+.chat-tools.hidden { display: none !important; }

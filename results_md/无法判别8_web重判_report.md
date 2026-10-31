@@ -1,0 +1,136 @@
+# 无法判别8 全网补摘要重判汇报
+
+- 时间：2026-07-15T16:04:32
+- 候选：1284
+- 已处理：1284
+- 成功补到网页摘要：937
+- **本轮新增是：124**
+- **是合计：237**
+- 耗时：1024s
+
+## 新增是条目
+
+- #70114 [europepmc] 4-Hydroxyacetophenone is an Antipigmentation Reagent via Inhibiting Tryrosinase  — 摘要明确将斑马鱼作为体内实验模型之一，用于系统评估4-HAP的美白活性，属于主要研究对象之一。
+- #70185 [europepmc_fuzzy] ATG7 Drives Metabolic Cell-Fate Decisions in Kidney Tubule Homeostasis and Disea — 摘要明确以斑马鱼（zebrafish pronephros）作为实验模型之一，通过基因敲除和回补实验验证ATG7在肾小管稳态中的功能，斑马鱼是主要研究对象之一。
+- #70289 [crossref] Approach of mRNA Delivery by Using Nanoparticles to Recover Endocardial Notch Si — 该研究明确以斑马鱼为动物模型，通过注射gata1a MO和NICD mRNA纳米颗粒，在斑马鱼心脏中验证Notch信号对心肌小梁形成的调控作用。
+- #70399 [europepmc_short] Assessment of tissue-specific multifactor effects in environmental -omics studie — 该研究以斑马鱼幼虫眼部组织为具体实验样本，通过高光谱成像分析氯吡硫磷-oxon暴露对眼部组织的影响，斑马鱼是主要研究对象和实验模型。
+- #70469 [europepmc] Evolution of the GDNF family ligands and receptors — 摘要明确提到斑马鱼作为脊椎动物模型，用于验证GDNF及其受体在肠道神经系统发育中的保守功能，且以斑马鱼与人类等物种进行进化比较，属于主要研究对象之一。
+- #70475 [europepmc] Prioritizing selected PPCPs on the basis of environmental and toxicogenetic conc — 该研究以斑马鱼为体内实验模型，明确使用“in vivo”评估PPCPs的发育毒性、造血和肝脏生成影响，斑马鱼是主要实验对象。
+- #70586 [crossref] MIp Interacting Protein 1 (MIP1) Plays a Role for Cardiomyopathy — 摘要明确提到“G179S和Q531R突变在斑马鱼中导致心力衰竭”，且斑马鱼作为独立实验模型用于验证基因功能，属于主要研究对象之一。
+- #70603 [europepmc] A novel isophorone-based red-emitting/NIR probe for thiophenol and its applicati — 摘要明确提到该探针应用于斑马鱼（zebrafishes）体内荧光成像，斑马鱼作为活体成像模型是研究的主要应用对象之一。
+- #70606 [crossref] Iron Does Not "Jiggle Free" in Mitochondria: Is Mitoferrin the Only Answer? — 摘要明确以斑马鱼突变体frascati为关键实验模型，用于发现mitoferrin 1作为线粒体铁转运蛋白，斑马鱼是核心研究对象。
+- #70611 [crossref] Biocompatibility evaluation of self-assembled micelles prepared from poly(lactid — 摘要明确将斑马鱼胚胎作为体内生物相容性评价模型，且“zebrafish embryonic compatibility in vivo”是核心实验部分，表明斑马鱼是主要研究对象之一。
+- #70627 [europepmc] Nano-carrier for gene delivery and bioimaging based on pentaetheylenehexamine mo — 摘要明确提到使用斑马鱼模型验证PCDs能否穿过血脑屏障，斑马鱼是本研究的关键实验模型，用于评估基因载体的体内性能。
+- #70718 [local] UV-cones differentially encode contrast in vivo to support distinct visual funct — 标题和摘要明确以斑马鱼UV视锥细胞为研究对象，探讨其在体内编码对比度的机制，斑马鱼是核心实验模型。
+- #70726 [europepmc] Synbiotic regulation of chronic intestinal inflammation by Sargassum horneri fuc — 摘要明确以DSS诱导的斑马鱼幼虫为体内实验模型，评估合生元对肠道炎症的改善效果，斑马鱼是主要研究对象。
+- #70731 [europepmc_short] Jacalin-copper sulfide nanoparticles complex enhance the antibacterial activity  — 摘要明确以斑马鱼作为感染模型，通过JCuS NPs处理感染斑马鱼并评估细菌定植减少和存活率，斑马鱼是主要实验对象。
+- #70733 [europepmc] Two-Photon Graphene Oxide/Aptamer Nanosensing Conjugate for In Vitro or In Vivo  — 摘要明确以斑马鱼（zebrafish）作为活体模型，用于验证该纳米传感系统在体内的分子探测和成像能力，斑马鱼是主要研究对象之一。
+- #70740 [europepmc] Construction of EGFR-Targeted Triptolide Liposomes Using Uniform Design Optimiza — 该研究在体内药效和发育毒性评估中明确使用斑马鱼模型，并以斑马鱼作为主要实验动物来评价脂质体的安全性和抗肿瘤效果，符合以斑马鱼为主体研究对象的标准。
+- #70777 [local] Visualizing biothiols in vivo using a dual-channel sensitive fluorescent probe — 摘要明确提到该探针用于“in vivo”成像，且斑马鱼是常见的活体成像模型，结合标题和上下文可推断其为主要研究对象。
+- #70780 [crossref] Transcription Pausing Regulates Hematopoietic Stem Cell Emergence through Fine-T — 该研究以斑马鱼spt5突变体为主要实验模型，系统探究转录暂停对造血干细胞发育的调控机制，斑马鱼是核心研究对象。
+- #70794 [europepmc_short] Therapeutic Role of Protein Tyrosine Phosphatase 1B in Parkinson's Disease via A — 摘要明确提到在斑马鱼PD模型中验证了suramin的作用，包括逆转运动缺陷和改善酪氨酸羟化酶水平，斑马鱼是主要体内实验模型之一。
+- #70847 [europepmc] 1-Naphthol Drives Liver Steatosis and Fibrosis via the CA3-CD36 Axis Independent — 该研究明确将斑马鱼作为跨物种模型之一，用于验证1-NAP通过CA3-CD36轴驱动肝脏脂肪变性和纤维化的机制，斑马鱼是主要实验对象之一。
+- #70882 [europepmc] The microRNA miR-18a regulates NeuroD and photoreceptor differentiation — 该研究以斑马鱼（zebrafish）视网膜为模型，明确使用斑马鱼胚胎进行miR-18a功能实验，包括形态素、CRISPR敲除、蛋白检测及突变体分析，核心结论基于斑马鱼发育过程。
+- #70917 [crossref] MYOD1L122R induces chemoresistance and elevates cancer stem cell programs throug — 该研究以转基因斑马鱼作为首个MYOD1L122R动物模型，并以此为主要实验对象进行肿瘤发生、干细胞特性及耐药机制研究，斑马鱼是核心研究模型。
+- #70928 [europepmc_short] Molybdenum disulfide induces growth inhibition and autophagy-dependent hepatocyt — 摘要明确提到斑马鱼作为体内模型之一，用于研究MoS₂诱导的肝脏发育紊乱，且与小鼠实验并列，表明斑马鱼是主要研究对象之一。
+- #70931 [europepmc_fuzzy] The Glucocorticoid-Induced Leucine Zipper (GILZ) mediates statin-induced muscle  — 该研究在体内实验中明确使用斑马鱼胚胎作为主要模型之一，验证GILZ过表达对肌肉发育的影响，且斑马鱼是支撑结论的关键实验对象。
+- #70990 [crossref] Nischarin agonist rilmenidine inhibits pancreatic ductal adenocarcinoma cell mig — 摘要明确提到使用Tg(fli1:EGFP)斑马鱼模型检测NISCH激动剂对胰腺导管腺癌细胞生长和侵袭的影响，斑马鱼作为主要体内实验模型。
+- #71131 [crossref] A Novel Class of Greenish-Yellow Emitting Carbon Dots Stimulate Collective Cell  — 摘要明确以斑马鱼幼虫作为3D体内模型，研究碳点的摄取、分布及生物成像应用，斑马鱼是主要实验对象之一。
+- #71144 [europepmc] Transient retinoic acid signaling confers anterior-posterior polarity to the inn — 摘要明确以斑马鱼内耳为研究对象，探讨视黄酸信号对其前后极性的影响，全文围绕斑马鱼内耳发育机制展开，未涉及其他物种。
+- #71149 [crossref] First-in-class small molecule calmodulin pathway modulators attenuate excess p53 — 该研究明确以斑马鱼（rps29-/- zebrafish）作为DBA模型，用于评估小分子药物对贫血的改善效果，斑马鱼是主要实验模型之一。
+- #71153 [crossref] Two-beam phase correlation spectroscopy : a label-free holographic method to qua — 该研究明确以斑马鱼（Danio rerio）胚胎尾部血管为活体实验模型，测量其动脉和静脉血流速度，斑马鱼是主要研究对象之一。
+- #71212 [crossref] The tyrosine phosphatase PRL3 as a novel drug target in T-cell acute lymphoblast — 该研究以斑马鱼T-ALL模型为核心，利用超过6000只成年斑马鱼进行细胞移植筛选，明确以斑马鱼为主要实验模型来鉴定PRL3在T-ALL中的作用。
+- #71452 [europepmc] Betanodavirus B2 Causes ATP Depletion-induced Cell Death via Mitochondrial Targe — 该研究在体外和体内实验中均以斑马鱼胚胎作为主要模型，注射B2蛋白后观察细胞死亡和ATP消耗，明确以斑马鱼为研究对象。
+- #71476 [crossref] Somatic Mutations in a Single Residue of UBA1 Cause Vexas, a Severe Adult-Onset  — 摘要明确使用CRISPR/Cas9编辑的斑马鱼作为体内模型评估UBA1基因功能，并敲除斑马鱼细胞质UBA1同源物验证系统性炎症，斑马鱼是核心实验模型。
+- #71544 [europepmc] Facile and Green Synthesis of Multicolor Fluorescence Carbon Dots from Curcumin: — 摘要明确将斑马鱼（Zebrafish ASWT）胚胎作为动物模型进行体内生物成像和毒性评估，属于以斑马鱼为主要实验对象的研究。
+- #71560 [europepmc] Synthesis, Characterization, and Low-Toxicity Study of a Magnesium(II) Complex C — 摘要明确以斑马鱼（zebrafish）作为实验模型之一，暴露于化合物后观察其毒性及生化指标，斑马鱼是主要研究对象之一。
+- #71571 [crossref] A 19F MRI/NIR-FL Nanoprobe for "Turn-On" Imaging of β-Secretase (BACE1) Activity — 该研究以斑马鱼（Danio rerio）作为阿尔茨海默病模型，用于验证纳米探针对BACE1活性的活体成像效果，斑马鱼是主要实验对象。
+- #71573 [crossref] The Antimelanogenic Activity of the Extract of Heukharang Lettuce (Lactuca sativ — 摘要明确使用斑马鱼胚胎模型（zebrafish embryo model）验证HHE的抗黑色素生成活性，斑马鱼是主要的体内实验模型。
+- #71660 [europepmc] Aberration Modeling in Deep Learning for Volumetric Reconstruction of Light-Fiel — 摘要明确以斑马鱼（zebrafish）作为动态三维成像的实验对象，用于验证所提方法在实时体积成像中追踪中性粒细胞迁移的能力，斑马鱼是主要研究模型。
+- #71690 [europepmc] Silencing of RhoA nucleotide exchange factor, ARHGEF3, reveals its unexpected ro — 该研究明确以斑马鱼（Danio rerio）为主要实验模型，通过沉默arhgef3基因观察其对铁摄取和红细胞成熟的影响，并进行了表型分析和回补实验。
+- #71833 [europepmc] Wnt signaling is required at distinct stages of development for the induction of — 该研究以斑马鱼为实验模型，通过胚胎前脑外植体实验和基因操作，系统分析了Wnt信号在斑马鱼前脑后部诱导中的作用，明确以斑马鱼为主要研究对象。
+- #71857 [crossref] Toward Ultrasensitive, Broadband, Reflection-Mode In Vivo Photoacoustic Microsco — 摘要明确提到该研究使用裸玻璃超声传感器进行活体斑马鱼（adult zebrafish）的无标记三维光声成像，斑马鱼是主要实验模型。
+- #72102 [europepmc] A role for microsomal glutathione transferase 1 in melanin biosynthesis in melan — 该研究明确以斑马鱼胚胎作为主要实验模型之一，通过敲低MGST1观察其对斑马鱼体内色素细胞的影响，从而揭示该基因在黑色素合成中的作用。
+- #72209 [europepmc_fuzzy] Novel small molecule TRVA242 targets neuromuscular junction in amyotrophic later — 该研究在斑马鱼中验证了TRVA242对ALS模型运动功能、运动神经元及神经肌肉接头的改善效果，斑马鱼作为主要实验模型之一用于确认活性化合物，符合以斑马鱼为主体的标准。
+- #72240 [europepmc] The BMP signaling gradient patterns dorsoventral tissues in a temporally progres — 摘要明确以斑马鱼为实验模型，通过转基因调控BMP信号研究其沿前后轴对背腹组织的时间性 patterning，主体对象为斑马鱼。
+- #72379 [crossref] Hypoxic extracellular vesicles induce a pro-metastatic phenotype in neuroblastom — 该研究明确以斑马鱼胚胎作为体内模型，用于观察神经母细胞瘤来源的细胞外囊泡对转移前微环境的影响，斑马鱼是主要实验对象之一。
+- #72392 [europepmc] Ginsenoside Rg1, a Natural Lysosomal Enhancer, Alleviates Parkinson's Disease Pa — 摘要明确提到使用MPTP诱导的斑马鱼模型作为主要研究对象之一，并系统评估了运动行为、多巴胺能神经元存活等指标，斑马鱼是核心实验模型。
+- #72517 [europepmc] New application of ombuoside in protecting auditory cells from cisplatin-induced — 摘要明确提到使用斑马鱼（zebrafish）侧线神经丘作为体内模型，验证ombuoside对顺铂诱导毛细胞损伤的保护作用，斑马鱼是主要实验模型之一。
+- #72518 [europepmc] Epimedin B exhibits pigmentation by increasing tyrosinase family proteins expres — 摘要明确将斑马鱼（zebrafish）作为EB诱导色素沉着的体内模型之一，用于验证TYR活性及色素恢复作用，属于主要实验对象。
+- #72565 [europepmc] Protection from UV-Light Is an Evolutionarily Conserved Feature of the Hematopoi — 该研究以斑马鱼为主要实验模型，明确使用斑马鱼揭示黑色素细胞保护造血干细胞免受紫外线损伤的机制，并以此为基础探讨进化保守性。
+- #72650 [europepmc] F-Box and Leucine-Rich Repeat Protein 22 Is a Cardiac-Enriched F-Box Protein Tha — 该研究在斑马鱼胚胎中进行了Fbxl22的靶向敲低实验，并观察了其对收缩功能和心肌病的影响，明确以斑马鱼作为体内验证模型之一。
+- #72658 [europepmc] Highly conserved non-coding sequences are associated with vertebrate development — 该研究以斑马鱼胚胎作为主要体内功能验证系统，用于测试高度保守非编码序列的增强子活性，斑马鱼是核心实验模型。
+- #72666 [europepmc] Kidney developmental effects of metal-herbicide mixtures: Implications for chron — 该研究明确以斑马鱼（Danio rerio）作为毒理学和肾病模型，用于检测金属-除草剂混合物对肾脏发育的影响，斑马鱼是主要实验对象。
+- #72675 [europepmc] Nme protein family evolutionary history, a vertebrate perspective — 该研究以斑马鱼（Danio rerio）作为主要非哺乳类脊椎动物模型，系统分析了其nme基因家族的表达模式，并以此为核心探讨脊椎动物Nme蛋白的进化历史。
+- #72731 [europepmc] Ubc9 interacts with a nuclear localization signal and mediates nuclear localizat — 该研究以斑马鱼Vsx-1基因为核心对象，探讨其与Ubc9的互作及核定位机制，斑马鱼是主要实验模型和基因来源。
+- #72875 [europepmc] A balance of positive and negative regulators determines the pace of the segment — 摘要以斑马鱼为实验模型，通过研究其体节时钟中NICD的调控机制来验证数学模型，明确以斑马鱼为主要研究对象。
+- #72912 [europepmc] An Activity-Based Methionine Bioconjugation Approach To Developing Proximity-Act — 摘要明确提到该方法应用于“in vivo zebrafish models”，且斑马鱼作为主要活体模型用于成像钙离子活动，属于以斑马鱼为主体的研究。
+- #72922 [crossref] Overcoming therapy resistance in rhabdomyosarcoma by targeting the PI3K-MAPK pat — 摘要明确以斑马鱼为活体模型进行FN-RMS肿瘤治疗实验，验证药物组合效果，斑马鱼是主要研究对象之一。
+- #73129 [europepmc_short] A donor-π-acceptor fluorescent probe for hydrogen peroxide monitoring reveals ox — 摘要明确将斑马鱼（zebrafish）作为主要实验模型之一，用于观察Cd²⁺/Hg²⁺暴露下H₂O₂水平变化，与细胞实验并列，属于以斑马鱼为主体的研究。
+- #73318 [europepmc] Investigation of the Anti-Inflammatory Activity of Fusaproliferin Analogues Guid — 摘要明确将斑马鱼胚胎作为体内抗炎活性评价模型，与体外RAW264.7细胞并列，且是主要实验对象之一，符合以斑马鱼为主体的研究标准。
+- #73335 [europepmc] Epimedium brevicornum Maxim. Extract exhibits pigmentation by melanin biosynthes — 摘要明确以斑马鱼作为体内脱色模型之一，研究EFE对黑色素合成和转移的影响，斑马鱼是主要实验动物之一。
+- #73354 [europepmc] Ginsenoside F1 promotes angiogenesis by activating the IGF-1/IGF1R pathway — 摘要明确提到在斑马鱼体内实验中，GF1能挽救阿西替尼诱导的血管缺陷，表明斑马鱼作为主要体内模型之一用于评估促血管生成作用。
+- #73363 [europepmc_fuzzy] Triazole-Based Half-Sandwich Ruthenium(II) Compounds: From In Vitro Antiprolifer — 摘要明确提到使用斑马鱼胚胎进行体内毒性研究，且该实验是评估化合物毒性的关键部分，斑马鱼作为主要体内模型之一。
+- #73381 [europepmc] Potent anti-angiogenic component in Kaempferia galanga L. and its mechanism of a — 该研究在材料与方法中明确使用斑马鱼模型评估提取物的抗血管生成活性，斑马鱼是主要实验模型之一。
+- #73401 [europepmc] Control of Angiogenesis via a VHL/miR-212/132 Axis — 该研究明确以vhl-/-突变斑马鱼为主要模型，通过观察其血管分支表型及anti-miR干预效果，验证VHL/miR-212/132轴调控血管生成，斑马鱼是核心实验对象。
+- #73422 [europepmc_fuzzy] A Dominant Gain-of-Function Mutation in Universal Tyrosine Kinase SRC Causes Enh — 摘要明确提到“Expression of mutated src in zebrafish recapitulates patients' blood and bone phenotypes”，以斑马鱼作为体内模型验证突变表型，属于主要研究
+- #73430 [europepmc_short] Keeping development on time: Insights into post-transcriptional mechanisms drivi — 摘要以脊椎动物体节时钟的振荡基因表达为焦点，斑马鱼是研究脊椎动物体节形成和分节时钟的主要模式生物，文中明确以斑马鱼为实验模型探讨相关机制。
+- #73440 [europepmc] Spectral diversity of vertebrate retinal photoisomerase RGRs — 摘要明确以斑马鱼（zebrafish）RGRb为关键研究对象，通过突变分析揭示其红移机制，斑马鱼是主要实验模型。
+- #73444 [crossref] Dynamic Expression of Erg Controls Fetal-to-Adult Maturation of the Hematopoieti — 摘要明确将斑马鱼（zebrafish）与人类、小鼠并列作为主要实验模型，定量分析Erg在三种物种中的表达变化，且后续功能实验均以斑马鱼为研究对象之一。
+- #73446 [crossref] metaRER Package for Meta-Analysis of Transcriptome Data to Identify thecis-Regul — 摘要明确以斑马鱼（Danio rerio）作为主要研究对象之一，用于识别低温响应顺式调控元件，并与拟南芥并列分析，表明斑马鱼是核心实验模型。
+- #73567 [crossref] Regulation of Hematopoietic Stem and Progenitor Cell Fate Determination By the D — 摘要明确提及在斑马鱼（zebrafish）中进行造血研究，并作为主要实验模型之一，验证了Dpy30在造血中的作用。
+- #73578 [europepmc] Sequential detection of hypochlorous acid and sulfur dioxide derivatives by a re — 摘要明确提到使用成年斑马鱼作为活体动物模型进行荧光成像，斑马鱼是主要实验对象之一。
+- #73608 [europepmc_short] Discovery of an AKT1-targeting compound from a traditional herbal formula for al — 摘要明确提到在斑马鱼模型中验证了齐墩果酸对乙醇诱导损伤的保护作用，斑马鱼作为主要体内实验模型之一，符合以斑马鱼为主要研究对象的标准。
+- #73622 [europepmc] A new model for olfactory placode development. — 摘要明确提到“Recent evidence from work in zebrafish and chick”，且斑马鱼作为主要实验模型之一用于研究嗅基板发育，并非仅顺带提及。
+- #73633 [crossref] CHD7 Negatively Regulates Hematopoietic Stem Cell Potency — 摘要明确提到在斑马鱼胚胎中敲低chd7基因，并观察其对runx1表达细胞及造血谱系的影响，斑马鱼是主要实验模型之一。
+- #73641 [crossref] Transcriptional Regulation of Thrombopoiesis — 摘要明确提及在斑马鱼胚胎中敲降ZBP-89表达以研究巨核细胞和红细胞发育，斑马鱼作为主要实验模型之一用于验证基因功能。
+- #73799 [europepmc_fuzzy] A broad-spectrum inhibitor of copper-exporting P1B-type ATPases — 摘要明确提到MKV3在斑马鱼（zebrafish）中表型复制了铜ATP酶遗传缺失，影响铜依赖酶和铜耐受，表明斑马鱼是主要实验模型之一。
+- #73901 [crossref] DNA repair regulates chromatin structure and key transcription factors — 该研究以斑马鱼为实验模型，通过Apex1敲降观察早期胚胎发育中的染色质结构及转录因子变化，明确以斑马鱼为主体研究对象。
+- #74342 [europepmc] Redesign of Calmodulin for Genetically Encoded Zn2+ Sensing with High Dynamic Ra — 摘要明确提到使用斑马鱼（zebrafish）表达mNG-ZnM1.0探针，并成功在体内观察发育过程中的锌离子动态，斑马鱼是主要活体实验模型。
+- #74348 [europepmc] Recording from an Identified Neuron Efficiently Reveals Hazard for Brain Functio — 摘要明确以鱼类（斑马鱼为常见模式鱼）脑内单个鉴定神经元为记录对象，研究化学物对脑功能的影响，核心实验模型为鱼，且强调其作为脊椎动物模型在风险评估中的适用性。
+- #74486 [europepmc] The prethalamus is established during gastrulation and influences diencephalic r — 摘要明确以斑马鱼为实验模型，通过胚胎操作（如细胞消融、移植）研究前丘脑在间脑区域化中的作用，所有实验均以斑马鱼胚胎为主体。
+- #74696 [europepmc] Aquatic toxicity of the macrolide antibiotic clarithromycin and its metabolites — 该研究明确以斑马鱼（Danio rerio）作为主要实验模型之一，用于评估克拉霉素及其代谢物的水生毒性，并遵循TGD-EQS标准进行胚胎毒性测试。
+- #74699 [europepmc] Porcupine inhibition enhances hypertrophic cartilage differentiation — 摘要明确提到使用斑马鱼（Danio rerio）胚胎作为模型系统之一，并详细描述了LGK974处理对斑马鱼颅面软骨宽度和体轴的影响，斑马鱼是主要研究对象之一。
+- #74817 [europepmc] A dual-responsive ratiometric indicator designed for in vivo monitoring of oxida — 摘要明确提到在活细胞和斑马鱼（zebrafish）中验证了DQ1指示剂对H₂O₂和NAD(P)H的检测效果，斑马鱼作为主要活体模型之一用于评估氧化应激和抗氧化能力。
+- #74897 [europepmc] MiR-21 Contributes to Cytokine-Induced Beta Cell Dysfunction via Inhibition of m — 摘要明确描述了使用斑马鱼（zebrafish）模型进行体内谱系追踪和miR-21敲低实验，以研究β细胞功能，斑马鱼是主要实验模型之一。
+- #74990 [crossref] Asxl1-mutant Dominant Clones Have an Erythropoietic Lineage Deficiency through a — 该研究以斑马鱼为体内模型，通过CRISPR-Cas9构建asxl1突变克隆，并分析其造血和表观遗传变化，斑马鱼是主要实验对象。
+- #75025 [europepmc] In vivo cell sorting in complementary segmental domains mediated by Eph receptor — 该研究以斑马鱼（Danio rerio）后脑菱脑节为模型，通过嵌合体实验直接验证Eph受体和ephrin在细胞分选中的作用，斑马鱼是主要实验对象。
+- #75081 [europepmc] From cohorts to molecules: Adverse impacts of endocrine disrupting mixtures — 摘要明确将斑马鱼（Danio rerio）作为模型生物之一，用于验证内分泌干扰混合物对激素调控网络和行为的影响，属于主要研究对象。
+- #75090 [europepmc] Muller glia and phagocytosis of cell debris in retinal tissue — 摘要明确以斑马鱼所属的硬骨鱼（teleost）视网膜为研究背景，重点讨论Müller胶质细胞在硬骨鱼视网膜中吞噬光感受器细胞碎片及再生反应，斑马鱼是典型硬骨鱼模型，研究主体明确。
+- #75153 [crossref] Two-photon light-sheet live imaging at kilohertz frame rate using birefringence- — 摘要明确以活体斑马鱼胚胎为成像对象，验证双光子光片显微镜的脉冲分裂方案，包括心脏跳动和脑钙成像，斑马鱼是主要实验模型。
+- #75280 [europepmc] Evolution of a tissue-specific silencer underlies divergence in the expression o — 该研究以斑马鱼（Danio rerio）为主要实验模型，通过分析pax2和pax8基因的表达调控机制，明确以斑马鱼为研究对象揭示顺式调控元件演化。
+- #75412 [europepmc] Intrinsically Disordered Flanking Regions Increase the Affinity of a Transcripti — 摘要明确将斑马鱼（zebra fish）与人类、鬼鲨并列作为研究NCOA与CBP相互作用的物种，且斑马鱼是分析直系同源和旁系同源蛋白功能的关键模型之一。
+- #75418 [crossref] Adaptive optical microscopy via virtual-imaging-assisted wavefront sensing for h — 摘要明确以活体斑马鱼幼虫的神经元为实验对象，验证了自适应光学方法在自发活动成像中的鲁棒性，斑马鱼是主要研究模型。
+- #75571 [pubmed] Heart Tube Morphogenesis Is Regulated By Segment-Specific Gene Regulatory Networ — 摘要明确提到使用斑马鱼胚胎进行实验，并验证了MEFC2依赖性增强子在斑马鱼心脏中的活性，斑马鱼是主要研究模型。
+- #75584 [crossref] Identification of Proteins that Interact with Otoferlin to build a 'Otoferlin In — 摘要明确提到使用“zebrafish model”验证otoferlin的直接相互作用蛋白，斑马鱼作为主要实验模型之一用于功能验证，符合以斑马鱼为主体的研究标准。
+- #75612 [europepmc] Cotranslational molecular condensation of cochaperones and assembly factors faci — 摘要明确以斑马鱼（Danio rerio）为实验模型，研究轴丝动力蛋白的组装机制，主要研究对象为斑马鱼细胞中的DNAAFs和重链翻译过程。
+- #75701 [europepmc] FGCaMP7, an Improved Version of Fungi-Based Ratiometric Calcium Indicator for In — 摘要明确提到在斑马鱼中使用双色比率共聚焦成像测试FGCaMP7的性能，斑马鱼作为主要活体实验模型之一。
+- #76094 [crossref] Flow Upregulated Scap Dictates Hematopoiesis — 摘要明确提到在斑马鱼（zebrafish）中敲除TAZ、SCAP或SREBP1会损害造血功能，表明斑马鱼是主要实验模型之一。
+- #76097 [europepmc] Group II Intron-Based Gene Targeting Reactions in Eukaryotes — 摘要明确提到在斑马鱼（Danio rerio）胚胎中进行了高效的Mg²⁺依赖性II型内含子整合实验，斑马鱼作为主要实验模型之一，用于验证基因靶向反应。
+- #76121 [europepmc] Application of optogenetic Amyloid-β distinguishes between metabolic and physica — 摘要明确将斑马鱼（D. rerio）与果蝇、线虫并列作为主要实验模型，用于研究光遗传Aβ寡聚体的代谢与物理损伤，斑马鱼是核心研究对象之一。
+- #76143 [europepmc] Asymmetry in the epithalamus of vertebrates. — 摘要明确提及斑马鱼（zebrafish）作为研究模型，并以其为例阐述Nodal信号通路调控上丘脑左右不对称性的机制，表明斑马鱼是主要研究对象之一。
+- #76193 [europepmc_short] Presynaptic protein kinase C controls maturation and branch dynamics of developi — 该研究以斑马鱼（Danio rerio）幼虫为实验模型，通过DiO标记视网膜轴突并进行活体成像，明确以斑马鱼为主要研究对象。
+- #76317 [crossref] High-Speed Multi-Modal Extended Depth-of-Field Microscopy with an Electrically T — 该研究以固定转基因斑马鱼幼虫作为主要实验对象之一，验证其显微成像技术，斑马鱼是核心测试模型。
+- #76345 [europepmc_short] Bright and sensitive ratiometric fluorescent probe enabling endogenous FA imagin — 摘要明确提到该研究将荧光探针PIPBA应用于斑马鱼（zebrafish）进行内源性甲醛的活体成像，斑马鱼是主要活体实验模型之一。
+- #76999 [europepmc_fuzzy] Loss of function mutations in TCF12 cause autosomal dominant Kallmann syndrome a — 该研究明确以斑马鱼为实验模型，通过敲除tcf12基因观察GnRH神经元模式变化及下游基因表达，并进行了功能挽救实验，斑马鱼是主要研究对象。
+- #77015 [europepmc_fuzzy] Osteocytes as main responders to Low Intensity Pulsed Ultrasound for the treatme — 该研究以斑马鱼作为主要体内模型之一，明确利用其含骨细胞的骨骼特性来探究LIPUS促进骨折愈合的机制，斑马鱼是核心实验对象。
+- #77081 [local] A house with many rooms:: how the heart got its chambers with foxn4 — 标题和摘要明确以斑马鱼心脏腔室发育中foxn4基因的功能为研究核心，斑马鱼是主要实验模型。
+- #77231 [local] A Bmp-Id2a-Twist1-Fli1a network specifies ectomesenchyme from cranial neural cre — 标题和摘要明确以斑马鱼为研究对象，探讨颅神经嵴发育中的Bmp-Id2a-Twist1-Fli1a网络，斑马鱼是主要实验模型。
+- #77254 [europepmc] At the double for tumor suppressor — 摘要明确以“zebrafish”为研究对象，揭示肿瘤抑制因子在两种细胞中的作用机制，斑马鱼是核心实验模型。
+- #77280 [crossref] Integrin-linked-kinase Binding Proteins Are Essential Components Of The Cardiac  — 该研究以斑马鱼为主要实验模型，通过突变体、反义寡核苷酸敲降等手段研究ILK结合蛋白在心脏机械拉伸感知中的功能，斑马鱼是核心研究对象。
+- #77497 [europepmc_fuzzy] Novel biallelic ABCC9 loss-of-function variants expand ABCC9-related intellectua — 该研究在斑马鱼中进行了abcc9功能缺失的体内实验，明确以斑马鱼为模型验证表型，属于主要研究对象。
+- #77641 [europepmc] Adult neurogenesis and neuronal regeneration in the central nervous system of te — 摘要以斑马鱼所属的硬骨鱼类（teleost fish）为研究对象，系统阐述其成体神经发生和再生机制，斑马鱼是此类研究的典型代表模型，且全文未提及其他物种为主体。
+- #77955 [europepmc] Physical Evidence of Oil Uptake and Toxicity Assessment of Amphiphilic Grafted N — 摘要明确以斑马鱼胚胎为主要实验模型，进行纳米颗粒毒性评估和CYP1A酶活性检测，斑马鱼是核心研究对象。
+- #78102 [europepmc] Highly conserved sequences mediate the dynamic interplay of basic helix-loop-hel — 摘要以斑马鱼视网膜发育中ATH5启动子的bHLH蛋白调控为核心，明确涉及斑马鱼同源基因（如ATH5、Ngn2、NeuroM）及体内实验，斑马鱼是主要研究模型。
+- #78450 [europepmc] Contact inhibition of locomotion in vivo controls neural crest directional migra — 该研究以斑马鱼胚胎中的神经嵴细胞为主要实验模型，明确在斑马鱼体内外研究接触性抑制迁移行为及其分子机制，斑马鱼是核心研究对象。
+- #78474 [europepmc] Hemogenic and aortic endothelium arise from a common hemogenic angioblast precur — 摘要明确以斑马鱼为实验模型，使用光转换标记、延时成像和单细胞RNA测序追踪血源性内皮细胞谱系，研究其与主动脉内皮的共同前体和Etv2剂量决定机制。
+- #78525 [crossref] Overlap of SEC23A and SEC23B Function Suggests a Novel Therapeutic Approach for  — 该研究以斑马鱼为主要实验模型之一，通过CRISPR敲除、表型分析及转基因互补实验验证SEC23A/B功能，斑马鱼数据构成核心证据。
+- #78578 [europepmc] TGF-β signaling-mediated morphogenesis:: modulation of cell adhesion via cadheri — 摘要明确以斑马鱼（Danio rerio）为研究对象，研究其原肠胚形成过程中TGF-β信号介导的细胞形态发生和黏附调控机制。
+- #78582 [crossref] Deep-Learning-Based Real-Time Visual Detection Method for Robotic Cell Microinje — 该研究以斑马鱼胚胎为实验对象，在机器人细胞显微注射系统中进行注射实验，验证所提出的视觉检测方法，斑马鱼是主要研究模型。
+- #78587 [europepmc_short] Ecotoxicity assessment of phthalic acid di-alkyl ester mixtures toward aquatic o — 该研究明确将斑马鱼（Danio rerio）作为三种受试水生生物之一，并对其进行了亚慢性毒性及混合物毒性测试，斑马鱼是主要实验模型之一。
+- #78642 [europepmc] An In Toto Approach to Dissecting Cellular Interactions in Complex Tissues — 摘要明确以斑马鱼（Danio rerio）的侧线系统为主要研究对象之一，用于发育、形态发生和极性研究，并以此为主体开发和应用ShootingStar平台。
+- #78677 [europepmc_short] Integrative Strategy of Testing Systems for Identification of Endocrine Disrupto — 摘要明确将斑马鱼（zebrafish）作为主要体内实验模型之一，用于构建内分泌干扰物代谢紊乱的整合测试策略，属于以斑马鱼为主体研究对象。
+- #78724 [europepmc] On the In Vitro and In Vivo Hazard Assessment of a Novel Nanomaterial to Reduce  — 该研究明确以斑马鱼（Danio rerio）作为体内实验模型，通过鱼类胚胎急性毒性试验评估纳米材料危害，斑马鱼是主要研究对象之一。
+- #78804 [europepmc] Opposing effects between retinoic acid and Fibroblast growth factor in patternin — 该研究以斑马鱼为实验模型，通过基因表达分析、药物处理等实验明确探讨内耳半规管和总脚的形成机制，斑马鱼是主要研究对象。
+- #78857 [crossref] Species-specific mechanisms of vertebrate eye formation — 摘要明确以斑马鱼（Danio rerio）为主要实验模型，通过构建转基因系研究视网膜色素上皮在视杯形成中的机制，并与其他脊椎动物比较，斑马鱼是核心研究对象。
+- #78868 [europepmc] Protein kinase C family evolution in jawed vertebrates — 摘要明确以斑马鱼（zebrafish）作为主要分析对象之一，详细讨论了其在基因家族进化中的基因保留情况，且斑马鱼是研究核心模型。

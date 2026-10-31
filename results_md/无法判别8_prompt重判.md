@@ -1,0 +1,14704 @@
+# 无法判别 (8/10) - prompt重判 1336 entries
+
+- 标准：判断该研究是否以斑马鱼（Danio rerio）为主要研究对象/实验模型；明确以斑马鱼为主体则判「是」，仅顺带提及、作对照/背景，或以其他物种为主体、信息不足则判「否」。
+- 跳过已是：52
+- 新判是：0；新判否：1284
+- 生成：2026-07-15T15:22:28
+
+---
+
+### 70102. 从疾病到发育再到细胞生物学再回来
+
+| Field | Content |
+|------|------|
+| EN Title | From disease to development to cell biology and back. |
+| ZH Title | 从疾病到发育再到细胞生物学再回来 |
+| ZH Abstract | 讨论发育生物学向细胞机制模型的转变。 |
+| EN Abstract | Nowadays, the focus of developmental studies is shifting away from formal models of developmental pathways that are characterised by flow charts of controlling factors connected by arrows, to mechanistic models that explain developmental processes at the cellular level. Surprisingly, this shift towards a cellular view of developmental biology is occurring simultaneously across a range of model organisms. One consequence of taking such a cell biological view of development is that many model orga |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70103. CuO-HAp纳米复合材料的增强生物相容性和抗菌功效用于硬组织再生和修复
+
+| Field | Content |
+|------|------|
+| EN Title | Enhanced biocompatibility and antibacterial efficacy of CuO-HAp nanocomposite for hard tissue regeneration and repair |
+| ZH Title | CuO-HAp纳米复合材料的增强生物相容性和抗菌功效用于硬组织再生和修复 |
+| ZH Abstract | 合成并表征CuO-HAp复合材料。 |
+| EN Abstract | This study focuses on the synthesis and characterization of CuO-decorated HAp composites for potential biomedical applications, particularly in hard tissue regeneration. XRD analysis confirmed the coexistence of CuO and HAp phases, with CuO influencing the crystallinity of HAp without altering its lattice parameters. Williamson-Hall (W-H) method analysis showed a significant increase in the crystallite size of CuO by approximately 92.7%, while the crystallite size of HAp decreased by 19.4% in th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70107. 通过HITI方法进行体内基因组编辑作为基因治疗工具
+
+| Field | Content |
+|------|------|
+| EN Title | In vivo genome editing via the HITI method as a tool for gene therapy |
+| ZH Title | 通过HITI方法进行体内基因组编辑作为基因治疗工具 |
+| ZH Abstract | 通过HITI方法进行体内基因组编辑作为基因治疗工具（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70108. 辐鳍鱼类个体发育形状变化的大规模模式
+
+| Field | Content |
+|------|------|
+| EN Title | A Large-Scale Pattern of Ontogenetic Shape Change in Ray-Finned Fishes |
+| ZH Title | 辐鳍鱼类个体发育形状变化的大规模模式 |
+| ZH Abstract | 调查辐鳍鱼类幼体和成体体形关系。 |
+| EN Abstract | Fishes exhibit a remarkable diversity of body shape as adults; however, it is unknown whether this diversity is reflected in larval stage morphology. Here we investigate the relationship between larval and adult body shape as expressed by body elongation. We surveyed a broad range of ray-finned fish species and compared body shape at larval and adult stages. Analysis shows that the vast majority of fish are more elongate at the larval stage than at the adult stage, and that adults display greate |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70109. 白血病传播细胞Akt上调
+
+| Field | Content |
+|------|------|
+| EN Title | Leukemia Propagating Cells Akt Up |
+| ZH Title | 白血病传播细胞Akt上调 |
+| ZH Abstract | 白血病传播细胞Akt上调（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70110. 动物细胞中miRNA介导的转录后调控机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms of miRNA-mediated post-transcriptional regulation in animal cells |
+| ZH Title | 动物细胞中miRNA介导的转录后调控机制 |
+| ZH Abstract | 综述miRNA调控机制。 |
+| EN Abstract | MicroRNAs (miRNAs) are 20-nt-long to 24-nt-long noncoding RNAs acting as post-transcriptional regulators of gene expression in animals and plants. In mammals, more than 50% of mRNAs are predicted to be the subject of miRNA-mediated control but mechanistic aspects of the regulation are not fully understood and different studies have produced often-contradictory results. miRNAs can affect both the translation and stability of mRNAs. In this report, we review current progress in understanding how m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70111. Notch信号与血管生成的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Notch Signalling and the Regulation of Angiogenesis |
+| ZH Title | Notch信号与血管生成的调控 |
+| ZH Abstract | 综述Notch信号在血管生成中的作用。 |
+| EN Abstract | Angiogenesis, or the formation of new blood vessels from preexisting ones, is essential to establish the vascular circuit during embryonic development. During angiogenic sprouting, endothelial cells exhibit a diverse array of cellular behaviors. Endothelial tip cells must migrate extensively and proliferate in response to proangiogenic cues while trailing cells need to maintain their position and connection to the patent vasculature, despite exposure to the same proangiogenic molecules. Several |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70112. 理解生物系统的温度响应：第一部分——现象学描述和微观模型
+
+| Field | Content |
+|------|------|
+| EN Title | Understanding the temperature response of biological systems: Part I-Phenomenological descriptions and microscopic models |
+| ZH Title | 理解生物系统的温度响应：第一部分——现象学描述和微观模型 |
+| ZH Abstract | 综述生物温度响应模型。 |
+| EN Abstract | Virtually every biological rate depends on temperature yet the resulting rate-temperature relationships often deviate strongly from simple Arrhenius behavior. In this first part of a two-part review, we survey phenomenological models used to describe biological temperature responses across scales, from enzymatic reactions to organismal performance. We discuss common functional forms, including symmetric and asymmetric thermal performance curves and extensions of the Arrhenius law, and we highlig |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70114. 4-羟基苯乙酮通过抑制酪氨酸酶活性作为抗色素沉着试剂
+
+| Field | Content |
+|------|------|
+| EN Title | 4-Hydroxyacetophenone is an Antipigmentation Reagent via Inhibiting Tryrosinase Activity |
+| ZH Title | 4-羟基苯乙酮通过抑制酪氨酸酶活性作为抗色素沉着试剂 |
+| ZH Abstract | 研究4-HAP的美白潜力。 |
+| EN Abstract | This study investigates the skin-whitening potential of 4-Hydroxyacetophenone (4-HAP), a compound commonly used as a preservative in cosmetics. Despite its widespread use, its whitening activity has not been extensively reported. Our preliminary research identified several commercial cosmetic formulations exhibiting whitening effects without known whitening agents. We hypothesized that 4-HAP might be a key ingredient. To test this, we employed a mushroom tyrosinase model, B16 mouse melanoma cell |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70115. ADAMTS1-VCAN-EGFR轴在肾细胞癌中促进侵袭和失巢凋亡抵抗的致癌性
+
+| Field | Content |
+|------|------|
+| EN Title | THE ADAMTS1-VCAN-EGFR AXIS CONTRIBUTES ONCOGENECITY WITH INVASION AND ANOIKIS RESISTANCE IN RENAL CELL CARCINOMA |
+| ZH Title | ADAMTS1-VCAN-EGFR轴在肾细胞癌中促进侵袭和失巢凋亡抵抗的致癌性 |
+| ZH Abstract | ADAMTS1-VCAN-EGFR轴在肾细胞癌中促进侵袭和失（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70116. 细胞周期和信号的发育控制
+
+| Field | Content |
+|------|------|
+| EN Title | Developmental Control of Cell Cycle and Signaling |
+| ZH Title | 细胞周期和信号的发育控制 |
+| ZH Abstract | 讨论胚胎发育中细胞周期与形态发生的协调。 |
+| EN Abstract | In most species, the earliest stages of embryogenesis are characterized by rapid proliferation, which must be tightly controlled with other cellular processes across the large scale of the embryo. The study of this coordination has recently revealed new mechanisms of regulation of morphogenesis. Here, I discuss progress on how the integration of biochemical and mechanical signals leads to the proper positioning of cellular components, how signaling waves ensure the synchronization of the cell cy |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70117. 骨形态发生蛋白-7在类风湿性恶病质中的治疗益处：用新型原代人三细胞共培养模型说明
+
+| Field | Content |
+|------|------|
+| EN Title | Therapeutic Benefit of Bone Morphogenetic Protein-7 in Rheumatoid Cachexia Illustrated Using a Novel Primary HumanTriple Cell Co-culture Model |
+| ZH Title | 骨形态发生蛋白-7在类风湿性恶病质中的治疗益处：用新型原代人三细胞共培养模型说明 |
+| ZH Abstract | 骨形态发生蛋白-7在类风湿性恶病质中的治疗益处：用新型原代人（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70118. 光场显微镜在生物成像中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Light field microscopy in biological imaging |
+| ZH Title | 光场显微镜在生物成像中的应用 |
+| ZH Abstract | 综述光场显微镜原理和应用。 |
+| EN Abstract | Light field microscopy (LFM), featured for high three-dimensional imaging speed and low phototoxicity, has emerged as a technique of choice for instantaneous volumetric imaging. In contrast with other scanning-based three-dimensional (3D) imaging approaches, LFM enables to encode 3D spatial information in a snapshot manner, permitting high-speed 3D imaging that is only limited by the frame rate of the camera. In this review, we first introduce the fundamental theory of LFM and current correspond |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70119. 线粒体生态位保护卵母细胞RNP
+
+| Field | Content |
+|------|------|
+| EN Title | A mitochondrial niche protects oocyte RNPs |
+| ZH Title | 线粒体生态位保护卵母细胞RNP |
+| ZH Abstract | 线粒体生态位保护卵母细胞RNP（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70120. 抗体、纳米抗体或适配体——哪种最适合解析非模式物种的蛋白质组？
+
+| Field | Content |
+|------|------|
+| EN Title | Antibodies, Nanobodies, or Aptamers-Which Is Best for Deciphering the Proteomes of Non-Model Species? |
+| ZH Title | 抗体、纳米抗体或适配体——哪种最适合解析非模式物种的蛋白质组？ |
+| ZH Abstract | 讨论非模式物种蛋白质组学工具。 |
+| EN Abstract | This planet is home to countless species, some more well-known than the others. While we have developed many techniques to be able to interrogate some of the "omics", proteomics is becoming recognized as a very important part of the puzzle, given how important the protein is as a functional part of the cell. Within human health, the proteome is fairly well-established, with numerous reagents being available to decipher cellular pathways. Recent research advancements have assisted in characterizi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70121. MARISTEM简介——海洋/水生无脊椎动物干细胞：从基础研究到创新应用
+
+| Field | Content |
+|------|------|
+| EN Title | Introduction to MARISTEM - stem cells of marine/aquatic invertebrates: from basic research to innovative applications |
+| ZH Title | MARISTEM简介——海洋/水生无脊椎动物干细胞：从基础研究到创新应用 |
+| ZH Abstract | MARISTEM简介——海洋/水生无脊椎动物干细胞：从基础研（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70123. 葫芦[7]脲对苯佐卡因及其代谢物对氨基苯甲酸的超分子包封
+
+| Field | Content |
+|------|------|
+| EN Title | Supramolecular encapsulation of benzocaine and its metabolite para-aminobenzoic acid by cucurbit[7]uril |
+| ZH Title | 葫芦[7]脲对苯佐卡因及其代谢物对氨基苯甲酸的超分子包封 |
+| ZH Abstract | 研究CB[7]与BZC和PABA的包合作用。 |
+| EN Abstract | An ester-type local anesthetic agent, benzocaine (BZC), and its metabolite, para-aminobenzoic acid (PABA), both form 1 : 1 host-guest complexes with cucurbit[7]uril (CB[7]) in aqueous solution and has been observed by H-1 NMR, UV-visible spectroscopic titrations (including Job's plot), electrospray ionization (ESI) mass spectrometry, and density functional theory (DFT) molecular modeling. The host-guest binding affinities are (2.2 +/- 0.2) x 10(4) M-1 and (1.5 +/- 0.2) x 10(4) M-1 for the proton |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70125. 小问题的大解决方案：用于心脏再生的microRNA
+
+| Field | Content |
+|------|------|
+| EN Title | Small Solutions to Big Problems MicroRNAs for Cardiac Regeneration |
+| ZH Title | 小问题的大解决方案：用于心脏再生的microRNA |
+| ZH Abstract | 讨论microRNA在心脏再生中的潜力。 |
+| EN Abstract | Heart disease is a major cause of morbidity and mortality in the developed world. Patient recovery after cardiac injury is hampered by the extremely limited regenerative capacity of the adult mammalian heart. In addition to cell-based approaches and in situ cardiac reprogramming, significant interest has been focused on genetic and small molecule-based strategies to enhance endogenous cardiomyocyte proliferative potential. A recent study in Nature suggests, for the first time, that microRNAs may |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70126. 没食子酸通过增强PPARγ介导的抗炎和脂质代谢缓解鱼类肠肝综合征
+
+| Field | Content |
+|------|------|
+| EN Title | Gallic acid relieves fish Gut-Liver symptom via enhancing PPARγ-mediated anti-inflammation and lipid metabolism |
+| ZH Title | 没食子酸通过增强PPARγ介导的抗炎和脂质代谢缓解鱼类肠肝综合征 |
+| ZH Abstract | 研究没食子酸对鱼类肠肝综合征的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 未明确鱼类种类 |
+---
+### 70127. 新型5-(4-氟苯甲酰基)四氢苯并咪唑喹唑啉衍生物的合成、表征、抗结核评价和致畸性研究
+
+| Field | Content |
+|------|------|
+| EN Title | Synthesis, Characterization, Anti-tubercular Evaluation, and Teratogenicity Studies of Novel 5-(4-fluorobenzoyl) tetrahydro benzamidazoquinazoline Derivatives |
+| ZH Title | 新型5-(4-氟苯甲酰基)四氢苯并咪唑喹唑啉衍生物的合成、表征、抗结核评价和致畸性研究 |
+| ZH Abstract | 合成并评价新型化合物的抗结核活性和致畸性。 |
+| EN Abstract | Background: The largest infectious agent-related cause of death and the most common disease with a high contagiousness profile is tuberculosis. For the treatment of tuberculosis, various benzimidazole and quinazoline compounds have been developed in the past with effectiveness. In this example, our goal was to synthesise new compounds with enhanced activity by combining the moieties of benzimidazole and quinazoline. The present study was planned to synthesize novel 5-(4-flourobenzoyl)12-(substit |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70128. 富勒烯基纳米材料对水生动物生物安全性和潜在毒性的最新报告
+
+| Field | Content |
+|------|------|
+| EN Title | An Update Report on the Biosafety and Potential Toxicity of Fullerene-Based Nanomaterials toward Aquatic Animals |
+| ZH Title | 富勒烯基纳米材料对水生动物生物安全性和潜在毒性的最新报告 |
+| ZH Abstract | 综述富勒烯对水生动物的毒性。 |
+| EN Abstract | Fullerene molecules are composed of carbon in the form of a hollow sphere, tube, or ellipsoid. Since their discovery in 1985, they have gained a lot of attention in many science fields. The unique carbon cage structure of fullerene provides immense scope for derivatization, rendering potential for various industrial applications. Thus, the prospective applications of fullerenes have led to assorted fullerene derivatives. In addition, their unique chemical structure also eases them to be synthesi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70129. 机械性细胞竞争
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanical cell competition |
+| ZH Title | 机械性细胞竞争 |
+| ZH Abstract | 综述机械压力导致的细胞消除机制。 |
+| EN Abstract | Maintenance of tissue organization is crucial to ensure normal organ function and organism viability. Tissues are loaded with the ability to sense the available space, measuring cell density and adapting their behaviour accordingly. To keep homeostasis, compression pressure generated by local cell density increment triggers cell elimination. During mechanical cell competition, winner cells compress the neighbouring cells, promoting tissue crowding, which leads to cell elimination. Thus, the hype |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70131. 神经嵴迁移起始过程中细胞粘附和运动性的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of cell adhesions and motility during initiation of neural crest migration |
+| ZH Title | 神经嵴迁移起始过程中细胞粘附和运动性的调控 |
+| ZH Abstract | 综述神经嵴细胞迁移的分子调控。 |
+| EN Abstract | Accurate neural crest cell (NCC) migration requires tight control of cell adhesions, cytoskeletal dynamics and cell motility. Cadherins and RhoGTPases are critical molecular players that regulate adhesions and motility during initial delamination of NCCs from the neuroepithelium. Recent studies have revealed multiple functions for these molecules and suggest that a precise balance of their activity is crucial. RhoGTPase appears to regulate both cell adhesions and protrusive forces during NCC del |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70132. 构建鱼类代谢网络模型
+
+| Field | Content |
+|------|------|
+| EN Title | Constructing a fish metabolic network model |
+| ZH Title | 构建鱼类代谢网络模型 |
+| ZH Abstract | 构建鱼类全基因组代谢网络模型MetaFishNet。 |
+| EN Abstract | We report the construction of a genome-wide fish metabolic network model, MetaFishNet, and its application to analyzing high throughput gene expression data. This model is a stepping stone to broader applications of fish systems biology, for example by guiding study design through comparison with human metabolism and the integration of multiple data types. MetaFishNet resources, including a pathway enrichment analysis tool, are accessible at http://metafishnet.appspot.com. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70134. 体节的形成：脊椎动物分节的分子事件
+
+| Field | Content |
+|------|------|
+| EN Title | The making of the somite: molecular events in vertebrate segmentation. |
+| ZH Title | 体节的形成：脊椎动物分节的分子事件 |
+| ZH Abstract | 综述脊椎动物体节形成的分子机制 |
+| EN Abstract | The reiterated structures of the vertebrate axial skeleton, spinal nervous system and body muscle are based on the metameric structure of somites, which are formed in a dynamic morphogenetic process. Somite segmentation requires the activity of a biochemical oscillator known as the somite-segmentation clock. Although the molecular identity of the clock remains unknown, genetic and experimental evidence has accumulated that indicates how the periodicity of somite formation is generated, how the p |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70139. 烟雾病的实验动物模型：一项面向物种的范围综述
+
+| Field | Content |
+|------|------|
+| EN Title | Experimental Animal Models for Moyamoya Disease: A Species-Oriented Scoping Review |
+| ZH Title | 烟雾病的实验动物模型：一项面向物种的范围综述 |
+| ZH Abstract | 综述烟雾病动物模型，未特指斑马鱼 |
+| EN Abstract | Moyamoya disease (MMD) is a rare cerebrovascular disease characterized by progressive stenosis of large intracranial arteries and a hazy network of basal collaterals called moyamoya vessels. The etiology and pathogenesis of MMD are still obscure. The biggest obstacles in the basic research of MMD are difficulty in obtaining specimens and the lack of an animal model. It is necessary to use appropriate and rationally designed animal models for the correct evaluation. Several animal models and meth |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70141. 蛋白质包装
+
+| Field | Content |
+|------|------|
+| EN Title | Packing in the Proteins |
+| ZH Title | 蛋白质包装 |
+| ZH Abstract | 评述发育中脊椎动物肠道的蛋白质吸收 |
+| EN Abstract | In this issue of Developmental Cell, Park et al. (2019) demonstrate that specialized enterocytes of the developing vertebrate intestine are equipped with a broad-spectrum protein absorption machinery to meet animals' nutritional needs through intracellular protein digestion while simultaneously allowing important immune and developmental proteins to traverse the lumen unscathed. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70146. HoxA基因与脊椎动物鳍到肢体的转变
+
+| Field | Content |
+|------|------|
+| EN Title | HoxA Genes and the Fin-to-Limb Transition in Vertebrates. |
+| ZH Title | HoxA基因与脊椎动物鳍到肢体的转变 |
+| ZH Abstract | 综述HoxA基因在鳍到肢体进化中的作用 |
+| EN Abstract | HoxA genes encode for important DNA-binding transcription factors that act during limb development, regulating primarily gene expression and, consequently, morphogenesis and skeletal differentiation. Within these genes, HoxA11 and HoxA13 were proposed to have played an essential role in the enigmatic evolutionary transition from fish fins to tetrapod limbs. Indeed, comparative gene expression analyses led to the suggestion that changes in their regulation might have been essential for the divers |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70148. 坏死性肉芽肿核心的巨噬细胞供需
+
+| Field | Content |
+|------|------|
+| EN Title | Macrophage Supply and Demand at the Core of the Necrotic Granuloma |
+| ZH Title | 坏死性肉芽肿核心的巨噬细胞供需 |
+| ZH Abstract | 评述巨噬细胞在坏死性肉芽肿中的作用 |
+| EN Abstract | Central necrosis of granulomas is linked to progression of major diseases, including tuberculosis and atherosclerosis. In this issue of Cell Host & Microbe, Pagan et al. (2015) reveal that necrotic granulomas develop when macrophage supply is insufficient. These findings suggest augmenting macrophage availability as a therapeutic strategy in tuberculosis. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70149. CIN85缺失阻止糖尿病条件下足细胞中nephrin内吞
+
+| Field | Content |
+|------|------|
+| EN Title | CIN85 DEFICIENCY PREVENTS NEPHRIN ENDOCYTOSIS IN PODOCYTES UNDER DIABETIC CONDITIONS |
+| ZH Title | CIN85缺失阻止糖尿病条件下足细胞中nephrin内吞 |
+| ZH Abstract | 研究CIN85在糖尿病足细胞中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70152. 靶向E3连接酶PRAJA在TGF-β信号中断的肝癌细胞中
+
+| Field | Content |
+|------|------|
+| EN Title | Targeting E3 Ligase PRAJA in liver cancer cells with disruption of TGF-β signaling |
+| ZH Title | 靶向E3连接酶PRAJA在TGF-β信号中断的肝癌细胞中 |
+| ZH Abstract | 研究PRAJA在肝癌细胞中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70153. 动物发育中的平面极性原理
+
+| Field | Content |
+|------|------|
+| EN Title | Principles of planar polarity in animal development |
+| ZH Title | 动物发育中的平面极性原理 |
+| ZH Abstract | 综述平面极性在动物发育中的机制 |
+| EN Abstract | Planar polarity describes the coordinated polarisation of cells or structures in the plane of a tissue. The patterning mechanisms that underlie planar polarity are well characterised in Drosophila, where many events are regulated by two pathways: the 'core' planar polarity complex and the Fat/Dachsous system. Components of both pathways also function in vertebrates and are implicated in diverse morphogenetic processes, some of which self-evidently involve planar polarisation and some of which do |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70155. 但它们也引导吗？
+
+| Field | Content |
+|------|------|
+| EN Title | Aber Lenken Sie Auch? (But do they also guide?). |
+| ZH Title | 但它们也引导吗？ |
+| ZH Abstract | 讨论轴突导向和视网膜顶盖投射 |
+| EN Abstract | One of the most intriguing problems in developmental neurobiology is that of how growing axons find the correct way to their proper target cells. Often axonal connections are organized in topographic maps, where neighboring cells of the projecting area are connected to neighboring cells in the target area, thus allowing a faithful transfer of positionally stored information from one area to another. The retinotectal projection is the classical model system for studying topographic projections. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70156. 遗传模型在发病机制中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic models in pathogenesis. |
+| ZH Title | 遗传模型在发病机制中的应用 |
+| ZH Abstract | 综述遗传模型在宿主-病原体互作中的应用 |
+| EN Abstract | To decipher the complexity of host-pathogen interactions the widest possible range of model hosts and of analytical methods is required. As some virulence mechanisms and certain host responses have been conserved throughout evolution, even simple organisms can be used as model hosts to help our understanding of infectious diseases. The availability of molecular genetic tools and a cooperative community of researchers are pivotal to the emergence of model systems. In this review, we first summari |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70159. 预印本中：保持内皮细胞特化和血管发育的检查
+
+| Field | Content |
+|------|------|
+| EN Title | In preprints: keeping endothelial cell specification and vascular development in check |
+| ZH Title | 预印本中：保持内皮细胞特化和血管发育的检查 |
+| ZH Abstract | 评述内皮细胞特化和血管发育研究（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70160. 甲基汞暴露对神经发育影响的研究进展
+
+| Field | Content |
+|------|------|
+| EN Title | Advances on the Influence of Methylmercury Exposure during Neurodevelopment |
+| ZH Title | 甲基汞暴露对神经发育影响的研究进展 |
+| ZH Abstract | 综述甲基汞对神经发育的毒性影响 |
+| EN Abstract | Mercury (Hg) is a toxic heavy-metal element, which can be enriched in fauna and flora and transformed into methylmercury (MeHg). MeHg is a widely distributed environmental pollutant that may be harmful to fish-eating populations through enrichment of aquatic food chains. The central nervous system is a primary target of MeHg. Embryos and infants are more sensitive to MeHg, and exposure to MeHg during gestational feeding can significantly impair the homeostasis of offspring, leading to long-term |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70161. 外显子组测序和功能追踪确定KIF26B为家族性骨质疏松症的新遗传决定因素
+
+| Field | Content |
+|------|------|
+| EN Title | Exome sequencing and functional follow-up identifies KIF26B as a novel genetic determinant of familial osteoporosis |
+| ZH Title | 外显子组测序和功能追踪确定KIF26B为家族性骨质疏松症的新遗传决定因素 |
+| ZH Abstract | 通过外显子组测序发现骨质疏松症新基因（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70170. 巨噬细胞需要释放近端制动器以降解细胞尸体
+
+| Field | Content |
+|------|------|
+| EN Title | Macrophages need to release the proximal brake to degrade cellular corpses |
+| ZH Title | 巨噬细胞需要释放近端制动器以降解细胞尸体 |
+| ZH Abstract | 评述巨噬细胞清除凋亡细胞的机制（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70174. 药物发现：从蠕虫到鱼再到小鼠
+
+| Field | Content |
+|------|------|
+| EN Title | Drug Discovery: From worms to fish to mice |
+| ZH Title | 药物发现：从蠕虫到鱼再到小鼠 |
+| ZH Abstract | 药物发现：从蠕虫到鱼再到小鼠（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70175. 社论：癫痫及相关共病的实验模型
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Experimental Models of Epilepsy and Related Comorbidities |
+| ZH Title | 社论：癫痫及相关共病的实验模型 |
+| ZH Abstract | 社论：癫痫及相关共病的实验模型（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70179. Spectraplakins在生理和病理中的多功能作用
+
+| Field | Content |
+|------|------|
+| EN Title | Spectraplakins, versatile roles in physiology and pathology |
+| ZH Title | Spectraplakins在生理和病理中的多功能作用 |
+| ZH Abstract | Spectraplakins在生理和病理中的多功能作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70180. 多囊蛋白-1通过cAMP/PKA通路调控EZH2表达，EZH2抑制延缓ADPKD进展
+
+| Field | Content |
+|------|------|
+| EN Title | POLYCYSTIN-1 REGULATES EZH2 EXPRESSION THROUGH THE CAMP/PKA PATHWAY AND EZH2 INHIBITION DELAYS ADPKD PROGRESSION |
+| ZH Title | 多囊蛋白-1通过cAMP/PKA通路调控EZH2表达，EZH2抑制延缓ADPKD进展 |
+| ZH Abstract | 多囊蛋白-1通过cAMP/PKA通路调控EZH2表达，EZH（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70185. ATG7驱动肾小管稳态与疾病中的代谢细胞命运决定
+
+| Field | Content |
+|------|------|
+| EN Title | ATG7 Drives Metabolic Cell-Fate Decisions in Kidney Tubule Homeostasis and Disease |
+| ZH Title | ATG7驱动肾小管稳态与疾病中的代谢细胞命运决定 |
+| ZH Abstract | ATG7驱动肾小管稳态与疾病中的代谢细胞命运决定（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70188. 用于药物心脏毒性筛选的计算机-体外联合流程识别离子性致心律失常机制
+
+| Field | Content |
+|------|------|
+| EN Title | An in silico-in vitro pipeline for drug cardiotoxicity screening identifies ionic proarrhythmia mechanisms |
+| ZH Title | 用于药物心脏毒性筛选的计算机-体外联合流程识别离子性致心律失常机制 |
+| ZH Abstract | 用于药物心脏毒性筛选的计算机-体外联合流程识别离子性致心律失（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70189. RIFM香料成分安全评估，(2-endo,3-exo)-ethyl 3-(1-methylethyl)bicyclo[2.2.1]hept-5-ene-2-carboxylate，CAS号116044-44-1
+
+| Field | Content |
+|------|------|
+| EN Title | RIFM fragrance ingredient safety assessment, (2-endo,3-exo)-ethyl 3-(1-methylethyl)bicyclo[2.2.1]hept-5-ene-2-carboxylate, CAS registry number 116044-44-1 |
+| ZH Title | RIFM香料成分安全评估，(2-endo,3-exo)-ethyl 3-(1-methylethyl)bicyclo[2.2.1]hept-5-ene-2-carboxylate，CAS号116044-44-1 |
+| ZH Abstract | RIFM香料成分安全评估，(2-endo,3-exo)-et（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70190. 同一基因，相反性别：受精所需基因的性别特异性差异表达
+
+| Field | Content |
+|------|------|
+| EN Title | Same gene, opposite sexes: Sex-specific divergent expression of a gene required for vertebrate fertilization |
+| ZH Title | 同一基因，相反性别：受精所需基因的性别特异性差异表达 |
+| ZH Abstract | 同一基因，相反性别：受精所需基因的性别特异性差异表达（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70203. 异种移植：通过跨物种移植推进医学创新
+
+| Field | Content |
+|------|------|
+| EN Title | Xenotransplantation: Advancing Medical Innovation Through Cross-Species Transplantation |
+| ZH Title | 异种移植：通过跨物种移植推进医学创新 |
+| ZH Abstract | 异种移植：通过跨物种移植推进医学创新（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70209. 胚胎血管破坏不良结局：将高通量信号特征与功能后果联系起来（第70卷，第82页，2017年）
+
+| Field | Content |
+|------|------|
+| EN Title | Embryonic vascular disruption adverse outcomes: Linking high throughput signaling signatures with functional consequences (vol 70, pg 82, 2017) |
+| ZH Title | 胚胎血管破坏不良结局：将高通量信号特征与功能后果联系起来（第70卷，第82页，2017年） |
+| ZH Abstract | 胚胎血管破坏不良结局：将高通量信号特征与功能后果联系起来（第（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70211. 酒精性脂肪肝机制的新见解
+
+| Field | Content |
+|------|------|
+| EN Title | New Insights into Mechanisms of Alcohol-Induced Fatty Liver |
+| ZH Title | 酒精性脂肪肝机制的新见解 |
+| ZH Abstract | 酒精性脂肪肝机制的新见解（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70212. 人类疾病的水生动物模型：第六届会议论文选编 前言
+
+| Field | Content |
+|------|------|
+| EN Title | Aquatic animal models of human disease: Selected papers from the 6th conference Preface |
+| ZH Title | 人类疾病的水生动物模型：第六届会议论文选编 前言 |
+| ZH Abstract | 人类疾病的水生动物模型：第六届会议论文选编 前言（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70213. 编码K-Cl协同转运蛋白4（KCC4）羧基末端部分的外显子选择性剪接
+
+| Field | Content |
+|------|------|
+| EN Title | Alternative Splicing of Exons Encoding Portions of the Carboxy-Terminus of K-Cl Cotransporter-4 (KCC4) |
+| ZH Title | 编码K-Cl协同转运蛋白4（KCC4）羧基末端部分的外显子选择性剪接 |
+| ZH Abstract | 研究KCC4羧基末端外显子选择性剪接，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70221. HDAC8作为急性肾损伤治疗靶点的药理学验证
+
+| Field | Content |
+|------|------|
+| EN Title | Pharmacological Validation of HDAC8 as a Therapeutic Target for AKI |
+| ZH Title | HDAC8作为急性肾损伤治疗靶点的药理学验证 |
+| ZH Abstract | 验证HDAC8靶点，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70227. 甲基汞摄入的健康风险和鱼类消费的健康益处
+
+| Field | Content |
+|------|------|
+| EN Title | Health risk of methylmercury intake and health benefit of fish consumption |
+| ZH Title | 甲基汞摄入的健康风险和鱼类消费的健康益处 |
+| ZH Abstract | 综述健康风险，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70231. BRAF和ACLY抑制联合协同降低黑色素瘤细胞活力
+
+| Field | Content |
+|------|------|
+| EN Title | Combination of BRAF and ACLY inhibition synergistically reduces melanoma cell viability |
+| ZH Title | BRAF和ACLY抑制联合协同降低黑色素瘤细胞活力 |
+| ZH Abstract | 研究黑色素瘤细胞，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70232. 早发性卵巢功能不全的基因组学——进展、前景与陷阱
+
+| Field | Content |
+|------|------|
+| EN Title | Genomics for Premature Ovarian Insufficiency - Progress, Promise and Pitfalls |
+| ZH Title | 早发性卵巢功能不全的基因组学——进展、前景与陷阱 |
+| ZH Abstract | 综述基因组学，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70233. 在原代人CD34+造血干细胞和祖细胞中进行CRISPR筛选鉴定RNA解旋酶DDX6为新型HSC调节因子
+
+| Field | Content |
+|------|------|
+| EN Title | CRISPR SCREENING IN PRIMARY HUMAN CD34+HEMATOPOIE TIC STEM AND PROGENITOR CELLS IDENTIFIES THE RNA HELICASE DDX6 AS A NOVEL HSC REGULATOR |
+| ZH Title | 在原代人CD34+造血干细胞和祖细胞中进行CRISPR筛选鉴定RNA解旋酶DDX6为新型HSC调节因子 |
+| ZH Abstract | 研究人类细胞，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70235. 抑制SGLT-2不能挽救糖尿病肾病中nephrin的表达
+
+| Field | Content |
+|------|------|
+| EN Title | INHIBITION OF SGLT-2 CANNOT RESCUE NEPHRIN EXPRESSION IN DIABETIC NEPHROPATHY |
+| ZH Title | 抑制SGLT-2不能挽救糖尿病肾病中nephrin的表达 |
+| ZH Abstract | 研究糖尿病肾病，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70236. 双光子荧光成像
+
+| Field | Content |
+|------|------|
+| EN Title | Two-Photon Fluorescence Imaging |
+| ZH Title | 双光子荧光成像 |
+| ZH Abstract | 综述成像技术，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70238. 自然最了解：采用整体微生物策略对抗耐药病原体
+
+| Field | Content |
+|------|------|
+| EN Title | Nature knows best: employing whole microbial strategies to tackle antibiotic resistant pathogens |
+| ZH Title | 自然最了解：采用整体微生物策略对抗耐药病原体 |
+| ZH Abstract | 综述微生物策略，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70248. Zeb2os：修复心脏的非编码障碍
+
+| Field | Content |
+|------|------|
+| EN Title | Zeb2os: A Noncoding Obstacle to Healing Hearts |
+| ZH Title | Zeb2os：修复心脏的非编码障碍 |
+| ZH Abstract | 研究Zeb2os在心脏修复中的作用，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70250. ADAR1合成致死性在BRCA1/2突变肿瘤中定义自分泌干扰素中毒为癌细胞的可靶向脆弱性
+
+| Field | Content |
+|------|------|
+| EN Title | ADAR1 synthetic lethality in BRCA1/2-mutant tumors defines autocrine interferon poisoning as a targetable vulnerability of cancer cells |
+| ZH Title | ADAR1合成致死性在BRCA1/2突变肿瘤中定义自分泌干扰素中毒为癌细胞的可靶向脆弱性 |
+| ZH Abstract | 研究肿瘤细胞，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70254. 风化聚乙烯微塑料暴露导致鱼类谷胱甘肽-S-转移酶活性调节
+
+| Field | Content |
+|------|------|
+| EN Title | Weathered polyethylene microplastics exposure leads to modulations in glutathione-S-transferase activity in fish |
+| ZH Title | 风化聚乙烯微塑料暴露导致鱼类谷胱甘肽-S-转移酶活性调节 |
+| ZH Abstract | 研究风化聚乙烯微塑料对鱼类谷胱甘肽-S-转移酶活性的影响。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 摘要未指定鱼种 |
+---
+### 70256. Hdac8作为AKI治疗靶点的遗传验证
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic Validation of Hdac8 as a Therapeutic Target for AKI |
+| ZH Title | Hdac8作为AKI治疗靶点的遗传验证 |
+| ZH Abstract | 遗传验证Hdac8作为急性肾损伤治疗靶点。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70257. TRIM55基因新外显子变异导致心力衰竭易感
+
+| Field | Content |
+|------|------|
+| EN Title | A novel exonic variant in TRIM55 gene predisposes to heart failure |
+| ZH Title | TRIM55基因新外显子变异导致心力衰竭易感 |
+| ZH Abstract | 发现TRIM55基因新外显子变异与心力衰竭相关。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70261. 转录组分析和吗啉代敲低鉴定核糖体生物发生为早期神经发生中的新型酒精靶点
+
+| Field | Content |
+|------|------|
+| EN Title | TRANSCRIPTOME PROFILING AND MORPHOLINO KNOCKDOWN IDENTIFIES RIBOSOME BIOGENESIS AS A NOVEL ALCOHOL TARGET DURING EARLY NEUROGENESIS |
+| ZH Title | 转录组分析和吗啉代敲低鉴定核糖体生物发生为早期神经发生中的新型酒精靶点 |
+| ZH Abstract | 利用转录组分析和吗啉代敲低研究酒精对早期神经发生的影响。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70266. 光声成像体内微塑料检测
+
+| Field | Content |
+|------|------|
+| EN Title | In Vivo Microplastic Detection With Photoacoustic Imaging |
+| ZH Title | 光声成像体内微塑料检测 |
+| ZH Abstract | 首次利用光声成像在活体组织中检测微塑料。 |
+| EN Abstract | Microplastics are posing an escalating threat to both ecological systems and human health. Yet, current methods for investigating their bioaccumulation are highly invasive, requiring destructive analysis of ex vivo tissues via mass spectrometry, dye labelling, or Raman microspectroscopy. This limits the study of biodistribution dynamics in preclinical models and human populations, leaving an urgent need for non-invasive alternatives. Meeting this challenge, for the first time in living tissue, t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70270. 在分子水平探索脱髓鞘疾病中的髓鞘动力学
+
+| Field | Content |
+|------|------|
+| EN Title | Exploring Myelin Dynamics in Demyelinating Disorders at the Molecular Level |
+| ZH Title | 在分子水平探索脱髓鞘疾病中的髓鞘动力学 |
+| ZH Abstract | 探索脱髓鞘疾病中髓鞘动力学的分子机制。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70272. 光学倏逝波传感实现体内空间光谱光声显微镜
+
+| Field | Content |
+|------|------|
+| EN Title | In vivo spatial-spectral photoacoustic microscopy enabled by optical evanescent wave sensing |
+| ZH Title | 光学倏逝波传感实现体内空间光谱光声显微镜 |
+| ZH Abstract | 利用倏逝波传感实现活体空间-光谱光声显微成像。 |
+| EN Abstract | In addition to offering morphological visualizations via capture of the spatial distributions of optical absorption, photoacoustic imaging technology can reveal abundant physical information about biological particles, including their orientation, density, and viscoelasticity, through analysis of the pressure transients in the spectral domain. However, the low-amplitude wideband photoacoustic signals of intrinsic microscopic optically-absorbing objects under the action of confined photoacoustic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70273. 酒精诱导肢体/鳍缺陷中分子通路的遗传和药理学探究以鉴定FASD新机制
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic and pharmacological probing of molecular pathways involved in alcohol-induced limb/fin defects to identify novel mechanisms with a role in FASD |
+| ZH Title | 酒精诱导肢体/鳍缺陷中分子通路的遗传和药理学探究以鉴定FASD新机制 |
+| ZH Abstract | 利用遗传和药理学方法研究酒精诱导的肢体/鳍缺陷机制。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 摘要未提斑马鱼 |
+---
+### 70276. ABCC12被鉴定为进行性家族性肝内胆汁淤积和胆管减少的新致病基因
+
+| Field | Content |
+|------|------|
+| EN Title | IDENTIFICATION OF ABCC12 AS A NOVEL CAUSATIVE GENE IN PROGRESSIVE FAMILIAL INTRAHEPATIC CHOLESTASIS AND BILE DUCT PAUCITY |
+| ZH Title | ABCC12被鉴定为进行性家族性肝内胆汁淤积和胆管减少的新致病基因 |
+| ZH Abstract | 鉴定ABCC12为进行性家族性肝内胆汁淤积的新致病基因。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70285. 药理学抑制尿激酶型纤溶酶原激活物受体（uPAR）甲酰肽受体（FPR）信号预防原发性足细胞病中的足细胞损伤
+
+| Field | Content |
+|------|------|
+| EN Title | Pharmacologic Inhibition of Urokinase- Type Plasminogen Activator Receptor (uPAR) Formyl Peptide Receptor (FPR) Signaling Prevents Podocyte Damage in Primary Podocytopathies |
+| ZH Title | 药理学抑制尿激酶型纤溶酶原激活物受体（uPAR）甲酰肽受体（FPR）信号预防原发性足细胞病中的足细胞损伤 |
+| ZH Abstract | 研究药理学抑制uPAR-FPR信号预防足细胞损伤。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70287. 用于生物和环境样品中肼成像的比率荧光探针
+
+| Field | Content |
+|------|------|
+| EN Title | A ratiometric fluorescent probe for hydrazine imaging in biological and environmental samples |
+| ZH Title | 用于生物和环境样品中肼成像的比率荧光探针 |
+| ZH Abstract | 构建比率荧光探针3HF-Br用于肼的检测和成像。 |
+| EN Abstract | Hydrazine (N2H4) is widely used in many fields, but it is highly toxic to life when exposed to the environment. In view of this, one fluorescent probe 3HF-Br, which can produce ratio signals of absorption spectrum and emis-sion spectrum for the detection of N2H4, was constructed in this work. Based on the sensing mechanism of SN2 nucleophilic substitution -cyclization -elimination, 3HF-Br has sensitive spectral response to N2H4 via ESIPT effect. After the reaction, the highest emission peak of f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70289. 利用纳米颗粒递送mRNA恢复心内膜Notch信号的方法
+
+| Field | Content |
+|------|------|
+| EN Title | Approach of mRNA Delivery by Using Nanoparticles to Recover Endocardial Notch Signaling |
+| ZH Title | 利用纳米颗粒递送mRNA恢复心内膜Notch信号的方法 |
+| ZH Abstract | 利用纳米颗粒递送mRNA恢复心内膜Notch信号。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70290. 利用散斑增强分辨率进行全脑三维光场神经元活动成像
+
+| Field | Content |
+|------|------|
+| EN Title | Brain-wide 3D light-field imaging of neuronal activity with speckle-enhanced resolution |
+| ZH Title | 利用散斑增强分辨率进行全脑三维光场神经元活动成像 |
+| ZH Abstract | 开发散斑增强分辨率的光场显微镜用于全脑神经元活动成像。 |
+| EN Abstract | A major challenge in neuroscience is to sample large-scale neuronal activity at high speed and resolution. While calcium (Ca2+) imaging allows high-resolution optical read-out of neuronal activity, it remains challenging to sample large-scale activity at high speed, as most available imaging microscopes provide a trade-off between speed and the size of the acquisition volume. One promising method that avoids the trade-off between the acquisition rate and volume size is light-field microscopy in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70292. 胚胎遗传振荡子自组织成时空波模式
+
+| Field | Content |
+|------|------|
+| EN Title | Self-Organization of Embryonic Genetic Oscillators into Spatiotemporal Wave Patterns |
+| ZH Title | 胚胎遗传振荡子自组织成时空波模式 |
+| ZH Abstract | 研究胚胎体节形成中细胞振荡信号的自组织波模式。 |
+| EN Abstract | In vertebrate embryos, somites, the precursor of vertebrae, form from the presomitic mesoderm (PSM), which is composed of cells displaying signaling oscillations. Cellular oscillatory activity leads to periodic wave patterns in the PSM. Here, we address the origin of such complex wave patterns. We employed an in vitro randomization and real-time imaging strategy to probe for the ability of cells to generate order from disorder. We found that, after randomization, PSM cells self-organized into se |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70300. PI3KC2α通过抑制β-肾上腺素受体/cAMP通路调节心脏收缩性
+
+| Field | Content |
+|------|------|
+| EN Title | PI3KC2α regulates cardiac contractility by restraining the β-adrenergic receptor/cyclic AMP (β-AR/cAMP) pathway |
+| ZH Title | PI3KC2α通过抑制β-肾上腺素受体/cAMP通路调节心脏收缩性 |
+| ZH Abstract | 研究PI3KC2α功能，未提及斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70310. 中线和左右缺陷：左右在中线相遇
+
+| Field | Content |
+|------|------|
+| EN Title | Midline and laterality defects: left and right meet in the middle. |
+| ZH Title | 中线和左右缺陷：左右在中线相遇 |
+| ZH Abstract | 综述HPE和左右缺陷，提及动物模型 |
+| EN Abstract | The aim of this review is to summarize some of the recent advances in molecular embryology that help to explain the pathogenesis of holoprosencephaly (HPE), or its related malformation in model organisms, cyclopia, and laterality defects in humans, derived from detailed analysis of similar malformations in animal models. Recently, defects in several developmental pathways including those operated by the Sonic hedgehog and Nodal signaling factors have been implicated as causes of HPE or lateralit |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70311. Wnt信号：动物发育中的共同主题
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt signaling: a common theme in animal development. |
+| ZH Title | Wnt信号：动物发育中的共同主题 |
+| ZH Abstract | 综述Wnt信号，未特指斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70317. 利用多普勒频移光学干涉和近红外成像对发育中鱼卵胚胎进行无染色血流成像
+
+| Field | Content |
+|------|------|
+| EN Title | Nonstaining Blood Flow Imaging Using Optical Interference Due to Doppler Shift and Near-Infrared Imaging of Molecular Distribution in Developing Fish Egg Embryos |
+| ZH Title | 利用多普勒频移光学干涉和近红外成像对发育中鱼卵胚胎进行无染色血流成像 |
+| ZH Abstract | 研究鱼卵胚胎血流成像，未特指斑马鱼 |
+| EN Abstract | In the present study, we successfully obtained nonstaining blood flow images of a developing fish egg embryo using optical interference caused by the Doppler shift. The spectral distribution of light reflected by moving objects such as the heart and red cells was found to be different from that of the incident light because of the Doppler effect. Interference between different frequency components was observed in an interferogram through heterodyne interaction using an imaging-type two-dimension |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70323. 皮肤鳞状细胞癌中VII型胶原缺失增加血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | Loss of type VII collagen in cutaneous SCC increases angiogenesis |
+| ZH Title | 皮肤鳞状细胞癌中VII型胶原缺失增加血管生成 |
+| ZH Abstract | 研究胶原缺失，未提及斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70325. 转录因子激活蛋白2直接激活Sox10诱导黑素细胞并与MITF协同促进黑素细胞分化
+
+| Field | Content |
+|------|------|
+| EN Title | Transcription factor activator protein 2 directly activates Sox10 to induce melanoblasts and co-operates with MITF to promote melanocyte differentiation |
+| ZH Title | 转录因子激活蛋白2直接激活Sox10诱导黑素细胞并与MITF协同促进黑素细胞分化 |
+| ZH Abstract | 研究黑素细胞分化，未提及斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70326. 限制性内切酶活性的光化学调控
+
+| Field | Content |
+|------|------|
+| EN Title | Photochemical Regulation of Restriction Endonuclease Activity |
+| ZH Title | 限制性内切酶活性的光化学调控 |
+| ZH Abstract | 研究光化学调控，未提及斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70327. 寻找牛JY-1的脊椎动物直系同源物：一种新的卵母细胞/胚胎特异性基因
+
+| Field | Content |
+|------|------|
+| EN Title | The search for vertebrate orthologs of bovine JY-1: A novel oocyte/embryo specific gene. |
+| ZH Title | 寻找牛JY-1的脊椎动物直系同源物：一种新的卵母细胞/胚胎特异性基因 |
+| ZH Abstract | 寻找直系同源物，未特指斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70332. 多个物种的视网膜细胞图谱及视网膜细胞类型标记的在线平台
+
+| Field | Content |
+|------|------|
+| EN Title | Retina cell atlases of multiple species and an online platform for retina cell-type markers |
+| ZH Title | 多个物种的视网膜细胞图谱及视网膜细胞类型标记的在线平台 |
+| ZH Abstract | 构建视网膜细胞图谱，未特指斑马鱼（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70339. 干细胞与多能性：新兴主题与工具
+
+| Field | Content |
+|------|------|
+| EN Title | Stem cells and pluripotency: emerging themes and tools |
+| ZH Title | 干细胞与多能性：新兴主题与工具 |
+| ZH Abstract | 干细胞与多能性：新兴主题与工具（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70355. 意大利实验动物科学协会2015年研讨会论文摘要
+
+| Field | Content |
+|------|------|
+| EN Title | Abstracts of Scientific Papers Associazione Italiana per le Scienze degli Animali da Laboratorio (AISAL) Symposium, Naples, Italy, October 22-23, 2015 Abstracts |
+| ZH Title | 意大利实验动物科学协会2015年研讨会论文摘要 |
+| ZH Abstract | 意大利实验动物科学协会2015年研讨会论文摘要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70358. 代谢综合征新型动物模型的药物基因组学
+
+| Field | Content |
+|------|------|
+| EN Title | Pharmacogenomics of novel animal model of the metabolic syndrome |
+| ZH Title | 代谢综合征新型动物模型的药物基因组学 |
+| ZH Abstract | 代谢综合征新型动物模型的药物基因组学（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70368. CDA II患者中SEC23B低等位基因的特征
+
+| Field | Content |
+|------|------|
+| EN Title | CHARACTERIZATION OF SEC23B HYPOMORPHIC ALLELES IN CDA II PATIENTS |
+| ZH Title | CDA II患者中SEC23B低等位基因的特征 |
+| ZH Abstract | CDA II患者中SEC23B低等位基因的特征（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70399. 异质生物样本环境组学研究中组织特异性多因素效应的评估：结合高光谱图像信息和化学计量学
+
+| Field | Content |
+|------|------|
+| EN Title | Assessment of tissue-specific multifactor effects in environmental -omics studies of heterogeneous biological samples: Combining hyperspectral image information and chemometrics |
+| ZH Title | 异质生物样本环境组学研究中组织特异性多因素效应的评估：结合高光谱图像信息和化学计量学 |
+| ZH Abstract | 利用高光谱成像和化学计量学评估组织特异性效应。 |
+| EN Abstract | The use of hyperspectral imaging techniques in biological studies has increased in the recent years. Hyperspectral images (HSI) provide chemical information and preserve the morphology and original structure of heterogeneous biological samples, which can be potentially useful in environmental -omics studies when effects due to several factors, e.g., contaminant exposure, phenotype,..., at a specific tissue level need to be investigated. Yet, no available strategies exist to exploit adequately th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70418. (无标题)
+
+| Field | Content |
+|------|------|
+| EN Title | No title |
+| ZH Title | (无标题) |
+| ZH Abstract | 无摘要 |
+| EN Abstract | No abstract |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70465. 利用转录组学和蛋白质组学探索硬骨鱼中雄激素调控通路
+
+| Field | Content |
+|------|------|
+| EN Title | Exploring Androgen-Regulated Pathways in Teleost Fish Using Transcriptomics and Proteomics |
+| ZH Title | 利用转录组学和蛋白质组学探索硬骨鱼中雄激素调控通路 |
+| ZH Abstract | 综述雄激素干扰物在鱼类中的分子机制研究。 |
+| EN Abstract | In the environment, there are aquatic pollutants that disrupt androgen signaling in fish. Laboratory and field-based experiments have utilized omics technologies to characterize the molecular mechanisms underlying androgen-receptor agonism/antagonism. Transcriptomics and proteomics studies with 17 beta-trenbolone, a growth-promoting pharmaceutical found in water systems surrounding cattle feed lots, and androgens such as 17 alpha-methyltestosterone and 17 alpha-methyldihydrotestosterone, have be |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70467. 超分子自组装甲氨基阿维菌素苯甲酸盐与β-环糊精和聚乳酸：提高农药功效和环境安全性
+
+| Field | Content |
+|------|------|
+| EN Title | Supramolecular self-assembly of emamectin benzoate with β-cyclodextrin and polylactic acid: Enhancing pesticide efficacy and environmental safety |
+| ZH Title | 超分子自组装甲氨基阿维菌素苯甲酸盐与β-环糊精和聚乳酸：提高农药功效和环境安全性 |
+| ZH Abstract | 研究农药纳米复合物对非靶标生物的影响。 |
+| EN Abstract | In traditional pesticide applications, issues such as degradation, volatilization, and drift often diminish the efficacy of active ingredients, shorten their effectiveness, and pose risks to non-target organisms, thereby raising ecological concerns. This study explores a novel approach using emamectin benzoate (EB) as a model pesticide, leveraging non-covalent molecular interactions to co-assemble nanocomplexes with cyclodextrin (beta-CD) and polylactic acid (PLA) conjugates (beta-CD-PLA-EB). No |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70469. GDNF家族配体和受体的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of the GDNF family ligands and receptors |
+| ZH Title | GDNF家族配体和受体的进化 |
+| ZH Abstract | 综述GDNF家族配体受体在脊椎动物中的进化。 |
+| EN Abstract | Four different ligand-receptor binding pairs of the GDNF (glial cell line-derived neurotrophic factor) family exist in mammals, and they all signal via the transmembrane RET receptor tyrosine kinase. In addition, GRAL (GDNF Receptor Alpha-Like) protein of unknown function and Gas1 (growth arrest specific 1) have GDNF family receptor (GFR)-like domains. Orthologs of the four GFR alpha receptors, GRAL and Gas1 are present in all vertebrate classes. in contrast, although bony fishes have orthologs |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70473. 基于机器学习的污水处理厂出水质量评价参数与分类模型
+
+| Field | Content |
+|------|------|
+| EN Title | Quality evaluation parameter and classification model for effluents of wastewater treatment plant based on machine learning |
+| ZH Title | 基于机器学习的污水处理厂出水质量评价参数与分类模型 |
+| ZH Abstract | 建立污水处理厂出水质量评价参数和分类模型。 |
+| EN Abstract | With the growing consensus of emerging pollutants and biological toxicity risks in wastewater treatment plant (WWTP) effluents, traditional water quality management based on general chemical parameters no longer meets the new challenges. Here, a first-hand dataset containing 9 conventional parameters, 22 mental and inorganic ions, 25 biotoxicity parameters, and 54 emerging pollutants from effluents of 176 municipal WWTPs across China were measured. Four clustering algorithms and five classificat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70475. 基于环境和毒理遗传学关注优先排序选定的PPCPs：从毒性估计到确认
+
+| Field | Content |
+|------|------|
+| EN Title | Prioritizing selected PPCPs on the basis of environmental and toxicogenetic concerns: A toxicity estimation to confirmation approach |
+| ZH Title | 基于环境和毒理遗传学关注优先排序选定的PPCPs：从毒性估计到确认 |
+| ZH Abstract | 优先排序PPCPs并验证其毒性。 |
+| EN Abstract | Pharmaceuticals and personal care products (PPCPs), the pollutants of emerging concerns, present potential risks to the ecological environment. This study focused on the prioritization of widely used selected PPCPs belonging to two categories:personal care products (PCPs) and non-steroidal anti-inflammatory drugs (NSAIDs). We predicted the toxicogenetic endpoints of PPCPs and then confirmed them using experimental approaches. Our results revealed a significant similarity in the findings obtained |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70477. 荷丹胶囊通过胆汁酸代谢调节改善MASLD的机制及关键活性成分
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms and key active ingredients of HeDan capsules in ameliorating MASLD via bile acid metabolism regulation |
+| ZH Title | 荷丹胶囊通过胆汁酸代谢调节改善MASLD的机制及关键活性成分 |
+| ZH Abstract | 研究荷丹胶囊改善MASLD的机制。 |
+| EN Abstract | Ethnopharmacological relevance: HeDan Capsules(HD), a traditional Chinese medicinal preparation, possesses the effects of resolving phlegm, reducing turbidity, activating blood circulation, and resolving blood stasis. It is clinically indicated for the treatment of hyperlipidemia and metabolic dysfunction-associated steatotic liver disease (MASLD). However, the mechanism by which HD ameliorates MASLD remains unclear. Aim of the study: This study aims to systematically elucidate the potential mec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70499. 氧化石墨烯/玉米醇溶蛋白纳米复合材料负载鱼藤酮：协同增强鱼藤酮的杀虫活性和生物安全性
+
+| Field | Content |
+|------|------|
+| EN Title | Graphene oxide/zein nanocomposites loaded with rotenone: Synergistically enhancing the pesticidal activity and biosafety of rotenone |
+| ZH Title | 氧化石墨烯/玉米醇溶蛋白纳米复合材料负载鱼藤酮：协同增强鱼藤酮的杀虫活性和生物安全性 |
+| ZH Abstract | 开发鱼藤酮纳米递送系统提高杀虫效果和安全性。 |
+| EN Abstract | Nanomaterials have been widely applied as pesticide carriers, representing an important approach to enhancing insecticidal efficacy against target pests, improving safety for non-target organisms, and further mitigating environmental pollution. In this work, a pesticide delivery system (SGO-Rot@Zein) was developed by loading rotenone (Rot) onto small-sized graphene oxide (SGO) and further encapsulating with zein as a protective matrix. Characterizations via SEM, FTIR, and TGA confirmed successfu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70500. 替代消毒方法或提高消毒剂剂量以应对COVID-19大流行？从消毒效率、DBP形成和毒性角度
+
+| Field | Content |
+|------|------|
+| EN Title | Alternate disinfection approaches or raise disinfectant dosages for sewage treatment plants to address the COVID-19 pandemic? From disinfection efficiency, DBP formation, and toxicity perspectives |
+| ZH Title | 替代消毒方法或提高消毒剂剂量以应对COVID-19大流行？从消毒效率、DBP形成和毒性角度 |
+| ZH Abstract | 比较不同消毒方法对效率和副产物的影响。 |
+| EN Abstract | During the COVID-19 pandemic, most sewage treatment plants increased disinfectant dosages to inactivate pathogenic viruses and microorganisms more effectively. However, this approach also led to the production of more disinfection by-products (DBPs). To ensure both disinfection efficiency and a reduction in DBP formation, new disinfection protocols are required. In this study, the disinfection efficiency, DBP amounts, and toxicity changes resulting from ozone (O3), ultraviolet (UV), chlorine (Cl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70501. 鱼类脂肪生成
+
+| Field | Content |
+|------|------|
+| EN Title | Adipogenesis in fish |
+| ZH Title | 鱼类脂肪生成 |
+| ZH Abstract | 综述鱼类白色脂肪组织的功能和脂肪生成。 |
+| EN Abstract | White adipose tissue (AT) is the main lipid storage depot in vertebrates. Initially considered to be a simple lipid store, AT has recently been recognized as playing a role as an endocrine organ that is implicated in processes such as energy homeostasis and as a rich source of stem cells. Interest in adipogenesis has increased not only because of the prevalence of obesity, metabolic syndrome and type 2 diabetes in humans, but also in aquaculture because of the excessive fat deposition experience |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70563. 钙调神经磷酸酶抑制损害神经元钾-氯共转运体2的功能
+
+| Field | Content |
+|------|------|
+| EN Title | Calcineurin Inhibition Impairs the Function of Neuronal Potassium-Chloride Cotransporter 2 |
+| ZH Title | 钙调神经磷酸酶抑制损害神经元钾-氯共转运体2的功能 |
+| ZH Abstract | 无摘要。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70572. HSF1通过维持内质网稳态介导棕榈酸破坏鱼类脂质代谢和炎症反应
+
+| Field | Content |
+|------|------|
+| EN Title | HSF1 Mediates Palmitic Acid-Disrupted Lipid Metabolism and Inflammatory Response by Maintaining Endoplasmic Reticulum Homeostasis in Fish |
+| ZH Title | HSF1通过维持内质网稳态介导棕榈酸破坏鱼类脂质代谢和炎症反应 |
+| ZH Abstract | 研究鱼类细胞和体内实验，未明确斑马鱼。 |
+| EN Abstract | Fish oil (FO) is being progressively replaced by palm oil (PO), which is rich in palmitic acid (PA). However, our understanding of the effects of PA on fish and the underlying molecular mechanisms remains limited. Heat shock transcription factor 1 (HSF1) is a critical transcription factor involved in stress response, but whether it responds to the effects of PA in fish remains unknown. In this study, in vitro and in vivo experiments were combined to investigate the molecular mechanisms by which |
+| Judgment | 是 |
+| Reason | 未明确鱼类种类 |
+---
+### 70586. MIp相互作用蛋白1在心肌病中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | MIp Interacting Protein 1 (MIP1) Plays a Role for Cardiomyopathy |
+| ZH Title | MIp相互作用蛋白1在心肌病中的作用 |
+| ZH Abstract | 无摘要。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70600. 一种耐氧化剂的荧光探针用于检测生物系统中的亚硫酸氢盐和粘度
+
+| Field | Content |
+|------|------|
+| EN Title | An oxidizer-resistant fluorescence probe for detecting bisulfite and viscosity in biosystems |
+| ZH Title | 一种耐氧化剂的荧光探针用于检测生物系统中的亚硫酸氢盐和粘度 |
+| ZH Abstract | 设计荧光探针用于检测亚硫酸氢盐和粘度。 |
+| EN Abstract | Fluorescence probes bearing malononitrile derivatives as electron withdrawing group have attracted the interests of many researchers during the past decades. Even for the similar fluorophore, the sensing mechanism and pathway could be much different and hard to predict. Thus, we designed a fluorescence probe consisting 2-(3,5,5-trimethylcyclohex-2-en-1-ylidene)malononitrile as the electron withdrawing group and thienocoumarin as fluorophore in order to investigate the possible superiority in des |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70602. 通过动物模型鉴定Plectin异构体功能
+
+| Field | Content |
+|------|------|
+| EN Title | Identifying Plectin Isoform Functions through Animal Models |
+| ZH Title | 通过动物模型鉴定Plectin异构体功能 |
+| ZH Abstract | 综述Plectin蛋白在动物模型中的功能。 |
+| EN Abstract | Plectin, a high-molecular-weight cytoskeletal linker protein, binds with high affinity to intermediate filaments of all types and connects them to junctional complexes, organelles, and inner membrane systems. In addition, it interacts with actomyosin structures and microtubules. As a multifunctional protein, plectin has been implicated in several multisystemic diseases, the most common of which is epidermolysis bullosa simplex with muscular dystrophy (EBS-MD). A great part of our knowledge about |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70603. 一种新型异佛尔酮基红/近红外探针用于硫酚检测及其在真实水样和活体中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | A novel isophorone-based red-emitting/NIR probe for thiophenol and its application in real water sample and vivo |
+| ZH Title | 一种新型异佛尔酮基红/近红外探针用于硫酚检测及其在真实水样和活体中的应用 |
+| ZH Abstract | 设计硫酚探针用于生物成像和环境监测。 |
+| EN Abstract | Fast, highly selective and sensitive thiophenol probes are highly desirable in the field of bioimaging and environmental monitoring. For that, based on the mechanism that thiophenol can effectively cleave the sulfonamide bond selectively, we herein report a dicyanoisophorone-based Red-emitting/NIR probe for thiophenol detection. This probe had some desirable properties such as rapid response, high selectivity and sensitivity, remarkable large Stokes shift (181 nm), Red-emitting/NIR fluorescence |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70604. Teneurins：结构域架构、进化起源和表达模式
+
+| Field | Content |
+|------|------|
+| EN Title | Teneurins: Domain Architecture, Evolutionary Origins, and Patterns of Expression |
+| ZH Title | Teneurins：结构域架构、进化起源和表达模式 |
+| ZH Abstract | 综述Teneurin蛋白的结构、进化和表达。 |
+| EN Abstract | Disruption of teneurin expression results in abnormal neural networks, but just how teneurins support the development of the central nervous system remains an area of active research. This review summarizes some of what we know about the functions of the various domains of teneurins, the possible evolution of teneurins from a bacterial toxin, and the intriguing patterns of teneurin expression. Teneurins are a family of type-2 transmembrane proteins. The N-terminal intracellular domain can be pro |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70605. 来自视网膜水平细胞到视锥感光细胞的正反馈突触
+
+| Field | Content |
+|------|------|
+| EN Title | A Positive Feedback Synapse from Retinal Horizontal Cells to Cone Photoreceptors |
+| ZH Title | 来自视网膜水平细胞到视锥感光细胞的正反馈突触 |
+| ZH Abstract | 研究视网膜水平细胞对视锥细胞的正反馈。 |
+| EN Abstract | Cone photoreceptors and horizontal cells (HCs) have a reciprocal synapse that underlies lateral inhibition and establishes the antagonistic center-surround organization of the visual system. Cones transmit to HCs through an excitatory synapse and HCs feed back to cones through an inhibitory synapse. Here we report that HCs also transmit to cone terminals a positive feedback signal that elevates intracellular Ca2+ and accelerates neurotransmitter release. Positive and negative feedback are both i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70606. 铁在线粒体中不会“自由摆动”：Mitoferrin是唯一的答案吗？
+
+| Field | Content |
+|------|------|
+| EN Title | Iron Does Not "Jiggle Free" in Mitochondria: Is Mitoferrin the Only Answer? |
+| ZH Title | 铁在线粒体中不会“自由摆动”：Mitoferrin是唯一的答案吗？ |
+| ZH Abstract | 铁在线粒体中不会“自由摆动”：Mitoferrin是唯一的答（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70609. 脊椎动物组织发育过程中ERK信号动态多细胞响应的活体成像方法
+
+| Field | Content |
+|------|------|
+| EN Title | Live imaging approach of dynamic multicellular responses in ERK signaling during vertebrate tissue development |
+| ZH Title | 脊椎动物组织发育过程中ERK信号动态多细胞响应的活体成像方法 |
+| ZH Abstract | 综述ERK信号在组织发育中的动态成像。 |
+| EN Abstract | The chemical and mechanical responses of cells via the exchange of information during growth and development result in the formation of biological tissues. Information pro-cessing within the cells through the signaling pathways and networks inherent to the con-stituent cells has been well-studied. However, the cell signaling mechanisms responsible for generating dynamic multicellular responses in developing tissues remain unclear. Here, I review the dynamic multicellular response systems during |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70611. 聚乳酸-羟基乙酸共聚物-聚乙二醇二嵌段共聚物自组装胶束的生物相容性评价
+
+| Field | Content |
+|------|------|
+| EN Title | Biocompatibility evaluation of self-assembled micelles prepared from poly(lactide-co-glycolide)-poly(ethylene glycol) diblock copolymers |
+| ZH Title | 聚乳酸-羟基乙酸共聚物-聚乙二醇二嵌段共聚物自组装胶束的生物相容性评价 |
+| ZH Abstract | 评价PLGA-PEG胶束的生物相容性。 |
+| EN Abstract | In this work, a series of PLGA-PEG diblock copolymers were synthesized by ring-opening polymerization of L-lactide and glycolide using mPEG as macroinitiator and stannous octoate as catalyst. Spherical micelles were obtained from the various copolymers by using co-solvent evaporation method. The biocompatibility of micelles was evaluated with the aim of assessing their potential in the development of drug delivery systems. Various aspects of biocompatibility were considered, including MTT assay, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70612. Myoscape（肌肉富集钙通道相关蛋白）稳定Cav1.2表面表达并控制体内钙循环和收缩功能
+
+| Field | Content |
+|------|------|
+| EN Title | Myoscape (Muscle Enriched Calcium-Channel Associated Protein), Stabilizes Cav1.2 Surface Expression and Controls Calcium Cycling and Contractile Function in vivo |
+| ZH Title | Myoscape（肌肉富集钙通道相关蛋白）稳定Cav1.2表面表达并控制体内钙循环和收缩功能 |
+| ZH Abstract | Myoscape（肌肉富集钙通道相关蛋白）稳定Cav1.2表（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70613. 组装胚胎发育模型：图像分析与数字图谱的构建
+
+| Field | Content |
+|------|------|
+| EN Title | Assembling models of embryo development: Image analysis and the construction of digital atlases |
+| ZH Title | 组装胚胎发育模型：图像分析与数字图谱的构建 |
+| ZH Abstract | 综述数字胚胎图谱的构建方法。 |
+| EN Abstract | Digital atlases of animal development provide a quantitative description of morphogenesis, opening the path toward processes modeling. Prototypic atlases offer a data integration framework where to gather information from cohorts of individuals with phenotypic variability. Relevant information for further theoretical reconstruction includes measurements in time and space for cell behaviors and gene expression. The latter as well as data integration in a prototypic model, rely on image processing |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70621. 通过适应性gRNA靶向dnd1利用CRISPR-Cas13d系统实现鱼类不育
+
+| Field | Content |
+|------|------|
+| EN Title | Sterilization of fish through adaptable gRNAs targeting dnd1 using CRISPR-Cas13d system |
+| ZH Title | 通过适应性gRNA靶向dnd1利用CRISPR-Cas13d系统实现鱼类不育 |
+| ZH Abstract | 利用CRISPR-Cas13d系统实现鱼类不育。 |
+| EN Abstract | Sterilizing fish is a valuable technique not only for preventing genetic contamination from escaped aquaculture fish but also for enhancing fish meat quality. The clustered regularly interspaced short palindromic repeatsCRISPR-associated 13d (CRISPR-Cas13d) system is capable of RNA-targeted gene knockdown with reduced off-target effects. Unlike morpholino knockdown, which is limited to specific target sites, the CRISPR-Cas13d system utilizes the entire mRNA as a target site for gRNA. This enable |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70627. 基于五乙烯六胺修饰碳点的基因递送和生物成像纳米载体
+
+| Field | Content |
+|------|------|
+| EN Title | Nano-carrier for gene delivery and bioimaging based on pentaetheylenehexamine modified carbon dots |
+| ZH Title | 基于五乙烯六胺修饰碳点的基因递送和生物成像纳米载体 |
+| ZH Abstract | 研究碳点作为基因递送载体的应用。 |
+| EN Abstract | Carbon dots (CDs) have attracted much attention due to their excellent properties and applications, especially the use for gene delivery. Considering the risks and concerns involved in the use of viral vectors for gene delivery in vivo, non-viral vectors such as CDs have gradually become an ideal alternative due to their biocompatibility and low toxicity. Therefore, in this study, the potential to apply CDs as a nonviral vector for gene delivery was investigated. The CDs were prepared using citr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70650. 鞘氨醇-1-磷酸受体S1PR1通过调控VE-钙黏蛋白与VEGFR2的相互作用限制出芽血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | The Sphingosine-1-Phosphate Receptor S1PR1 Restricts Sprouting Angiogenesis by Regulating the Interplay between VE-Cadherin and VEGFR2 |
+| ZH Title | 鞘氨醇-1-磷酸受体S1PR1通过调控VE-钙黏蛋白与VEGFR2的相互作用限制出芽血管生成 |
+| ZH Abstract | 研究S1PR1在血管生成中的作用机制。 |
+| EN Abstract | Angiogenesis, the process by which new blood vessels arise from preexisting ones, is critical for embryonic development and is an integral part of many disease processes. Recent studies have provided detailed information on how angiogenic sprouts initiate, elongate, and branch, but less is known about how these processes cease. Here, we show that S1PR1, a receptor for the blood-borne bioactive lipid sphingosine-1-phosphate (S1P), is critical for inhibition of angiogenesis and acquisition of vasc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70651. 鱼类中隐窝型嗅觉受体神经元的系统发育分布
+
+| Field | Content |
+|------|------|
+| EN Title | Phyletic distribution of crypt-type olfactory receptor neurons in fishes. |
+| ZH Title | 鱼类中隐窝型嗅觉受体神经元的系统发育分布 |
+| ZH Abstract | 研究鱼类隐窝型嗅觉受体神经元的分布。 |
+| EN Abstract | The olfactory epithelium of teleost fishes contains ciliated and microvillous olfactory receptor neurons intermingled with supporting cells. Recently the crypt cell, a third type of olfactory receptor neuron (ORN), was described for two ostariophysans. This type of ORN bears apical microvilli as well as occult cilia extending into a crypt at the apex of the cell. The present study used scanning and transmission electron-microscopic methods to examine how widespread this cell type is in other gro |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70675. 一个不断发展的领域：Wnt信号对轴突再生的调控
+
+| Field | Content |
+|------|------|
+| EN Title | A growing field: the regulation of axonal regeneration by Wnt signaling |
+| ZH Title | 一个不断发展的领域：Wnt信号对轴突再生的调控 |
+| ZH Abstract | 综述Wnt信号在轴突再生中的作用。 |
+| EN Abstract | The canonical Wnt/beta-catenin pathway is a highly conserved signaling cascade that plays critical roles during embryogenesis. Wnt ligands regulate axonal extension, growth cone guidance and synaptogenesis throughout the developing central nervous system ( CNS). Recently, studies in mammalian and fish model systems have demonstrated that Wnt/beta-catenin signaling also promotes axonal regeneration in the adult optic nerve and spinal cord after injury, raising the possibility that Wnt could be de |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70684. 全代谢组分析揭示无脉络膜症的系统性功能障碍
+
+| Field | Content |
+|------|------|
+| EN Title | Whole metabolomic profiling determines systemic dysfunction in Choroideremia |
+| ZH Title | 全代谢组分析揭示无脉络膜症的系统性功能障碍 |
+| ZH Abstract | 全代谢组分析揭示无脉络膜症的系统性功能障碍（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70687. 小干扰RNA的抗病毒活性：使用异源病毒进行特异性测试揭示常规错配对照忽略的干扰素相关效应
+
+| Field | Content |
+|------|------|
+| EN Title | Antiviral activity of small interfering RNAs: Specificity testing using heterologous virus reveals interferon-related effects overlooked by conventional mismatch controls |
+| ZH Title | 小干扰RNA的抗病毒活性：使用异源病毒进行特异性测试揭示常规错配对照忽略的干扰素相关效应 |
+| ZH Abstract | 研究siRNA抗病毒活性，使用鱼类病毒，但未明确斑马鱼。 |
+| EN Abstract | RNA interference by small interfering RNAs (siRNAs) is considered to be a highly specific method for knockdown of gene expression in eukaryotic cells via degradation of target mRNA. Mutated siRNA molecules with 1-4 mismatching nucleotides compared to the target mRNA are regularly used as specificity controls. Using siRNAs for inhibition of a fish-pathogenic rhabdovirus, we report that inclusion of a heterologous virus, as target control is essential for verification of the specificity of siRNA-i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70689. ABCA4相关视网膜病变新变异体的鉴定及不确定意义变异体的结构重新评估
+
+| Field | Content |
+|------|------|
+| EN Title | Identification of novel variants in ABCA4-related retinopathies with structural re-assessment of variants of uncertain significance |
+| ZH Title | ABCA4相关视网膜病变新变异体的鉴定及不确定意义变异体的结构重新评估 |
+| ZH Abstract | ABCA4相关视网膜病变新变异体的鉴定及不确定意义变异体的结（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70693. microRNA-126是血小板介导凝血酶生成的调节因子
+
+| Field | Content |
+|------|------|
+| EN Title | microRNA-126 is a Regulator of Platelet-Mediated Thrombin Generation |
+| ZH Title | microRNA-126是血小板介导凝血酶生成的调节因子 |
+| ZH Abstract | microRNA-126是血小板介导凝血酶生成的调节因子（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70702. 心房颤动功能变异通过相互作用TFAP2a影响PITX2c表达
+
+| Field | Content |
+|------|------|
+| EN Title | A Functional Variant for Atrial Fibrillation Affects PITX2c Expression by Interacting With TFAP2a |
+| ZH Title | 心房颤动功能变异通过相互作用TFAP2a影响PITX2c表达 |
+| ZH Abstract | 心房颤动功能变异通过相互作用TFAP2a影响PITX2c表达（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70714. 选择性组蛋白去乙酰化酶6抑制剂在葡萄膜黑色素瘤中的抗癌特性评估
+
+| Field | Content |
+|------|------|
+| EN Title | Evaluation of Anti-Cancer Properties of Selective Histone Deacetylase 6 Inhibitors in Uveal Melanoma |
+| ZH Title | 选择性组蛋白去乙酰化酶6抑制剂在葡萄膜黑色素瘤中的抗癌特性评估 |
+| ZH Abstract | 选择性组蛋白去乙酰化酶6抑制剂在葡萄膜黑色素瘤中的抗癌特性评（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70716. 细胞外DNA促进视网膜母细胞瘤侵袭
+
+| Field | Content |
+|------|------|
+| EN Title | Extracellular DNA promotes retinoblastoma invasion |
+| ZH Title | 细胞外DNA促进视网膜母细胞瘤侵袭 |
+| ZH Abstract | 细胞外DNA促进视网膜母细胞瘤侵袭（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70717. 调控发育和疾病中EMT程序的基因调控网络
+
+| Field | Content |
+|------|------|
+| EN Title | A gene regulatory network to control EMT programs in development and disease |
+| ZH Title | 调控发育和疾病中EMT程序的基因调控网络 |
+| ZH Abstract | 研究Snail1和Prrx1在脊椎动物发育中的表达模式 |
+| EN Abstract | The Epithelial to Mesenchymal Transition (EMT) regulates cell plasticity during embryonic development and in disease. It is dynamically orchestrated by transcription factors (EMT-TFs), including Snail, Zeb, Twist and Prrx, all activated by TGF-beta among other signals. Here we find that Snail1 and Prrx1, which respectively associate with gain or loss of stem-like properties and with bad or good prognosis in cancer patients, are expressed in complementary patterns during vertebrate development an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70718. UV视锥细胞在体内差异编码对比度以支持视觉空间中的不同视觉功能
+
+| Field | Content |
+|------|------|
+| EN Title | UV-cones differentially encode contrast in vivo to support distinct visual functions across visual space |
+| ZH Title | UV视锥细胞在体内差异编码对比度以支持视觉空间中的不同视觉功能 |
+| ZH Abstract | UV视锥细胞在体内差异编码对比度以支持视觉空间中的不同视觉功（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70719. 探索PI3K/Akt/mTOR药物组合的体外和体内抗血管生成作用：眼部新生血管的潜在治疗选择
+
+| Field | Content |
+|------|------|
+| EN Title | Exploring the in vitro and in vivo anti-angiogenic effects of PI3K/Akt/mTOR drug combinations: A potential therapeutic option for Ocular Neovascularization |
+| ZH Title | 探索PI3K/Akt/mTOR药物组合的体外和体内抗血管生成作用：眼部新生血管的潜在治疗选择 |
+| ZH Abstract | 探索PI3K/Akt/mTOR药物组合的体外和体内抗血管生成（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70722. 早期两栖类和鱼类胚胎卵裂面决定模型
+
+| Field | Content |
+|------|------|
+| EN Title | A Model for Cleavage Plane Determination in Early Amphibian and Fish Embryos |
+| ZH Title | 早期两栖类和鱼类胚胎卵裂面决定模型 |
+| ZH Abstract | 提出早期蛙和鱼胚胎卵裂面决定模型 |
+| EN Abstract | Current models for cleavage plane determination propose that metaphase spindles are positioned and oriented by interactions of their astral microtubules with the cellular cortex, followed by cleavage in the plane of the metaphase plate [1, 2] We show that in early frog and fish embryos where cells are unusually large, astral microtubules in meta phase are too short to position and orient the spindle Rather, the preceding interphase aster centers and orients a pair of centrosomes prior to nuclear |
+| Judgment | 是 |
+| Reason | 提及鱼胚胎，未明确是否为斑马鱼 |
+---
+### 70726. 合生元通过海藻褐藻糖胶和植物乳杆菌调节慢性肠道炎症
+
+| Field | Content |
+|------|------|
+| EN Title | Synbiotic regulation of chronic intestinal inflammation by Sargassum horneri fucoidan and Lactobacillus plantarum |
+| ZH Title | 合生元通过海藻褐藻糖胶和植物乳杆菌调节慢性肠道炎症 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Severe inflammation in the intestinal tract is a hallmark of Inflammatory Bowel Disease (IBD). The present study explores the synbiotic potential of bloom seaweed Sargassum horneri fucoidan with Lactobacillus plantarum in preventing intestinal inflammation. Six fucoidan fractions were isolated via DEAE anion exchange chromatography, with SHF6 showing the highest sulfate and fucose content and significantly promoting L. plantarum growth. Synbiotic treatment of SHF6 and L. plantarum on 3 % DSS-ind |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70728. 和厚朴酚通过线粒体功能障碍的抗癌作用被线粒体靶向载体小檗碱强烈增强
+
+| Field | Content |
+|------|------|
+| EN Title | Anticancer Effects of Honokiol via Mitochondrial Dysfunction Are Strongly Enhanced by the Mitochondria-Targeting Carrier Berberine |
+| ZH Title | 和厚朴酚通过线粒体功能障碍的抗癌作用被线粒体靶向载体小檗碱强烈增强 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Mitochondrion is a favorable therapeutic target in cancer, given its regulation of bioenergetics and cell death. Honokiol exhibits antiproliferative effects through mitochondria-mediated death signaling. To enhance its anticancer potential and selectivity, we conjugated honokiol to berberine, a mitochondria-targeting carrier. All designed derivatives displayed 1 order of magnitude increased cytotoxicity compared with the parent compounds, especially with massive cytoplasmic vacuoles. Biological |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70730. NHERF1 S279和S301磷酸化差异调节乳腺癌细胞表型和转移器官趋向性
+
+| Field | Content |
+|------|------|
+| EN Title | Phosphorylation of NHERF1 S279 and S301 differentially regulates breast cancer cell phenotype and metastatic organotropism |
+| ZH Title | NHERF1 S279和S301磷酸化差异调节乳腺癌细胞表型和转移器官趋向性 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Metastatic cancer cells are highly plastic for the expression of different tumor phenotype hallmarks and organotropism. This plasticity is highly regulated but the dynamics of the signaling processes orchestrating the shift from one cell phenotype and metastatic organ pattern to another are still largely unknown. The scaffolding protein NHERF1 has been shown to regulate the expression of different neoplastic phenotypes through its PDZ domains, which forms the mechanistic basis for metastatic org |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70731. Jacalin-硫化铜纳米颗粒复合物通过细胞表面聚糖识别增强对耐药菌的抗菌活性
+
+| Field | Content |
+|------|------|
+| EN Title | Jacalin-copper sulfide nanoparticles complex enhance the antibacterial activity against drug resistant bacteria via cell surface glycan recognition |
+| ZH Title | Jacalin-硫化铜纳米颗粒复合物通过细胞表面聚糖识别增强对耐药菌的抗菌活性 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | In any therapeutic modality the usage of drug in high doses often leads to serious side-effects. Herein, we demonstrated a method to enhance the antibacterial efficacy of CuS NPs at lower concentration through interacting with jackfruit seed lectin, jacalin. Fluorescence quenching studies revealed that jacalin form complex with CuS NPs and the association constant was 1.91 x 10(4) M-1. Upon complex with jacalin, the bacterial minimum inhibitory concentration (MIC) of CuS NPs drastically decrease |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70732. 寻找导致原发性先天性青光眼的新型CYP1B1突变
+
+| Field | Content |
+|------|------|
+| EN Title | In search of novel CYP1B1 mutations that cause primary congenital glaucoma |
+| ZH Title | 寻找导致原发性先天性青光眼的新型CYP1B1突变 |
+| ZH Abstract | 寻找导致原发性先天性青光眼的新型CYP1B1突变（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70733. 双光子氧化石墨烯/适配体纳米传感偶联物用于体外或体内分子探测
+
+| Field | Content |
+|------|------|
+| EN Title | Two-Photon Graphene Oxide/Aptamer Nanosensing Conjugate for In Vitro or In Vivo Molecular Probing |
+| ZH Title | 双光子氧化石墨烯/适配体纳米传感偶联物用于体外或体内分子探测 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Two-photon excitation (TPE) with near-infrared (NIR) photons as the excitation source have the unique properties of lower tissue autofluorescence and self-absorption, reduced photodamage and photobleaching, higher spatial resolution, and deeper penetration depth (>500 mu m). Carbon nanomaterials, for example, graphene oxide (GO), have the advantages of good biocompatibility, efficient transporters into cells, protecting the carried DNA or peptides from enzymatic cleavage, and super fluorescence |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70734. Runx1在干细胞生物学中的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Runx1 Interactions in Stem Cell Biology |
+| ZH Title | Runx1在干细胞生物学中的相互作用 |
+| ZH Abstract | Runx1在干细胞生物学中的相互作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70736. 线粒体靶向樟脑基比例荧光探针用于食品和生物系统中次氯酸的实时检测和双通道成像
+
+| Field | Content |
+|------|------|
+| EN Title | Mitochondria-targetable camphor-based ratiometric fluorescent probe for real-time detection and dual-channel imaging of hypochlorous acid in foodstuffs and biosystems |
+| ZH Title | 线粒体靶向樟脑基比例荧光探针用于食品和生物系统中次氯酸的实时检测和双通道成像 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | The overuse of hypochlorous acid (HClO) during food preservation can destroy the nutrients within foodstuffs, and its overexpression in mitochondria is interconnected with the progression of diverse diseases. Hence, a new mitochondria-targeting camphor-based ratiometric fluorescent probe TPC-HClO was reported for HClO monitoring in foodstuffs and biosystems. TPC-HClO possessed a large Stokes shift of 203 nm and presented a ratiometric response toward HClO with dramatic emission wavelength shift |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70739. CONREAL：用于通过系统发育足迹识别转录因子结合位点的保守调控元件锚定比对算法
+
+| Field | Content |
+|------|------|
+| EN Title | CONREAL: conserved regulatory elements anchored alignment algorithm for identification of transcription factor binding sites by phylogenetic footprinting. |
+| ZH Title | CONREAL：用于通过系统发育足迹识别转录因子结合位点的保守调控元件锚定比对算法 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Prediction of transcription-factor target sites in promoters remains difficult due to the short length and degeneracy of the target sequences. Although the use of orthologous sequences and phylogenetic footprinting approaches may help in the recognition of conserved and potentially functional sequences, correct alignment of the short transcription-factor binding sites can be problematic for established algorithms, especially when aligning more divergent species. Here, we report a novel phylogene |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70740. 利用均匀设计优化构建EGFR靶向雷公藤甲素脂质体及其在胶质瘤中的治疗评价
+
+| Field | Content |
+|------|------|
+| EN Title | Construction of EGFR-Targeted Triptolide Liposomes Using Uniform Design Optimization and Therapeutic Evaluation in Gliomas |
+| ZH Title | 利用均匀设计优化构建EGFR靶向雷公藤甲素脂质体及其在胶质瘤中的治疗评价 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Background/Objectives: Triptolide (TP), a potent natural diterpenoid, exhibits anti-glioma activity, but faces significant clinical translation challenges, including poor water solubility, systemic toxicity such as hepatotoxicity, and inadequate tumor targeting. This study aimed to develop a novel epidermal growth factor receptor (EGFR)-targeted liposomal formula-tion, designated as TP-CTX-Lip (where CTX denotes cetuximab), to enhance the deliv-ery efficiency and therapeutic window of TP. Method |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70742. 通过计算与实验相结合的方法发现细胞色素P450介导的酚-芳胺混合物中的代谢交叉偶联
+
+| Field | Content |
+|------|------|
+| EN Title | Discovery of Metabolic Cross-Coupling in Phenol-Arylamine Mixtures by Cytochrome P450 via Combined Computational and Experimental Approaches |
+| ZH Title | 通过计算与实验相结合的方法发现细胞色素P450介导的酚-芳胺混合物中的代谢交叉偶联 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | This study unveils a novel cytochrome P450 (P450)-mediated metabolic pathway that drives cross-coupling between diverse phenol and arylamine pollutants. Phenols and arylamines constitute a large part of industrial chemicals, pharmaceuticals, and personal care products, yet the biotransformation of phenol-arylamine pollutant mixtures remains largely unexplored. Density functional theory calculations revealed that the rate-limiting rebound barriers of phenoxy and arylamino radicals formed through |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70744. 适度升高同型半胱氨酸通过适应性UPR激活和代谢重编程诱导内皮功能障碍
+
+| Field | Content |
+|------|------|
+| EN Title | Moderate Elevation of Homocysteine Induces Endothelial Dysfunction through Adaptive UPR Activation and Metabolic Rewiring |
+| ZH Title | 适度升高同型半胱氨酸通过适应性UPR激活和代谢重编程诱导内皮功能障碍 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Elevation of the intermediate amino acid metabolite Homocysteine (Hcy) causes Hyperhomocysteinemia (HHcy), a metabolic disorder frequently associated with mutations in the methionine-cysteine metabolic cycle as well as with nutritional deficiency and aging. The previous literature suggests that HHcy is a strong risk factor for cardiovascular diseases. Severe HHcy is well-established to correlate with vascular pathologies primarily via endothelial cell death. Though moderate HHcy is more prevalen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70753. 无义抑制疗法治疗无脉络膜症的小分子药物比较分析
+
+| Field | Content |
+|------|------|
+| EN Title | Comparative analysis of small molecule drugs for nonsense suppression therapy in Choroideremia |
+| ZH Title | 无义抑制疗法治疗无脉络膜症的小分子药物比较分析 |
+| ZH Abstract | 无义抑制疗法治疗无脉络膜症的小分子药物比较分析（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70754. vasa在不同倍性鱼类性腺中的特征分析
+
+| Field | Content |
+|------|------|
+| EN Title | Characterization of vasa in the gonads of different ploidy fish |
+| ZH Title | vasa在不同倍性鱼类性腺中的特征分析 |
+| ZH Abstract | 分析vasa在二倍体、三倍体和四倍体鱼中的表达 |
+| EN Abstract | Vasa is an essential gene for germ cell development belonging to the DEAD-box family. In this study, we comparatively analyzed the expression characteristics of vasa in diploids, triploids, and tetraploids. The sequences showed high similarity among these fish and other vertebrates, with characteristic domains. Tissue expression analysis revealed that vasa was expressed exclusively in the gonad of different ploidy fishes. During embryogenesis, vasa expression was lower in diploid than in triploi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70757. 从先导化合物识别到验证的小分子筛选策略
+
+| Field | Content |
+|------|------|
+| EN Title | Small Molecule Screening Strategies from Lead Identification to Validation |
+| ZH Title | 从先导化合物识别到验证的小分子筛选策略 |
+| ZH Abstract | 从先导化合物识别到验证的小分子筛选策略（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70760. 金属触发多色碳点的荧光增强在传感和生物成像中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Metal-triggered fluorescence enhancement of multicolor carbon dots in sensing and bioimaging |
+| ZH Title | 金属触发多色碳点的荧光增强在传感和生物成像中的应用 |
+| ZH Abstract | 制备多色碳点用于传感和生物成像。 |
+| EN Abstract | In this paper, two multicolor CDs have been prepared with eco-friendly folic acid and glucose as precursors by means of a facile hydrothermal strategy. The microscopic and spectroscopic results comprehensively confirmed that both of them exhibited well-defined spherical particles, amorphous structures and similar surface chemistry properties, but with different lateral dimensions and element contents. Moreover, CDs1 and CDs2 show the favorable biocompatibility and low cytotoxicity, in vitro and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70762. Usher蛋白/整合素相互作用组在视杆光感受器中的功能表征
+
+| Field | Content |
+|------|------|
+| EN Title | Functional Characterization of an Usher Protein/Integrin Interactome in Rod Photoreceptors |
+| ZH Title | Usher蛋白/整合素相互作用组在视杆光感受器中的功能表征 |
+| ZH Abstract | Usher蛋白/整合素相互作用组在视杆光感受器中的功能表征（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70765. 哺乳动物基因在非哺乳类脊椎动物和无脊椎动物中诱导部分重编程多能干细胞
+
+| Field | Content |
+|------|------|
+| EN Title | Mammalian genes induce partially reprogrammed pluripotent stem cells in non-mammalian vertebrate and invertebrate species |
+| ZH Title | 哺乳动物基因在非哺乳类脊椎动物和无脊椎动物中诱导部分重编程多能干细胞 |
+| ZH Abstract | 哺乳动物转录因子在非哺乳类物种中诱导重编程。 |
+| EN Abstract | Cells are fundamental units of life, but little is known about evolution of cell states. Induced pluripotent stem cells (iPSCs) are once differentiated cells that have been re-programmed to an embryonic stem cell-like state, providing a powerful platform for biology and medicine. However, they have been limited to a few mammalian species. Here we found that a set of four mammalian transcription factor genes used to generate iPSCs in mouse and humans can induce a partially reprogrammed pluripoten |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70770. 一种适用于线粒体的比率型荧光探针用于监测线粒体自噬过程中的pH变化
+
+| Field | Content |
+|------|------|
+| EN Title | A mitochondrial suitable ratiometric fluorescent probe for tracking pH change during mitophagy |
+| ZH Title | 一种适用于线粒体的比率型荧光探针用于监测线粒体自噬过程中的pH变化 |
+| ZH Abstract | 设计比率型pH荧光探针用于线粒体成像。 |
+| EN Abstract | Intracellular pH is one of the important parameters of cellular metabolism. The function of mitochondria is highly dependent on pH. Developing ratiometric fluorescent probes with suitable alkaline pKa for the detection of mitochondrial pH is urgently demanded. Herein, a mitochondria-targeted ratiometric pH fluorescent probe SNRF was designed based on 1,6-dihydroxynaphthalene and 4-diethylaminoketo acid. SNRF contains a hydroxyl electron donor and a nitrogen positron acceptor with excellent molec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70771. 新型翻译通读诱导药物作为Shwachman-Diamond综合征的治疗选择
+
+| Field | Content |
+|------|------|
+| EN Title | Novel Translational Read-through-Inducing Drugs as a Therapeutic Option for Shwachman-Diamond Syndrome |
+| ZH Title | 新型翻译通读诱导药物作为Shwachman-Diamond综合征的治疗选择 |
+| ZH Abstract | 筛选通读诱导药物治疗SDS。 |
+| EN Abstract | Shwachman-Diamond syndrome (SDS) is one of the most commonly inherited bone marrow failure syndromes (IBMFS). In SDS, bone marrow is hypocellular, with marked neutropenia. Moreover, SDS patients have a high risk of developing myelodysplastic syndrome (MDS), which in turn increases the risk of acute myeloid leukemia (AML) from an early age. Most SDS patients are heterozygous for the c.183-184TA>CT (K62X) SBDS nonsense mutation. Fortunately, a plethora of translational read-through inducing drugs |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70772. 帕金森病建模：不仅仅是啮齿动物？
+
+| Field | Content |
+|------|------|
+| EN Title | Modeling Parkinson's Disease: Not Only Rodents? |
+| ZH Title | 帕金森病建模：不仅仅是啮齿动物？ |
+| ZH Abstract | 综述帕金森病动物模型，包括斑马鱼。 |
+| EN Abstract | Parkinson's disease (PD) is a common chronic progressive multifactorial neurodegenerative disease. In most cases, PD develops as a sporadic idiopathic disease. However, in 10%-15% of all patients, Mendelian inheritance of the disease is observed in an autosomal dominant or autosomal recessive manner. To date, mutations in seven genes have been convincingly confirmed as causative in typical familial forms of PD, i.e., SNCA, LRRK2, VPS35, PRKN, PINK1, GBA, and DJ-1. Family and genome-wide associat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70776. 利用胰腺脂肪酶监测荧光探针对急性胰腺炎进行近红外成像
+
+| Field | Content |
+|------|------|
+| EN Title | Near-infrared imaging of acute pancreatitis with a pancreatic lipase-monitoring fluorescence probe |
+| ZH Title | 利用胰腺脂肪酶监测荧光探针对急性胰腺炎进行近红外成像 |
+| ZH Abstract | 开发近红外荧光探针用于急性胰腺炎成像。 |
+| EN Abstract | Acute pancreatitis (AP) is an acute inflammation of the pancreas, which is accompanied by necrotizing inflammatory response and tissue edema. As a vital enzyme secreted by pancreas, pancreatic lipase (PL) has been established that the increase of its expression is closely related to the prevalence and seriousness of AP. Therefore, there is an urgent need to develop efficient tools for detecting the fluctuation of PL in AP, which will promote understanding of the physiological and pathological ef |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70777. 利用双通道敏感荧光探针在体内可视化生物硫醇
+
+| Field | Content |
+|------|------|
+| EN Title | Visualizing biothiols in vivo using a dual-channel sensitive fluorescent probe |
+| ZH Title | 利用双通道敏感荧光探针在体内可视化生物硫醇 |
+| ZH Abstract | 设计双通道荧光探针用于体内生物硫醇成像。 |
+| EN Abstract | Biothiols are essential for maintaining appropriate redox status in organisms, and developing fluorescent probes for highly effective detection of biothiols in the living system is of great importance. In this work, we designed and synthesized a dual-channel sensitive fluorescent probe (TMN-NBD) for the highly effective detection of biothiols in vitro and in vivo. The probe was constructed by conjugating NBD chloride (NBD-Cl) moiety to a dicyanoisophorone derivative (TMN-OH) as the recognition g |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70780. 转录暂停通过精细调控信号通路调节造血干细胞出现
+
+| Field | Content |
+|------|------|
+| EN Title | Transcription Pausing Regulates Hematopoietic Stem Cell Emergence through Fine-Tuning of Signaling Pathways |
+| ZH Title | 转录暂停通过精细调控信号通路调节造血干细胞出现 |
+| ZH Abstract | 转录暂停通过精细调控信号通路调节造血干细胞出现（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70783. [12]aneN3与三苯胺-苯亚甲基咪唑啉酮组合作为具有双光子和AIE特性的非病毒基因载体
+
+| Field | Content |
+|------|------|
+| EN Title | Combination of [12]aneN3 and Triphenylamine-Benzylideneimidazolone as Nonviral Gene Vectors with Two-Photon and AIE Properties |
+| ZH Title | [12]aneN3与三苯胺-苯亚甲基咪唑啉酮组合作为具有双光子和AIE特性的非病毒基因载体 |
+| ZH Abstract | 合成具有双光子和AIE特性的非病毒基因载体。 |
+| EN Abstract | Three nonviral gene vectors, TPA-BI-A/B/C, have been designed and synthesized by the combination of one or two hydrophilic [12]aneN(3) moieties and two-photon fluorescent triphenylamine-benzylideneimidazolone (TPA-BI) units through different ester linkage. Spectroscopic characterization demonstrated that TPA-BI-A/B/C had strong aggregation-induced emissions (AIE), large Stokes shifts (230, 284, and 263 nm), and large two-photon absorption cross sections (delta(2PA)) (67, 592, and 80 GM). Gel ele |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70784. 源自蟹壳的磁荧光碳点用于靶向双模态生物成像和药物递送
+
+| Field | Content |
+|------|------|
+| EN Title | Magnetofluorescent Carbon Dots Derived from Crab Shell for Targeted Dual-Modality Bioimaging and Drug Delivery |
+| ZH Title | 源自蟹壳的磁荧光碳点用于靶向双模态生物成像和药物递送 |
+| ZH Abstract | 制备磁荧光碳点用于生物成像和药物递送。 |
+| EN Abstract | We propose a One-pot microwave-assisted pyrolysis method for fabrication of magnetofluorescent carbon quantum dots (MFCQDs), using a combination of waste crab shell and three different transition-metal ions, Ge-3+,Ge- Mn2+,and Eu3+, referred to as Gd@CQDs, Mn@CQDs,and Eu@CQDs; respectively. Chitin from waste crab shell acted not only as a carbon source but also as a chelating ligand to form complexes with transition-metations. Gd@ CQDs exhibited a high r(1) relaxivity of 4.78 mM(-1).s(-1) and a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70787. 激活诱导脱氨酶蛋白激酶A磷酸化位点在免疫球蛋白基因转换和体细胞超突变中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of activation-induced deaminase protein kinase a phosphorylation sites in Ig gene conversion and somatic hypermutation |
+| ZH Title | 激活诱导脱氨酶蛋白激酶A磷酸化位点在免疫球蛋白基因转换和体细胞超突变中的作用 |
+| ZH Abstract | 研究AID磷酸化位点在Ig基因转换和超突变中的作用。 |
+| EN Abstract | Activation-induced deaminase (AID) is thought to initiate somatic hypermutation (SHM), gene conversion (GCV), and class switch recombination (CSR) by the transcription-coupled deamination of cytosine residues in Ig genes. Phosphorylation of AID by protein kinase A (PKA) and subsequent interaction of AID with replication protein A (RPA) have been proposed to play important roles in allowing AID to deaminate DNA during transcription. Serine 38 (S38) of mouse AID is phosphorylated in vivo and lies |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70792. 基于细胞形变和改进点载荷模型的机械力估计
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanical Force Estimation Based on Visual Cell Deformation and Improved Point-Load Model |
+| ZH Title | 基于细胞形变和改进点载荷模型的机械力估计 |
+| ZH Abstract | 提出基于细胞形变的非接触式机械力估计方法。 |
+| EN Abstract | Measuring the mechanical force applied to a cell during penetration has long been studied. However, existing sensor methods can disturb or even prevent a planned cell surgery because of their physical units. We propose a contactless mechanical force estimation method based on an improved point-load model and cell contour detection. We extended the point-load model to large cell deformations and obtained a relationship between the mechanical force and the morphology of the deformed cell. We desig |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70793. 用于高灵敏次氯酸检测的纳米尺寸聚集诱导发光探针
+
+| Field | Content |
+|------|------|
+| EN Title | Nano-sized aggregation induced emissive probe for highly sensitive hypochlorous acid detection |
+| ZH Title | 用于高灵敏次氯酸检测的纳米尺寸聚集诱导发光探针 |
+| ZH Abstract | 开发聚集诱导发光探针用于次氯酸检测。 |
+| EN Abstract | A highly sensitive aggregation-induced emissive probe KG1 was developed for detecting hypochlorous acid in an aqueous medium. The KG1 aggregates display excellent fluorescence in a THF:water (10:90) ratio, and the derived aggregates were thoroughly characterized by HRTEM and photophysical investigations. The results indicate that KG1 aggregates have a spherical in shape with an average particle size of 5 nm. Further, the light scattering capability of KG1 aggregates is validated through the Tynd |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70794. 蛋白酪氨酸磷酸酶1B在帕金森病中的治疗作用：体外和体内抗神经炎症和神经保护研究
+
+| Field | Content |
+|------|------|
+| EN Title | Therapeutic Role of Protein Tyrosine Phosphatase 1B in Parkinson's Disease via Antineuroinflammation and Neuroprotection In Vitro and In Vivo |
+| ZH Title | 蛋白酪氨酸磷酸酶1B在帕金森病中的治疗作用：体外和体内抗神经炎症和神经保护研究 |
+| ZH Abstract | PTP1B在帕金森病中发挥抗炎和神经保护作用。 |
+| EN Abstract | Parkinson's disease (PD) is one of the most widespread neurodegenerative diseases. However, the currently available treatments could only relieve symptoms. Novel therapeutic targets are urgently needed. Several previous studies mentioned that protein tyrosine phosphatase 1B (PTP1B) acted as a negative regulator of the insulin signal pathway and played a significant role in the inflammation process. However, few studies have investigated the role of PTP1B in the central nervous system. Our study |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70795. 动物模型中的彗星试验：从昆虫到鲸鱼——（第2部分 脊椎动物）
+
+| Field | Content |
+|------|------|
+| EN Title | The comet assay in animal models: From bugs to whales - (Part 2 Vertebrates) |
+| ZH Title | 动物模型中的彗星试验：从昆虫到鲸鱼——（第2部分 脊椎动物） |
+| ZH Abstract | 综述彗星试验在脊椎动物模型中的应用。 |
+| EN Abstract | The comet assay has become one of the methods of choice for the evaluation and measurement of DNA damage. It is sensitive, quick to perform and relatively affordable for the evaluation of DNA damage and repair at the level of individual cells. The comet assay can be applied to virtually any cell type derived from different organs and tissues. Even though the comet assay is predominantly used on human cells, the application of the assay for the evaluation of DNA damage in yeast, plant and animal |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70796. 心脏的内容——可再生资源
+
+| Field | Content |
+|------|------|
+| EN Title | The heart's content-renewable resources |
+| ZH Title | 心脏的内容——可再生资源 |
+| ZH Abstract | 综述心脏再生研究中的两种途径。 |
+| EN Abstract | Heart regeneration is a huge, complex area involving numerous lines of research ranging from the stem cell therapy to xenografts and bioengineering. This review will focus on two avenues of regenerative research, cardiac progenitor cells and adult cardiomyocyte proliferation, both of which offer great promise for the field of heart regeneration. However, the principles behind how this could be achieved by either technique are very different. Cardiac progenitor cells represent a population of som |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70797. 范可尼贫血：新兴治疗机会
+
+| Field | Content |
+|------|------|
+| EN Title | Fanconi Anemia: Emerging Therapeutic Opportunities |
+| ZH Title | 范可尼贫血：新兴治疗机会 |
+| ZH Abstract | 范可尼贫血：新兴治疗机会（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70804. 优化视网膜再生：Sonic Hedgehog的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Optimizing Retinal Regeneration: A Role for Sonic Hedgehog |
+| ZH Title | 优化视网膜再生：Sonic Hedgehog的作用 |
+| ZH Abstract | 探讨Sonic Hedgehog在视网膜再生中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70847. 1-萘酚通过CA3-CD36轴独立于肥胖驱动肝脏脂肪变性和纤维化
+
+| Field | Content |
+|------|------|
+| EN Title | 1-Naphthol Drives Liver Steatosis and Fibrosis via the CA3-CD36 Axis Independent of Obesity |
+| ZH Title | 1-萘酚通过CA3-CD36轴独立于肥胖驱动肝脏脂肪变性和纤维化 |
+| ZH Abstract | 跨物种研究1-NAP致代谢性肝病机制。 |
+| EN Abstract | 1-Naphthol (1-NAP) is a pervasive environmental pollutant and metabolite of polycyclic aromatic hydrocarbons, and the insecticide carbaryl, posing significant human health risks. Despite its recognized toxicity, the direct contribution of 1-NAP to metabolic liver disease pathogenesis remains unclear-a critical gap given the rising global incidence of metabolic dysfunction-associated steatotic liver disease (MASLD) in non-obese individuals ("lean MASLD"). Here, through integrated cross-species mo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70850. 一种用于双光子成像硫化氢和多硫化氢的单荧光探针
+
+| Field | Content |
+|------|------|
+| EN Title | A single fluorescent probe for one- and two-photon imaging hydrogen sulfide and hydrogen polysulfides with different fluorescence signals |
+| ZH Title | 一种用于双光子成像硫化氢和多硫化氢的单荧光探针 |
+| ZH Abstract | 开发检测H2S和H2Sn的荧光探针。 |
+| EN Abstract | Reactive sulfur species (RSS), primarily containing glutathione (GSH), cysteine (Cys), hydrogen sulfide (H2S) and hydrogen polysulfides (H2Sn, n > 1), were crucial endogenous biological signal molecules. Among them, H2S and H2Sn played extremely momentous roles in many physiological and pathological processes. Limited by the vivo environmental diversity and complexity, it was highly desirable to rely on the single fluorescence probe platform to visualize H2Sn and H2S according different fluoresc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70851. 压力山大：物理张力驱动心脏祖细胞间充质-上皮转化
+
+| Field | Content |
+|------|------|
+| EN Title | All stressed out: physical tension drives mesenchymal-to-epithelial transition in heart progenitor cells |
+| ZH Title | 压力山大：物理张力驱动心脏祖细胞间充质-上皮转化 |
+| ZH Abstract | 压力山大：物理张力驱动心脏祖细胞间充质-上皮转化（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70857. 一种新型红色荧光探针用于食品和活体动物中亚硫酸氢盐的快速有效可视化
+
+| Field | Content |
+|------|------|
+| EN Title | A New Red-Emitting Fluorescence Probe for Rapid and Effective Visualization of Bisulfite in Food Samples and Live Animals |
+| ZH Title | 一种新型红色荧光探针用于食品和活体动物中亚硫酸氢盐的快速有效可视化 |
+| ZH Abstract | 开发检测亚硫酸氢盐的红色荧光探针。 |
+| EN Abstract | The development of new methods for rapid and effective detection of bisulfite (HSO3-) in food samples and imaging of HSO3- intake in animals is of significant importance due to the key roles of HSO3- in food quality assurance and community health. In this work, a new responsive fluorescence probe, EQC, is reported for the quantitative detection of HSO3- in food samples and visualization of HSO3- intake in animals. Upon addition of HSO3-, the UV-vis absorption and red emission of EQC were signifi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70863. 鱼类到哺乳动物比较揭示朊病毒蛋白结构域的差异进化及Doppel和朊病毒相关位点的独特起源
+
+| Field | Content |
+|------|------|
+| EN Title | Disparate evolution of prion protein domains and the distinct origin of Doppel- and prion-related loci revealed by fish-to-mammal comparisons |
+| ZH Title | 鱼类到哺乳动物比较揭示朊病毒蛋白结构域的差异进化及Doppel和朊病毒相关位点的独特起源 |
+| ZH Abstract | 鱼类到哺乳动物比较揭示朊病毒蛋白结构域的差异进化及Doppe（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 无摘要信息 |
+---
+### 70865. 微塑料对水生生物生态毒性的不良结果通路网络：一项关键综述
+
+| Field | Content |
+|------|------|
+| EN Title | Adverse outcome pathway networks of microplastic ecotoxicity to aquatic organisms: A critical review |
+| ZH Title | 微塑料对水生生物生态毒性的不良结果通路网络：一项关键综述 |
+| ZH Abstract | 综述微塑料对水生生物的生态毒性机制。 |
+| EN Abstract | Numerous studies have documented the ecotoxicity of microplastics in aquatic organisms, yet the mechanistic pathways linking early molecular disturbances to higher-level biological outcomes remain poorly understood. In this paper, we conducted a comprehensive multi-level ecotoxicological review integrated with automated text-mining using AOP-helpFinder 3.0. This approach retrieved confidence scores for stressor-event and event-event relationships, enabling systematic identification of candidate |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70866. 一种用于检测vicinal-二硫醇蛋白的近红外荧光探针及其体内应用
+
+| Field | Content |
+|------|------|
+| EN Title | A near-infrared fluorescent probe for the detection of vicinal-dithiol-containing proteins and its application in vivo |
+| ZH Title | 一种用于检测vicinal-二硫醇蛋白的近红外荧光探针及其体内应用 |
+| ZH Abstract | 开发检测VDPs的近红外荧光探针。 |
+| EN Abstract | Vicinal-dithiol-containing proteins (VDPs) play a significant role in maintaining cellular redox homeostasis and serve as important biomarkers for diagnosing redox-related diseases, such as obesity and cancer. However, the currently reported fluorescent probes are restricted in biological applications due to their short emission wavelengths and insufficient sensitivity. To address this limitation, we developed a novel near-infrared fluorescent probe (M1) for sensitive tracking of VDPs by utilizi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70872. 染料功能化介孔二氧化硅材料用于水溶液中Cr(III)的荧光检测及活体成像
+
+| Field | Content |
+|------|------|
+| EN Title | Dye-functional mesoporous silica material for fluorimetric detection of Cr(III) in aqueous solution and biological imaging in living systems |
+| ZH Title | 染料功能化介孔二氧化硅材料用于水溶液中Cr(III)的荧光检测及活体成像 |
+| ZH Abstract | 开发检测Cr(III)的荧光纳米材料。 |
+| EN Abstract | A dye-functionalized silica nanomaterial, SBA-RT was prepared by the immobilization of the Rhodamine-based chemosensor R6G-TETA within the channels of SBA-15. SBA-RT exhibits several different properties compared to the free R6G-TETA, such as higher selectivity, blue-shift of the UV-vis spectra due to special spatial environment in the channels of the mesoporous material. It presents Cr(III)-selective fluorimetric and colorimetric responses in aqueous solution. The fluorescence responses are rev |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70873. MicroRNA与骨骼的微管理：疾病、发育和进化
+
+| Field | Content |
+|------|------|
+| EN Title | MicroRNAs and micromanaging the skeleton in disease, development and evolution |
+| ZH Title | MicroRNA与骨骼的微管理：疾病、发育和进化 |
+| ZH Abstract | 综述miRNA在骨骼发育和疾病中的作用。 |
+| EN Abstract | IntroductionThe skeleton in evolution, health and diseaseAn overview of skeletal developmentmiRNA biogenesismiRNAs and genome evolutionmicroRNAs and the micromanagement of developmentMicromanaging skeletal system developmentCandidate miRNAs controlling skeletal developmentThe function of mirn140 in skeletal development: a case studymiRNAs and Hox gene patterning of the axial skeletonmicroRNAs and microevolution: a hypothesisSkeletal miRNAs and skeletal diseaseConclusionsMicroRNAs (miRNAs) are sh |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70875. 邻苯二甲酸二(2-乙基己基)对苯二甲酸酯及其他苯羧酸衍生物作为邻苯二甲酸酯替代品的流行率和生殖毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Prevalence and reproductive toxicity of di-2-ethylhexyl terephthalate (DEHTP) and other substituted benzene carboxylic acid derivatives used as phthalate alternatives |
+| ZH Title | 邻苯二甲酸二(2-乙基己基)对苯二甲酸酯及其他苯羧酸衍生物作为邻苯二甲酸酯替代品的流行率和生殖毒性 |
+| ZH Abstract | 综述替代增塑剂的生殖毒性。 |
+| EN Abstract | Phthalate alternatives have emerged worldwide recently in response to concerns that traditional orthosubstituted phthalates alter and inhibit endocrine and reproductive functions and behave as endocrine disrupting chemicals (EDC). As a result, legacy plasticizers are being phased out of use, giving rise to alternative plasticizers. Human biomonitoring studies indicate that people are increasingly exposed to alternative plasticizers. However, recent studies suggest that alternative plasticizers m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70882. microRNA miR-18a调控NeuroD和感光细胞分化
+
+| Field | Content |
+|------|------|
+| EN Title | The microRNA miR-18a regulates NeuroD and photoreceptor differentiation |
+| ZH Title | microRNA miR-18a调控NeuroD和感光细胞分化 |
+| ZH Abstract | microRNA miR-18a调控NeuroD和感光细胞分（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70883. Aurora B从着丝粒到中央纺锤体的重新定位需要MKlp2
+
+| Field | Content |
+|------|------|
+| EN Title | Relocation of Aurora B from centromeres to the central spindle at the metaphase to anaphase transition requires MKlp2. |
+| ZH Title | Aurora B从着丝粒到中央纺锤体的重新定位需要MKlp2 |
+| ZH Abstract | 研究MKlp2在Aurora B定位中的作用。 |
+| EN Abstract | Mitotic kinases of the Polo and Aurora families are key regulators of chromosome segregation and cytokinesis. Here, we have investigated the role of MKlp1 and MKlp2, two vertebrate mitotic kinesins essential for cytokinesis, in the spatial regulation of the Aurora B kinase. Previously, we have demonstrated that MKlp2 recruits Polo-like kinase 1 (Plk1) to the central spindle in anaphase. We now find that in MKlp2 but not MKlp1-depleted cells the Aurora B-INCENP complex remains at the centromeres |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70885. 新兴全/多氟烷基物质的毒理学机制：聚焦转录活性和基因表达干扰
+
+| Field | Content |
+|------|------|
+| EN Title | Toxicological mechanisms of emerging per-/poly-fluoroalkyl substances: Focusing on transcriptional activity and gene expression disruption |
+| ZH Title | 新兴全/多氟烷基物质的毒理学机制：聚焦转录活性和基因表达干扰 |
+| ZH Abstract | 综述新兴PFAS的毒理学机制。 |
+| EN Abstract | Environmental and human monitoring studies have witnessed increasing occurrence of emerging per-/poly-fluoroalkyl substances (ePFASs) worldwide. Three classes of ePFASs, namely chlorinated polyfluoroalkylether sulfonic acids, hexafluoropropylene oxide homologues and short-chain perfluoroalkyl acids attracted the most attention. It is, therefore, the goal of this review to systematically and critically analyse the toxicity and toxicological mechanisms of these ePFASs based on the papers published |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70909. 无摘要
+
+| Field | Content |
+|------|------|
+| EN Title | Multiple cellular targets of the neuroprotectant BHDPC in autoimmune mediated CNS demyelination |
+| ZH Title | 无摘要 |
+| ZH Abstract | 无摘要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70917. MYOD1L122R通过WNT11-ROR2-VANGL2信号在侵袭性横纹肌肉瘤中诱导化疗耐药并提升癌症干细胞程序
+
+| Field | Content |
+|------|------|
+| EN Title | MYOD1L122R induces chemoresistance and elevates cancer stem cell programs through WNT11-ROR2-VANGL2 signaling in aggressive rhabdomyosarcoma |
+| ZH Title | MYOD1L122R通过WNT11-ROR2-VANGL2信号在侵袭性横纹肌肉瘤中诱导化疗耐药并提升癌症干细胞程序 |
+| ZH Abstract | MYOD1突变通过WNT信号促进横纹肌肉瘤耐药。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70920. 二噁英受体（AhR）与Alu元件X14S、X36S和X45S结合调节干性相关基因Oct4和Nanog的表达
+
+| Field | Content |
+|------|------|
+| EN Title | Dioxin receptor (AhR) binding to Alu elements X14S, X36S and X45S modulates the expression of stemness-relevant genes Oct4 and Nanog |
+| ZH Title | 二噁英受体（AhR）与Alu元件X14S、X36S和X45S结合调节干性相关基因Oct4和Nanog的表达 |
+| ZH Abstract | AhR结合Alu元件调控干细胞基因表达。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70921. 心连心：移植心脏球来源细胞通过心肌细胞和干细胞增强心脏自我修复
+
+| Field | Content |
+|------|------|
+| EN Title | Heart to heart: grafting cardiosphere-derived cells augments cardiac self-repair by both myocytes and stem cells |
+| ZH Title | 心连心：移植心脏球来源细胞通过心肌细胞和干细胞增强心脏自我修复 |
+| ZH Abstract | 心脏球细胞移植促进心脏自我修复。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70922. 非小鼠模型中的色素沉着——不仅是从鱼中寻找线索，还是仅仅在胡闹？
+
+| Field | Content |
+|------|------|
+| EN Title | Pigmentation in non-mouse models - fishing for insight, not just horsing around? |
+| ZH Title | 非小鼠模型中的色素沉着——不仅是从鱼中寻找线索，还是仅仅在胡闹？ |
+| ZH Abstract | 讨论非小鼠模型（包括斑马鱼）在色素研究中的价值。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70926. 确定性造血干细胞发育由血流诱导并受一氧化氮信号介导
+
+| Field | Content |
+|------|------|
+| EN Title | Definitive HSC development is induced by blood flow and mediated by nitric oxide signaling |
+| ZH Title | 确定性造血干细胞发育由血流诱导并受一氧化氮信号介导 |
+| ZH Abstract | 血流通过NO信号诱导造血干细胞发育。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70928. 二硫化钼通过直接结合并调控MST2活性诱导生长抑制和自噬依赖性肝细胞死亡
+
+| Field | Content |
+|------|------|
+| EN Title | Molybdenum disulfide induces growth inhibition and autophagy-dependent hepatocyte cell death through directly binding and regulating the activity of MST2 |
+| ZH Title | 二硫化钼通过直接结合并调控MST2活性诱导生长抑制和自噬依赖性肝细胞死亡 |
+| ZH Abstract | 研究MoS2纳米片对肝脏的细胞毒性及机制。 |
+| EN Abstract | Two-dimensional sheet-like nanomaterial molybdenum disulfide (MoS2) has extensive potential applications in the biomedical field. Nevertheless, upon entering the body, MoS2 tends to accumulate markedly in the liver, drawing increasing attention to its potential hepatotoxicity. In this study, we demonstrated that MoS2 nanosheets exerted cytotoxic effects on the liver both in vitro and in vivo. Further exploration of the toxicity mechanism, utilizing genome-wide CRISPR-Cas9 screening and molecular |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70930. 一种用于成像活体系统中苯硫酚并揭示苯硫酚诱导氧化应激的NIR荧光探针
+
+| Field | Content |
+|------|------|
+| EN Title | A NIR fluorescent probe for imaging thiophenol in the living system and revealing thiophenol-induced oxidative stress |
+| ZH Title | 一种用于成像活体系统中苯硫酚并揭示苯硫酚诱导氧化应激的NIR荧光探针 |
+| ZH Abstract | 开发近红外荧光探针检测苯硫酚。 |
+| EN Abstract | Thiophenol (PhSH) is an important raw material for organic synthesis, while its high toxicity to organisms makes it an environmental pollutant. Therefore, it is crucial to accurately detect PhSH and explore its metabolic process in the living system. Herein, a near-infrared (NIR) fluorescent probe TEM-FB was developed for sensing PhSH with a turn-on fluorescent signal at 719 nm and a large Stokes shift (198 nm) based on generating the intramolecular charge transfer (ICT) process. TEM-FB shows hi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70931. 糖皮质激素诱导的亮氨酸拉链蛋白介导他汀类药物引起的肌肉损伤
+
+| Field | Content |
+|------|------|
+| EN Title | The Glucocorticoid-Induced Leucine Zipper (GILZ) mediates statin-induced muscle damage |
+| ZH Title | 糖皮质激素诱导的亮氨酸拉链蛋白介导他汀类药物引起的肌肉损伤 |
+| ZH Abstract | 糖皮质激素诱导的亮氨酸拉链蛋白介导他汀类药物引起的肌肉损伤（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70932. 通用遗传策略
+
+| Field | Content |
+|------|------|
+| EN Title | General Genetic Strategies |
+| ZH Title | 通用遗传策略 |
+| ZH Abstract | 讨论模式生物遗传学方法研究麻醉机制。 |
+| EN Abstract | It is difficult to study the genetics and molecular mechanisms of anesthesia in humans. Fortunately, the genetic approaches in model organisms can, and have, led to profound insights as to the targets of anesthetics. In turn, the organization of these putative targets into meaningful pathways has begun to elucidate the mechanisms of action of these agents. However, it is important to first appreciate the strengths, and limitations, of genetic approaches to understand the anesthetic action. Here |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70937. 发现α-倒捻子素衍生物作为新型PDE4抑制剂用于治疗阿尔茨海默病：人工智能驱动的协同策略
+
+| Field | Content |
+|------|------|
+| EN Title | Discovery of α-mangostin derivatives as novel PDE4 inhibitors for the treatment of Alzheimer's disease: An artificial intelligence-driven synergized strategy |
+| ZH Title | 发现α-倒捻子素衍生物作为新型PDE4抑制剂用于治疗阿尔茨海默病：人工智能驱动的协同策略 |
+| ZH Abstract | 利用AI策略发现新型PDE4抑制剂。 |
+| EN Abstract | Alzheimer's disease (AD) is a chronic, progressive neurodegenerative disorder with no effective therapeutic agents currently available. Inhibiting phosphodiesterase 4 (PDE4) has emerged as a promising strategy for AD treatment. In this study, we employed a synergistic approach combining generative recurrent neural network (RNN)-driven combinatorial compound design, virtual screening, and structure-activity relationship (SAR) analysis to discover novel PDE4 inhibitors. Utilizing alpha-mangostin a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70938. 线粒体靶向近红外治疗剂通过E2F/Cyclin/CDK通路诱导凋亡和细胞周期阻滞抑制黑色素瘤
+
+| Field | Content |
+|------|------|
+| EN Title | Mitochondrion-Targeted NIR Therapeutic Agent Suppresses Melanoma by Inducing Apoptosis and Cell Cycle Arrest via E2F/Cyclin/CDK Pathway |
+| ZH Title | 线粒体靶向近红外治疗剂通过E2F/Cyclin/CDK通路诱导凋亡和细胞周期阻滞抑制黑色素瘤 |
+| ZH Abstract | 合成近红外治疗剂IR-817并研究其抗黑色素瘤作用。 |
+| EN Abstract | Malignant melanoma is the most fatal form of skin cancer worldwide, and earlier diagnosis and more effective therapies are required to improve prognosis. As a possible solution, near-infrared fluorescent heptamethine cyanine dyes have been shown to be useful for tumor diagnosis and treatment. Here, we synthesized a novel theranostic agent, IR-817, a multifunctional bioactive small-molecule that has near-infrared emission, targets mitochondria in cancer cells, and has selective anti-cancer effect |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70943. 踢开心外膜
+
+| Field | Content |
+|------|------|
+| EN Title | Kicking the Epicardium Up a Notch |
+| ZH Title | 踢开心外膜 |
+| ZH Abstract | 踢开心外膜（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70946. 工程化邻醛辅助荧光探针用于灵敏成像脓毒症心肌病中硫化氢动态变化
+
+| Field | Content |
+|------|------|
+| EN Title | Engineering an ortho-aldehyde-assisted fluorogenic probe for sensitive imaging of hydrogen sulfide dynamics in sepsis-induced cardiomyopathy |
+| ZH Title | 工程化邻醛辅助荧光探针用于灵敏成像脓毒症心肌病中硫化氢动态变化 |
+| ZH Abstract | 开发荧光探针SSA-H2S用于成像硫化氢。 |
+| EN Abstract | Hydrogen sulfide (H2S) is a crucial gaseous signaling molecule closely associated with the development of sepsisinduced cardiomyopathy (SICM). Sensitive visualization of H2S-associated fluctuations may provide useful information for early diagnosis and therapeutic assessment of SICM. Herein, we presented an activatable fluorogenic probe (SSA-H2S), which employed an ortho-formyl hydroxyl dye (styryl salicylaldehyde) integrated with an ortho aldehyde-assisted H2S-responsive unit (2,4-dinitrophenyl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70952. 客座编辑引言——北美比较内分泌学会第五届双年会特刊
+
+| Field | Content |
+|------|------|
+| EN Title | Guest editors' introduction - Special issue of the fifth biennial meeting of the North American Society for Comparative Endocrinology |
+| ZH Title | 客座编辑引言——北美比较内分泌学会第五届双年会特刊 |
+| ZH Abstract | 客座编辑引言——北美比较内分泌学会第五届双年会特刊（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70955. 锌转运蛋白4（ZIP4）：通过TGF-β依赖性方式降低鼻咽癌放射敏感性并促进肿瘤迁移和转移的预测性生物标志物
+
+| Field | Content |
+|------|------|
+| EN Title | Zinc Transporter 4 (ZIP4): A Predictive Biomarker for Decreasing Radiosensitivity and Promoting Tumor Migration and Metastasis Through TGF-β-Dependent Manner in Nasopharyngeal Carcinoma (NPC) |
+| ZH Title | 锌转运蛋白4（ZIP4）：通过TGF-β依赖性方式降低鼻咽癌放射敏感性并促进肿瘤迁移和转移的预测性生物标志物 |
+| ZH Abstract | 锌转运蛋白4（ZIP4）：通过TGF-β依赖性方式降低鼻咽癌（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70959. 通往全能性的路径：来自生殖细胞的启示
+
+| Field | Content |
+|------|------|
+| EN Title | Pathway to totipotency: Lessons from germ cells |
+| ZH Title | 通往全能性的路径：来自生殖细胞的启示 |
+| ZH Abstract | 通往全能性的路径：来自生殖细胞的启示（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70963. 被迫同类相食：吞噬作用的激素触发
+
+| Field | Content |
+|------|------|
+| EN Title | Driven to cannibalism: A hormonal trigger for phagocytosis |
+| ZH Title | 被迫同类相食：吞噬作用的激素触发 |
+| ZH Abstract | 被迫同类相食：吞噬作用的激素触发（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70967. 分离中枢神经系统活性天然产物的挑战与机遇
+
+| Field | Content |
+|------|------|
+| EN Title | Isolation of CNS active natural products - challenges and opportunities |
+| ZH Title | 分离中枢神经系统活性天然产物的挑战与机遇 |
+| ZH Abstract | 分离中枢神经系统活性天然产物的挑战与机遇（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70968. Simply the Best：致敬即将离任的编辑团队
+
+| Field | Content |
+|------|------|
+| EN Title | Simply the Best: Honoring the Outgoing Editorial Team |
+| ZH Title | Simply the Best：致敬即将离任的编辑团队 |
+| ZH Abstract | Simply the Best：致敬即将离任的编辑团队（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70973. P2X4受体跨膜结构域1中的第46位点对伊维菌素拮抗乙醇作用的重要性
+
+| Field | Content |
+|------|------|
+| EN Title | POSITION 46 IN TRANSMEMBRANE DOMAIN 1 OF P2X4 RECEPTORS IS IMPORTANT FOR IVERMECTIN (IVM) ANTAGONISM OF ETHANOL |
+| ZH Title | P2X4受体跨膜结构域1中的第46位点对伊维菌素拮抗乙醇作用的重要性 |
+| ZH Abstract | P2X4受体跨膜结构域1中的第46位点对伊维菌素拮抗乙醇作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70977. 2023年《欧洲人类遗传学杂志》
+
+| Field | Content |
+|------|------|
+| EN Title | 2023 in the European Journal of Human Genetics |
+| ZH Title | 2023年《欧洲人类遗传学杂志》 |
+| ZH Abstract | 2023年《欧洲人类遗传学杂志》（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70980. RNA甲基化调控造血干细胞和祖细胞发育
+
+| Field | Content |
+|------|------|
+| EN Title | RNA methylation regulates hematopoietic stem and progenitor cell development |
+| ZH Title | RNA甲基化调控造血干细胞和祖细胞发育 |
+| ZH Abstract | RNA甲基化调控造血干细胞和祖细胞发育（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70983. 拯救恩典：论综合征的本质与错失的诺贝尔奖
+
+| Field | Content |
+|------|------|
+| EN Title | Saving Grace: On the Nature of Syndromes and the Missed Nobel |
+| ZH Title | 拯救恩典：论综合征的本质与错失的诺贝尔奖 |
+| ZH Abstract | 拯救恩典：论综合征的本质与错失的诺贝尔奖（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70988. 甲状腺激素在脊椎动物发育中的作用，第二卷
+
+| Field | Content |
+|------|------|
+| EN Title | The role of thyroid hormones in vertebrate development, volume II |
+| ZH Title | 甲状腺激素在脊椎动物发育中的作用，第二卷 |
+| ZH Abstract | 甲状腺激素在脊椎动物发育中的作用，第二卷（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70990. Nischarin激动剂利美尼定抑制胰腺导管腺癌细胞迁移和侵袭
+
+| Field | Content |
+|------|------|
+| EN Title | Nischarin agonist rilmenidine inhibits pancreatic ductal adenocarcinoma cell migration and invasion |
+| ZH Title | Nischarin激动剂利美尼定抑制胰腺导管腺癌细胞迁移和侵袭 |
+| ZH Abstract | Nischarin激动剂利美尼定抑制胰腺导管腺癌细胞迁移和侵（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70997. 献给Arthur A. Spector博士，一位被所有人喜爱的生物化学家？引言
+
+| Field | Content |
+|------|------|
+| EN Title | Dedicated to Arthur A. Spector, MD, A Biochemist Loved by All? Introduction |
+| ZH Title | 献给Arthur A. Spector博士，一位被所有人喜爱的生物化学家？引言 |
+| ZH Abstract | 献给Arthur A. Spector博士，一位被所有人喜爱（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 70999. 推动所有科学领域进步的主要力量之一是建立统一原则。
+
+| Field | Content |
+|------|------|
+| EN Title | One of the main forces that advance all fields of scientific inquiry is the establishment of unifying principles. |
+| ZH Title | 推动所有科学领域进步的主要力量之一是建立统一原则。 |
+| ZH Abstract | 推动所有科学领域进步的主要力量之一是建立统一原则。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71002. 环境超细颗粒暴露通过Notch信号损害肠道血管屏障
+
+| Field | Content |
+|------|------|
+| EN Title | Ambient Ultra Fine Particle Exposure Impairs Gut Vascular Barrier via Notch Signaling |
+| ZH Title | 环境超细颗粒暴露通过Notch信号损害肠道血管屏障 |
+| ZH Abstract | 环境超细颗粒暴露通过Notch信号损害肠道血管屏障（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71007. CACNB1隐性变异：先天性肌病的新病因，扩展兴奋-收缩耦联疾病的遗传原因
+
+| Field | Content |
+|------|------|
+| EN Title | Recessive variants in CACNB1: a new culprit in congenital myopathy. Expanding the genetic causes of excitation-contraction coupling disorders |
+| ZH Title | CACNB1隐性变异：先天性肌病的新病因，扩展兴奋-收缩耦联疾病的遗传原因 |
+| ZH Abstract | CACNB1隐性变异：先天性肌病的新病因，扩展兴奋-收缩耦联（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71013. 发育中的基因组：早期胚胎发生过程中的基因组架构
+
+| Field | Content |
+|------|------|
+| EN Title | Developing landscapes: genome architecture during early embryogenesis |
+| ZH Title | 发育中的基因组：早期胚胎发生过程中的基因组架构 |
+| ZH Abstract | 综述早期胚胎中三维基因组组织。 |
+| EN Abstract | Early in development embryos undergo a transition, during which maternally deposited transcripts are replaced by zygotic transcripts. During this transition the zygotic genome is activated. Recently, the three-dimensional organization of the genome (3D genome) has been charted surrounding this transition phase in a number of species. A common feature of the 3D genome in all these species is that they go through a phase, during which architectural features of the 3D genome, such as TADs and compa |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71014. 透明质酸在定向肠道环化中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Hyaluronan Works on the Right for Directional Gut Looping |
+| ZH Title | 透明质酸在定向肠道环化中的作用 |
+| ZH Abstract | 研究透明质酸在肠道环化中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71031. 扩展的改良SPLICS报告基因调色板可检测体外和体内多种细胞器接触
+
+| Field | Content |
+|------|------|
+| EN Title | An expanded palette of improved SPLICS reporters detects multiple organelle contacts in vitro and in vivo |
+| ZH Title | 扩展的改良SPLICS报告基因调色板可检测体外和体内多种细胞器接触 |
+| ZH Abstract | 开发检测细胞器接触的荧光报告系统。 |
+| EN Abstract | Membrane contact sites between virtually any known organelle have been documented and, in the last decades, their study received momentum due to their importance for fundamental activities of the cell and for the subtle comprehension of many human diseases. The lack of tools to finely image inter-organelle proximity hindered our understanding on how these subcellular communication hubs mediate and regulate cell homeostasis. We develop an improved and expanded palette of split-GFP-based contact s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71034. 运动中的脊髓感觉回路
+
+| Field | Content |
+|------|------|
+| EN Title | Spinal sensory circuits in motion |
+| ZH Title | 运动中的脊髓感觉回路 |
+| ZH Abstract | 综述感觉反馈在运动中的作用。 |
+| EN Abstract | The role of sensory feedback in shaping locomotion has been long debated. Recent advances in genetics and behavior analysis revealed the importance of proprioceptive pathways in spinal circuits. The mechanisms underlying peripheral mechanosensation enabled to unravel the networks that feedback to spinal circuits in order to modulate locomotion. Sensory inputs to the vertebrate spinal cord were long thought to originate from the periphery. Recent studies challenge this view: GABAergic sensory neu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71035. Apelin受体信号：内皮细胞极化的新机制
+
+| Field | Content |
+|------|------|
+| EN Title | Apelin receptor signaling: a novel mechanism of endothelial cell polarization |
+| ZH Title | Apelin受体信号：内皮细胞极化的新机制 |
+| ZH Abstract | 研究Apelin受体在内皮细胞极化中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71052. 社论：非哺乳类脊椎动物和无脊椎动物的能量稳态神经内分泌调控
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Neuroendocrine Control of Energy Homeostasis in Non-mammalian Vertebrates and Invertebrates |
+| ZH Title | 社论：非哺乳类脊椎动物和无脊椎动物的能量稳态神经内分泌调控 |
+| ZH Abstract | 社论，未具体提及斑马鱼研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71074. 强调罕见病研究：GENETICS和G3系列关于罕见病遗传模型
+
+| Field | Content |
+|------|------|
+| EN Title | Highlighting rare disease research with a GENETICS and G3 series on genetic models of rare diseases |
+| ZH Title | 强调罕见病研究：GENETICS和G3系列关于罕见病遗传模型 |
+| ZH Abstract | 介绍系列文章，未具体提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71082. 模式生物蛋白质组学作为研究宿主-微生物组相互作用的工具
+
+| Field | Content |
+|------|------|
+| EN Title | Model organism proteomics as a tool for the study of host-microbiome interactions |
+| ZH Title | 模式生物蛋白质组学作为研究宿主-微生物组相互作用的工具 |
+| ZH Abstract | 综述模式生物蛋白质组学，可能提及斑马鱼但非主要。 |
+| EN Abstract | All organisms live in constant contact with the microbial world. In recent years it has become evident that these microbial communities are not only responsible for the development of certain diseases, but are also an indispensable factor for homeostasis. The inherent complexity of meta-organisms hampers a straightforward elucidation of the molecular processes regulating the interactions of the host and its microbiome, as well as the influence of exogenic factors, for example, nutrition. Modern |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71084. 脊椎动物Hox旁系同源群2基因表达的进化发育差异
+
+| Field | Content |
+|------|------|
+| EN Title | The evolutionary developmental divergence of vertebrate Hox paralog group 2 gene expression |
+| ZH Title | 脊椎动物Hox旁系同源群2基因表达的进化发育差异 |
+| ZH Abstract | 研究脊椎动物Hox基因表达，未特指斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71088. 发育中的转变——Jeffrey Farrell访谈
+
+| Field | Content |
+|------|------|
+| EN Title | Transitions in development-an interview with Jeffrey Farrell |
+| ZH Title | 发育中的转变——Jeffrey Farrell访谈 |
+| ZH Abstract | 人物访谈，未涉及斑马鱼研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71104. 人类、小鼠和鱼类中的胸腺模拟细胞在进化上是古老的，具有物种特异性适应
+
+| Field | Content |
+|------|------|
+| EN Title | Thymic Mimetic Cells in Humans, Mice and Fish Are Evolutionarily Ancient with Species-specific Adaptations |
+| ZH Title | 人类、小鼠和鱼类中的胸腺模拟细胞在进化上是古老的，具有物种特异性适应 |
+| ZH Abstract | 研究胸腺模拟细胞在人类、小鼠和鱼类中的进化保守性。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71131. 一类新型黄绿色发射碳点刺激体内集体细胞迁移和3D摄取
+
+| Field | Content |
+|------|------|
+| EN Title | A Novel Class of Greenish-Yellow Emitting Carbon Dots Stimulate Collective Cell Migration and 3D Uptake In Vivo |
+| ZH Title | 一类新型黄绿色发射碳点刺激体内集体细胞迁移和3D摄取 |
+| ZH Abstract | 合成新型黄绿色荧光碳点用于生物成像。 |
+| EN Abstract | We present a new class of nitrogen-doped greenish-yellow fluorescent carbon dots (CDs) synthesized using a one-step hydrothermal method. These bright fluorescent nanoparticles have excitation and emission spectra near the red region of the visible light spectrum which is quite useful for bioimaging applications. Using organic molecules like ortho-phenylenediamine (OPDA), L-ascorbic acid and urea, yellow fluorescent carbon dots (CDs) were synthesized. We obtained a scalable number of greenish-yel |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71134. 稳定的氮硫共掺杂碳点用于选择性叶酸传感、体内成像和药物递送
+
+| Field | Content |
+|------|------|
+| EN Title | Stable nitrogen and sulfur co-doped carbon dots for selective folate sensing, in vivo imaging and drug delivery |
+| ZH Title | 稳定的氮硫共掺杂碳点用于选择性叶酸传感、体内成像和药物递送 |
+| ZH Abstract | 合成氮硫共掺杂碳点用于叶酸检测和成像。 |
+| EN Abstract | Here, innovative nitrogen and sulfur co-doped bright orange fluorescent carbon dots (CDs) are easily obtained using methyl-beta-cyclodextrin (Me-beta-CD) and methylene blue as original materials via the hydrothermal method. The as-prepared CDs showed excellent fluorescence stability in the wide pH range and external anions and cations, while its fluorescence can be quenched by folate (FA), indicating its sensitivity to FA with a detection limit as low as 0.85 nM. The commendable biocompatibility |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71135. 利用比率型溶酶体AIE探针体内监测组织再生
+
+| Field | Content |
+|------|------|
+| EN Title | In vivo monitoring of tissue regeneration using a ratiometric lysosomal AIE probe |
+| ZH Title | 利用比率型溶酶体AIE探针体内监测组织再生 |
+| ZH Abstract | 开发比率型AIE探针用于实时监测组织再生。 |
+| EN Abstract | Tissue regeneration is a crucial self-renewal capability involving many complex biological processes. Although transgenic techniques and fluorescence immunohistochemical staining have promoted our understanding of tissue regeneration, simultaneous quantification and visualization of tissue regeneration processes is not easy to achieve. Herein, we developed a simple and quantitative method for the real-time and non-invasive observation of the process of tissue regeneration. The synthesized ratiom |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71144. 瞬时视黄酸信号赋予内耳前后极性
+
+| Field | Content |
+|------|------|
+| EN Title | Transient retinoic acid signaling confers anterior-posterior polarity to the inner ear |
+| ZH Title | 瞬时视黄酸信号赋予内耳前后极性 |
+| ZH Abstract | 视黄酸信号直接作用于内耳原基影响其区室化。 |
+| EN Abstract | Vertebrate hearing and balance are based in complex asymmetries of inner ear structure. Here, we identify retinoic acid (RA) as an extrinsic signal that acts directly on the ear rudiment to affect its compartmentalization along the anterior-posterior axis. A rostrocaudal wave of RA activity, generated by tissues surrounding the nascent ear, induces distinct responses from anterior and posterior halves of the inner ear rudiment. Prolonged response to RA by posterior otic tissue correlates with Tb |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71149. 首创小分子钙调蛋白通路调节剂减轻过度p53活性并纠正Diamond-Blackfan贫血模型中的红细胞生成缺陷
+
+| Field | Content |
+|------|------|
+| EN Title | First-in-class small molecule calmodulin pathway modulators attenuate excess p53 activity and correct erythropoietic defects in models of diamond-blackfan anemia (DBA) |
+| ZH Title | 首创小分子钙调蛋白通路调节剂减轻过度p53活性并纠正Diamond-Blackfan贫血模型中的红细胞生成缺陷 |
+| ZH Abstract | 小分子调节剂改善DBA模型中的红细胞生成缺陷。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71153. 双光束相位相关光谱：一种无标记全息方法用于定量生物流体中的颗粒流
+
+| Field | Content |
+|------|------|
+| EN Title | Two-beam phase correlation spectroscopy : a label-free holographic method to quantify particle flow in biofluids |
+| ZH Title | 双光束相位相关光谱：一种无标记全息方法用于定量生物流体中的颗粒流 |
+| ZH Abstract | 开发无标记全息方法测量生物流体中颗粒流动。 |
+| EN Abstract | We introduce two-beam phase correlation spectroscopy (2B -(ICS) as a label-free technique to measure the dy-namics of flowing particles; e.g., in vitro or in vivo blood flow. 2B -(ICS combines phase imaging with correlation spectroscopy, using the intrinsic refractive index contrast of particles against the fluid background in correlation analysis. This method starts with the acquisition of a time series of phase images of flowing particles using par-tially coherent point-diffraction digital hol |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71160. 通过多响应荧光探针可视化癌症治疗中的生物硫醇和次氯酸
+
+| Field | Content |
+|------|------|
+| EN Title | Visualization of biothiols and HClO in cancer therapy via a multi-responsive fluorescent probe |
+| ZH Title | 通过多响应荧光探针可视化癌症治疗中的生物硫醇和次氯酸 |
+| ZH Abstract | 开发多响应荧光探针用于癌症治疗中生物硫醇和次氯酸成像。 |
+| EN Abstract | Cancer is among the most important diseases threatening human life and health, and drug chemotherapy is an effective method which can be used to treat cancer. Last several years, although a growing anti-tumor drugs have been discovered, there still lacks direct visual evidence for reactive sulfur/oxygen species (RS/OS) during cancer therapy. Herein, a novel fluorescence probe RSS-HClO was reported for detecting Cys/Hcy, GSH and HClO at three channels with coumarin-hemicyanine moiety and NBD chlo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71173. 生殖细胞信号传导
+
+| Field | Content |
+|------|------|
+| EN Title | Signaling for germ cells. |
+| ZH Title | 生殖细胞信号传导 |
+| ZH Abstract | 生殖细胞信号传导（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71180. 用于药物和新剂量开发的癌症模型
+
+| Field | Content |
+|------|------|
+| EN Title | EMERGING CANCER MODELS FOR DRUGS AND NOVEL DOSAGES DEVELOPMENT |
+| ZH Title | 用于药物和新剂量开发的癌症模型 |
+| ZH Abstract | 综述癌症模型在药物开发中的应用。 |
+| EN Abstract | Objective: Cancer is the primary cause of death all over the world, despite of its early detection and novel therapies available. The process of cancer drug development is growing tremendously. With respect to many limitations in human studies, there is the need to develop experimental models for screening of efficacy and toxicity of developing drugs. The purpose of this study is to investigate the cancer model for drug development.Materials and Methods: In this review, articles are extracted wi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71184. 修复、再生和重建：达到最新技术水平
+
+| Field | Content |
+|------|------|
+| EN Title | Repair, regenerate and reconstruct: meeting the state-of-the-art |
+| ZH Title | 修复、再生和重建：达到最新技术水平 |
+| ZH Abstract | 会议报告，涵盖再生和修复研究进展。 |
+| EN Abstract | The seventh EMBO meeting on the Molecular and Cellular Basis of Regeneration and Tissue Repair took place in Valletta, Malta, in September 2018. Researchers from all over the world gathered together with the aim of sharing the latest advances in wound healing, repair and regeneration. The meeting covered a wide range of regeneration models and tissues, identification of regulatory genes and signals, and striking advances toward regenerative therapies. Here, we report some of the exciting topics |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71194. 橄榄油废水提取物增强乳腺癌细胞化疗效果而不加重心血管毒性
+
+| Field | Content |
+|------|------|
+| EN Title | An extract of olive oil wastewater enhances chemotherapy effects on breast cancer cells without exacerbating cardiovascular toxicity |
+| ZH Title | 橄榄油废水提取物增强乳腺癌细胞化疗效果而不加重心血管毒性 |
+| ZH Abstract | 橄榄油废水提取物增强乳腺癌细胞化疗效果而不加重心血管毒性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71196. 关注金纳米颗粒的遗传毒性
+
+| Field | Content |
+|------|------|
+| EN Title | A focus on the genotoxicity of gold nanoparticles |
+| ZH Title | 关注金纳米颗粒的遗传毒性 |
+| ZH Abstract | 关注金纳米颗粒的遗传毒性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71200. 通过固相萃取糖基化肽段结合LC/MS鉴定的N-糖基化蛋白质数据库
+
+| Field | Content |
+|------|------|
+| EN Title | Databases for N-Glycosylated Proteins Identified by Solid Phase Extraction of Glycosylated Peptides (SPEG) Coupled with LC/MS |
+| ZH Title | 通过固相萃取糖基化肽段结合LC/MS鉴定的N-糖基化蛋白质数据库 |
+| ZH Abstract | 通过固相萃取糖基化肽段结合LC/MS鉴定的N-糖基化蛋白质数（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71208. Igor B. Dawid (1935-2024)：发育和分子生物学先驱
+
+| Field | Content |
+|------|------|
+| EN Title | Igor B. Dawid (1935-2024): A pioneer of developmental and molecular biology |
+| ZH Title | Igor B. Dawid (1935-2024)：发育和分子生物学先驱 |
+| ZH Abstract | 纪念Igor B. Dawid的生平与贡献。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71212. 酪氨酸磷酸酶PRL3作为T细胞急性淋巴细胞白血病的新型药物靶点
+
+| Field | Content |
+|------|------|
+| EN Title | The tyrosine phosphatase PRL3 as a novel drug target in T-cell acute lymphoblastic leukemia |
+| ZH Title | 酪氨酸磷酸酶PRL3作为T细胞急性淋巴细胞白血病的新型药物靶点 |
+| ZH Abstract | 酪氨酸磷酸酶PRL3作为T细胞急性淋巴细胞白血病的新型药物靶（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71236. 水射流：鱼类经典条件反射的简单方法
+
+| Field | Content |
+|------|------|
+| EN Title | Water jet: a simple method for classical conditioning in fish |
+| ZH Title | 水射流：鱼类经典条件反射的简单方法 |
+| ZH Abstract | 开发鱼类经典条件反射的新方法。 |
+| EN Abstract | Classical conditioning in animals is a learning procedure involving a biologically relevant stimulus paired with a previously neutral stimulus. In fish, light and sound are frequently used as previously neutral stimuli for conditioning tests. However, in laboratory experiments with replicates, such stimuli may influence the responses of fish in nearby aquariums. Herein, we developed a simple applicable methodology for classical conditioning in fish that prevents this type of influence. We isolat |
+| Judgment | 是 |
+| Reason | 未明确鱼种 |
+---
+### 71245. 水生低氧是一种致畸因子，影响鱼类胚胎发育
+
+| Field | Content |
+|------|------|
+| EN Title | Aquatic hypoxia is a teratogen and affects fish embryonic development. |
+| ZH Title | 水生低氧是一种致畸因子，影响鱼类胚胎发育 |
+| ZH Abstract | 报道低氧导致鱼类胚胎畸形率增加。 |
+| EN Abstract | Hypoxia occurs over large areas in aquatic systems worldwide, and there is growing concern that hypoxia may affect aquatic animals, leading to population decline and changes in community by elimination of sensitive species. For the first time, we report that sublethal levels of hypoxia can significantly increase (+77.4%) malformation in fish embryonic development. Disruption of apoptotic pattern was clearly evident at 24 h post-fertilization, which may be a major cause of malformation. Furthermo |
+| Judgment | 是 |
+| Reason | 未明确鱼种 |
+---
+### 71258. 全基因组转录组分析鉴定新的纤毛基因
+
+| Field | Content |
+|------|------|
+| EN Title | Whole genome transcriptome analysis identifies new cilia genes |
+| ZH Title | 全基因组转录组分析鉴定新的纤毛基因 |
+| ZH Abstract | 全基因组转录组分析鉴定新的纤毛基因（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71271. 利用体内CRISPR-Cas9基因组编辑永久改变Abcc6
+
+| Field | Content |
+|------|------|
+| EN Title | Permanent Alteration of Abcc6 With In Vivo CRISPR-Cas9 Genome Editing |
+| ZH Title | 利用体内CRISPR-Cas9基因组编辑永久改变Abcc6 |
+| ZH Abstract | 利用体内CRISPR-Cas9基因组编辑永久改变Abcc6（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71273. 来自编辑桌，编辑亮点
+
+| Field | Content |
+|------|------|
+| EN Title | From the Editor's Desk, Editor's Highlights |
+| ZH Title | 来自编辑桌，编辑亮点 |
+| ZH Abstract | 来自编辑桌，编辑亮点（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71277. 纤毛囊泡形成：纤毛发生的前奏
+
+| Field | Content |
+|------|------|
+| EN Title | Ciliary Vesicle Formation: A Prelude to Ciliogenesis |
+| ZH Title | 纤毛囊泡形成：纤毛发生的前奏 |
+| ZH Abstract | 纤毛囊泡形成：纤毛发生的前奏（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71278. 分离与小鼠cDNA同源的人类cDNA，该小鼠cDNA编码同种异体MHC（H-2Dd）受体[巨噬细胞MHC受体1 (MMR1)]
+
+| Field | Content |
+|------|------|
+| EN Title | Isolation of a human cDNA homologous to a mouse cDNA encoding a receptor for allogeneic MHC (H-2Dd) [macrophage MHC receptor 1 (MMR1)] |
+| ZH Title | 分离与小鼠cDNA同源的人类cDNA，该小鼠cDNA编码同种异体MHC（H-2Dd）受体[巨噬细胞MHC受体1 (MMR1)] |
+| ZH Abstract | 分离与小鼠cDNA同源的人类cDNA，该小鼠cDNA编码同种（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71298. 切割、粘贴与绘画：实验胚胎学与神经发育
+
+| Field | Content |
+|------|------|
+| EN Title | Cutting, pasting and painting: experimental embryology and neural development. |
+| ZH Title | 切割、粘贴与绘画：实验胚胎学与神经发育 |
+| ZH Abstract | 讨论实验胚胎学与神经发育。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71299. 后脑模式形成
+
+| Field | Content |
+|------|------|
+| EN Title | Patterning the hindbrain. |
+| ZH Title | 后脑模式形成 |
+| ZH Abstract | 综述后脑模式形成机制。 |
+| EN Abstract | Of paramount importance for hindbrain patterning is positional information that is laid down along the rostrocaudal axis. Recent findings suggest that retinoic acid may establish rostrocaudal domains of gene expression that confer on rhombomeres their specific identities; these domains display different responses to dorsoventral signals that further refine the repertoire of cellular fates therein. After rhombomere boundaries form, a high degree of segmental autonomy is balanced by a continuing c |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71307. 特刊：突触对脑功能与疾病的巨大影响
+
+| Field | Content |
+|------|------|
+| EN Title | Special issue: The giant impact of synapses on brain function and disease |
+| ZH Title | 特刊：突触对脑功能与疾病的巨大影响 |
+| ZH Abstract | 特刊介绍突触研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71317. 体节分割时钟：持续运作
+
+| Field | Content |
+|------|------|
+| EN Title | The somite segmentation clock: It takes a licking and keeps on ticking |
+| ZH Title | 体节分割时钟：持续运作 |
+| ZH Abstract | 介绍体节分割时钟机制。 |
+| EN Abstract | This primer describes molecular mechanisms critical for somite segmentation clock function. In addition, two investigators of the segmentation clock, Olivier Pourquie, and Yun-Jin Jiang, give their perspectives on current research and on the future of the field. (C) 2004 Wiley-Liss, Inc. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71344. 从单细胞分析看内分泌胰腺发育
+
+| Field | Content |
+|------|------|
+| EN Title | A glimpse of endocrine pancreas development from single-cell analyses |
+| ZH Title | 从单细胞分析看内分泌胰腺发育 |
+| ZH Abstract | 综述单细胞技术研究胰腺发育。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71347. 鱼类抗病品系开发的分子免疫学研究
+
+| Field | Content |
+|------|------|
+| EN Title | Research on molecular immunology for the development of disease-resistant strains in fish |
+| ZH Title | 鱼类抗病品系开发的分子免疫学研究 |
+| ZH Abstract | 研究鱼类分子免疫与抗病育种。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71348. 突触和树突棘的病理学
+
+| Field | Content |
+|------|------|
+| EN Title | Pathology of Synapses and Dendritic Spines |
+| ZH Title | 突触和树突棘的病理学 |
+| ZH Abstract | 综述突触和树突棘的病理变化。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71351. 第54届蒙塔纳皮肤生物学研讨会：组织重塑与修复——2005年10月13-17日，美国俄勒冈州格伦登海滩——摘要
+
+| Field | Content |
+|------|------|
+| EN Title | 54th Annual Montagna Symposium on the Biology of Skin Tissue Remodeling and Repair - October 13-17, 2005 - Gleneden Beach, Oregon, USA - Abstracts |
+| ZH Title | 第54届蒙塔纳皮肤生物学研讨会：组织重塑与修复——2005年10月13-17日，美国俄勒冈州格伦登海滩——摘要 |
+| ZH Abstract | 会议摘要集，无具体研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71385. 开发可抑制的不育性以防止外来和转基因动物建立野生种群
+
+| Field | Content |
+|------|------|
+| EN Title | Development of repressible sterility to prevent the establishment of feral populations of exotic and genetically modified animals |
+| ZH Title | 开发可抑制的不育性以防止外来和转基因动物建立野生种群 |
+| ZH Abstract | 开发转基因不育技术用于鱼类和牡蛎。 |
+| EN Abstract | Proposals to farm non-native and genetically modified species are often highly contentious because there is no reliable method of ensuring that they do not escape, reproduce and become environmental problems. Suggested approaches to prevent breeding outside hatcheries are unable to guarantee sterility in both sexes or cannot easily be applied to animals. We developed and tested on two contentious groups - fish and oysters - genetic constructs that render the animals functionally sterile outside |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71392. 与Ray Guillery关于视觉通路早期发育的研究：眼杯、视神经、视交叉和视束
+
+| Field | Content |
+|------|------|
+| EN Title | Studies with Ray Guillery on the early development of the visual pathways: eyecup, optic nerve, chiasm and optic tract |
+| ZH Title | 与Ray Guillery关于视觉通路早期发育的研究：眼杯、视神经、视交叉和视束 |
+| ZH Abstract | 综述视觉通路早期发育研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71395. 心律失常和心源性猝死的转基因模型
+
+| Field | Content |
+|------|------|
+| EN Title | Transgenic models of cardiac arrhythmias and sudden death |
+| ZH Title | 心律失常和心源性猝死的转基因模型 |
+| ZH Abstract | 综述转基因动物模型在心律失常研究中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71396. 免疫球蛋白结构域在免疫功能中额外作用的识别
+
+| Field | Content |
+|------|------|
+| EN Title | Recognition of additional roles for immunoglobulin domains in immune function |
+| ZH Title | 免疫球蛋白结构域在免疫功能中额外作用的识别 |
+| ZH Abstract | 综述免疫球蛋白结构域在免疫功能中的新作用。 |
+| EN Abstract | Characterization of immune receptors found in phylogenetically disparate species at the genetic, structural and functional levels has provided unique insight into the evolutionary acquisition of immune function. The roles of variable- and intermediate-type immunoglobulin (Ig) domains in direct recognition of ligands and other functions are far wider than previously anticipated. Common mechanisms of multigene family diversification and expansion as well as unique adaptations that relate to functi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71401. 表观遗传学和益生菌在调节鱼类繁殖性能中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Epigenetics and Probiotics Application toward the Modulation of Fish Reproductive Performance |
+| ZH Title | 表观遗传学和益生菌在调节鱼类繁殖性能中的应用 |
+| ZH Abstract | 综述表观遗传学和益生菌对鱼类繁殖的影响。 |
+| EN Abstract | Fish represent an excellent source of animal protein as well as a biomedical research model as a result of their evolutionary relatedness and similarity with the human genome. Commercial and ornamental fish culture has achieved popularity, but reproductive dysfunctions act as a limiting factor for quality fry production, interfering with the sustainability of the aquaculture industry. Fish reproduction is crucial for any species' existence, and reproductive performance can potentially be improve |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71419. 脉络膜裂形成和闭合的细胞基础
+
+| Field | Content |
+|------|------|
+| EN Title | The cellular bases of choroid fissure formation and closure |
+| ZH Title | 脉络膜裂形成和闭合的细胞基础 |
+| ZH Abstract | 研究鸡、小鼠和鱼中脉络膜裂的形态发生。 |
+| EN Abstract | Defects in choroid fissure (CF) formation and closure lead to coloboma, a major cause of childhood blindness. Despite genetic advances, the cellular defects underlying coloboma remain poorly elucidated due to our limited understanding of normal CF morphogenesis. We address this deficit by conducting high-resolution spatio-temporal analyses of CF formation and closure in the chick, mouse and fish. We show that a small ventral midline invagination initiates CF formation in the medial-proximal opti |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71421. 眼上皮的极性和形态发生需要粘附连接相关衔接蛋白Traf4
+
+| Field | Content |
+|------|------|
+| EN Title | Polarity and morphogenesis of the eye epithelium requires the adhesion junction associated adaptor protein Traf4 |
+| ZH Title | 眼上皮的极性和形态发生需要粘附连接相关衔接蛋白Traf4 |
+| ZH Abstract | 研究Traf4在眼发育中的作用。 |
+| EN Abstract | During development, neuroepithelial progenitors acquire apico-basal polarity and adhere to one another via apically located tight and adherens junction complexes. This polarized neuroepithelium must continue to integrate cells arising through cell divisions and intercalation, and allow for cell movements, at the same time as undergoing morphogenesis. Cell proliferation, migration and intercalation all occur in the morphing embryonic eye. To understand how eye development might depend on dynamic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71427. 硬骨鱼脂肪酸去饱和酶中Delta-8去饱和活性差异：海洋物种Delta-6去饱和酶的高活性
+
+| Field | Content |
+|------|------|
+| EN Title | Delta-8 desaturation activity varies among fatty acyl desaturases of teleost fish: High activity in delta-6 desaturases of marine species |
+| ZH Title | 硬骨鱼脂肪酸去饱和酶中Delta-8去饱和活性差异：海洋物种Delta-6去饱和酶的高活性 |
+| ZH Abstract | 研究硬骨鱼脂肪酸去饱和酶活性。 |
+| EN Abstract | The benefits of dietary fish and fish oil are derived from n-3 long-chain polyunsaturated fatty acids (LC-PUFA) that have beneficial effects in a range of human diseases and pathologies such as cardiovascular and other inflammatory disorders, neural development and neurological pathologies. The precursor of n-3 LC-PUFA, 18:3n-3 does not have the same beneficial effects prompting interest in the pathways of endogenous synthesis of LC-PUFA in vertebrates. The LC-PUFA biosynthesis pathway classical |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71429. 新兴癫痫模型：来自小鼠、果蝇、线虫和鱼的见解
+
+| Field | Content |
+|------|------|
+| EN Title | Emerging epilepsy models: insights from mice, flies, worms and fish |
+| ZH Title | 新兴癫痫模型：来自小鼠、果蝇、线虫和鱼的见解 |
+| ZH Abstract | 综述动物癫痫模型进展。 |
+| EN Abstract | Purpose of reviewAnimal models provide a means to investigate fundamental mechanisms of abnormal electrical discharge (i.e., seizures). Understanding the pathogenesis of epilepsy and therapy development have greatly benefited from these models. Here we review recent mouse mutants featuring spontaneous seizures and simpler organisms.Recent findingsNew genetically engineered mice provide additional insights to cellular mechanisms underlying seizure generation (BK calcium-activated potassium channe |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71431. 展示tau蛋白的出口
+
+| Field | Content |
+|------|------|
+| EN Title | Showing tau the exit |
+| ZH Title | 展示tau蛋白的出口 |
+| ZH Abstract | 展示tau蛋白的出口（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71433. 细胞水平的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution at the cellular level |
+| ZH Title | 细胞水平的进化 |
+| ZH Abstract | 介绍利用单细胞转录组学绘制细胞图谱项目。 |
+| EN Abstract | Capitalizing on developments in genome sequencing technology, the Biodiversity Cell Atlas is a multinational project that uses single-cell transcriptomics to map cell types of whole organisms across the tree of life. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71434. 金纳米颗粒作为免疫营养素的评估
+
+| Field | Content |
+|------|------|
+| EN Title | Evaluation of gold nanoparticles as an immunonutrient |
+| ZH Title | 金纳米颗粒作为免疫营养素的评估 |
+| ZH Abstract | 金纳米颗粒作为免疫营养素的评估（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71436. 急性炎症促进新生猪心脏再生
+
+| Field | Content |
+|------|------|
+| EN Title | Acute inflammation contributes to regeneration in the neonatal porcine heart |
+| ZH Title | 急性炎症促进新生猪心脏再生 |
+| ZH Abstract | 急性炎症促进新生猪心脏再生（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71438. 重复结构域相关的O-糖链控制PMEL纤维片层结构
+
+| Field | Content |
+|------|------|
+| EN Title | Repeat domain-associated O-glycans govern PMEL fibrillar sheet architecture |
+| ZH Title | 重复结构域相关的O-糖链控制PMEL纤维片层结构 |
+| ZH Abstract | 研究PMEL蛋白的淀粉样基质结构。 |
+| EN Abstract | PMEL is a pigment cell-specific protein that forms a functional amyloid matrix in melanosomes. The matrix consists of well-separated fibrillar sheets on which the pigment melanin is deposited. Using electron tomography, we demonstrate that this sheet architecture is governed by the PMEL repeat (RPT) domain, which associates with the amyloid as an accessory proteolytic fragment. Thus, the RPT domain is dispensable for amyloid formation as such but shapes the morphology of the matrix, probably in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71442. 寡核苷酸作为靶标和细胞探针
+
+| Field | Content |
+|------|------|
+| EN Title | Oligonucleotides as targets and cellular probes |
+| ZH Title | 寡核苷酸作为靶标和细胞探针 |
+| ZH Abstract | 寡核苷酸作为靶标和细胞探针（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71443. 披萨饼主动脉中的锌指
+
+| Field | Content |
+|------|------|
+| EN Title | Zinc fingers in the pizza pie aorta |
+| ZH Title | 披萨饼主动脉中的锌指 |
+| ZH Abstract | 披萨饼主动脉中的锌指（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71451. 唐氏综合征：基因、模型系统以及认知缺陷药物疗法和临床试验的进展
+
+| Field | Content |
+|------|------|
+| EN Title | Down Syndrome: Genes, Model Systems, and Progress towards Pharmacotherapies and Clinical Trials for Cognitive Deficits |
+| ZH Title | 唐氏综合征：基因、模型系统以及认知缺陷药物疗法和临床试验的进展 |
+| ZH Abstract | 综述唐氏综合征模型系统和治疗进展。 |
+| EN Abstract | Down syndrome (DS) is caused by an extra copy of all or part of the long arm of human chromosome 21 (HSA21). While the complete phenotype is both complex, involving most organs and organ systems, and variable in severity among individuals, intellectual disability (ID) is seen in all people with DS and may have the most significant impact on quality of life. Because the worldwide incidence of DS remains at approximately 1 in 1,000 live births, DS is the most common genetic cause of ID. In recent |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71452. 贝塔诺达病毒B2通过线粒体靶向和复合物II抑制在体外和体内引起ATP耗竭诱导的细胞死亡
+
+| Field | Content |
+|------|------|
+| EN Title | Betanodavirus B2 Causes ATP Depletion-induced Cell Death via Mitochondrial Targeting and Complex II Inhibition in Vitro and in Vivo |
+| ZH Title | 贝塔诺达病毒B2通过线粒体靶向和复合物II抑制在体外和体内引起ATP耗竭诱导的细胞死亡 |
+| ZH Abstract | 研究病毒蛋白B2诱导细胞死亡机制。 |
+| EN Abstract | The betanodavirus non-structural protein B2 is a newly discovered necrotic death factor with a still unknown role in regulation of mitochondrial function. In the present study, we examined protein B2-mediated inhibition of mitochondrial complex II activity, which results in ATP depletion and thereby in a bioenergetic crisis in vitro and in vivo. Expression of protein B2 was detected early at 24 h postinfection with red-spotted grouper nervous necrosis virus in the cytoplasm. Later B2 was found i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71453. 红细胞生成：模型系统、分子调控因子和发育程序
+
+| Field | Content |
+|------|------|
+| EN Title | Erythropoiesis: Model Systems, Molecular Regulators, and Developmental Programs |
+| ZH Title | 红细胞生成：模型系统、分子调控因子和发育程序 |
+| ZH Abstract | 综述红细胞生成模型和调控。 |
+| EN Abstract | Human erythropoiesis is a complex multistep developmental process that begins at the level of pluripotent hematopoietic stem cells (HSCs) at bone marrow microenvironment (HSCs niche) and terminates with the production of erythrocytes (RBCs). This review covers the basic and contemporary aspects of erythropoiesis. These include the: (a) cell-lineage restricted pathways of differentiation originated from HSCs and going downward toward the blood cell development; (b) model systems employed to study |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71472. 补体系统基因的致病突变
+
+| Field | Content |
+|------|------|
+| EN Title | Disease-Causing Mutations in Genes of the Complement System |
+| ZH Title | 补体系统基因的致病突变 |
+| ZH Abstract | 补体系统基因的致病突变（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71476. UBA1单个残基的体细胞突变导致Vexas，一种与骨髓增生异常相关的严重成人发病风湿病
+
+| Field | Content |
+|------|------|
+| EN Title | Somatic Mutations in a Single Residue of UBA1 Cause Vexas, a Severe Adult-Onset Rheumatic Disease Associated with Myeloid Dysplasia |
+| ZH Title | UBA1单个残基的体细胞突变导致Vexas，一种与骨髓增生异常相关的严重成人发病风湿病 |
+| ZH Abstract | UBA1单个残基的体细胞突变导致Vexas，一种与骨髓增生异（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71479. 确定性红髓系祖细胞在Myb-/-胚胎中出现并保留分化为巨噬细胞的能力
+
+| Field | Content |
+|------|------|
+| EN Title | Definitive Erythro-Myeloid Progenitors (EMPs) Emerge in the Myb-/- Embryo and Retain the Capacity to Differentiate into Macrophages |
+| ZH Title | 确定性红髓系祖细胞在Myb-/-胚胎中出现并保留分化为巨噬细胞的能力 |
+| ZH Abstract | 确定性红髓系祖细胞在Myb-/-胚胎中出现并保留分化为巨噬细（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 仅标题，无摘要 |
+---
+### 71480. Zbtb11，一个进化保守的Pu.1调控的TP53转录抑制因子，是中性粒细胞发育所必需的
+
+| Field | Content |
+|------|------|
+| EN Title | Zbtb11, an Evolutionarily Conserved Pu.1-Regulated Transcriptional Repressor of TP53, Is Required for Neutrophil Development |
+| ZH Title | Zbtb11，一个进化保守的Pu.1调控的TP53转录抑制因子，是中性粒细胞发育所必需的 |
+| ZH Abstract | Zbtb11，一个进化保守的Pu.1调控的TP53转录抑制因（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71484. OptoPi：一个用于小动物行为分析的开源灵活平台
+
+| Field | Content |
+|------|------|
+| EN Title | OptoPi: An open source flexible platform for the analysis of small animal behaviour |
+| ZH Title | OptoPi：一个用于小动物行为分析的开源灵活平台 |
+| ZH Abstract | 介绍一个开源的行为分析平台OptoPi。 |
+| EN Abstract | Behaviour is the ultimate output of neural circuit computations, and therefore its analysis is a cornerstone of neuroscience research. However, every animal and experimental para-digm requires different illumination conditions to capture and, in some cases, manipulate specific behavioural features. This means that researchers often develop, from scratch, their own solutions and experimental set-ups. Here, we present OptoPi, an open source, affordable (- & POUND;600), behavioural arena with accom |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71504. 嗅觉感觉神经元以TrkA依赖性方式介导超快速抗病毒免疫反应
+
+| Field | Content |
+|------|------|
+| EN Title | Olfactory sensory neurons mediate ultrarapid antiviral immune responses in a TrkA-dependent manner |
+| ZH Title | 嗅觉感觉神经元以TrkA依赖性方式介导超快速抗病毒免疫反应 |
+| ZH Abstract | 研究硬骨鱼嗅觉神经元免疫反应，提及斑马鱼。 |
+| EN Abstract | The nervous system regulates host immunity in complex ways. Vertebrate olfactory sensory neurons (OSNs) are located in direct contact with pathogens; however, OSNs' ability to detect danger and initiate immune responses is unclear. We report that nasal delivery of rhabdoviruses induces apoptosis in crypt OSNs via the interaction of the OSN TrkA receptor with the viral glycoprotein in teleost fish. This signal results in electrical activation of neurons and very rapid proinflammatory responses in |
+| Judgment | 是 |
+| Reason | 摘要未明确斑马鱼为主要对象 |
+---
+### 71508. 脊椎动物范围转录组筛选鉴定保守OR-κ基因的免疫细胞特异性表达
+
+| Field | Content |
+|------|------|
+| EN Title | Vertebrate-wide transcriptomic screening identifies immune cell-specific expression of the conserved OR-κ gene |
+| ZH Title | 脊椎动物范围转录组筛选鉴定保守OR-κ基因的免疫细胞特异性表达 |
+| ZH Abstract | 脊椎动物化学受体基因研究，未特指斑马鱼。 |
+| EN Abstract | Vertebrate chemoreceptor genes play a central role in detecting environmental chemical compounds through the olfactory organs and taste buds, enabling the perception of odors and tastants that are critical for survival. Through evolutionary processes, these genes have repeatedly undergone duplication, divergence, and pseudogenization, giving rise to lineage-specific gene repertoires that reflect ecological and behavioral adaptation. While the canonical functions of these chemoreceptors are confi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71513. YAP响应血流生物力学力调控造血干细胞形成
+
+| Field | Content |
+|------|------|
+| EN Title | YAP Regulates Hematopoietic Stem Cell Formation in Response to the Biophysical Forces of Blood Flow |
+| ZH Title | YAP响应血流生物力学力调控造血干细胞形成 |
+| ZH Abstract | 研究YAP在造血干细胞形成中的作用，未明确斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 无摘要，信息不足 |
+---
+### 71543. 一种用于自然成像及水下动物色视觉研究的低成本高光谱扫描仪
+
+| Field | Content |
+|------|------|
+| EN Title | A low-cost hyperspectral scanner for natural imaging and the study of animal colour vision above and under water |
+| ZH Title | 一种用于自然成像及水下动物色视觉研究的低成本高光谱扫描仪 |
+| ZH Abstract | 设计开源低成本高光谱扫描仪用于自然成像。 |
+| EN Abstract | Hyperspectral imaging is a widely used technology for industrial and scientific purposes, but the high cost and large size of commercial setups have made them impractical for most basic research. Here, we designed and implemented a fully open source and low-cost hyperspectral scanner based on a commercial spectrometer coupled to custom optical, mechanical and electronic components. We demonstrate our scanner's utility for natural imaging in both terrestrial and underwater environments. Our desig |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71544. 从姜黄素简便绿色合成多色荧光碳点：体外和体内生物成像及其他应用
+
+| Field | Content |
+|------|------|
+| EN Title | Facile and Green Synthesis of Multicolor Fluorescence Carbon Dots from Curcumin: In Vitro and in Vivo Bioimaging and Other Applications |
+| ZH Title | 从姜黄素简便绿色合成多色荧光碳点：体外和体内生物成像及其他应用 |
+| ZH Abstract | 合成碳点用于生物成像，未指定动物模型。 |
+| EN Abstract | Early detection is the critical phase in the prognostic strategy of various life-threatening maladies like infectious diseases and cancer. The mortality rate caused by these diseases could be considerably reduced if they were diagnosed in the early stages of disease development. Carbon dots (C-dots), a relatively new and promising candidate in the fluorescent nanomaterial category, possess a perceptible impact on various bioapplications. Herein, we report a one-step facile hydrothermal synthesis |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71555. 心脏成纤维细胞的动态转变对心脏再生至关重要
+
+| Field | Content |
+|------|------|
+| EN Title | Dynamic transition of cardiac fibroblasts contributes critically to cardiac regeneration |
+| ZH Title | 心脏成纤维细胞的动态转变对心脏再生至关重要 |
+| ZH Abstract | 心脏成纤维细胞的动态转变对心脏再生至关重要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71558. 吸附在环境微塑料上的化学物质对水生生物早期生命阶段具有毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Chemicals sorbed to environmental microplastics are toxic to early life stages of aquatic organisms |
+| ZH Title | 吸附在环境微塑料上的化学物质对水生生物早期生命阶段具有毒性 |
+| ZH Abstract | 评估环境微塑料对水生生物的生态毒性。 |
+| EN Abstract | Microplastics are ubiquitous in aquatic ecosystems, but little information is currently available on the dangers and risks to living organisms. In order to assess the ecotoxicity of environmental microplastics (MPs), samples were collected from the beaches of two islands in the Guadeloupe archipelago, Petit-Bourg (PB) located on the main island of Guadeloupe and Marie-Galante (MG) on the second island of the archipelago. These samples have a similar polymer composition with mainly polyethylene ( |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71560. 含异香草酸基团的镁(II)配合物的合成、表征及低毒性研究
+
+| Field | Content |
+|------|------|
+| EN Title | Synthesis, Characterization, and Low-Toxicity Study of a Magnesium(II) Complex Containing an Isovanillate Group |
+| ZH Title | 含异香草酸基团的镁(II)配合物的合成、表征及低毒性研究 |
+| ZH Abstract | 合成镁配合物并研究其抗氧化活性。 |
+| EN Abstract | The beneficial effect of polyphenols and magnesium(II) against oxidative stress motivated our research group to explore the antioxidant activity of phenMgIso, an aqueous soluble magnesium(II) complex containing 1,10-phenanthroline (phen) and isovanillic acid (Iso) as ligands. Combined electrospray ionization-mass spectrometry and DOSY-NMR techniques identified two complexes in methanolic solution: hexacoordinated [Mg(phen)(2)(Iso)](+) and tetracoordinated [Mg(phen)-(Iso)](+). The cyclic voltammo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71567. Wnt蛋白通过LRP5/6非依赖机制诱导散乱蛋白磷酸化，与其稳定β-catenin的能力无关
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt proteins induce dishevelled phosphorylation via an LRP5/6- independent mechanism, irrespective of their ability to stabilize beta-catenin. |
+| ZH Title | Wnt蛋白通过LRP5/6非依赖机制诱导散乱蛋白磷酸化，与其稳定β-catenin的能力无关 |
+| ZH Abstract | 研究Wnt信号通路中散乱蛋白的磷酸化机制。 |
+| EN Abstract | Wnt glycoproteins play essential roles in the development of metazoan organisms. Many Wnt proteins, such as Wnt1, activate the well-conserved canonical Wnt signaling pathway, which results in accumulation of beta-catenin in the cytosol and nucleus. Other Wnts, such as Wnt5a, activate signaling mechanisms which do not involve beta-catenin and are less well characterized. Dishevelled (Dvl) is a key component of Wnt/beta-catenin signaling and becomes phosphorylated upon activation of this pathway. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71571. 一种用于阿尔茨海默病β-分泌酶(BACE1)活性“开启”成像的19F MRI/NIR-FL纳米探针
+
+| Field | Content |
+|------|------|
+| EN Title | A 19F MRI/NIR-FL Nanoprobe for "Turn-On" Imaging of β-Secretase (BACE1) Activity in Alzheimer's Disease |
+| ZH Title | 一种用于阿尔茨海默病β-分泌酶(BACE1)活性“开启”成像的19F MRI/NIR-FL纳米探针 |
+| ZH Abstract | 开发BACE1成像纳米探针，用于AD体内成像。 |
+| EN Abstract | Alzheimer's disease (AD) is the most common progressive neurodegenerative disorder with very few therapeutic methods; thus, its early detection is urgently important. beta-secretase (BACE1) is a well-recognized biomarker of early-stage AD, but its in vivo imaging-based diagnostic method is rarely reported. Herein, we report a BACE1-disassemblable nanoprobe, 19F-Cy5.5-NP for "Turn-On" F-19 magnetic resonance/near-infrared fluorescence (F-19 MR/NIR-FL) imaging of the enzyme activity in AD in vivo. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71572. 改善有机配体共轭增强天线效应并促进手性单核Eu(III)配合物的发光和光学成像
+
+| Field | Content |
+|------|------|
+| EN Title | Improving the conjugation of organic ligands enhances the antenna effect and promotes the luminescence and optical imaging of chiral mononuclear Eu(iii) complexes |
+| ZH Title | 改善有机配体共轭增强天线效应并促进手性单核Eu(III)配合物的发光和光学成像 |
+| ZH Abstract | 研究铕配合物的发光性能，用于光学成像。 |
+| EN Abstract | Regulating the conjugated structure of organic ligands to enhance the molar absorption coefficient can effectively promote the energy transfer process of the antenna effect and is one of the most effective ways to construct lanthanide complex emitters with bright luminescence. Herein, 2-pyridinecarboxaldehyde was condensed with (1R,2R/1S,2S)-1,2-diphenylethylenediamine under in situ conditions to form ((1E,1 ' E)-N,N '-(1,2-diphenylethane-1,2-diyl)bis(1-(pyridin-2-yl)methanimine)) (L2), which wa |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71573. 黑哈朗生菜叶提取物的抗黑色素生成活性
+
+| Field | Content |
+|------|------|
+| EN Title | The Antimelanogenic Activity of the Extract of Heukharang Lettuce (Lactuca sativa L.) Leaf |
+| ZH Title | 黑哈朗生菜叶提取物的抗黑色素生成活性 |
+| ZH Abstract | 研究生菜提取物对黑色素生成的抑制作用。 |
+| EN Abstract | Heukharang (Lactuca sativa L.), the artificially developed lettuce cultivar for enhancement of lactucin content, exhibits antioxidant activities and sleep-promoting effects. However, potential of Heukharang as a raw material for the skin-whitening agent has not been investigated yet. This study evaluated the effects of Heukharang extract (HHE) on alpha-melanocyte-stimulating hormone (alpha-MSH)-induced melanogenesis in vitro and in vivo models. Our findings revealed that HHE (25-100 mu g/mL) eff |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71574. 一种新型嘧啶基双光子荧光探针用于快速可视化缺氧癌细胞和体内硝基还原酶活性
+
+| Field | Content |
+|------|------|
+| EN Title | A novel pyrimidine-based two-photon fluorogenic probe for rapidly visualizing nitroreductase activity in hypoxic cancer cells and in vivo |
+| ZH Title | 一种新型嘧啶基双光子荧光探针用于快速可视化缺氧癌细胞和体内硝基还原酶活性 |
+| ZH Abstract | 开发NTR荧光探针用于肿瘤成像。 |
+| EN Abstract | Nitroreductase (NTR) is an overexpressed enzyme in hypoxic tumor microenvironment that can be a specific recognition site for tumor diagnosis in clinical trials. Therefore, the development of probs for NTR activity with precision and instantaneity is significant. In this work, a NTR probe (ZJ) was constructed on the structure of pyrimidine derivatives with 4-animobenzyl carbamate groups. ZJ exhibited a responsive "turn-on" two-photon excited fluorescence by NTR recognition in cells and in vivo. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71578. 巨蛋白和近视
+
+| Field | Content |
+|------|------|
+| EN Title | Megalin and myopia |
+| ZH Title | 巨蛋白和近视 |
+| ZH Abstract | 巨蛋白和近视（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71593. TRP通道作为脊椎动物听觉和平衡异常的候选者
+
+| Field | Content |
+|------|------|
+| EN Title | TRP channels as candidates for hearing and balance abnormalities in vertebrates |
+| ZH Title | TRP通道作为脊椎动物听觉和平衡异常的候选者 |
+| ZH Abstract | 综述TRP通道在脊椎动物内耳中的作用，提及斑马鱼。 |
+| EN Abstract | In this review, we summarize the potential functional roles of transient receptor potential (TRP) channels in the vertebrate inner ear. The history of TRP channels in hearing and balance is characterized at great length by the hunt for the elusive transduction channel of sensory hair cells. Such pursuit has not resulted in unequivocal identification of the transduction channel, but nevertheless revealed a number of candidates, such as TRPV4, TRPN 1, TRPA 1, and TRPML3. Much of the circumstantial |
+| Judgment | 是 |
+| Reason | 摘要未明确斑马鱼 |
+---
+### 71616. microRNA miR-18a在感光细胞再生过程中调控TGFb和MAPK-1通路
+
+| Field | Content |
+|------|------|
+| EN Title | The microRNA miR-18a regulates TGFb and MAPK-1 pathways during photoreceptor regeneration |
+| ZH Title | microRNA miR-18a在感光细胞再生过程中调控TGFb和MAPK-1通路 |
+| ZH Abstract | 研究miR-18a在再生中的作用，未明确提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71617. 蓝藻毒性评估中的生物测试——足够有效吗？
+
+| Field | Content |
+|------|------|
+| EN Title | Biotests in Cyanobacterial Toxicity Assessment-Efficient Enough or Not? |
+| ZH Title | 蓝藻毒性评估中的生物测试——足够有效吗？ |
+| ZH Abstract | 综述蓝藻毒素生物测试，提及斑马鱼作为测试生物。 |
+| EN Abstract | Cyanobacteria are a diverse group of organisms known for producing highly potent cyanotoxins that pose a threat to human, animal, and environmental health. These toxins have varying chemical structures and toxicity mechanisms and several toxin classes can be present simultaneously, making it difficult to assess their toxic effects using physico-chemical methods, even when the producing organism and its abundance are identified. To address these challenges, alternative organisms among aquatic ver |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71623. Poly(A)-特异性核糖核酸酶突变导致的骨髓衰竭和发育迟缓
+
+| Field | Content |
+|------|------|
+| EN Title | Bone Marrow Failure and Developmental Delay Caused By Mutations in Poly(A)-Specific Ribonuclease |
+| ZH Title | Poly(A)-特异性核糖核酸酶突变导致的骨髓衰竭和发育迟缓 |
+| ZH Abstract | Poly(A)-特异性核糖核酸酶突变导致的骨髓衰竭和发育迟缓（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71631. 用于低损伤细胞穿刺的7自由度旋转推力微机器人控制
+
+| Field | Content |
+|------|------|
+| EN Title | 7-DoFs Rotation-Thrust Microrobotic Control for Low-Invasive Cell Pierce via Impedance Compensation |
+| ZH Title | 用于低损伤细胞穿刺的7自由度旋转推力微机器人控制 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | In the robot-aided biomedical field, although the cell pierce force may be decreased by sharpening injection needle and robotic control, the physical damage to the cell remains a big issue for low-invasive cell injection. This article proposes a 7-DoFs rotation-thrust (R-T) microrobotic control instead of the conventional straightforward thrust for smaller penetrated cell deformation and higher force stability, thus decreasing the physical damage to the cell. Considering fully, a beneficial resu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71635. 发育中骨矿物的傅里叶变换红外光谱：从无定形前体到成熟晶体
+
+| Field | Content |
+|------|------|
+| EN Title | Fourier transform infrared spectroscopy of developing bone mineral: from amorphous precursor to mature crystal |
+| ZH Title | 发育中骨矿物的傅里叶变换红外光谱：从无定形前体到成熟晶体 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Bone mineral development has been described to proceed through an amorphous precursor prior to apatite crystallization. However, further analytical approaches are necessary to identify specific markers of amorphous mineral components in bone. Here, we establish an original Fourier transform infrared (FTIR) spectroscopy approach to allow the specific identification of the amorphous and/or crystalline nature of bone mineral. Using a series of standards, our results demonstrate that obtaining the s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71642. 原钙粘蛋白-21在多种物种视杆和视锥细胞中的定位特征
+
+| Field | Content |
+|------|------|
+| EN Title | Characterization of protocadherin-21 localization in rod and cone photoreceptors of several species |
+| ZH Title | 原钙粘蛋白-21在多种物种视杆和视锥细胞中的定位特征 |
+| ZH Abstract | 原钙粘蛋白-21在多种物种视杆和视锥细胞中的定位特征（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71649. 基于聚集诱导发射的近红外荧光探针用于体内粘度成像
+
+| Field | Content |
+|------|------|
+| EN Title | Near-infrared fluorescent probe based on aggregation-induced emission for in vivo viscosity imaging |
+| ZH Title | 基于聚集诱导发射的近红外荧光探针用于体内粘度成像 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | The functions of mitochondria, the powerhouses of the cell, depend intimately on the intracellular and extracellular physicochemical environment. Viscosity plays a critical regulatory role in mitochondrial activities across multiple physiological processes. Abnormal viscosity not only disrupts mitochondrial function, leading to dysregulation of cellular energy metabolism homeostasis, but is also closely associated with various pathological mechanisms. Herein, we innovatively designed and synthes |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71655. 多用途SLM光片显微镜
+
+| Field | Content |
+|------|------|
+| EN Title | Multi-purpose SLM-light-sheet microscope |
+| ZH Title | 多用途SLM光片显微镜 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | By integrating a phase-only Spatial Light Modulator (SLM) into the illumination arm of a cylindrical-lens-based Selective Plane Illumination Microscope (SPIM), we have created a versatile system able to deliver high quality images by operating in a wide variety of different imaging modalities. When placed in a Fourier plane, the SLM permits modulation of the microscope's light-sheet to implement imaging techniques such as structured illumination, tiling, pivoting, autofocusing and pencil beam sc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71656. 内耳毛细胞初级纤毛对机械刺激无反应
+
+| Field | Content |
+|------|------|
+| EN Title | Primary cilia of inner ear hair cells do not respond to mechanical stimuli |
+| ZH Title | 内耳毛细胞初级纤毛对机械刺激无反应 |
+| ZH Abstract | 内耳毛细胞初级纤毛对机械刺激无反应（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71660. 深度学习中的像差建模用于光场显微镜的体重建
+
+| Field | Content |
+|------|------|
+| EN Title | Aberration Modeling in Deep Learning for Volumetric Reconstruction of Light-Field Microscopy |
+| ZH Title | 深度学习中的像差建模用于光场显微镜的体重建 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | Optical aberration is a crucial issue in optical microscopes, fundamentally constraining the achievable imaging performance. As a commonly encountered one, spherical aberration is introduced by the refractive index mismatches between samples and their surrounding environments, leading to problems like low contrast, blurring, and distortion in imaging. Light-field microscopy (LFM) has recently emerged as a powerful tool for rapid volumetric imaging. The presence of spherical aberration in LFM wil |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71665. 基于RNA的疗法在Leber先天性黑矇致盲动物模型中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | RNA-based therapies in animal models of Leber congenital amaurosis causing blindness. |
+| ZH Title | 基于RNA的疗法在Leber先天性黑矇致盲动物模型中的应用 |
+| ZH Abstract | 研究RNA疗法在LCA动物模型中的效果。 |
+| EN Abstract | Leber congenital amaurosis (LCA) is a severe, genetically heterogeneous recessive eye disease in which ~35% of gene mutations are in-frame nonsense mutations coding for loss-of-function premature termination codons (PTCs) in mRNA. Nonsense suppression therapy allows read-through of PTCs leading to production of full-length protein. A limitation of nonsense suppression is that nonsense-mediated decay (NMD) degrades PTC-containing RNA transcripts. The purpose of this study was to determine whether |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71667. GETPrime 2.0：涵盖13个物种（含多态性）的基因和转录本特异性qPCR引物
+
+| Field | Content |
+|------|------|
+| EN Title | GETPrime 2.0: gene- and transcript-specific qPCR primers for 13 species including polymorphisms |
+| ZH Title | GETPrime 2.0：涵盖13个物种（含多态性）的基因和转录本特异性qPCR引物 |
+| ZH Abstract | 升级版qPCR引物数据库，覆盖13个物种。 |
+| EN Abstract | GETPrime (http://bbcftools.epfl.ch/getprime) is a database with a web frontend providing geneand transcript-specific, pre-computed qPCR primer pairs. The primers have been optimized for genome-wide specificity and for allowing the selective amplification of one or several splice variants of most known genes. To ease selection, primers have also been ranked according to defined criteria such as genome-wide specificity (with BLAST), amplicon size, and isoform coverage. Here, we report a major upgr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71682. 左右不对称缺陷的分子通路和动物模型
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular Pathways and Animal Models of Defects in Situs. |
+| ZH Title | 左右不对称缺陷的分子通路和动物模型 |
+| ZH Abstract | 综述左右不对称缺陷的分子通路和动物模型。 |
+| EN Abstract | Left-right patterning is among the least well understood of the three axes defining the body plan, and yet it is no less important, with left-right patterning defects causing structural birth defects with high morbidity and mortality, such as complex congenital heart disease, biliary atresia, or intestinal malrotation. The cell signaling pathways governing left-right asymmetry are highly conserved and involve multiple components of the TGF-beta superfamily of cell signaling molecules. Central to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71685. 揭示痕量广谱抗菌剂的不良效应：基于碳纳米探针的直接灵敏可视化方法
+
+| Field | Content |
+|------|------|
+| EN Title | Revealing the Adverse Effects of Trace Amount Broad-Spectrum Antimicrobial: a Direct and Sensitive Visualization Method Based on Carbon Nanoprobe |
+| ZH Title | 揭示痕量广谱抗菌剂的不良效应：基于碳纳米探针的直接灵敏可视化方法 |
+| ZH Abstract | 开发碳纳米探针可视化抗菌剂不良效应。 |
+| EN Abstract | The widespread use of broad-spectrum antimicrobials has accelerated their entry into aquatic environment, which in turn can adversely affect aquatic organisms and humans, especially in the COVID-19 outbreak and the post-pandemic era. For early detection and intervention of adverse effects, this study develops a new carbon nanoprobe (CNP) that can reveal the adverse effects of trace amount triclosan (TCS), a commonly used broad-spectrum antimicrobial (BSA), through a direct visualization method. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71690. 沉默RhoA核苷酸交换因子ARHGEF3揭示其在铁摄取中的意外作用
+
+| Field | Content |
+|------|------|
+| EN Title | Silencing of RhoA nucleotide exchange factor, ARHGEF3, reveals its unexpected role in iron uptake |
+| ZH Title | 沉默RhoA核苷酸交换因子ARHGEF3揭示其在铁摄取中的意外作用 |
+| ZH Abstract | 研究ARHGEF3在铁摄取中的作用。 |
+| EN Abstract | Genomewide association meta-analysis studies have identified > 100 independent genetic loci associated with blood cell indices, including volume and count of platelets and erythrocytes. Although several of these loci encode known regulators of hematopoiesis, the mechanism by which most sequence variants exert their effect on blood cell formation remains elusive. An example is the Rho guanine nucleotide exchange factor, ARHGEF3, which was previously implicated by genome-wide association meta-anal |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71791. 一种可逆的“关-开-关”三苯胺基荧光生物探针，用于特异性检测Cu2+和H2S，及其在试纸条、实际食品和活体动物成像中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | A reversible "off-on-off" triphenylamine-based fluorescent bio-probe for specific detection of Cu2+and H2S, and its application in paper strip assays, actual food and live animal imaging |
+| ZH Title | 一种可逆的“关-开-关”三苯胺基荧光生物探针，用于特异性检测Cu2+和H2S，及其在试纸条、实际食品和活体动物成像中的应用 |
+| ZH Abstract | 开发荧光探针用于检测Cu2+和H2S，活体成像未明确物种。 |
+| EN Abstract | The release of heavy metal copper ions (Cu2+) and hydrogen sulfide (H2S) as industrial byproducts into environmental and biological systems poses serious risks to human health and food safety. In this study, a novel triphenylamine-based fluorescent "on-off-on" bio-probe, (Z)-N '-((5-(4-(diphenylamino) phenyl) thiophen-2-yl) methylene)-2-hydroxybenzohydrazide (TMH) was developed for successive determination of Cu2+ and H2S. The probe TMH exhibited highly selective Cu2+ recognition through the Che |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71792. 扩大祖先多样性揭示非洲原发性开角型青光眼遗传学的新见解
+
+| Field | Content |
+|------|------|
+| EN Title | Expanding ancestral diversity reveals novel insights into African primary open-angle glaucoma genetics |
+| ZH Title | 扩大祖先多样性揭示非洲原发性开角型青光眼遗传学的新见解 |
+| ZH Abstract | 扩大祖先多样性揭示非洲原发性开角型青光眼遗传学的新见解（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71810. 一种近红外自组装胶束纳米探针，用于体外和体内高效检测半胱氨酸
+
+| Field | Content |
+|------|------|
+| EN Title | A near-infrared self-assembled micellar nanoprobe for highly effective detection of cysteine in vitro and in vivo |
+| ZH Title | 一种近红外自组装胶束纳米探针，用于体外和体内高效检测半胱氨酸 |
+| ZH Abstract | 开发纳米探针检测半胱氨酸，活体成像未明确物种。 |
+| EN Abstract | As the main substrate participating in various physiological and pathological processes, the abnormal intracel-lular level of Cysteine (Cys) is closely associated with the occurrence and development of various diseases. Therefore, it is of great importance to establish a sensitive and efficient method for the precise exploration of Cys. Herein, we rationally designed and synthesized a water-soluble fluorescent nanoprobe Nano-PH1 for monitoring Cys in vitro and in vivo. The small molecular probe |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71813. 一种与免疫缺陷和肺部疾病相关的显性激活RAC2变异
+
+| Field | Content |
+|------|------|
+| EN Title | A dominant activating RAC2 variant associated with immunodeficiency and pulmonary disease |
+| ZH Title | 一种与免疫缺陷和肺部疾病相关的显性激活RAC2变异 |
+| ZH Abstract | 一种与免疫缺陷和肺部疾病相关的显性激活RAC2变异（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71815. 新型别构去稳定剂作为遗传病和创伤的治疗药物
+
+| Field | Content |
+|------|------|
+| EN Title | Novel Allosteric Destabilizers as Therapeutics for Genetic Diseases and Trauma |
+| ZH Title | 新型别构去稳定剂作为遗传病和创伤的治疗药物 |
+| ZH Abstract | 新型别构去稳定剂作为遗传病和创伤的治疗药物（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71826. 通过小型荧光探针实时追踪和双模式成像体内次氯酸
+
+| Field | Content |
+|------|------|
+| EN Title | Real-time tracking and dual-mode imaging of hypochlorous acid in vivo by a small-sized fluorescence probe |
+| ZH Title | 通过小型荧光探针实时追踪和双模式成像体内次氯酸 |
+| ZH Abstract | 开发荧光探针检测次氯酸，活体成像未明确物种。 |
+| EN Abstract | Endogenous hypochlorous acid (HOCl), an ROS of particular interest, is like a double-edged sword, which has dual influence on both the maintenance of normal physiological functions and the occurrence of many diseases. Methods to track minimal changes of biological HOCl in both multi-modes and real time are essential for precisely tracking this biomolecule with high oxidation activity. However, the methods are still limited due to the difficulty in combining the two functions into one. To resolve |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71829. IFT172突变导致孤立性和综合征性视网膜变性
+
+| Field | Content |
+|------|------|
+| EN Title | Mutations in IFT172 cause isolated and syndromic retinal degeneration |
+| ZH Title | IFT172突变导致孤立性和综合征性视网膜变性 |
+| ZH Abstract | IFT172突变导致孤立性和综合征性视网膜变性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71832. Qsulf1对硫酸乙酰肝素的域特异性修饰调节骨形态发生蛋白拮抗剂Noggin的结合
+
+| Field | Content |
+|------|------|
+| EN Title | Domain-specific modification of heparan sulfate by Qsulf1 modulates the binding of the bone morphogenetic protein antagonist Noggin. |
+| ZH Title | Qsulf1对硫酸乙酰肝素的域特异性修饰调节骨形态发生蛋白拮抗剂Noggin的结合 |
+| ZH Abstract | 研究Noggin与细胞表面硫酸乙酰肝素的结合机制。 |
+| EN Abstract | We have reported previously that Noggin is a heparin-binding protein and associates with the cell surface through heparan sulfate proteoglycans, where it remains functional for the binding of bone morphogenetic proteins (BMPs). Here we report that the binding of Noggin to the cell surface is highly selective for heparan sulfate and that specific structural features are required for the interaction. Noggin binds most efficiently to heparin sequences composed of 10 or more monosaccharides; N-, 6-O |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71833. Wnt信号在发育的不同阶段对后脑的诱导是必需的
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt signaling is required at distinct stages of development for the induction of the posterior forebrain. |
+| ZH Title | Wnt信号在发育的不同阶段对后脑的诱导是必需的 |
+| ZH Abstract | 研究Wnt信号在后脑诱导中的作用。 |
+| EN Abstract | One of the earliest manifestations of anteroposterior pattering in the developing brain is the restricted expression of Six3 and Irx3 in the anterior and posterior forebrain, respectively. Consistent with the role of Wnts as posteriorizing agents in neural tissue, we found that Wnt signaling was sufficient to induce Irx3 and repress Six3 expression in forebrain explants. The position of the zona limitans intrathalamica (zli), a boundary-cell population that develops between the ventral (vT) and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71839. DANGER分析：无参考基因组下CRISPR编辑的风险规避型脱靶评估
+
+| Field | Content |
+|------|------|
+| EN Title | DANGER analysis: risk-averse on/off-target assessment for CRISPR editing without a reference genome |
+| ZH Title | DANGER分析：无参考基因组下CRISPR编辑的风险规避型脱靶评估 |
+| ZH Abstract | 提出一种无需参考基因组的CRISPR脱靶效应评估方法。 |
+| EN Abstract | Motivation The CRISPR-Cas9 system has successfully achieved site-specific gene editing in organisms ranging from humans to bacteria. The technology efficiently generates mutants, allowing for phenotypic analysis of the on-target gene. However, some conventional studies did not investigate whether deleterious off-target effects partially affect the phenotype.Results Herein, we present a novel phenotypic assessment of CRISPR-mediated gene editing: Deleterious and ANticipatable Guides Evaluated by |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71846. 光感受器和RPE之间的燃料交换构成了视网膜代谢生态系统的基础
+
+| Field | Content |
+|------|------|
+| EN Title | Fuel exchange between photoreceptors and RPE underlies a retinal metabolic ecosystem| |
+| ZH Title | 光感受器和RPE之间的燃料交换构成了视网膜代谢生态系统的基础 |
+| ZH Abstract | 光感受器和RPE之间的燃料交换构成了视网膜代谢生态系统的基础（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71848. 嗅觉感觉系统由神经板内的协调运动发育而来
+
+| Field | Content |
+|------|------|
+| EN Title | Olfactory Sensory System Develops From Coordinated Movements Within the Neural Plate |
+| ZH Title | 嗅觉感觉系统由神经板内的协调运动发育而来 |
+| ZH Abstract | 研究嗅觉感觉系统的发育起源。 |
+| EN Abstract | Background: The peripheral olfactory sensory system arises from morphologically identifiable structures called placodes. Placodes are relatively late developing structures, evident only well after the initiation of somitogenesis. Placodes are generally described as being induced from the ectoderm suggesting that their development is separate from the coordinated cell movements generating the central nervous system. Results: With the advent of modern techniques it is possible to follow the develo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71849. 使用P2X4-pHluorin成像P2X4受体的亚细胞分布、运输和调控
+
+| Field | Content |
+|------|------|
+| EN Title | Imaging P2X4 receptor subcellular distribution, trafficking, and regulation using P2X4-pHluorin |
+| ZH Title | 使用P2X4-pHluorin成像P2X4受体的亚细胞分布、运输和调控 |
+| ZH Abstract | 开发成像P2X4受体分布和运输的方法。 |
+| EN Abstract | P2X4 receptors are adenosine triphosphate (ATP)-gated cation channels present on the plasma membrane (PM) and also within intracellular compartments such as vesicles, vacuoles, lamellar bodies (LBs), and lysosomes. P2X4 receptors in microglia are up-regulated in epilepsy and in neuropathic pain; that is to say, their total and/or PM expression levels increase. However, the mechanisms underlying up-regulation of microglial P2X4 receptors remain unclear, in part because it has not been possible to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71856. 糖皮质激素受体拮抗作用与心肌梗死后心肌细胞再生：系统综述
+
+| Field | Content |
+|------|------|
+| EN Title | Glucocorticoid Receptor Antagonism and Cardiomyocyte Regeneration Following Myocardial Infarction: A Systematic Review |
+| ZH Title | 糖皮质激素受体拮抗作用与心肌梗死后心肌细胞再生：系统综述 |
+| ZH Abstract | 系统综述糖皮质激素受体拮抗在心肌再生中的作用。 |
+| EN Abstract | Myocardial regeneration has been a topic of interest in literature and research in recent years. An evolving approach reported is glucocorticoid (GC) receptor antagonism and its role in the regeneration of cardiomyocytes. The authors of this study aim to explore the reported literature on GC receptor antagonism and its effects on cardiomyocyte remodeling, hypertrophy, scar formation, and ongoing cardiomyocyte death following cardiac injury. This article overviews cellular lenges, and future cons |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71857. 利用裸玻璃实现超灵敏、宽带、反射模式体内光声显微镜
+
+| Field | Content |
+|------|------|
+| EN Title | Toward Ultrasensitive, Broadband, Reflection-Mode In Vivo Photoacoustic Microscopy Using a Bare Glass |
+| ZH Title | 利用裸玻璃实现超灵敏、宽带、反射模式体内光声显微镜 |
+| ZH Abstract | 开发一种新型光声显微镜技术。 |
+| EN Abstract | Accurate volumetric photoacoustic image reconstruction requires ultrasonic detection with sufficient sensitivity to pressure transients over a broad spectral bandwidth. By using the ultrafast temporal dynamics and high-sensitivity responses to refractive index changes of optical surface waves, a structureless ultrasonic sensor is proposed for photoacoustic impulse measurement that is manufactured simply by covering a ubiquitous bare glass with several drops of water. Ultrasensitive photoacoustic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71858. 哺乳动物中枢神经系统线粒体轴突运输的年龄相关变化
+
+| Field | Content |
+|------|------|
+| EN Title | Age-related changes in mitochondrial axonal transport in the mammalian CNSin vivo| |
+| ZH Title | 哺乳动物中枢神经系统线粒体轴突运输的年龄相关变化 |
+| ZH Abstract | 哺乳动物中枢神经系统线粒体轴突运输的年龄相关变化（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71862. 高电导Ca2+激活K+通道中Ca2+门控环的开放结构
+
+| Field | Content |
+|------|------|
+| EN Title | Open structure of the Ca2+ gating ring in the high-conductance Ca2+-activated K+ channel |
+| ZH Title | 高电导Ca2+激活K+通道中Ca2+门控环的开放结构 |
+| ZH Abstract | 解析钙激活钾通道门控环的结构。 |
+| EN Abstract | High-conductance voltage-and Ca2+-activated K+ channels function in many physiological processes that link cell membrane voltage and intracellular Ca2+ concentration, including neuronal electrical activity, skeletal and smooth muscle contraction, and hair cell tuning(1-8). Like other voltage-dependent K+ channels, Ca2+-activated K+ channels open when the cell membrane depolarizes, but in contrast to other voltage-dependent K+ channels, they also open when intracellular Ca2+ concentrations rise. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71867. 利用艾里光束实现灵活景深、深度不变分辨率的光声显微镜
+
+| Field | Content |
+|------|------|
+| EN Title | Flexible depth-of-focus, depth-invariant resolution photoacoustic microscopy with Airy beam |
+| ZH Title | 利用艾里光束实现灵活景深、深度不变分辨率的光声显微镜 |
+| ZH Abstract | 提出一种新型光声显微镜技术。 |
+| EN Abstract | Optical-resolution photoacoustic microscopy (OR-PAM) has rapidly developed and is capable of characterizing optical absorption properties of biological tissue with high contrast and high resolution (micrometer-scale lateral resolution). However, the conventional excitation source of rapidly diverging Gaussian beam imposes limitations on the depth of focus (DOF) in OR-PAM, which in turn affects the depth-resolving ability and detection sensitivity. Here, we proposed a flexible DOF, depth-invarian |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71868. 一种高特异性双光子荧光探针用于泛酰巯基乙胺酶及其生物学应用
+
+| Field | Content |
+|------|------|
+| EN Title | A highly specific two-photon fluorescent probe for pantetheinase and its biological applications |
+| ZH Title | 一种高特异性双光子荧光探针用于泛酰巯基乙胺酶及其生物学应用 |
+| ZH Abstract | 开发用于检测泛酰巯基乙胺酶活性的荧光探针。 |
+| EN Abstract | Pantetheinase is an enzyme that catalyzes the hydrolysis of pantetheine, releasing pantothenic acid (vitamin B5) and cysteamine as byproducts, which is associated with many physiological and pathological processes. In this work, a two -photon fluorescent probe PA -BAN for pantetheinase based on N-butyl-4-amino-1,8-naphthalimide fluorophore scaffold, was designed, synthesized, and developed for sensing the pantetheinase activity in various scenarios. In consideration of the catalytic characterist |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71931. MEF2转录因子是出芽血管生成的关键调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | MEF2 transcription factors are key regulators of sprouting angiogenesis |
+| ZH Title | MEF2转录因子是出芽血管生成的关键调控因子 |
+| ZH Abstract | 研究MEF2在血管生成中的作用，提及斑马鱼。 |
+| EN Abstract | Angiogenesis, the fundamental process by which new blood vessels form from existing ones, depends on precise spatial and temporal gene expression within specific compartments of the endothelium. However, the molecular links between proangiogenic signals and downstream gene expression remain unclear. During sprouting angiogenesis, the specification of endothelial cells into the tip cells that lead new blood vessel sprouts is coordinated by vascular endothelial growth factorA (VEGFA) and Delta-lik |
+| Judgment | 是 |
+| Reason | 摘要未明确研究对象 |
+---
+### 71940. 物种特异性抗生素生物累积和生物转化塑造多级水生群落中的差异化毒理学效应
+
+| Field | Content |
+|------|------|
+| EN Title | Species-specific bioaccumulation and biotransformation of antibiotics shape differential toxicological effects in a multi-level aquatic community |
+| ZH Title | 物种特异性抗生素生物累积和生物转化塑造多级水生群落中的差异化毒理学效应 |
+| ZH Abstract | 研究抗生素对水生群落的影响，提及斑马鱼。 |
+| EN Abstract | The widespread occurrence of antibiotics in aquatic ecosystems poses a significant ecological threat, yet the mechanisms underlying the differential sensitivity of species remain poorly understood, limiting the accuracy of risk assessments. Here, we investigated the bioaccumulation, biotransformation, and toxicological effects of four typical antibiotics, i.e., sulfamethoxazole (SMX), ciprofloxacin (CIP), oxytetracycline (OTC), and azithromycin (AZM) each at 1, 10, 100 mu g/L, in a flow-through |
+| Judgment | 是 |
+| Reason | 摘要未明确列出物种 |
+---
+### 71966. 激活转录因子5a (atf5a) 基因在毛细胞发育和再生中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of the Activating Transcription Factor 5a (atf5a) gene in Hair Cell Development and Regeneration |
+| ZH Title | 激活转录因子5a (atf5a) 基因在毛细胞发育和再生中的作用 |
+| ZH Abstract | 激活转录因子5a (atf5a) 基因在毛细胞发育和再生中的（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 71999. 尿素排泄和精氨酸酶活性作为淡水水生动物亚硝酸盐胁迫的新生物标志物
+
+| Field | Content |
+|------|------|
+| EN Title | Urea Excretion and Arginase Activity as New Biomarkers for Nitrite Stress in Freshwater Aquatic Animals |
+| ZH Title | 尿素排泄和精氨酸酶活性作为淡水水生动物亚硝酸盐胁迫的新生物标志物 |
+| ZH Abstract | 研究淡水水生动物亚硝酸盐胁迫，未明确斑马鱼。 |
+| EN Abstract | Background: In recent years, the concern has been growing on increasing aquatic nitrite levels due to anthropogenic activities. Crustaceans and fish easily uptake nitrite via the chloride uptake system of gills. High nitrite body levels may interfere with nitric oxide (NO) production by nitric oxide synthase (NOS). The arginase, which catalyzes arginine conversion to ornithine and urea, is central to NO homeostasis. In vivo, changes in the arginase activity alter urea body levels and urea excret |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72014. 表征和鉴定抗炎小麦阿拉伯木聚糖衍生的肠道拟杆菌代谢物以治疗炎症性疾病
+
+| Field | Content |
+|------|------|
+| EN Title | CHARACTERIZING AND IDENTIFYING ANTI-INFLAMMATORY WHEAT ARABINOXYLAN-DERIVED BACTEROIDES INTESTINALIS METABOLITES TO TREAT INFLAMMATORY DISEASES |
+| ZH Title | 表征和鉴定抗炎小麦阿拉伯木聚糖衍生的肠道拟杆菌代谢物以治疗炎症性疾病 |
+| ZH Abstract | 表征和鉴定抗炎小麦阿拉伯木聚糖衍生的肠道拟杆菌代谢物以治疗炎（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72019. syntaxin结合蛋白1b对光感受器形态发生和存活至关重要
+
+| Field | Content |
+|------|------|
+| EN Title | syntaxin binding protein 1b is essential for photoreceptor morphogenesis and survival |
+| ZH Title | syntaxin结合蛋白1b对光感受器形态发生和存活至关重要 |
+| ZH Abstract | syntaxin结合蛋白1b对光感受器形态发生和存活至关重要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72023. 溶解的水生腐殖质能否降低循环水养殖系统中氨和亚硝酸盐的毒性？
+
+| Field | Content |
+|------|------|
+| EN Title | Can dissolved aquatic humic substances reduce the toxicity of ammonia and nitrite in recirculating aquaculture systems? |
+| ZH Title | 溶解的水生腐殖质能否降低循环水养殖系统中氨和亚硝酸盐的毒性？ |
+| ZH Abstract | 研究腐殖质对鱼类毒性影响，未明确斑马鱼。 |
+| EN Abstract | In recirculating rearing systems of aquatic food organisms, humic substances (HSs) accumulate along with toxic nitrogen species (nitrite, unionized ammonia). The aim of the present study was to find out whether or not HSs have the capability to modify the acute toxicity of nitrite and unionized ammonia; and whether different HS qualities cause similar effects in fish. 144-h-Embryo-Larval-Test (ELT) was used for these purposes. Two commercial HS isolates with high reactivity and one natural lake |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72031. 水流和沉积物对封闭水系统中环境DNA衰减的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Effects of water flow and sediment on the decay of environmental DNA in a closed-water system |
+| ZH Title | 水流和沉积物对封闭水系统中环境DNA衰减的影响 |
+| ZH Abstract | 研究环境DNA衰减，未明确斑马鱼。 |
+| EN Abstract | Environmental DNA (eDNA) detection in aquatic systems is influenced by multiple environmental factors that can be broadly classified into physical and biological processes. Physical factors include water flow, turbidity, and ultraviolet radiation, whereas biological factors include microbial activity that promotes DNA degradation. River dynamics, which are often disrupted by flooding and flow events, can affect eDNA detection. The increased flow during floods and sediment drift cause turbidity. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72034. Setbp1在发育造血和急性髓系白血病中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Roles of Setbp1 in developmental hematopoiesis and acute myeloid leukemia |
+| ZH Title | Setbp1在发育造血和急性髓系白血病中的作用 |
+| ZH Abstract | Setbp1在发育造血和急性髓系白血病中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72044. 从数量性状位点到基因——进行中的工作
+
+| Field | Content |
+|------|------|
+| EN Title | From quantitative trait locus to gene - A work in progress |
+| ZH Title | 从数量性状位点到基因——进行中的工作 |
+| ZH Abstract | 从数量性状位点到基因——进行中的工作（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72052. 具有免疫调节能力的丝素支架：烟酸的抗炎作用（第8卷，第148页，2019年）
+
+| Field | Content |
+|------|------|
+| EN Title | Silk based scaffolds with immunomodulatory capacity: anti-inflammatory effects of nicotinic acid (vol 8, pg 148, 2019) |
+| ZH Title | 具有免疫调节能力的丝素支架：烟酸的抗炎作用（第8卷，第148页，2019年） |
+| ZH Abstract | 具有免疫调节能力的丝素支架：烟酸的抗炎作用（第8卷，第148（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72053. 光照对微生物信号向远端器官传递的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Shining light on microbial signaling to distant organs |
+| ZH Title | 光照对微生物信号向远端器官传递的影响 |
+| ZH Abstract | 光照对微生物信号向远端器官传递的影响（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72054. 社论：信号通路指引生命蓝图
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Signaling pathways instruct the blueprint of life |
+| ZH Title | 社论：信号通路指引生命蓝图 |
+| ZH Abstract | 社论：信号通路指引生命蓝图（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72055. PA28γ通过调节IL-6和CCL2促进口腔鳞状细胞癌肿瘤血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | PA28γ contributes to tumor angiogenesis through regulation of IL-6 and CCL2 in oral squamous cell carcinoma |
+| ZH Title | PA28γ通过调节IL-6和CCL2促进口腔鳞状细胞癌肿瘤血管生成 |
+| ZH Abstract | PA28γ通过调节IL-6和CCL2促进口腔鳞状细胞癌肿瘤血（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72063. 氯乙酰胺类除草剂及其代谢物的体内外遗传毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Genotoxicity of chloroacetamide herbicides and their metabolites in vitro and in vivo |
+| ZH Title | 氯乙酰胺类除草剂及其代谢物的体内外遗传毒性 |
+| ZH Abstract | 氯乙酰胺类除草剂及其代谢物的体内外遗传毒性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72072. 缺血性损伤与甲状旁腺激素相关蛋白系统：敌还是友？
+
+| Field | Content |
+|------|------|
+| EN Title | Ischemic injury and the parathyroid hormone-related protein system: friend or foe? |
+| ZH Title | 缺血性损伤与甲状旁腺激素相关蛋白系统：敌还是友？ |
+| ZH Abstract | 缺血性损伤与甲状旁腺激素相关蛋白系统：敌还是友？（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72074. 基因组学：脊椎动物基因组比较
+
+| Field | Content |
+|------|------|
+| EN Title | Genomics. Vertebrate genomes compared. |
+| ZH Title | 基因组学：脊椎动物基因组比较 |
+| ZH Abstract | 基因组学：脊椎动物基因组比较（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72075. 平衡双因素方差分析：毒理学光运动反应研究案例
+
+| Field | Content |
+|------|------|
+| EN Title | Balanced Two-Way Functional ANOVA: A Case Study for Toxicological Photolocomotor Response Studies |
+| ZH Title | 平衡双因素方差分析：毒理学光运动反应研究案例 |
+| ZH Abstract | 幼虫鱼类光运动行为反应研究。 |
+| EN Abstract | Larval fish photolocomotor behavioral response (PBR) studies are increasingly useful to identify bioactivity profiles and define behavioral phenotypes for pharmaceuticals and environmental contaminants. However, there is a need for improved reproducibility and statistical reliability in the PBR literature, and the standard statistical technique applied in PBR studies, univariate ANOVA, does not account for temporal dependence in the observations, potentially influencing biologically meaningful c |
+| Judgment | 是 |
+| Reason | 未明确物种 |
+---
+### 72077. 无骨不欢：小分子促进骨再生
+
+| Field | Content |
+|------|------|
+| EN Title | No Bones About It: Small Molecules for Bone Regeneration |
+| ZH Title | 无骨不欢：小分子促进骨再生 |
+| ZH Abstract | 报道一种促进骨生成的小分子激活剂。 |
+| EN Abstract | In this issue of Cell Chemical Biology, Cook et al. (2019) report a new small-molecule activator that enhances osteogenesis and skeletal regeneration in developmental and adult animalmodels, respectively. This discovery has therapeutic potential for healing following traumatic bone injury, as well as bone remodeling in response to osteoporosis. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72081. 大脑与脊柱研究所核心设施网络：为学术和工业合作伙伴提供最先进的集成服务
+
+| Field | Content |
+|------|------|
+| EN Title | The Brain and Spine Institute's core facilities network: a state of the art integrated services for academic and industrial partners. |
+| ZH Title | 大脑与脊柱研究所核心设施网络：为学术和工业合作伙伴提供最先进的集成服务 |
+| ZH Abstract | 大脑与脊柱研究所核心设施网络：为学术和工业合作伙伴提供最先进（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72082. 转化视觉研究模型项目
+
+| Field | Content |
+|------|------|
+| EN Title | Translational Vision Research Models Program |
+| ZH Title | 转化视觉研究模型项目 |
+| ZH Abstract | 转化视觉研究模型项目（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72085. 生命的模式：无需拼写？
+
+| Field | Content |
+|------|------|
+| EN Title | Life's patterns: no need to spell it out? |
+| ZH Title | 生命的模式：无需拼写？ |
+| ZH Abstract | 生命的模式：无需拼写？（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72091. Kruppel交通报告：协同信号指导KLF8核转运
+
+| Field | Content |
+|------|------|
+| EN Title | The Kruppel traffic report: Cooperative signals direct KLF8 nuclear transport |
+| ZH Title | Kruppel交通报告：协同信号指导KLF8核转运 |
+| ZH Abstract | Kruppel交通报告：协同信号指导KLF8核转运（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72097. 生物过程时序的分子与细胞水平控制与修饰 2.0
+
+| Field | Content |
+|------|------|
+| EN Title | How the Timing of Biological Processes Is Controlled and Modified at the Molecular and Cellular Level? 2.0 |
+| ZH Title | 生物过程时序的分子与细胞水平控制与修饰 2.0 |
+| ZH Abstract | 生物过程时序的分子与细胞水平控制与修饰 2.0（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72100. 多模型临床前平台评估光动力疗法减少粘液纤维肉瘤和骨肉瘤局部复发
+
+| Field | Content |
+|------|------|
+| EN Title | A multimodel preclinical platform to evaluate photodynamic therapy as a strategy to reduce local recurrence in myxofibrosarcoma and osteosarcoma |
+| ZH Title | 多模型临床前平台评估光动力疗法减少粘液纤维肉瘤和骨肉瘤局部复发 |
+| ZH Abstract | 多模型临床前平台评估光动力疗法减少粘液纤维肉瘤和骨肉瘤局部复（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72101. 喹啉保护的吗啉代寡聚体的实用合成用于光触发基因功能调控
+
+| Field | Content |
+|------|------|
+| EN Title | Practical Synthesis of Quinoline-Protected Morpholino Oligomers for Light-Triggered Regulation of Gene Function |
+| ZH Title | 喹啉保护的吗啉代寡聚体的实用合成用于光触发基因功能调控 |
+| ZH Abstract | 合成光激活的吗啉代寡聚体用于基因调控。 |
+| EN Abstract | Photoactivatable cyclic caged morpholino oligomers (ccMOs) represent a promising tool to selectively regulate gene expression with spatiotemporal control. Nevertheless, some challenges associated with the preparation of these reagents have limited their broader use in biological settings. We describe a novel ccMO design that overcomes many of the challenges and considerably expedites the synthetic preparation. The key factor is the introduction of an ethynyl function on the photocleavable linker |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72102. 微粒体谷胱甘肽转移酶1在黑色素瘤黑色素合成中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | A role for microsomal glutathione transferase 1 in melanin biosynthesis in melanoma |
+| ZH Title | 微粒体谷胱甘肽转移酶1在黑色素瘤黑色素合成中的作用 |
+| ZH Abstract | 微粒体谷胱甘肽转移酶1在黑色素瘤黑色素合成中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72116. 铁补充剂削弱抗坏血酸的抗肿瘤活性
+
+| Field | Content |
+|------|------|
+| EN Title | Iron supplements weakens the anti-tumor activity of ascorbic acid |
+| ZH Title | 铁补充剂削弱抗坏血酸的抗肿瘤活性 |
+| ZH Abstract | 铁补充剂削弱抗坏血酸的抗肿瘤活性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72119. GPR31似乎介导12-脂氧合酶在糖尿病炎症中的下游作用
+
+| Field | Content |
+|------|------|
+| EN Title | GPR31 Appears to Mediate the Downstream Actions of 12-Lipoxygenase in the Setting of Diabetic Inflammation |
+| ZH Title | GPR31似乎介导12-脂氧合酶在糖尿病炎症中的下游作用 |
+| ZH Abstract | GPR31似乎介导12-脂氧合酶在糖尿病炎症中的下游作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72135. 鉴定Notch3在成体神经干细胞维持中的独特作用
+
+| Field | Content |
+|------|------|
+| EN Title | Identifying the Unique Role of Notch3 in Adult Neural Stem Cell Maintenance |
+| ZH Title | 鉴定Notch3在成体神经干细胞维持中的独特作用 |
+| ZH Abstract | 鉴定Notch3在成体神经干细胞维持中的独特作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72143. 社论：成瘾和成瘾行为长期可塑性的分子基础新见解
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: New insights into the molecular basis of long-term plasticity underlying addiction and addictive behaviors |
+| ZH Title | 社论：成瘾和成瘾行为长期可塑性的分子基础新见解 |
+| ZH Abstract | 社论：成瘾和成瘾行为长期可塑性的分子基础新见解（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72148. 大数据与网络生物学
+
+| Field | Content |
+|------|------|
+| EN Title | Big Data and Network Biology |
+| ZH Title | 大数据与网络生物学 |
+| ZH Abstract | 大数据与网络生物学（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72172. 整个生命周期的精神药理学
+
+| Field | Content |
+|------|------|
+| EN Title | Psychopharmacology across the Lifespan |
+| ZH Title | 整个生命周期的精神药理学 |
+| ZH Abstract | 整个生命周期的精神药理学（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72182. 酒精、神经元可塑性和线粒体运输
+
+| Field | Content |
+|------|------|
+| EN Title | Alcohol, neuronal plasticity, and mitochondrial trafficking |
+| ZH Title | 酒精、神经元可塑性和线粒体运输 |
+| ZH Abstract | 酒精、神经元可塑性和线粒体运输（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72199. 红细胞的幽灵之路与清除：脾脏清除
+
+| Field | Content |
+|------|------|
+| EN Title | The RBC's road to ghost and removal: splenic clearance |
+| ZH Title | 红细胞的幽灵之路与清除：脾脏清除 |
+| ZH Abstract | 红细胞的幽灵之路与清除：脾脏清除（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72202. 胚胎发生中纤毛驱动流的对称性破缺
+
+| Field | Content |
+|------|------|
+| EN Title | Symmetry-Breaking Cilia-Driven Flow in Embryogenesis |
+| ZH Title | 胚胎发生中纤毛驱动流的对称性破缺 |
+| ZH Abstract | 综述纤毛驱动流在左右对称破缺中的作用。 |
+| EN Abstract | The systematic breaking of left-right body symmetry is a familiar feature of human physiology. In humans and many animals, this process originates with asymmetric fluid flow driven by rotating cilia, occurring in a short-lived embryonic organizing structure termed the node. The very low-Reynolds number fluid mechanics of this system is reviewed; important features include how cilia rotation combines with tilt to produce asymmetric flow, boundary effects, time dependence, and the interpretation o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72208. 胞质磷脂酶PLA2G4A在FLT3-ITD突变急性髓系白血病发病中的关键作用
+
+| Field | Content |
+|------|------|
+| EN Title | Pivotal role of cytosolic phospholipase PLA2G4A in the pathogenesis of FLT3-ITD-mutated acute myeloid leukemia |
+| ZH Title | 胞质磷脂酶PLA2G4A在FLT3-ITD突变急性髓系白血病发病中的关键作用 |
+| ZH Abstract | 胞质磷脂酶PLA2G4A在FLT3-ITD突变急性髓系白血病（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72209. 新型小分子TRVA242靶向肌萎缩侧索硬化症的神经肌肉接头
+
+| Field | Content |
+|------|------|
+| EN Title | Novel small molecule TRVA242 targets neuromuscular junction in amyotrophic lateral sclerosis |
+| ZH Title | 新型小分子TRVA242靶向肌萎缩侧索硬化症的神经肌肉接头 |
+| ZH Abstract | 新型小分子TRVA242靶向肌萎缩侧索硬化症的神经肌肉接头（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72211. 动力蛋白和肌球蛋白转运Mbp mRNA对少突胶质细胞局部翻译和髓鞘形成至关重要
+
+| Field | Content |
+|------|------|
+| EN Title | Transport of Mbp mRNA by Dynein and Myosin Motors in Oligodendrocytes is Critical for Local Translation and Myelination. |
+| ZH Title | 动力蛋白和肌球蛋白转运Mbp mRNA对少突胶质细胞局部翻译和髓鞘形成至关重要 |
+| ZH Abstract | 动力蛋白和肌球蛋白转运Mbp mRNA对少突胶质细胞局部翻译（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72212. 用于活细胞和动物中半胱氨酸代谢实时可视化的多信号线粒体靶向荧光探针
+
+| Field | Content |
+|------|------|
+| EN Title | A multi-signal mitochondria-targeted fluorescent probe for real-time visualization of cysteine metabolism in living cells and animals |
+| ZH Title | 用于活细胞和动物中半胱氨酸代谢实时可视化的多信号线粒体靶向荧光探针 |
+| ZH Abstract | 开发线粒体靶向荧光探针检测半胱氨酸代谢。 |
+| EN Abstract | In this study, we developed a multi-signal mitochondria-targeted fluorescent probe (NIR-Cys) for simultaneous detection of Cys and its metabolite, SO2. In the design of the probe, the acrylate group and the C=C of the coumarin ring were used as the recognizing moiety for Cys and SO2, respectively. The probe exhibited high sensitivity, excellent specificity, and fast response. NIR-Cys was found to precisely target and visualize Cys metabolism in mitochondria of living cells with a multi-fluoresce |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72214. 神经科学中的动物模型系统
+
+| Field | Content |
+|------|------|
+| EN Title | Animal Model Systems in Neuroscience |
+| ZH Title | 神经科学中的动物模型系统 |
+| ZH Abstract | 神经科学中的动物模型系统（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72217. 通过双光子倒置选择性平面照明显微镜对厚生物样品进行四维成像
+
+| Field | Content |
+|------|------|
+| EN Title | 4D (x-y-z-t) imaging of thick biological samples by means of Two-Photon inverted Selective Plane Illumination Microscopy (2PE-iSPIM) |
+| ZH Title | 通过双光子倒置选择性平面照明显微镜对厚生物样品进行四维成像 |
+| ZH Abstract | 开发双光子iSPIM用于厚样品成像。 |
+| EN Abstract | In the last decade light sheet fluorescence microscopy techniques, such as selective plane illumination microscopy (SPIM), has become a well established method for developmental biology. However, conventional SPIM architectures hardly permit imaging of certain tissues since the common sample mounting procedure, based on gel embedding, could interfere with the sample morphology. In this work we propose an inverted selective plane microscopy system (iSPIM), based on non-linear excitation, suitable |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72218. 视网膜损伤后Muller细胞的神经化学可塑性：GAT-3过表达可能增强兴奋性毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Neurochemical plasticity of Muller cells after retinal injury: overexpression of GAT-3 may potentiate excitotoxicity |
+| ZH Title | 视网膜损伤后Muller细胞的神经化学可塑性：GAT-3过表达可能增强兴奋性毒性 |
+| ZH Abstract | 视网膜损伤后Muller细胞的神经化学可塑性：GAT-3过表（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72229. 第一届欧洲脉络丛科学论坛在脉络丛和脑脊液生物学方面的突破
+
+| Field | Content |
+|------|------|
+| EN Title | Breakthroughs in choroid plexus and CSF biology from the first European Choroid plexus Scientific Forum (ECSF) |
+| ZH Title | 第一届欧洲脉络丛科学论坛在脉络丛和脑脊液生物学方面的突破 |
+| ZH Abstract | 综述脉络丛和脑脊液研究进展。 |
+| EN Abstract | The European Choroid plexus Scientific Forum (ECSF), held in Heidelberg, Germany between the 7th and 9th of November 2023, involved 21 speakers from eight countries. ECSF focused on discussing cutting-edge fundamental and medical research related to the development and functions of the choroid plexus and its implications for health, aging, and disease, including choroid plexus tumors. In addition to new findings in this expanding field, innovative approaches, animal models and 3D in vitro models |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72233. HOPS亚基VPS41的双等位基因变异导致小脑性共济失调并揭示脑细胞类型中溶酶体失调的差异
+
+| Field | Content |
+|------|------|
+| EN Title | Bi-allelic variants in HOPS subunit VPS41 cause cerebellar ataxia and point to differential lysosomal dysregulation in brain cell types |
+| ZH Title | HOPS亚基VPS41的双等位基因变异导致小脑性共济失调并揭示脑细胞类型中溶酶体失调的差异 |
+| ZH Abstract | HOPS亚基VPS41的双等位基因变异导致小脑性共济失调并揭（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72235. 由信号梯度调控的序贯模式形成
+
+| Field | Content |
+|------|------|
+| EN Title | Sequential pattern formation governed by signaling gradients |
+| ZH Title | 由信号梯度调控的序贯模式形成 |
+| ZH Abstract | 研究信号梯度调控胚胎体节形成。 |
+| EN Abstract | Rhythmic and sequential segmentation of the embryonic body plan is a vital developmental patterning process in all vertebrate species. However, a theoretical framework capturing the emergence of dynamic patterns of gene expression from the interplay of cell oscillations with tissue elongation and shortening and with signaling gradients, is still missing. Here we show that a set of coupled genetic oscillators in an elongating tissue that is regulated by diffusing and advected signaling molecules |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72237. Crumbs功能与调控在组织形态发生中的复杂性
+
+| Field | Content |
+|------|------|
+| EN Title | Complexities of Crumbs Function and Regulation in Tissue Morphogenesis |
+| ZH Title | Crumbs功能与调控在组织形态发生中的复杂性 |
+| ZH Abstract | 综述Crumbs蛋白在组织形态发生中的功能与调控。 |
+| EN Abstract | Establishing and maintaining epithelial polarity is crucial during development and for adult tissue homeostasis. A complex network of evolutionarily conserved proteins regulates this compartmentalization. One such protein is Crumbs, a type I transmembrane protein initially shown to be an important apical determinant in Drosophila. We discuss recent studies that have advanced our understanding of the function and regulation of Crumbs. New findings obtained in flies and fish, reporting homotypic i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72240. BMP信号梯度沿前后轴以时间渐进方式模式化背腹组织
+
+| Field | Content |
+|------|------|
+| EN Title | The BMP signaling gradient patterns dorsoventral tissues in a temporally progressive manner along the anteroposterior axis |
+| ZH Title | BMP信号梯度沿前后轴以时间渐进方式模式化背腹组织 |
+| ZH Abstract | 研究BMP信号在脊椎动物前后轴模式化中的作用。 |
+| EN Abstract | Patterning of the vertebrate anteroposterior (AP) axis proceeds temporally from anterior to posterior. How dorsoventral (DV) axial patterning relates to AP temporal patterning is unknown. We examined the temporal activity of BMP signaling in patterning ventrolateral cell fates along the AP axis, using transgenes that rapidly turn "off" or "on" BMP signaling. We show that BMP signaling patterns rostral DV cell fates at the onset of gastrulation, whereas progressively more caudal DV cell fates are |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72250. 亲代与子代之间的信息流对成功发育至关重要
+
+| Field | Content |
+|------|------|
+| EN Title | Information Flow between Parents and Offspring Is Essential for Successful Development |
+| ZH Title | 亲代与子代之间的信息流对成功发育至关重要 |
+| ZH Abstract | 亲代与子代之间的信息流对成功发育至关重要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72268. 基于靶基因与侧翼序列环化和巢式反向PCR鉴定转基因DNA插入位点
+
+| Field | Content |
+|------|------|
+| EN Title | Identification of the insertion site of transgenic DNA based on cyclization of the target gene with the flanking sequence and nested inverse PCR |
+| ZH Title | 基于靶基因与侧翼序列环化和巢式反向PCR鉴定转基因DNA插入位点 |
+| ZH Abstract | 开发鉴定转基因DNA插入位点的新方法。 |
+| EN Abstract | We demonstrate a novel method for identification of the insertion site of transgenic DNA by construction a circular DNA containing part of the transgenic DNA (tDNA) and its flanking sequence, which would be different from those in the native genomic DNA (gDNA). Using follistatin (FST) as a model of tDNA, we cleaved the sequence of FST gene and the adjacent sequence with a proper combination of restriction endonuclease and nicking endonuclease and isolated the resultant fragments containing the t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72270. 通过X射线计算机断层扫描对成年硬骨鱼进行定量形态测量分析
+
+| Field | Content |
+|------|------|
+| EN Title | Quantitative morphometric analysis of adult teleost fish by X-ray computed tomography |
+| ZH Title | 通过X射线计算机断层扫描对成年硬骨鱼进行定量形态测量分析 |
+| ZH Abstract | 用micro-CT对成年硬骨鱼进行定量形态分析。 |
+| EN Abstract | Vertebrate models provide indispensable paradigms to study development and disease. Their analysis requires a quantitative morphometric study of the body, organs and tissues. This is often impeded by pigmentation and sample size. X-ray micro-computed tomography (micro-CT) allows high-resolution volumetric tissue analysis, largely independent of sample size and transparency to visual light. Importantly, micro-CT data are inherently quantitative. We report a complete pipeline of high-throughput 3D |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72273. 干细胞与离子通道
+
+| Field | Content |
+|------|------|
+| EN Title | Stem Cells and Ion Channels |
+| ZH Title | 干细胞与离子通道 |
+| ZH Abstract | 干细胞与离子通道（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72281. 2024年胚胎学：一个与众不同的夏天
+
+| Field | Content |
+|------|------|
+| EN Title | Embryology 2024: a summer like no other |
+| ZH Title | 2024年胚胎学：一个与众不同的夏天 |
+| ZH Abstract | 描述2024年胚胎学会议或活动。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72290. 研究宿主-病原体相互作用的模式生物：识别新药物靶点的先决条件
+
+| Field | Content |
+|------|------|
+| EN Title | Model Organisms to Study Host - Pathogen Interaction: Prerequisites for the Identification of Novel Drug Targets |
+| ZH Title | 研究宿主-病原体相互作用的模式生物：识别新药物靶点的先决条件 |
+| ZH Abstract | 综述模式生物在宿主-病原体研究中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72292. ATP门控P2X4受体调节酒精消费并成为新药开发靶点
+
+| Field | Content |
+|------|------|
+| EN Title | ATP-GATED P2X4 RECEPTORS REGULATE ALCOHOL CONSUMPTION AND ARE TARGETS FOR NEW MEDICATION DEVELOPMENT |
+| ZH Title | ATP门控P2X4受体调节酒精消费并成为新药开发靶点 |
+| ZH Abstract | 研究P2X4受体在酒精消费中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72300. 引言：“全氟和多氟烷基物质在发育背景下的影响”
+
+| Field | Content |
+|------|------|
+| EN Title | Introduction to "Effects of per- and polyfluoroalkyl substances (PFAS) within a developmental context" |
+| ZH Title | 引言：“全氟和多氟烷基物质在发育背景下的影响” |
+| ZH Abstract | 介绍PFAS在发育背景下的影响专题。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72309. 系统生物学与先天免疫
+
+| Field | Content |
+|------|------|
+| EN Title | Systems Biology and Innate Immunity |
+| ZH Title | 系统生物学与先天免疫 |
+| ZH Abstract | 综述系统生物学在先天免疫研究中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72310. 神经嵴细胞的迷人世界——客座编辑来信
+
+| Field | Content |
+|------|------|
+| EN Title | The fascinating world of neural crest cells Letter from the Guest Editor |
+| ZH Title | 神经嵴细胞的迷人世界——客座编辑来信 |
+| ZH Abstract | 介绍神经嵴细胞专题的客座编辑来信。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72320. Fgf信号与Hes7在分节时钟中的振荡联系
+
+| Field | Content |
+|------|------|
+| EN Title | Oscillatory links of Fgf signaling and Hes7 in the segmentation clock |
+| ZH Title | Fgf信号与Hes7在分节时钟中的振荡联系 |
+| ZH Abstract | 研究分节时钟中Fgf和Hes7的振荡机制。 |
+| EN Abstract | Somitogenesis is controlled by the segmentation clock, where the oscillatory expression of cyclic genes such as Hes7 leads to the periodic expression of Mesp2, a master gene for somite formation. Fgf signaling induces the oscillatory expression of Hes7 while Hes7 drives coupled oscillations in Fgf and Notch signaling, which inhibits and activates Mesp2 expression, respectively. Because of different oscillatory dynamics, oscillation in Fgf signaling dissociates from oscillation in Notch signaling |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72322. MEC-17对α-微管蛋白乙酰转移酶活性的分子基础
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular basis of the acetyltransferase activity of MEC-17 towards α-tubulin |
+| ZH Title | MEC-17对α-微管蛋白乙酰转移酶活性的分子基础 |
+| ZH Abstract | MEC-17对α-微管蛋白乙酰转移酶活性的分子基础（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72338. 鱼类组织的DIGE分析
+
+| Field | Content |
+|------|------|
+| EN Title | DIGE Analysis of Fish Tissues. |
+| ZH Title | 鱼类组织的DIGE分析 |
+| ZH Abstract | 介绍鱼类组织二维差异凝胶电泳方法。 |
+| EN Abstract | Two-dimensional difference gel electrophoresis (2D-DIGE) appears to be especially useful in quantitative approaches, allowing the co-separation of proteins of control samples from proteins of treatment/disease samples on the same gel, eliminating gel-to-gel variability. The principle of 2D-DIGE is to label proteins prior to isoelectric focusing and use three spectrally resolvable fluorescent dyes, allowing the independent labeling of control and experimental samples. This procedure makes it poss |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72340. 新兴溴化和磷系阻燃剂的多营养级水生毒性
+
+| Field | Content |
+|------|------|
+| EN Title | MULTITROPHIC AQUATIC TOXICITY OF EMERGING BROMINATED AND PHOSPHORUS FLAME RETARDANTS |
+| ZH Title | 新兴溴化和磷系阻燃剂的多营养级水生毒性 |
+| ZH Abstract | 评估阻燃剂对水生生物的急性毒性。 |
+| EN Abstract | The production and use of brominated and phosphorus flame retardants (FRs) have increased in response to the ban of polybrominated diphenyl ethers (PBDE). Information on the toxicity of these emerging chemicals is very scarce particularly in aquatic organisms. The purpose of this study was to evaluate the acute toxicity (i.e., LC50, IC25/50 or EC50) of five flame retardants (2,2-bis (bromomethyl)-1,3-propanediol (BBMP), tris(2-butoxyethyl) phosphate (TBOEP), bis(2-ethylhexyl) phosphate (BEHP), t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72341. 从细菌到鱼类的水平功能基因转移
+
+| Field | Content |
+|------|------|
+| EN Title | Horizontal functional gene transfer from bacteria to fishes |
+| ZH Title | 从细菌到鱼类的水平功能基因转移 |
+| ZH Abstract | 提供细菌向鱼类水平基因转移的证据。 |
+| EN Abstract | Invertebrates can acquire functional genes via horizontal gene transfer (HGT) from bacteria but fishes are not known to do so. We provide the first reliable evidence of one HGT event from marine bacteria to fishes. The HGT appears to have occurred after emergence of the teleosts. The transferred gene is expressed and regulated developmentally. Its successful integration and expression may change the genetic and metabolic repertoire of fishes. In addition, this gene contains conserved domains and |
+| Judgment | 是 |
+| Reason | 未明确鱼类种类 |
+---
+### 72345. 二甲双胍的环境风险是否被低估？
+
+| Field | Content |
+|------|------|
+| EN Title | Is the Environmental Risk of Metformin Underestimated? |
+| ZH Title | 二甲双胍的环境风险是否被低估？ |
+| ZH Abstract | 讨论二甲双胍的环境风险。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72349. 内皮细胞转化为血细胞，但可能不会逆转
+
+| Field | Content |
+|------|------|
+| EN Title | Endothelial Cells Transition to Blood Cells but Probably Not Back Again |
+| ZH Title | 内皮细胞转化为血细胞，但可能不会逆转 |
+| ZH Abstract | 讨论内皮细胞向血细胞转化的可逆性。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72354. 胰腺的守门人：TEAD和YAP
+
+| Field | Content |
+|------|------|
+| EN Title | Gatekeepers of pancreas: TEAD and YAP |
+| ZH Title | 胰腺的守门人：TEAD和YAP |
+| ZH Abstract | 综述TEAD和YAP在胰腺中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72357. 跨高度分化物种捕获蛋白编码基因
+
+| Field | Content |
+|------|------|
+| EN Title | Capturing protein-coding genes across highly divergent species |
+| ZH Title | 跨高度分化物种捕获蛋白编码基因 |
+| ZH Abstract | 介绍一种捕获高度分化同源序列的DNA杂交方法。 |
+| EN Abstract | DNA hybridization capture combined with next generation sequencing can be used to determine the sequences of hundreds of target genes across hundreds of individuals in a single experiment. However, the approach has thus far only been successfully applied to capture targets that are highly similar in sequence to the bait molecules. Here we introduce modifications that extend the reach of the method to allow efficient capture of highly divergent homologous target sequences using a single set of ba |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72359. 细胞粘附、炎症与治疗：旧观念与重要进展
+
+| Field | Content |
+|------|------|
+| EN Title | Cell adhesion, inflammation and therapy: Old ideas and a significant step forward |
+| ZH Title | 细胞粘附、炎症与治疗：旧观念与重要进展 |
+| ZH Abstract | 综述细胞粘附与炎症在治疗中的进展。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72360. 心血管治疗发现
+
+| Field | Content |
+|------|------|
+| EN Title | Cardiovascular Therapeutic Discovery |
+| ZH Title | 心血管治疗发现 |
+| ZH Abstract | 心血管治疗发现（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72363. VRG：血管功能障碍相关基因数据库
+
+| Field | Content |
+|------|------|
+| EN Title | VRG:: A database of vascular dysfunctions related genes |
+| ZH Title | VRG：血管功能障碍相关基因数据库 |
+| ZH Abstract | 介绍一个整合人类和小鼠血管功能障碍相关基因的数据库。 |
+| EN Abstract | Heart and vascular defects occur in a large number of hereditary and sporadic human diseases as a result of a complex interplay of genetic factors. Since genome sequencing of many organisms disclosed similarities among genomes, animal models are crucial for the discovery of genes involved in those pathological processes. Therefore we propose a VRG database, in which human data have been manually managed and integrated with mouse information in order to create a catalogue of genes involved in vas |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72364. Rho家族蛋白在细胞粘附和癌症中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of Rho-family proteins in cell adhesion and cancer. |
+| ZH Title | Rho家族蛋白在细胞粘附和癌症中的作用 |
+| ZH Abstract | 综述Rho家族蛋白在细胞粘附和癌症中的作用。 |
+| EN Abstract | Rho-family proteins control signalling pathways that regulate a wide range of biological processes. In vitro studies implicating Rho proteins in cell adhesion, migration, transcriptional activation, cell-cycle progression and transformation suggested roles for these proteins in the formation and progression of tumours in vivo. Studies using different recombinant mouse models have recently confirmed this idea. Rho signalling pathways crosstalk with different oncogenic signalling cascades, includi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72365. 视网膜发育的表观遗传调控
+
+| Field | Content |
+|------|------|
+| EN Title | Epigenetic regulation of retinal development |
+| ZH Title | 视网膜发育的表观遗传调控 |
+| ZH Abstract | 综述表观遗传调控在脊椎动物视网膜发育中的作用。 |
+| EN Abstract | In the developing vertebrate retina, retinal progenitor cells (RPCs) proliferate and give rise to terminally differentiated neurons with exquisite spatio-temporal precision. Lineage commitment, fate determination and terminal differentiation are controlled by intricate crosstalk between the genome and epigenome. Indeed, epigenetic regulation plays pivotal roles in numerous cell fate specification and differentiation events in the retina. Moreover, aberrant chromatin structure can contribute to d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72366. 囊性纤维化的结构基础
+
+| Field | Content |
+|------|------|
+| EN Title | The structural basis of cystic fibrosis |
+| ZH Title | 囊性纤维化的结构基础 |
+| ZH Abstract | 综述CFTR突变导致囊性纤维化的结构基础。 |
+| EN Abstract | CFTR (ABCC7) is a phospho-regulated chloride channel that is found in the apical membranes of epithelial cells, is gated by ATP and the activity of the protein is crucial in the homeostasis of the extracellular liquid layer in many organs [Annu. Rev. Biochem. (2008) 77, 701-726; Science (1989) 245, 1066-1073]. Mutations in CFTR cause the inherited disease cystic fibrosis (CF), the most common inherited condition in humans of European descent [Science (1989) 245, 1066-1073; Pflugers Arch. (2007) |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72367. 定向细胞分裂：在引导皮肤伤口修复和再生中的新作用
+
+| Field | Content |
+|------|------|
+| EN Title | Oriented cell division: new roles in guiding skin wound repair and regeneration |
+| ZH Title | 定向细胞分裂：在引导皮肤伤口修复和再生中的新作用 |
+| ZH Abstract | 综述定向细胞分裂在皮肤伤口修复和再生中的作用。 |
+| EN Abstract | Tissue morphogenesis depends on precise regulation and timely co-ordination of cell division and also on the control of the direction of cell division. Establishment of polarity division axis, correct alignment of the mitotic spindle, segregation of fate determinants equally or unequally between daughter cells, are essential for the realization of oriented cell division. Furthermore, oriented cell division is regulated by intrinsic cues, extrinsic cues and other cues, such as cell geometry and p |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72368. UCLA分子筛选共享资源：通过功能基因组学和新技术增强小分子发现
+
+| Field | Content |
+|------|------|
+| EN Title | UCLA's Molecular Screening Shared Resource: Enhancing Small Molecule Discovery with Functional Genomics and New Technology |
+| ZH Title | UCLA分子筛选共享资源：通过功能基因组学和新技术增强小分子发现 |
+| ZH Abstract | 介绍UCLA分子筛选共享资源提供的服务。 |
+| EN Abstract | The Molecular Screening Shared Resource (MSSR) offers a comprehensive range of leading-edge high throughput screening (HTS) services including drug discovery, chemical and functional genomics, and novel methods for nano and environmental toxicology. The MSSR is an open access environment with investigators from UCLA as well as from the entire globe. Industrial clients are equally welcome as are non-profit entities. The MSSR is a fee-for-service entity and does not retain intellectual property. I |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72369. 多光子显微镜在胚胎成像中的进展
+
+| Field | Content |
+|------|------|
+| EN Title | Advances in multiphoton microscopy for imaging embryos |
+| ZH Title | 多光子显微镜在胚胎成像中的进展 |
+| ZH Abstract | 综述多光子显微镜在胚胎成像中的最新进展。 |
+| EN Abstract | Multiphoton imaging is a promising approach for addressing current issues in systems biology and high-content investigation of embryonic development. Recent advances in multiphoton microscopy, including light-sheet illumination, optimized laser scanning, adaptive and label-free strategies, open new opportunities for embryo imaging. However, the literature is often unclear about which microscopy technique is most adapted for achieving specific experimental goals. In this review, we describe and d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72370. 轴突和树突树的一个普遍性质
+
+| Field | Content |
+|------|------|
+| EN Title | A Universal Property of Axonal and Dendritic Arbors |
+| ZH Title | 轴突和树突树的一个普遍性质 |
+| ZH Abstract | 发现轴突和树突树的空间密度函数可用截断高斯函数描述。 |
+| EN Abstract | Axonal and dendritic arbors can be characterized statistically by their spatial density function, a function that specifies the probability of finding a branch of a particular arbor at each point in a neural circuit. Based on an analysis of over a thousand arbors from many neuron types in various species, we have discovered an unexpected simplicity in arbor structure: all of the arbors we have examined, both axonal and dendritic, can be described by a Gaussian density function truncated at about |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72371. 横纹肌肌营养不良蛋白-糖蛋白复合物的生物学
+
+| Field | Content |
+|------|------|
+| EN Title | Biology of the striated muscle dystrophin-glycoprotein complex |
+| ZH Title | 横纹肌肌营养不良蛋白-糖蛋白复合物的生物学 |
+| ZH Abstract | 综述肌营养不良蛋白-糖蛋白复合物在横纹肌中的功能。 |
+| EN Abstract | Since its first description in 1990, the dystrophin-glycoprotein complex has emerged as a critical nexus for human muscular dystrophies arising from defects in a variety of distinct genes. Studies in mammals widely support a primary role for the dystrophin-glycoprotein complex in mechanical stabilization of the plasma membrane in striated muscle and provide hints for secondary functions in organizing molecules involved in cellular signaling. Studies in model organisms confirm the importance of t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72372. 某些自主C形弯曲可能由Mauthner神经元启动
+
+| Field | Content |
+|------|------|
+| EN Title | Some voluntary C-bends may be Mauthner neuron initiated |
+| ZH Title | 某些自主C形弯曲可能由Mauthner神经元启动 |
+| ZH Abstract | 探讨鱼类C形弯曲可能由Mauthner神经元启动。 |
+| EN Abstract | Predatory fish sometimes capture a prey fish first by striking it from the side, allowing the predator to consume the stunned prey head first. The rapid body flexion that the predator uses to stun its prey is similar to the "C" shaped maneuver ("C-bend") that many fish species use when performing a C-start escape response. For most species, one of the two Mauthner neurons initiates the C-start and, together with other reticulospinal neurons, their activity determines the extent of the bend and t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72373. 分割时钟中Notch通路的振荡机制
+
+| Field | Content |
+|------|------|
+| EN Title | Oscillator mechanism of notch pathway in the segmentation clock |
+| ZH Title | 分割时钟中Notch通路的振荡机制 |
+| ZH Abstract | 综述Notch信号在分割时钟中的振荡机制。 |
+| EN Abstract | Somites are formed by periodic segmentation of the presomitic mesoderm (PSM). This periodic event is controlled by the segmentation clock, where Notch signaling plays an essential role. The basic helix-loop-helix factor Hes7, a Notch effector, is cyclically expressed by negative feedback and regulates cyclic expression of Lunatic fringe (Lfng), a Notch modulator. Lfng then seems to periodically inhibit Notch, leading to oscillation in Notch activity. It is thought that these coupled negative fee |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72377. 迷走神经嵴衍生组织是否受剪接体病影响？
+
+| Field | Content |
+|------|------|
+| EN Title | Are vagal neural crest derived tissues impacted in spliceosomopathies? |
+| ZH Title | 迷走神经嵴衍生组织是否受剪接体病影响？ |
+| ZH Abstract | 综述剪接因子在迷走神经嵴发育中的作用。 |
+| EN Abstract | Splicing factors required for mRNA maturation have emerged as important contributors to neural crest development in the craniofacial region. Less is known of the role of these proteins in vagal neural crest cells that contribute to the outflow tract and form the enteric nervous system. In this review, we discuss the current state of our understanding of splicing and potential contribution of mis-splicing to cardiac and ENS defects. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72378. PDGFRB突变导致颅内动脉瘤
+
+| Field | Content |
+|------|------|
+| EN Title | PDGFRB mutation causes intracranial aneurysm |
+| ZH Title | PDGFRB突变导致颅内动脉瘤 |
+| ZH Abstract | PDGFRB突变导致颅内动脉瘤（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72379. 低氧细胞外囊泡诱导神经母细胞瘤促转移表型：从递送miR-210-3p到预转移微环境条件化
+
+| Field | Content |
+|------|------|
+| EN Title | Hypoxic extracellular vesicles induce a pro-metastatic phenotype in neuroblastoma: from the delivery of miR-210-3p to the preconditioning of a metastatic niche |
+| ZH Title | 低氧细胞外囊泡诱导神经母细胞瘤促转移表型：从递送miR-210-3p到预转移微环境条件化 |
+| ZH Abstract | 研究低氧细胞外囊泡在神经母细胞瘤转移中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72380. 躯干神经嵴迁移位置和不对称分裂预测终末分化
+
+| Field | Content |
+|------|------|
+| EN Title | Trunk Neural Crest Migratory Position and Asymmetric Division Predict Terminal Differentiation |
+| ZH Title | 躯干神经嵴迁移位置和不对称分裂预测终末分化 |
+| ZH Abstract | 研究神经嵴细胞迁移位置和不对称分裂如何预测终末分化。 |
+| EN Abstract | The generation of complex structures during embryogenesis requires the controlled migration and differentiation of cells from distant origins. How these processes are coordinated and impact each other to form functional structures is not fully understood. Neural crest cells migrate extensively giving rise to many cell types. In the trunk, neural crest cells migrate collectively forming chains comprised of cells with distinct migratory identities: one leader cell at the front of the group directs |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72382. 激活自噬预防多柔比星心肌病：时机很重要
+
+| Field | Content |
+|------|------|
+| EN Title | Activating Autophagy to Prevent Doxorubicin Cardiomyopathy The Timing Matters |
+| ZH Title | 激活自噬预防多柔比星心肌病：时机很重要 |
+| ZH Abstract | 激活自噬预防多柔比星心肌病：时机很重要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72383. Bloom综合征：一些受影响家庭确定的精准医学研究重点和数据优先事项
+
+| Field | Content |
+|------|------|
+| EN Title | Bloom syndrome: research and data priorities for the development of precision medicine as identified by some affected families. |
+| ZH Title | Bloom综合征：一些受影响家庭确定的精准医学研究重点和数据优先事项 |
+| ZH Abstract | 讨论Bloom综合征的精准医学研究重点。 |
+| EN Abstract | Bloom syndrome (BS) is a rare, autosomal recessive genetic disorder characterized by short stature, a skin rash associated with sun exposure, and an elevated likelihood of developing cancers of essentially all types, beginning at an early age. Cancer is the leading cause of death for persons with BS, and its early onset results in a reported median lifespan of <30 years. With fewer than 300 documented cases since BS was first described in 1954, its rarity has challenged progress in advancing bot |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72384. 肽偶联物的平行合成与筛选
+
+| Field | Content |
+|------|------|
+| EN Title | Parallel Synthesis and Screening of Peptide Conjugates |
+| ZH Title | 肽偶联物的平行合成与筛选 |
+| ZH Abstract | 介绍肽偶联物的平行合成与筛选策略。 |
+| EN Abstract | Peptide conjugates represent an emerging class of therapeutics. However, in contrast to that of small molecules and peptides, the discovery and optimization of peptide conjugates is low in throughput, resource intensive, time-consuming, and based on educated decisions rather than screening. A strategy for the parallel synthesis and screening of peptide conjugates is presented that (1) reduces variability in the conjugation steps; (2) provides a new method to rapidly and quantitatively measure co |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72385. 新型芳亚甲基丙二腈衍生物作为蛋白酪氨酸磷酸酶1B非羧基抑制剂的设、合成及生物评价
+
+| Field | Content |
+|------|------|
+| EN Title | Design, synthesis and biological evaluation of novel arylidine-malononitrile derivatives as non-carboxylic inhibitors of protein tyrosine phosphatase 1B |
+| ZH Title | 新型芳亚甲基丙二腈衍生物作为蛋白酪氨酸磷酸酶1B非羧基抑制剂的设、合成及生物评价 |
+| ZH Abstract | 设计合成新型PTP1B抑制剂并评估其活性。 |
+| EN Abstract | In this study, we describe the design, synthesis, biological evaluation and molecular modelling studies of novel non-carboxylic arylidine malononitrile-based molecules as Protein Tyrosine Phosphatase 1B (PTP1B) inhibitors. The synthesized derivatives were evaluated in vitro for glucose reuptake using L6 muscle cell lines and enzymatic assay against PTP1B. The biological activity results showed that the 2-methoxy substituted (14b) compound exhibited significant activity in both the assays. The un |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72387. 组织构造：形态发生应变率、细胞形状变化和插入
+
+| Field | Content |
+|------|------|
+| EN Title | Tissue tectonics: morphogenetic strain rates, cell shape change and intercalation |
+| ZH Title | 组织构造：形态发生应变率、细胞形状变化和插入 |
+| ZH Abstract | 介绍一种连接细胞行为和组织形态发生的运动学框架。 |
+| EN Abstract | The dynamic reshaping of tissues during morphogenesis results from a combination of individual cell behaviors and collective cell rearrangements. However, a comprehensive framework to unambiguously measure and link cell behavior to tissue morphogenesis is lacking. Here we introduce such a kinematic framework, bridging cell and tissue behaviors at an intermediate, mesoscopic, level of cell clusters or domains. By measuring domain deformation in terms of the relative motion of cell positions and t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72388. GATA转录因子在心脏发育中整合Wnt信号
+
+| Field | Content |
+|------|------|
+| EN Title | GATA transcription factors integrate Wnt signalling during heart development |
+| ZH Title | GATA转录因子在心脏发育中整合Wnt信号 |
+| ZH Abstract | 研究GATA转录因子如何整合Wnt信号调控心脏发育。 |
+| EN Abstract | Cardiogenesis is inhibited by canonical Wnt/beta-catenin signalling and stimulated by non-canonical Wnt11/JNK signalling, but how these two signalling pathways crosstalk is currently unknown. Here, we show that Wnt/beta-catenin signalling restricts cardiogenesis via inhibition of GATA gene expression, as experimentally reinstating GATA function overrides beta-catenin-mediated inhibition and restores cardiogenesis. Furthermore, we show that GATA transcription factors in turn directly regulate Wnt |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72389. 基于家系的基因表达与性状值相关性检验
+
+| Field | Content |
+|------|------|
+| EN Title | A family-based test for correlation between gene expression and trait values. |
+| ZH Title | 基于家系的基因表达与性状值相关性检验 |
+| ZH Abstract | 提出一种基于家系的基因表达与性状相关性检验方法。 |
+| EN Abstract | Advances in microarray technology have made it attractive to combine information on clinical traits, marker genotypes, and comprehensive gene expression from family studies to dissect complex disease genetics. Without accounting for family structure, methods that test for association between a trait and gene-expression levels can be misleading. We demonstrate that the standard unstratified test based on Pearson's correlation coefficient can produce spurious results when applied to family data, a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72390. Wnt和TGFβ在突触发生中的作用：老朋友在新位置发出信号
+
+| Field | Content |
+|------|------|
+| EN Title | Wnts and TGF beta in synaptogenesis: old friends signalling at new places. |
+| ZH Title | Wnt和TGFβ在突触发生中的作用：老朋友在新位置发出信号 |
+| ZH Abstract | Wnt和TGFβ在突触发生中的作用：老朋友在新位置发出信号（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72391. β-catenin的致癌激活
+
+| Field | Content |
+|------|------|
+| EN Title | The oncogenic activation of beta-catenin. |
+| ZH Title | β-catenin的致癌激活 |
+| ZH Abstract | 综述β-catenin致癌激活的机制。 |
+| EN Abstract | The activation of beta-catenin to an oncogenic state can result from the inactivation of the tumor suppressor adenomatous polyposis coli (APC), by direct mutation in the beta-catenin gene, or by the activation of wnt receptors. Once activated, beta-catenin most likely promotes tumor progression through its persistent interaction with one or more of its numerous downstream targets. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72392. 人参皂苷Rg1，一种天然溶酶体增强剂，通过组织蛋白酶D依赖的α-突触核蛋白稳态调节缓解帕金森病病理
+
+| Field | Content |
+|------|------|
+| EN Title | Ginsenoside Rg1, a Natural Lysosomal Enhancer, Alleviates Parkinson's Disease Pathology via Cathepsin D-Dependent Regulation of α-Synuclein Homeostasis |
+| ZH Title | 人参皂苷Rg1，一种天然溶酶体增强剂，通过组织蛋白酶D依赖的α-突触核蛋白稳态调节缓解帕金森病病理 |
+| ZH Abstract | 研究人参皂苷Rg1通过组织蛋白酶D缓解帕金森病病理。 |
+| EN Abstract | Parkinson's disease (PD) is a progressive neurodegenerative disorder characterized by dopaminergic neuron loss and alpha-synuclein (alpha-syn) aggregation, often linked to lysosomal dysfunction. Cathepsin D (CTSD), a lysosomal hydrolase essential for alpha-syn clearance, becomes functionally impaired when its maturation is disrupted, exacerbating proteostatic stress. This study investigated whether ginsenoside Rg1(Rg1) restores CTSD maturation and lysosomal function to mitigate PD pathology. MPT |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72395. 环境污染物对鱼类嗅觉毒性的影响：最新综述
+
+| Field | Content |
+|------|------|
+| EN Title | Insights into the effects of environmental contaminations on olfactory toxicity in fish: A latest review |
+| ZH Title | 环境污染物对鱼类嗅觉毒性的影响：最新综述 |
+| ZH Abstract | 综述环境污染物对鱼类嗅觉毒性的影响机制。 |
+| EN Abstract | Fish olfaction is one of the most important senses for sensing information about the surrounding environment. Pollutants in aquatic ecosystems can induce olfactory toxicity and behavioral disturbances in fish. This potentially compromises their survival and affects population stability. In this review, we provide a comprehensive overview of the research history on olfactory toxicity in fish and explore the potential mechanisms of olfactory toxicity induced by environmental pollutants from differ |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72402. 血管形态发生过程中内皮细胞行为的分子调控
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular control of endothelial cell behaviour during blood vessel morphogenesis |
+| ZH Title | 血管形态发生过程中内皮细胞行为的分子调控 |
+| ZH Abstract | 综述血管发育中内皮细胞行为的调控机制。 |
+| EN Abstract | The vertebrate vasculature forms an extensive branched network of blood vessels that supplies tissues with nutrients and oxygen. During vascular development, coordinated control of endothelial cell behaviour at the levels of cell migration, proliferation, polarity, differentiation and cell-cell communication is critical for functional blood vessel morphogenesis. Recent data uncover elaborate transcriptional, post-transcriptional and post-translational mechanisms that fine-tune key signalling pat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72403. 发育大脑中的小胶质细胞：从免疫到行为
+
+| Field | Content |
+|------|------|
+| EN Title | Microglia in the developing brain: from immunity to behaviour |
+| ZH Title | 发育大脑中的小胶质细胞：从免疫到行为 |
+| ZH Abstract | 综述小胶质细胞在发育大脑中的功能。 |
+| EN Abstract | For decades, microglia, the resident macrophages of the brain, have been recognized mostly for their role in several, if not all, pathologies affecting the brain. However, several studies under physiological conditions demonstrate that microglial function is indispensable also in the healthy brain. Indeed, microglia implement key functions already during development, such as the clearance of the huge amount of neurons that are produced in large excess in the embryo and later die of apoptosis. Be |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72404. 脊椎动物纤毛的新兴复杂性：古老细胞器的新功能
+
+| Field | Content |
+|------|------|
+| EN Title | The emerging complexity of the vertebrate cilium: New functional roles for an ancient organelle |
+| ZH Title | 脊椎动物纤毛的新兴复杂性：古老细胞器的新功能 |
+| ZH Abstract | 综述脊椎动物纤毛的发育和稳态功能。 |
+| EN Abstract | Cilia and flagella are found on the surface of a strikingly diverse range of cell types. These intriguing organelles, with their unique and highly adapted protein transport machinery, have been studied extensively in the context of cellular locomotion, sexual reproduction, or fluid propulsion. However, recent studies are beginning to show that in vertebrates particularly, cilia have been recruited to perform additional developmental and homeostatic roles. Here, we review advances in deciphering |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72407. 心房颤动的动物和细胞模型：综述
+
+| Field | Content |
+|------|------|
+| EN Title | Animal and cellular models of atrial fibrillation: a review |
+| ZH Title | 心房颤动的动物和细胞模型：综述 |
+| ZH Abstract | 综述心房颤动动物和细胞模型建立方法。 |
+| EN Abstract | Modeling atrial fibrillation (AF) is crucial for investigating its pathogenesis and developing new therapeutic strategies. To better explore the mechanisms underlying AF and promote the progress of basic research, it is particularly important to develop accurate animal models that closely simulate the progression of clinical disease. This review summarizes the methods and evaluation criteria for establishing animal and cellular AF models over the past decade, highlighting the advantages and limi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72408. 外胚层和内胚层味蕾的发育
+
+| Field | Content |
+|------|------|
+| EN Title | Development of ectodermal and endodermal taste buds |
+| ZH Title | 外胚层和内胚层味蕾的发育 |
+| ZH Abstract | 综述味蕾的胚胎发育起源。 |
+| EN Abstract | The sense of taste is mediated primarily by taste buds on the tongue. These multicellular sensory organs are induced, patterned and become innervated during embryogenesis such that a functional taste system is present at birth when animals begin to feed. While taste buds have been considered ectodermal appendages, this is only partly accurate as only fungiform taste buds in the anterior tongue arise from the ectoderm. Taste buds found in the posterior tongue actually derive from endoderm. Noneth |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72410. 社论：再生生物学中的新兴研究生物
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Emerging research organisms in regenerative biology |
+| ZH Title | 社论：再生生物学中的新兴研究生物 |
+| ZH Abstract | 介绍再生生物学中的新兴模式生物。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72413. PTEN在心脏损伤、肥大和再生中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of PTEN-less in cardiac injury, hypertrophy and regeneration |
+| ZH Title | PTEN在心脏损伤、肥大和再生中的作用 |
+| ZH Abstract | 综述PTEN在心脏疾病中的功能。 |
+| EN Abstract | Cardiovascular diseases are the leading cause of death worldwide. Cardiomyocytes are capable of coordinated contractions, which are mainly responsible for pumping blood. When cardiac stress occurs, cardiomyocytes undergo transition from physiological homeostasis to hypertrophic growth, proliferation, or apoptosis. During these processes, many cellular factors and signaling pathways participate. PTEN is a ubiquitous dual-specificity phosphatase and functions by dephosphorylating target proteins o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72416. 一种光敏降解子实现神经系统中蛋白质的急性光诱导降解
+
+| Field | Content |
+|------|------|
+| EN Title | A photosensitive degron enables acute light-induced protein degradation in the nervous system |
+| ZH Title | 一种光敏降解子实现神经系统中蛋白质的急性光诱导降解 |
+| ZH Abstract | 开发光诱导蛋白降解技术用于神经系统。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72419. 左右不对称是平面细胞极性的一种形式吗？
+
+| Field | Content |
+|------|------|
+| EN Title | Is left-right asymmetry a form of planar cell polarity? |
+| ZH Title | 左右不对称是平面细胞极性的一种形式吗？ |
+| ZH Abstract | 探讨左右不对称与平面细胞极性的关系。 |
+| EN Abstract | Consistent left-right (LR) patterning is a clinically important embryonic process. However, key questions remain about the origin of asymmetry and its amplification across cell fields. Planar cell polarity (PCP) solves a similar morphogenetic problem, and although core PCP proteins have yet to be implicated in embryonic LR asymmetry, studies of mutations affecting planar polarity, together with exciting new data in cell and developmental biology, provide a new perspective on LR patterning. Here |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72421. 碳酸酐酶在鱼类耳石矿化早期阶段的作用
+
+| Field | Content |
+|------|------|
+| EN Title | On the role of carbonic anhydrase in the early phase of fish otolith mineralization |
+| ZH Title | 碳酸酐酶在鱼类耳石矿化早期阶段的作用 |
+| ZH Abstract | 研究碳酸酐酶在鱼类耳石形成中的作用。 |
+| EN Abstract | The first step in the formation of fish otoliths, calcified structures which are responsible for the internalization of gravitational information, is based on the action of so-called Tether- (T-) cells. These T-cells appear during the very early development of the inner ear and persist only a few hours. They are characterized by a kinocilium, which is - in contrast to the kinocilium of the later developing sensory hair cells - not mechanosensory, but binds seeding particles containing glycogen, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72422. 胚胎血管发生中内皮分化的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms of endothelial differentiation in embryonic vasculogenesis |
+| ZH Title | 胚胎血管发生中内皮分化的机制 |
+| ZH Abstract | 综述胚胎血管发生中内皮分化的分子调控。 |
+| EN Abstract | The formation of new blood vessels in the adult organism not only contributes to the progression of diseases such as cancer and diabetic retinopathy but also can be promoted in therapeutic approaches to various ischemic pathologies. Because many of the signals important to blood vessel development during embryogenesis are recapitulated during adult blood vessel formation, much work has been performed to better-understand the molecular control of endothelial differentiation in the developing embr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72425. 硬骨鱼脑中芳香化酶与雌激素受体的关系
+
+| Field | Content |
+|------|------|
+| EN Title | Relationships between aromatase and estrogen receptors in the brain of teleost fish |
+| ZH Title | 硬骨鱼脑中芳香化酶与雌激素受体的关系 |
+| ZH Abstract | 研究硬骨鱼脑中芳香化酶的表达和分布。 |
+| EN Abstract | Teleost fish are known for exhibiting a high aromatase activity mainly due to the expression of the cyp19b gene, encoding aromatase B (AroB). Recent studies based on both in situ hybridization and immunohistochemistry have demonstrated in three different species that this activity is restricted to radial glial cells. In agreement with measurements of aromatase activity, such aromatase-expressing cells are more abundant in the telencephalon, preoptic area, and mediobasal hypothalamus, although po |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72428. Crumbs在视网膜病变中的多种功能和致病作用
+
+| Field | Content |
+|------|------|
+| EN Title | Diverse functions and pathogenetic role of Crumbs in retinopathy |
+| ZH Title | Crumbs在视网膜病变中的多种功能和致病作用 |
+| ZH Abstract | 综述Crumbs蛋白在视网膜病变中的作用。 |
+| EN Abstract | The Crumbs protein (CRB) family plays a crucial role in maintaining the apical-basal polarity and integrity of embryonic epithelia. The family comprises different isoforms in different animals and possesses diverse structural, localization, and functional characteristics. Mutations in the human CRB1 or CRB2 gene may lead to a broad spectrum of retinal dystrophies. Various CRB-associated experimental models have recently provided mechanistic insights into human CRB-associated retinopathies. The k |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72429. 重回正轨：利用通道化揭示发育稳健性的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Getting back on track: exploiting canalization to uncover the mechanisms of developmental robustness |
+| ZH Title | 重回正轨：利用通道化揭示发育稳健性的机制 |
+| ZH Abstract | 综述发育稳健性的机制研究方法。 |
+| EN Abstract | Developing embryos can adapt dynamically to noise and variation to generate organs of incredible precision, a process termed 'canalization'; however, the underlying robustness mechanisms are poorly understood. Technological developments, both in quantitative imaging and high precision perturbation, are now enabling targeted investigation into developmental robustness in vivo. Here, we will first distil the common design features of studies that have exploited the canalization behaviour of specif |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72433. 驱使胶质母细胞瘤“饮酒”
+
+| Field | Content |
+|------|------|
+| EN Title | Driving Glioblastoma to Drink |
+| ZH Title | 驱使胶质母细胞瘤“饮酒” |
+| ZH Abstract | 驱使胶质母细胞瘤“饮酒”（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72442. 脊椎动物胚胎时钟：共同玩家以不同节拍起舞
+
+| Field | Content |
+|------|------|
+| EN Title | The vertebrate Embryo Clock: Common players dancing to a different beat |
+| ZH Title | 脊椎动物胚胎时钟：共同玩家以不同节拍起舞 |
+| ZH Abstract | 综述脊椎动物胚胎体节形成的分子机制。 |
+| EN Abstract | Vertebrate embryo somitogenesis is the earliest morphological manifestation of the characteristic patterned structure of the adult axial skeleton. Pairs of somites flanking the neural tube are formed periodically during early development, and the molecular mechanisms in temporal control of this early patterning event have been thoroughly studied. The discovery of a molecular Embryo Clock (EC) underlying the periodicity of somite formation shed light on the importance of gene expression dynamics |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72444. 干细胞异质性与再生能力：稀有细胞的巨大潜力
+
+| Field | Content |
+|------|------|
+| EN Title | Stem cell heterogeneity and regenerative competence: the enormous potential of rare cells |
+| ZH Title | 干细胞异质性与再生能力：稀有细胞的巨大潜力 |
+| ZH Abstract | 干细胞异质性与再生能力：稀有细胞的巨大潜力（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72445. 石墨烯基纳米材料在水生生物中的毒性研究：当前认识
+
+| Field | Content |
+|------|------|
+| EN Title | Toxicity Studies on Graphene-Based Nanomaterials in Aquatic Organisms: Current Understanding |
+| ZH Title | 石墨烯基纳米材料在水生生物中的毒性研究：当前认识 |
+| ZH Abstract | 综述石墨烯纳米材料对水生生物的毒性。 |
+| EN Abstract | Graphene and its oxide are nanomaterials considered currently to be very promising because of their great potential applications in various industries. The exceptional physiochemical properties of graphene, particularly thermal conductivity, electron mobility, high surface area, and mechanical strength, promise development of novel or enhanced technologies in industries. The diverse applications of graphene and graphene oxide (GO) include energy storage, sensors, generators, light processing, el |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72450. 肌节基底膜：对laminin-111功能及其受Sonic hedgehog信号调控的见解
+
+| Field | Content |
+|------|------|
+| EN Title | The myotomal basement membrane Insight into laminin-111 function and its control by Sonic hedgehog signaling |
+| ZH Title | 肌节基底膜：对laminin-111功能及其受Sonic hedgehog信号调控的见解 |
+| ZH Abstract | 综述肌节基底膜中laminin-111的功能。 |
+| EN Abstract | The importance of laminin-containing basement membranes (BM) for adult muscle function is well established, in particular due to the severe phenotype of congenital muscular dystrophies in patients with mutations disrupting the BM-muscle cell interaction. Developing muscles in the embryo are also dependent on an intact BM. However, the processes controlled by BM-muscle cell interactions in the embryo are only beginning to be elucidated. In this review, we focus on the myotomal BM to illustrate th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72484. 透射式激光多普勒全息显微镜：应用于鱼胚成像
+
+| Field | Content |
+|------|------|
+| EN Title | Laser Doppler holographic microscopy in transmission: application to fish embryo imaging |
+| ZH Title | 透射式激光多普勒全息显微镜：应用于鱼胚成像 |
+| ZH Abstract | 用激光多普勒全息显微镜对活鱼胚胎成像。 |
+| EN Abstract | We have extended Laser Doppler holographic microscopy to transmission geometry. The technique is validated with living fish embryos imaged by a modified upright bio-microcope. By varying the frequency of the holographic reference beam, and the combination of frames used to calculate the hologram, multimodal imaging has been performed. Doppler images of the blood vessels for different Doppler shifts, images where the flow direction is coded in RGB colors or movies showing blood cells individual m |
+| Judgment | 是 |
+| Reason | 未明确鱼种 |
+---
+### 72517. ombuoside在通过凋亡途径保护听觉细胞免受顺铂诱导的耳毒性中的新应用
+
+| Field | Content |
+|------|------|
+| EN Title | New application of ombuoside in protecting auditory cells from cisplatin-induced ototoxicity via the apoptosis pathway |
+| ZH Title | ombuoside在通过凋亡途径保护听觉细胞免受顺铂诱导的耳毒性中的新应用 |
+| ZH Abstract | 研究ombuoside对顺铂耳毒性的保护作用。 |
+| EN Abstract | Hearing loss is caused by many factors including ototoxic drug-induced hair cell damage. Ombuoside, an antioxidant isolated from Gynostemma pentaphyllum, has been suggested to serve as a new neuroprotective drug. However, the role of ombuoside in protecting inner ear hair cells from ototoxic drug-induced damage has not been investigated. Here, we demonstrated the protective potential of ombuoside in mitigating drug-induced ototoxicity in vivo and in vitro. We used cisplatin, a highly ototoxic an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72518. Epimedin B通过增加酪氨酸酶家族蛋白表达、活性和稳定性来促进色素沉着
+
+| Field | Content |
+|------|------|
+| EN Title | Epimedin B exhibits pigmentation by increasing tyrosinase family proteins expression, activity, and stability |
+| ZH Title | Epimedin B通过增加酪氨酸酶家族蛋白表达、活性和稳定性来促进色素沉着 |
+| ZH Abstract | 研究Epimedin B在体内外诱导色素沉着的作用。 |
+| EN Abstract | Epimedin B (EB) is one of the main flavonoid ingredients present in Epimedium brevicornum Maxim., a traditional herb widely used in China. Our previous study showed that EB was a stronger inducer of melanogenesis and an activator of tyrosinase (TYR). However, the role of EB in melanogenesis and the mechanism underlying the regulation remain unclear. Herein, as an extension to our previous investigation, we provide comprehensive evidence of EB-induced pigmentation in vivo and in vitro and elucida |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72534. 雄激素依赖性TFPI调节蛋白在血管发育和功能中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of Androgen Dependent TFPI-Regulating Protein (ADTRP) in Vascular Development and Function |
+| ZH Title | 雄激素依赖性TFPI调节蛋白在血管发育和功能中的作用 |
+| ZH Abstract | 无摘要，无法判断。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72541. 用振动惊吓反应试验解读损害鱼幼体逃逸反应的污染物的作用模式
+
+| Field | Content |
+|------|------|
+| EN Title | Deciphering the mode of action of pollutants impairing the fish larvae escape response with the vibrational startle response assay |
+| ZH Title | 用振动惊吓反应试验解读损害鱼幼体逃逸反应的污染物的作用模式 |
+| ZH Abstract | 研究污染物对鱼幼体逃逸反应的影响，未指定斑马鱼。 |
+| EN Abstract | The escape response evoked by vibrational stimuli and its habituation, essential behaviors for fish larvae survival, can be altered by neurotoxic environmental pollutants commonly found in our aquatic ecosystems.In this study we have analyzed the suitability of the Vibrational Startle Response Assay (VSRA) to obtain mechanistic information about the mode of action (MoA) of the chemicals impairing the escape response and its habituation. As a proof of concept, the pathophysiological mechanisms be |
+| Judgment | 是 |
+| Reason | 未明确说明鱼种 |
+---
+### 72565. 来自紫外线的保护是造血生态位的一个进化保守特征
+
+| Field | Content |
+|------|------|
+| EN Title | Protection from UV-Light Is an Evolutionarily Conserved Feature of the Hematopoietic Niche |
+| ZH Title | 来自紫外线的保护是造血生态位的一个进化保守特征 |
+| ZH Abstract | 来自紫外线的保护是造血生态位的一个进化保守特征（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72607. CFAP20从共向复制叉的路径中拯救停滞的RNAPII
+
+| Field | Content |
+|------|------|
+| EN Title | CFAP20 salvages arrested RNAPII from the path of co-directional replisomes |
+| ZH Title | CFAP20从共向复制叉的路径中拯救停滞的RNAPII |
+| ZH Abstract | 研究CFAP20在DNA复制与转录冲突中的作用。 |
+| EN Abstract | Fine-tuning DNA replication and transcription is crucial to prevent collisions between their machineries1. This is particularly important near promoters, where RNA polymerase II (RNAPII) initiates transcription and frequently arrests, forming R-loops2, 3-4. Arrested RNAPII can obstruct DNA replication, which often initiates near promoters5,6. The mechanisms that rescue arrested RNAPII during elongation to avoid conflicts with co-directional replisomes remain unclear. Here, using genome-wide appr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72620. 肝细胞生长因子模拟物在体外保护氨基糖苷类诱导的毛细胞死亡
+
+| Field | Content |
+|------|------|
+| EN Title | Hepatocyte growth factor mimetic confers protection from aminoglycoside-induced hair cell death in vitro |
+| ZH Title | 肝细胞生长因子模拟物在体外保护氨基糖苷类诱导的毛细胞死亡 |
+| ZH Abstract | 研究MM-201对毛细胞的保护作用。 |
+| EN Abstract | Loss of sensory hair cells from exposure to certain licit drugs, such as aminoglycoside antibiotics, can result in permanent hearing damage. Exogenous application of the neurotrophic molecule hepatocyte growth factor (HGF) promotes neuronal cell survival in a variety of contexts, including protecting hair cells from aminoglycoside ototoxicity. HGF itself is not an ideal therapeutic due to a short half-life and limited blood-brain barrier permeability. MM-201 is a chemically stable, blood-brain b |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72622. 腺苷脱氨酶2缺乏导致的 Diamond-Blackfan 贫血表型
+
+| Field | Content |
+|------|------|
+| EN Title | Diamond-Blackfan Anemia Phenotype Caused By Deficiency of Adenosine Deaminase 2 |
+| ZH Title | 腺苷脱氨酶2缺乏导致的 Diamond-Blackfan 贫血表型 |
+| ZH Abstract | 腺苷脱氨酶2缺乏导致的 Diamond-Blackfan 贫（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72623. 炎症信号调控胚胎造血干细胞和淋巴祖细胞形成
+
+| Field | Content |
+|------|------|
+| EN Title | Inflammatory Signaling Regulates Embryonic Hematopoietic Stem and Lymphoid Progenitor Cell Formation |
+| ZH Title | 炎症信号调控胚胎造血干细胞和淋巴祖细胞形成 |
+| ZH Abstract | 炎症信号调控胚胎造血干细胞和淋巴祖细胞形成（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72650. F-Box和亮氨酸丰富重复蛋白22是一种心脏富集的F-Box蛋白，调节肌节蛋白周转并对维持体内收缩功能至关重要
+
+| Field | Content |
+|------|------|
+| EN Title | F-Box and Leucine-Rich Repeat Protein 22 Is a Cardiac-Enriched F-Box Protein That Regulates Sarcomeric Protein Turnover and Is Essential for Maintenance of Contractile Function In Vivo |
+| ZH Title | F-Box和亮氨酸丰富重复蛋白22是一种心脏富集的F-Box蛋白，调节肌节蛋白周转并对维持体内收缩功能至关重要 |
+| ZH Abstract | 研究F-Box蛋白22在心脏中的功能。 |
+| EN Abstract | Rationale: The emerging role of the ubiquitin-proteasome system in cardiomyocyte function and homeostasis implies the necessity of tight regulation of protein degradation. However, little is known about cardiac components of this machinery.Objective: We sought to determine whether molecules exist that control turnover of cardiac-specific proteins.Methods and Results: Using a bioinformatic approach to identify novel cardiac-enriched sarcomere proteins, we identified F-box and leucine-rich repeat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72656. dystrotelin、dystrophin和dystrobrevin超家族：新的旁系同源物和旧亚型
+
+| Field | Content |
+|------|------|
+| EN Title | The dystrotelin, dystrophin and dystrobrevin superfamily:: new paralogues and old isoforms |
+| ZH Title | dystrotelin、dystrophin和dystrobrevin超家族：新的旁系同源物和旧亚型 |
+| ZH Abstract | 综述dystrophin和dystrobrevin超家族成员。 |
+| EN Abstract | Background: Dystrophins and dystrobrevins are distantly related proteins with important but poorly understood roles in the function of metazoan muscular and neuronal tissues. Defects in them and their associated proteins cause a range of neuromuscular disorders. Members of this superfamily have been discovered in a relatively serendipitous way; we set out to compile a comprehensive description of dystrophin- and dystrobrevin-related sequences from available metazoan genome sequences, validated i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72658. 高度保守的非编码序列与脊椎动物发育相关
+
+| Field | Content |
+|------|------|
+| EN Title | Highly conserved non-coding sequences are associated with vertebrate development |
+| ZH Title | 高度保守的非编码序列与脊椎动物发育相关 |
+| ZH Abstract | 研究高度保守非编码序列在脊椎动物发育中的作用。 |
+| EN Abstract | In addition to protein coding sequence, the human genome contains a significant amount of regulatory DNA, the identification of which is proving somewhat recalcitrant to both in silico and functional methods. An approach that has been used with some success is comparative sequence analysis, whereby equivalent genomic regions from different organisms are compared in order to identify both similarities and differences. In general, similarities in sequence between highly divergent organisms imply f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72660. 脊椎动物进化过程中多个促甲状腺激素β亚基和促甲状腺激素受体相关基因的出现
+
+| Field | Content |
+|------|------|
+| EN Title | Multiple Thyrotropin β-Subunit and Thyrotropin Receptor-Related Genes Arose during Vertebrate Evolution |
+| ZH Title | 脊椎动物进化过程中多个促甲状腺激素β亚基和促甲状腺激素受体相关基因的出现 |
+| ZH Abstract | 研究脊椎动物中TSHβ亚基和受体相关基因的进化。 |
+| EN Abstract | Thyroid-stimulating hormone (TSH) is composed of a specific beta subunit and an alpha subunit that is shared with the two pituitary gonadotropins. The three beta subunits derive from a common ancestral gene through two genome duplications (1R and 2R) that took place before the radiation of vertebrates. Analysis of genomic data from phylogenetically relevant species allowed us to identify an additional Tsh beta subunit-related gene that was generated through 2R. This gene, named Tsh beta 2, prese |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72666. 金属-除草剂混合物对肾脏发育的影响：对不明原因慢性肾脏病的启示
+
+| Field | Content |
+|------|------|
+| EN Title | Kidney developmental effects of metal-herbicide mixtures: Implications for chronic kidney disease of unknown etiology |
+| ZH Title | 金属-除草剂混合物对肾脏发育的影响：对不明原因慢性肾脏病的启示 |
+| ZH Abstract | 研究金属和除草剂混合物对肾脏发育的影响。 |
+| EN Abstract | Chronic kidney disease of unknown etiology (CKDu) is an emerging global concern affecting several agricultural communities in the Americas and South Asia. Environmental contaminants such as heavy metals (e.g., Cd, As, Pb, and V) and organic pesticides (e.g., glyphosate) in the drinking water have been hypothesized to play a role in childhood onset and progression of this disease. However, a comprehensive analysis of chemical contaminants in the drinking water and effects of these compounds and t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72667. 口吐泡沫：水生动物摄入花泥微塑料
+
+| Field | Content |
+|------|------|
+| EN Title | Foaming at the mouth: Ingestion of floral foam microplastics by aquatic animals |
+| ZH Title | 口吐泡沫：水生动物摄入花泥微塑料 |
+| ZH Abstract | 研究水生动物摄入花泥微塑料及其生理反应。 |
+| EN Abstract | Phenol-formaldehyde plastics are used globally as floral foam and generate microplastics that can enter the environment. This study is the first to describe how aquatic animals interact with this type of microplastic, and the resultant physiological responses. We analysed "regular foam" microplastics generated from petroleum-derived phenol-formaldehyde plastic, and "biofoam" microplastics generated from plant-derived phenol-formaldehyde plastic. Regular foam and biofoam microplastics showed simi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72672. 活性位点半胱氨酸附近的K364在Ci-VSP电压依赖性磷酸酶活性中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of K364 next to the active site cysteine in voltage-dependent phosphatase activity of Ci-VSP |
+| ZH Title | 活性位点半胱氨酸附近的K364在Ci-VSP电压依赖性磷酸酶活性中的作用 |
+| ZH Abstract | 研究Ci-VSP中K364残基对磷酸酶活性的影响。 |
+| EN Abstract | Voltage-sensing phosphatase (VSP) consists of the voltage sensor domain (VSD) similar to that of voltage-gated ion channels and the cytoplasmic phosphatase region with remarkable similarity to the phosphatase and tensin homolog deleted on chromosome 10 (PTEN). Membrane depolarization activates VSD, leading to dephosphorylation of three species of phos- phoinositides (phosphatidylinositol phosphates (PIPs)), PI(3,4,5)P3, PI(4,5)P2, and PI(3,4)P2. VSP dephosphorylates 3- and 5-phosphate of PIPs, u |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72675. Nme蛋白家族进化史：脊椎动物视角
+
+| Field | Content |
+|------|------|
+| EN Title | Nme protein family evolutionary history, a vertebrate perspective |
+| ZH Title | Nme蛋白家族进化史：脊椎动物视角 |
+| ZH Abstract | 综述脊椎动物Nme蛋白家族的进化历史。 |
+| EN Abstract | Background: The Nme family, previously known as Nm23 or NDPK, is involved in various molecular processes including tumor metastasis and some members of the family, but not all, exhibit a Nucleoside Diphosphate Kinase (NDPK) activity. Ten genes are known in humans, in which some members have been extensively studied. In non-mammalian species, the Nme protein family has received, in contrast, far less attention. The picture of the vertebrate Nme family remains thus incomplete and orthology relatio |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72691. Rapid analysis of pharmaceuticals and personal care products in fish plasma micro-aliquots using liquid chromatography tandem mass spectrometry
+
+| Field | Content |
+|------|------|
+| EN Title | Rapid analysis of pharmaceuticals and personal care products in fish plasma micro-aliquots using liquid chromatography tandem mass spectrometry |
+| ZH Title | Rapid analysis of pharmaceuticals and personal care products in fish plasma micro-aliquots using liquid chromatography tandem mass spectrometry |
+| ZH Abstract | 开发快速分析鱼血浆中PPCPs的方法。 |
+| EN Abstract | A sensitive analytical method based on liquid-liquid extraction (LLE) and liquid chromatography tandem mass spectrometry (LC-MS/MS) was developed for rapid analysis of 11 pharmaceuticals and personal care products (PPCPs) in fish plasma micro-aliquots (similar to 20 mu L). Target PPCPs included, bisphenol A, carbamazepine, diclofenac, fluoxetine, gemfibrozil, ibuprofen, naproxen, risperidone, sertraline, sim |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72710. 进化特征、表型和本体：从系统生物学文献中整理数据
+
+| Field | Content |
+|------|------|
+| EN Title | Evolutionary Characters, Phenotypes and Ontologies: Curating Data from the Systematic Biology Literature |
+| ZH Title | 进化特征、表型和本体：从系统生物学文献中整理数据 |
+| ZH Abstract | 介绍Phenoscape项目整理系统生物学文献数据。 |
+| EN Abstract | Background: The wealth of phenotypic descriptions documented in the published articles, monographs, and dissertations of phylogenetic systematics is traditionally reported in a free-text format, and it is therefore largely inaccessible for linkage to biological databases for genetics, development, and phenotypes, and difficult to manage for large-scale integrative work. The Phenoscape project aims to represent these complex and detailed descriptions with rich and formal semantics that are amenab |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72714. 鱼类行为生物标志物：评估化学污染对淡水生态系统影响的非致死方法
+
+| Field | Content |
+|------|------|
+| EN Title | Behavioral biomarkers in fishes: A non-lethal approach to assess the effects of chemical pollution on freshwater ecosystems |
+| ZH Title | 鱼类行为生物标志物：评估化学污染对淡水生态系统影响的非致死方法 |
+| ZH Abstract | 综述鱼类行为生物标志物在生态毒理学中的应用。 |
+| EN Abstract | The expansion of the human population and the escalating use of chemical products pose a considerable threat to aquatic biodiversity. Consequently, there is an imperative need for the implementation of non-lethal, costeffective, and easily deployable biomonitoring tools. In this context, fish and their behavior as biomarkers have gained prominence in monitoring of freshwater ecosystems. The aim of this study was to assess the state of art in the use of behavioral biomarkers in ecotoxicology, emp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72731. Ubc9 interacts with a nuclear localization signal and mediates nuclear localization of the paired-like homeobox protein Vsx-1 independent of SUMO-1 modification.
+
+| Field | Content |
+|------|------|
+| EN Title | Ubc9 interacts with a nuclear localization signal and mediates nuclear localization of the paired-like homeobox protein Vsx-1 independent of SUMO-1 modification. |
+| ZH Title | Ubc9 interacts with a nuclear localization signal and mediates nuclear localization of the paired-like homeobox protein Vsx-1 independent of SUMO-1 modification. |
+| ZH Abstract | 研究Ubc9介导Vs |
+| EN Abstract | No abstract |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72755. 第一人称 - Aitana Manuela Castro Colabianchi
+
+| Field | Content |
+|------|------|
+| EN Title | First person - Aitana Manuela Castro Colabianchi |
+| ZH Title | 第一人称 - Aitana Manuela Castro Colabianchi |
+| ZH Abstract | 第一作者访谈，介绍其斑马鱼研究 |
+| EN Abstract | First Person is a series of interviews with the first authors of a selection of papers published in Biology Open, helping early-career researchers promote themselves alongside their papers. Aitana Manuela Castro Colabianchi is first author on 'Segregation of brain and organizer precursors is differentially regulated by Nodal signaling at blastula stage', published in BiO. Aitana Manuela conducted the research described in this article while a PhD student in Dr Silvia Liliana Lopez's lab at the I |
+| Judgment | 是 |
+| Reason | 访谈，研究内容未明确 |
+---
+### 72760. 从个体接近的简单规则到复杂协调的集体运动
+
+| Field | Content |
+|------|------|
+| EN Title | From Simple Rules of Individual Proximity, Complex and Coordinated Collective Movement |
+| ZH Title | 从个体接近的简单规则到复杂协调的集体运动 |
+| ZH Abstract | 从个体接近的简单规则到复杂协调的集体运动（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72767. 社论：推进基因组学用于罕见病诊断和治疗发展
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Advancing Genomics for Rare Disease Diagnosis and Therapy Development |
+| ZH Title | 社论：推进基因组学用于罕见病诊断和治疗发展 |
+| ZH Abstract | 社论：推进基因组学用于罕见病诊断和治疗发展（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72773. 测序抗体库：下一代
+
+| Field | Content |
+|------|------|
+| EN Title | Sequencing antibody repertoires The next generation |
+| ZH Title | 测序抗体库：下一代 |
+| ZH Abstract | 测序抗体库：下一代（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72779. PM2.5暴露与心脏发育毒性之间不良结果通路联系的概述
+
+| Field | Content |
+|------|------|
+| EN Title | An Overview of Adverse Outcome Pathway Links between PM2.5 Exposure and Cardiac Developmental Toxicity |
+| ZH Title | PM2.5暴露与心脏发育毒性之间不良结果通路联系的概述 |
+| ZH Abstract | 综述PM2.5暴露导致心脏发育毒性的不良结果通路框架。 |
+| EN Abstract | Fine particulate matter (PM2.5) is a significant risk factor for birth defects. As the first and most important organ to develop during embryogenesis, the heart's potential susceptibility to PM2.5 has attracted growing concern. Despite several studies supporting the cardiac developmental toxicity of PM2.5, the diverse study types, models, and end points have prevented the integration of mechanisms. In this Review, we present an adverse outcome pathway framework to elucidate the association betwe |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72784. 硫酸乙酰肝素蛋白聚糖：脊椎动物发育的糖密码？
+
+| Field | Content |
+|------|------|
+| EN Title | Heparan sulfate proteoglycans: a sugar code for vertebrate development? |
+| ZH Title | 硫酸乙酰肝素蛋白聚糖：脊椎动物发育的糖密码？ |
+| ZH Abstract | 综述硫酸乙酰肝素蛋白聚糖在脊椎动物发育中的功能。 |
+| EN Abstract | Heparan sulfate proteoglycans (HSPGs) have long been implicated in a wide range of cell-cell signaling and cell-matrix interactions, both in vitro and in vivo in invertebrate models. Although many of the genes that encode HSPG core proteins and the biosynthetic enzymes that generate and modify HSPG sugar chains have not yet been analyzed by genetics in vertebrates, recent studies have shown that HSPGs do indeed mediate a wide range of functions in early vertebrate development, for example during |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72785. 特刊：肌生成导言
+
+| Field | Content |
+|------|------|
+| EN Title | Special Issue: Myogenesis Introduction |
+| ZH Title | 特刊：肌生成导言 |
+| ZH Abstract | 特刊：肌生成导言（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72787. Tolloid与Sizzled竞争Chordin
+
+| Field | Content |
+|------|------|
+| EN Title | Tolloid gets sizzled competing with chordin |
+| ZH Title | Tolloid与Sizzled竞争Chordin |
+| ZH Abstract | Sizzled通过竞争抑制Tolloid来保护Chordin。 |
+| EN Abstract | The enigma of Sizzled, a secreted Frizzled-related protein, has been resolved in a recent study from the De Robertis lab (Lee et al., 2006 [in the January 13 issue of Cell]). Sizzled, although homologous to other Wnt antagonists, does not function as such, nor does it function within a Wnt signaling pathway. Remarkably it functions as an antagonist of BMP signaling, competing with Chordin for binding to its inhibitor a Tolloid-related metalloprotease. This competition protects Chordin from cleav |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72789. WNT16引物
+
+| Field | Content |
+|------|------|
+| EN Title | WNT16 primer |
+| ZH Title | WNT16引物 |
+| ZH Abstract | WNT16引物（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72791. 对“心脏内皮细胞的遗传示踪”的回应
+
+| Field | Content |
+|------|------|
+| EN Title | Response to Matters Arising: Intercellular genetic tracing of cardiac endothelium in the developing heart |
+| ZH Title | 对“心脏内皮细胞的遗传示踪”的回应 |
+| ZH Abstract | 回应关于心脏内皮细胞遗传示踪的评论。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72792. 社论：第17届西班牙发育生物学学会会议：发育生物学新趋势
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: 17th Spanish Society for Developmental Biology Meeting: New Trends in Developmental Biology |
+| ZH Title | 社论：第17届西班牙发育生物学学会会议：发育生物学新趋势 |
+| ZH Abstract | 社论：第17届西班牙发育生物学学会会议：发育生物学新趋势（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72794. 无细胞方法和治疗性生物分子用于心脏再生
+
+| Field | Content |
+|------|------|
+| EN Title | Cell-Free Approaches and Therapeutic Biomolecules for Cardiac Regeneration |
+| ZH Title | 无细胞方法和治疗性生物分子用于心脏再生 |
+| ZH Abstract | 无细胞方法和治疗性生物分子用于心脏再生（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72795. 合子基因组激活的调控机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms regulating zygotic genome activation |
+| ZH Title | 合子基因组激活的调控机制 |
+| ZH Abstract | 综述合子基因组激活的调控机制，涉及多种模式生物。 |
+| EN Abstract | Following fertilization, the two specified gametes must unite to create an entirely new organism. The genome is initially transcriptionally quiescent, allowing the zygote to be reprogrammed into a totipotent state. Gradually, the genome is activated through a process known as the maternal-to-zygotic transition, which enables zygotic gene products to replace the maternal supply that initiated development. This essential transition has been broadly characterized through decades of research in seve |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72798. 镉保护策略——隐藏的权衡？
+
+| Field | Content |
+|------|------|
+| EN Title | Cadmium Protection Strategies-A Hidden Trade-Off? |
+| ZH Title | 镉保护策略——隐藏的权衡？ |
+| ZH Abstract | 综述生物体应对镉毒性的保护机制。 |
+| EN Abstract | Cadmium (Cd) is a non-essential transition metal which is introduced into the biosphere by various anthropogenic activities. Environmental pollution with Cd poses a major health risk and Cd toxicity has been extensively researched over the past decades. This review aims at changing the perspective by discussing protection mechanisms available to counteract a Cd insult. Antioxidants, induction of antioxidant enzymes, and complexation of Cd to glutathione (GSH) and metallothionein (MT) are the mos |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72799. 第47届葡萄牙显微镜学会年会摘要
+
+| Field | Content |
+|------|------|
+| EN Title | 47th Annual Congress of the Portuguese Society for Microscopy, Monte de Caparica, Portugal, December 9-10, 2013 Abstracts |
+| ZH Title | 第47届葡萄牙显微镜学会年会摘要 |
+| ZH Abstract | 第47届葡萄牙显微镜学会年会摘要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72803. 利用基因编码钙指示剂进行神经活动成像
+
+| Field | Content |
+|------|------|
+| EN Title | Neural activity imaging with genetically encoded calcium indicators |
+| ZH Title | 利用基因编码钙指示剂进行神经活动成像 |
+| ZH Abstract | 综述基因编码钙指示剂在神经活动成像中的应用。 |
+| EN Abstract | Genetically encoded calcium indicators (GECIs), together with modern microscopy, allow repeated activity measurement, in real time and with cellular resolution, of defined cellular populations. Recent efforts in protein engineering have yielded several high-quality GECIs that facilitate new applications in neuroscience. Here, we summarize recent progress in GECI design, optimization, and characterization, and provide guidelines for selecting the appropriate GECI for a given biological applicatio |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72804. Argonaute介导的翻译抑制（和激活）
+
+| Field | Content |
+|------|------|
+| EN Title | Argonaute-mediated translational repression (and activation) |
+| ZH Title | Argonaute介导的翻译抑制（和激活） |
+| ZH Abstract | Argonaute介导的翻译抑制（和激活）（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72807. 骨质疏松症GWAS候选基因实验功能表征的最新进展
+
+| Field | Content |
+|------|------|
+| EN Title | Recent Advances in Experimental Functional Characterization of GWAS Candidate Genes in Osteoporosis |
+| ZH Title | 骨质疏松症GWAS候选基因实验功能表征的最新进展 |
+| ZH Abstract | 综述骨质疏松症GWAS候选基因的功能表征方法。 |
+| EN Abstract | Osteoporosis is a multifactorial, polygenic disease characterized by reduced bone mineral density (BMD) and increased fracture risk. Genome-wide association studies (GWASs) have identified numerous loci associated with BMD and/or bone fractures, but functional characterization of these target genes is essential to understand the biological mechanisms underlying osteoporosis. This review focuses on current methodologies and key examples of successful functional studies aimed at evaluating gene fu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72809. VPS39在健康和疾病中的作用：内溶酶体运输和线粒体-溶酶体串扰的关键锚定蛋白
+
+| Field | Content |
+|------|------|
+| EN Title | Role of VPS39, a key tethering protein for endolysosomal trafficking and mitochondria-lysosome crosstalk, in health and disease |
+| ZH Title | VPS39在健康和疾病中的作用：内溶酶体运输和线粒体-溶酶体串扰的关键锚定蛋白 |
+| ZH Abstract | 综述VPS39在内溶酶体运输和线粒体-溶酶体串扰中的作用。 |
+| EN Abstract | The coordinated interaction between mitochondria and lysosomes, mainly manifested by mitophagy, mitochondria-derived vesicles, and direct physical contact, is essential for maintaining cellular life activities. The VPS39 subunit of the homotypic fusion and protein sorting complex could play a key role in the regulation of organelle dynamics, such as endolysosomal trafficking and mitochondria-vacuole/lysosome crosstalk, thus contributing to a variety of physiological functions. The abnormalities |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72810. 社论：特刊：微生物致病机制进展
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Special issue: Advances in microbial pathogenesis |
+| ZH Title | 社论：特刊：微生物致病机制进展 |
+| ZH Abstract | 社论：特刊：微生物致病机制进展（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72811. 镉对鱼类的毒性效应
+
+| Field | Content |
+|------|------|
+| EN Title | Toxic Effects of Cadmium on Fish |
+| ZH Title | 镉对鱼类的毒性效应 |
+| ZH Abstract | 综述镉在鱼类中的分布和毒性效应。 |
+| EN Abstract | Large amounts of enriched cadmium (Cd) in the environment seriously threatens the healthy and sustainable development of the aquaculture industry and greatly restricts the development of the food processing industry. Studying the distribution and toxic effects of Cd in fish, as well as the possible toxic effects of Cd on the human body, is very significant. A large number of studies have shown that the accumulation and distribution of Cd in fish are biologically specific, cause tissue difference |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72812. 蒽环类药物相关心脏毒性的遗传易感性和机制
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic Susceptibility and Mechanisms Underlying the Pathogenesis of Anthracycline-Associated Cardiotoxicity |
+| ZH Title | 蒽环类药物相关心脏毒性的遗传易感性和机制 |
+| ZH Abstract | 综述蒽环类药物心脏毒性的遗传易感性和机制。 |
+| EN Abstract | Anthracyclines are chemotherapeutic agents widely used to treat a variety of cancers, and these drugs have revolutionized our management of cancer patients. The dose-dependent cardiotoxicity of anthracyclines, however, remains one of the leading causes of chemotherapy treatment-associated mortality in cancer survivors. Patient threshold doses leading to anthracycline-induced cardiotoxicity (AIC) are highly variable among affected patients. This variability is largely ascribed to genetic variants |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72813. 基于模型系统的蛋白质组学理解细菌感染期间的宿主反应
+
+| Field | Content |
+|------|------|
+| EN Title | Model system based proteomics to understand the host response during bacterial infections |
+| ZH Title | 基于模型系统的蛋白质组学理解细菌感染期间的宿主反应 |
+| ZH Abstract | 综述利用模型系统蛋白质组学研究宿主对细菌感染的反应。 |
+| EN Abstract | Infectious diseases caused by bacterial pathogens pose a major concern to public health and, thus, greater attention must be given to providing insightful knowledge on host-pathogen interactions. There are several theories addressing the dynamics of complex mechanisms of host-pathogen interactions. The availability of an ample number of universally accepted model systems, including vertebrates, invertebrates, and mammalian cells, provides in-depth transcriptomics data to evaluate these complex m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72818. 隐性诱变筛选策略的概率分析
+
+| Field | Content |
+|------|------|
+| EN Title | Probabilistic analysis of recessive mutagenesis screen strategies |
+| ZH Title | 隐性诱变筛选策略的概率分析 |
+| ZH Abstract | 比较不同隐性表型筛选策略的效率。 |
+| EN Abstract | Random mutagenesis screens for recessive phenotypes require three generations of breeding, using either a backcross (BC) or intercross (IC) strategy. Hence, they are more costly and technically demanding than those for dominant phenotypes. Maximizing the return from these screens requires maximizing the number of mutations that are bred to homozyosity in the G(3) generation. Using a probabilistic approach, we compare different designs of screens for recessive phenotypes and the impact each one h |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72821. 血栓性血小板减少性紫癜的动物模型：叙述性综述
+
+| Field | Content |
+|------|------|
+| EN Title | Animal models for thrombotic thrombocytopenic purpura: a narrative review |
+| ZH Title | 血栓性血小板减少性紫癜的动物模型：叙述性综述 |
+| ZH Abstract | 综述TTP动物模型的建立与应用。 |
+| EN Abstract | Background and Objective: Thrombotic thrombocytopenic purpura (TTP) is a potentially fatal blood disorder, resulting from severe deficiency of plasma ADAMTS13 (A Disintegrin And Metalloprotease with ThromboSpondin type 1 repeats, 13) activity. ADAMTS13 is crucial for normal hemostasis through proteolytic cleavage of ultra large von Willebrand factor (VWF). Since the discovery of ADAMTS13 in 2001, several animal models for TTP have been established. In this narrative review, we summarize the crea |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72823. 利用下一代测序的发育生物学进展：下一代研究人员研讨会
+
+| Field | Content |
+|------|------|
+| EN Title | Advances in developmental biology using next-generation sequencing (NGS): Workshop for next-generation researchers |
+| ZH Title | 利用下一代测序的发育生物学进展：下一代研究人员研讨会 |
+| ZH Abstract | 介绍NGS在发育生物学中的应用进展。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72829. 鱼类繁殖及个体发育早期阶段渗透和离子平衡的调控
+
+| Field | Content |
+|------|------|
+| EN Title | The regulation of osmotic and ionic balance in fish reproduction and in the early stages of ontogeny |
+| ZH Title | 鱼类繁殖及个体发育早期阶段渗透和离子平衡的调控 |
+| ZH Abstract | 综述鱼类繁殖和早期发育中渗透调节机制。 |
+| EN Abstract | On the basis of the modern literature data we analyzed the influence of the level of salt concentration and ion composition in a fish habitat during the processes of reproduction. The results of studies of the mechanisms of the reaction of fish to gamete hypo- and hyperosmotic stimulus in the external aqueous environment, as well as the role of mineral and organic osmolytes in the adaptation of mature eggs of fishes in the external environment, depend on the hydrochemical and hydrological cond |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72845. 钛和银纳米颗粒在水生生态系统中的摄取和生物累积
+
+| Field | Content |
+|------|------|
+| EN Title | Uptake and bioaccumulation of titanium- and silver-nanoparticles in aquatic ecosystems |
+| ZH Title | 钛和银纳米颗粒在水生生态系统中的摄取和生物累积 |
+| ZH Abstract | 综述金属纳米颗粒在水生环境中的生物累积。 |
+| EN Abstract | Metal-based nanoparticles (NPs) such as silver (Ag) and titanium dioxide (TiO2) are widely used in industrial and household applications. Because of the increasing use of such manufactured NPs and their release into the natural environment, NPs are likely to have a widespread geographic distribution. Concerns over discharge of considerable amounts of these NPs into the environment are increasing. Although recent studies have raised concerns about the health risks and environmental impacts of NPs |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72863. 意大利兽医形态学家协会第九届年会，罗马，意大利，2014年6月16日摘要
+
+| Field | Content |
+|------|------|
+| EN Title | 9th Annual Meeting of the Italian Association of Veterinary Morphologists, Rome, Italy, June 16, 2014 Abstracts |
+| ZH Title | 意大利兽医形态学家协会第九届年会，罗马，意大利，2014年6月16日摘要 |
+| ZH Abstract | 会议摘要集。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72868. 糖蛋白130协调信号转导网络促进心肌细胞增殖以实现正常生长
+
+| Field | Content |
+|------|------|
+| EN Title | Glycoprotein 130 orchestrates signal transduction network to promote cardiomyocyte proliferation for normal growth |
+| ZH Title | 糖蛋白130协调信号转导网络促进心肌细胞增殖以实现正常生长 |
+| ZH Abstract | 研究糖蛋白130在心肌细胞增殖中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72875. 正负调控因子的平衡决定分割时钟的节奏
+
+| Field | Content |
+|------|------|
+| EN Title | A balance of positive and negative regulators determines the pace of the segmentation clock |
+| ZH Title | 正负调控因子的平衡决定分割时钟的节奏 |
+| ZH Abstract | 数学模型研究体节分割时钟的周期调控。 |
+| EN Abstract | Somitogenesis is regulated by a molecular oscillator that drives dynamic gene expression within the pre-somitic mesoderm. Previous mathematical models of the somitogenesis clock that invoke the mechanism of delayed negative feedback predict that its oscillation period depends on the sum of delays inherent to negative-feedback loops and inhibitor half-lives. We develop a mathematical model that explores the possibility that positive feedback also plays a role in determining the period of clock os |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72882. 内源性甘氨酸受体的光控体内研究
+
+| Field | Content |
+|------|------|
+| EN Title | Photocontrol of Endogenous Glycine Receptors In Vivo |
+| ZH Title | 内源性甘氨酸受体的光控体内研究 |
+| ZH Abstract | 开发光控甘氨酸受体配体用于体内研究。 |
+| EN Abstract | Glycine receptors (GlyRs) are indispensable for maintaining excitatory/inhibitory balance in neuronal circuits that control reflexes and rhythmic motor behaviors. Here we have developed Glyght, a GlyR ligand controlled with light. It is selective over other Cys-loop receptors, is active in vivo, and displays an allosteric mechanism of action. The photomanipulation of glycinergic neurotransmission opens new avenues to understanding inhibitory circuits in intact animals and to developing drug-base |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72894. 通过光遗传学趋化因子释放操纵体内白细胞相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Manipulating leukocyte interactions in vivo through optogenetic chemokine release |
+| ZH Title | 通过光遗传学趋化因子释放操纵体内白细胞相互作用 |
+| ZH Abstract | 开发光遗传方法控制趋化因子分泌以研究免疫反应。 |
+| EN Abstract | Light-mediated release of signaling ligands, such as chemoattractants, growth factors, and cytokines is an attractive strategy for investigation and therapeutic targeting of leukocyte communication and immune responses. We introduce a versatile optogenetic method to control ligand secretion, combining UV-conditioned endoplasmic reticulum-to-Golgi trafficking and a furin-processing step. As proof of principle, we achieved light-triggered chemokine secretion and demonstrated that a brief pulse of |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72895. 脊椎动物后脑的节段同一性和细胞分离
+
+| Field | Content |
+|------|------|
+| EN Title | Segment Identity and Cell Segregation in the Vertebrate Hindbrain |
+| ZH Title | 脊椎动物后脑的节段同一性和细胞分离 |
+| ZH Abstract | 综述脊椎动物后脑发育中节段同一性建立机制。 |
+| EN Abstract | The subdivision of tissues into sharply demarcated regions with distinct and homogenous identity is an essential aspect of embryonic development. Along the anteroposterior axis of the vertebrate nervous system, this involves signaling which induces spatially restricted expression of transcription factors that specify regional identity. The spatial expression of such transcription factors is initially imprecise, with overlapping expression of genes that specify distinct identities, and a ragged b |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72897. 通过初级纤毛的Wnt信号调控的背景依赖性
+
+| Field | Content |
+|------|------|
+| EN Title | Context-Dependent Regulation of Wnt Signaling through the Primary Cilium |
+| ZH Title | 通过初级纤毛的Wnt信号调控的背景依赖性 |
+| ZH Abstract | 综述初级纤毛在Wnt信号调控中的作用。 |
+| EN Abstract | The primary cilium is a highly conserved environmental sensor and modulator of fluid movement in tubular structures. The growing recognition of mutations among its many components has led to the discovery of new disorders collectively called ciliopathies. Ciliary dysfunction disturbs a variety of signaling pathways along its basal body and axoneme that are critical for embryonic development and cell and organ homeostasis. Among the many pathways, here we discuss the emerging role of Wnt proteins |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72899. MicroRNAs：基因表达和细胞分化的调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | MicroRNAs: regulators of gene expression and cell differentiation |
+| ZH Title | MicroRNAs：基因表达和细胞分化的调控因子 |
+| ZH Abstract | 综述microRNA在基因表达调控中的作用。 |
+| EN Abstract | The existence and roles of a class of abundant regulatory RNA molecules have recently come into sharp focus. Micro-RNAs (miRNAs) are small (approximately 22 bases), non-protein-coding RNAs that recognize target sequences of imperfect complementarity in cognate mRNAs and either destabilize them or inhibit protein translation. Although mechanisms of miRNA biogenesis have been elucidated in some detail, there is limited appreciation of their biological functions. Reported examples typically focus o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72900. Frizzled信号与果蝇和脊椎动物的细胞极化
+
+| Field | Content |
+|------|------|
+| EN Title | Frizzled signalling and cell polarisation in Drosophila and vertebrates. |
+| ZH Title | Frizzled信号与果蝇和脊椎动物的细胞极化 |
+| ZH Abstract | 综述Frizzled信号在细胞极化中的作用。 |
+| EN Abstract | A key aspect of animal development is the appropriate polarisation of different cell types in the right place at the right time. Such polarisation is often precisely coordinated relative to the axes of a tissue or organ, but the mechanisms underlying this coordination are still poorly understood. Nevertheless, genetic analysis of animal development has revealed some of the pathways involved. For example, a non-canonical Frizzled signalling pathway has been found to coordinate cell polarity throu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72903. 钾离子浓度对锂渣中一价铊水生生态风险的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Impact of potassium ion concentration on the aquatic ecological risk of monovalent thallium leached from lithium slag |
+| ZH Title | 钾离子浓度对锂渣中一价铊水生生态风险的影响 |
+| ZH Abstract | 研究钾离子对铊毒性影响的水生生态风险评估。 |
+| EN Abstract | Lithium smelting slag, the solid waste generated from the extraction of lithium from ores, contains the hazardous element thallium, which can be mobilized into adjacent aquatic systems through rainwater leaching. Assessing the aquatic ecological risk of monovalent thallium (Tl+) is essential for informing the safe disposal of this residue. Potassium ions (K+), which are ubiquitously present in natural freshwaters, are known to antagonize the toxicity of Tl+. Nevertheless, prevailing aquatic ecol |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72904. 左右对称性破缺：从鸡中学习
+
+| Field | Content |
+|------|------|
+| EN Title | Left-right symmetry breaking: learning from the chicken |
+| ZH Title | 左右对称性破缺：从鸡中学习 |
+| ZH Abstract | 综述脊椎动物左右不对称性建立的机制。 |
+| EN Abstract | Morphological left-right asymmetry of visceral organs in most cases reveals a typical arrangement. This implies directed symmetry breaking which is suggested to be based on the existence of structural chirality. At early developmental stages many vertebrate model organisms display so-called leftward flow of extracellular fluid which is based on the unidirectional rotation of chiral cilia. Cytoskeletal chirality has been shown to contribute to the left-right asymmetry of invertebrates including C |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72905. 通过双组分前药系统合成肿瘤特异性STING激动剂
+
+| Field | Content |
+|------|------|
+| EN Title | Tumour-specific STING agonist synthesis via a two-component prodrug system |
+| ZH Title | 通过双组分前药系统合成肿瘤特异性STING激动剂 |
+| ZH Abstract | 开发肿瘤特异性STING激动剂前药策略。 |
+| EN Abstract | Pharmacological activation of STING holds promise in cancer treatment. A recent trend is the development of tumour-specific or conditionally activated STING agonists for enhanced safety and efficacy. Here we explore an unconventional prodrug activation strategy for on-tumour synthesis of a potent agonist. Leveraging the unique mechanism of MSA2, a small-molecule agonist that dimerizes non-covalently before binding to STING, we showed that its analogues bearing reactive functional groups readily |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72906. 石油钻井中的金属氧化物纳米颗粒：水生毒理学问题
+
+| Field | Content |
+|------|------|
+| EN Title | Metal oxide nanoparticles in oil drilling: Aquatic toxicological concerns |
+| ZH Title | 石油钻井中的金属氧化物纳米颗粒：水生毒理学问题 |
+| ZH Abstract | 综述金属氧化物纳米颗粒在水生环境中的毒理学问题。 |
+| EN Abstract | The use of chemicals, surfactants, and polymers in improving the property of drilling fluid and enhancing the effectiveness of drilling process and in tertiary oil recovery is costly and ineffective in handling the challenges. Metal and metal oxide nanoparticles (MMO NPs) have gotten attention in recent time on their use in oil drilling processes. Lately, there are several articles suggesting the benefits, properties, and effectiveness of the use of MMO NPs in drilling mud. They propose and reco |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72907. 用于三维相关光镜和电镜的集成阵列断层扫描
+
+| Field | Content |
+|------|------|
+| EN Title | Integrated Array Tomography for 3D Correlative Light and Electron Microscopy |
+| ZH Title | 用于三维相关光镜和电镜的集成阵列断层扫描 |
+| ZH Abstract | 开发三维相关光镜和电镜成像方法。 |
+| EN Abstract | Volume electron microscopy (EM) of biological systems has grown exponentially in recent years due to innovative large-scale imaging approaches. As a standalone imaging method, however, large-scale EM typically has two major limitations: slow rates of acquisition and the difficulty to provide targeted biological information. We developed a 3D image acquisition and reconstruction pipeline that overcomes both of these limitations by using a widefield fluorescence microscope integrated inside of a s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72909. 基于硅罗丹明的近红外荧光探针用于Hg2+的高特异性快速响应及其生物成像应用
+
+| Field | Content |
+|------|------|
+| EN Title | Development of a Si-rhodamine-based NIR fluorescence probe for highly specific and quick response of Hg2+ and its applications to biological imaging |
+| ZH Title | 基于硅罗丹明的近红外荧光探针用于Hg2+的高特异性快速响应及其生物成像应用 |
+| ZH Abstract | 开发检测汞离子的近红外荧光探针。 |
+| EN Abstract | Mercury is highly toxic to human health and ecological environment. Aiming to realize real-time and efficient detection of Hg2+, a key strategy for constructing the reaction-type fluorescent probes is to expedite their response to the target ion. Herein, we present a novel fast-response and highly specific Si-rhodamine-based near-infrared (NIR) fluorescence probe, AnSiR-R1, for sensing Hg2+ in biological and ecological media. Assembling an electron-deficient anthraquinonyl function to the probe |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72912. 基于活性的甲硫氨酸生物偶联方法开发邻近激活成像报告分子
+
+| Field | Content |
+|------|------|
+| EN Title | An Activity-Based Methionine Bioconjugation Approach To Developing Proximity-Activated Imaging Reporters |
+| ZH Title | 基于活性的甲硫氨酸生物偶联方法开发邻近激活成像报告分子 |
+| ZH Abstract | 开发基于活性的成像报告分子平台。 |
+| EN Abstract | Chemical probes that report on protein activity, rather than protein abundance, with spatial and temporal resolution can enable studies of their native function in biological contexts as well as provide opportunities for developing new types of biochemical reporters. Here we present a sensing platform, termed proximity-activated imaging reporter (PAIR), which combines activity-based methionine bioconjugation and antibody labeling with proximity-dependent oligonucleotide-based amplification to mo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72913. 微囊藻毒素诱导细胞毒性和凋亡的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms of Microcystin-induced Cytotoxicity and Apoptosis |
+| ZH Title | 微囊藻毒素诱导细胞毒性和凋亡的机制 |
+| ZH Abstract | 综述微囊藻毒素的毒性机制。 |
+| EN Abstract | In recent years, cyanobacterial blooms have dramatically increased and become an ecological disaster worldwide. Cyanobacteria are also known to produce a wide variety of toxic secondary metabolites, i.e. cyanotoxins. Microcystins (MCs), a group of cyclic heptapeptides, are considered to be one of the most common and dangerous cyanobacterial toxins. MCs can be incorporated into the cells via organic anion transporting polypeptides (Oatps). It's widely accepted that inhibition of protein phosphata |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72914. CCTop：直观、灵活且可靠的CRISPR/Cas9靶点预测工具
+
+| Field | Content |
+|------|------|
+| EN Title | CCTop: An Intuitive, Flexible and Reliable CRISPR/Cas9 Target Prediction Tool |
+| ZH Title | CCTop：直观、灵活且可靠的CRISPR/Cas9靶点预测工具 |
+| ZH Abstract | 开发CRISPR/Cas9靶点预测工具。 |
+| EN Abstract | Engineering of the CRISPR/Cas9 system has opened a plethora of new opportunities for site-directed mutagenesis and targeted genome modification. Fundamental to this is a stretch of twenty nucleotides at the 5' end of a guide RNA that provides specificity to the bound Cas9 endonuclease. Since a sequence of twenty nucleotides can occur multiple times in a given genome and some mismatches seem to be accepted by the CRISPR/Cas9 complex, an efficient and reliable in silico selection and evaluation of |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72915. S-亚硝基化在自噬与疾病交界处的作用
+
+| Field | Content |
+|------|------|
+| EN Title | S-Nitrosylation at the Interface of Autophagy and Disease |
+| ZH Title | S-亚硝基化在自噬与疾病交界处的作用 |
+| ZH Abstract | 评论一氧化氮在自噬中的作用。 |
+| EN Abstract | In this issue of Molecular Cell, Sarkar et al. (2011) provide the first evidence for involvement of nitric oxide bioactivity in autophagy and suggest new insight into the role of aberrant S-nitrosylation in the pathogenesis of neurodegeneration. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72918. 柴胡-黄芩及其核心成分SSa-黄芩苷组合抗抑郁机制的初步探索
+
+| Field | Content |
+|------|------|
+| EN Title | Preliminary exploration of the antidepressant mechanism of Bupleurum scorzonerifolium-Scutellaria baicalensis and its core SSa-Baicalin combination |
+| ZH Title | 柴胡-黄芩及其核心成分SSa-黄芩苷组合抗抑郁机制的初步探索 |
+| ZH Abstract | 研究柴胡-黄芩组合的抗抑郁机制。 |
+| EN Abstract | Ethnopharmacological relevance: The Bupleuri Radix-Scutellaria baicalensis Georgi pair first appeared in the Treatise on Febrile Diseases and is the core pair for the treatment of depression. Bupleurum scorzonerifolium Willd., a variety of Bupleuri Radix, is better at soothing the liver and relieving depression. However, neither the pharmacodynamic compounds nor the mechanism of the antidepressant effects of Bupleurum scorzonerifolium-Scutellaria baicalensis (BSSB) have been systematically inves |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72920. 圆锥角膜动物模型进展：从遗传学到生物力学
+
+| Field | Content |
+|------|------|
+| EN Title | Advances in keratoconus animal models: From genetics to biomechanics |
+| ZH Title | 圆锥角膜动物模型进展：从遗传学到生物力学 |
+| ZH Abstract | 综述圆锥角膜动物模型研究进展。 |
+| EN Abstract | Keratoconus is a disorder characterized by thinning and protrusion of the cornea into a cone shape, potentially leading to decreased vision and blindness. Understanding the pathogenesis of keratoconus and developing treatment strategies is crucial. Currently, animal models of keratoconus created through gene knockout and collagenase digestion have made significant progress in studying the pathogenesis of the disease. However, these models have limitations, such as unverified long-term effects. F |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72921. 光片显微镜中的光束整形：实验分析
+
+| Field | Content |
+|------|------|
+| EN Title | Beam shaping in light-sheet microscopy: an experimental analysis |
+| ZH Title | 光片显微镜中的光束整形：实验分析 |
+| ZH Abstract | 分析光片显微镜中光束整形技术。 |
+| EN Abstract | Thanks to its unique optical sectioning capability, light-sheet fluorescence microscopy has proven to be a powerful technique for volumetric imaging of entire model organisms with high spatial and temporal resolution. For light sheet generation with scanned laser beams, holographic beam shaping offers precise control over the optical fields exciting the fluorescence. Various illumination schemes have been proposed, aiming for best image quality with regard to axial resolution, optical sectioning |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72922. 通过靶向PI3K-MAPK通路克服横纹肌肉瘤的治疗耐药性
+
+| Field | Content |
+|------|------|
+| EN Title | Overcoming therapy resistance in rhabdomyosarcoma by targeting the PI3K-MAPK pathway |
+| ZH Title | 通过靶向PI3K-MAPK通路克服横纹肌肉瘤的治疗耐药性 |
+| ZH Abstract | 研究横纹肌肉瘤治疗耐药机制。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72923. THAP9转座酶同源物的生物信息学分析：保守区域和新基序
+
+| Field | Content |
+|------|------|
+| EN Title | Bioinformatic analysis of THAP9 transposase homolog: conserved regions, novel motifs |
+| ZH Title | THAP9转座酶同源物的生物信息学分析：保守区域和新基序 |
+| ZH Abstract | 生物信息学分析THAP9蛋白结构和进化。 |
+| EN Abstract | THAP9 is a transposable element-derived gene that encodes the THAP9 protein, which is homologous to the Drosophila P-element transposase (DmTNP) and can cut and paste DNA. However, the exact functional role of THAP9 is unknown. Here, we perform structure prediction, evolutionary analysis and extensive in silico characterization of THAP9, including predicting domains and putative post-translational modification sites. Comparison of the AlphaFold-predicted structure of THAP9 with the DmTNP CryoEM |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72924. 乌头碱水解途径的新认识：基于中间产物的分离、鉴定和毒性评价
+
+| Field | Content |
+|------|------|
+| EN Title | New understanding of aconitine hydrolysis pathway: Isolation, identification and toxicity evaluation based on intermediate products |
+| ZH Title | 乌头碱水解途径的新认识：基于中间产物的分离、鉴定和毒性评价 |
+| ZH Abstract | 研究乌头碱水解产物及其毒性。 |
+| EN Abstract | Aconitine hydrolysis is deemed to be the guarantee for the safe application of Aconitum phytomedicine. Studies have suggested that hydrolysates of aconitine not only include benzoyla-conitine and aconine, but other hydrolysates. Moreover, these hydrolysates maybe have a mutual transformation relationship, which has not been confirmed. Herein, hydrolysates of aconitine and their mutual transformation relationship were studied by the theoretical quantum chemistry, UPLC-Q-TOF-MS, the separation and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72925. 组蛋白甲基化的表观遗传均一性构成精子编程胚胎转录的基础
+
+| Field | Content |
+|------|------|
+| EN Title | Epigenetic homogeneity in histone methylation underlies sperm programming for embryonic transcription |
+| ZH Title | 组蛋白甲基化的表观遗传均一性构成精子编程胚胎转录的基础 |
+| ZH Abstract | 研究精子组蛋白甲基化在胚胎发育中的作用。 |
+| EN Abstract | Sperm contributes genetic and epigenetic information to the embryo to efficiently support development. However, the mechanism underlying such developmental competence remains elusive. Here, we investigated whether all sperm cells have a common epigenetic configuration that primes transcriptional program for embryonic development. Using calibrated ChIP-seq, we show that remodelling of histones during spermiogenesis results in the retention of methylated histone H3 at the same genomic location in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72928. 小胶质细胞发育和稳态研究的最新进展
+
+| Field | Content |
+|------|------|
+| EN Title | Recent advances in the understanding of microglial development and homeostasis |
+| ZH Title | 小胶质细胞发育和稳态研究的最新进展 |
+| ZH Abstract | 综述小胶质细胞的发育和功能。 |
+| EN Abstract | Microglia are the resident macrophages of the central nervous system (CNS). These pivotal cells arise early during embryonic development and provide both developmental support and immune protection to the brain. In adults, microglia contribute to brain homeostasis and mediate an intriguing interplay between the CNS and the gut microbiota. When dysregulated, microglia are also implicated in numerous neurological disorders, and thus fully understanding their regulation and functions will facilitat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72929. 平衡的X常染色体易位提示AMMECR1破坏与听力损失、身材矮小、骨骼和心脏异常相关
+
+| Field | Content |
+|------|------|
+| EN Title | Balanced X autosome translocation suggests association of AMMECR1 disruption with hearing loss short stature bone and heart alterations |
+| ZH Title | 平衡的X常染色体易位提示AMMECR1破坏与听力损失、身材矮小、骨骼和心脏异常相关 |
+| ZH Abstract | 研究AMMECR1基因与多种异常的相关性。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72930. 动物组织中的机械力和生长
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanical Forces and Growth in Animal Tissues |
+| ZH Title | 动物组织中的机械力和生长 |
+| ZH Abstract | 综述机械力对组织生长的调控。 |
+| EN Abstract | Mechanical forces shape biological tissues. They are the effectors of the developmental programs that orchestrate morphogenesis. A lot of effort has been devoted to understanding morphogenetic processes in mechanical terms. In this review, we focus on the interplay between tissue mechanics and growth. We first describe how tissue mechanics affects growth, by influencing the orientation of cell divisions and the signaling pathways that control the rate of volume increase and proliferation. We the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72931. 鱼能感知错觉运动吗？
+
+| Field | Content |
+|------|------|
+| EN Title | Do Fish Perceive Illusory Motion? |
+| ZH Title | 鱼能感知错觉运动吗？ |
+| ZH Abstract | 研究鱼类是否感知运动错觉。 |
+| EN Abstract | Motion illusion refers to a perception of motion that is absent or different in the physical stimulus. These illusions are a powerful non-invasive tool for understanding the neurobiology of vision because they tell us, indirectly, how we process motion. There is general agreement in ascribing motion illusion to higher-level processing in the visual cortex, but debate remains about the exact role of eye movements and cortical networks in triggering it. Surprisingly, there have been no studies inv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72932. piRNA：从生物发生到功能
+
+| Field | Content |
+|------|------|
+| EN Title | piRNAs: from biogenesis to function |
+| ZH Title | piRNA：从生物发生到功能 |
+| ZH Abstract | 综述piRNA在生殖系中的作用。 |
+| EN Abstract | Distinguishing self from non-self plays a crucial role in safeguarding the germlines of metazoa from mobile DNA elements. Since their discovery less than a decade ago, Piwi-interacting RNAs (piRNAs) have been shown to repress transposable elements in the germline and, hence, have been at the forefront of research aimed at understanding the mechanisms that maintain germline integrity. More recently, roles for piRNAs in gene regulation have emerged. In this Review, we highlight recent advances mad |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72938. TBP和TBP相关因子的遗传学
+
+| Field | Content |
+|------|------|
+| EN Title | The genetics of TBP and TBP-related factors. |
+| ZH Title | TBP和TBP相关因子的遗传学 |
+| ZH Abstract | 无摘要，标题未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72945. 内皮细胞反向遗传学平台
+
+| Field | Content |
+|------|------|
+| EN Title | A Platform for Reverse Genetics in Endothelial Cells |
+| ZH Title | 内皮细胞反向遗传学平台 |
+| ZH Abstract | 无摘要，标题未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72956. 发育过程中甲状腺激素的作用与干扰：妊娠、大脑与大鼠对比人类
+
+| Field | Content |
+|------|------|
+| EN Title | Thyroid Hormone Action and Disruption During Development: pregnancy, brain and rat versus human |
+| ZH Title | 发育过程中甲状腺激素的作用与干扰：妊娠、大脑与大鼠对比人类 |
+| ZH Abstract | 综述甲状腺激素，未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72958. 弓动脉形态发生过程中的整合基质信号
+
+| Field | Content |
+|------|------|
+| EN Title | Integrating Matrix Signals During Arch Artery Morphogenesis |
+| ZH Title | 弓动脉形态发生过程中的整合基质信号 |
+| ZH Abstract | 无摘要，标题未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72964. 黑色素细胞并不总是走大路
+
+| Field | Content |
+|------|------|
+| EN Title | Melanocytes don't always take the high road |
+| ZH Title | 黑色素细胞并不总是走大路 |
+| ZH Abstract | 无摘要，标题未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72968. IPO8双等位基因功能缺失变异导致与心血管缺陷、骨骼异常和免疫失调相关的结缔组织疾病
+
+| Field | Content |
+|------|------|
+| EN Title | Biallelic loss of function variants in IPO8 cause a connective tissue disorder associated with cardiovascular defects, skeletal abnormalities and immune dysregulation |
+| ZH Title | IPO8双等位基因功能缺失变异导致与心血管缺陷、骨骼异常和免疫失调相关的结缔组织疾病 |
+| ZH Abstract | 无摘要，标题未提及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72978. 自然细胞丢失对视网膜胆碱能阵列规律性的影响
+
+| Field | Content |
+|------|------|
+| EN Title | The effects of natural cell loss on the regularity of the retinal cholinergic arrays. |
+| ZH Title | 自然细胞丢失对视网膜胆碱能阵列规律性的影响 |
+| ZH Abstract | 研究视网膜神经元阵列规律性机制。 |
+| EN Abstract | The retina provides a paradigmatic example of the modularity of neuronal circuitry. Different cells are stacked in layers, and neurons of the same type are commonly regularly spaced within their layer. Although the orderly arrays formed by homotypic neurons provide the basis for parallel processing, the mechanisms responsible for regular cell spacing are just beginning to be elucidated. All the developing retinal arrays for which early markers have been identified are regular before being comple |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72979. WNT在脊椎动物发育过程中调节细胞命运和行为
+
+| Field | Content |
+|------|------|
+| EN Title | WNTs modulate cell fate and behavior during vertebrate development. |
+| ZH Title | WNT在脊椎动物发育过程中调节细胞命运和行为 |
+| ZH Abstract | 综述Wnt基因在脊椎动物发育中的功能。 |
+| EN Abstract | Wnt genes encode a family of secreted glycoproteins that modulate cell fate and behavior in embryos through activation of receptor-mediated signaling pathways. Wnt sequences, patterns of expression and activities are highly conserved in evolution, so it has been possible to gain insights into the functions, and mechanisms of action, of the Wnt genes through a synthesis of genetic and cell biological approaches in different organisms. These studies suggest that there are functionally distinct WNT |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72981. 神经科学中模式生物的重新利用：目的是什么？
+
+| Field | Content |
+|------|------|
+| EN Title | Repurposing model organisms in neuroscience: What is the purpose? |
+| ZH Title | 神经科学中模式生物的重新利用：目的是什么？ |
+| ZH Abstract | 讨论模式生物在神经科学中的代表性。 |
+| EN Abstract | The model organism approach in neuroscience promises to yield insights into the workings of the human brain and reveal general principles of nervous system structure and function. Yet its success depends on the representativeness of the model organisms studied. If model organisms are representative of species beyond themselves, they can provide a suitable basis for reliably extrapolating findings to humans and other organisms. However, model organism selection in neuroscience is rarely optimized |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72982. 神经嵴迁移由分子和机械信号协调
+
+| Field | Content |
+|------|------|
+| EN Title | Neural Crest Migration Orchestrated by Molecular and Mechanical Signals |
+| ZH Title | 神经嵴迁移由分子和机械信号协调 |
+| ZH Abstract | 综述神经嵴迁移的引导机制。 |
+| EN Abstract | The neural crest is a highly migratory multipotent cell population traveling large distances in the vertebrate embryo. Neural crest cells migrate collectively in subpopulations, ranging in size from streams with hundreds of cells delaminating in the cephalic region to chains of single cells that delaminate in a dripping manner in the trunk. Here, we review the guidance mechanisms involved in neural crest migration and stream formation. We first describe established concepts of neural crest chemo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72984. 非啮齿类动脉粥样硬化模型：现有药物的重新利用和新治疗策略的探索
+
+| Field | Content |
+|------|------|
+| EN Title | Non-rodent Models of Atherosclerosis: Repurposing of Existing Drugs and Search for Novel Treatment Strategies |
+| ZH Title | 非啮齿类动脉粥样硬化模型：现有药物的重新利用和新治疗策略的探索 |
+| ZH Abstract | 综述非啮齿类动脉粥样硬化模型。 |
+| EN Abstract | Atherosclerosis and associated cardiovascular diseases are the leading causes of illness and mortality worldwide. The development of atherosclerosis is a complex process involving oxidative stress, surplus lipid deposition and retention, endothelial dysfunction, and chronic inflammation. Developing novel anti-atherogenic and repurposing existing drugs requires the use of suitable animal models to characterise the fundamental mechanisms underlying atherosclerosis initiation and progression and to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72985. 肠内分泌细胞调节肠道稳态和上皮功能
+
+| Field | Content |
+|------|------|
+| EN Title | Enteroendocrine cells regulate intestinal homeostasis and epithelial function |
+| ZH Title | 肠内分泌细胞调节肠道稳态和上皮功能 |
+| ZH Abstract | 综述肠内分泌细胞的旁分泌作用。 |
+| EN Abstract | Enteroendocrine cells (EECs) are well-known for their systemic hormonal effects, especially in the regulation of appetite and glycemia. Much less is known about how the products made by EECs regulate their local environment within the intestine. Here, we focus on paracrine interactions between EECs and other intestinal cells as they regulate three essential aspects of intestinal homeostasis and physiology: 1) intestinal stem cell function and proliferation; 2) nutrient absorption; and 3) mucosal |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72987. 力学与信号在细胞命运决定中的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Interplay between mechanics and signalling in regulating cell fate |
+| ZH Title | 力学与信号在细胞命运决定中的相互作用 |
+| ZH Abstract | 综述力学信号调控细胞命运机制。 |
+| EN Abstract | Mechanical signalling affects multiple biological processes during development and in adult organisms, including cell fate transitions, cell migration, morphogenesis and immune responses. Here, we review recent insights into the mechanisms and functions of two main routes of mechanical signalling: outside-in mechanical signalling, such as mechanosensing of substrate properties or shear stresses; and mechanical signalling regulated by the physical properties of the cell surface itself. We discuss |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72988. 血流增强BMP信号以维持血管形态
+
+| Field | Content |
+|------|------|
+| EN Title | Blood flow boosts BMP signaling to keep vessels in shape |
+| ZH Title | 血流增强BMP信号以维持血管形态 |
+| ZH Abstract | 研究血流如何增强BMP信号维持血管形态。 |
+| EN Abstract | Bone morphogenic proteins (BMPs) and blood flow regulate vascular remodeling and homeostasis. In this issue, Baeyens et al. (2016. J. Cell Biol. http://dx.doi.org/10.1083/jcb.201603106) show that blood flow sensitizes endothelial cells to BMP9 signaling by triggering Alkl/ENG complexing to suppress cell proliferation and to recruit mural cells, thereby establishing endothelial quiescence. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72992. 显微镜下的microRNA
+
+| Field | Content |
+|------|------|
+| EN Title | microRNAs under the microscope |
+| ZH Title | 显微镜下的microRNA |
+| ZH Abstract | 综述microRNA在发育中的作用。 |
+| EN Abstract | Once regarded as a biological anomaly, microRNAs (miRNAs) have since been recognized as a prevalent RNA species that regulates a wide array of biological processes, from fat storage and insulin secretion, to apoptosis and cell growth. Recent studies show that miRNAs are expressed at precise times and locations in embryonic development. Moreover, disruption of miRNA processing triggers widespread developmental defects. These findings bolster the idea that miRNAs also regulate multiple aspects of |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72994. 眼动系统中的学习：从分子到行为
+
+| Field | Content |
+|------|------|
+| EN Title | Learning in the oculomotor system: from molecules to behavior. |
+| ZH Title | 眼动系统中的学习：从分子到行为 |
+| ZH Abstract | 综述眼动学习机制。 |
+| EN Abstract | A combination of system-level and cellular-molecular approaches is moving studies of oculomotor learning rapidly toward the goal of linking synaptic plasticity at specific sites in oculomotor circuits with changes in the signal-processing functions of those circuits, and, ultimately, with changes in eye movement behavior. Recent studies of saccadic adaptation illustrate how careful behavioral analysis can provide constraints on the neural loci of plasticity. Studies of vestibulo-ocular adaptatio |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72997. 用于细胞操作的磁驱动微夹钳，具有功能分区多材料设计
+
+| Field | Content |
+|------|------|
+| EN Title | A magnetically actuated microgripper with functionally partitioned multi-material design for cell manipulation |
+| ZH Title | 用于细胞操作的磁驱动微夹钳，具有功能分区多材料设计 |
+| ZH Abstract | 设计磁驱动微夹钳用于细胞操作。 |
+| EN Abstract | In biomedical applications, microgrippers made from single materials often compromise between precision and gentle interaction with biological specimens. To address this challenge, this paper presents a magnetically actuated microgripper with a functionally partitioned multi-material design, fabricated through atemplate-assisted assembly strategy. The microgripper comprises an M-shaped actuation unit fabricated from magnetorheological elastomer, a transmission unit produced through additive manu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72998. 统计规律与自我行为的感觉后果：多物种、多模态视角
+
+| Field | Content |
+|------|------|
+| EN Title | Statistical regularities and the sensory consequences of self-action: A multi-species, multi-modal perspective |
+| ZH Title | 统计规律与自我行为的感觉后果：多物种、多模态视角 |
+| ZH Abstract | 综述主动感觉的补偿机制。 |
+| EN Abstract | Active sensing is integral for survival in many organisms. While statistical regularities in natural scenes, as well as ecological relevance, are particularly relevant for shaping motor behaviors, significantly less is known about how these factors additionally influence the brain's compensatory mechanisms for the sensory consequences of self-action. Here, using different sensory modalities, species, and timescales, we review recent developments demonstrating that both state estimation and senso |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 72999. 心脏修复的细胞重编程、转分化和去分化方法
+
+| Field | Content |
+|------|------|
+| EN Title | Cell Reprogramming, Transdifferentiation, and Dedifferentiation Approaches for Heart Repair |
+| ZH Title | 心脏修复的细胞重编程、转分化和去分化方法 |
+| ZH Abstract | 综述心脏再生策略。 |
+| EN Abstract | Cardiovascular disease (CVD) remains the leading cause of death globally, with myocardial infarction (MI) being a major contributor. The current therapeutic approaches are limited in effectively regenerating damaged cardiac tissue. Up-to-date strategies for heart regeneration/reconstitution aim at cardiac remodeling through repairing the damaged tissue with an external cell source or by stimulating the existing cells to proliferate and repopulate the compromised area. Cell reprogramming is addre |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73000. morphoHeart：用于胚胎发育过程中心脏和细胞外基质综合3D形态计量分析的定量工具
+
+| Field | Content |
+|------|------|
+| EN Title | morphoHeart: A quantitative tool for integrated 3D morphometric analyses of heart and ECM during embryonic development |
+| ZH Title | morphoHeart：用于胚胎发育过程中心脏和细胞外基质综合3D形态计量分析的定量工具 |
+| ZH Abstract | 开发心脏3D形态分析软件。 |
+| EN Abstract | Heart development involves the complex structural remodelling of a linear heart tube into an asymmetrically looped and ballooned organ. Previous studies have associated regional expansion of extracellular matrix (ECM) space with tissue morphogenesis during development. We have developed morphoHeart, a 3D tissue segmentation and morphometry software with a user-friendly graphical interface (GUI) that delivers the first integrated 3D visualisation and multiparametric analysis of both heart and ECM |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73001. 使用基于适配体的PROTAC诱导致癌核仁素降解
+
+| Field | Content |
+|------|------|
+| EN Title | Inducible Degradation of Oncogenic Nucleolin Using an Aptamer-Based PROTAC |
+| ZH Title | 使用基于适配体的PROTAC诱导致癌核仁素降解 |
+| ZH Abstract | 开发基于适配体的PROTAC降解核仁素。 |
+| EN Abstract | While proteolysis-targeting chimeras (PROTACs) are showing promise for targeting previously undruggable molecules, their application has been limited by difficulties in identifying suitable ligands and undesired on-target toxicity. Aptamers can virtually recognize any protein through their unique and switchable conformations. Here, by exploiting aptamers as targeting warheads, we developed a novel strategy for inducible degradation of undruggable proteins. As a proof of concept, we chose oncogen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73002. 再生的多样表现及其研究必要性
+
+| Field | Content |
+|------|------|
+| EN Title | The Diverse Manifestations of Regeneration and Why We Need to Study Them |
+| ZH Title | 再生的多样表现及其研究必要性 |
+| ZH Abstract | 综述再生生物学研究进展。 |
+| EN Abstract | For hundreds of years, the question of why some organisms can regenerate missing body parts while others cannot has remained poorly understood. This has been due in great part to the inability to genetically, molecularly, and cellularly dissect this problem for most of the history of the field. It has only been in the past 20-30 years that important mechanistic advances have been made in methodologies that introduce loss and gain of gene function in animals that can regenerate. However, we still |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73003. NOTCH信号强度的生物学意义
+
+| Field | Content |
+|------|------|
+| EN Title | Biological Significance of NOTCH Signaling Strength |
+| ZH Title | NOTCH信号强度的生物学意义 |
+| ZH Abstract | 综述NOTCH信号强度调控机制。 |
+| EN Abstract | The evolutionarily conserved NOTCH signaling displays pleotropic functions in almost every organ system with a simple signaling axis. Different from many other signaling pathways that can be amplified via kinase cascades, NOTCH signaling does not contain any intermediate to amplify signal. Thus, NOTCH signaling can be activated at distinct signaling strength levels, disruption of which leads to various developmental disorders. Here, we reviewed mechanisms establishing different NOTCH signaling s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73004. 后生动物中基因组组织长链非编码RNA的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of Genome-Organizing Long Non-coding RNAs in Metazoans |
+| ZH Title | 后生动物中基因组组织长链非编码RNA的进化 |
+| ZH Abstract | 综述lncRNA在基因组组织中的进化。 |
+| EN Abstract | Long non-coding RNAs (lncRNAs) have important regulatory functions across eukarya. It is now clear that many of these functions are related to gene expression regulation through their capacity to recruit epigenetic modifiers and establish chromatin interactions. Several lncRNAs have been recently shown to participate in modulating chromatin within the spatial organization of the genome in the three-dimensional space of the nucleus. The identification of lncRNA candidates is challenging, as it is |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73005. 全基因组复制后，古老的基因组调控模块是脊椎动物调控基因沙漠的来源
+
+| Field | Content |
+|------|------|
+| EN Title | Ancient Genomic Regulatory Blocks Are a Source for Regulatory Gene Deserts in Vertebrates after Whole-Genome Duplications |
+| ZH Title | 全基因组复制后，古老的基因组调控模块是脊椎动物调控基因沙漠的来源 |
+| ZH Abstract | 研究脊椎动物基因组复制后调控模块的进化。 |
+| EN Abstract | We investigated how the two rounds of whole-genome duplication that occurred at the base of the vertebrate lineage have impacted ancient microsyntenic associations involving developmental regulators (known as genomic regulatory blocks, GRBs). We showed that the majority of GRBs identified in the last common ancestor of chordates have been maintained as a single copy in humans. We found evidence that dismantling of the duplicated GRB copies occurred early in vertebrate evolution often through the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73006. 用于可视化发育、损伤和疾病中神经系统的组织透明技术
+
+| Field | Content |
+|------|------|
+| EN Title | Clearing techniques for visualizing the nervous system in development, injury, and disease |
+| ZH Title | 用于可视化发育、损伤和疾病中神经系统的组织透明技术 |
+| ZH Abstract | 综述组织透明技术在神经科学中的应用。 |
+| EN Abstract | Modern clearing techniques enable high resolution visualization and 3D reconstruction of cell populations and their structural details throughout large biological samples, including intact organs and even entire organisms. In the past decade, these methods have become more tractable and are now being utilized to provide unforeseen insights into the complexities of the nervous system. While several iterations of optical clearing techniques have been developed, some are more suitable for specific |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73010. 无义介导的mRNA降解途径的机制和调控
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanism and regulation of the nonsense-mediated decay pathway |
+| ZH Title | 无义介导的mRNA降解途径的机制和调控 |
+| ZH Abstract | 综述无义介导的mRNA降解机制。 |
+| EN Abstract | The Nonsense-mediated mRNA decay (NMD) pathway selectively degrades mRNAs harboring premature termination codons (PTCs) but also regulates the abundance of a large number of cellular RNAs. The central role of NMD in the control of gene expression requires the existence of buffering mechanisms that tightly regulate the magnitude of this pathway. Here, we will focus on the mechanism of NMD with an emphasis on the role of RNA helicases in the transition from NMD complexes that recognize a PTC to th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73012. 学习看：模式化视觉活动与视觉功能发育
+
+| Field | Content |
+|------|------|
+| EN Title | Learning to see: patterned visual activity and the development of visual function |
+| ZH Title | 学习看：模式化视觉活动与视觉功能发育 |
+| ZH Abstract | 综述视觉发育中的可塑性。 |
+| EN Abstract | To successfully interact with their environments, developing organisms need to correctly process sensory information and generate motor outputs appropriate to their size and structure. Patterned sensory experience has long been known to induce various forms of developmental plasticity that ultimately shape mature neural circuits. These same types of plasticity also allow developing organisms to respond appropriately to the external world by dynamically adapting neural circuit function to ongoing |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73013. LIM结构域蛋白LPP是ETS结构域转录因子PEA3的共激活因子
+
+| Field | Content |
+|------|------|
+| EN Title | The LIM domain protein LPP is a coactivator for the ETS domain transcription factor PEA3 |
+| ZH Title | LIM结构域蛋白LPP是ETS结构域转录因子PEA3的共激活因子 |
+| ZH Abstract | 研究LPP作为PEA3共激活因子的机制。 |
+| EN Abstract | PEA3 is a member of a subfamily of ETS domain transcription factors which is regulated by a number of signaling cascades, including the mitogen-activated protein (MAP) kinase pathways. PEA3 activates gene expression and is thought to play an important role in promoting tumor metastasis and also in neuronal development. Here, we have identified the LIM domain protein LPP as a novel coregulatory binding partner for PEA3. LPP has intrinsic transactivation capacity, forms a complex with PEA3, and is |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73031. 脊椎动物视网膜中可扩展神经回路的一般设计原理
+
+| Field | Content |
+|------|------|
+| EN Title | General design principle for scalable neural circuits in a vertebrate retina |
+| ZH Title | 脊椎动物视网膜中可扩展神经回路的一般设计原理 |
+| ZH Abstract | 研究鱼类视网膜生长中神经回路设计，未明确斑马鱼。 |
+| EN Abstract | Unlike mammals, fish continue to grow throughout their lives, to increase the size of their eyes and brain, and to add new neurons to both. As a result of visual system growth, the ability to detect small objects increases with the age and size of the fish. In addition to the birth of new retinal ganglion cells (RGCs), existing cells increase the size of their dendritic arbors with retinal growth. We have used this system to learn design principles a vertebrate retina uses to construct its neura |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73065. 超越线虫、果蝇和人类的细胞死亡：用于细胞死亡研究的非典型模型系统
+
+| Field | Content |
+|------|------|
+| EN Title | Cell death beyond worms, flies and humans: unusual model systems for cell death research |
+| ZH Title | 超越线虫、果蝇和人类的细胞死亡：用于细胞死亡研究的非典型模型系统 |
+| ZH Abstract | 综述非典型模型系统在细胞死亡研究中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73081. 无标题
+
+| Field | Content |
+|------|------|
+| EN Title | Untitled |
+| ZH Title | 无标题 |
+| ZH Abstract | 无标题（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73088. 社论：癫痫和神经发育疾病
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Epilepsy and Neurodevelopmental Diseases |
+| ZH Title | 社论：癫痫和神经发育疾病 |
+| ZH Abstract | 社论：癫痫和神经发育疾病（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73102. 模拟和分析肿瘤微环境
+
+| Field | Content |
+|------|------|
+| EN Title | Mimicking and analyzing the tumor microenvironment |
+| ZH Title | 模拟和分析肿瘤微环境 |
+| ZH Abstract | 综述肿瘤微环境的研究方法。 |
+| EN Abstract | The tumor microenvironment (TME) is increasingly appreciated to play a decisive role in cancer development and response to therapy in all solid tumors. Hypoxia, acidosis, high interstitial pressure, nutrient-poor conditions, and high cellular heterogeneity of the TME arise from interactions between cancer cells and their environment. These properties, in turn, play key roles in the aggressiveness and therapy resistance of the disease, through complex reciprocal interactions between the cancer ce |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73103. 表观遗传对遗传的控制
+
+| Field | Content |
+|------|------|
+| EN Title | Epigenetic control of heredity. |
+| ZH Title | 表观遗传对遗传的控制 |
+| ZH Abstract | 综述表观遗传修饰的遗传机制。 |
+| EN Abstract | Epigenetics is the field of science that deals with the study of changes in gene function that do not involve changes in DNA sequence and are heritable while epigenetics inheritance is the process of transmission of epigenetic modifications to the next generation. It can be transient, intergenerational, or transgenerational. There are various epigenetic modifications involving mechanisms such as DNA methylation, histone modification, and noncoding RNA expression, all of which are inheritable. In |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73104. 小大环激酶抑制剂的开发
+
+| Field | Content |
+|------|------|
+| EN Title | Development of small macrocyclic kinase inhibitors |
+| ZH Title | 小大环激酶抑制剂的开发 |
+| ZH Abstract | 小大环激酶抑制剂的开发（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73107. 基于成像的微孔板高通量筛选分析方法的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Application of Imaging-Based Assays in Microplate Formats for High-Content Screening. |
+| ZH Title | 基于成像的微孔板高通量筛选分析方法的应用 |
+| ZH Abstract | 综述高内涵筛选成像技术。 |
+| EN Abstract | The use of multiparametric microscopy-based screens with automated analysis has enabled the large-scale study of biological phenomena that are currently not measurable by any other method. Collectively referred to as high-content screening (HCS), or high-content analysis (HCA), these methods rely on an expanding array of imaging hardware and software automation. Coupled with an ever-growing amount of diverse chemical matter and functional genomic tools, HCS has helped open the door to a new fron |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73108. 采用ALK和LTK
+
+| Field | Content |
+|------|------|
+| EN Title | Adopting ALK and LTK |
+| ZH Title | 采用ALK和LTK |
+| ZH Abstract | 采用ALK和LTK（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73109. 鉴定肌营养不良-肌营养不良蛋白聚糖综合征的新基因
+
+| Field | Content |
+|------|------|
+| EN Title | IDENTIFICATION OF NOVEL GENES FOR THE MUSCULAR DYSTROPHY-DYSTROGLYCANOPATHY SYNDROMES |
+| ZH Title | 鉴定肌营养不良-肌营养不良蛋白聚糖综合征的新基因 |
+| ZH Abstract | 鉴定肌营养不良-肌营养不良蛋白聚糖综合征的新基因（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73110. 奇特、怪异和离奇：模型系统问题
+
+| Field | Content |
+|------|------|
+| EN Title | Odd, Weird, and Bizarre: Model Systems Issue |
+| ZH Title | 奇特、怪异和离奇：模型系统问题 |
+| ZH Abstract | 奇特、怪异和离奇：模型系统问题（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73112. 脊椎动物内耳的再生与替代
+
+| Field | Content |
+|------|------|
+| EN Title | Regeneration and replacement in the vertebrate inner ear |
+| ZH Title | 脊椎动物内耳的再生与替代 |
+| ZH Abstract | 综述内耳毛细胞再生研究。 |
+| EN Abstract | Deafness affects more than 40 million people in the UK and the USA, and many more world-wide. The primary cause of hearing loss is damage to or death of the sensory receptor cells in the inner ear, the hair cells. Birds can readily regenerate their cochlear hair cells but the mammalian cochlea has shown no ability to regenerate after damage. Current research efforts are focusing on gene manipulation, gene therapy and stem cell transplantation for repairing or replacing damaged mammalian cochlear |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73114. 节点在维持轴向祖细胞中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of the node in maintaining axial progenitors☆ |
+| ZH Title | 节点在维持轴向祖细胞中的作用 |
+| ZH Abstract | 综述羊膜动物节点在轴向祖细胞维持中的作用。 |
+| EN Abstract | The production of the vertebrate body axis involves the coordinating activity of the organizer, which coincides in amniotes with the node in the gastrulating embryo. This organizer orchestrates nearby axial progenitor populations that produce the spinal cord and musculoskeleton. Various findings, discussed further in this review, suggest that some of these axial progenitors exhibit stem cell-like properties as they display maintenance behaviour such as self-renewal and sustained contribution to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73117. 多发性硬化及其临床前模型中神经元与少突胶质细胞谱系的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Interaction between Neurons and the Oligodendroglial Lineage in Multiple Sclerosis and Its Preclinical Models |
+| ZH Title | 多发性硬化及其临床前模型中神经元与少突胶质细胞谱系的相互作用 |
+| ZH Abstract | 综述多发性硬化中神经元与少突胶质细胞相互作用。 |
+| EN Abstract | Multiple sclerosis (MS) is a complex central nervous system inflammatory disease leading to demyelination and associated functional deficits. Though endogenous remyelination exists, it is only partial and, with time, patients can enter a progressive phase of the disease, with neurodegeneration as a hallmark. Though major therapeutic advances have been made, with immunotherapies reducing relapse rate during the inflammatory phase of MS, there is presently no therapy available which significantly |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73118. 伙伴关系的模式：宿主-微生物群共生中的监视和拟态
+
+| Field | Content |
+|------|------|
+| EN Title | Patterns of partnership: surveillance and mimicry in host-microbiota mutualisms |
+| ZH Title | 伙伴关系的模式：宿主-微生物群共生中的监视和拟态 |
+| ZH Abstract | 综述宿主-微生物群互作机制。 |
+| EN Abstract | The repertoire of microbial cues monitored by animal and plant tissues encompasses not just molecules but also microbial activities. These include typical pathogen strategies of injuring membranes, degrading cellular material, and scavenging resources. These activities, however, are not exclusive to pathogens. Instead, they characterize the competitive strategies of microbes living in multispecies communities, like those typically found colonizing host tissues. Similar activities are also deploy |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73119. 被基质拯救：内质网应激下不依赖UPR的存活
+
+| Field | Content |
+|------|------|
+| EN Title | Saved by the Matrix: UPR Independent Survival under ER Stress |
+| ZH Title | 被基质拯救：内质网应激下不依赖UPR的存活 |
+| ZH Abstract | 评论文章，发现TMEM2介导的UPR非依赖存活机制。 |
+| EN Abstract | Cells are protected from endoplasmic reticulum stress through the unfolded protein response (UPR). In this issue of Cell, Schinzel, Higuchi-Sanabria, Shalem et al., identify a mechanism that helps cells cope with ER stress but is independent of canonical UPR activation, instead involving the extracellular matrix hyaluronidase, TMEM2, as a signaling mediator. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73121. 从硝基烷烃修饰肽进行的化学选择性腈氧化物-炔烃1,3-偶极环加成反应
+
+| Field | Content |
+|------|------|
+| EN Title | Chemoselective Nitrile Oxide Alkyne 1,3-Dipolar Cycloaddition Reactions from Nitroalkane-Tethered Peptides |
+| ZH Title | 从硝基烷烃修饰肽进行的化学选择性腈氧化物-炔烃1,3-偶极环加成反应 |
+| ZH Abstract | 报道一种新的化学选择性环加成反应。 |
+| EN Abstract | Synthesis and incorporation, of a new amino acid with, a nitroalkane side chain into peptideslin situ transformation of a nitroalkane side chain into nitrile oxide, and chemoselective 1,3 dipolar cycloaddition reactions :between in situ generated nitrile oxide and differefit alkynes are reported. The nitroalkane-mediated nitrile, oxide-alltyne cydloaddition was found to be orthogonal to the copper(I)-catalyzed azide-alkyne.cycloaddition reaction. The combination of orthogonal nitrile oxide-alkyn |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73125. 用于基因表达可逆光调控的光响应性5'帽
+
+| Field | Content |
+|------|------|
+| EN Title | Photoresponsive 5′-cap for the reversible photoregulation of gene expression |
+| ZH Title | 用于基因表达可逆光调控的光响应性5'帽 |
+| ZH Abstract | 开发光响应性mRNA帽用于基因表达调控。 |
+| EN Abstract | Photoresponsive 5'-caps that can be reversibly cis-trans isomerized by light irradiation were developed for the reversible photoregulation of gene expression. The 8-naphthylvinyl cap (8NV-cap) in the trans form completely inhibited translation of mRNA, whereas the cis form yielded protein with the same efficiency as mRNA capped with the normal-cap, a 26-fold higher efficiency than that of the trans form. The 8NV-capped mRNA could be switched between a translating state (ON state) and a non-trans |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73128. 控制脊椎动物肢体发育的分子信号之间的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Interplay between the molecular signals that control vertebrate limb development. |
+| ZH Title | 控制脊椎动物肢体发育的分子信号之间的相互作用 |
+| ZH Abstract | 综述脊椎动物肢体发育的分子信号。 |
+| EN Abstract | Vertebrate limbs display three obvious axes of asymmetry. These three axes are referred to as proximal-distal (Pr-D; shoulder to digit tips), anterior-posterior (A-P; thumb to little finger), and dorsal-ventral (D-V; back of hand to palm). At a molecular level, it is now possible to define the signals that control patterning of each of the three axes of the developing limb. These signals do not work in isolation though but rather their activity must be integrated such that the various limb eleme |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73129. 一种供体-π-受体荧光探针用于过氧化氢监测揭示镉/汞暴露引起的氧化失衡和线粒体损伤
+
+| Field | Content |
+|------|------|
+| EN Title | A donor-π-acceptor fluorescent probe for hydrogen peroxide monitoring reveals oxidative imbalance and mitochondrial damage caused by Cd/Hg exposure |
+| ZH Title | 一种供体-π-受体荧光探针用于过氧化氢监测揭示镉/汞暴露引起的氧化失衡和线粒体损伤 |
+| ZH Abstract | 开发H2O2荧光探针用于重金属毒性研究。 |
+| EN Abstract | Heavy metal ions trigger hydrogen peroxide (H2O2) outbreak and sustained toxic damage, but current H2O2 fluorescent probes still suffer from critical limitations in revealing long-term oxidative stress under cadmium ion (Cd2+) and mercury ion (Hg2+) co-exposure, and are limited by narrow Stokes shift and insufficient sensitivity. Herein, an original donor-pi-acceptor (D-pi-A) push-pull electron transferring fluorescent probe, TQ-H2O2, was designed for clarifying the vague relationship between Cd |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73131. 磷酸盐和超声处理对磷酸盐-壳聚糖微粒形成和特性的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Effects of phosphate salts and ultrasonication on the formation and characteristics of phosphate-chitosan microparticles |
+| ZH Title | 磷酸盐和超声处理对磷酸盐-壳聚糖微粒形成和特性的影响 |
+| ZH Abstract | 研究壳聚糖微粒的理化性质。 |
+| EN Abstract | The physicochemical properties of chitosan-microparticles are related to the crosslinking salts. The effects of sodium-pyrophosphate or sodium-tripolyphosphate and ultrasonication on the formation of phosphate-chitosan microparticles were evaluated. Potentiometric titration curves were used to determine the ionization degree of chitosan by employing the Henderson-Hasselbach equation and milliequivalents. Colloidal formation was validated by turbidity and conductivity at different phosphate-chito |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73132. 食用和药用植物：从民族药理学实践到跨学科方法和法规
+
+| Field | Content |
+|------|------|
+| EN Title | Edible and medicinal plants: From ethnopharmacological practices to interdisciplinary approaches and regulations |
+| ZH Title | 食用和药用植物：从民族药理学实践到跨学科方法和法规 |
+| ZH Abstract | 食用和药用植物：从民族药理学实践到跨学科方法和法规（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73134. 体外制造造血干细胞：别忘了生血内皮
+
+| Field | Content |
+|------|------|
+| EN Title | Making HSCs in vitro: don't forget the hemogenic endothelium |
+| ZH Title | 体外制造造血干细胞：别忘了生血内皮 |
+| ZH Abstract | 综述体外诱导造血干细胞的研究进展。 |
+| EN Abstract | Generating a hematopoietic stem cell (HSC) in vitro from nonhematopoietic tissue has been a goal of experimental hematologists for decades. Until recently, no in vitro-derived cell has closely demonstrated the full lineage potential and self-renewal capacity of a true HSC. Studies revealing stem cell ontogeny from embryonic mesoderm to hemogenic endothelium to HSC provided the key to inducing HSC-like cells in vitro from a variety of cell types. Here we review the path to this discovery and disc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73135. 失调的MiR-125a通过改变生物能量学促进银屑病关节炎中的关节血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | Dysregulated MiR-125a Promotes Joint Angiogenesis in Psoriatic Arthritis through Altered Bioenergetics |
+| ZH Title | 失调的MiR-125a通过改变生物能量学促进银屑病关节炎中的关节血管生成 |
+| ZH Abstract | 失调的MiR-125a通过改变生物能量学促进银屑病关节炎中的（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73136. 整合遗传和物理解释进化与发展的视角：研讨会介绍
+
+| Field | Content |
+|------|------|
+| EN Title | Perspectives on Integrating Genetic and Physical Explanations of Evolution and Development: An Introduction to the Symposium |
+| ZH Title | 整合遗传和物理解释进化与发展的视角：研讨会介绍 |
+| ZH Abstract | 介绍整合遗传与物理方法的研讨会。 |
+| EN Abstract | In the 20th century, genetic explanatory approaches became dominant in both developmental and evolutionary biological research. By contrast, physical approaches, which appeal to properties such as mechanical forces, were largely relegated to the margins, despite important advances in modeling. Recently, there have been renewed attempts to find balanced viewpoints that integrate both biological physics and molecular genetics into explanations of developmental and evolutionary phenomena. Here we i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73139. 会议报告——卵母细胞成熟与受精：来自经典和新兴模型的启示
+
+| Field | Content |
+|------|------|
+| EN Title | Meeting report - Oocyte maturation and fertilization: lessons from canonical and emerging models |
+| ZH Title | 会议报告——卵母细胞成熟与受精：来自经典和新兴模型的启示 |
+| ZH Abstract | 会议报告，未明确以斑马鱼为主。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73145. 纳米材料：应用、健康影响与环境风险
+
+| Field | Content |
+|------|------|
+| EN Title | Nanomaterials: Applications, health implications and environmental risks |
+| ZH Title | 纳米材料：应用、健康影响与环境风险 |
+| ZH Abstract | 综述纳米材料，未涉及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73147. 编辑前言：血管生成：细胞、组织与器官
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial foreword: Angiogenesis: Cells, tissues and organs |
+| ZH Title | 编辑前言：血管生成：细胞、组织与器官 |
+| ZH Abstract | 编辑前言，未涉及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73154. 菊花提取物通过抑制小胶质细胞乙酰胆碱酯酶挽救炎症相关神经元功能障碍
+
+| Field | Content |
+|------|------|
+| EN Title | Chrysanthemum zawadskii flower extract rescues inflammation-related neuronal dysfunction by inhibiting acetylcholinesterase in microglia |
+| ZH Title | 菊花提取物通过抑制小胶质细胞乙酰胆碱酯酶挽救炎症相关神经元功能障碍 |
+| ZH Abstract | 细胞研究，未涉及斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73164. Numb/Numbl-Opo拮抗作用通过调节整合素内吞控制视网膜上皮形态发生
+
+| Field | Content |
+|------|------|
+| EN Title | Numb/Numbl-Opo Antagonism Controls Retinal Epithelium Morphogenesis by Regulating Integrin Endocytosis |
+| ZH Title | Numb/Numbl-Opo拮抗作用通过调节整合素内吞控制视网膜上皮形态发生 |
+| ZH Abstract | 研究视网膜上皮形态发生，未明确斑马鱼。 |
+| EN Abstract | Polarized trafficking of adhesion receptors plays a pivotal role in controlling cellular behavior during morphogenesis. Particularly, clathrin-dependent endocytosis of integrins has long been acknowledged as essential for cell migration. However, little is known about the contribution of integrin trafficking to epithelial tissue morphogenesis. Here we show how the transmembrane protein Opo, previously described for its essential role during optic cup folding, plays a fundamental role in this pro |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73173. 肿胀的细胞核发出死亡信号
+
+| Field | Content |
+|------|------|
+| EN Title | Swollen Nuclei Signal from the Grave |
+| ZH Title | 肿胀的细胞核发出死亡信号 |
+| ZH Abstract | 研究细胞核肿胀与信号传导，未明确斑马鱼。 |
+| EN Abstract | Eicosanoid signaling plays key pro-inflammatory roles during tissue damage. Now, Enyedi et al. show that swelling of nuclei in cell corpses activates eicosanoid signaling to recruit leukocytes to sites of tissue damage. The enhanced membrane tension in swollen nuclei directly promotes calcium-dependent translocation and activation of enzymes involved in eicosanoid biosynthesis. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73181. 生物膜专业挑战
+
+| Field | Content |
+|------|------|
+| EN Title | Speciality Grand Challenge for "Biofilms" |
+| ZH Title | 生物膜专业挑战 |
+| ZH Abstract | 生物膜专业挑战（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73187. 再生医学中细胞可塑性的拓展视野
+
+| Field | Content |
+|------|------|
+| EN Title | Expanding Horizons of Cellular Plasticity in Regenerative Medicine |
+| ZH Title | 再生医学中细胞可塑性的拓展视野 |
+| ZH Abstract | 再生医学中细胞可塑性的拓展视野（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73191. Nrf2激活剂作为糖尿病肾病的诱人疗法
+
+| Field | Content |
+|------|------|
+| EN Title | Nrf2 Activators as Attractive Therapeutics or Diabetic Nephropathy |
+| ZH Title | Nrf2激活剂作为糖尿病肾病的诱人疗法 |
+| ZH Abstract | Nrf2激活剂作为糖尿病肾病的诱人疗法（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73192. 脊椎动物巩膜骨形成中的解剖变异和/或约束
+
+| Field | Content |
+|------|------|
+| EN Title | Anatomical variation and/or constraints on scleral ossicle formation in vertebrates |
+| ZH Title | 脊椎动物巩膜骨形成中的解剖变异和/或约束 |
+| ZH Abstract | 脊椎动物巩膜骨形成中的解剖变异和/或约束（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73230. miRNA：农药毒理学评估中潜在的有价值工具——当前实验和流行病学数据综述
+
+| Field | Content |
+|------|------|
+| EN Title | miRNAs: A potentially valuable tool in pesticide toxicology assessment-current experimental and epidemiological data review |
+| ZH Title | miRNA：农药毒理学评估中潜在的有价值工具——当前实验和流行病学数据综述 |
+| ZH Abstract | 综述miRNA在农药毒理学评估中的应用。 |
+| EN Abstract | miRNAs are responsible for the regulation of many cellular processes such as development, cell differentiation, proliferation, apoptosis, and tumor growth. Several studies showed that they can also serve as specific, stable, and sensitive markers of chemical exposure. In this review, current experimental and epidemiological data evidencing deregulation in miRNA expression in response to fungicides, insecticides or herbicides were analyzed. As shown by Venn's diagrams, miR-363 and miR-9 deregulat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73238. 多巴胺：调节脊髓运动网络的平行通路
+
+| Field | Content |
+|------|------|
+| EN Title | Dopamine: a parallel pathway for the modulation of spinal locomotor networks |
+| ZH Title | 多巴胺：调节脊髓运动网络的平行通路 |
+| ZH Abstract | 综述多巴胺在脊髓运动网络调节中的作用。 |
+| EN Abstract | The spinal cord contains networks of neurons that can produce locomotor patterns. To readily respond to environmental conditions, these networks must be flexible yet at the same time robust. Neuromodulators play a key role in contributing to network flexibility in a variety of invertebrate and vertebrate networks. For example, neuromodulators contribute to altering intrinsic properties and synaptic weights that, in extreme cases, can lead to neurons switching between networks. Here we focus on t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73239. 鱼类轴向惊跳行为的替代形式
+
+| Field | Content |
+|------|------|
+| EN Title | Alternative forms.of axial startle behaviors in fishes |
+| ZH Title | 鱼类轴向惊跳行为的替代形式 |
+| ZH Abstract | 综述鱼类三种轴向惊跳行为。 |
+| EN Abstract | For most aquatic vertebrates, axial movements,play key roles in the performance of startle responses. In fishes, these axis-based startle behaviors fall into three distinct categories - the C-start, withdrawal, and S-start - defined by patterns of body bending and underlying motor control. Startle behaviors have been widely studied due to their importance for predator evasion. In addition, the neural circuits that control startles are relatively accessible, compared to other vertebrate circuits, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73240. IMP：用于蛋白质功能和网络整合、可视化和预测的多物种功能基因组学门户
+
+| Field | Content |
+|------|------|
+| EN Title | IMP: a multi-species functional genomics portal for integration, visualization and prediction of protein functions and networks |
+| ZH Title | IMP：用于蛋白质功能和网络整合、可视化和预测的多物种功能基因组学门户 |
+| ZH Abstract | 介绍多物种功能基因组学门户IMP。 |
+| EN Abstract | Integrative multi-species prediction (IMP) is an interactive web server that enables molecular biologists to interpret experimental results and to generate hypotheses in the context of a large cross-organism compendium of functional predictions and networks. The system provides a framework for biologists to analyze their candidate gene sets in the context of functional networks, as they expand or focus these sets by mining functional relationships predicted from integrated high-throughput data. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73242. 肌肉干细胞及其研究模型系统
+
+| Field | Content |
+|------|------|
+| EN Title | Muscle stem cells and model systems for their investigation |
+| ZH Title | 肌肉干细胞及其研究模型系统 |
+| ZH Abstract | 综述肌肉干细胞及其研究模型。 |
+| EN Abstract | Stem cells are characterized by their clonal ability both to generate differentiated progeny and to undergo self-renewal. Studies of adult mammalian organs have revealed stem cells in practically every tissue. In the adult skeletal muscle, satellite cells are the primary muscle stem cells, responsible for postnatal muscle growth, hypertrophy, and regeneration. In the past decade, several molecular markers have been found that identify satellite cells in quiescent and activated states. However, d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73245. 腺病毒编码报告基因在培养鱼类细胞中的表达及其在UVC和氧化损伤后的再激活
+
+| Field | Content |
+|------|------|
+| EN Title | Expression of an adenovirus encoded reporter gene and its reactivation following UVC and oxidative damage in cultured fish cells |
+| ZH Title | 腺病毒编码报告基因在培养鱼类细胞中的表达及其在UVC和氧化损伤后的再激活 |
+| ZH Abstract | 研究腺病毒报告基因在鱼类细胞中的表达和修复。 |
+| EN Abstract | Purpose:Recombinant human adenovirus, AdCA35lacZ, was used to examine expression of a reporter gene and its reactivation following UVC (200-280 nm) and oxidative damage in fish cells.Materials and methods:AdCA35lacZ is a recombinant nonreplicating human adenovirus, which expresses the -galactosidase (-gal) reporter gene. UVC light produces DNA damage repaired by nucleotide excision repair (NER). In contrast, methylene blue plus visible light (MB+VL) produces oxidative DNA damage, mainly 8-oxogua |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73246. 辐鳍鱼（Actinopterygii）糖皮质激素受体的进化、结构和功能
+
+| Field | Content |
+|------|------|
+| EN Title | The evolution, structure and function of the ray finned fish (Actinopterygii) glucocorticoid receptors |
+| ZH Title | 辐鳍鱼（Actinopterygii）糖皮质激素受体的进化、结构和功能 |
+| ZH Abstract | 综述辐鳍鱼糖皮质激素受体的进化与功能。 |
+| EN Abstract | Basal ray-finned fish (Actinopterygii) possess a single glucocorticoid receptor (GR) and when compared to the lobe-finned vertebrate (Sarcopterygii) GR possess nine additional amino acids between the zinc finger of the DNA binding domain. A whole genome duplication event which occurred between 320 and 350 MYA in the teleost lineage following the split from the basal ray-finned fish resulted in 2 GRs: one GR group, GR1, has retained the 9 amino acids insert whereas the other group, GR2, has not. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73257. 用于水生生物玻璃化冷冻环原型的3D打印
+
+| Field | Content |
+|------|------|
+| EN Title | Three-Dimensional Printing of Vitrification Loop Prototypes for Aquatic Species |
+| ZH Title | 用于水生生物玻璃化冷冻环原型的3D打印 |
+| ZH Abstract | 3D打印用于水生生物玻璃化冷冻的环状装置。 |
+| EN Abstract | Vitrification is a method of cryopreservation that freezes samples rapidly, while forming an amorphous solid (glass), typically in small (mu L) volumes. The goal of this project was to create, by three-dimensional (3D) printing, open vitrification devices based on an elliptical loop that could be efficiently used and stored. Vitrification efforts can benefit from the application of 3D printing, and to begin integration of this technology, we addressed four main variables: thermoplastic filament |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73310. 商业洗涤剂对不同营养级生物体的毒性效应
+
+| Field | Content |
+|------|------|
+| EN Title | Toxic effect of commercial detergents on organisms from different trophic levels |
+| ZH Title | 商业洗涤剂对不同营养级生物体的毒性效应 |
+| ZH Abstract | 检测洗涤剂对多营养级生物的毒性。 |
+| EN Abstract | The toxic effects of four powder detergents: two laundry detergents (A and B), one household detergent (C), one dishwashing detergent (D), and the surfactant alkylbenzene sulfonate (LAS) were analyzed in this study on organisms from different trophic levels (microalgae, cladocerans, ostracods, amphipods, macrophytes, and fish). LC50 and EC50 values obtained in the toxicity bioassays varied between 0.019 and 116.9 mg L-1 . The sensitivity of the organisms to the detergents was (from most sensitiv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73318. 基于转录组分析的Fusaproliferin类似物抗炎活性研究
+
+| Field | Content |
+|------|------|
+| EN Title | Investigation of the Anti-Inflammatory Activity of Fusaproliferin Analogues Guided by Transcriptome Analysis |
+| ZH Title | 基于转录组分析的Fusaproliferin类似物抗炎活性研究 |
+| ZH Abstract | 研究Fusaproliferin类似物的抗炎机制。 |
+| EN Abstract | Background: Excessive inflammation results in severe tissue damage as well as serious acute or chronic disorders, and extensive research has focused on finding new anti-inflammatory hit compounds with safety and efficacy profiles from natural products. As promising therapeutic entities for the treatment of inflammation-related diseases, fusaproliferin and its analogs have attracted great interest. However, the underlying anti-inflammatory mechanism is still poorly understood and deserves to be f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73335. 淫羊藿提取物通过黑色素生物合成和黑素体生成/转运表现出色素沉着作用
+
+| Field | Content |
+|------|------|
+| EN Title | Epimedium brevicornum Maxim. Extract exhibits pigmentation by melanin biosynthesis and melanosome biogenesis/transfer |
+| ZH Title | 淫羊藿提取物通过黑色素生物合成和黑素体生成/转运表现出色素沉着作用 |
+| ZH Abstract | 研究淫羊藿提取物促进色素沉着机制。 |
+| EN Abstract | Epimedium brevicornum Maxim. (Epimedii Folium) is a traditional medicine widely utilized in China for sexual dysfunction and osteoporosis treatment. Recently, studies have reported that Epimedium flavonoid icariin displayed hair growth and melanogenic ability by targeting tyrosinase activity. Nevertheless, icariin hydrolysate icariside II and icaritin cause depigmentation due to their tyrosinase inhibition. These pigment functional discrepancies from Epimedium constituents arouse our great inter |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73351. 通过小分子调节p53信号通路缓解急性髓系白血病酪氨酸激酶耐药的策略
+
+| Field | Content |
+|------|------|
+| EN Title | Strategies for Alleviating Tyrosine Kinase Resistance in Acute Myeloid Leukemia By Modulating p53 Signaling Pathway with Small Molecules |
+| ZH Title | 通过小分子调节p53信号通路缓解急性髓系白血病酪氨酸激酶耐药的策略 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73354. 人参皂苷F1通过激活IGF-1/IGF1R通路促进血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | Ginsenoside F1 promotes angiogenesis by activating the IGF-1/IGF1R pathway |
+| ZH Title | 人参皂苷F1通过激活IGF-1/IGF1R通路促进血管生成 |
+| ZH Abstract | 研究人参皂苷F1促进血管生成的机制。 |
+| EN Abstract | Ischemic stroke is one of the most lethal and highly disabling diseases that seriously affects the human health and quality of life. A therapeutic angiogenic strategy has been proposed to alleviate ischemia-induced injury by promoting angiogenesis and improving cerebrovascular function in the ischemic regions. The insulin-like growth factor 1 (IGF-1)/insulin-like growth factor 1 receptor (IGF1R) axis is crucial for cerebral angiogenesis and neurogenesis. However, effective drugs that prevent cer |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73358. 柳树对鱼类抵抗副溶血弧菌和溶藻弧菌的保护作用
+
+| Field | Content |
+|------|------|
+| EN Title | Protective Effect of Willow (Salix babylonica L.) on Fish Resistance to Vibrio parahaemolyticus and Vibrio alginolyticus |
+| ZH Title | 柳树对鱼类抵抗副溶血弧菌和溶藻弧菌的保护作用 |
+| ZH Abstract | 研究柳树提取物对鱼类抗弧菌感染的作用。 |
+| EN Abstract | Vibrio spp. cause vibriosis in many saltwater and freshwater aquatic species, such as fish, crustaceans, and mollusks. Vibrio parahaemolyticus and Vibrio alginolyticus are among the few Vibrio species commonly found in infections in fish. This study aimed at investigating the chemical composition and evaluating the antibacterial activities of Salix babylonica L. The ethyl acetate (LL2) and methanolic (LL3) extracts were used to evaluate the resistance of strains as V. parahaemolyticus LBT6 and V |
+| Judgment | 是 |
+| Reason | 摘要未明确鱼类种类 |
+---
+### 73363. 三唑基半三明治钌(II)化合物：从体外抗增殖潜力到体内毒性评价
+
+| Field | Content |
+|------|------|
+| EN Title | Triazole-Based Half-Sandwich Ruthenium(II) Compounds: From In Vitro Antiproliferative Potential to In Vivo Toxicity Evaluation |
+| ZH Title | 三唑基半三明治钌(II)化合物：从体外抗增殖潜力到体内毒性评价 |
+| ZH Abstract | 合成钌化合物并评估其体内毒性。 |
+| EN Abstract | A new series of half-sandwich ruthenium(II) compounds [(eta(6)-arene)Ru(L)Cl][CF3SO3] bearing 1,2,3-triazole ligands (arene = p-cymene, L = L1 (1); arene = p-cymene, L = L2 (2); arene = benzene, L = L1 (3); arene = benzene, L2 (4); L1 = 2-[1-(p-tolyl)-1H-1,2,3-triazol-4-yl]pyridine and L2 = 1,1'-di-p-tolyl-1H,1'H-4,4'-bi(1,2,3-triazole) have been synthesized and fully characterized by H-1 and C-13 NMR and IR spectroscopy, mass spectrometry, and elemental analysis. The molecular structures of 1, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73370. 磁性可回收纳米复合材料ZnO/Fe3O4/Bi2WO6/RGO高效光催化去除微囊藻毒素-LR及其毒性评估
+
+| Field | Content |
+|------|------|
+| EN Title | Highly efficient photocatalytic Microcystin-LR elimination using magnetic recyclable nanocomposite ZnO/Fe3O4/Bi2WO6/RGO and its toxicity assessment |
+| ZH Title | 磁性可回收纳米复合材料ZnO/Fe3O4/Bi2WO6/RGO高效光催化去除微囊藻毒素-LR及其毒性评估 |
+| ZH Abstract | 开发光催化剂降解微囊藻毒素并评估毒性。 |
+| EN Abstract | Photocatalysis offers an environment-friendly and sustainable strategy for Microcytin-LR (MC-LR) degradation in aquatic systems, and thus the exploitation of recyclable photocatalysts with high-efficiency is urgently needed. Herein, a magnetic photocatalyst ZnO/Fe3O4/Bi2WO6/RGO was developed to degrade MC-LR under visible light. The ZnO/Fe3O4/Bi2WO6/RGO achieved 97.4 % MC-LR degradation within 180 min under visible light, which was 2.2 and 2.5 times higher than those of Bi2WO6 and ZnO, respectiv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73381. 山柰中的强效抗血管生成成分及其作用机制
+
+| Field | Content |
+|------|------|
+| EN Title | Potent anti-angiogenic component in Kaempferia galanga L. and its mechanism of action |
+| ZH Title | 山柰中的强效抗血管生成成分及其作用机制 |
+| ZH Abstract | 研究山柰抗血管生成活性成分及机制。 |
+| EN Abstract | Ethnopharmacological relevance: Traditionally, the roots of Kaempferia galanga has been used to treat high blood pressure, chest pain, headache, toothache, rheumatism, indigestion, cough, inflammation and cancer in Asia. Nevertheless, most of its pharmacological studies were focused on ethanolic extracts and volatile oils. The exact active chemical constituents and their underlying mechanisms are still poorly understood, especially towards its anti -cancer treatment. Inhibition of angiogenesis i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73385. 阐明吡喹酯在土壤中的降解行为和机制：消散动力学、转化产物和毒性评估的综合研究
+
+| Field | Content |
+|------|------|
+| EN Title | Elucidating the degradation behavior and mechanisms of pyraquinil in soil: A comprehensive study on dissipation kinetics, transformation products and toxicity assessment |
+| ZH Title | 阐明吡喹酯在土壤中的降解行为和机制：消散动力学、转化产物和毒性评估的综合研究 |
+| ZH Abstract | 研究吡喹酯在土壤中的降解和毒性。 |
+| EN Abstract | The ecological and health risks posed by pesticides entering soil environments are a growing concern. As a new GABA receptor antagonist insecticide, the environmental fate, ecotoxicity and potential transformation products (TPs) of pyraquinil in soil have remained ambiguous. In this study, degradation kinetics, pathways, mechanisms, and toxicities of pyraquinil in five representative soils under aerobic/anaerobic/sterile conditions were investigated for the first time. Pyraquinil exhibited a hal |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73386. 实现叶绿素衍生碳点经亲水修饰后的明亮深红色水相发光用于成像应用
+
+| Field | Content |
+|------|------|
+| EN Title | Realization of bright deep-red aqueous luminescence from chlorophyll-derived CDs with hydrophilic modification for imaging application |
+| ZH Title | 实现叶绿素衍生碳点经亲水修饰后的明亮深红色水相发光用于成像应用 |
+| ZH Abstract | 制备叶绿素碳点用于生物成像。 |
+| EN Abstract | Chlorophyll-derived carbon dots (CDs) with strong deep red emission is an ideal candidate for high-quality bioimaging in the NIR window. However, its low aqueous dispersity with severe emission quenching has limited its biological application. Herein, chlorophyll-derived CDs from mulberry leaf (MCDs) have been successfully coated with polyethylenimine (PEI) via a simple and mild solution-mixing method at room temperature. Experimental optimization proved that the MCDs produced at a reaction temp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73387. Toxicity of 17 Disinfection By-products to Different Trophic Levels of Aquatic Organisms: Ecological Risks and Mechanisms
+
+| Field | Content |
+|------|------|
+| EN Title | Toxicity of 17 Disinfection By-products to Different Trophic Levels of Aquatic Organisms: Ecological Risks and Mechanisms |
+| ZH Title | Toxicity of 17 Disinfection By-products to Different Trophic Levels of Aquatic Organisms: Ecological Risks and Mechanisms |
+| ZH Abstract | 评估消毒副产物对水生生物的 |
+| EN Abstract | No abstract |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73388. 金(III)离子从金硫代苹果酸钠中间代谢物的体外和体内监测通过水溶性钌(II)复合物发光探针
+
+| Field | Content |
+|------|------|
+| EN Title | In-vitro and in-vivo monitoring of gold(III) ions from intermediate metabolite of sodium aurothiomalate through water-soluble ruthenium (II) complex-based luminescent probe |
+| ZH Title | 金(III)离子从金硫代苹果酸钠中间代谢物的体外和体内监测通过水溶性钌(II)复合物发光探针 |
+| ZH Abstract | 建立斑马鱼体内金(III)离子检测方法。 |
+| EN Abstract | Real-time monitoring of drug metabolism in vivo is of great significance to drug development and toxicology research. The purpose of this study is to establish a rapid and visual in vivo detection method for the detection of an intermediate metabolite of the gold (I) drug. Gold (I) drugs such as sodium aurothiomalate (AuTM) have antiinflammatory effects in the treatment of rheumatoid arthritis. Gold(III) ions (Au3+) are the intermediate metabolite of gold medicine, and they are also the leading |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73391. CMTM4通过促进VE-cadherin细胞表面回收至内皮粘附连接调控血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | CMTM4 regulates angiogenesis by promoting cell surface recycling of VE-cadherin to endothelial adherens junctions |
+| ZH Title | CMTM4通过促进VE-cadherin细胞表面回收至内皮粘附连接调控血管生成 |
+| ZH Abstract | 研究CMTM4在血管生成中的作用，涉及斑马鱼模型。 |
+| EN Abstract | Vascular endothelial (VE) cadherin is a key component of endothelial adherens junctions (AJs) and plays an important role in maintaining vascular integrity. Endocytosis of VE-cadherin regulates junctional strength and a decrease of surface VE-cadherin reduces vascular stability. However, disruption of AJs is also a requirement for vascular sprouting. Identifying novel regulators of endothelial endocytosis could enhance our understanding of angiogenesis. Here, we evaluated the angiogenic potentia |
+| Judgment | 是 |
+| Reason | 摘要未明确提及斑马鱼 |
+---
+### 73392. 核糖体蛋白基因L9和L15突变与特定临床表型的DBA相关
+
+| Field | Content |
+|------|------|
+| EN Title | Mutations in Ribosomal Protein Genes L9 and L15 Link to DBA with Specific Clinical Phenotypes |
+| ZH Title | 核糖体蛋白基因L9和L15突变与特定临床表型的DBA相关 |
+| ZH Abstract | 核糖体蛋白基因L9和L15突变与特定临床表型的DBA相关（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73396. 血管生成与神经发育的相似性：小型动物模型能告诉我们什么
+
+| Field | Content |
+|------|------|
+| EN Title | Similarities between angiogenesis and neural development: What small animal models can tell us |
+| ZH Title | 血管生成与神经发育的相似性：小型动物模型能告诉我们什么 |
+| ZH Abstract | 综述血管生成与神经发育的相似性，提及斑马鱼模型。 |
+| EN Abstract | During evolution vertebrates had to evolve in order to perform more and more complex tasks. To achieve this goal, they developed specialized tissues: a highly branched vascular system to ensure that all tissues receive adequate blood supply, and an intricate nervous system in which nerves branch to transmit electrical signals to peripheral organs. The development of both systems is tightly controlled by a series of developmental cues, which ensure the accomplishment of a complex and highly stere |
+| Judgment | 是 |
+| Reason | 摘要未明确提及斑马鱼 |
+---
+### 73397. AMPA受体亚基2（GRIA2）转录本的Q/R RNA编辑在软骨鱼类出现时已进化
+
+| Field | Content |
+|------|------|
+| EN Title | Q/R RNA editing of the AMPA receptor subunit 2 (GRIA2) transcript evolves no later than the appearance of cartilaginous fishes. |
+| ZH Title | AMPA受体亚基2（GRIA2）转录本的Q/R RNA编辑在软骨鱼类出现时已进化 |
+| ZH Abstract | 研究AMPA受体RNA编辑的进化，涉及斑马鱼。 |
+| EN Abstract | The amino acid, either a glutamine (Q) or an arginine (R), at the Q/R site of the pore-lining segment (M2) of a vertebrate AMPA receptor subunit critically influences the properties of the receptor. The R codon of the mammalian AMPA receptor subunit 2 (GRIA2) transcript is not coded by the chromosomal sequence, but is created by posttranscriptional RNA editing activities. On the other hand, the R codons of some teleost GRIA2 homologs are coded by chromosomal sequences. To elucidate the evolution |
+| Judgment | 是 |
+| Reason | 摘要未明确以斑马鱼为主要对象 |
+---
+### 73401. 通过VHL/miR-212/132轴控制血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | Control of Angiogenesis via a VHL/miR-212/132 Axis |
+| ZH Title | 通过VHL/miR-212/132轴控制血管生成 |
+| ZH Abstract | 研究VHL/miR-212/132轴在血管生成中的作用。 |
+| EN Abstract | A common feature of tumorigenesis is the upregulation of angiogenesis pathways in order to supply nutrients via the blood for the growing tumor. Understanding how cells promote angiogenesis and how to control these processes pharmaceutically are of great clinical interest. Clear cell renal cell carcinoma (ccRCC) is the most common form of sporadic and inherited kidney cancer which is associated with excess neovascularization. ccRCC is highly associated with biallelic mutations in the von Hippel- |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73406. 鉴定ETS家族成员ELF1作为MEIS1表达的转录调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | Identification of the ETS Family Member ELF1 as a Transcriptional Regulator of MEIS1 Expression |
+| ZH Title | 鉴定ETS家族成员ELF1作为MEIS1表达的转录调控因子 |
+| ZH Abstract | 鉴定ETS家族成员ELF1作为MEIS1表达的转录调控因子（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73407. 新型CXCR7受体在浆细胞疾病中的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of the new CXCR7 receptor in plasma cell dyscrasias |
+| ZH Title | 新型CXCR7受体在浆细胞疾病中的调控 |
+| ZH Abstract | 新型CXCR7受体在浆细胞疾病中的调控（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73421. 小梁化胚胎心室中的涡旋动力学
+
+| Field | Content |
+|------|------|
+| EN Title | Vortex Dynamics in Trabeculated Embryonic Ventricles |
+| ZH Title | 小梁化胚胎心室中的涡旋动力学 |
+| ZH Abstract | 研究胚胎心脏血流动力学，可能涉及斑马鱼。 |
+| EN Abstract | Proper heart morphogenesis requires a delicate balance between hemodynamic forces, myocardial activity, morphogen gradients, and epigenetic signaling, all of which are coupled with genetic regulatory networks. Recently both in vivo and in silico studies have tried to better understand hemodynamics at varying stages of veretebrate cardiogenesis. In particular, the intracardial hemodynamics during the onset of trabeculation is notably complex-the inertial and viscous fluid forces are approximately |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73422. 通用酪氨酸激酶SRC的显性功能获得性突变导致血小板减少、骨髓纤维化、出血和骨病理综合征中增强的足体形成
+
+| Field | Content |
+|------|------|
+| EN Title | A Dominant Gain-of-Function Mutation in Universal Tyrosine Kinase SRC Causes Enhanced Podosome Formation in a Syndrome with Thrombocytopenia, Myelofibrosis, Bleeding and Bone Pathologies |
+| ZH Title | 通用酪氨酸激酶SRC的显性功能获得性突变导致血小板减少、骨髓纤维化、出血和骨病理综合征中增强的足体形成 |
+| ZH Abstract | 通用酪氨酸激酶SRC的显性功能获得性突变导致血小板减少、骨髓（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73424. Robo4是一种血管特异性受体，抑制内皮细胞迁移
+
+| Field | Content |
+|------|------|
+| EN Title | Robo4 is a vascular-specific receptor that inhibits endothelial migration. |
+| ZH Title | Robo4是一种血管特异性受体，抑制内皮细胞迁移 |
+| ZH Abstract | 研究Robo4在血管发育中的作用，提及斑马鱼。 |
+| EN Abstract | Guidance and patterning of axons are orchestrated by cell-surface receptors and ligands that provide directional cues. Interactions between the Robo receptor and Slit ligand families of proteins initiate signaling cascades that repel axonal outgrowth. Although the vascular and nervous systems grow as parallel networks, the mechanisms by which the vascular endothelial cells are guided to their appropriate positions remain obscure. We have identified a putative Robo homologue, Robo4, based on its |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73430. 保持发育准时：脊椎动物分节过程中驱动振荡基因表达的转录后机制见解
+
+| Field | Content |
+|------|------|
+| EN Title | Keeping development on time: Insights into post-transcriptional mechanisms driving oscillatory gene expression during vertebrate segmentation |
+| ZH Title | 保持发育准时：脊椎动物分节过程中驱动振荡基因表达的转录后机制见解 |
+| ZH Abstract | 综述脊椎动物分节时钟的转录后调控机制。 |
+| EN Abstract | Biological time keeping, or the duration and tempo at which biological processes occur, is a phenomenon that drives dynamic molecular and morphological changes that manifest throughout many facets of life. In some cases, the molecular mechanisms regulating the timing of biological transitions are driven by genetic oscillations, or periodic increases and decreases in expression of genes described collectively as a "molecular clock." In vertebrate animals, molecular clocks play a crucial role in f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73434. 多酚代谢物在神经退行性疾病背景下对模式生物的有益作用概述
+
+| Field | Content |
+|------|------|
+| EN Title | Overview of Beneficial Effects of (Poly)phenol Metabolites in the Context of Neurodegenerative Diseases on Model Organisms |
+| ZH Title | 多酚代谢物在神经退行性疾病背景下对模式生物的有益作用概述 |
+| ZH Abstract | 综述多酚代谢物对模式生物神经保护作用。 |
+| EN Abstract | The rise of neurodegenerative diseases in an aging population is an increasing problem of health, social and economic consequences. Epidemiological and intervention studies have demonstrated that diets rich in (poly)phenols can have potent health benefits on cognitive decline and neurodegenerative diseases. Meanwhile, the role of gut microbiota is ever more evident in modulating the catabolism of (poly)phenols to dozens of low molecular weight (poly)phenol metabolites that have been identified i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73438. 葡萄糖依赖性促胰岛素多肽（GIP）表达的系统发育：对营养效率和肥胖的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Phylogeny of Glucose-Dependent Insulinotropic Polypeptide (GIP) Expression: Implications for Nutrient Efficiency and Obesity |
+| ZH Title | 葡萄糖依赖性促胰岛素多肽（GIP）表达的系统发育：对营养效率和肥胖的影响 |
+| ZH Abstract | 葡萄糖依赖性促胰岛素多肽（GIP）表达的系统发育：对营养效率（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73440. 脊椎动物视网膜光异构酶RGR的光谱多样性
+
+| Field | Content |
+|------|------|
+| EN Title | Spectral diversity of vertebrate retinal photoisomerase RGRs |
+| ZH Title | 脊椎动物视网膜光异构酶RGR的光谱多样性 |
+| ZH Abstract | 研究脊椎动物RGR的光谱特性。 |
+| EN Abstract | Vision begins with the photoisomerization of the chromophore 11-cis-retinal (11cR) to its all-trans form in visual rhodopsins. To regenerate visual rhodopsins, all-trans-retinal (atR) is re-isomerized to 11cR through a process known as the visual cycle in the eye. A key component of the vertebrate visual cycle is retinal G-protein-coupled receptor (RGR), which is a rhodopsin acting as a retinal photoisomerase that regenerates 11cR from atR by light. Although the spectral properties of visual rho |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73444. Erg的动态表达控制造血系统从胎儿到成体的成熟
+
+| Field | Content |
+|------|------|
+| EN Title | Dynamic Expression of Erg Controls Fetal-to-Adult Maturation of the Hematopoietic System |
+| ZH Title | Erg的动态表达控制造血系统从胎儿到成体的成熟 |
+| ZH Abstract | Erg的动态表达控制造血系统从胎儿到成体的成熟（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73446. metaRER包用于转录组数据荟萃分析以识别转录重编程背后的顺式调控代码
+
+| Field | Content |
+|------|------|
+| EN Title | metaRER Package for Meta-Analysis of Transcriptome Data to Identify thecis-Regulatory Code behind the Transcriptional Reprogramming |
+| ZH Title | metaRER包用于转录组数据荟萃分析以识别转录重编程背后的顺式调控代码 |
+| ZH Abstract | 开发metaRER包分析转录组数据。 |
+| EN Abstract | At the molecular level, response to an external factor or an internal condition causes reprogramming of temporal and spatial transcription. When an organism undergoes physiological and/or morphological changes, several signaling pathways are activated simultaneously. Examples of such complex reactions are the response to temperature changes, dehydration, various biologically active substances, and others. A significant part of the regulatory ensemble in such complex reactions remains unidentifie |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73447. 锑、镓和铟对台湾半导体制造区一种硬骨鱼模型和本地鱼类的毒性
+
+| Field | Content |
+|------|------|
+| EN Title | TOXICITY OF ANTIMONY, GALLIUM, AND INDIUM TOWARD A TELEOST MODEL AND A NATIVE FISH SPECIES OF SEMICONDUCTOR MANUFACTURING DISTRICTS OF TAIWAN |
+| ZH Title | 锑、镓和铟对台湾半导体制造区一种硬骨鱼模型和本地鱼类的毒性 |
+| ZH Abstract | 研究锑、镓、铟对鱼类毒性。 |
+| EN Abstract | Antimony (Sb), gallium (Ga), and indium (In) compounds are released into the aquatic environment during manufacturing processes such as wafer processing, epitaxy, and cleaning operations in making high-speed semiconductor and light emitting diodes (LEDs). In certain cases, it is possible that significant levels of these compounds are continually being discharged into aquatic environments, which could increase the hazardous effects. This study was conducted to determine adverse effects of antimon |
+| Judgment | 是 |
+| Reason | 摘要未明确斑马鱼为模型 |
+---
+### 73449. 用于监管识别内分泌干扰化学品的鱼类生物标志物
+
+| Field | Content |
+|------|------|
+| EN Title | Fish biomarkers for regulatory identification of endocrine disrupting chemicals |
+| ZH Title | 用于监管识别内分泌干扰化学品的鱼类生物标志物 |
+| ZH Abstract | 综述鱼类生物标志物用于EDC识别。 |
+| EN Abstract | Demonstrating chemical-induced adverse effects, endocrine mechanisms/modes of action (MOAs) and their causal link is needed for regulatory identification of endocrine disrupting chemicals (EDCs). This paper addresses critical issues over MOAs and their causal link to changes in endpoints. Vitellogenin (VTG), secondary sex characteristics (SSC), and sex ratio (also an apical endpoint) are indicative of chemicals interfering with EAS (estrogen, androgen and steroidogenesis) pathways. These biomark |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73465. E112在发育中调节关键晶状体基因表达，其扰动导致早期晶状体缺陷
+
+| Field | Content |
+|------|------|
+| EN Title | E112 regulates expression of key lens genes in development, perturbation of which causes early-onset lens defects |
+| ZH Title | E112在发育中调节关键晶状体基因表达，其扰动导致早期晶状体缺陷 |
+| ZH Abstract | E112在发育中调节关键晶状体基因表达，其扰动导致早期晶状体（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73468. 时间序列中的拓扑数据分析：时间过滤及其在单细胞基因组学中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Topological Data Analysis in Time Series: Temporal Filtration and Application to Single-Cell Genomics |
+| ZH Title | 时间序列中的拓扑数据分析：时间过滤及其在单细胞基因组学中的应用 |
+| ZH Abstract | 应用拓扑数据分析单细胞基因组学时间序列。 |
+| EN Abstract | The absence of a conventional association between the cell-cell cohabitation and its emergent dynamics into cliques during development has hindered our understanding of how cell populations proliferate, differentiate, and compete (i.e., the cell ecology). With the recent advancement of single-cell RNA sequencing (RNA-seq), we can potentially describe such a link by constructing network graphs that characterize the similarity of the gene expression profiles of the cell-specific transcriptional pr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73472. Fish-Microarray：用于单胚胎高通量筛选的微型化平台
+
+| Field | Content |
+|------|------|
+| EN Title | Fish-Microarray: A Miniaturized Platform for Single-Embryo High-Throughput Screenings |
+| ZH Title | Fish-Microarray：用于单胚胎高通量筛选的微型化平台 |
+| ZH Abstract | 介绍一种用于全动物高通量筛选的微型化平台。 |
+| EN Abstract | Small molecule high-throughput screenings are essential for the fields of drug discovery and toxicology. Such screenings performed on whole animals are more physiologically relevant leading to more predictive results. However, due to challenges in automation, high costs and absence of miniaturized solutions for animal-based experiments, high throughput screenings based on animal models are still in its infancy. Here a platform for miniaturized high throughput whole-organism screenings is present |
+| Judgment | 是 |
+| Reason | 摘要未明确动物种类 |
+---
+### 73519. 正向遗传学鉴定导致肠道微生物群失调表型转变的宿主位点
+
+| Field | Content |
+|------|------|
+| EN Title | FORWARD GENETICS IDENTIFIES HOST LOCUS RESPONSIBLE FOR DYSBIOTIC PHENOTYPE SHIFT IN THE GUT MICROBIOTA |
+| ZH Title | 正向遗传学鉴定导致肠道微生物群失调表型转变的宿主位点 |
+| ZH Abstract | 正向遗传学鉴定导致肠道微生物群失调表型转变的宿主位点（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73557. 具有多红色发射调控的全色碳点：体外和体内多色生物成像的开关传感器
+
+| Field | Content |
+|------|------|
+| EN Title | Full-color carbon dots with multiple red-emission tuning: on/off sensors, in vitro and in vivo multicolor bioimaging |
+| ZH Title | 具有多红色发射调控的全色碳点：体外和体内多色生物成像的开关传感器 |
+| ZH Abstract | 合成全色碳点并用于体外和体内多色成像。 |
+| EN Abstract | Carbon-based luminescent materials have attracted much attention of many researchers in recent years for its better optical properties and biological applications. In this paper, we report the full-color CDs (from blue to red) with better quality red emissive by a facile and efficient synthesis route. The CDs show multiple red-emission tuning, unique nature of up-conversion photoluminescent under lower excitation and single-particle photoluminescent. The luminescence mechanism was also explored |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73561. α-生育酚、多不饱和脂肪酸和脂氧合酶在胚胎发生过程中的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Interactions between α-tocopherol, polyunsaturated fatty acids, and lipoxygenases during embryogenesis |
+| ZH Title | α-生育酚、多不饱和脂肪酸和脂氧合酶在胚胎发生过程中的相互作用 |
+| ZH Abstract | 探讨α-生育酚在胚胎发育中的抗氧化作用。 |
+| EN Abstract | alpha-Tocopherol is a lipid-soluble antioxidant that is specifically required for reproduction and embryogenesis. However, since its discovery, alpha-tocopherol's specific biologic functions, other than as an antioxidant, and the mechanism(s) mediating its requirement for embryogenesis remain unknown. As an antioxidant, alpha-tocopherol protects polyunsaturated fatty acids (PUFAs) from lipid peroxidation. alpha-Tocopherol is probably required during embryonic development to protect PUFAs that ar |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73567. Set1/Mll复合物Dpy30亚基对造血干细胞和祖细胞命运决定的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of Hematopoietic Stem and Progenitor Cell Fate Determination By the Dpy30 Subunit of Set1 /Mll Complexes |
+| ZH Title | Set1/Mll复合物Dpy30亚基对造血干细胞和祖细胞命运决定的调控 |
+| ZH Abstract | 研究Dpy30亚基在造血干细胞命运决定中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73569. 与红细胞增多症和嗜铬细胞瘤/副神经节瘤相关的三种新型EPAS1/HIF2A体细胞和种系突变
+
+| Field | Content |
+|------|------|
+| EN Title | Three Novel EPAS1/HIF2A Somatic and Germline mutations Associated with Polycythemia and Pheochromocytoma/Paraganglioma |
+| ZH Title | 与红细胞增多症和嗜铬细胞瘤/副神经节瘤相关的三种新型EPAS1/HIF2A体细胞和种系突变 |
+| ZH Abstract | 鉴定三种新的EPAS1/HIF2A突变与疾病相关。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73578. 红色荧光探针顺序检测次氯酸和二氧化硫衍生物及其体外和体内生物成像应用
+
+| Field | Content |
+|------|------|
+| EN Title | Sequential detection of hypochlorous acid and sulfur dioxide derivatives by a red-emitting fluorescent probe and bioimaging applications in vitro and in vivo |
+| ZH Title | 红色荧光探针顺序检测次氯酸和二氧化硫衍生物及其体外和体内生物成像应用 |
+| ZH Abstract | 开发红色荧光探针用于检测HOCl和SO2衍生物并成像。 |
+| EN Abstract | Hypochlorous acid (HOCl) and sulfur dioxide derivatives (SO32-/HSO3-) play critical roles in complex signal transduction and oxidation pathways. Therefore, it is meaningful and valuable to detect both HOCl and SO2 derivatives in biosystems by a fluorescence imaging assay. In this work, we developed a red-emitting fluorescent probe (DP) by the condensation of malononitrile and phenothiazine derivatives through a C = C double bond. DP was designed with a donor-pi-acceptor (D-pi-A) structure, which |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73595. 溴氰菊酯纳米乳液的优化制备与配方及其增强杀虫效力和优越生物安全性
+
+| Field | Content |
+|------|------|
+| EN Title | Optimised Preparation and Formula of Deltamethrin Nanoemulsion for Enhanced Insecticidal Efficacy and Superior Biosafety |
+| ZH Title | 溴氰菊酯纳米乳液的优化制备与配方及其增强杀虫效力和优越生物安全性 |
+| ZH Abstract | 开发溴氰菊酯纳米乳液并评估其杀虫活性和非靶标安全性。 |
+| EN Abstract | Stable nanoemulsions with fine droplets reduce organic solvent use and improve the dispersion of hydrophobic pesticide. However, current studies on deltamethrin nanoemulsion lack systematic formula optimization, performance evaluation and biosafety assessment. This study developed a stable deltamethrin nanoemulsion (Del@Ne) and tested its physicochemical properties, insecticidal activity and non-target safety. In 2025, the effects of surfactant ratio, dosage, preparation temperature and emulsifi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73600. 通过纳米晶制剂提高白藜芦醇的口服生物利用度和抗帕金森病疗效
+
+| Field | Content |
+|------|------|
+| EN Title | Enhancement of oral bioavailability and anti-Parkinsonian efficacy of resveratrol through a nanocrystal formulation |
+| ZH Title | 通过纳米晶制剂提高白藜芦醇的口服生物利用度和抗帕金森病疗效 |
+| ZH Abstract | 开发白藜芦醇纳米晶制剂用于帕金森病治疗。 |
+| EN Abstract | Resveratrol (RES), a non-flavonoid polyphenol extracted from a wide variety of plants, exhibits neuroprotective activities against Parkinson's disease (PD). However, undesirable water solubility of RES reduces its oral bioavailability and demonstrates low efficacy in blood and brain, thus limiting its application. In present study, a nanocrystal formulation of RES (RES-NCs) was developed to enhance its oral bioavailability and delivery into brain for PD treatment. RES-NCs were fabricated with hy |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73601. 实验研究用鱼类疾病的发生情况
+
+| Field | Content |
+|------|------|
+| EN Title | Occurrence of diseases in fish used for experimental research |
+| ZH Title | 实验研究用鱼类疾病的发生情况 |
+| ZH Abstract | 评估实验室鱼类病原体和疾病的发生率。 |
+| EN Abstract | The objective of the present study was to evaluate the occurrence of pathogens and diseases in laboratory fish over a 10-year period at the Centre for Experimental Fish Pathology of Sicily, University of Messina. This report also emphasizes the adverse effects of subclinical infections on research endpoints, as well as the importance of animal health with respect to welfare. Infections in fish used for research can alter experimental outcomes, increase the variability of data, and impede experim |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73603. 姜黄素包封纳米颗粒作为创新抗菌和伤口愈合剂
+
+| Field | Content |
+|------|------|
+| EN Title | Curcumin-encapsulated nanoparticles as innovative antimicrobial and wound healing agent |
+| ZH Title | 姜黄素包封纳米颗粒作为创新抗菌和伤口愈合剂 |
+| ZH Abstract | 研究姜黄素纳米颗粒的抗菌和伤口愈合特性。 |
+| EN Abstract | Burn wounds are often complicated by bacterial infection, contributing to morbidity and mortality. Agents commonly used to treat burn wound infection are limited by toxicity, incomplete microbial coverage, inadequate penetration, and rising resistance. Curcumin is a naturally derived substance with innate antimicrobial and wound healing properties. Acting by multiple mechanisms, curcumin is less likely than current antibiotics to select for resistant bacteria. Curcumin's poor aqueous solubility |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73606. Pax-3在侧神经板中的表达依赖于后部非轴中胚层的Wnt信号
+
+| Field | Content |
+|------|------|
+| EN Title | Expression of Pax-3 in the lateral neural plate is dependent on a Wnt-mediated signal from posterior nonaxial mesoderm. |
+| ZH Title | Pax-3在侧神经板中的表达依赖于后部非轴中胚层的Wnt信号 |
+| ZH Abstract | 研究Pax-3诱导信号机制。 |
+| EN Abstract | During early patterning of the vertebrate neuraxis, the expression of the paired-domain transcription factor Pax-3 is induced in the lateral portions of the posterior neural plate via posteriorizing signals emanating from the late organizer and posterior nonaxial mesoderm. Using a dominant-negative approach, we show in explant assays that Pax-3 inductive activities from the organizer do not depend on FGF, retinoic acid, or XWnt-8, either alone or in combination, suggesting that the organizer may |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73608. 通过整合计算和实验方法从传统草药配方中发现靶向AKT1的化合物用于酒精性肝病
+
+| Field | Content |
+|------|------|
+| EN Title | Discovery of an AKT1-targeting compound from a traditional herbal formula for alcoholic liver disease via integrative computational and experimental approaches |
+| ZH Title | 通过整合计算和实验方法从传统草药配方中发现靶向AKT1的化合物用于酒精性肝病 |
+| ZH Abstract | 研究祛湿清热方治疗酒精性肝病的活性成分。 |
+| EN Abstract | BackgroundAlcoholic liver disease (ALD) poses a major global health challenge, with limited effective interventions. The Dampness-Heat Regulating Formula (DRF), a traditional Chinese herbal tea composed of nine edible medicinal herbs, has shown promise in mitigating alcohol-induced liver injury. This study aimed to identify its core active components and elucidate underlying mechanisms.MethodsActive compounds were retrieved from multiple databases and screened using chemical similarity, target p |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73609. 通过内质网靶向荧光探针监测帕金森病模型中的铁死亡
+
+| Field | Content |
+|------|------|
+| EN Title | Assessing ferroptosis in Parkinson's disease model by monitoring lipid peroxyl radical with an ER-targeted fluorescent probe |
+| ZH Title | 通过内质网靶向荧光探针监测帕金森病模型中的铁死亡 |
+| ZH Abstract | 开发荧光探针监测神经细胞脂质过氧自由基。 |
+| EN Abstract | Ferroptosis, driven by uncontrolled membrane lipid peroxidation, is closely related to the pathology of Parkinson's disease (PD) and is considered a promising therapeutic target for PD. Lipid peroxyl radical (LOO center dot) is indispensable for the continuation and amplification of the lipid peroxidation process. Thus, fluorescent probes that can real-time monitor LOO center dot production in neural cells are highly desirable for understanding the role of ferroptosis in PD. Given that membrane |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73611. 用于细胞显微操作的高放大比双驱动压电微夹钳的开发与测试
+
+| Field | Content |
+|------|------|
+| EN Title | Development and Testing of a Dual-Driven Piezoelectric Microgripper with High Amplification Ratio for Cell Micromanipulation |
+| ZH Title | 用于细胞显微操作的高放大比双驱动压电微夹钳的开发与测试 |
+| ZH Abstract | 开发双驱动压电微夹钳用于细胞显微操作。 |
+| EN Abstract | Cell micromanipulation is an important technique in the field of biomedical engineering. Microgrippers play a crucial role in connecting macroscopic and microscopic objects in micromanipulation systems. However, since the operated biological cells are deformable, vulnerable, and typically distributed in sizes ranging from micrometers to millimeters, it poses a huge challenge to microgripper performance. To solve this problem, this paper develops a dual-driven piezoelectric microgripper with a hi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73613. 全基因组比较甲基化分析揭示硬骨鱼代孕生产后生殖干细胞的命运
+
+| Field | Content |
+|------|------|
+| EN Title | Genome-wide comparative methylation analysis reveals the fate of germ stem cells after surrogate production in teleost |
+| ZH Title | 全基因组比较甲基化分析揭示硬骨鱼代孕生产后生殖干细胞的命运 |
+| ZH Abstract | 研究硬骨鱼代孕生殖的表观遗传变化。 |
+| EN Abstract | BackgroundSurrogate production by germline stem cell transplantation is a powerful method to produce donor-derived gametes via a host, a practice known as surrogacy. The gametes produced by surrogates are often analysed on the basis of their morphology and species-specific genotyping, which enables conclusion to be drawn about the donor's characteristics. However, in-depth information, such as data on epigenetic changes, is rarely acquired. Germ cells develop in close contact with supporting som |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73616. 结合优化的mRNA模板与双重纯化过程实现体外转录mRNA的强表达
+
+| Field | Content |
+|------|------|
+| EN Title | Combining an optimized mRNA template with a double purification process allows strong expression of in vitro transcribed mRNA |
+| ZH Title | 结合优化的mRNA模板与双重纯化过程实现体外转录mRNA的强表达 |
+| ZH Abstract | 优化mRNA骨架和纯化工艺提高表达。 |
+| EN Abstract | mRNA is a blooming technology for vaccination and has gained global attention during the SARS-CoV-2 pandemic. However, the recent clinical trials have highlighted increased reactogenicity when using high mRNA doses. Intending to increase the potency of mRNA therapeutics and to decrease the therapeutic dose, we designed a mRNA backbone and optimized the mRNA purification process. We used the enhanced green fluorescent protein (eGFP) reporter gene flanked by one 5' untranslated region (UTR) and tw |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73618. 突触小泡在带状突触处为快速网格蛋白介导的内吞作用做好准备
+
+| Field | Content |
+|------|------|
+| EN Title | Synaptic vesicles are "primed" for fast clathrin-mediated endocytosis at the ribbon synapse |
+| ZH Title | 突触小泡在带状突触处为快速网格蛋白介导的内吞作用做好准备 |
+| ZH Abstract | 研究带状突触中网格蛋白介导的内吞作用。 |
+| EN Abstract | Retrieval of synaptic vesicles can occur 1-10s after fusion, but the role of clathrin during this process has been unclear because the classical mode of clathrin-mediated endocytosis (CME) is an order of magnitude slower, as during retrieval of surface receptors. Classical CME is thought to be rate-limited by the recruitment of clathrin, which raises the question: how is clathrin recruited during synaptic vesicle recycling? To investigate this question we applied total internal reflection fluore |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73622. 嗅觉基板发育的新模型
+
+| Field | Content |
+|------|------|
+| EN Title | A new model for olfactory placode development. |
+| ZH Title | 嗅觉基板发育的新模型 |
+| ZH Abstract | 讨论脊椎动物嗅觉基板的发育。 |
+| EN Abstract | The peripheral nervous system of vertebrate animals arises primarily from the interaction of cranial neural crest and sensory placodes. Placodes are described as thickenings of ectoderm that arise through cell division during neural tube formation. The olfactory sensory system is one component of the peripheral nervous system that arises from paired sensory placodes during development. The olfactory placodes give rise to the primary sensory neurons, support cells and basal cells of the olfactory |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73623. CRISPR作为揭示多囊卵巢综合征基因功能的工具：靶向卵巢和代谢基因的实验模型文献综述
+
+| Field | Content |
+|------|------|
+| EN Title | CRISPR as a Tool to Uncover Gene Function in Polycystic Ovary Syndrome: A Literature Review of Experimental Models Targeting Ovarian and Metabolic Genes |
+| ZH Title | CRISPR作为揭示多囊卵巢综合征基因功能的工具：靶向卵巢和代谢基因的实验模型文献综述 |
+| ZH Abstract | 综述CRISPR模型在PCOS基因功能研究中的应用。 |
+| EN Abstract | Highlights What are the main findings? CRISPR models reveal gene-specific contributions to ovarian and metabolic PCOS phenotypes, including hyperandrogenism and insulin resistance. Single-gene models show species-specific effects, highlighting the need for dual-gene and integrated models. What are the implications of the main findings? CRISPR studies identify potential diagnostic markers and clarify gene-hormone interactions in PCOS. Combined gene editing and hormonal models provide a platform f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73624. 机器学习增强的双模式3D打印传感平台用于超灵敏检测和预测鱼组织中卡那霉素生物累积
+
+| Field | Content |
+|------|------|
+| EN Title | Machine learning-enhanced dual-mode 3D-printed sensing platform for ultrasensitive detection and prediction of kanamycin bioaccumulation in fish tissues |
+| ZH Title | 机器学习增强的双模式3D打印传感平台用于超灵敏检测和预测鱼组织中卡那霉素生物累积 |
+| ZH Abstract | 开发传感平台检测鱼组织中卡那霉素。 |
+| EN Abstract | Rapid and sensitive monitoring of kanamycin (KAN) bioaccumulation is critical for safeguarding aquatic ecosystems and human health. This study presents a photothermal (PT) and RGB colorimetric platform for the ultrasensitive monitoring of KAN bioaccumulation in fish tissues. KAN was detected using a 3D-printed sensing device integrating NH3-mediated bubble-bursting preconcentration, salt-induced gold nanoparticle (AuNPs) aggregation, and hybridization chain reaction (HCR) amplification. Two hair |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73627. 光感受器间视黄醇结合蛋白易受非酶糖基化影响及其对功能、稳定性和糖尿病视网膜病变中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Interphotoreceptor Retinoid Binding Protein (IRBP, RBP3) is susceptible to non -enzymatic glycation implications to function, stability, and role in diabetic retinopathy (DR) |
+| ZH Title | 光感受器间视黄醇结合蛋白易受非酶糖基化影响及其对功能、稳定性和糖尿病视网膜病变中的作用 |
+| ZH Abstract | 光感受器间视黄醇结合蛋白易受非酶糖基化影响及其对功能、稳定性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73633. CHD7负调控造血干细胞潜能
+
+| Field | Content |
+|------|------|
+| EN Title | CHD7 Negatively Regulates Hematopoietic Stem Cell Potency |
+| ZH Title | CHD7负调控造血干细胞潜能 |
+| ZH Abstract | CHD7负调控造血干细胞潜能（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73634. 分子遗传学在先天性眼球运动障碍理解中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Applications of molecular genetics to the understanding of congenital ocular motility disorders. |
+| ZH Title | 分子遗传学在先天性眼球运动障碍理解中的应用 |
+| ZH Abstract | 讨论先天性纤维化综合征的遗传基础。 |
+| EN Abstract | The congenital fibrosis syndromes (CFS), including congenital fibrosis of the extraocular muscles (CFEOM) and Duane syndrome (DS), are rare congenital strabismus syndromes that present with nonprogressive restrictive ophthalmoplegia with or without ptosis. Although historically believed to result from primary extraocular muscle (EOM) fibrosis, our laboratory's work is based on the hypothesis that these disorders result from distinct, but analogous, developmental defects of the oculomotor (nIII), |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73641. 血小板生成的转录调控
+
+| Field | Content |
+|------|------|
+| EN Title | Transcriptional Regulation of Thrombopoiesis |
+| ZH Title | 血小板生成的转录调控 |
+| ZH Abstract | 血小板生成的转录调控（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73642. Rsp1在红细胞终末分化过程中对mRNA稳定性不可或缺
+
+| Field | Content |
+|------|------|
+| EN Title | Rsp1 Is Indispensable for mRNA Stability during Erythroid Terminal Differentiation |
+| ZH Title | Rsp1在红细胞终末分化过程中对mRNA稳定性不可或缺 |
+| ZH Abstract | Rsp1在红细胞终末分化过程中对mRNA稳定性不可或缺（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73673. TRPV4与更粘稠细胞外液中细胞迁移速率加快的悖论
+
+| Field | Content |
+|------|------|
+| EN Title | TRPV4 and the paradox of faster cellular migration rates in more viscous extracellular fluids |
+| ZH Title | TRPV4与更粘稠细胞外液中细胞迁移速率加快的悖论 |
+| ZH Abstract | TRPV4与更粘稠细胞外液中细胞迁移速率加快的悖论（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73685. 社论：脊椎动物能量稳态的比较研究
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Comparative Studies of Energy Homeostasis in Vertebrates |
+| ZH Title | 社论：脊椎动物能量稳态的比较研究 |
+| ZH Abstract | 社论，无具体研究内容。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73694. 跨系统发育的再生生物学模型和机制：《生物通报》虚拟研讨会介绍
+
+| Field | Content |
+|------|------|
+| EN Title | Models and Mechanisms of Regenerative Biology Across Phylogeny: Introduction to a Virtual Symposium in The Biological Bulletin |
+| ZH Title | 跨系统发育的再生生物学模型和机制：《生物通报》虚拟研讨会介绍 |
+| ZH Abstract | 研讨会介绍，无具体研究。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73717. DCAF15中复发性p.Ser470Phe功能获得性变异通过靶向SMC3异常泛素化导致Cornelia de Lange综合征
+
+| Field | Content |
+|------|------|
+| EN Title | The recurrent p.Ser470Phe gain-of-function variant in DCAF15 leads to Cornelia de Lange syndrome by targeting SMC3 for aberrant ubiquitination |
+| ZH Title | DCAF15中复发性p.Ser470Phe功能获得性变异通过靶向SMC3异常泛素化导致Cornelia de Lange综合征 |
+| ZH Abstract | 研究DCAF15变异导致综合征的机制。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73721. 非哺乳动物代谢模型备受关注
+
+| Field | Content |
+|------|------|
+| EN Title | Non-mammalian metabolic models in the spotlight |
+| ZH Title | 非哺乳动物代谢模型备受关注 |
+| ZH Abstract | 编辑评论，强调非哺乳动物模型的价值。 |
+| EN Abstract | Work in non-mammalian model organisms has shed light on many fundamental biological processes. At Nature Metabolism, we are interested in studies that make use of the unique advantages of these models to unravel new insights into metabolic biology. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73725. 社论：行为与代谢障碍中血清素稳态的发育异常：从表观遗传机制到蛋白质功能
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Developmental Abnormalities of Serotonin Homeostasis in Behavioral and Metabolic Disorders: From Epigenetic Mechanisms to Protein Function |
+| ZH Title | 社论：行为与代谢障碍中血清素稳态的发育异常：从表观遗传机制到蛋白质功能 |
+| ZH Abstract | 社论，介绍血清素稳态相关研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73731. Dead end与Detour：RNA结合蛋白Dnd在生殖系转录后调控中的功能
+
+| Field | Content |
+|------|------|
+| EN Title | Dead end and Detour: The function of the RNA-binding protein Dnd in posttranscriptional regulation in the germline |
+| ZH Title | Dead end与Detour：RNA结合蛋白Dnd在生殖系转录后调控中的功能 |
+| ZH Abstract | 综述Dnd蛋白在生殖细胞中的作用。 |
+| EN Abstract | Posttranscriptional regulation is a key part of controlling gene expression in different cell types, in particular in the context of specification, maintenance and differentiation of germline cells. A central regulator of these processes is the vertebrate protein Dead end (Dnd). This RNA-binding protein is important for the survival and preservation of the fate of primordial germ cells (PGCs) and for subsequent development of the male germline. In this chapter, we review the biological and molec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73755. 光片荧光显微镜用于监测药物递送：解锁胚胎发育阶段
+
+| Field | Content |
+|------|------|
+| EN Title | Light sheet fluorescence microscopy for monitoring drug delivery: Unlocking the developmental phases of embryos |
+| ZH Title | 光片荧光显微镜用于监测药物递送：解锁胚胎发育阶段 |
+| ZH Abstract | 综述LSFM在胚胎药物递送研究中的应用。 |
+| EN Abstract | Light sheet fluorescence microscopy (LSFM) has emerged as a transformative imaging technique in the study of drug delivery and embryonic development, offering high-resolution, real-time visualization with minimal phototoxicity. This review examines the application of LSFM in tracking drug pharmacokinetics, tissue-specific targeting, and drug efficacy during critical phases of embryonic development. Recent advancements in fluorescent labeling and machine learning integration have enabled more pre |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73758. 揭示心脏代谢与心脏再生之间的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Unravelling the Interplay between Cardiac Metabolism and Heart Regeneration |
+| ZH Title | 揭示心脏代谢与心脏再生之间的相互作用 |
+| ZH Abstract | 综述心脏代谢与再生关系，未特指斑马鱼。 |
+| EN Abstract | Ischemic heart disease (IHD) is the leading cause of heart failure (HF) and is a significant cause of morbidity and mortality globally. An ischemic event induces cardiomyocyte death, and the ability for the adult heart to repair itself is challenged by the limited proliferative capacity of resident cardiomyocytes. Intriguingly, changes in metabolic substrate utilisation at birth coincide with the terminal differentiation and reduced proliferation of cardiomyocytes, which argues for a role of car |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73760. 鱼类基因组学及其对脊椎生物学基础与应用研究的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Fish genomics and its impact on fundamental and applied research of vertebrate biology |
+| ZH Title | 鱼类基因组学及其对脊椎生物学基础与应用研究的影响 |
+| ZH Abstract | 综述鱼类基因组学，涵盖斑马鱼。 |
+| EN Abstract | The living fishes span a unique and interesting set of animals because of their vast diversity, morphology, ecology, genetics and genomics, and higher importance to biology, economy and culture. During the past decade, the remarkable increase in fish genome sequencing has revolutionized comparative and evolutionary genomics, with the outcome of stimulating insights into vertebrate genome biology. Fish genomics has been transformed rapidly, with the availability of high-quality chromosome level g |
+| Judgment | 是 |
+| Reason | 未明确以斑马鱼为主 |
+---
+### 73765. 用于心脏修复的天然细胞外基质来源
+
+| Field | Content |
+|------|------|
+| EN Title | Natural Sources of Extracellular Matrix for Cardiac Repair |
+| ZH Title | 用于心脏修复的天然细胞外基质来源 |
+| ZH Abstract | 综述心脏修复ECM来源，未特指斑马鱼。 |
+| EN Abstract | Tissue engineering and regenerative medicine have adopted the use of extracellular matrix (ECM) as a cell delivery device and bioactive regenerative agent. To this end, many ECMs have been investigated for cardiac tissue engineering and regenerative medicine applications with variable success. Many sources of natural ECMs have been tested for cardiac applications. Typically, natural ECMs have been made from decellularized organs or tissues and processed into either sheets or injectable hydrogels |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73766. Kv3.3钾通道与脊髓小脑性共济失调
+
+| Field | Content |
+|------|------|
+| EN Title | Kv3.3 potassium channels and spinocerebellar ataxia |
+| ZH Title | Kv3.3钾通道与脊髓小脑性共济失调 |
+| ZH Abstract | 综述Kv3.3通道与疾病，未特指斑马鱼。 |
+| EN Abstract | The voltage-dependent potassium channel subunit Kv3.3 is expressed at high levels in cerebellar Purkinje cells, in auditory brainstem nuclei and in many other neurons capable of firing at high rates. In the cerebellum, it helps to shape the very characteristic complex spike of Purkinje cells. Kv3.3 differs from other closely related channels in that human mutations in the gene encoding Kv3.3 (KCNC3) result in a unique neurodegenerative disease termed spinocerebellar ataxia type 13 (SCA13). This |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73767. Nme（NDP激酶/Nm23/Awd）基因家族相关功能的动物模型研究进展：以发育、心血管疾病和癌症转移为例
+
+| Field | Content |
+|------|------|
+| EN Title | Progress on Nme (NDP kinase/Nm23/Awd) gene family-related functions derived from animal model systems: studies on development, cardiovascular disease, and cancer metastasis exemplified |
+| ZH Title | Nme（NDP激酶/Nm23/Awd）基因家族相关功能的动物模型研究进展：以发育、心血管疾病和癌症转移为例 |
+| ZH Abstract | 综述Nme基因家族功能，未特指斑马鱼。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73768. 分子伴侣介导的肌小节肌球蛋白动力冲程可逆抑制
+
+| Field | Content |
+|------|------|
+| EN Title | Chaperone-mediated reversible inhibition of the sarcomeric myosin power stroke |
+| ZH Title | 分子伴侣介导的肌小节肌球蛋白动力冲程可逆抑制 |
+| ZH Abstract | 研究UNC-45B抑制肌球蛋白功能，未特指斑马鱼。 |
+| EN Abstract | Molecular chaperones are required for successful folding and assembly of sarcomeric myosin in skeletal and cardiac muscle. Here, we show that the chaperone UNC-45B inhibits the actin translocation function of myosin. Further, we show that Hsp90, another chaperone involved in sarcomere development, allows the myosin to resume actin translocation. These previously unknown activities may play a key role in sarcomere development, preventing untimely myosin powerstrokes from disrupting the precise al |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73769. 高尔基体支架蛋白的表征及其在细胞信号区室化中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Characterization of Golgi scaffold proteins and their roles in compartmentalizing cell signaling |
+| ZH Title | 高尔基体支架蛋白的表征及其在细胞信号区室化中的作用 |
+| ZH Abstract | 研究高尔基体支架蛋白，未特指斑马鱼。 |
+| EN Abstract | Subcellular compartmentalization has become an important theme in cell signaling. In particular, the Golgi apparatus (GA) plays a prominent role in compartmentalizing signaling cascades that originate at the plasma membrane or other organelles. To precisely regulate this process, cells have evolved a unique class of organizer proteins, termed "scaffold proteins". Sef, PAQR3, PAQR10 and PAQR11 are scaffold proteins that have recently been identified on the GA and are referred to as Golgi scaffold |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73771. 通过外显子跳跃解偶联内含子microRNA与其肌球蛋白宿主基因的表达
+
+| Field | Content |
+|------|------|
+| EN Title | Uncoupling of Expression of an Intronic MicroRNA and Its Myosin Host Gene by Exon Skipping |
+| ZH Title | 通过外显子跳跃解偶联内含子microRNA与其肌球蛋白宿主基因的表达 |
+| ZH Abstract | 研究MYH7b基因表达调控，未特指斑马鱼。 |
+| EN Abstract | The ancient MYH7b gene, expressed in striated muscle and brain, encodes a sarcomeric myosin and the intronic microRNA miR-499. We find that skipping of an exon introduces a premature termination codon in the transcript that downregulates MYH7b protein production without affecting microRNA expression. Among other genes, endogenous miR-499 targets the 3' untranslated region of the transcription factor Sox6, which in turn acts as a repressor of MYH7b transcriptional activity. Thus, concerted transc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73778. 细胞卵裂动力学的集体效应
+
+| Field | Content |
+|------|------|
+| EN Title | Collective effects of cell cleavage dynamics |
+| ZH Title | 细胞卵裂动力学的集体效应 |
+| ZH Abstract | 综述细胞卵裂动力学，未特指斑马鱼。 |
+| EN Abstract | A conserved process of early embryonic development in metazoans is the reductive cell divisions following oocyte fertilization, termed cell cleavages. Cell cleavage cycles usually start synchronously, lengthen differentially between the embryonic cells becoming asynchronous, and cease before major morphogenetic events, such as germ layer formation and gastrulation. Despite exhibiting species-specific characteristics, the regulation of cell cleavage dynamics comes down to common controllers actin |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73779. 原肠胚形态的进化
+
+| Field | Content |
+|------|------|
+| EN Title | The evolution of gastrulation morphologies |
+| ZH Title | 原肠胚形态的进化 |
+| ZH Abstract | 综述原肠胚形态进化，未特指斑马鱼。 |
+| EN Abstract | During gastrulation, early embryos specify and reorganise the topology of their germ layers. Surprisingly, this fundamental and early process does not appear to be rigidly constrained by evolutionary pressures; instead, the morphology of gastrulation is highly variable throughout the animal kingdom. Recent experimental results demonstrate that it is possible to generate different alternative gastrulation modes in single organisms, such as in early cnidarian, arthropod and vertebrate embryos. Her |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73783. 多功能V型CRISPR效应器及其应用前景
+
+| Field | Content |
+|------|------|
+| EN Title | The Versatile Type V CRISPR Effectors and Their Application Prospects |
+| ZH Title | 多功能V型CRISPR效应器及其应用前景 |
+| ZH Abstract | 综述V型CRISPR系统，未特指斑马鱼。 |
+| EN Abstract | The class II clustered regularly interspaced short palindromic repeats (CRISPR)-Cas systems, characterized by a single effector protein, can be further subdivided into types II, V, and VI. The application of the type II CRISPR effector protein Cas9 as a sequence-specific nuclease in gene editing has revolutionized this field. Similarly, Cas13 as the effector protein of type VI provides a convenient tool for RNA manipulation. Additionally, the type V CRISPR-Cas system is another valuable resource |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73784. 肠道上皮细胞身份和微生物反应性的转录程序
+
+| Field | Content |
+|------|------|
+| EN Title | Transcriptional programmes underlying cellular identity and microbial responsiveness in the intestinal epithelium |
+| ZH Title | 肠道上皮细胞身份和微生物反应性的转录程序 |
+| ZH Abstract | 综述肠道上皮转录程序，未特指斑马鱼。 |
+| EN Abstract | The intestinal epithelium serves the unique and critical function of harvesting dietary nutrients, while simultaneously acting as a cellular barrier separating tissues from the luminal environment and gut microbial ecosystem. Two salient features of the intestinal epithelium enable it to perform these complex functions. First, cells within the intestinal epithelium achieve a wide range of specialized identities, including different cell types and distinct anterior-posterior patterning along the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73787. MEIS转录因子在发育和疾病中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | MEIS transcription factors in development and disease |
+| ZH Title | MEIS转录因子在发育和疾病中的作用 |
+| ZH Abstract | 综述MEIS转录因子，未特指斑马鱼。 |
+| EN Abstract | MEIS transcription factors are key regulators of embryonic development and cancer. Research on MEIS genes in the embryo and in stem cell systems has revealed novel and surprising mechanisms by which these proteins control gene expression. This Primer summarizes recent findings about MEIS protein activity and regulation in development, and discusses new insights into the role of MEIS genes in disease, focusing on the pathogenesis of solid cancers. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73788. 基于相互作用的拷贝数变异神经精神特征模型
+
+| Field | Content |
+|------|------|
+| EN Title | An interaction-based model for neuropsychiatric features of copy-number variants |
+| ZH Title | 基于相互作用的拷贝数变异神经精神特征模型 |
+| ZH Abstract | 提出CNV神经精神特征模型，提及模式生物。 |
+| EN Abstract | Variably expressive copy-number variants (CNVs) are characterized by extensive phenotypic heterogeneity of neuropsychiatric phenotypes. Approaches to identify single causative genes for these phenotypes within each CNV have not been successful. Here, we posit using multiple lines of evidence, including pathogenicity metrics, functional assays of model organisms, and gene expression data, that multiple genes within each CNV region are likely responsible for the observed phenotypes. We propose tha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73789. 具有精确分支擦除和置信控制回溯的自动3D神经元追踪
+
+| Field | Content |
+|------|------|
+| EN Title | Automated 3-D Neuron Tracing With Precise Branch Erasing and Confidence Controlled Back Tracking |
+| ZH Title | 具有精确分支擦除和置信控制回溯的自动3D神经元追踪 |
+| ZH Abstract | 开发神经元追踪算法，未特指斑马鱼。 |
+| EN Abstract | The automatic reconstruction of single neurons from microscopic images is essential to enable large-scale data-driven investigations in neuron morphology research. However, few previous methods were able to generate satisfactory results automatically from 3-D microscopic images without human intervention. In this paper, we developed a new algorithm for automatic 3-D neuron reconstruction. The main idea of the proposed algorithm is to iteratively track backward from the potential neuronal termini |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73790. 硬骨鱼微生物组：表征、操作及其在水产养殖和渔业中的重要性的现状
+
+| Field | Content |
+|------|------|
+| EN Title | Teleost microbiomes: the state of the art in their characterization, manipulation and importance in aquaculture and fisheries |
+| ZH Title | 硬骨鱼微生物组：表征、操作及其在水产养殖和渔业中的重要性的现状 |
+| ZH Abstract | 综述硬骨鱼微生物组，涵盖斑马鱼。 |
+| EN Abstract | Indigenous microbiota play a critical role in the lives of their vertebrate hosts. In human and mouse models it is increasingly clear that innate and adaptive immunity develop in close concert with the commensal microbiome. Furthermore, several aspects of digestion and nutrient metabolism are governed by intestinal microbiota. Research on teleosts has responded relatively slowly to the introduction of massively parallel sequencing procedures in microbiomics. Nonetheless, progress has been made i |
+| Judgment | 是 |
+| Reason | 未明确以斑马鱼为主 |
+---
+### 73794. 了解Sef：一类新型受体酪氨酸激酶信号反馈拮抗剂
+
+| Field | Content |
+|------|------|
+| EN Title | Know thy Sef: A novel class of feedback antagonists of receptor tyrosine kinase signaling |
+| ZH Title | 了解Sef：一类新型受体酪氨酸激酶信号反馈拮抗剂 |
+| ZH Abstract | 综述Sef蛋白功能，未特指斑马鱼。 |
+| EN Abstract | The strength and duration of intracellular signals must be precisely regulated, since inappropriate signaling can cause disease. Negative feedback mechanisms provide an effective means of controlling growth factor-mediated signaling, either by restricting the incoming signal or by inducing counter-regulatory mechanisms affecting signal propagation. Sef proteins represent a new class of feedback antagonists capable of regulating receptor tyrosine kinase signaling. The involvement of Sef in develo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73799. 一种铜输出P1B型ATP酶的广谱抑制剂
+
+| Field | Content |
+|------|------|
+| EN Title | A broad-spectrum inhibitor of copper-exporting P1B-type ATPases |
+| ZH Title | 一种铜输出P1B型ATP酶的广谱抑制剂 |
+| ZH Abstract | 鉴定MKV3为铜转运ATP酶的小分子抑制剂。 |
+| EN Abstract | Copper (Cu) transporting ATPases represent a highly conserved subclass of P-type ATPases with critical roles in Cu export and metalloenzyme synthesis. Despite their important biological roles and association with a wide range of human diseases, no high-affinity small-molecule inhibitors have been described. Here, we identify MKV3 as a small molecule inhibitor of Cu-transporting P-type ATPases that targets a conserved Cu+ entry site to the translocation pathway. In silico docking against the Xeno |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73801. 心脏形态发生、纤维化和再生中的细胞外基质
+
+| Field | Content |
+|------|------|
+| EN Title | Extracellular matrix in cardiac morphogenesis, fibrosis, and regeneration |
+| ZH Title | 心脏形态发生、纤维化和再生中的细胞外基质 |
+| ZH Abstract | 综述ECM在心脏发育、损伤和再生中的作用。 |
+| EN Abstract | The extracellular matrix (ECM) plays a crucial role in providing structural integrity and regulating cell communication essential for organ development, homeostasis, and regeneration, including hearts. Evidence indicates that disruptions in the spatiotemporal expression or alterations in ECM components lead to cardiac malformations, including a wide range of congenital heart diseases (CHDs). Furthermore, research on injured hearts across various vertebrate species, some of which show effective r |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73803. 一种开源3D打印记录平台，带有可定制腔室用于离体实验
+
+| Field | Content |
+|------|------|
+| EN Title | An Open-Source 3D-Printed Recording Stage with Customizable Chambers for Ex Vivo Experiments |
+| ZH Title | 一种开源3D打印记录平台，带有可定制腔室用于离体实验 |
+| ZH Abstract | 介绍一种用于离体神经生理实验的3D打印记录平台。 |
+| EN Abstract | Much of what has been discovered concerning neurophysiological mechanisms can be credited to ex vivo biomedical experiments. Beyond these discoveries, ex vivo research techniques have enhanced the global understanding of human physiology and pathology in almost every biomedical specialty. Naturally, ex vivo experiments are among the most desired methods of research, particularly in the field of neuroscience. Ex vivo experiment platforms may be purchased commercially. However, their substantial c |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73804. 离子液体生物效应的机制：从单细胞到多细胞生物
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms of Biological Effects of Ionic Liquids: From Single Cells to Multicellular Organisms |
+| ZH Title | 离子液体生物效应的机制：从单细胞到多细胞生物 |
+| ZH Abstract | 综述离子液体与生物系统相互作用的研究进展。 |
+| EN Abstract | The review presents a detailed discussion of the evolving field studying interactions between ionic liquids (ILs) and biological systems. Originating from molten salt electrolytes to present multiapplication substances, ILs have found usage across various fields due to their exceptional physicochemical properties, including excellent tunability. However, their interactions with biological systems and potential influence on living organisms remain largely unexplored. This review examines the cyto |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73806. 脊髓内感觉神经元在四足运动控制中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of intraspinal sensory neurons in the control of quadrupedal locomotion |
+| ZH Title | 脊髓内感觉神经元在四足运动控制中的作用 |
+| ZH Abstract | 研究CSF接触神经元在四足动物运动控制中的作用。 |
+| EN Abstract | From swimming to walking and flying, animals have evolved specific locomotor strategies to thrive in different habitats. All types of locomotion depend on the integration of motor commands and sensory information to generate precisely coordinated movements. Cerebrospinal-fluid-contacting neurons (CSF-cN) constitute a vertebrate sensory system that monitors CSF composition and flow. In fish, CSF-cN modulate swimming activity in response to changes in pH and bending of the spinal cord; however, th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73808. 脊椎动物平滑肌细胞发育的起源和机制
+
+| Field | Content |
+|------|------|
+| EN Title | The origin and mechanisms of smooth muscle cell development in vertebrates |
+| ZH Title | 脊椎动物平滑肌细胞发育的起源和机制 |
+| ZH Abstract | 综述脊椎动物平滑肌细胞的发育起源和分化过程。 |
+| EN Abstract | Smooth muscle cells (SMCs) represent a major structural and functional component of many organs during embryonic development and adulthood. These cells are a crucial component of vertebrate structure and physiology, and an updated overview of the developmental and functional process of smooth muscle during organogenesis is desirable. Here, we describe the developmental origin of SMCs within different tissues by comparing their specification and differentiation with other organs, including the ca |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73813. 基因编码指示剂的电压成像
+
+| Field | Content |
+|------|------|
+| EN Title | Voltage imaging with genetically encoded indicators |
+| ZH Title | 基因编码指示剂的电压成像 |
+| ZH Abstract | 综述基因编码电压指示剂在体内成像中的应用。 |
+| EN Abstract | Membrane voltages are ubiquitous throughout cell biology. Voltage is most commonly associated with excitable cells such as neurons and cardiomyocytes, although many other cell types and organelles also support electrical signaling. Voltage imaging in vivo would offer unique capabilities in reporting the spatial pattern and temporal dynamics of electrical signaling at the cellular and circuit levels. Voltage is not directly visible, and so a longstanding challenge has been to develop genetically |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73815. iDamIDseq和iDEAR：一种改进的染色质结合蛋白分析方法和计算流程
+
+| Field | Content |
+|------|------|
+| EN Title | iDamIDseq and iDEAR: an improved method and computational pipeline to profile chromatin-binding proteins |
+| ZH Title | iDamIDseq和iDEAR：一种改进的染色质结合蛋白分析方法和计算流程 |
+| ZH Abstract | 介绍改进的DamID方法和分析工具iDEAR。 |
+| EN Abstract | DNA adenine methyltransferase identification (DamID) has emerged as an alternative method to profile protein-DNA interactions; however, critical issues limit its widespread applicability. Here, we present iDamIDseq, a protocol that improves specificity and sensitivity by inverting the steps DpnI-DpnII and adding steps that involve a phosphatase and exonuclease. To determine genome-wide protein-DNA interactions efficiently, we present the analysis tool iDEAR (iDamIDseq Enrichment Analysis with R) |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73817. 暴露于BPA替代品双酚S导致生殖功能的独特改变
+
+| Field | Content |
+|------|------|
+| EN Title | Exposure to the BPA-Substitute Bisphenol S Causes Unique Alterations of Germline Function |
+| ZH Title | 暴露于BPA替代品双酚S导致生殖功能的独特改变 |
+| ZH Abstract | 比较BPA和BPS对生殖功能的影响。 |
+| EN Abstract | Concerns about the safety of Bisphenol A, a chemical found in plastics, receipts, food packaging and more, have led to its replacement with substitutes now found in a multitude of consumer products. However, several popular BPA-free alternatives, such as Bisphenol S, share a high degree of structural similarity with BPA, suggesting that these substitutes may disrupt similar developmental and reproductive pathways. We compared the effects of BPA and BPS on germline and reproductive functions usin |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73820. 细胞骨架的活细胞成像
+
+| Field | Content |
+|------|------|
+| EN Title | LIVE CELL IMAGING OF THE CYTOSKELETON |
+| ZH Title | 细胞骨架的活细胞成像 |
+| ZH Abstract | 综述细胞骨架活细胞成像技术。 |
+| EN Abstract | The cytoskeleton is the network of cytoplasmic protein filaments, composed of microtubules (MTs), actin filaments, and intermediate filaments, that provides an internal scaffold to give the cell shape. The organization of the cytoskeleton is not static but rather rearranges to enable a variety of fundamental cellular processes including chromosome segregation, cytokinesis, cell migration, cell polarity, cell adhesion, neuron outgrowth, chemotaxis, muscle contraction, cytoplasmic streaming, locom |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73821. 细胞外电场引导伤口愈合和再生
+
+| Field | Content |
+|------|------|
+| EN Title | Extracellular Electrical Fields Direct Wound Healing and Regeneration |
+| ZH Title | 细胞外电场引导伤口愈合和再生 |
+| ZH Abstract | 综述内源性电场在发育、再生和伤口愈合中的作用。 |
+| EN Abstract | Endogenous DC electric fields (EFs) are important, fundamental components of development, regeneration, and wound healing. The fields are the result of polarized ion transport and current flow through electrically conductive pathways. Nullification of endogenous EFs with pharmacological agents or applied EFs of opposite polarity disturbs the aforementioned processes, while enhancement increases the rate of wound closure and the extent of regeneration. EFs are applied to humans in the clinic, to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73834. 兴奋-抑制平衡、神经临界性和神经元回路活动
+
+| Field | Content |
+|------|------|
+| EN Title | Excitation-Inhibition Balance, Neural Criticality, and Activities in Neuronal Circuits |
+| ZH Title | 兴奋-抑制平衡、神经临界性和神经元回路活动 |
+| ZH Abstract | 综述神经回路中兴奋-抑制平衡和临界性。 |
+| EN Abstract | Neural activities in local circuits exhibit complex and multilevel dynamic features. Individual neurons spike irregularly, which is believed to originate from receiving balanced amounts of excitatory and inhibitory inputs, known as the excitation-inhibition balance. The spatial-temporal cascades of clustered neuronal spikes occur in variable sizes and durations, manifested as neural avalanches with scale-free features. These may be explained by the neural criticality hypothesis, which posits tha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73841. 基于PCR的多种物种线粒体DNA拷贝数测定
+
+| Field | Content |
+|------|------|
+| EN Title | PCR-Based Determination of Mitochondrial DNA Copy Number in Multiple Species. |
+| ZH Title | 基于PCR的多种物种线粒体DNA拷贝数测定 |
+| ZH Abstract | 描述多种物种mtDNA拷贝数测定方法。 |
+| EN Abstract | Mitochondrial DNA (mtDNA) copy number is a critical component of overall mitochondrial health. In this chapter, we describe methods for simultaneous isolation of mtDNA and nuclear DNA (nucDNA), and measurement of their respective copy numbers using quantitative PCR. Methods differ depending on the species and cell type of the starting material, and availability of specific PCR reagents. We also briefly describe factors that affect mtDNA copy number and discuss caveats to its use as a biomarker. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73848. FGF信号在发育中脊髓中的多重作用
+
+| Field | Content |
+|------|------|
+| EN Title | The Multiple Roles of FGF Signaling in the Developing Spinal Cord |
+| ZH Title | FGF信号在发育中脊髓中的多重作用 |
+| ZH Abstract | 综述FGF信号在脊椎动物脊髓发育中的作用。 |
+| EN Abstract | During vertebrate embryonic development, the spinal cord is formed by the neural derivatives of a neuromesodermal population that is specified at early stages of development and which develops in concert with the caudal regression of the primitive streak. Several processes related to spinal cord specification and maturation are coupled to this caudal extension including neurogenesis, ventral patterning and neural crest specification and all of them seem to be crucially regulated by Fibroblast Gr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73854. 生而平等？细胞重编程的多个方面（已撤稿）
+
+| Field | Content |
+|------|------|
+| EN Title | Created Equal? The Many Facets of Cell Reprogramming (Retracted article. See vol. 124, 2019) |
+| ZH Title | 生而平等？细胞重编程的多个方面（已撤稿） |
+| ZH Abstract | 生而平等？细胞重编程的多个方面（已撤稿）（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73856. 尾加压素内分泌学新见解：从鱼到人
+
+| Field | Content |
+|------|------|
+| EN Title | New insights into urotensin endocrinology: From fish to man |
+| ZH Title | 尾加压素内分泌学新见解：从鱼到人 |
+| ZH Abstract | 综述尾加压素从鱼到人的内分泌学。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73857. 鱼类生态毒理基因组学研究
+
+| Field | Content |
+|------|------|
+| EN Title | Eco-toxicogenomics research with fish |
+| ZH Title | 鱼类生态毒理基因组学研究 |
+| ZH Abstract | 综述鱼类生态毒理基因组学方法。 |
+| EN Abstract | There are some critical drawbacks in the use of biomarkers for a global assessment of the toxicological impacts many chemicals and environmental pollutants have, primarily due to an individual biomarker's specificity for an explicit chemical or toxicant. In other words, the biomarker-based assessment methodology used to analyze toxicological effects lacks a high-throughput capability. Therefore, eco-toxicogenomics, or the study of toxicogenomics with organisms present within a given environmenta |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73858. Notch信号和放射状胶质细胞在脊椎动物视网膜模式形成中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of notch signaling and radial glia in patterning of the vertebrate retina |
+| ZH Title | Notch信号和放射状胶质细胞在脊椎动物视网膜模式形成中的作用 |
+| ZH Abstract | 综述Notch信号在视网膜发育中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73860. 来自共同CNS祖细胞池的运动神经元和血清素能神经元的协调时空控制
+
+| Field | Content |
+|------|------|
+| EN Title | Coordinated temporal and spatial control of motor neuron and serotonergic neuron generation from a common pool of CNS progenitors. |
+| ZH Title | 来自共同CNS祖细胞池的运动神经元和血清素能神经元的协调时空控制 |
+| ZH Abstract | 研究后脑运动神经元和血清素能神经元的时序生成。 |
+| EN Abstract | Neural progenitor cells often produce distinct types of neurons in a specific order, but the determinants that control the sequential generation of distinct neuronal subclasses in the vertebrate CNS remain poorly defined. We examined the sequential generation of visceral motor neurons and serotonergic neurons from a common pool of neural progenitors located in the ventral hindbrain. We found that the temporal specification of these neurons varies along the anterior-posterior axis of the hindbrai |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73861. 血管发育：定义动脉和静脉的分子逻辑
+
+| Field | Content |
+|------|------|
+| EN Title | Vascular development: molecular logic for defining arteries and veins. |
+| ZH Title | 血管发育：定义动脉和静脉的分子逻辑 |
+| ZH Abstract | 综述动脉和静脉分化的分子机制。 |
+| EN Abstract | Vascular development is a complex process. In the past decade, significant advances have been made in the understanding of molecular mechanisms underlying vascular system development. Most recently, a model describing a signaling pathway that governs the differentiation of arteries and veins has emerged. Furthermore, the idea that angiogenesis of arteries and veins are coordinately but also differentially regulated has been proposed based on several pieces of molecular evidence. This article dis |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73863. 超越直接毒性：污染物诱导鱼类视觉功能障碍中的跨系统调节和肠-视网膜轴
+
+| Field | Content |
+|------|------|
+| EN Title | Beyond direct toxicity: Cross-system regulation and the gut-retina axis in pollutant-induced visual dysfunction in fish |
+| ZH Title | 超越直接毒性：污染物诱导鱼类视觉功能障碍中的跨系统调节和肠-视网膜轴 |
+| ZH Abstract | 综述污染物对鱼类视觉系统的影响机制。 |
+| EN Abstract | The integrity of the fish visual system is a critical indicator of aquatic environmental health. However, the etiology of pollutant-induced visual impairment remains fragmented, and the impairment is rarely localized. To map the evolving landscape of this field, we first conducted a bibliometric analysis, which reveals a paradigm shift from initial phenomenological observations to complex mechanistic exploration. Informed by the key trends and knowledge gaps identified in this analysis, we then |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73866. 基于分子和细胞生物学的发育毒理学生物标志物视角
+
+| Field | Content |
+|------|------|
+| EN Title | A perspective on molecular and cellular biology-based developmental toxicology biomarkers |
+| ZH Title | 基于分子和细胞生物学的发育毒理学生物标志物视角 |
+| ZH Abstract | 综述发育毒理学生物标志物的研究进展。 |
+| EN Abstract | The process of development is intricate and couple-dependent phenomenon. Accordingly, the study of molecular and cellular biology-based developmental toxicology biomarkers increasingly is becoming an important part of risk assessment and management of chemicals for detection of health outcomes and/or biological endpoint like cytotoxicity, cell death, etc. Since, the evolution of developmental toxicology field a number of tools/markers have been developed or addressed to deal with developmental o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73871. 历史视角：帕金森病模型
+
+| Field | Content |
+|------|------|
+| EN Title | Historical Perspective: Models of Parkinson's Disease |
+| ZH Title | 历史视角：帕金森病模型 |
+| ZH Abstract | 综述帕金森病动物模型的研究历史。 |
+| EN Abstract | Parkinson's disease (PD) is the most common movement disorder with motor and nonmotor signs. The current therapeutic regimen for PD is mainly symptomatic as the etio-pathophysiology has not been fully elucidated. A variety of animal models has been generated to study different aspects of the disease for understanding the pathogenesis and therapeutic development. The disease model can be generated through neurotoxin-based or genetic-based approaches in a wide range of animals such as non-human pr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73873. YAP和TAZ：协调眼睛发育、稳态和疾病的指挥家
+
+| Field | Content |
+|------|------|
+| EN Title | YAP and TAZ, the conductors that orchestrate eye development, homeostasis, and disease |
+| ZH Title | YAP和TAZ：协调眼睛发育、稳态和疾病的指挥家 |
+| ZH Abstract | 综述YAP和TAZ在眼睛发育中的作用。 |
+| EN Abstract | Yes-associated protein (YAP) and transcriptional coactivator with PDZ-binding motif (TAZ) are transcriptional coactivators established as a nexus in numerous signaling pathways, notably in Hippo signaling. Previous research revealed multifarious function of YAP and TAZ in oncology and cardiovasology. Recently, the focus has been laid on their pivotal role in eye morphogenesis and homeostasis. In this review, we synthesize advances of YAP and TAZ function during eye development in different model |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73877. 金、银及金银合金纳米颗粒对生殖细胞功能和胚胎发育的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Influence of gold, silver and gold-silver alloy nanoparticles on germ cell function and embryo development |
+| ZH Title | 金、银及金银合金纳米颗粒对生殖细胞功能和胚胎发育的影响 |
+| ZH Abstract | 综述纳米颗粒对生殖细胞和胚胎的影响。 |
+| EN Abstract | The use of engineered nanoparticles has risen exponentially over the last decade. Applications are manifold and include utilisation in industrial goods as well as medical and consumer products. Gold and silver nanoparticles play an important role in the current increase of nanoparticle usage. However, our understanding concerning possible side effects of this increased exposure to particles, which are frequently in the same size regime as medium sized biomolecules and accessorily possess highly |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73878. 心肌细胞双核化：从增殖状态到终末分化的转变
+
+| Field | Content |
+|------|------|
+| EN Title | Binucleation of cardiomyocytes: the transition from a proliferative to a terminally differentiated state |
+| ZH Title | 心肌细胞双核化：从增殖状态到终末分化的转变 |
+| ZH Abstract | 综述心肌细胞双核化过程及其意义。 |
+| EN Abstract | Cardiomyocytes possess a unique ability to transition from mononucleate to the mature binucleate phenotype in late fetal development and around birth. Mononucleate cells are proliferative, whereas binucleate cells exit the cell cycle and no longer proliferate. This crucial period of terminal differentiation dictates cardiomyocyte endowment for life. Adverse early life events can influence development of the heart, affecting cardiomyocyte number and contributing to heart disease late in life. Alt |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73879. 骨形态发生蛋白信号在肾祖细胞中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Bone morphogenetic protein signaling in nephron progenitor cells |
+| ZH Title | 骨形态发生蛋白信号在肾祖细胞中的作用 |
+| ZH Abstract | 综述BMP信号在肾发育和损伤中的作用。 |
+| EN Abstract | Bone morphogenetic protein (BMP) signaling plays an essential role in many aspects of kidney development, and is a major determinant of outcome in kidney injury. BMP treatment is also an essential component of protocols for differentiation of nephron progenitors from pluripotent stem cells. This review discusses the role of BMP signaling to nephron progenitor cells in each of these contexts. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73881. 多组分反应从头合成BODIPY探针：吞噬巨噬细胞的体内成像
+
+| Field | Content |
+|------|------|
+| EN Title | Multicomponent Reactions for de Novo Synthesis of BODIPY Probes: In Vivo Imaging of Phagocytic Macrophages |
+| ZH Title | 多组分反应从头合成BODIPY探针：吞噬巨噬细胞的体内成像 |
+| ZH Abstract | 开发BODIPY荧光探针用于巨噬细胞成像。 |
+| EN Abstract | Multicomponent reactions are excellent tools to generate complex structures with broad chemical diversity and fluorescent properties. Herein we describe the adaptation of the fluorescent BODIPY scaffold to multicomponent reaction chemistry with the synthesis of BODIPY adducts with high fluorescence quantum yields and good cell permeability. From this library we identified one BODIPY derivative (PhagoGreen) as a low-pH sensing fluorescent probe that enabled imaging of phagosomal acidification in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73882. 受体酪氨酸激酶Axl调节皮肤鳞状细胞癌的细胞间粘附、上皮-间质转化和干性
+
+| Field | Content |
+|------|------|
+| EN Title | The receptor tyrosine kinase Axl regulates intercellular adhesion, epithelial-mesenchymal transition and stemness in cutaneous squamous cell carcinoma |
+| ZH Title | 受体酪氨酸激酶Axl调节皮肤鳞状细胞癌的细胞间粘附、上皮-间质转化和干性 |
+| ZH Abstract | 研究Axl在皮肤鳞癌中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73883. 通过跨膜荧光共振能量转移可视化特定蛋白质糖型
+
+| Field | Content |
+|------|------|
+| EN Title | Visualizing specific protein glycoforms by transmembrane fluorescence resonance energy transfer |
+| ZH Title | 通过跨膜荧光共振能量转移可视化特定蛋白质糖型 |
+| ZH Abstract | 开发检测活细胞中特定蛋白糖基化的方法。 |
+| EN Abstract | Analyses of mice lacking glycosyltransferase have suggested that their pathological phenotypes are not attributable to the overall change of the sugar modification, but instead the result of changes of the glycan structures on a specific 'target' glycoprotein. Therefore, detecting or monitoring the glycosylation status of a specific protein in living cells is important, but no such methods are currently available. Here we demonstrate the detection of glycoforms of a specific glycoprotein using t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73884. 组织和器官发育的机械控制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanical control of tissue and organ development |
+| ZH Title | 组织和器官发育的机械控制 |
+| ZH Abstract | 综述机械力在胚胎发育中的作用。 |
+| EN Abstract | Many genes and molecules that drive tissue patterning during organogenesis and tissue regeneration have been discovered. Yet, we still lack a full understanding of how these chemical cues induce the formation of living tissues with their unique shapes and material properties. Here, we review work based on the convergence of physics, engineering and biology that suggests that mechanical forces generated by living cells are as crucial as genes and chemical signals for the control of embryological |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73885. 肠道发育中的左右不对称：接下来会发生什么？
+
+| Field | Content |
+|------|------|
+| EN Title | Left-right asymmetry in gut development: what happens next? |
+| ZH Title | 肠道发育中的左右不对称：接下来会发生什么？ |
+| ZH Abstract | 综述肠道不对称形态发生的机制。 |
+| EN Abstract | The gastrointestinal tract is an asymmetrically patterned organ system. The signals which initiate left-right asymmetry in the developing embryo have been extensively studied, but the downstream steps required to confer asymmetric morphogenesis on the gut organ primordia are less well understood. In this paper we outline key findings on the tissue mechanics underlying gut asymmetry, across a range of species, and use these to synthesise a conserved model for asymmetric gut morphogenesis. We also |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73889. 二维MXenes的安全性评估：体外和体内研究
+
+| Field | Content |
+|------|------|
+| EN Title | Safety Assessment of 2D MXenes: In Vitro and In Vivo |
+| ZH Title | 二维MXenes的安全性评估：体外和体内研究 |
+| ZH Abstract | 综述MXenes在生物系统中的毒性效应。 |
+| EN Abstract | MXenes, representing a new class of two-dimensional nanomaterial, have attracted intense interest in a variety of fields as supercapacitors, catalysts, and sensors, and in biomedicine. The assessment of the safety of MXenes and related materials in biological systems is thus an issue that requires significant attention. In this review, the toxic effects of MXenes and their derivatives are summarized through the discussion of current research into their behaviors in mammalian cells, animals and p |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73890. 营养研究中的性别作为生物学变量：从人类研究到动物模型
+
+| Field | Content |
+|------|------|
+| EN Title | Sex as a Biological Variable in Nutrition Research: From Human Studies to Animal Models |
+| ZH Title | 营养研究中的性别作为生物学变量：从人类研究到动物模型 |
+| ZH Abstract | 综述性别差异在营养研究中的重要性。 |
+| EN Abstract | Biological sex is a fundamental source of phenotypic variability across species. Males and females have different nutritional needs and exhibit differences in nutrient digestion and utilization, leading to different health outcomes throughout life. With personalized nutrition gaining popularity in scientific research and clinical practice, it is important to understand the fundamentals of sex differences in nutrition research. Here, we review key studies that investigate sex dimorphism in nutrit |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73891. 肢体发育、进化与再生修复：第一部分
+
+| Field | Content |
+|------|------|
+| EN Title | Limb development, evolution, and regeneration & repair: Part 1 |
+| ZH Title | 肢体发育、进化与再生修复：第一部分 |
+| ZH Abstract | 综述肢体发育与再生。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73892. 持久性有机污染物对海洋生物群的潜在影响：近期研究综述
+
+| Field | Content |
+|------|------|
+| EN Title | Potential Effects of Persistent Organic Contaminants on Marine Biota: A Review on Recent Research |
+| ZH Title | 持久性有机污染物对海洋生物群的潜在影响：近期研究综述 |
+| ZH Abstract | 综述持久性有机污染物对海洋生物的影响。 |
+| EN Abstract | Synthetic organic compounds belonging to different chemical classes and possessing diverse physicochemical properties are frequently present in marine environments. Microplastics, pharmaceuticals, pesticides, polychlorinated biphenyls (PCBs), and polycyclic aromatic hydrocarbons (PAHs) are contained in the list of persistent organic pollutants (POPs) that have been detected in the global marine system. Numerous ecotoxicological studies have revealed the direct and indirect effects of anthropogen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73893. 系统发育学可为遗传性和诱导性疾病的动物模型开发提供信息：杜氏肌营养不良症和胎儿酒精谱系障碍
+
+| Field | Content |
+|------|------|
+| EN Title | Phylogeny can inform animal model development for both inherited and induced conditions: Duchenne Muscular Dystrophy (DMD) and Fetal Alcohol Spectrum Disorders (FASD) |
+| ZH Title | 系统发育学可为遗传性和诱导性疾病的动物模型开发提供信息：杜氏肌营养不良症和胎儿酒精谱系障碍 |
+| ZH Abstract | 讨论系统发育在动物模型选择中的作用。 |
+| EN Abstract | The use of animal models in research on human and veterinary diseases and disorders is retracting, though it is likely to remain critical for decades. In light of increasing regulation and expectations of judicious use of animal subjects, we examine the idea that the use of animal models can be guided by phylogenetic relationships and modern evolutionary and cladistic analyses. Given that inherited disorders, and indeed, even the developmental and physiological responses to non inherited conditi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73894. 多壁碳纳米管对水生生物的毒性测试
+
+| Field | Content |
+|------|------|
+| EN Title | Toxicity testing of MWCNTs to aquatic organisms |
+| ZH Title | 多壁碳纳米管对水生生物的毒性测试 |
+| ZH Abstract | 综述多壁碳纳米管对水生生物的毒性。 |
+| EN Abstract | The increase in global production of carbon nanotubes (CNTs), as well as their use in polymer nanocomposites has raised concerns as to their possible effects on the marine environment that could ultimately affect human populations. Specifically, CNTs have already been tested in antifouling formulations for the prevention of biofouling, mainly to protect ships' hulls, as well as in composite materials that come in contact with seawater. At this point, it seems crucial to assess the possible effec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73899. 干细胞分化为内皮细胞的最新观点
+
+| Field | Content |
+|------|------|
+| EN Title | An updated view on the differentiation of stem cells into endothelial cells |
+| ZH Title | 干细胞分化为内皮细胞的最新观点 |
+| ZH Abstract | 综述干细胞向内皮细胞分化的机制。 |
+| EN Abstract | Endothelial cells form the internal barrier between circulating blood and the vessel wall. They regulate arterial activity and mediate pathological reactions to vascular injuries such as atherosclerosis and balloon angioplasty. The development and differentiation of endothelial cells is a complex and coordinated process involving multiple levels of signaling and transcriptional and post-transcriptional regulation. Elucidating the mechanism of endothelial differentiation will not only enhance our |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73900. 超宽带反射模式光声介观成像
+
+| Field | Content |
+|------|------|
+| EN Title | Ultrawideband reflection-mode optoacoustic mesoscopy |
+| ZH Title | 超宽带反射模式光声介观成像 |
+| ZH Abstract | 开发超宽带光声介观成像系统。 |
+| EN Abstract | We developed a reflection-mode optoacoustic mesoscopy system, based on raster-scanning of a custom designed spherically focused ultrasound detector, enabling seamless epi-illumination of the volume imaged. We study the performance of acoustic-resolution mesoscopy operating at an ultrawideband bandwidth of 20-180 MHz. i.e., a frequency band spreading over virtually an order of magnitude. Using tomographic reconstruction we showcase previously unreported, to our knowledge, axial resolutions of 4 m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73901. DNA修复调控染色质结构和关键转录因子
+
+| Field | Content |
+|------|------|
+| EN Title | DNA repair regulates chromatin structure and key transcription factors |
+| ZH Title | DNA修复调控染色质结构和关键转录因子 |
+| ZH Abstract | 研究DNA修复对染色质和转录因子的调控。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73902. ghrelin对脊椎动物的普遍作用是什么？——跨脊椎动物ghrelin作用的比较
+
+| Field | Content |
+|------|------|
+| EN Title | What is the general action of ghrelin for vertebrates? - Comparisons of ghrelin's effects across vertebrates |
+| ZH Title | ghrelin对脊椎动物的普遍作用是什么？——跨脊椎动物ghrelin作用的比较 |
+| ZH Abstract | 综述ghrelin在脊椎动物中的普遍功能。 |
+| EN Abstract | Ten years and more passed since ghrelin was discovered. Various physiological actions of ghrelin have been documented in both mammalian and nonmammalian vertebrates. Do these actions have any commonality? In this review, we focused on several effects of ghrelin, and compared the effect across vertebrates. We would like to discuss possible general function of ghrelin in vertebrates. (C) 2012 Elsevier Inc. All rights reserved. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73903. 带有粉红噪声的视觉运动诱导捕食行为
+
+| Field | Content |
+|------|------|
+| EN Title | Visual motion with pink noise induces predation behaviour |
+| ZH Title | 带有粉红噪声的视觉运动诱导捕食行为 |
+| ZH Abstract | 研究视觉运动线索对捕食行为的影响。 |
+| EN Abstract | Visual motion cues are one of the most important factors for eliciting animal behaviour, including predator-prey interactions in aquatic environments. To understand the elements of motion that cause such selective predation behaviour, we used a virtual plankton system where the predation behaviour in response to computer-generated prey was analysed. First, we performed motion analysis of zooplankton (Daphnia magna) to extract mathematical functions for biologically relevant motions of prey. Next |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73904. 平面细胞极性信号在颅面发育中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Planar cell polarity signaling in craniofacial development |
+| ZH Title | 平面细胞极性信号在颅面发育中的作用 |
+| ZH Abstract | 综述PCP信号在颅面发育中的功能。 |
+| EN Abstract | Out of the several signaling pathways controlling craniofacial development, the role of planar cell polarity (PCP) signaling is relatively poorly understood. This pathway, originally identified as a mechanism to maintain cell polarity within the epithelial cells of the Drosophila wing, has been linked to the proper development of a wide variety of tissues in vertebrates and invertebrates. While many of the pathway members are conserved, it appears that some of the members of the pathway act in a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73905. 心外膜来源细胞：再生能力的新来源
+
+| Field | Content |
+|------|------|
+| EN Title | Epicardium-derived cells: a new source of regenerative capacity |
+| ZH Title | 心外膜来源细胞：再生能力的新来源 |
+| ZH Abstract | 综述心外膜来源细胞在心肌再生中的作用。 |
+| EN Abstract | Cardiovascular regenerative medicine aims to counter muscle loss post ischaemic disease with the identification of new cellular sources for cardiomyocyte replacement. A number of embryonic and adult cell models have been explored preclinically and in patient trials, but modest outcome, coupled with issues with impaired graft survival and limited/immature (trans-) differentiation alongside host rejection, has left the door open for more therapeutically efficacious sources of myocardial regenerati |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73911. 巴尔比亚尼体一览
+
+| Field | Content |
+|------|------|
+| EN Title | The Balbiani body at a glance |
+| ZH Title | 巴尔比亚尼体一览 |
+| ZH Abstract | 综述巴尔比亚尼体的结构和功能。 |
+| EN Abstract | The Balbiani body (Bb) is a conserved membraneless compartment that assembles in early oocytes across animal species and is required for oocyte growth, polarity and developmental competence. It is composed of RNA-protein complexes and enriched organelles, and is a molecular condensate that integrates and spatially organizes transcripts, mitochondria and regulatory factors. Although its core architecture is conserved, its roles vary across species, supporting RNA storage and localization, mitocho |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73913. 通过大数据实时处理推进神经科学：从开环到闭环范式的转变
+
+| Field | Content |
+|------|------|
+| EN Title | Advancing neuroscience through real-time processing of big data: Transition from open-loop to closed-loop paradigms |
+| ZH Title | 通过大数据实时处理推进神经科学：从开环到闭环范式的转变 |
+| ZH Abstract | 综述大数据在神经科学中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73961. 一种混合异源双链迁移率分析法（mHMA）用于基因分型CRISPR-Cas9核酸酶产生的小插入缺失纯合突变体
+
+| Field | Content |
+|------|------|
+| EN Title | A mixing heteroduplex mobility assay (mHMA) to genotype homozygous mutants with small indels generated by CRISPR-Cas9 nucleases. |
+| ZH Title | 一种混合异源双链迁移率分析法（mHMA）用于基因分型CRISPR-Cas9核酸酶产生的小插入缺失纯合突变体 |
+| ZH Abstract | 开发快速基因分型方法筛选CRISPR突变体。 |
+| EN Abstract | The development of gene editing technologies, especially the CRISPR-Cas9 system, has been pivotal for understanding the functional role of proteins. Rapid and efficient genotyping methods are necessary to screen for generated mutations and streamline the isolation of homozygotes. CRISPR-Cas9 system targeting a single site in the gene typically results in small indels. Many genotyping methods utilize the heteroduplex that is formed when wild-type and mutant amplicons with small indels anneal duri |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 73962. 水下高架十字迷宫作为研究鱼类焦虑样行为的实验方法
+
+| Field | Content |
+|------|------|
+| EN Title | The submerged plus maze as an assay for studying anxiety-like behaviour in fish. |
+| ZH Title | 水下高架十字迷宫作为研究鱼类焦虑样行为的实验方法 |
+| ZH Abstract | 开发水下迷宫评估鱼类焦虑行为。 |
+| EN Abstract | The elevated plus maze is a commonly used and well-validated test of anxiety-related behaviour in rodents. The use of fish in behavioural neuroscience paradigms is increasing, necessitating an equivalent test for studying anxiety-like behaviour in fish. Because behaviour in the elevated plus maze is driven by aversion to open space, the submerged plus maze described here uses transparent walls to elicit similar behaviour in fish. The tendency of fish to explore or avoid the sections of the maze |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74000. 中性粒细胞在感染和伤口修复中的迁移：逆向前进
+
+| Field | Content |
+|------|------|
+| EN Title | Neutrophil migration in infection and wound repair: going forward in reverse |
+| ZH Title | 中性粒细胞在感染和伤口修复中的迁移：逆向前进 |
+| ZH Abstract | 综述中性粒细胞迁移在炎症中的作用。 |
+| EN Abstract | Neutrophil migration and its role during inflammation has been the focus of increased interest in the past decade. Advances in live imaging and the use of new model systems have helped to uncover the behaviour of neutrophils in injured and infected tissues. Although neutrophils were considered to be short-lived effector cells that undergo apoptosis in damaged tissues, recent evidence suggests that neutrophil behaviour is more complex and, in some settings, neutrophils might leave sites of tissue |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74003. 硬骨鱼骨骼可塑性：调节、适应和重塑
+
+| Field | Content |
+|------|------|
+| EN Title | Teleost Skeletal Plasticity: Modulation, Adaptation, and Remodelling |
+| ZH Title | 硬骨鱼骨骼可塑性：调节、适应和重塑 |
+| ZH Abstract | 综述硬骨鱼骨骼的可塑性。 |
+| EN Abstract | The vertebrate skeleton is a plastic organ system and the skeleton of teleosts is no exception. Epigenetic factors during development influence skeletal anatomy, mechanical properties, and meristic characters. The adult teleost skeleton undergoes changes connected to mechanical adaptation, repair, mineral homeostasis, sexual maturation, and aging. Vestiges, rudiments, atavisms, hyperostotic bones, additional tooth rows, and variable numbers of vertebral bodies are prominent examples of variable |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74004. 光刻图案化3D成型聚碳酸酯薄膜用于靶向细胞引导
+
+| Field | Content |
+|------|------|
+| EN Title | Photolithographic Patterning of 3D-Formed Polycarbonate Films for Targeted Cell Guiding |
+| ZH Title | 光刻图案化3D成型聚碳酸酯薄膜用于靶向细胞引导 |
+| ZH Abstract | 光刻图案化3D成型聚碳酸酯薄膜用于靶向细胞引导（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74006. 解码神经蛋白质组学：整合基因组、翻译组和功能解剖学
+
+| Field | Content |
+|------|------|
+| EN Title | Decoding neuroproteomics: integrating the genome, translatome and functional anatomy |
+| ZH Title | 解码神经蛋白质组学：整合基因组、翻译组和功能解剖学 |
+| ZH Abstract | 综述神经蛋白质组学分析方法。 |
+| EN Abstract | The immense intercellular and intracellular heterogeneity of the CNS presents major challenges for high-throughput omic analyses. Transcriptional, translational and post-translational regulatory events are localized to specific neuronal cell types or subcellular compartments, resulting in discrete patterns of protein expression and activity. A spatial and quantitative knowledge of the neuroproteome is therefore critical to understanding both normal and pathological aspects of the functional geno |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74008. V-ATP酶对管腔酸化的调节
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of Luminal Acidification by the V-ATPase |
+| ZH Title | V-ATP酶对管腔酸化的调节 |
+| ZH Abstract | 综述V-ATP酶在肾脏和附睾细胞中的调节。 |
+| EN Abstract | Specialized cells in the body express high levels of V-ATPase in their plasma membrane and respond to hormonal and nonhormonal cues to regulate extracellular acidification. Mutations in or loss of some V-ATPase subunits cause several disorders, including renal distal tubular acidosis and male infertility. This review focuses on the regulation of V-ATPase-dependent luminal acidification in renal intercalated cells and epididymal clear cells, which are key players in these physiological processes. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74011. 肿瘤血管对抗血管和抗血管生成策略的反应：寻找合适的模型
+
+| Field | Content |
+|------|------|
+| EN Title | Tumor vascular responses to antivascular and antiangiogenic strategies: looking for suitable models |
+| ZH Title | 肿瘤血管对抗血管和抗血管生成策略的反应：寻找合适的模型 |
+| ZH Abstract | 综述肿瘤血管治疗反应的模型。 |
+| EN Abstract | Antiangiogenic and vascular disrupting agents are in the current cancer therapeutic armamentarium. A better understanding of the intricate mechanisms ruling neovessel survival within tumors during or after treatment is needed. Refinement of imaging and a growing knowledge of molecular biology of tumor vascularization provide new insights. It is necessary to define suitable methods for monitoring tumor response and appropriate tools to analyze data. This review compares most commonly used preclin |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74012. 铁调素和铁转运蛋白：铁代谢的新参与者
+
+| Field | Content |
+|------|------|
+| EN Title | Hepcidin and Ferroportin: The New Players in Iron Metabolism |
+| ZH Title | 铁调素和铁转运蛋白：铁代谢的新参与者 |
+| ZH Abstract | 综述铁调素和铁转运蛋白在铁代谢中的作用。 |
+| EN Abstract | Systemic iron homeostasis is regulated by the interaction of the peptide hormone, hepcidin and the iron exporter, ferroportin. Mutations in FPN1, the gene that encodes ferroportin, result in iron-overload disease that shows dominant inheritance and variation in phenotype. The inheritance of ferroportin-linked disorders can be explained by the finding that ferroportin is a multimer and the product of the mutant allele participates in multimer formation. The nature of the ferroportin mutant can ex |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74013. 突触的更新和突触分子在体外和体内的动态性质
+
+| Field | Content |
+|------|------|
+| EN Title | Turnover of Synapse and Dynamic Nature of Synaptic Molecules In Vitro and In Vivo |
+| ZH Title | 突触的更新和突触分子在体外和体内的动态性质 |
+| ZH Abstract | 综述突触分子动态研究进展。 |
+| EN Abstract | Recent advances of imaging techniques have enabled us to investigate the dynamics of synapses in living neurons. The synapse is constructed of presynaptic and postsynaptic elements which contain various kinds of structural and functional molecules. The postsynaptic density (PSD) is the most prominent structure among the excitatory postsynaptic elements. One of the main components of PSD is the scaffolding proteins which interact with multiple proteins in the synapse. Scaffolding proteins are sug |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74014. 前庭眼反射发育的个体发生规则和限制
+
+| Field | Content |
+|------|------|
+| EN Title | Ontogenetic rules and constraints of vestibulo-ocular reflex development |
+| ZH Title | 前庭眼反射发育的个体发生规则和限制 |
+| ZH Abstract | 综述前庭眼反射发育的机制。 |
+| EN Abstract | Vestibulo-ocular reflexes (VOR) assist retinal image stabilization during vertebrate locomotion thereby ensuring accurate visual perception. The importance of this motor behavior for animal survival requires that the underlying circuitry and all individual components are fully developed and functional as soon as post-embryonic animals initiate self-motion. Recent progress on the genetic, molecular, and activity-dependent regulation of placode development, vestibular sensory organ formation, circ |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74015. MicroRNA调控网络在心血管发育中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | MicroRNA Regulatory Networks in Cardiovascular Development |
+| ZH Title | MicroRNA调控网络在心血管发育中的作用 |
+| ZH Abstract | 综述miRNA在心脏发育中的调控作用。 |
+| EN Abstract | The heart, more than any other organ, requires precise functionality on a second-to-second basis throughout the lifespan of the organism. Even subtle perturbations in cardiac structure or function have catastrophic consequences, resulting in lethal forms of congenital and adult heart disease. Such intolerance of the heart to variability necessitates especially robust regulatory mechanisms to govern cardiac gene expression. Recent studies have revealed central roles for microRNAs (miRNAs) as gove |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74017. 硬骨鱼和四足动物下颌、舌骨和舌下肌的比较解剖学、同源性和进化：新见解
+
+| Field | Content |
+|------|------|
+| EN Title | Comparative anatomy, homologies and evolution of mandibular, hyoid and hypobranchial muscles of bony fish and tetrapods: a new insight |
+| ZH Title | 硬骨鱼和四足动物下颌、舌骨和舌下肌的比较解剖学、同源性和进化：新见解 |
+| ZH Abstract | 综述硬骨鱼和四足动物肌肉的比较解剖学。 |
+| EN Abstract | The Osteichthyes, including bony fishes and tetrapods, is a highly speciose group of vertebrates, comprising more than 42000 living species. The anatomy of osteichthyans has been the subject of numerous comparative studies, but these mainly concern osteological structures; much less attention has been paid to muscles. In fact, the most detailed and comprehensive myological comparative analyses that were actually based on a direct observation of representatives of various major osteichthyan group |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74018. Wnt信号参与β-淀粉样蛋白依赖性神经退行性变
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt signaling involvement in beta-amyloid-dependent neurodegeneration. |
+| ZH Title | Wnt信号参与β-淀粉样蛋白依赖性神经退行性变 |
+| ZH Abstract | 研究Wnt信号在阿尔茨海默病中的作用。 |
+| EN Abstract | Alzheimer's disease (AD) is a progressive dementia paralleled by selective neuronal death, which is probably caused by the cytotoxic effects of the amyloid-beta peptide (Abeta). We have observed that Abeta-dependent neurotoxicity induces a loss of function of Wnt signaling components and that activation of this signaling cascade prevent such cytotoxic effects. Therefore we propose that compounds which mimic this signaling cascade may be candidates for therapeutic intervention in Alzheimer's pati |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74020. 利用石榴叶绿色合成ZnO纳米颗粒及其抗菌、抗氧化、抗癌、血管生成活性和毒性评估
+
+| Field | Content |
+|------|------|
+| EN Title | Eco-friendly synthesis of ZnO nanoparticles using pomegranate leaves and its antimicrobial, antioxidant, anticancer, angiogenic activity, and toxicity assessment |
+| ZH Title | 利用石榴叶绿色合成ZnO纳米颗粒及其抗菌、抗氧化、抗癌、血管生成活性和毒性评估 |
+| ZH Abstract | 研究绿色合成ZnO纳米颗粒的生物活性。 |
+| EN Abstract | Green-synthesized nanoparticles are cost-effective, environment-friendly, and less hazardous, with potentially diverse biological applications. Nanoparticles of zinc oxide (ZnO) were generated with an aqueous extract of dried pomegranate leaves and characterized using X-ray diffractometry, Infrared and UV-visible spectroscopy, and field emission scanning electron microscopy (FESEM) tools. The synthesized ZnO nanoparticles (NPs) demonstrated comparable and enhanced antioxidant potential to the le |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74021. 靶向胆固醇运输以减轻遗传性痉挛性截瘫中的轴突变性
+
+| Field | Content |
+|------|------|
+| EN Title | Targeting cholesterol trafficking to mitigate axonal degeneration in hereditary spastic paraplegia |
+| ZH Title | 靶向胆固醇运输以减轻遗传性痉挛性截瘫中的轴突变性 |
+| ZH Abstract | 靶向胆固醇运输以减轻遗传性痉挛性截瘫中的轴突变性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74022. 它们自己的尾巴：酰基转移酶LCLAT1对心磷脂和磷脂酰肌醇脂肪酸谱的调控
+
+| Field | Content |
+|------|------|
+| EN Title | A tail of their own: regulation of cardiolipin and phosphatidylinositol fatty acyl profile by the acyltransferase LCLAT1 |
+| ZH Title | 它们自己的尾巴：酰基转移酶LCLAT1对心磷脂和磷脂酰肌醇脂肪酸谱的调控 |
+| ZH Abstract | 综述LCLAT1对脂质脂肪酸链的调控。 |
+| EN Abstract | Cardiolipin and phosphatidylinositol along with the latter's phosphorylated derivative phosphoinositides, control a wide range of cellular functions from signal transduction, membrane traffic, mitochondrial function, cytoskeletal dynamics, and cell metabolism. An emerging dimension to these lipids is the specificity of their fatty acyl chains that is remarkably distinct from that of other glycerophospholipids. Cardiolipin and phosphatidylinositol undergo acyl remodeling involving the sequential |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74023. 智力的达尔文进化
+
+| Field | Content |
+|------|------|
+| EN Title | Darwinian Evolution of Intelligence |
+| ZH Title | 智力的达尔文进化 |
+| ZH Abstract | 研究驱动蛋白KIF14的进化特征。 |
+| EN Abstract | Intelligence is often discussed in terms of neural networks in the cerebral cortex, whose evolution has presumably been influenced by Darwinian selection. Here we present molecular evidence that one of the many kinesin motors, KIF14, has evolved to exhibit a special feature in its amino acid sequence that could improve neural networks. The improvement is quantified by comparison of NIF14 sequences for 12 species. The special feature is level sets of synchronized hydrophobic extrema in water wave |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74024. 人类图雷特综合征相关基因旁系同源物的复制顺序
+
+| Field | Content |
+|------|------|
+| EN Title | ORDER OF DUPLICATION OF PARALOGS OF GENES ASSOCIATED WITH TOURETTE SYNDROME IN HUMANS |
+| ZH Title | 人类图雷特综合征相关基因旁系同源物的复制顺序 |
+| ZH Abstract | 人类图雷特综合征相关基因旁系同源物的复制顺序（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74028. 引导肌肉干细胞在稳态、衰老和疾病中再生
+
+| Field | Content |
+|------|------|
+| EN Title | Orienting Muscle Stem Cells for Regeneration in Homeostasis, Aging, and Disease |
+| ZH Title | 引导肌肉干细胞在稳态、衰老和疾病中再生 |
+| ZH Abstract | 综述肌肉干细胞不对称分裂与再生。 |
+| EN Abstract | Muscle stem cells, or satellite cells, are required for skeletal muscle maintenance, growth, and repair. Following satellite cell activation, several factors drive asymmetric cell division to generate a stem cell and a proliferative progenitor that forms new muscle. The balance between symmetric self-renewal and asymmetric division significantly impacts the efficiency of regeneration. In this Review, we discuss the relationship of satellite cell heterogeneity and the establishment of polarity to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74029. 细胞-细胞接触和受体酪氨酸激酶信号
+
+| Field | Content |
+|------|------|
+| EN Title | Cell-Cell Contact and Receptor Tyrosine Kinase Signaling |
+| ZH Title | 细胞-细胞接触和受体酪氨酸激酶信号 |
+| ZH Abstract | 综述细胞粘附与RTK信号协调。 |
+| EN Abstract | The behavior of cells within tissues is governed by the activities of adhesion receptors that provide spatial cues and transmit forces through intercellular junctions, and by growth-factor receptors, particularly receptor tyrosine kinases (RTKs), that respond to biochemical signals from the environment. Coordination of these two activities is essential for the patterning and polarized migration of cells during morphogenesis and for homeostasis in mature tissues; loss of this coordination is a ha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74031. 探索全脑行为执行的神经基础
+
+| Field | Content |
+|------|------|
+| EN Title | Exploring Neural Substrates Underlying the Execution of Behavior Across the Whole Brain |
+| ZH Title | 探索全脑行为执行的神经基础 |
+| ZH Abstract | 探索全脑行为执行的神经基础（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74034. Dishevelled3是一种新的精氨酸甲基转移酶底物
+
+| Field | Content |
+|------|------|
+| EN Title | Dishevelled3 is a novel arginine methyl transferase substrate |
+| ZH Title | Dishevelled3是一种新的精氨酸甲基转移酶底物 |
+| ZH Abstract | 研究Dishevelled3的精氨酸甲基化修饰。 |
+| EN Abstract | Dishevelled, a phosphoprotein scaffold, is a central component in all the Wnt-sensitive signaling pathways. In the present study, we report that Dishevelled is post-translationally modified, both in vitro and in vivo, via arginine methylation. We also show protein arginine methyl transferases 1 and 7 as the key enzymes catalyzing Dishevelled methylation. Interestingly, Wnt3a stimulation of F9 teratocarcinoma cells results in reduced Dishevelled methylation. Similarly, the methylation-deficient m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74035. 关于有丝分裂激酶激活的分子机制
+
+| Field | Content |
+|------|------|
+| EN Title | On the molecular mechanisms of mitotic kinase activation |
+| ZH Title | 关于有丝分裂激酶激活的分子机制 |
+| ZH Abstract | 综述有丝分裂激酶激活机制。 |
+| EN Abstract | During mitosis, human cells exhibit a peak of protein phosphorylation that alters the behaviour of a significant proportion of proteins, driving a dramatic transformation in the cell's shape, intracellular structures and biochemistry. These mitotic phosphorylation events are catalysed by several families of protein kinases, including Auroras, Cdks, Plks, Neks, Bubs, Haspin and Mps1/TTK. The catalytic activities of these kinases are activated by phosphorylation and through protein-protein interac |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74046. 关于鱼中汞含量的更多信息
+
+| Field | Content |
+|------|------|
+| EN Title | More on mercury content in fish. |
+| ZH Title | 关于鱼中汞含量的更多信息 |
+| ZH Abstract | 关于鱼中汞含量的更多信息（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74048. 神经诱导、默认模型和胚胎干细胞
+
+| Field | Content |
+|------|------|
+| EN Title | Neural induction, the default model and embryonic stem cells. |
+| ZH Title | 神经诱导、默认模型和胚胎干细胞 |
+| ZH Abstract | 神经诱导、默认模型和胚胎干细胞（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74075. 关于NgAgo的问题
+
+| Field | Content |
+|------|------|
+| EN Title | Questions about NgAgo |
+| ZH Title | 关于NgAgo的问题 |
+| ZH Abstract | 关于NgAgo的问题（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74092. 美丽而复杂的简单性：通过前肾单细胞测序揭示肾单位分段的起源
+
+| Field | Content |
+|------|------|
+| EN Title | A beautiful, complex simplicity: the origins of nephron segmentation uncovered by single-cell sequencing of the pronephros |
+| ZH Title | 美丽而复杂的简单性：通过前肾单细胞测序揭示肾单位分段的起源 |
+| ZH Abstract | 评论文章，讨论前肾单细胞测序研究。 |
+| EN Abstract | Pronephric kidneys have a single large nephron that provides essential osmoregulation in amphibians and fish until the adult kidney forms. As mammalian kidneys evolved from the simple pronephric kidneys of the early vertebrates, understanding the structure and function of pronephroi gives insight into the blueprints underlying all nephrons. The article in this issue by Corkins et al. uses single-cell sequencing to demonstrate an extraordinary segmental complexity and the organizational roadmap t |
+| Judgment | 是 |
+| Reason | 提及鱼类但未明确斑马鱼 |
+---
+### 74098. 揭示心脏再生途径
+
+| Field | Content |
+|------|------|
+| EN Title | Revealing Pathways of Cardiac Regeneration |
+| ZH Title | 揭示心脏再生途径 |
+| ZH Abstract | 揭示心脏再生途径（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74102. 鱼类毒理学中的基因表达谱分析：综述
+
+| Field | Content |
+|------|------|
+| EN Title | Gene Expression Profiling in Fish Toxicology: A Review |
+| ZH Title | 鱼类毒理学中的基因表达谱分析：综述 |
+| ZH Abstract | 综述鱼类毒理学中的基因表达谱研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74108. 视网膜干细胞中的命运限制和多能性
+
+| Field | Content |
+|------|------|
+| EN Title | Fate Restriction and Multipotency in Retinal Stem Cells |
+| ZH Title | 视网膜干细胞中的命运限制和多能性 |
+| ZH Abstract | 研究鱼类视网膜干细胞的命运决定。 |
+| EN Abstract | Stem cells have the capacity to both self-renew and generate postmitotic cells. Long-term tracking of individual clones in their natural environment constitutes the ultimate way to validate postembryonic stem cells. We identify retinal stem cells (RSCs) using the spatiotemporal organization of the fish retina and follow the complete offspring of a single cell during the postnatal life. RSCs generate two tissues of the adult fish retina, the neural retina (NR) and the retinal-pigmented epithelium |
+| Judgment | 是 |
+| Reason | 提及鱼类但未明确斑马鱼 |
+---
+### 74117. 研究ADAMTS18在血管生成中的作用以用于潜在的血管生成基因治疗
+
+| Field | Content |
+|------|------|
+| EN Title | Investigating the role of ADAMTS18 in angiogenesis for potential angiogenic gene therapy |
+| ZH Title | 研究ADAMTS18在血管生成中的作用以用于潜在的血管生成基因治疗 |
+| ZH Abstract | 研究ADAMTS18在血管生成中的作用以用于潜在的血管生成基（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74122. 高效表达多个引导RNA用于CRISPR/Cas基因组编辑
+
+| Field | Content |
+|------|------|
+| EN Title | Efficient expression of multiple guide RNAs for CRISPR/Cas genome editing. |
+| ZH Title | 高效表达多个引导RNA用于CRISPR/Cas基因组编辑 |
+| ZH Abstract | 综述CRISPR/Cas系统多引导RNA表达策略。 |
+| EN Abstract | The Clustered Regularly Interspaced Short Palindromic Repeats/CRISPR-associated protein system (CRISPR/Cas) has recently become the most powerful tool available for genome engineering in various organisms. With efficient and proper expression of multiple guide RNAs (gRNAs), the CRISPR/Cas system is particularly suitable for multiplex genome editing. During the past several years, different CRISPR/Cas expression strategies, such as two-component transcriptional unit, single transcriptional unit, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74125. 开发适用于光片显微镜的样本适应性支架
+
+| Field | Content |
+|------|------|
+| EN Title | Development of Sample-Adaptable Holders for Lightsheet Microscopy |
+| ZH Title | 开发适用于光片显微镜的样本适应性支架 |
+| ZH Abstract | 开发适用于多种样本的光片显微镜支架。 |
+| EN Abstract | Multi-user core microscopy facilities are often faced with the challenge to adapt or modify existing instruments. This is essential in order to fulfill the requirements of the user community, who wants to image a wide range of model organisms with varying stains and sample thicknesses. In recent years, lightsheet microscopy has turned into an invaluable tool for both live and cleared sample imaging of many different specimens. This brought up new challenges in terms of sample mounting as the cla |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74135. Fish Cam：将群游行为引入课堂的在线工具
+
+| Field | Content |
+|------|------|
+| EN Title | Fish Cam: An Online Tool for Introducing Shoaling Behavior to the Classroom |
+| ZH Title | Fish Cam：将群游行为引入课堂的在线工具 |
+| ZH Abstract | 介绍在线教育工具Fish Cam用于研究鱼类群游。 |
+| EN Abstract | Fish Cam is an on-line educational resource that enables students to participate in behavioral research projects without ever leaving their classroom. By linking onto the Fish Cam site, students will observe an experimental tank in which fish choose shoal-mates in dichotomous choice tests. In these experiments, a test fish, in the central compartment, displays its shoaling preference by swimming near small shoals of fish in either of two side compartments. Assays are designed to examine the effe |
+| Judgment | 是 |
+| Reason | 摘要未明确鱼类种类 |
+---
+### 74156. 编辑精选：2018年最佳
+
+| Field | Content |
+|------|------|
+| EN Title | Editors' Favorites: Best of 2018| |
+| ZH Title | 编辑精选：2018年最佳 |
+| ZH Abstract | 期刊编辑推荐2018年最佳文章。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74166. 脊椎动物和无脊椎动物左右不对称建立策略
+
+| Field | Content |
+|------|------|
+| EN Title | Strategies to establish left/right asymmetry in vertebrates and invertebrates |
+| ZH Title | 脊椎动物和无脊椎动物左右不对称建立策略 |
+| ZH Abstract | 综述左右不对称建立的机制，提及多种模式生物。 |
+| EN Abstract | Left/right (L/R) asymmetry is essential during embryonic development for organ positioning, looping and handed morphogenesis. A major goal in the field is to understand how embryos initially determine their left and right hand sides, a process known as symmetry breaking. A number of recent studies on several vertebrate and invertebrate model organisms have provided a more complex view on how L/R asymmetry is established, revealing an apparent partition between deuterostomes and protostomes. In d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74177. 硬骨鱼幼虫鳃的结构与功能
+
+| Field | Content |
+|------|------|
+| EN Title | Structure and function of the larval teleost fish gill |
+| ZH Title | 硬骨鱼幼虫鳃的结构与功能 |
+| ZH Abstract | 综述硬骨鱼幼虫鳃的结构功能，未特指斑马鱼。 |
+| EN Abstract | The fish gill is a multifunctional organ that is important in multiple physiological processes such as gas transfer, ionoregulation, and chemoreception. This characteristic organ of fishes has received much attention, yet an often-overlooked point is that larval fishes in most cases do not have a fully developed gill, and thus larval gills do not function identically as adult gills. In addition, large changes associated with gas exchange and ionoregulation happen in gills during the larval phase |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74179. 硬骨鱼碳酸酐酶4的功能分化
+
+| Field | Content |
+|------|------|
+| EN Title | Functional divergence of teleost carbonic anhydrase 4 |
+| ZH Title | 硬骨鱼碳酸酐酶4的功能分化 |
+| ZH Abstract | 研究硬骨鱼碳酸酐酶4功能，未特指斑马鱼。 |
+| EN Abstract | The functional role of membrane-bound carbonic anhydrases (CAs) has been of keen interest in the past decade, and in particular, studies have linked CA in red muscle, heart, and eye to enhanced tissue oxygen extraction in bony fishes (teleosts). However, the number of purported membrane-bound CA isoforms in teleosts, combined with the imperfect system of CA isoform nomenclature, present roadblocks for ascribing physiological functions to particular CA isoforms across different teleost lineages. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74192. Esrp依赖性可变剪接程序在多种胚胎形态发生过程中的进化招募
+
+| Field | Content |
+|------|------|
+| EN Title | Evolutionary recruitment of flexible Esrp-dependent splicing programs into diverse embryonic morphogenetic processes |
+| ZH Title | Esrp依赖性可变剪接程序在多种胚胎形态发生过程中的进化招募 |
+| ZH Abstract | 研究Esrp基因在多种后口动物中的进化招募。 |
+| EN Abstract | Epithelial-mesenchymal interactions are crucial for the development of numerous animal structures. Thus, unraveling how molecular tools are recruited in different lineages to control interplays between these tissues is key to understanding morphogenetic evolution. Here, we study Esrp genes, which regulate extensive splicing programs and are essential for mammalian organogenesis. We find that Esrp homologs have been independently recruited for the development of multiple structures across deutero |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74194. 鱼类I型干扰素的独特特征
+
+| Field | Content |
+|------|------|
+| EN Title | The Peculiar Characteristics of Fish Type I Interferons |
+| ZH Title | 鱼类I型干扰素的独特特征 |
+| ZH Abstract | 综述鱼类I型干扰素特征，未特指斑马鱼。 |
+| EN Abstract | Antiviral type I interferons (IFNs) have been discovered in fish. Genomic studies revealed their considerable number in many species; some genes encode secreted and non-secreted isoforms. Based on cysteine motifs, fish type I IFNs fall in two subgroups, which use two different receptors. Mammalian type I IFN genes are intronless while type III have introns; in fish, all have introns, but structurally, both subgroups belong to type I. Type I IFNs likely appeared early in vertebrates as intron con |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74214. 硬骨鱼类的DNA甲基化重编程
+
+| Field | Content |
+|------|------|
+| EN Title | DNA methylation reprogramming in teleosts |
+| ZH Title | 硬骨鱼类的DNA甲基化重编程 |
+| ZH Abstract | 综述硬骨鱼类早期胚胎DNA甲基化重编程。 |
+| EN Abstract | Early embryonic development is crucially important but also remarkably diverse among animal taxa. Axis formation and cell lineage specification occur due to both spatial and temporal control of gene expression. This complex system involves various signaling pathways and developmental genes such as transcription factors as well as other molecular interactants that maintain cellular states, including several types of epigenetic marks. 5mC DNA methylation, the chemical modification of cytosines in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74237. 硬骨鱼类的性别决定和分化
+
+| Field | Content |
+|------|------|
+| EN Title | Sexual determination and differentiation in teleost fish |
+| ZH Title | 硬骨鱼类的性别决定和分化 |
+| ZH Abstract | 综述硬骨鱼类性别决定分化机制。 |
+| EN Abstract | The present work reviews the latest information on the cellular, molecular and physiological aspects of sexual determination and differentiation in teleost fish. The group exhibits a large variety of mechanisms of sexual determination. These may be genetic, or depend on environmental conditions such as temperature, pH, and social factors, all of which can influence the proportion of the sexes. Additionally, sex steroids play an important role in the regulation of sexual differentiation. The patt |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74243. 过期铁补充剂合成铁掺杂碳耦合PMS降解四环素：从非自由基途径到动物生存研究
+
+| Field | Content |
+|------|------|
+| EN Title | Synthesis of Fe-doped carbon from expired iron supplement tablets coupled with PMS for tetracycline degradation: From a non-radical pathway to an animal survival study |
+| ZH Title | 过期铁补充剂合成铁掺杂碳耦合PMS降解四环素：从非自由基途径到动物生存研究 |
+| ZH Abstract | 研究铁掺杂碳降解四环素，涉及动物实验。 |
+| EN Abstract | The improper disposal of expired pharmaceutical products and the persistent occurrence of antibiotic pollutants in aquatic systems pose significant environmental challenges. This work demonstrated the volarization of expired iron supplement tablets (a primary pharmaceutical solid waste) into iron-doped carbon (Fe-TBC) for efficient degradation of tetracycline (TC) contaminant in water bodies using peroxymonosulfate (PMS) activation. The upcycled Fe-TBC samples were scrutinized using comprehensiv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74246. 开发N端修饰的CXCR4拮抗肽EPI-X4变体以提高血浆稳定性
+
+| Field | Content |
+|------|------|
+| EN Title | Development of N-Terminally Modified Variants of the CXCR4-Antagonistic Peptide EPI-X4 for Enhanced Plasma Stability |
+| ZH Title | 开发N端修饰的CXCR4拮抗肽EPI-X4变体以提高血浆稳定性 |
+| ZH Abstract | 研究EPI-X4肽变体的血浆稳定性。 |
+| EN Abstract | EPI-X4, a natural peptide CXCR4 antagonist, shows potential for treating inflammation and cancer, but its short plasma stability limits its clinical application. We aimed to improve the plasma stability of EPI-X4 analogues without compromising CXCR4 antagonism. Our findings revealed that only the peptide N-terminus is prone to degradation. Consequently, incorporating d-amino acids or acetyl groups in this region enhanced peptide stability in plasma. Notably, EPI-X4 leads 5, 27, and 28 not only r |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74247. 通过结合ROR调控基序在视网膜色素上皮中昼夜节律调节黑色素生物合成
+
+| Field | Content |
+|------|------|
+| EN Title | The circadian modulation of melanin biosynthesis by binding to the ROR regulatory motif in the retinal pigment epithelium |
+| ZH Title | 通过结合ROR调控基序在视网膜色素上皮中昼夜节律调节黑色素生物合成 |
+| ZH Abstract | 研究昼夜节律调节视网膜色素上皮黑色素合成。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74250. 巨噬细胞在健康和疾病中调节血管生成
+
+| Field | Content |
+|------|------|
+| EN Title | Macrophage regulation of angiogenesis in health and disease |
+| ZH Title | 巨噬细胞在健康和疾病中调节血管生成 |
+| ZH Abstract | 综述巨噬细胞调节血管生成的作用。 |
+| EN Abstract | Macrophages are primarily known as phagocytic innate immune cells, but are, in fact, highly dynamic multi-taskers that interact with many different tissue types and have regulatory roles in development, homeostasis, tissue repair, and disease. In all of these scenarios angiogenesis is pivotal and macrophages appear to play a key role in guiding both blood vessel sprouting and remodelling wherever that occurs. Recent studies have explored these processes in a diverse range of models utilising the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74251. 视网膜干细胞“退休计划”：睫状缘区的生长、调控与物种适应
+
+| Field | Content |
+|------|------|
+| EN Title | Retinal Stem Cell 'Retirement Plans': Growth, Regulation and Species Adaptations in the Retinal Ciliary Marginal Zone |
+| ZH Title | 视网膜干细胞“退休计划”：睫状缘区的生长、调控与物种适应 |
+| ZH Abstract | 综述视网膜睫状缘区干细胞特性。 |
+| EN Abstract | The vertebrate retina develops from a specified group of precursor cells that adopt distinct identities and generate lineages of either the neural retina, retinal pigmented epithelium, or ciliary body. In some species, including teleost fish and amphibians, proliferative cells with stem-cell-like properties capable of continuously supplying new retinal cells post-embryonically have been characterized and extensively studied. This region, termed the ciliary or circumferential marginal zone (CMZ), |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74254. 中性粒细胞胞外陷阱（NETs）的体内成像：可视化方法与结果
+
+| Field | Content |
+|------|------|
+| EN Title | In Vivo Imaging of Neutrophil Extracellular Traps (NETs): Visualization Methods and Outcomes |
+| ZH Title | 中性粒细胞胞外陷阱（NETs）的体内成像：可视化方法与结果 |
+| ZH Abstract | 综述NETs体内成像方法。 |
+| EN Abstract | Neutrophils comprise the first line of innate immune defense during a host-pathogen interaction. They attack microorganisms directly through three different methods, of which, phagocytosis and degranulation have been known and well-studied for decades. The formation of neutrophil extracellular traps (NETs) is the third and unique method, which was unveiled in 2004. Since then, many studies on NETs have been carried out. However, only few have successfully demonstrated the activity of NETs in viv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74255. 通过特异性靶向细胞器纳米疗法改善血管性高血压
+
+| Field | Content |
+|------|------|
+| EN Title | Personalized Nanotherapy by Specifically Targeting Cell Organelles To Improve Vascular Hypertension |
+| ZH Title | 通过特异性靶向细胞器纳米疗法改善血管性高血压 |
+| ZH Abstract | 研究靶向纤毛的纳米药物递送系统。 |
+| EN Abstract | Ciliopathies caused by abnormal function of primary cilia include expanding spectrum of kidney, liver, and cardiovascular disorders. There is currently no treatment available for patients with cilia dysfunction. Therefore, we generated and compared two different (metal and polymer) cilia-targeted nanoparticle drug delivery systems (CTNDDS), CT-DAu-NPs and CT-PLGA-NPs, for the first time. These CTNDDS loaded with fenoldopam were further compared to fenoldopam-alone. Live-imaging of single-cell-si |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74257. 从再生研究模式生物中学习：通往无瘢痕伤口愈合的曲折之路
+
+| Field | Content |
+|------|------|
+| EN Title | Learning from regeneration research organisms: The circuitous road to scar free wound healing |
+| ZH Title | 从再生研究模式生物中学习：通往无瘢痕伤口愈合的曲折之路 |
+| ZH Abstract | 综述再生研究模式生物与无瘢痕愈合。 |
+| EN Abstract | The skin is the largest organ in the body and plays multiple essential roles ranging from regulating temperature, preventing infection and ultimately defining who we are physically. It is a highly dynamic organ that constantly replaces the outermost cells throughout life. However, when faced with a major injury, human skin cannot restore a significant lesion to its original functionality, instead a reparative scar is formed. In contrast to this, many other species have the unique ability to rege |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74258. 几种商业阻燃剂混合物和室内灰尘标准参考物质SRM 2585中单个异丙基化和叔丁基化三芳基磷酸酯（ITP和TBPP）异构体的表征
+
+| Field | Content |
+|------|------|
+| EN Title | Characterization of Individual Isopropylated and tert-Butylated Triarylphosphate (ITP and TBPP) Isomers in Several Commercial Flame Retardant Mixtures and House Dust Standard Reference Material SRM 2585 |
+| ZH Title | 几种商业阻燃剂混合物和室内灰尘标准参考物质SRM 2585中单个异丙基化和叔丁基化三芳基磷酸酯（ITP和TBPP）异构体的表征 |
+| ZH Abstract | 表征阻燃剂混合物中ITP和TBPP异构体。 |
+| EN Abstract | Since the phase-out of pentaBDE in the early 2000s, replacement flame-retardant mixtures including Firemaster 550 (FM 550), Firemaster 600 (FM 600), and organophosphate aryl ester technical mixtures have been increasingly used to treat polyurethane foam in residential upholstered furniture. These mixtures contain isomers of isopropylated and tert-butylated triarylphosphate esters (ITPs and TBPPs), which have similar or greater neuro- and developmental toxicity compared to BDE 47 in high-throughp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74261. 早期胚胎卵裂中DNA复制的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of DNA Replication in Early Embryonic Cleavages |
+| ZH Title | 早期胚胎卵裂中DNA复制的调控 |
+| ZH Abstract | 综述早期胚胎卵裂中DNA复制调控。 |
+| EN Abstract | Early embryonic cleavages are characterized by short and highly synchronous cell cycles made of alternating S- and M-phases with virtually absent gap phases. In this contracted cell cycle, the duration of DNA synthesis can be extraordinarily short. Depending on the organism, the whole genome of an embryo is replicated at a speed that is between 20 to 60 times faster than that of a somatic cell. Because transcription in the early embryo is repressed, DNA synthesis relies on a large stockpile of m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74262. 拥抱变化：食管发育中横纹肌替代平滑肌
+
+| Field | Content |
+|------|------|
+| EN Title | Embracing change: striated-for-smooth muscle replacement in esophagus development |
+| ZH Title | 拥抱变化：食管发育中横纹肌替代平滑肌 |
+| ZH Abstract | 综述食管发育中肌肉类型转换。 |
+| EN Abstract | The esophagus functions to transport food from the oropharyngeal region to the stomach via waves of peristalsis and transient relaxation of the lower esophageal sphincter. The gastrointestinal tract, including the esophagus, is ensheathed by the muscularis externa (ME). However, while the ME of the gastrointestinal tract distal to the esophagus is exclusively smooth muscle, the esophageal ME of many vertebrate species comprises a variable amount of striated muscle. The esophageal ME is initially |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74265. 脊椎动物侧线电感受器的进化与发育
+
+| Field | Content |
+|------|------|
+| EN Title | The evolution and development of vertebrate lateral line electroreceptors |
+| ZH Title | 脊椎动物侧线电感受器的进化与发育 |
+| ZH Abstract | 综述脊椎动物电感受器的进化与发育。 |
+| EN Abstract | Electroreception is an ancient vertebrate sense with a fascinating evolutionary history involving multiple losses as well as independent evolution at least twice within teleosts. We review the phylogenetic distribution of electroreception and the morphology and innervation of electroreceptors in different vertebrate groups. We summarise recent work from our laboratory that has confirmed the homology of ampullary electroreceptors in non-teleost jawed vertebrates by showing, in conjunction with pr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74266. 磷酸肌醇与感光细胞
+
+| Field | Content |
+|------|------|
+| EN Title | Phosphoinositides and Photoreceptors |
+| ZH Title | 磷酸肌醇与感光细胞 |
+| ZH Abstract | 综述磷酸肌醇在感光细胞中的作用。 |
+| EN Abstract | The importance of phosphoinositides (phosphorylated phosphatidyl inositol derivatives, PIs) for normal cellular function cannot be overstated. Although they represent a small fraction of the total phospholipid within the cell, they are essential regulators of many cellular functions. They direct membrane trafficking by functioning as recruitment factors for vesicular trafficking components, they can modulate ion channel activity through direct binding within cellular membranes, and their hydroly |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74267. 二尖瓣的转化研究：从发育机制到新疗法
+
+| Field | Content |
+|------|------|
+| EN Title | Translational Research on the Mitral Valve: from Developmental Mechanisms to New Therapies |
+| ZH Title | 二尖瓣的转化研究：从发育机制到新疗法 |
+| ZH Abstract | 综述二尖瓣发育机制与治疗。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74268. 胶质细胞与黑色素细胞命运选择：施万细胞前体作为黑色素细胞的细胞起源
+
+| Field | Content |
+|------|------|
+| EN Title | Glial versus melanocyte cell fate choice: Schwann cell precursors as a cellular origin of melanocytes |
+| ZH Title | 胶质细胞与黑色素细胞命运选择：施万细胞前体作为黑色素细胞的细胞起源 |
+| ZH Abstract | 综述施万细胞前体与黑色素细胞起源。 |
+| EN Abstract | Melanocytes and Schwann cells are derived from the multipotent population of neural crest cells. Although both cell types were thought to be generated through completely distinct pathways and molecular processes, a recent study has revealed that these different cell types are intimately interconnected far beyond previously postulated limits in that they share a common post-neural crest progenitor, i.e. the Schwann cell precursor. This finding raises interesting questions about the lineage relati |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74269. 脊椎动物β-胸腺素：保守同线性揭示硬骨鱼与陆生脊椎动物的关系
+
+| Field | Content |
+|------|------|
+| EN Title | Vertebrate β-thymosins: Conserved synteny reveals the relationship between those of bony fish and of land vertebrates |
+| ZH Title | 脊椎动物β-胸腺素：保守同线性揭示硬骨鱼与陆生脊椎动物的关系 |
+| ZH Abstract | 通过同线性分析脊椎动物β-胸腺素进化关系。 |
+| EN Abstract | Using conservation of synteny I show how the four thymosins expressed by teleost fish are related to the three of tetrapods, which is not evident from their protein sequences. This clarification was aided by identification of a novel thymosin of reptilians that replaces the beta 10 thymosin of mammals. Recent reconstruction of the ancestral vertebrate genome suggests that divergence of beta-thymosins began with duplication preceding the two rounds of whole genome duplication. (C) 2010 Federation |
+| Judgment | 是 |
+| Reason | 摘要提及硬骨鱼，未特指斑马鱼 |
+---
+### 74281. 动脉再生：分子、机制及其对器官功能的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Artery regeneration: Molecules, mechanisms and impact on organ function |
+| ZH Title | 动脉再生：分子、机制及其对器官功能的影响 |
+| ZH Abstract | 综述动脉再生的分子与细胞机制。 |
+| EN Abstract | Replenishment of artery cells to repair or create new arteries is a promising strategy to re-vascularize ischemic tissue. However, limited understanding of cellular and molecular programs associated with artery (re-)growth impedes our efforts towards designing optimal therapeutic approaches. In this review, we summarize different cellular mechanisms that drive injury-induced artery regeneration in distinct organs and organisms. Artery formation during embryogenesis includes migration, self-ampli |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74324. 利用塑形光片对活体生物进行快速成像
+
+| Field | Content |
+|------|------|
+| EN Title | Fast imaging of live organisms with sculpted light sheets |
+| ZH Title | 利用塑形光片对活体生物进行快速成像 |
+| ZH Abstract | 介绍一种快速灵活的光片显微镜优化方法。 |
+| EN Abstract | Light-sheet microscopy is an increasingly popular technique in the life sciences due to its fast 3D imaging capability of fluorescent samples with low photo toxicity compared to confocal methods. In this work we present a new, fast, flexible and simple to implement method to optimize the illumination light-sheet to the requirement at hand. A telescope composed of two electrically tuneable lenses enables us to define thickness and position of the light-sheet independently but accurately within mi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74326. 胚胎边界细胞分选的分子基础：Ephrin/Eph依赖性收缩性对钙黏蛋白粘附的接触抑制
+
+| Field | Content |
+|------|------|
+| EN Title | A Molecular Base for Cell Sorting at Embryonic Boundaries: Contact Inhibition of Cadherin Adhesion by Ephrin/Eph-Dependent Contractility |
+| ZH Title | 胚胎边界细胞分选的分子基础：Ephrin/Eph依赖性收缩性对钙黏蛋白粘附的接触抑制 |
+| ZH Abstract | 研究胚胎边界处钙黏蛋白聚集抑制的机制。 |
+| EN Abstract | The mechanism responsible for subdividing the embryo into individual tissues is a fundamental, yet still poorly understood, question in developmental biology. Various general hypotheses have been proposed, involving differences in cell adhesion, contractility, or contact-mediated repulsion. However, the key parameter in tissue separation, i.e., the regulation of cadherin-based adhesion at the boundary, has not yet been investigated. We show that cadherin clustering is specifically inhibited at t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74331. 蛇与梯子：动物分节的起起落落
+
+| Field | Content |
+|------|------|
+| EN Title | Snakes and ladders: the ups and downs of animal segmentation |
+| ZH Title | 蛇与梯子：动物分节的起起落落 |
+| ZH Abstract | 综述动物分节现象的机制。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74342. 钙调蛋白的重新设计用于高动态范围的基因编码Zn2+传感
+
+| Field | Content |
+|------|------|
+| EN Title | Redesign of Calmodulin for Genetically Encoded Zn2+ Sensing with High Dynamic Range |
+| ZH Title | 钙调蛋白的重新设计用于高动态范围的基因编码Zn2+传感 |
+| ZH Abstract | 开发基于钙调蛋白的锌离子生物传感器。 |
+| EN Abstract | The development of genetically encoded Zn2+ probes (GEZPs) has been hindered by the limited signal transduction efficiency of natural zinc-binding domains, but the encoded Ca2+ indicators utilize the cooperative conformational changes of calmodulin (CaM) to achieve superior dynamic ranges. Here, we rationally redesigned the calcium-binding protein CaM in Ca2+ indicators to develop a biosensor, mNG-ZnM1.0, which shows a high dynamic range and selectivity for Zn2+. Specifically, by utilizing Zn2+ |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74348. 从已鉴定神经元记录有效揭示风险评估中的脑功能危害
+
+| Field | Content |
+|------|------|
+| EN Title | Recording from an Identified Neuron Efficiently Reveals Hazard for Brain Function in Risk Assessment |
+| ZH Title | 从已鉴定神经元记录有效揭示风险评估中的脑功能危害 |
+| ZH Abstract | 提出利用成年脊椎动物脑内神经元记录评估化学物质风险。 |
+| EN Abstract | Modern societies use a continuously growing number of chemicals. Because these are released into the environment and are taken up by humans, rigorous (but practicable) risk assessment must precede the approval of new substances for commerce. A number of tests is applicable, but it has been very difficult to efficiently assay the effect of chemicals on communication and information processing in vivo in the adult vertebrate brain. Here, we suggest a straightforward way to rapidly and accurately d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74350. 基于TEM、SEM和STEM的免疫CLEM工作流程提供互补优势
+
+| Field | Content |
+|------|------|
+| EN Title | TEM, SEM, and STEM-based immuno-CLEM workflows offer complementary advantages |
+| ZH Title | 基于TEM、SEM和STEM的免疫CLEM工作流程提供互补优势 |
+| ZH Abstract | 介绍多分辨率免疫相关光镜电镜联用方法。 |
+| EN Abstract | Identifying endogenous tissue stem cells remains a key challenge in developmental and regenerative biology. To distinguish and molecularly characterise stem cell populations in large heterogeneous tissues, the combination of cytochemical cell markers with ultrastructural morphology is highly beneficial. Here, we realise this through workflows of multi-resolution immuno-correlative light and electron microscopy (iCLEM) methodologies. Taking advantage of the antigenicity preservation of the Tokuya |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74354. Rab6通过招募Cdc42并调节其活性来调控细胞迁移和侵袭
+
+| Field | Content |
+|------|------|
+| EN Title | Rab6 regulates cell migration and invasion by recruiting Cdc42 and modulating its activity |
+| ZH Title | Rab6通过招募Cdc42并调节其活性来调控细胞迁移和侵袭 |
+| ZH Abstract | 研究Rab6蛋白调控细胞迁移的机制。 |
+| EN Abstract | Rab proteins are master regulators of intracellular membrane trafficking, but they also contribute to cell division, signaling, polarization, and migration. The majority of the works describing the mechanisms used by Rab proteins to regulate cell motility involve intracellular transport of key molecules important for migration. Interestingly, a few studies indicate that Rabs can modulate the activity of Rho GTPases, important regulators for the cytoskeleton rearrangements, but the mechanisms beh |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74356. 开发基于非同源末端连接的通用敲入模块用于基因组编辑
+
+| Field | Content |
+|------|------|
+| EN Title | Development of versatile non-homologous end joining-based knock-in module for genome editing |
+| ZH Title | 开发基于非同源末端连接的通用敲入模块用于基因组编辑 |
+| ZH Abstract | 开发基于NHEJ的通用敲入模块VIKING。 |
+| EN Abstract | CRISPR/Cas9-based genome editing has dramatically accelerated genome engineering. An important aspect of genome engineering is efficient knock-in technology. For improved knock-in efficiency, the non-homologous end joining (NHEJ) repair pathway has been used over the homology-dependent repair pathway, but there remains a need to reduce the complexity of the preparation of donor vectors. We developed the versatile NHEJ-based knock-in module for genome editing (VIKING). Using the consensus sequenc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74379. 基因调控：Rel的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Gene regulation Evolving Rel |
+| ZH Title | 基因调控：Rel的进化 |
+| ZH Abstract | 基因调控：Rel的进化（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74393. 内在噪声、Delta-Notch信号和延迟反应促进前体节中胚层持续、连贯、同步的振荡
+
+| Field | Content |
+|------|------|
+| EN Title | Intrinsic noise, Delta-Notch signalling and delayed reactions promote sustained, coherent, synchronized oscillations in the presomitic mesoderm |
+| ZH Title | 内在噪声、Delta-Notch信号和延迟反应促进前体节中胚层持续、连贯、同步的振荡 |
+| ZH Abstract | 建模研究Delta-Notch信号在体节时钟中的作用。 |
+| EN Abstract | Using a stochastic individual-based modelling approach, we examine the role that Delta-Notch signalling plays in the regulation of a robust and reliable somite segmentation clock. We find that not only can Delta-Notch signalling synchronize noisy cycles of gene expression in adjacent cells in the presomitic mesoderm (as is known), but it can also amplify and increase the coherence of these cycles. We examine some of the shortcomings of deterministic approaches to modelling these cycles and demon |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74396. ESPCR 2015-欧洲色素细胞研究学会年会，爱丁堡，苏格兰，2015年9月15-18日摘要
+
+| Field | Content |
+|------|------|
+| EN Title | ESPCR 2015-Annual Meeting of the European Society of Pigment Cell Research, Edinburgh, Scotland, September 15-18, 2015 Abstracts |
+| ZH Title | ESPCR 2015-欧洲色素细胞研究学会年会，爱丁堡，苏格兰，2015年9月15-18日摘要 |
+| ZH Abstract | 会议摘要集。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74425. Fmrp调控胚胎运动回路中的神经元平衡
+
+| Field | Content |
+|------|------|
+| EN Title | Fmrp regulates neuronal balance in embryonic motor circuit formation |
+| ZH Title | Fmrp调控胚胎运动回路中的神经元平衡 |
+| ZH Abstract | 研究Fmrp在运动神经元发育中的作用。 |
+| EN Abstract | Motor behavior requires the balanced production and integration of a variety of neural cell types. Motor neurons are positioned in discrete locations in the spinal cord, targeting specific muscles to drive locomotive contractions. Specialized spinal interneurons modulate and synchronize motor neuron activity to achieve coordinated motor output. Changes in the ratios and connectivity of spinal interneurons could drastically alter motor output by tipping the balance of inhibition and excitation on |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74435. 径向WNT5A引导的有丝分裂后丝状伪足路径寻找对中肠管伸长至关重要
+
+| Field | Content |
+|------|------|
+| EN Title | Radial WNT5A-Guided Post-mitotic Filopodial Pathfinding Is Critical for Midgut Tube Elongation |
+| ZH Title | 径向WNT5A引导的有丝分裂后丝状伪足路径寻找对中肠管伸长至关重要 |
+| ZH Abstract | 研究WNT5A在中肠伸长中的作用。 |
+| EN Abstract | The early midgut undergoes intensive elongation, but the underlying cellular and molecular mechanisms are unknown. The early midgut epithelium is pseudostratified, and its nuclei travel between apical and basal surfaces in concert with cell cycle. Using 3D confocal imaging and 2D live imaging, we profiled behaviors of individual dividing cells. As nuclei migrate apically for mitosis, cells maintain a basal process (BP), which splits but is inherited by only one daughter. After mitosis, some daug |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74442. 世界生物学论坛，低温生物学学会与体外生物学学会联合会议，美国佐治亚州萨凡纳，2014年5月31日至6月4日摘要
+
+| Field | Content |
+|------|------|
+| EN Title | World Forum on Biology, Joint Meeting of Society for Cryobiology & the Society for In Vitro Biology, Savannah, GA, USA, May 31-June 4, 2014 Abstracts |
+| ZH Title | 世界生物学论坛，低温生物学学会与体外生物学学会联合会议，美国佐治亚州萨凡纳，2014年5月31日至6月4日摘要 |
+| ZH Abstract | 会议摘要集，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74444. 鱼类暴露于三嗪类除草剂的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Effects of the exposure of fish to triazine herbicides |
+| ZH Title | 鱼类暴露于三嗪类除草剂的影响 |
+| ZH Abstract | 综述三嗪类除草剂对鱼类的影响。 |
+| EN Abstract | Triazines are an important group of herbicides, which have been used extensively or selectively both in agricultural and non-agricultural areas worldwide for more than fifty years to control broadleaf and some grassy weeds. As a consequence of their massive application, they have become and remain significant environmental pollutants, especially in aquatic ecosystems. Fish are an integral part of the aquatic environment and are, therefore, suitable models for the study of the behavioral, biologi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74446. 来自心脏祖细胞的患者特异性诱导多能干细胞重现心脏腔室疾病模型
+
+| Field | Content |
+|------|------|
+| EN Title | Patient-specific induced pluripotent stem cells from cardiac progenitors recapitulate the models for cardiac chamber disorders |
+| ZH Title | 来自心脏祖细胞的患者特异性诱导多能干细胞重现心脏腔室疾病模型 |
+| ZH Abstract | 利用患者iPSC研究心脏疾病。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74452. 来自鱼类模型的色素稀释突变体与溶酶体相关细胞器和囊泡运输基因的联系
+
+| Field | Content |
+|------|------|
+| EN Title | Pigment Dilution Mutants from Fish Models with Connection to Lysosome-Related Organelles and Vesicular Traffic Genes |
+| ZH Title | 来自鱼类模型的色素稀释突变体与溶酶体相关细胞器和囊泡运输基因的联系 |
+| ZH Abstract | 综述鱼类色素稀释突变体研究。 |
+| EN Abstract | An interesting question in developmental biology is why mutations in genes with functions essential for the majority of cells produce diseases affecting only specific tissues. For example, pigment dilution disorders are often the consequence of mutations in conserved vesicular traffic genes. In Hermansky-Pudlak, Griscelli, and Chediak-Higashi pigment dilution syndromes, vesicular traffic mutations affect several organs with one characteristic in common: to carry out their functions they depend t |
+| Judgment | 是 |
+| Reason | 摘要未特指斑马鱼 |
+---
+### 74463. 利用蛋白质组学和个性化异种移植模型在可操作时间范围内为患有转移性进展性恶性肿瘤的青少年确定治疗靶点优先级
+
+| Field | Content |
+|------|------|
+| EN Title | Prioritizing treatment targets for an adolescent with metastatic processive malignancy using proteomics and personalized xenograft models within an actionable timeframe |
+| ZH Title | 利用蛋白质组学和个性化异种移植模型在可操作时间范围内为患有转移性进展性恶性肿瘤的青少年确定治疗靶点优先级 |
+| ZH Abstract | 利用蛋白质组学和异种移植模型研究癌症。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74464. 组蛋白位点体：核生物分子凝聚物控制细胞周期调控基因表达的范例
+
+| Field | Content |
+|------|------|
+| EN Title | Histone locus bodies: a paradigm for how nuclear biomolecular condensates control cell cycle regulated gene expression |
+| ZH Title | 组蛋白位点体：核生物分子凝聚物控制细胞周期调控基因表达的范例 |
+| ZH Abstract | 综述组蛋白位点体在基因表达中的作用。 |
+| EN Abstract | Histone locus bodies (HLBs) are biomolecular condensates that assemble at replication-dependent (RD) histone genes in animal cells. These genes produce unique mRNAs that are not polyadenylated and instead end in a conserved 3' stem loop critical for coordinated production of histone proteins during S phase of the cell cycle. Several evolutionarily conserved factors necessary for synthesis of RD histone mRNAs concentrate only in the HLB. Moreover, because HLBs are present throughout the cell cycl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74465. 超越转录：转录后机制如何驱动神经嵴上皮-间充质转化
+
+| Field | Content |
+|------|------|
+| EN Title | "Beyond transcription: How post-transcriptional mechanisms drive neural crest EMT" |
+| ZH Title | 超越转录：转录后机制如何驱动神经嵴上皮-间充质转化 |
+| ZH Abstract | 综述神经嵴EMT的转录后调控。 |
+| EN Abstract | The neural crest is a stem cell population that originates from the ectoderm during the initial steps of nervous system development. Neural crest cells delaminate from the neuroepithelium by undergoing a spatiotemporally regulated epithelial-mesenchymal transition (EMT) that proceeds in a coordinated wave head-to-tail to exit from the neural tube. While much is known about the transcriptional programs and membrane changes that promote EMT, there are additional levels of gene expression control t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74466. 心脏发育和再生中的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms in cardiac development and regeneration |
+| ZH Title | 心脏发育和再生中的机制 |
+| ZH Abstract | 综述心脏发育和再生机制。 |
+| EN Abstract | BackgroundDue to a very limited regenerative capacity of the adult mammalian heart, cardiomyocyte loss in the setting of acute and chronic heart diseases is not adequately compensated by myocyte regeneration. The ensuing adverse remodelling processes and fibrosis deteriorate the heart's pumping capacity finally leading to terminal heart failure, which is associated with a poor prognosis. Due to a lack of ultimately effective treatment options, there is an urgent need for the development of alter |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74467. 动物再生过程中染色质组织的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of chromatin organization during animal regeneration |
+| ZH Title | 动物再生过程中染色质组织的调控 |
+| ZH Abstract | 综述动物再生中染色质调控。 |
+| EN Abstract | Activation of regeneration upon tissue damages requires the activation of many developmental genes responsible for cell proliferation, migration, differentiation, and tissue patterning. Ample evidence revealed that the regulation of chromatin organization functions as a crucial mechanism for establishing and maintaining cellular identity through precise control of gene transcription. The alteration of chromatin organization can lead to changes in chromatin accessibility and/or enhancer-promoter |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74474. 鱼群觅食行为的随机微分方程模型
+
+| Field | Content |
+|------|------|
+| EN Title | A stochastic differential equation model for the foraging behavior of fish schools |
+| ZH Title | 鱼群觅食行为的随机微分方程模型 |
+| ZH Abstract | 建立鱼群觅食行为的数学模型。 |
+| EN Abstract | Constructing models of living organisms locating food sources has important implications for understanding animal behavior and for the development of distribution technologies. This paper presents a novel simple model of stochastic differential equations for the foraging behavior of fish schools in a space including obstacles. The model is studied numerically. Three configurations of space with various food locations are considered. In the first configuration, fish swim in free but limited space |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74479. 脊索：结构和功能
+
+| Field | Content |
+|------|------|
+| EN Title | The notochord: structure and functions |
+| ZH Title | 脊索：结构和功能 |
+| ZH Abstract | 综述脊索的结构和功能。 |
+| EN Abstract | The notochord is an embryonic midline structure common to all members of the phylum Chordata, providing both mechanical and signaling cues to the developing embryo. In vertebrates, the notochord arises from the dorsal organizer and it is critical for proper vertebrate development. This evolutionary conserved structure located at the developing midline defines the primitive axis of embryos and represents the structural element essential for locomotion. Besides its primary structural function, the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74481. 鉴定microRNA在脊髓损伤中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Identifying the role of microRNAs in spinal cord injury |
+| ZH Title | 鉴定microRNA在脊髓损伤中的作用 |
+| ZH Abstract | 综述miRNA在脊髓损伤中的作用。 |
+| EN Abstract | Spinal cord injury (SCI) is medically and socioeconomically debilitating, and effective treatments are lacking. The elucidation of the pathophysiological mechanisms underlying SCI is essential for developing effective treatments for SCI. MicroRNAs (miRNAs) are small non-coding RNA molecules (18-24 nucleotides long) that regulate gene expression by interacting with specific target sequences. Recent studies suggest that miRNAs can act as post-transcriptional regulators to inhibit mRNA translation. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74482. 利用可靶向核酸酶进行基因组工程
+
+| Field | Content |
+|------|------|
+| EN Title | Genome Engineering with Targetable Nucleases |
+| ZH Title | 利用可靶向核酸酶进行基因组工程 |
+| ZH Abstract | 综述可靶向核酸酶在基因组工程中的应用。 |
+| EN Abstract | Current technology enables the production of highly specific genome modifications with excellent efficiency and specificity. Key to this capability are targetable DNA cleavage reagents and cellular DNA repair pathways. The break made by these reagents can produce localized sequence changes through inaccurate nonhomologous end joining (NHEJ), often leading to gene inactivation. Alternatively, user-provided DNA can be used as a template for repair by homologous recombination (HR), leading to the i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74486. 前丘脑在原肠胚形成期间建立并影响间脑区域化
+
+| Field | Content |
+|------|------|
+| EN Title | The prethalamus is established during gastrulation and influences diencephalic regionalization |
+| ZH Title | 前丘脑在原肠胚形成期间建立并影响间脑区域化 |
+| ZH Abstract | 绘制神经板表达图谱，揭示前丘脑区域化机制。 |
+| EN Abstract | The vertebrate neural plate contains distinct domains of gene expression, prefiguring the future brain areas. In this study, we draw an extended expression map of the rostral neural plate that reveals discrete domains inside the presumptive posterior forebrain. We show, by fate mapping, that these well-defined cell populations will develop into specific diencephalic regions. To address whether these early subterritories are already committed to restricted identities, we began to analyse the cons |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74489. 脊椎动物组织者：结构和分子
+
+| Field | Content |
+|------|------|
+| EN Title | The vertebrate organizer: structure and molecules. |
+| ZH Title | 脊椎动物组织者：结构和分子 |
+| ZH Abstract | 综述脊椎动物组织者基因及其区域化功能。 |
+| EN Abstract | Since the identification of the first organizer gene, goosecoid, more than 15 organizer-specific genes have been characterized. Here, we present our current understanding of the roles of these molecules in amphibians fish and amniotes and show how there identification has confirmed Spemann's original proposition that the vertebrate organizer is subdivided into separate domains: the head, trunk and tail organizers. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74493. 论文背后的人——Kirsty Uttley、Hannah Jullig和Hannah Long
+
+| Field | Content |
+|------|------|
+| EN Title | The people behind the papers - Kirsty Uttley, Hannah Ju llig and Hannah Long |
+| ZH Title | 论文背后的人——Kirsty Uttley、Hannah Jullig和Hannah Long |
+| ZH Abstract | 论文背后的人——Kirsty Uttley、Hannah J（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74497. 了解《细胞与发育》编辑
+
+| Field | Content |
+|------|------|
+| EN Title | Get to know the Editors of CELLS & DEVELOPMENT |
+| ZH Title | 了解《细胞与发育》编辑 |
+| ZH Abstract | 了解《细胞与发育》编辑（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74503. 动物生理学和毒理学中的性别特异性组学反应
+
+| Field | Content |
+|------|------|
+| EN Title | Sex-specific omic responses in animal physiology and toxicology |
+| ZH Title | 动物生理学和毒理学中的性别特异性组学反应 |
+| ZH Abstract | 动物生理学和毒理学中的性别特异性组学反应（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74524. 转基因鱼表达载体的开发
+
+| Field | Content |
+|------|------|
+| EN Title | Development of expression vectors for transgenic fish. |
+| ZH Title | 转基因鱼表达载体的开发 |
+| ZH Abstract | 开发适用于鱼类基因操作的表达载体。 |
+| EN Abstract | Genetic alteration of fish is important for aquatic biotechnology as well as for investigating molecular interactions that occur during vertebrate development. The numerous, large, transparent, and externally fertilized eggs of many fish species make them ideally suitable for genetic manipulation, especially for production of transgenic animals. Genetic engineering of fish requires suitable expression vectors. Accordingly, we developed two fish expression vectors, FV-1 and FV-2, which contain th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74530. 2022年皇家化学学会环境科学期刊最佳论文
+
+| Field | Content |
+|------|------|
+| EN Title | Best Papers from 2022 published in the Environmental Science journals of the Royal Society of Chemistry |
+| ZH Title | 2022年皇家化学学会环境科学期刊最佳论文 |
+| ZH Abstract | 2022年皇家化学学会环境科学期刊最佳论文（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74532. 口头报告摘要
+
+| Field | Content |
+|------|------|
+| EN Title | Oral Presentations Abstracts |
+| ZH Title | 口头报告摘要 |
+| ZH Abstract | 口头报告摘要（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74536. 光合共生疗法
+
+| Field | Content |
+|------|------|
+| EN Title | Photosynthetic symbiotic therapy |
+| ZH Title | 光合共生疗法 |
+| ZH Abstract | 光合共生疗法（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74550. 蛋白酶抑制剂消除鱼卵的自发激活
+
+| Field | Content |
+|------|------|
+| EN Title | Spontaneous activation of fish eggs is abolished by protease inhibitors |
+| ZH Title | 蛋白酶抑制剂消除鱼卵的自发激活 |
+| ZH Abstract | 研究蛋白酶抑制剂对鱼卵自发激活的影响。 |
+| EN Abstract | During spawning, eggs of most fish species entering the aquatic environment remain fertilizable for a relatively short period of time. This is due to the "spontaneous egg activation" giving rise to the fertilization membrane, which prevents the penetration of excessive and foreign sperm into the egg during normal fertilization. This work demonstrates that the fertilization membrane formation and the loss of fertilizability in aqueous solutions of different composition are inhibited by protease i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74551. 开发用于测试蓝藻海洋天然产物的体外和体内抗炎试验
+
+| Field | Content |
+|------|------|
+| EN Title | Development of in vitro and in vivo anti-inflammatory assays for testing cyanobacterial marine natural products |
+| ZH Title | 开发用于测试蓝藻海洋天然产物的体外和体内抗炎试验 |
+| ZH Abstract | 开发抗炎试验测试蓝藻天然产物。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74565. 社论：神经发生的背景依赖性调控：不同模型系统中神经发生过程的共同主题与独特特征
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Context-Dependent Regulation of Neurogenesis: Common Themes and Unique Features of the Neurogenic Process in Different Model Systems |
+| ZH Title | 社论：神经发生的背景依赖性调控：不同模型系统中神经发生过程的共同主题与独特特征 |
+| ZH Abstract | 社论，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74567. 观赏鱼和实验鱼类的疾病
+
+| Field | Content |
+|------|------|
+| EN Title | Diseases of ornamental and laboratory fishes |
+| ZH Title | 观赏鱼和实验鱼类的疾病 |
+| ZH Abstract | 综述观赏鱼和实验鱼类的疾病。 |
+| EN Abstract | Ornamental and laboratory fish populations are part of the global trade and can spread pathogens around the world. Laboratory fish are widely used as model for biomedical research, which can be impacted by underestimated health conditions affecting the fish model. The global ornamental fish industry deals with a huge diversity of fish species. High mortality rate often causes significant losses, linked to polymicrobial infections facilitated by stressful conditions compromising host health, alth |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74582. 睡眠和觉醒的分子机制
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular mechanisms of sleep and wakefulness |
+| ZH Title | 睡眠和觉醒的分子机制 |
+| ZH Abstract | 综述睡眠分子机制，提及多种模式生物。 |
+| EN Abstract | Major questions on the biology of sleep include the following: what are the molecular functions of sleep; why can wakefulness only be sustained for defined periods before there is behavioral impairment; what genes contribute to the individual differences in sleep and the response to sleep deprivation? Behavioral criteria to define sleep have facilitated identification of sleep states in a number of different model systems: Drosophila, zebrafish, and Caenorhabditis elegans. Each system has unique |
+| Judgment | 否 |
+| Reason | 该研究为综述，仅将斑马鱼作为多种模式生物之一提及，并非以斑马鱼为主要研究对象或实验模型。 |
+---
+### 74601. 基于X射线计算机断层扫描的多模态方法在组织背景下可视化基因表达
+
+| Field | Content |
+|------|------|
+| EN Title | Visualisation of gene expression within the context of tissues using an X-ray computed tomography-based multimodal approach |
+| ZH Title | 基于X射线计算机断层扫描的多模态方法在组织背景下可视化基因表达 |
+| ZH Abstract | 开发基因表达可视化多模态方法。 |
+| EN Abstract | The development of an organism is orchestrated by the spatial and temporal expression of genes. Accurate visualisation of gene expression patterns in the context of the surrounding tissues offers a glimpse into the mechanisms that drive morphogenesis. We developed correlative light-sheet fluorescence microscopy and X-ray computed tomography approach to map gene expression patterns to the whole organism`s 3D anatomy. We show that this multimodal approach is applicable to gene expression visualize |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74602. 具有自适应光学校正的体积光片成像
+
+| Field | Content |
+|------|------|
+| EN Title | Volumetric light sheet imaging with adaptive optics correction |
+| ZH Title | 具有自适应光学校正的体积光片成像 |
+| ZH Abstract | 描述光片显微镜自适应光学系统。 |
+| EN Abstract | Light sheet microscopy has developed quickly over the past decades and become a popular method for imaging live model organisms and other thick biological tissues. For rapid volumetric imaging, an electrically tunable lens can be used to rapidly change the imaging plane in the sample. For larger fields of view and higher NA objectives, the electrically tunable lens introduces aberrations in the system, particularly away from the nominal focus and off-axis. Here, we describe a system that employs |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74630. 纹状体多巴胺能通路破坏：肌张力障碍遗传故事的新转折
+
+| Field | Content |
+|------|------|
+| EN Title | Disruption of striatal dopaminergic pathway: A new plot twist in dystonia genetic story |
+| ZH Title | 纹状体多巴胺能通路破坏：肌张力障碍遗传故事的新转折 |
+| ZH Abstract | 纹状体多巴胺能通路破坏：肌张力障碍遗传故事的新转折（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74633. 细胞骨架动力学作为细胞竞争过程中细胞器重组和细胞内信号传导的主调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | Cytoskeleton Dynamics as Master Regulator of Organelle Reorganization and Intracellular Signaling for Cell-Cell Competition |
+| ZH Title | 细胞骨架动力学作为细胞竞争过程中细胞器重组和细胞内信号传导的主调控因子 |
+| ZH Abstract | 细胞骨架动力学作为细胞竞争过程中细胞器重组和细胞内信号传导的（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74652. IV MIGUEL R. COVIAN SYMPOSIUM NEW CHALLENGES FOR PHYSIOLOGISTS
+
+| Field | Content |
+|------|------|
+| EN Title | IV MIGUEL R. COVIAN SYMPOSIUM NEW CHALLENGES FOR PHYSIOLOGISTS |
+| ZH Title | IV MIGUEL R. COVIAN SYMPOSIUM NEW CHALLENGES FOR PHYSIOLOGISTS |
+| ZH Abstract | IV MIGUEL R. COVIAN SYMPOSIUM （由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74685. 转录组学与17α-炔雌醇及鱼类的二十年
+
+| Field | Content |
+|------|------|
+| EN Title | Twenty years of transcriptomics, 17alpha-ethinylestradiol, and fish |
+| ZH Title | 转录组学与17α-炔雌醇及鱼类的二十年 |
+| ZH Abstract | 综述EE2对鱼类转录组影响的研究进展。 |
+| EN Abstract | In aquatic toxicology, perhaps no pharmaceutical has been investigated more intensely than 17alpha-ethinylestradiol (EE2), the active ingredient of the birth control pill. At the turn of the century, the fields of comparative endocrinology and endocrine disruption research witnessed the emergence of omics technologies, which were rapidly adapted to characterize potential hazards associated with exposures to environmental estrogens, such as EE2. Since then, significant advances have been made by |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74692. 海水和淡水硬骨鱼多不饱和脂肪酸延长酶的克隆与功能鉴定
+
+| Field | Content |
+|------|------|
+| EN Title | Cloning and functional characterisation of polyunsaturated fatty acid elongases of marine and freshwater teleost fish |
+| ZH Title | 海水和淡水硬骨鱼多不饱和脂肪酸延长酶的克隆与功能鉴定 |
+| ZH Abstract | 克隆并鉴定多种鱼类脂肪酸延长酶基因。 |
+| EN Abstract | Enzymes that lengthen the carbon chain of polyunsaturated fatty acids are key to the biosynthesis of the highly unsaturated fatty acids, arachidonic, eicosapentaenoic and docosahexaenoic acids from linoleic and a-linolenic acids. A Mortierella alpina cDNA polyunsaturated fatty acid elongase sequence identified mammalian, amphibian, zebrafish and insect expressed sequence tags (ESTs) in GenBank. Consensus primers were designed in conserved motifs and used to isolate full length cDNA from livers o |
+| Judgment | 是 |
+| Reason | 摘要提及斑马鱼EST，但主要研究对象不明确。 |
+---
+### 74696. 大环内酯类抗生素克拉霉素及其代谢物的水生毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Aquatic toxicity of the macrolide antibiotic clarithromycin and its metabolites |
+| ZH Title | 大环内酯类抗生素克拉霉素及其代谢物的水生毒性 |
+| ZH Abstract | 研究克拉霉素及其代谢物对水生生物的毒性。 |
+| EN Abstract | The human macrolide antibiotic clarithromycin is widespread in surface waters. Our study shows that its major metabolite 14-hydroxy(R)-clarithromycin is found in surface waters in comparable amounts. This metabolite is known to be pharmacologically active. Additionally, clarithromycin is partly metabolised to N-desmethyl-clarithromycin, which has no antimicrobial activity.For clarithromycin, some ecotoxicological studies on aquatic organisms have been published. However, many of them are not con |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74699. Porcupine抑制增强肥大软骨分化
+
+| Field | Content |
+|------|------|
+| EN Title | Porcupine inhibition enhances hypertrophic cartilage differentiation |
+| ZH Title | Porcupine抑制增强肥大软骨分化 |
+| ZH Abstract | 研究Porcupine抑制剂对软骨分化的影响。 |
+| EN Abstract | Porcupine (PORCN) is a membrane-bound protein of the endoplasmic reticulum, which modifies Wnt proteins by adding palmitoleic acid. This modification is essential for Wnt ligand secretion. Patients with mutated PORCN display various skeletal abnormalities likely stemming from disrupted Wnt signaling pathways during the chondrocyte differentiation. To uncover the mechanism of PORCN action during chondrogenesis, we used 2 different PORCN inhibitors, C59 and LGK974, in several model systems, includ |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74719. 大黄素调节鱼类对鲤春病毒血症病毒感染的宿主抗病毒反应
+
+| Field | Content |
+|------|------|
+| EN Title | Emodin modulates the host antiviral response of fish against spring viremia of carp virus infection |
+| ZH Title | 大黄素调节鱼类对鲤春病毒血症病毒感染的宿主抗病毒反应 |
+| ZH Abstract | 研究大黄素对SVCV感染的抗病毒作用。 |
+| EN Abstract | As a natural small molecule monomer widely found in various traditional Chinese herbs, emodin has garnered substantial attention due to its pharmacological properties. Its widespread exploration for application such as growth enhancement, immune modulation, and antimicrobial activity in aquaculture. In the present study, our focus centers on investigate the anti-spring viremia of carp virus (SVCV) activity of emodin, thereby facilitate the development of commercially viable methods for the preve |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74728. 通过G9a/GLP抑制生成功能性iPSC衍生的CAR-T细胞用于癌症免疫治疗
+
+| Field | Content |
+|------|------|
+| EN Title | Generation of Functional iPSC-Derived CAR-T Cells for Cancer Immunotherapy Via G9a/GLP Inhibition |
+| ZH Title | 通过G9a/GLP抑制生成功能性iPSC衍生的CAR-T细胞用于癌症免疫治疗 |
+| ZH Abstract | 通过G9a/GLP抑制生成功能性iPSC衍生的CAR-T细胞（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74733. 基于Sleeping Beauty转座子的高效表达非依赖性基因捕获与诱变
+
+| Field | Content |
+|------|------|
+| EN Title | Effective Expression-Independent Gene Trapping and Mutagenesis Mediated by Sleeping Beauty Transposon |
+| ZH Title | 基于Sleeping Beauty转座子的高效表达非依赖性基因捕获与诱变 |
+| ZH Abstract | 开发基于转座子的基因捕获诱变方法。 |
+| EN Abstract | Expression-independent gene or polyadenylation [poly(A)] trapping is a powerful tool for genome-wide mutagenesis regardless of whether a targeted gene is expressed. Although a number of poly(A)-trap vectors have been developed for the capture and mutation of genes across a vertebrate genome, further efforts are needed to avoid the 3'-terminal insertion bias and the splice donor (SD) read-through, and to improve the mutagenicity. Here, we present a Sleeping Beauty (SB) transposon-based vector tha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74735. 头部诱导因子Dickkopf-1是Wnt共受体LRP6的配体
+
+| Field | Content |
+|------|------|
+| EN Title | Head inducer Dickkopf-1 is a ligand for Wnt coreceptor LRP6. |
+| ZH Title | 头部诱导因子Dickkopf-1是Wnt共受体LRP6的配体 |
+| ZH Abstract | 研究Dkk-1与LRP6的相互作用机制。 |
+| EN Abstract | BACKGROUND: Dickkopf-1 (Dkk-1) is a head inducer secreted from the vertebrate head organizer and induces anterior development by antagonizing Wnt signaling. Although several families of secreted antagonists have been shown to inhibit Wnt signal transduction by binding to Wnt, the molecular mechanism of Dkk-1 action is unknown. The Wnt family of secreted growth factors initiates signaling via the Frizzled (Fz) receptor and its candidate coreceptor, LDL receptor-related protein 6 (LRP6), presumabl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74754. RNASET2的细胞内运输，一种新的P-body组分
+
+| Field | Content |
+|------|------|
+| EN Title | Intracellular trafficking of RNASET2, a novel component of P-bodies |
+| ZH Title | RNASET2的细胞内运输，一种新的P-body组分 |
+| ZH Abstract | 研究RNASET2在细胞内的运输机制。 |
+| EN Abstract | Background information. The ribonucleases (RNases) constitute a heterogeneous group of enzymes, which exert diverse and specific biological functions. Several RNases have been shown to control gene expression and cell differentiation. RNASET2, a novel member of the Rh/T2/S family of RNases, exerts micro-environmental control of malignancy in different experimental models with a general onco-suppressor activity, since it prevents cancer proliferation. Indeed, RNASET2 was found to be downregulated |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74759. 锂作用的分子机制：利用动物模型为痴呆症开启多个靶点
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular Mechanisms of Lithium Action: Switching the Light on Multiple Targets for Dementia Using Animal Models |
+| ZH Title | 锂作用的分子机制：利用动物模型为痴呆症开启多个靶点 |
+| ZH Abstract | 综述锂在痴呆症动物模型中的作用机制。 |
+| EN Abstract | Lithium has long been used for the treatment of psychiatric disorders, due to its robust beneficial effect as a mood stabilizing drug. Lithium's effectiveness for improving neurological function is therefore well-described, stimulating the investigation of its potential use in several neurodegenerative conditions including Alzheimer's (AD), Parkinson's (PD) and Huntington's (HD) diseases. A narrow therapeutic window for these effects, however, has led to concerted efforts to understand the molec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74765. 肿瘤来源的细胞外囊泡在转移前微环境建立中的贡献：从过去实验中学到的教训和未来方向
+
+| Field | Content |
+|------|------|
+| EN Title | Contribution of tumor-derived extracellular vesicles in the establishment of the pre-metastatic niche: lessons learned from past experimentations and future directions |
+| ZH Title | 肿瘤来源的细胞外囊泡在转移前微环境建立中的贡献：从过去实验中学到的教训和未来方向 |
+| ZH Abstract | 综述肿瘤细胞外囊泡在转移前微环境中的作用。 |
+| EN Abstract | Tumor-derived extracellular vesicles (TEVs) have been shown to actively contribute to the establishment of the pre-metastatic niche (PMN) through multiple mechanisms of action and the transfer of cargo material to host cells. Here, we report a review of 120 manuscripts published between January 2010 and April 2025 describing observations from in vivo experiments aimed at the examination of the contribution of TEVs to the PMN and the metastatic niche (MN). Whereas most of these publications repor |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74767. (无标题)
+
+| Field | Content |
+|------|------|
+| EN Title | No title |
+| ZH Title | (无标题) |
+| ZH Abstract | 无摘要 |
+| EN Abstract | No abstract |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74770. 具有Δ4活性的脊椎动物脂肪酸酰基去饱和酶
+
+| Field | Content |
+|------|------|
+| EN Title | Vertebrate fatty acyl desaturase with Δ4 activity |
+| ZH Title | 具有Δ4活性的脊椎动物脂肪酸酰基去饱和酶 |
+| ZH Abstract | 研究脊椎动物脂肪酸去饱和酶，非斑马鱼专一。 |
+| EN Abstract | Biosynthesis of the highly biologically active long-chain polyunsaturated fatty acids, arachidonic (ARA), eicosapentaenoic (EPA), and docosahexaenoic (DHA) acids, in vertebrates requires the introduction of up to three double bonds catalyzed by fatty acyl desaturases (Fad). Synthesis of ARA is achieved by Delta 6 desaturation of 18:2n - 6 to produce 18:3n - 6 that is elongated to 20:3n - 6 followed by Delta 5 desaturation. Synthesis of EPA from 18:3n - 3 requires the same enzymes and pathway as |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74774. 体外肌细胞研究对理解鱼类肌肉生理学的贡献
+
+| Field | Content |
+|------|------|
+| EN Title | Contribution of in vitro myocytes studies to understanding fish muscle physiology |
+| ZH Title | 体外肌细胞研究对理解鱼类肌肉生理学的贡献 |
+| ZH Abstract | 综述鱼类肌肉生理体外研究，非斑马鱼专一。 |
+| EN Abstract | Research on the regulation of fish muscle physiology and growth was addressed originally by classical in vivo approaches; however, systemic interactions resulted in many questions that could be better considered through in vitro myocyte studies. The first paper published by our group in this field was with Tom Moon on brown trout cardiomyocytes, where the insulin and IGF-I receptors were characterized and the down-regulatory effects of an excess of peptides demonstrated. We followed the research |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74781. 三氯生通过靶向miR-144异常表达，激活PKC/MAPK信号通路诱导神经发育毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Triclosan targets miR-144 abnormal expression to induce neurodevelopmental toxicity mediated by activating PKC/MAPK signaling pathway |
+| ZH Title | 三氯生通过靶向miR-144异常表达，激活PKC/MAPK信号通路诱导神经发育毒性 |
+| ZH Abstract | 研究三氯生神经毒性机制，未明确斑马鱼。 |
+| EN Abstract | Although the previous research confirmed that triclosan (TCS) induced an estrogen effect by acting on a novel G protein coupled estrogen-membrane receptor (GPER), the underlying mechanisms by which downstream pathways induce neurotoxicity remain unclear after TCS activation of GPER. By employing a series of techniques (Illumina miRNA-seq, RT-qPCR, and artificial intervention of miRNA expression), we screened out four important miRNAs, whose target genes were directly/indirectly involved in neuro |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74788. 降钙素受体家族进化及利用计算机启动子分析探索功能
+
+| Field | Content |
+|------|------|
+| EN Title | Calcitonin receptor family evolution and fishing for function using in silico promoter analysis |
+| ZH Title | 降钙素受体家族进化及利用计算机启动子分析探索功能 |
+| ZH Abstract | 综述降钙素受体家族进化，提及斑马鱼。 |
+| EN Abstract | In the present study the calcitonin receptor (CTR) sub-family of family B G-protein coupled receptors (GPCRs) in teleosts is evaluated and put in the context of the families overall evolution from echinodermates to vertebrates. Echinodermates, hemichordates, cephalochordates and tunicates have a single gene that encodes a receptor that bears similarity to the vertebrate calcitonin receptor (CTR) and calcitonin-like receptor (CTR/CLR). In tetrapods one gene encodes the calcitonin receptor (CALCR) |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74794. 胺反应性染料：评估鱼类精子细胞膜完整性的替代方法
+
+| Field | Content |
+|------|------|
+| EN Title | Amine reactive dyes: An alternative to estimate membrane integrity in fish sperm cells |
+| ZH Title | 胺反应性染料：评估鱼类精子细胞膜完整性的替代方法 |
+| ZH Abstract | 研究鱼类精子膜完整性检测方法，非斑马鱼专一。 |
+| EN Abstract | Fluorescent dyes that binds irreversibly to cellular amines, come in several available emission spectra, and do not poses health concerns were used to evaluate membrane integrity in fish sperm cells. The objectives of the present study were to determine: (1) a working dye concentration for fish sperm samples, and (2) if the traditional propidium iodide/SYBR-14 staining combination was comparable with the amine reactive dye (ARD) methods at identifying cell populations with intact and compromised |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74795. 影响多细胞真核生物5'非翻译区长度的基因组特征
+
+| Field | Content |
+|------|------|
+| EN Title | The genomic features that affect the lengths of 5′ untranslated regions in multicellular eukaryotes |
+| ZH Title | 影响多细胞真核生物5'非翻译区长度的基因组特征 |
+| ZH Abstract | 研究5'UTR长度影响因素，非斑马鱼专一。 |
+| EN Abstract | Background: The lengths of 5'UTRs of multicellular eukaryotes have been suggested to be subject to stochastic changes, with upstream start codons (uAUGs) as the major constraint to suppress 5'UTR elongation. However, this stochastic model cannot fully explain the variations in 5'UTR length. We hypothesize that the selection pressure on a combination of genomic features is also important for 5'UTR evolution. The ignorance of these features may have limited the explanatory power of the stochastic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74804. 利用近红外荧光探针实时监测和体内可视化乙酰胆碱酯酶活性
+
+| Field | Content |
+|------|------|
+| EN Title | Real-time monitoring and in vivo visualization of acetylcholinesterase activity with a near-infrared fluorescent probe |
+| ZH Title | 利用近红外荧光探针实时监测和体内可视化乙酰胆碱酯酶活性 |
+| ZH Abstract | 研究荧光探针检测AChE活性，非斑马鱼。 |
+| EN Abstract | Acetylcholinesterase (AChE) plays a crucial role in the activities of the nervous system, and its abnormal function can lead to the occurrence and development of neurodegenerative diseases. Hence, an effective method for real-time monitoring of AChE activity is essential. Very recently, several fluorescence sensors have been developed for the detection of AChE activity, but they are usually imaging in the visible region, relatively small Stokes shifts, or long response times, limiting their appl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74817. 一种用于体内监测氧化应激和抗氧化能力的双响应比率指示剂
+
+| Field | Content |
+|------|------|
+| EN Title | A dual-responsive ratiometric indicator designed for in vivo monitoring of oxidative stress and antioxidant capacity |
+| ZH Title | 一种用于体内监测氧化应激和抗氧化能力的双响应比率指示剂 |
+| ZH Abstract | 设计双响应指示剂用于监测氧化应激。 |
+| EN Abstract | The imbalance between oxidative stress and antioxidant capacity is strongly associated with the development of numerous degenerative diseases, including cardiovascular diseases, diabetes, neurodegenerative diseases, and cancer. Therefore, monitoring oxidative stress and antioxidant capacity in vivo is crucial for maintaining cellular homeostasis and the stability of the organism's internal environment. Here, we present the findings of our study on DQ1, a dual-responsive indicator designed specif |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74819. 超去极化激活的双孔通道3的静息态结构
+
+| Field | Content |
+|------|------|
+| EN Title | Resting state structure of the hyperdepolarization activated two-pore channel 3 |
+| ZH Title | 超去极化激活的双孔通道3的静息态结构 |
+| ZH Abstract | 解析电压门控钠通道TPC3的结构。 |
+| EN Abstract | Voltage-gated ion channels endow membranes with excitability and the means to propagate action potentials that form the basis of all neuronal signaling. We determined the structure of a voltage-gated sodium channel, two-pore channel 3 (TPC3), which generates ultralong action potentials. TPC3 is distinguished by activation only at extreme membrane depolarization (V-50 similar to +75 mV), in contrast to other TPCs and Na-v channels that activate between -20 and 0 mV. We present electrophysiologica |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74820. 长链非编码RNA具有年龄依赖的昼夜表达，与年龄相关的基因组兼性异染色质变化一致
+
+| Field | Content |
+|------|------|
+| EN Title | Long non-coding RNAs have age-dependent diurnal expression that coincides with age-related changes in genome-wide facultative heterochromatin |
+| ZH Title | 长链非编码RNA具有年龄依赖的昼夜表达，与年龄相关的基因组兼性异染色质变化一致 |
+| ZH Abstract | 研究年龄相关的昼夜节律染色质变化。 |
+| EN Abstract | BackgroundDisrupted diurnal rhythms cause accelerated aging and an increased incidence in age-related disease and morbidity. The circadian clock governs cell physiology and metabolism by controlling transcription and chromatin. The goal of this study is to further understand the mechanism of age-related changes to circadian chromatin with a focus on facultative heterochromatin and diurnal non-coding RNAs.ResultsWe performed a combined RNA-seq and ChIP-seq at two diurnal time-points for three dif |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74826. MEIS1调控早期红系和巨核系谱系决定
+
+| Field | Content |
+|------|------|
+| EN Title | MEIS1 Regulates Early Erythroid and Megakaryocytic Lineage Decision |
+| ZH Title | MEIS1调控早期红系和巨核系谱系决定 |
+| ZH Abstract | 研究MEIS1在血细胞谱系决定中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74831. Bardet-Biedl综合征蛋白在转录调控中的直接作用
+
+| Field | Content |
+|------|------|
+| EN Title | Direct role of Bardet-Biedl syndrome proteins in transcriptional regulation |
+| ZH Title | Bardet-Biedl综合征蛋白在转录调控中的直接作用 |
+| ZH Abstract | 研究BBS蛋白在转录调控中的功能。 |
+| EN Abstract | Primary cilia are conserved organelles that play crucial roles as mechano- and chemosensors, as well as transducing signaling cascades. Consequently, ciliary dysfunction results in a broad range of phenotypes: the ciliopathies. Bardet Biedl syndrome (BBS), a model ciliopathy, is caused by mutations in 16 known genes. However, the biochemical functions of the BBS proteins are not fully understood. Here we show that the BBS7 protein (localized in the centrosomes, basal bodies and cilia) probably h |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74895. USB1是一种调控造血发育的miRNA脱腺苷酶
+
+| Field | Content |
+|------|------|
+| EN Title | USB1 Is a miRNA Deadenylase That Regulates Hematopoietic Development |
+| ZH Title | USB1是一种调控造血发育的miRNA脱腺苷酶 |
+| ZH Abstract | USB1是一种调控造血发育的miRNA脱腺苷酶（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74897. MiR-21通过抑制调控β细胞身份的mRNA导致细胞因子诱导的β细胞功能障碍
+
+| Field | Content |
+|------|------|
+| EN Title | MiR-21 Contributes to Cytokine-Induced Beta Cell Dysfunction via Inhibition of mRNAs Regulating Beta Cell Identity |
+| ZH Title | MiR-21通过抑制调控β细胞身份的mRNA导致细胞因子诱导的β细胞功能障碍 |
+| ZH Abstract | MiR-21通过抑制调控β细胞身份的mRNA导致细胞因子诱导（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74911. GIA 2011：2011年水产养殖基因组学研讨会
+
+| Field | Content |
+|------|------|
+| EN Title | GIA 2011: Genomics in Aquaculture 2011 Symposium |
+| ZH Title | GIA 2011：2011年水产养殖基因组学研讨会 |
+| ZH Abstract | GIA 2011：2011年水产养殖基因组学研讨会（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74984. 评估鱼类短期繁殖试验检测内分泌干扰物的能力
+
+| Field | Content |
+|------|------|
+| EN Title | Evaluation of the fish short term reproduction assay for detecting endocrine disrupters |
+| ZH Title | 评估鱼类短期繁殖试验检测内分泌干扰物的能力 |
+| ZH Abstract | 评估鱼类短期繁殖试验检测内分泌干扰物。 |
+| EN Abstract | In a fish testing strategy, positive results of the fish short term reproduction assay (FSTR), often trigger a definitive test like the fish sexual development test (FSDT) or the fish full life cycle test (FFLC), entailing ethical and economic problems. This study analysed 137 studies encompassing 35 chemicals with different modes of actions (MOM). Variability is quantified for MOA endpoints vitellogenin (VTG) and secondary sex characteristics (SSCs) as well as for apical endpoints. Two MOA endp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 74987. 比较基因组分析揭示脊椎动物中谱系特异性基因家族的独立扩增：哺乳动物和鱼类中的II类细胞因子受体及其配体
+
+| Field | Content |
+|------|------|
+| EN Title | Comparative genomic analysis reveals independent expansion of a lineage-specific gene family in vertebrates: the class II cytokine receptors and their ligands in mammals and fish. |
+| ZH Title | 比较基因组分析揭示脊椎动物中谱系特异性基因家族的独立扩增：哺乳动物和鱼类中的II类细胞因子受体及其配体 |
+| ZH Abstract | 比较分析鱼类和哺乳动物中II类细胞因子受体基因家族。 |
+| EN Abstract | BACKGROUND: The high degree of sequence conservation between coding regions in fish and mammals can be exploited to identify genes in mammalian genomes by comparison with the sequence of similar genes in fish. Conversely, experimentally characterized mammalian genes may be used to annotate fish genomes. However, gene families that escape this principle include the rapidly diverging cytokines that regulate the immune system, and their receptors. A classic example is the class II helical cytokines |
+| Judgment | 是 |
+| Reason | 未明确指定鱼类种类 |
+---
+### 74990. Asxl1突变优势克隆通过干扰的表观遗传景观表现出红系谱系缺陷
+
+| Field | Content |
+|------|------|
+| EN Title | Asxl1-mutant Dominant Clones Have an Erythropoietic Lineage Deficiency through a Disturbed Epigenetic Landscape |
+| ZH Title | Asxl1突变优势克隆通过干扰的表观遗传景观表现出红系谱系缺陷 |
+| ZH Abstract | 研究Asxl1突变对红系分化的影响。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75019. 一种线粒体靶向磷光探针用于顺序检测Cu2+和半胱氨酸及其在活细胞和体内的成像
+
+| Field | Content |
+|------|------|
+| EN Title | A mitochondria-targeted phosphorescent probe for sequentially detecting Cu2+ and cysteine and its imaging in living cells and in vivo |
+| ZH Title | 一种线粒体靶向磷光探针用于顺序检测Cu2+和半胱氨酸及其在活细胞和体内的成像 |
+| ZH Abstract | 开发了一种用于检测Cu2+和Cys的探针。 |
+| EN Abstract | This study reported a unique mitochondria-targetable phosphorescent 'on-off-on' probe, Ir-DPA, based on an iridium(III) complex derivative for the sequential and specific detection of Cu2+ and Cys in vitro and in vivo. Probe Ir-DPA was constructed by a lipophilic cation unit as the chromophore as well as the mitochondria biomarker and a dipicolylamine (DPA) group as the recognition unit for Cu2+, followed by removal of Cu2+ specifically in the presence of Cys. The probe itself was strongly emiss |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75025. Eph受体和ephrin介导的互补节段域中的体内细胞分选
+
+| Field | Content |
+|------|------|
+| EN Title | In vivo cell sorting in complementary segmental domains mediated by Eph receptors and ephrins. |
+| ZH Title | Eph受体和ephrin介导的互补节段域中的体内细胞分选 |
+| ZH Abstract | 研究Eph受体在节段性细胞分选中的作用。 |
+| EN Abstract | The restriction of intermingling between specific cell populations is crucial for the maintenance of organized patterns during development. A striking example is the restriction of cell mixing between segments in the insect epidermis and the vertebrate hindbrain that may enable each segment to maintain a distinct identity. In the hindbrain, this is a result of different adhesive properties of odd- and even-numbered segments (rhombomeres), but an adhesion molecule with alternating segmental expre |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75027. 用于水生模型系统和细胞培养生物学研究的静磁场暴露装置的构建与应用
+
+| Field | Content |
+|------|------|
+| EN Title | Construction and Application of a Static Magnetic Field Exposure Apparatus for Biological Research in Aqueous Model Systems and Cell Culture |
+| ZH Title | 用于水生模型系统和细胞培养生物学研究的静磁场暴露装置的构建与应用 |
+| ZH Abstract | 构建用于生物研究的静磁场暴露装置。 |
+| EN Abstract | With the growth of the quantum biology field, the study of magnetic field (MF) effects on biological processes and their potential therapeutic applications has attracted much attention. However, most biologists lack the experience needed to construct an MF exposure apparatus on their own, no consensus standard exists for exposure methods, and protocols for model organisms are sorely lacking. We aim to provide those interested in entering the field with the ability to investigate static MF effect |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75028. 基于蒽醌的Schiff碱荧光探针用于近完美水溶液中Al3+和焦磷酸盐的顺序传感及生物成像
+
+| Field | Content |
+|------|------|
+| EN Title | Anthraquinone-based Schiff base fluorescent probe for the sequential sensing of Al3+and pyrophosphate in a near-perfect aqueous solution and bioimaging |
+| ZH Title | 基于蒽醌的Schiff碱荧光探针用于近完美水溶液中Al3+和焦磷酸盐的顺序传感及生物成像 |
+| ZH Abstract | 开发用于检测Al3+和PPi的荧光探针。 |
+| EN Abstract | A new anthraquinone derivative fluorescent probe (DPHA) was designed and synthesized for sequentially detecting aluminum ions and pyrophosphate (PPi) in a near-perfect aqueous medium with 0.4 % DMSO as a co-solvent. The DPHA probe displayed "turn-on" fluorescence sensing of Al3+ at 575 nm, overcoming the inter-ference of the other common cations through an apparent color variation from purple to light pink. Anthraquinone-derived conjugated skeleton and Schiff base-mediated multiple binding sites |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75029. 一种新型CRISPR-MultiTargeter多智能体强化学习算法，用于通过多个相似序列的混合评分识别可编辑靶区域
+
+| Field | Content |
+|------|------|
+| EN Title | A Novel CRISPR-MultiTargeter Multi-agent Reinforcement learning (CMT-MARL) algorithm to identify editable target regions using a Hybrid scoring from multiple similar sequences |
+| ZH Title | 一种新型CRISPR-MultiTargeter多智能体强化学习算法，用于通过多个相似序列的混合评分识别可编辑靶区域 |
+| ZH Abstract | 开发CRISPR靶点识别算法。 |
+| EN Abstract | Genome edit is a modern technology to serve mankind The main idea is derived from RNA mediated Nuclease, which is the CRISPR/Cas9 natural process of the bacterial genome. In this paper, we have developed an algorithm CMT-MARL for finding the multiple editable target site from the similar sequences. Among different types of genes, there are many common regions, which are important concerning the production of proteins or any other biological function in the organisms. Tracing multiple target site |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75030. 有限寿命宿主上的随机定殖可驱动个体宿主微生物偏离平衡
+
+| Field | Content |
+|------|------|
+| EN Title | Stochastic colonization of hosts with a finite lifespan can drive individual host microbes out of equilibrium |
+| ZH Title | 有限寿命宿主上的随机定殖可驱动个体宿主微生物偏离平衡 |
+| ZH Abstract | 数学模型研究微生物定殖动态。 |
+| EN Abstract | Macroorganisms are inhabited by microbial communities that often change through the lifespan of an individual. One of the factors contributing to this change is colonization from the environment. The colonization of initially microbe-free hosts is particularly interesting, as their microbiome depends entirely on microbes of external origin. We present a mathematical model of this process with a particular emphasis on the effect of ecological drift and a finite host lifespan. Our results indicate |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75031. 使用生态毒理学方法评估巴西东南部一座水坝的污染和健康风险
+
+| Field | Content |
+|------|------|
+| EN Title | Contamination and health risks assessment in a dam in the southeast region of Brazil using ecotoxicological methods |
+| ZH Title | 使用生态毒理学方法评估巴西东南部一座水坝的污染和健康风险 |
+| ZH Abstract | 评估水坝污染和健康风险。 |
+| EN Abstract | Concerned with water quality, specialists have resorted to ecotoxicology as a tool to assess suspected contamination, enabling creation of strategies to repair the observed damage. Organisms such as fish and micro crustaceans are widely used in acute tests due to several characteristics in common among them including (1) accessibility of multiple samples, and (2) enhanced sensitivity when exposed to pollutants. Thus, the objective of this investigation was to determine the degree of toxicity at |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75048. Wnt-1和β-catenin控制体节背腹模式形成
+
+| Field | Content |
+|------|------|
+| EN Title | Control of dorsoventral somite patterning by Wnt-1 and beta-catenin. |
+| ZH Title | Wnt-1和β-catenin控制体节背腹模式形成 |
+| ZH Abstract | 研究Wnt信号在体节模式形成中的作用。 |
+| EN Abstract | In vertebrates, the dorsoventral patterning of somitic mesoderm is controlled by factors expressed in adjacent tissues. The ventral neural tube and the notochord function to promote the formation of the sclerotome, a ventral somite derivative, while the dorsal neural tube and the surface ectoderm have been shown to direct somite cells to a dorsal dermomyotomal fate. A number of signaling molecules are expressed in these inducing tissues during times of active cell fate specification, including m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75073. 纤毛与PCP信号通路核心蛋白Vangl2之间的双向关系
+
+| Field | Content |
+|------|------|
+| EN Title | The bidirectional relationship between cilia and PCP signaling pathway core protein Vangl2 |
+| ZH Title | 纤毛与PCP信号通路核心蛋白Vangl2之间的双向关系 |
+| ZH Abstract | 综述Vangl2与纤毛之间的双向调控关系。 |
+| EN Abstract | Vangl2, a core component of the PCP signaling pathway, serves as a scaffold protein on the cell membrane, playing a crucial role in organizing protein complexes. Cilia, dynamic structures on the cell surface, carry out a wide range of functions. Research has highlighted a bidirectional regulatory interaction between Vangl2 and cilia, underscoring their interconnected roles in cellular processes. This relationship is demonstrated by the localization of Vangl2 at the base and proximal regions of c |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75074. 构建、破坏和修复神经肌肉突触
+
+| Field | Content |
+|------|------|
+| EN Title | Building, Breaking, and Repairing Neuromuscular Synapses |
+| ZH Title | 构建、破坏和修复神经肌肉突触 |
+| ZH Abstract | 综述神经肌肉突触形成、维持和修复的信号通路。 |
+| EN Abstract | A coordinated and complex interplay of signals between motor neurons, skeletal muscle cells, and Schwann cells controls the formation and maintenance of neuromuscular synapses. Deficits in the signaling pathway for building synapses, caused by mutations in critical genes or autoantibodies against key proteins, are responsible for several neuromuscular diseases, which cause muscle weakness and fatigue. Here, we describe the role that four key genes, Agrin, Lrp4, MuSK, and Dok7, play in this signa |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75077. 解读钙代码：用于识别早期神经发育中有意义活动的钙活动分析方法综述
+
+| Field | Content |
+|------|------|
+| EN Title | Deciphering the Calcium Code: A Review of Calcium Activity Analysis Methods Employed to Identify Meaningful Activity in Early Neural Development |
+| ZH Title | 解读钙代码：用于识别早期神经发育中有意义活动的钙活动分析方法综述 |
+| ZH Abstract | 综述钙成像在早期神经发育中的应用方法。 |
+| EN Abstract | The intracellular and intercellular flux of calcium ions represents an ancient and universal mode of signaling that regulates an extensive array of cellular processes. Evidence for the central role of calcium signaling includes various techniques that allow the visualization of calcium activity in living cells. While extensively investigated in mature cells, calcium activity is equally important in developing cells, particularly the embryonic nervous system where it has been implicated in a wide |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75081. 从队列到分子：内分泌干扰混合物的不良影响
+
+| Field | Content |
+|------|------|
+| EN Title | From cohorts to molecules: Adverse impacts of endocrine disrupting mixtures |
+| ZH Title | 从队列到分子：内分泌干扰混合物的不良影响 |
+| ZH Abstract | 整合流行病学和实验证据评估内分泌干扰混合物风险。 |
+| EN Abstract | Convergent evidence associates exposure to endocrine disrupting chemicals (EDCs) with major human diseases, even at regulation-compliant concentrations. This might be because humans are exposed to EDC mixtures, whereas chemical regulation is based on a risk assessment of individual compounds. Here, we developed a mixture-centered risk assessment strategy that integrates epidemiological and experimental evidence. We identified that exposure to an EDC mixture in early pregnancy is associated with |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75089. 通过控制边界层粘度的增加逆转趋电性方向
+
+| Field | Content |
+|------|------|
+| EN Title | Reversing the direction of galvanotaxis with controlled increases in boundary layer viscosity |
+| ZH Title | 通过控制边界层粘度的增加逆转趋电性方向 |
+| ZH Abstract | 研究增加粘度如何逆转细胞趋电性方向。 |
+| EN Abstract | Weak external electric fields (EFs) polarize cellular structure and direct most migrating cells (galvanotaxis) toward the cathode, making it a useful tool during tissue engineering and for healing epidermal wounds. However, the biophysical mechanisms for sensing weak EFs remain elusive. We have reinvestigated the mechanism of cathode-directed water flow (electro-osmosis) in the boundary layer of cells, by reducing it with neutral, viscous polymers. We report that increasing viscosity with low mo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75090. Müller胶质细胞与视网膜组织中的细胞碎片吞噬
+
+| Field | Content |
+|------|------|
+| EN Title | Muller glia and phagocytosis of cell debris in retinal tissue |
+| ZH Title | Müller胶质细胞与视网膜组织中的细胞碎片吞噬 |
+| ZH Abstract | 综述Müller胶质细胞在视网膜中吞噬细胞碎片的作用。 |
+| EN Abstract | Muller cells are the predominant glial cell type in the retina of vertebrates. They play a wide variety of roles in both the developing and the mature retina that have been widely reported in the literature. However, less attention has been paid to their role in phagocytosis of cell debris under physiological, pathological or experimental conditions. Muller glia have been shown to phagocytose apoptotic cell bodies originated during development of the visual system. They also engulf foreign molec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75091. 内质网伴侣Gp96控制肌动球蛋白动力学并保护免受成孔毒素侵害
+
+| Field | Content |
+|------|------|
+| EN Title | Endoplasmic reticulum chaperone Gp96 controls actomyosin dynamics and protects against pore-forming toxins |
+| ZH Title | 内质网伴侣Gp96控制肌动球蛋白动力学并保护免受成孔毒素侵害 |
+| ZH Abstract | 发现Gp96调控成孔毒素诱导的细胞起泡。 |
+| EN Abstract | During infection, plasma membrane (PM) blebs protect host cells against bacterial pore-forming toxins (PFTs), but were also proposed to promote pathogen dissemination. However, the details and impact of blebbing regulation during infection remained unclear. Here, we identify the endoplasmic reticulum chaperone Gp96 as a novel regulator of PFT-induced blebbing. Gp96 interacts with non-muscle myosin heavy chain IIA (NMHCIIA) and controls its activity and remodelling, which is required for appropri |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75096. 给予正确的拉力以迁移：组织运动中的钙黏蛋白
+
+| Field | Content |
+|------|------|
+| EN Title | Giving the right tug for migration: Cadherins in tissue movements |
+| ZH Title | 给予正确的拉力以迁移：组织运动中的钙黏蛋白 |
+| ZH Abstract | 综述钙黏蛋白在胚胎发育和组织运动中的作用。 |
+| EN Abstract | Dynamically regulated cell-cell adhesion is crucial for morphogenesis during embryonic development and tumor progression. The cadherins as calcium-dependent cell-cell adhesion proteins represent key molecules in these tissue movements. How cadherins serve in maintaining tissue cohesion during migration, facilitate cell-cell communication and promote signaling will be summarized in this review. (C) 2012 Elsevier Inc. All rights reserved. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75146. 基因敲低：鱼类基因功能研究的有力工具
+
+| Field | Content |
+|------|------|
+| EN Title | Gene knockdown: A powerful tool for gene function study in fish |
+| ZH Title | 基因敲低：鱼类基因功能研究的有力工具 |
+| ZH Abstract | 综述基因敲低技术在鱼类基因功能研究中的应用。 |
+| EN Abstract | So far, there are a number of fish genome projects, including experimental and economically important fish that provide available DNA sequence information. However, the function of a gene cannot be deduced only by its DNA sequence. Therefore, a technique with which to investigate the function of the fish gene is needed. Gene knockdown (GKD), or antisense technology, is now being used as a powerful technique to study gene functions in living organisms. GKD effects result from the introduction of |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75147. HOP Lys23Asn突变导致人类心肌病
+
+| Field | Content |
+|------|------|
+| EN Title | HOP Lys 23 Asn mutation causes human cardiomyopathy |
+| ZH Title | HOP Lys23Asn突变导致人类心肌病 |
+| ZH Abstract | HOP Lys23Asn突变导致人类心肌病（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75153. 利用双折射脉冲分裂实现千赫兹帧率双光子光片活体成像
+
+| Field | Content |
+|------|------|
+| EN Title | Two-photon light-sheet live imaging at kilohertz frame rate using birefringence-based pulse splitting |
+| ZH Title | 利用双折射脉冲分裂实现千赫兹帧率双光子光片活体成像 |
+| ZH Abstract | 开发高速双光子光片显微镜成像技术。 |
+| EN Abstract | Multiphoton microscopy is widely used for imaging live and intact tissues. Its imaging speed, however, remains con-strained by fluorophore emission rates and photodamage thresholds. In order to increase the effective pixel rate of a two-photon microscope beyond a few megahertz (MHz), multi-point acquisition schemes have been proposed. Two-photon (2P) light-sheet microscopy emerges as a particularly effective approach for high-speed multiphoton imaging of live specimens, as it enables parallelize |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75154. PFAS和微塑料在水生生态系统中的联合毒性：协同、加和与拮抗相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Combined Toxicity of PFAS and Microplastics in Aquatic Ecosystems: Synergistic, Additive, and Antagonistic Interactions |
+| ZH Title | PFAS和微塑料在水生生态系统中的联合毒性：协同、加和与拮抗相互作用 |
+| ZH Abstract | 综述PFAS和微塑料对水生生态系统的联合毒性。 |
+| EN Abstract | Per- and polyfluoroalkyl substances (PFAS) and microplastics (MPs) increasingly co-occur in aquatic ecosystems, creating complex mixture-toxicity scenarios that cannot be captured by single-contaminant frameworks. While several studies report synergistic interactions where combined effects exceed predictions from individual exposures, evidence also demonstrates additive and antagonistic outcomes depending on PFAS congener, polymer type, particle size, environmental conditions, and species tested |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75156. 参数化环境DNA的粒径分布以深入了解其在水中的可用性
+
+| Field | Content |
+|------|------|
+| EN Title | Parameterizing the particle size distribution of environmental DNA provides insights into its improved availability from the water |
+| ZH Title | 参数化环境DNA的粒径分布以深入了解其在水中的可用性 |
+| ZH Abstract | 研究环境DNA粒径分布参数化方法。 |
+| EN Abstract | Previous studies estimated the particle size distribution (PSD) of environmental DNA (eDNA) to infer its persistence state in the water and to determine the size fraction in which eDNA particles are concentrated. These results, however, depend on the combination of filter pore sizes and may not necessarily provide the proper implications for the eDNA state and availability in the water. To address this issue, the present study proposes parameterizing the PSD using the Weibull distribution model, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75157. 用于自动化和通用化突触事件分析的深度学习框架
+
+| Field | Content |
+|------|------|
+| EN Title | A deep learning framework for automated and generalized synaptic event analysis |
+| ZH Title | 用于自动化和通用化突触事件分析的深度学习框架 |
+| ZH Abstract | 开发深度学习算法自动检测突触事件。 |
+| EN Abstract | Quantitative information about synaptic transmission is key to our understanding of neural function. Spontaneously occurring synaptic events carry fundamental information about synaptic function and plasticity. However, their stochastic nature and low signal-to-noise ratio present major challenges for the reliable and consistent analysis. Here, we introduce miniML, a supervised deep learning-based method for accurate classification and automated detection of spontaneous synaptic events. Comparat |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75158. 转移性疾病药物发现的临床前模型
+
+| Field | Content |
+|------|------|
+| EN Title | Preclinical models for drug discovery for metastatic disease |
+| ZH Title | 转移性疾病药物发现的临床前模型 |
+| ZH Abstract | 综述用于转移性疾病研究的临床前模型。 |
+| EN Abstract | Despite many advances, metastatic disease remains essentially uncurable. Thus, there is an urgent need to better understand mechanisms that promote metastasis, drive tumor evolution, and underlie innate and acquired drug resistance. Sophisticated preclinical models that recapitulate the complex tumor ecosystem are key to this process. We begin with syngeneic and patient-derived mouse models that are the backbone of most preclinical studies. Second, we present some unique advantages of fish and f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75159. 致癌FGFR融合通过异位信号产生中心体和纤毛缺陷
+
+| Field | Content |
+|------|------|
+| EN Title | Oncogenic FGFR Fusions Produce Centrosome and Cilia Defects by Ectopic Signaling |
+| ZH Title | 致癌FGFR融合通过异位信号产生中心体和纤毛缺陷 |
+| ZH Abstract | 研究FGFR融合蛋白导致纤毛和中心体缺陷的机制。 |
+| EN Abstract | A single primary cilium projects from most vertebrate cells to guide cell fate decisions. A growing list of signaling molecules is found to function through cilia and control ciliogenesis, including the fibroblast growth factor receptors (FGFR). Aberrant FGFR activity produces abnormal cilia with deregulated signaling, which contributes to pathogenesis of the FGFR-mediated genetic disorders. FGFR lesions are also found in cancer, raising a possibility of cilia involvement in the neoplastic trans |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75162. 使用体内固相微萃取对暴露于苯并[a]芘的鱼肌肉组织进行代谢组分析
+
+| Field | Content |
+|------|------|
+| EN Title | Metabolome Profiling of Fish Muscle Tissue Exposed to Benzo[α]pyrene Using in Vivo Solid-Phase Microextraction |
+| ZH Title | 使用体内固相微萃取对暴露于苯并[a]芘的鱼肌肉组织进行代谢组分析 |
+| ZH Abstract | 研究苯并[a]芘对鱼肌肉代谢组的影响。 |
+| EN Abstract | In vivo solid-phase microextraction (SPME) of endogenous compounds may depict changes in the biochemical pathways in organisms that have been affected by various stimuli such as environmental pollutants. In this paper, we use low-invasive in vivo SPME to analyze metabolic profile changes in the muscle tissue of living fish that have been exposed to benzo[alpha]pyrene (BaP). This study employs a case-control model with the fish divided into three groups: a control group, a low-dose group (1 ng/L |
+| Judgment | 是 |
+| Reason | 仅提及“鱼”，未特指斑马鱼 |
+---
+### 75170. 同步三维光声和激光超声断层成像
+
+| Field | Content |
+|------|------|
+| EN Title | Simultaneous three-dimensional photoacoustic and laser-ultrasound tomography |
+| ZH Title | 同步三维光声和激光超声断层成像 |
+| ZH Abstract | 开发光声和超声联合断层成像技术。 |
+| EN Abstract | A tomographic setup that provides the co-registration of photoacoustic (PA) and ultrasound (US) images is presented. For pulse-echo US-tomography laser-induced broadband plane ultrasonic waves are produced by illuminating an optically absorbing target with a short near-infrared laser pulse. Part of the same pulse is frequency doubled and used for the generation of PA waves within the object of interest. The laser-generated plane waves are scattered at the imaging object and measured with the sam |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75172. 使用基于光学相干断层扫描的粒子追踪测速技术对纤毛驱动流体流动进行微流控表征
+
+| Field | Content |
+|------|------|
+| EN Title | Microfluidic characterization of cilia-driven fluid flow using optical coherence tomography-based particle tracking velocimetry |
+| ZH Title | 使用基于光学相干断层扫描的粒子追踪测速技术对纤毛驱动流体流动进行微流控表征 |
+| ZH Abstract | 开发OCT技术表征纤毛驱动的微流体流动。 |
+| EN Abstract | Motile cilia are cellular organelles that generate directional fluid flow across various epithelial surfaces including the embryonic node and respiratory mucosa. The proper functioning of cilia is necessary for normal embryo development and, for the respiratory system, the clearance of mucus and potentially harmful particulate matter. Here we show that optical coherence tomography (OCT) is well-suited for quantitatively characterizing the microfluidic-scale flow generated by motile cilia. Our im |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75173. “模型”还是“工具”？转化研究的新定义
+
+| Field | Content |
+|------|------|
+| EN Title | 'Model' or 'tool'? New definitions for translational research |
+| ZH Title | “模型”还是“工具”？转化研究的新定义 |
+| ZH Abstract | “模型”还是“工具”？转化研究的新定义（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75175. 鱼类的短程定向：鱼类如何绘制空间地图
+
+| Field | Content |
+|------|------|
+| EN Title | Short-range orientation in fish: How fish map space |
+| ZH Title | 鱼类的短程定向：鱼类如何绘制空间地图 |
+| ZH Abstract | 综述鱼类空间认知和导航机制。 |
+| EN Abstract | One way in which fish can move around efficiently is to learn and remember a spatial map of their environment. This can be a relatively simple process where, for example, sequences of landmarks are learned. However, more complex spatial representations can be generated by integrating multiple pieces of information. In this review, we consider what types of information fish use to generate a spatial map; for instance, beacons (single landmarks) that signal a specific location, or learned geometri |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75199. 线粒体钙单向转运体的体内生物学
+
+| Field | Content |
+|------|------|
+| EN Title | The In Vivo Biology of the Mitochondrial Calcium Uniporter |
+| ZH Title | 线粒体钙单向转运体的体内生物学 |
+| ZH Abstract | 无摘要 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75226. 鱼类调节尾鳍运动学以最小化速度相关的运输成本
+
+| Field | Content |
+|------|------|
+| EN Title | Fishes regulate tail-beat kinematics to minimize speed-specific cost of transport |
+| ZH Title | 鱼类调节尾鳍运动学以最小化速度相关的运输成本 |
+| ZH Abstract | 研究鱼类尾鳍运动学，未指定斑马鱼。 |
+| EN Abstract | Energetic expenditure is an important factor in animal locomotion. Here we test the hypothesis that fishes control tail-beat kinematics to optimize energetic expenditure during undulatory swimming. We focus on two energetic indices used in swimming hydrodynamics, cost of transport and Froude efficiency. To rule out one index in favour of another, we use computational-fluid dynamics models to compare experimentally observed fish kinematics with predicted performance landscapes and identify energy |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75242. 关于鱼类皮肤图案中条纹的方向
+
+| Field | Content |
+|------|------|
+| EN Title | On the orientation of stripes in fish skin patterning |
+| ZH Title | 关于鱼类皮肤图案中条纹的方向 |
+| ZH Abstract | 研究鱼类皮肤条纹方向，未指定斑马鱼。 |
+| EN Abstract | This paper is focused on the study of the stripes orientation in the fish skin patterns. Based on microscopic observations of the pigment cells behavior at the embryonic stage, the key aspects of the pigmentation process are implemented in an experimental reaction-diffusion system. The experiment consists of a photosensitive Turing pattern of stripes growing directionally in one direction with controlled velocity. Different growth velocities of the system rearrange the stripes in the same three |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75252. 炎症期间原位组织细胞局部产生LECT2
+
+| Field | Content |
+|------|------|
+| EN Title | Localized production of LECT2 by orthotopic histiocytes during inflammation |
+| ZH Title | 炎症期间原位组织细胞局部产生LECT2 |
+| ZH Abstract | 炎症期间原位组织细胞局部产生LECT2（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75256. GoFish：一个用于鱼类闭环行为实验的低成本开源平台
+
+| Field | Content |
+|------|------|
+| EN Title | GoFish: A low-cost, open-source platform for closed-loop behavioural experiments on fish |
+| ZH Title | GoFish：一个用于鱼类闭环行为实验的低成本开源平台 |
+| ZH Abstract | 开发鱼类行为实验平台，未指定斑马鱼。 |
+| EN Abstract | Fish are the most species-rich vertebrate group, displaying vast ecological, anatomical and behavioural diversity, and therefore are of major interest for the study of behaviour and its evolution. However, with respect to other vertebrates, fish are relatively underrepresented in psychological and cognitive research. A greater availability of easily accessible, flexible, open-source experimental platforms that facilitate the automation of task control and data acquisition may help to reduce this |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75261. ERGO：打破人类健康与环境内分泌干扰物测试之间的壁垒
+
+| Field | Content |
+|------|------|
+| EN Title | ERGO: Breaking Down the Wall between Human Health and Environmental Testing of Endocrine Disrupters |
+| ZH Title | ERGO：打破人类健康与环境内分泌干扰物测试之间的壁垒 |
+| ZH Abstract | 欧盟项目旨在整合脊椎动物内分泌干扰物测试方法。 |
+| EN Abstract | ERGO (EndocRine Guideline Optimization) is the acronym of a European Union-funded research and innovation action, that aims to break down the wall between mammalian and non-mammalian vertebrate regulatory testing of endocrine disruptors (EDs), by identifying, developing and aligning thyroid-related biomarkers and endpoints (B/E) for the linkage of effects between vertebrate classes. To achieve this, an adverse outcome pathway (AOP) network covering various modes of thyroid hormone disruption (TH |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75280. 组织特异性沉默子的进化导致pax2和pax8旁系同源基因表达的差异
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of a tissue-specific silencer underlies divergence in the expression of pax2 and pax8 paralogues |
+| ZH Title | 组织特异性沉默子的进化导致pax2和pax8旁系同源基因表达的差异 |
+| ZH Abstract | 研究pax2和pax8基因表达差异的进化机制。 |
+| EN Abstract | Recent studies underscore a role for the differential degeneration of enhancers in the evolutionary diversification of paralogue expression. However, no one has reported evidence for the involvement of innovative cis-regulatory changes. Here we show that silencer innovation diversified expression of the vertebrate paralogues, pax2 and pax8. pax2 shows multi-tissue expression, as does the ancestral amphioxus orthologue, pax2/5/8, whereas pax8 expression localizes to a subset of pax2-expressing ti |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75301. 启动子保守的孵化酶基因伴随内含子丢失的易位为逆转录拷贝在硬骨鱼进化中的作用提供新见解
+
+| Field | Content |
+|------|------|
+| EN Title | Translocation of promoter-conserved hatching enzyme genes with intron-loss provides a new insight in the role of retrocopy during teleostean evolution |
+| ZH Title | 启动子保守的孵化酶基因伴随内含子丢失的易位为逆转录拷贝在硬骨鱼进化中的作用提供新见解 |
+| ZH Abstract | 研究硬骨鱼孵化酶基因的转座和内含子丢失。 |
+| EN Abstract | The hatcing enzyme gene (HE) encodes a protease that is indispensable for the hatching process and is conserved during vertebrate evolution. During teleostean evolution, it is known that HE experienced a drastic transfiguration of gene structure, namely, losing all of its introns. However, these facts are contradiction with each other, since intron-less genes typically lose their original promoter because of duplication via mature mRNA, called retrocopy. Here, using a comparative genomic assay, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75305. 从个体到种群的内分泌干扰效应放大：结果取决于种群需要多少雄性
+
+| Field | Content |
+|------|------|
+| EN Title | Scaling Up Endocrine Disruption Effects from Individuals to Populations: Outcomes Depend on How Many Males a Population Needs |
+| ZH Title | 从个体到种群的内分泌干扰效应放大：结果取决于种群需要多少雄性 |
+| ZH Abstract | 模型研究内分泌干扰物对鱼类种群动态的影响。 |
+| EN Abstract | Assessing how endocrine disrupting compounds (EDCs) affect population dynamics requires tracking males and females (and sex-reversed individuals) separately. A key component in any sex-specific model is the "mating function" (the relationship between sex ratio and reproductive success) but this relationship is not known for any fish species. Using a model, we found that EDC effects on fish populations strongly depend upon the shape of the mating function. Additionally, masculinization is general |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75307. 利用概率基序搜索鉴定组氨酸磷酸转移结构域蛋白
+
+| Field | Content |
+|------|------|
+| EN Title | Use of a Probabilistic Motif Search to Identify Histidine Phosphotransfer Domain-Containing Proteins |
+| ZH Title | 利用概率基序搜索鉴定组氨酸磷酸转移结构域蛋白 |
+| ZH Abstract | 描述一种检测蛋白质结构域的生物信息学方法。 |
+| EN Abstract | The wealth of newly obtained proteomic information affords researchers the possibility of searching for proteins of a given structure or function. Here we describe a general method for the detection of a protein domain of interest in any species for which a complete proteome exists. In particular, we apply this approach to identify histidine phosphotransfer (HPt) domain-containing proteins across a range of eukaryotic species. From the sequences of known HPt domains, we created an amino acid occ |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75310. 转化蛋白质组学的动物模型
+
+| Field | Content |
+|------|------|
+| EN Title | Animal models for translational proteomics |
+| ZH Title | 转化蛋白质组学的动物模型 |
+| ZH Abstract | 综述动物模型在转化蛋白质组学中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75311. 本期表观遗传学
+
+| Field | Content |
+|------|------|
+| EN Title | In this issue of Epigenetics |
+| ZH Title | 本期表观遗传学 |
+| ZH Abstract | 期刊目录介绍，无具体研究。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75322. 微塑料和纳米塑料对病原微生物的影响是什么？
+
+| Field | Content |
+|------|------|
+| EN Title | What is the micro- and nanoplastics impact on pathogenic microorganisms? |
+| ZH Title | 微塑料和纳米塑料对病原微生物的影响是什么？ |
+| ZH Abstract | 探讨微塑料对病原微生物的影响。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75323. 高度保守且极易进化：BMP信号在刺胞动物和两侧对称动物次级轴模式中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Highly conserved and extremely evolvable: BMP signalling in secondary axis patterning of Cnidaria and Bilateria |
+| ZH Title | 高度保守且极易进化：BMP信号在刺胞动物和两侧对称动物次级轴模式中的作用 |
+| ZH Abstract | 综述BMP信号在动物体轴形成中的保守性和进化。 |
+| EN Abstract | Bilateria encompass the vast majority of the animal phyla. As the name states, they are bilaterally symmetric, that is with a morphologically clear main body axis connecting their anterior and posterior ends, a second axis running between their dorsal and ventral surfaces, and with a left side being roughly a mirror image of their right side. Bone morphogenetic protein (BMP) signalling has widely conserved functions in the formation and patterning of the second, dorso-ventral (DV) body axis, alb |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75324. 野生动物的微生物组与化学污染：现状、知识空白与挑战
+
+| Field | Content |
+|------|------|
+| EN Title | The microbiomes of wildlife and chemical pollution: Status, knowledge gaps and challenges |
+| ZH Title | 野生动物的微生物组与化学污染：现状、知识空白与挑战 |
+| ZH Abstract | 综述化学污染对野生动物微生物组的影响。 |
+| EN Abstract | The effect of chemical pollution on the microbiomes of wildlife has been given little attention. A new concept is emerging where microbiomes are vital to host animal or plant health, and for ecosystems. Data are mainly on mammals, birds, and fish. Changing environmental conditions (e.g., salinity, pH, season) and exposure to chemicals alter the composition of gill, gut and skin microbiomes. Gut microbiomes are also modulated by diet, and exposure to chemicals including metals, nano materials, fu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75327. X连锁的SHROOM4变异与VACTERL联合征的形成有关
+
+| Field | Content |
+|------|------|
+| EN Title | X-linked variants in SHROOM4 are implicated in the formation of VACTERL |
+| ZH Title | X连锁的SHROOM4变异与VACTERL联合征的形成有关 |
+| ZH Abstract | 研究SHROOM4基因与VACTERL综合征的关系。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75328. 动物模型与前沿替代研究进展：第二届国际3R研究与进展会议论文集，海得拉巴，2021
+
+| Field | Content |
+|------|------|
+| EN Title | Advances in Animal Models and Cutting-Edge Research in Alternatives: Proceedings of the Second International Conference on 3Rs Research and Progress, Hyderabad, 2021 |
+| ZH Title | 动物模型与前沿替代研究进展：第二届国际3R研究与进展会议论文集，海得拉巴，2021 |
+| ZH Abstract | 会议论文集，涉及动物模型和替代方法。 |
+| EN Abstract | The fact that animal models fail to replicate human disease faithfully is now being widely accepted by researchers across the globe. As a result, they are exploring the use of alternatives to animal models. The time has come to refine our experimental practices, reduce the numbers and eventually replace the animals used in research with human-derived and human-relevant 3-D disease models. Oncoseek Bio-Acasta Health, which is an innovative biotechnology start-up company based in Hyderabad and Vis |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75331. 一种简单实用的基于CRISPR-Cas9敲除表型基因分型的工作流程：多重扩增子测序
+
+| Field | Content |
+|------|------|
+| EN Title | A simple and practical workflow for genotyping of CRISPR-Cas9-based knockout phenotypes using multiplexed amplicon sequencing |
+| ZH Title | 一种简单实用的基于CRISPR-Cas9敲除表型基因分型的工作流程：多重扩增子测序 |
+| ZH Abstract | 描述一种CRISPR-Cas9基因分型的工作流程。 |
+| EN Abstract | Founder animals carrying high proportions of somatic mutation induced by CRISPR-Cas9 enable a rapid and scalable strategy for the functional screening of numerous target genes in vivo. In this functional screening, genotyping using pooled amplicons with next-generation sequencing is the most suitable approach for large-scale management of multiple samples and accurate evaluation of the efficiency of Cas9-induced somatic mutations at target sites. Here, we present a simple workflow for genotyping |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75332. 哺乳动物和非哺乳动物脊椎动物中Spexin结构和功能多样性的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of Structural and Functional Diversity of Spexin in Mammalian and Non-mammalian Vertebrate Species |
+| ZH Title | 哺乳动物和非哺乳动物脊椎动物中Spexin结构和功能多样性的进化 |
+| ZH Abstract | 综述Spexin神经肽在脊椎动物中的进化。 |
+| EN Abstract | Spexin (SPX) is a novel neuropeptide, which was first identified in the human genome using bioinformatics. Since then, orthologs of human SPX have been identified in mammalian and non-mammalian vertebrates. The mature sequence of SPX, NWTPQAMLYLKGAQ, is evolutionally conserved across vertebrate species, with some variations in teleost species where Ala at position 13 is substituted by Thr. In mammals, the gene structure of SPX comprises six exons and five introns, however, variation exists withi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75333. 基于SEPT1的支架是高尔基体完整性和功能所必需的
+
+| Field | Content |
+|------|------|
+| EN Title | A SEPT1-based scaffold is required for Golgi integrity and function |
+| ZH Title | 基于SEPT1的支架是高尔基体完整性和功能所必需的 |
+| ZH Abstract | 研究SEPT1蛋白在高尔基体功能中的作用。 |
+| EN Abstract | Compartmentalization of membrane transport and signaling processes is of pivotal importance to eukaryotic cell function. While plasma membrane compartmentalization and dynamics are well known to depend on the scaffolding function of septin GTPases, the roles of septins at intracellular membranes have remained largely elusive. Here, we show that the structural and functional integrity of the Golgi depends on its association with a septin 1 (SEPT1)-based scaffold, which promotes local microtubule |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75334. 比较转录组和表观基因组分析鉴定视网膜Müller胶质细胞神经发生能力的调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | Comparative transcriptomic and epigenomic analysis identifes regulators of neurogenic competence in retinal Muller glia |
+| ZH Title | 比较转录组和表观基因组分析鉴定视网膜Müller胶质细胞神经发生能力的调控因子 |
+| ZH Abstract | 研究视网膜Müller胶质细胞神经发生的调控因子。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75335. 细胞分裂后期步骤中的膜运输
+
+| Field | Content |
+|------|------|
+| EN Title | Membrane Traffic in the Late Steps of Cytokinesis |
+| ZH Title | 细胞分裂后期步骤中的膜运输 |
+| ZH Abstract | 综述细胞分裂后期膜运输的作用。 |
+| EN Abstract | Cells don't simply separate at cytokinesis. While furrow contraction critically relies on myosin-II and F-actin, post-furrowing steps are less understood but involve the constriction of ESCRT-III polymer-dependent helices on the side of the midbody, which likely drive final abscission. The first evidence that animal cell cytokinesis requires membrane traffic, as in plant cells, was provided about 15 years ago. Since then, it has become increasingly clear that fusion of vesicles to the cytokineti |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75336. 肠道微生物与宿主幼体生长
+
+| Field | Content |
+|------|------|
+| EN Title | Gut Microbiota and Host Juvenile Growth |
+| ZH Title | 肠道微生物与宿主幼体生长 |
+| ZH Abstract | 综述肠道微生物对宿主幼体生长的影响。 |
+| EN Abstract | Good genes, good food, good friends. That is what parents hope will sustain and nurture the harmonious growth of their children. The impact of the genetic background and nutrition on postnatal growth has been in the spot light for long, but the good friends have come to the scene only recently. Among the good friends perhaps the most crucial ones are those that we are carrying within ourselves. They comprise the trillions of microbes that collectively constitute each individual's intestinal micr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75337. 神经发育中的基质金属蛋白酶：系统发育多样性的视角
+
+| Field | Content |
+|------|------|
+| EN Title | Matrix metalloproteinases in neural development: a phylogenetically diverse perspective |
+| ZH Title | 神经发育中的基质金属蛋白酶：系统发育多样性的视角 |
+| ZH Abstract | 综述MMP在神经发育中的作用，涵盖多种生物。 |
+| EN Abstract | The matrix metalloproteinases (MMPs) are a family of zinc-dependent endopeptidases originally characterized as secreted proteases responsible for degrading extracellular matrix proteins. Their canonical role in matrix remodelling is of significant importance in neural development and regeneration, but emerging roles for MMPs, especially in signal transduction pathways, are also of obvious importance in a neural context. Misregulation of MMP activity is a hallmark of many neuropathologies, and me |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75338. 多种宿主粪便DNA提取方法的比较评估用于下游二代测序
+
+| Field | Content |
+|------|------|
+| EN Title | Comparative Evaluation of DNA Extraction Methods from Feces of Multiple Host Species for Downstream Next-Generation Sequencing |
+| ZH Title | 多种宿主粪便DNA提取方法的比较评估用于下游二代测序 |
+| ZH Abstract | 比较不同宿主粪便DNA提取方法。 |
+| EN Abstract | The gastrointestinal tract contains a vast community of microbes that to this day remain largely unculturable, making studies in this area challenging. With the newly affordable advanced sequencing technology, important breakthroughs in this exciting field are now possible. However, standardized methods of sample collection, handling, and DNA extraction have yet to be determined. To help address this, we investigated the use of 5 common DNA extraction methods on fecal samples from 5 different sp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75339. 基于细菌III型分泌的蛋白质递送工具在细胞生物学中的广泛应用
+
+| Field | Content |
+|------|------|
+| EN Title | A bacterial type III secretion-based protein delivery tool for broad applications in cell biology |
+| ZH Title | 基于细菌III型分泌的蛋白质递送工具在细胞生物学中的广泛应用 |
+| ZH Abstract | 开发一种基于细菌III型分泌的蛋白质递送方法。 |
+| EN Abstract | Methods enabling the delivery of proteins into eukaryotic cells are essential to address protein functions. Here we propose broad applications to cell biology for a protein delivery tool based on bacterial type III secretion (T3S). We show that bacterial, viral, and human proteins, fused to the N-terminal fragment of the Yersinia enterocolitica T3S substrate YopE, are effectively delivered into target cells in a fast and controllable manner via the injectisome of extracellular bacteria. This met |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75341. 生殖细胞的表观遗传调控——记住还是忘记？
+
+| Field | Content |
+|------|------|
+| EN Title | Epigenetic regulation of germ cells-remember or forget? |
+| ZH Title | 生殖细胞的表观遗传调控——记住还是忘记？ |
+| ZH Abstract | 综述生殖细胞表观遗传调控机制。 |
+| EN Abstract | Unlike somatic cells, germ cells retain the potential to reproduce an entire new organism upon fertilization. In order to accomplish the process of fertilization, germ cells undergo an extreme cellular differentiation process known as gametogenesis in order to produce morphologically and functionally distinct oocyte and sperm. In addition to changes in genetic content changes from diploid to haploid, epigenetic mechanisms that modify chromatin state without altering primary DNA sequences have pr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75344. 久坐行为作为决定侧线对趋流性贡献的因素
+
+| Field | Content |
+|------|------|
+| EN Title | Sedentary behavior as a factor in determining lateral line contributions to rheotaxis |
+| ZH Title | 久坐行为作为决定侧线对趋流性贡献的因素 |
+| ZH Abstract | 研究久坐行为对鱼类侧线趋流性的影响。 |
+| EN Abstract | Rheotaxis is a robust, multisensory behavior with many potential benefits for fish and other aquatic animals. Visual (optic flow) cues appear to be sufficient for rheotaxis, but other sensory cues can clearly compensate for the loss of vision. The role of various non-visual sensory systems, in particular the flow-sensing lateral line, is poorly understood, largely because of widely varying methods and sensory conditions for studying rheotaxis. Here, we examine how sedentary behavior under visual |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75348. 2012年人类病理学动物模型
+
+| Field | Content |
+|------|------|
+| EN Title | Animal Models of Human Pathology 2012 |
+| ZH Title | 2012年人类病理学动物模型 |
+| ZH Abstract | 2012年人类病理学动物模型（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75383. 程序性细胞死亡参与脊椎动物内耳形态发生
+
+| Field | Content |
+|------|------|
+| EN Title | Involvement of programmed cell death in morphogenesis of the vertebrate inner ear. |
+| ZH Title | 程序性细胞死亡参与脊椎动物内耳形态发生 |
+| ZH Abstract | 综述程序性细胞死亡在内耳形态发生中的作用。 |
+| EN Abstract | An outstanding challenge in developmental biology is to reveal the mechanisms underlying the morphogenesis of complex organs. A striking example is the developing inner ear of the vertebrate, which acquires a precise three-dimensional arrangement of its constituent epithelial cells to form three semicircular canals, a central vestibule and a coiled cochlea (in mammals). In generating a semicircular canal, epithelial cells seem to 'disappear' from the center of each canal. This phenomenon has bee |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75385. 通过UUATAC-seq和深度学习模拟脊椎动物调控序列景观
+
+| Field | Content |
+|------|------|
+| EN Title | Modeling the vertebrate regulatory sequence landscape by UUATAC-seq and deep learning |
+| ZH Title | 通过UUATAC-seq和深度学习模拟脊椎动物调控序列景观 |
+| ZH Abstract | 开发UUATAC-seq方法绘制五种脊椎动物调控元件图谱。 |
+| EN Abstract | The regulatory sequences of vertebrate genomes remain incompletely understood. To address this, we developed an ultra-throughput, ultra-sensitive single-nucleus assay for transposase-accessible chromatin using sequencing (UUATAC-seq) protocol that enables the construction of chromatin accessibility landscapes for one species in a 1-day experiment. Using UUATAC-seq, we mapped candidate cis-regulatory elements (cCREs) across five representative vertebrate species. Our analysis revealed that genome |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75387. 生物活性引导的药物筛选策略在临床前和临床药物发现中的最新进展
+
+| Field | Content |
+|------|------|
+| EN Title | Recent advances in bioactivity-guided drug screening strategies for pre-clinical and clinical drug discovery |
+| ZH Title | 生物活性引导的药物筛选策略在临床前和临床药物发现中的最新进展 |
+| ZH Abstract | 综述生物活性引导药物筛选策略。 |
+| EN Abstract | Over the past two decades, bioactivity-guided drug screening has become a pivotal approach in drug discovery, which could identify potential drug candidates with desirable therapeutic effects against specific disease phenotypes or targets. This strategy has led to the discovery of many clinical medications such as natural products, peptides, and antibody drugs, and become a mainstream method. Herein, we first systematically summarize the principles and applications of recent bioactivity-guided d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75391. 一种由活性氧激活的荧光H2S供体用于细胞和体内实时监测
+
+| Field | Content |
+|------|------|
+| EN Title | A fluorogenic H2S donor activated by reactive oxygen species for real-time monitoring in cells and in vivo |
+| ZH Title | 一种由活性氧激活的荧光H2S供体用于细胞和体内实时监测 |
+| ZH Abstract | 开发ROS触发H2S供体用于实时监测。 |
+| EN Abstract | Hydrogen sulfide (H2S) is an important gasotransmitter in biological system, and plays a crucial role in varied physiological and pathological processes. Exogenous H2S is widely employed as a positive control in H2S related biological study. Herein, we develop a reactive oxygen species (ROS) triggered donor HSD545 that delivers H2S and simultaneously generates a fluorophore to real-time monitoring the process of H2S release in vitro and in vivo. The donor exhibits low cytotoxicity and strong cyt |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75392. 脊椎动物心脏再生：进化与发育视角
+
+| Field | Content |
+|------|------|
+| EN Title | Vertebrate cardiac regeneration: evolutionary and developmental perspectives |
+| ZH Title | 脊椎动物心脏再生：进化与发育视角 |
+| ZH Abstract | 综述脊椎动物心脏再生的进化与发育。 |
+| EN Abstract | Cardiac regeneration is an ancestral trait in vertebrates that is lost both as more recent vertebrate lineages evolved to adapt to new environments and selective pressures, and as members of certain species developmentally progress towards their adult forms. While higher vertebrates like humans and rodents resolve cardiac injury with permanent fibrosis and loss of cardiac output as adults, neonates of these same species can fully regenerate heart structure and function after injury - as can adul |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75393. 多个物种DNA G-四链体的全基因组实验图谱
+
+| Field | Content |
+|------|------|
+| EN Title | Whole genome experimental maps of DNA G-quadruplexes in multiple species |
+| ZH Title | 多个物种DNA G-四链体的全基因组实验图谱 |
+| ZH Abstract | 生成12个物种的G4全基因组图谱。 |
+| EN Abstract | Genomic maps of DNA G-quadruplexes (G4s) can help elucidate the roles that these secondary structures play in various organisms. Herein, we employ an improved version of a G-quadruplex sequencing method (G4-seq) to generate whole genome G4 maps for 12 species that include widely studied model organisms and also pathogens of clinical relevance. We identify G4 structures that form under physiological K+ conditions and also G4s that are stabilized by the G4-targeting small molecule pyridostatin (PD |
+| Judgment | 是 |
+| Reason | 未明确列出斑马鱼 |
+---
+### 75395. 使用CLARITY进行组织透明的进展与展望
+
+| Field | Content |
+|------|------|
+| EN Title | Advances and perspectives in tissue clearing using CLARITY |
+| ZH Title | 使用CLARITY进行组织透明的进展与展望 |
+| ZH Abstract | 综述CLARITY组织透明方法进展。 |
+| EN Abstract | CLARITY is a tissue clearing method, which enables immunostaining and imaging of large volumes for 3D-reconstruction. The method was initially time-consuming, expensive and relied on electrophoresis to remove lipids to make the tissue transparent. Since then several improvements and simplifications have emerged, such as passive clearing (PACT) and methods to improve tissue staining. Here, we review advances and compare current applications with the aim of highlighting needed improvements as well |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75397. 初级纤毛作为左右不对称与神经发育疾病之间可能联系
+
+| Field | Content |
+|------|------|
+| EN Title | Primary Cilia as a Possible Link between Left-Right Asymmetry and Neurodevelopmental Diseases |
+| ZH Title | 初级纤毛作为左右不对称与神经发育疾病之间可能联系 |
+| ZH Abstract | 综述纤毛在左右不对称和神经发育疾病中的作用。 |
+| EN Abstract | Cilia have multiple functions in the development of the entire organism, and participate in the development and functioning of the central nervous system. In the last decade, studies have shown that they are implicated in the development of the visceral left-right asymmetry in different vertebrates. At the same time, some neuropsychiatric disorders, such as schizophrenia, autism, bipolar disorder, and dyslexia, are known to be associated with lateralization failure. In this review, we consider p |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75398. 颅骨发育模块性：从单块骨头的视角
+
+| Field | Content |
+|------|------|
+| EN Title | Skull developmental modularity: a view from a single bone - or two |
+| ZH Title | 颅骨发育模块性：从单块骨头的视角 |
+| ZH Abstract | 综述硬骨鱼颅骨发育与进化。 |
+| EN Abstract | Reviewed are recent studies that connect development and evolution of skull bones in teleosts. Development uses genetic information to build a structured, modular phenotype, and since selection acts on the phenotype, developmental modularity may influence evolvability. Just how is a complex developing morphology spatially partitioned into modules? Here I briefly examine cellular, molecular genetic, and multivariate statistical approaches to the identification of developmental modules. Furthermor |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75403. 金属蛋白酶组织抑制剂在细胞信号传导中的非金属蛋白酶依赖性生物活性
+
+| Field | Content |
+|------|------|
+| EN Title | Tissue Inhibitors of Metalloproteinases in Cell Signaling: Metalloproteinase-Independent Biological Activities |
+| ZH Title | 金属蛋白酶组织抑制剂在细胞信号传导中的非金属蛋白酶依赖性生物活性 |
+| ZH Abstract | 综述TIMP的非金属蛋白酶依赖性功能。 |
+| EN Abstract | Over the past 20 years, the tissue inhibitors of metalloproteinases (TIMPs) have been implicated in direct regulation of cell growth and apoptosis. However, the mechanisms of these effects have been controversial. Recent work by several laboratories has identified specific signaling pathways and cell surface binding partners for members of the TIMP family. TIMP-2 binding to the integrin alpha(3)beta(1) is the first description of a cell surface receptor for a TIMP family member. TIMP-2 has been |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75411. 纳米颗粒诱导的神经毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Nanoparticles induced neurotoxicity |
+| ZH Title | 纳米颗粒诱导的神经毒性 |
+| ZH Abstract | 综述纳米颗粒神经毒性机制。 |
+| EN Abstract | The early development of nanotechnology has spurred major interest on the toxicity of nanoparticles (NPs) due to their ability to penetrate the biological barriers such as the BBB. This review aims at addressing how silver (AgNPs), titanium dioxide (TiO2NPs), zinc oxide (ZnONPs), iron oxide (Fe3O4NPs), carbon NPs, Copper (Cu-NPs), silicon oxide (SiO2 NPs) nanoparticles and quantum dots cause neurotoxicity. Some of the major signaling that occur are the signaling related to oxidative stress, neur |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75412. 内在无序侧翼区域增加脊椎动物转录共激活因子相互作用的亲和力
+
+| Field | Content |
+|------|------|
+| EN Title | Intrinsically Disordered Flanking Regions Increase the Affinity of a Transcriptional Coactivator Interaction across Vertebrates |
+| ZH Title | 内在无序侧翼区域增加脊椎动物转录共激活因子相互作用的亲和力 |
+| ZH Abstract | 研究无序区域对蛋白质相互作用亲和力的影响。 |
+| EN Abstract | Interactions between two proteins are often mediated by a disordered region in one protein binding to a groove in a folded interaction domain in the other one. While the main determinants of a certain interaction are typically found within a well-defined binding interface involving the groove, recent studies show that nonspecific contacts by flanking regions may increase the affinity. One example is the coupled binding and folding underlying the interaction between the two transcriptional coacti |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75414. 等离子体金纳米壳辅助激光解吸/电离质谱用于小生物分子分析和组织成像
+
+| Field | Content |
+|------|------|
+| EN Title | Plasmonic Gold Nanoshell-Assisted Laser Desorption/Ionization Mass Spectrometry for Small-Biomolecule Analysis and Tissue Imaging |
+| ZH Title | 等离子体金纳米壳辅助激光解吸/电离质谱用于小生物分子分析和组织成像 |
+| ZH Abstract | 开发金纳米壳用于质谱成像。 |
+| EN Abstract | Plasmonic nanoshells have been acknowledged as efficient nanomaterials for laser desorption/ionization mass spectrometry (LDI-MS) detection of a wide range of small molecules, whereas their applications in mass spectrometry imaging (MSI) are less developed. In this work, we constructed and optimized SiO2@Au nanoshells with tailor-made shell structures and compositions for high-sensitivity LDI-MS analysis and a wide range of MSI applications. Owing to the synergistic effects of plasmonic shells w |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75415. 异位和异时在otocephalan鳃上器官形态多样化中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of heterotopy and heterochrony during morphological diversification of otocephalan epibranchial organs |
+| ZH Title | 异位和异时在otocephalan鳃上器官形态多样化中的作用 |
+| ZH Abstract | 研究鳃上器官的进化发育。 |
+| EN Abstract | Epibranchial organs (EBOs), found in at least five of the eight otomorphan families, are used to aggregate small prey inside the buccopharyngeal cavity and range in morphological complexity from a singular, small slit on the pharyngeal roof to several, elongated soft tissue tubes. Despite broad phylogenetic representation, little is known about the origin, development, or evolution of EBOs. We hypothesize that both heterochronic and heterotopic changes throughout the evolution of EBOs are at the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75418. 通过虚拟成像辅助波前传感的自适应光学显微镜用于高分辨率组织成像
+
+| Field | Content |
+|------|------|
+| EN Title | Adaptive optical microscopy via virtual-imaging-assisted wavefront sensing for high-resolution tissue imaging |
+| ZH Title | 通过虚拟成像辅助波前传感的自适应光学显微镜用于高分辨率组织成像 |
+| ZH Abstract | 开发自适应光学显微镜方法。 |
+| EN Abstract | Adaptive optics (AO) is a powerful tool for optical microscopy to counteract the effects of optical aberrations and improve the imaging performance in biological tissues. The diversity of sample characteristics entails the use of different AO schemes to measure the underlying aberrations. Here, we present an indirect wavefront sensing method leveraging a virtual imaging scheme and a structural-similarity-based shift measurement algorithm to enable aberration measurement using intrinsic structure |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75420. 鱼类肠道微生物群研究进展的系统综述
+
+| Field | Content |
+|------|------|
+| EN Title | A systematic review of advances in intestinal microflora of fish |
+| ZH Title | 鱼类肠道微生物群研究进展的系统综述 |
+| ZH Abstract | 综述鱼类肠道微生物群研究。 |
+| EN Abstract | Intestinal flora is closely related to the health of organisms and the occurrence and development of diseases. The study of intestinal flora will provide a reference for the research and treatment of disease pathogenesis. Upon hatching, fish begin to acquire a microbial community in the intestine. In response to the environment and the host itself, the fish gut eventually develops a unique set of microflora, with some microorganisms being common to different fish. The existence of intestinal mic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75421. 跨膜内耳蛋白（TMIE）在听觉系统中的作用：对我们来说是个谜
+
+| Field | Content |
+|------|------|
+| EN Title | How Transmembrane Inner Ear (TMIE) plays role in the auditory system: A mystery to us |
+| ZH Title | 跨膜内耳蛋白（TMIE）在听觉系统中的作用：对我们来说是个谜 |
+| ZH Abstract | 综述TMIE蛋白在听觉中的作用。 |
+| EN Abstract | Different cellular mechanisms contribute to the hearing sense, so it is obvious that any disruption in such processes leads to hearing impairment that greatly influences the global economy and quality of life of the patients and their relatives. In the past two decades, transmembrane inner ear (TMIE) protein has received a great deal of research interest because its impairments cause hereditary deafness in humans. This evolutionarily conserved membrane protein contributes to a fundamental comple |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75434. 正义和反义转基因的表达是否足以用于人工piRNA的产生？
+
+| Field | Content |
+|------|------|
+| EN Title | Is the expression of sense and antisense transgenes really sufficient for artificial piRNA production? |
+| ZH Title | 正义和反义转基因的表达是否足以用于人工piRNA的产生？ |
+| ZH Abstract | 探讨正义和反义转基因表达是否足以产生人工piRNA。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75441. 视杆细胞特异性核受体Nr2e3抑制多个视锥细胞特异性基因的转录
+
+| Field | Content |
+|------|------|
+| EN Title | The rod photoreceptor-specific nuclear receptor Nr2e3 represses transcription of multiple cone-specific genes |
+| ZH Title | 视杆细胞特异性核受体Nr2e3抑制多个视锥细胞特异性基因的转录 |
+| ZH Abstract | 研究Nr2e3在哺乳动物和鱼类中抑制视锥细胞基因表达。 |
+| EN Abstract | This study addresses one genetic regulatory mechanism that establishes the distinct identities of rod and cone photoreceptors. Previous work has shown that mutations in either humans or mice in the gene coding for photoreceptor-specific nuclear receptor Nr2e3 cause a progressive retinal degeneration characterized by increased numbers of short-wave cones. In the present work, we have examined the cellular and developmental pattern of Nr2e3 protein localization in mammals and fish, identified an o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75459. ADHD及相关疾病背景下攻击行为的神经生物学特刊
+
+| Field | Content |
+|------|------|
+| EN Title | Special Issue on the Neurobiology of aggressive behaviour in the context of ADHD and related disorders |
+| ZH Title | ADHD及相关疾病背景下攻击行为的神经生物学特刊 |
+| ZH Abstract | 特刊介绍，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75473. 鱼类视网膜视神经再生相关基因
+
+| Field | Content |
+|------|------|
+| EN Title | Regeneration-Associated Genes on Optic Nerve Regeneration in Fish Retina |
+| ZH Title | 鱼类视网膜视神经再生相关基因 |
+| ZH Abstract | 综述鱼类视网膜视神经再生相关基因。 |
+| EN Abstract | It has been well documented that fish central nervous system, including retina and optic nerve, can regenerate and recover its function after nerve injury. Within a few decades, a number of regeneration-associated genes (RAGs) have been identified in fish retina following optic nerve injury (ONI). RAGs can be classified into two groups: cell survival- and axonal outgrowth-related genes. In fish retina after ONI, cell survival-related genes were upregulated in 1-6 days after ONI, which correspond |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75482. 鱼类卵黄蛋白原分析的国际跨实验室调查：方法学挑战与最佳实践机会
+
+| Field | Content |
+|------|------|
+| EN Title | An international cross-laboratory survey on fish vitellogenin analysis: Methodological challenges and opportunities for best practice |
+| ZH Title | 鱼类卵黄蛋白原分析的国际跨实验室调查：方法学挑战与最佳实践机会 |
+| ZH Abstract | 调查鱼类卵黄蛋白原分析方法。 |
+| EN Abstract | Vitellogenin (VTG) is a biomarker for possible endocrine activity of chemicals acting via the estrogen, androgen, or steroidogenesis pathways. VTG is assessed in standardised fish guideline studies conducted for regulatory safety assessment of chemicals. VTG data can be highly variable leading to concerns for potential equivocal, false positive and/or negative outcomes. Consequently, additional fish testing may be required to address uncertainties in the VTG response, and possibly erroneous/miss |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75503. 解读体节分割时钟：超越突变体和形态发生素
+
+| Field | Content |
+|------|------|
+| EN Title | Deciphering the somite segmentation clock:: Beyond mutants and morphants |
+| ZH Title | 解读体节分割时钟：超越突变体和形态发生素 |
+| ZH Abstract | 综述体节分割时钟的基因表达振荡机制。 |
+| EN Abstract | The regular pattern of somite segmentation depends on a clock, the somite segmentation clock, in the form of a gene expression oscillator, operating in the presomitic mesoderm (the PSM) at the tail end of the vertebrate embryo. Genetic screens and other approaches have identified a variety of genes, including components and targets of the Notch signalling pathway, that show transcriptional oscillations in this region and appear to be necessary for correct segmentation. Mathematical modelling sho |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75509. Fatecode利用分类监督自编码器扰动预测细胞命运调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | Fatecode enables cell fate regulator prediction using classification-supervised autoencoder perturbation |
+| ZH Title | Fatecode利用分类监督自编码器扰动预测细胞命运调控因子 |
+| ZH Abstract | 提出计算方法预测细胞命运调控因子。 |
+| EN Abstract | Cell reprogramming, which guides the conversion between cell states, is a promising technology for tissue repair and regeneration, with the ultimate goal of accelerating recovery from diseases or injuries. To accomplish this, regulators must be identified and manipulated to control cell fate. We propose Fatecode, a computational method that predicts cell fate regulators based only on single-cell RNA sequencing (scRNA-seq) data. Fatecode learns a latent representation of the scRNA-seq data using |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75510. 内质网稳态——从分子到生物体：第14届国际钙网蛋白研讨会报告，法国圣马洛
+
+| Field | Content |
+|------|------|
+| EN Title | Endoplasmic reticulum homeostasis-From molecules to organisms: Report on the 14th International Calreticulin Workshop, Saint Malo, France |
+| ZH Title | 内质网稳态——从分子到生物体：第14届国际钙网蛋白研讨会报告，法国圣马洛 |
+| ZH Abstract | 综述内质网相关功能研究进展。 |
+| EN Abstract | The Calreticulin Workshop, initiated in 1994 by Marek Michalak in Banff (Alberta, Canada), was first organized to be an informal scientific meeting attended by researchers working on diverse biological questions related to functions associated with the endoplasmic reticulum (ER)-resident lectin-like chaperone and applied to a wide range of biological systems and models. Since then, this workshop has broadened the range of topics to cover all ER-related functions, has become international and has |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75512. 电压敏感磷酸酶揭示磷脂酰肌醇调控离子通道的机制
+
+| Field | Content |
+|------|------|
+| EN Title | What voltage-sensing phosphatases can reveal about the mechanisms of ion channel regulation by phosphoinositides |
+| ZH Title | 电压敏感磷酸酶揭示磷脂酰肌醇调控离子通道的机制 |
+| ZH Abstract | 综述VSP作为工具研究磷脂调控离子通道。 |
+| EN Abstract | Many membrane proteins including ion channels and ion transporters are regulated by membrane phospholipids such as phosphoinositides in cell membranes and organelles. Voltage-sensing phosphatase, VSP, is a voltage-sensitive phosphoinositide phosphatase which dephosphorylates PI(4,5)P2 into PI(4)P. VSP rapidly reduces the level of PI(4,5)P2 upon membrane depolarization, thus serving as a useful tool to quantitatively study phos-phoinositide-regulation of ion channels and ion transporters using a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75513. 将相互作用组分析扩展到模式真核生物之外
+
+| Field | Content |
+|------|------|
+| EN Title | Expanding interactome analyses beyond model eukaryotes |
+| ZH Title | 将相互作用组分析扩展到模式真核生物之外 |
+| ZH Abstract | 综述计算相互作用组网络在多种真核生物中的应用。 |
+| EN Abstract | Interactome analyses have traditionally been applied to yeast, human and other model organisms due to the availability of protein-protein interaction data for these species. Recently, these techniques have been applied to more diverse species using computational interaction prediction from genome sequence and other data types. This review describes the various types of computational interactome networks that can be created and how they have been used in diverse eukaryotic species, highlighting s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75514. TRPC4受钙调蛋白和药物调控的结构基础
+
+| Field | Content |
+|------|------|
+| EN Title | Structural basis of TRPC4 regulation by calmodulin and pharmacological agents |
+| ZH Title | TRPC4受钙调蛋白和药物调控的结构基础 |
+| ZH Abstract | 解析TRPC4与药物及钙调蛋白复合物结构。 |
+| EN Abstract | Canonical transient receptor potential channels (TRPC) are involved in receptor-operated and/or store-operated Ca2+ signaling. Inhibition of TRPCs by small molecules was shown to be promising in treating renal diseases. In cells, the channels are regulated by calmodulin (CaM). Molecular details of both CaM and drug binding have remained elusive so far. Here, we report structures of TRPC4 in complex with three pyridazinone-based inhibitors and CaM. The structures reveal that all the inhibitors bi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75515. 光和激素在繁殖与情绪的季节性调控中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Light and Hormones in Seasonal Regulation of Reproduction and Mood |
+| ZH Title | 光和激素在繁殖与情绪的季节性调控中的作用 |
+| ZH Abstract | 综述光周期和激素调控季节性繁殖与情绪。 |
+| EN Abstract | Organisms that inhabit the temperate zone exhibit various seasonal adaptive behaviors, including reproduction, hibernation, molting, and migration. Day length, known as photoperiod, is the most noise-free and widely used environmental cue that enables animals to anticipate the oncoming seasons and adapt their physiologies accordingly. Although less clear, some human traits also exhibit seasonality, such as birthrate, mood, cognitive brain responses, and various diseases. However, the molecular b |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75516. 细胞命运决定中的随机性和确定性
+
+| Field | Content |
+|------|------|
+| EN Title | Stochasticity and determinism in cell fate decisions |
+| ZH Title | 细胞命运决定中的随机性和确定性 |
+| ZH Abstract | 讨论细胞命运决定中随机性与确定性的定义。 |
+| EN Abstract | During development, cells need to make decisions about their fate in order to ensure that the correct numbers and types of cells are established at the correct time and place in the embryo. Such cell fate decisions are often classified as deterministic or stochastic. However, although these terms are clearly defined in a mathematical sense, they are sometimes used ambiguously in biological contexts. Here, we provide some suggestions on how to clarify the definitions and usage of the terms stocha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75518. 小窝：常见问题解答
+
+| Field | Content |
+|------|------|
+| EN Title | Caveolae: The FAQs |
+| ZH Title | 小窝：常见问题解答 |
+| ZH Abstract | 综述小窝的形成与功能。 |
+| EN Abstract | Caveolae are an abundant, but enigmatic, plasma membrane feature of vertebrate cells. In this brief commentary, the authors attempt to answer some key questions related to the formation and function of caveolae based on round-table discussions at the first EMBO Workshop on Caveolae held in France in May 2019. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75522. 肠道组织中的长链非编码RNA表达谱构成反映微生物类型的分子特征
+
+| Field | Content |
+|------|------|
+| EN Title | Long noncoding RNA expression profiles in gut tissues constitute molecular signatures that reflect the types of microbes |
+| ZH Title | 肠道组织中的长链非编码RNA表达谱构成反映微生物类型的分子特征 |
+| ZH Abstract | 研究lncRNA表达与肠道微生物的关联。 |
+| EN Abstract | The gut microbiota is commonly referred to as a hidden organ due to its pivotal effects on host physiology, metabolism, nutrition and immunity. The gut microbes may be shaped by environmental and host genetic factors, and previous studies have focused on the roles of protein-coding genes. Here we show a link between long non-coding RNA (lncRNA) expression and gut microbes. By repurposing exon microarrays and comparing the lncRNA expression profiles between germ-free, conventional and different g |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75525. 血管生成的研究技术与方法
+
+| Field | Content |
+|------|------|
+| EN Title | Techniques and assays for the study of angiogenesis |
+| ZH Title | 血管生成的研究技术与方法 |
+| ZH Abstract | 综述血管生成研究方法。 |
+| EN Abstract | The importance of studying angiogenesis, the formation of new blood vessels from pre-existing vessels, is underscored by its involvement in both normal physiology, such as embryonic growth and wound healing, and pathologies, such as diabetes and cancer. Treatments targeting the molecular drive of angiogenesis have been developed, but many of the molecular mechanisms that mediate vascularization, as well as how these mechanisms can be targeted in therapy, remain poorly understood. The limited cap |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75527. Notch控制视网膜血管成熟和静止
+
+| Field | Content |
+|------|------|
+| EN Title | Notch controls retinal blood vessel maturation and quiescence |
+| ZH Title | Notch控制视网膜血管成熟和静止 |
+| ZH Abstract | 研究Notch信号调控视网膜血管成熟。 |
+| EN Abstract | Blood vessels form a hierarchically organized network of arteries, capillaries and veins, which develops through a series of growth, pruning and maturation processes. In contrast to the rapidly increasing insight into the processes controlling vascular growth and, in particular, endothelial sprouting and proliferation, the conversion of immature vessels into a fully functional, quiescent vasculature remains little understood. Here we used inducible, cell type-specific genetic approaches to show |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75528. 疾病与衰老的细胞生物学：一条双向道路
+
+| Field | Content |
+|------|------|
+| EN Title | Cell biology of disease and aging: a two-way street| |
+| ZH Title | 疾病与衰老的细胞生物学：一条双向道路 |
+| ZH Abstract | 疾病与衰老的细胞生物学：一条双向道路（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75530. 扶正化瘀方抗肝纤维化与血管生成相关的机制及活性成分
+
+| Field | Content |
+|------|------|
+| EN Title | THE MECHANISM AND ACTIVE COMPONENTS OF FUZHENG HUAYU DECOCTION ACTION AGAINST LIVER FIBROSIS RELATING TO ANGIOGENESIS| |
+| ZH Title | 扶正化瘀方抗肝纤维化与血管生成相关的机制及活性成分 |
+| ZH Abstract | 扶正化瘀方抗肝纤维化与血管生成相关的机制及活性成分（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75532. 课堂中的疾病模型与机制
+
+| Field | Content |
+|------|------|
+| EN Title | Disease models and mechanisms in the classroom| |
+| ZH Title | 课堂中的疾病模型与机制 |
+| ZH Abstract | 课堂中的疾病模型与机制（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75534. 脊椎动物内耳的起源：耳基板的进化和诱导
+
+| Field | Content |
+|------|------|
+| EN Title | Origin of the vertebrate inner ear: evolution and induction of the otic placode. |
+| ZH Title | 脊椎动物内耳的起源：耳基板的进化和诱导 |
+| ZH Abstract | 综述脊椎动物内耳的进化与发育起源。 |
+| EN Abstract | The vertebrate inner ear forms a highly complex sensory structure responsible for the detection of sound and balance. Some new aspects on the evolutionary and developmental origin of the inner ear are summarised here. Recent molecular data have challenged the longstanding view that special sense organs such as the inner ear have evolved with the appearance of vertebrates. In addition, it has remained unclear whether the ear originally arose through a modification of the amphibian mechanosensory |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75568. 揭示Hg2+-H2O2相互作用：一种解码生物系统中重金属胁迫的双响应探针
+
+| Field | Content |
+|------|------|
+| EN Title | Unraveling the Hg2+-H2O2 interplay: A dual-responsive probe for decoding heavy metal stress across biological systems |
+| ZH Title | 揭示Hg2+-H2O2相互作用：一种解码生物系统中重金属胁迫的双响应探针 |
+| ZH Abstract | 开发双响应探针检测汞离子和过氧化氢。 |
+| EN Abstract | Hydrogen peroxide (H2O2) is a key reactive oxygen species involved in various physiological and pathological processes, while mercury ions (Hg2+) are widely recognized as a persistent environmental pollutant. Their accumulation in living organisms can severely disrupt normal physiological processes and pose a threat to ecosystems. Therefore, there is an urgent need to develop an analytical method capable of the sequential detection of these two substances to reveal their dynamic behavior in plant |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75571. 心脏管形态发生受MEF2C控制的节段特异性基因调控网络调控
+
+| Field | Content |
+|------|------|
+| EN Title | Heart Tube Morphogenesis Is Regulated By Segment-Specific Gene Regulatory Networks Controlled By MEF2C |
+| ZH Title | 心脏管形态发生受MEF2C控制的节段特异性基因调控网络调控 |
+| ZH Abstract | 研究MEF2C调控心脏管形态发生的机制。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75584. 鉴定与Otoferlin相互作用的蛋白质以构建“Otoferlin相互作用组”
+
+| Field | Content |
+|------|------|
+| EN Title | Identification of Proteins that Interact with Otoferlin to build a 'Otoferlin Interactome" |
+| ZH Title | 鉴定与Otoferlin相互作用的蛋白质以构建“Otoferlin相互作用组” |
+| ZH Abstract | 鉴定与Otoferlin相互作用的蛋白质以构建“Otofer（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75593. 上丘脑不对称的异时性与形态变异
+
+| Field | Content |
+|------|------|
+| EN Title | Heterochrony and Morphological Variation of Epithalamic Asymmetry |
+| ZH Title | 上丘脑不对称的异时性与形态变异 |
+| ZH Abstract | 探讨硬骨鱼上丘脑不对称的发育机制。 |
+| EN Abstract | Heterochrony is one proposed mechanism to explain how morphological variation and novelty arise during evolution. To experimentally approach heterochrony in a comprehensive manner, we must consider all three aspects of developmental time (sequence, timing, duration). This task is only possible in developmental models that allow the acquisition of high-quality temporal data in the context of normalized developmental time. Here we propose that epithalamic asymmetry of teleosts is one such model. C |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75603. 从细胞到器官：器官形态发生的新见解 编辑评论
+
+| Field | Content |
+|------|------|
+| EN Title | From cells to organs: new insight into organ morphogenesis Editorial overview |
+| ZH Title | 从细胞到器官：器官形态发生的新见解 编辑评论 |
+| ZH Abstract | 从细胞到器官：器官形态发生的新见解 编辑评论（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75612. 共翻译分子凝聚的伴侣蛋白和组装因子促进轴丝动力蛋白生物发生
+
+| Field | Content |
+|------|------|
+| EN Title | Cotranslational molecular condensation of cochaperones and assembly factors facilitates axonemal dynein biogenesis |
+| ZH Title | 共翻译分子凝聚的伴侣蛋白和组装因子促进轴丝动力蛋白生物发生 |
+| ZH Abstract | 研究轴丝动力蛋白组装机制。 |
+| EN Abstract | Axonemal dynein, the macromolecular machine that powers ciliary motility, assembles in the cytosol with the help of dynein axonemal assembly factors (DNAAFs). These DNAAFs localize in cytosolic foci thought to form via liquid-liquid phase separation. However, the functional significance of DNAAF foci formation and how the production and assembly of multiple components are so efficiently coordinated, at such enormous scale, remain unclear. Here, we unveil an axonemal dynein production and assembl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75613. 评论：对水生动物进行嗅觉行为测定的最佳实践：比较生理学家指南
+
+| Field | Content |
+|------|------|
+| EN Title | Commentary: Best practices for performing olfactory behavioral assays on aquatic animals: A guide for comparative physiologists |
+| ZH Title | 评论：对水生动物进行嗅觉行为测定的最佳实践：比较生理学家指南 |
+| ZH Abstract | 提供水生动物嗅觉行为实验的建议。 |
+| EN Abstract | As more physiologists start to incorporate animal behavior into their experiments, especially in the olfactory behavior research field, some considerations are often overlooked, partly due to the inherited way that physiological experiments are traditionally designed and performed. Here we highlight some of these subtle but important considerations and make a case for why these might affect the results collected from behavioral assays. Our aim is to provide useful suggestions for increased stand |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75615. 鱼类行为研究的最新进展：污染压力下行为的跨代效应和行为监测新技术
+
+| Field | Content |
+|------|------|
+| EN Title | A latest progress in the study of fish behavior: cross-generational effects of behavior under pollution pressure and new technologies for behavior monitoring |
+| ZH Title | 鱼类行为研究的最新进展：污染压力下行为的跨代效应和行为监测新技术 |
+| ZH Abstract | 综述鱼类行为研究进展。 |
+| EN Abstract | With the development of agriculture and industry, an increasing number of pollutants are being discharged into the aquatic environment. These pollutants can harm aquatic life. The behavioral characteristics of animals are an external manifestation of their internal mechanisms. Changes in behavior reflect damage and changes in the internal mechanisms. Environmental pollution may lead to behavioral changes not only in the parental generation but also in the offspring that has not been exposed to t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75616. 编辑评论：在药理学中积极看待阴性结果：民族药理学2022
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Be positive about the negative in pharmacology: Ethnopharmacology 2022 |
+| ZH Title | 编辑评论：在药理学中积极看待阴性结果：民族药理学2022 |
+| ZH Abstract | 编辑评论：在药理学中积极看待阴性结果：民族药理学2022（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75620. 更新鱼类生化生物标志物在评估药物产品引起的改变中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Updating the use of biochemical biomarkers in fish for the evaluation of alterations produced by pharmaceutical products |
+| ZH Title | 更新鱼类生化生物标志物在评估药物产品引起的改变中的应用 |
+| ZH Abstract | 综述鱼类生化标志物在药物评估中的应用。 |
+| EN Abstract | The evaluation of toxic effects in stressful environmental conditions can be determined through the imbalance between exogenous factors (environmental contaminants) and enzymatic and non-enzymatic defenses in biological systems. The use of fish for the identification of alterations in biochemical biomarkers provides a comprehensive vision of the effects that pharmaceutical products cause in the aquatic ecosystem, as they are organisms with high sensitivity to contaminants, filtering capacity, an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75628. 使用多重连接检测检测核苷酸特异性CRISPR/Cas9修饰等位基因
+
+| Field | Content |
+|------|------|
+| EN Title | Detection of nucleotide-specific CRISPR/Cas9 modified alleles using multiplex ligation detection |
+| ZH Title | 使用多重连接检测检测核苷酸特异性CRISPR/Cas9修饰等位基因 |
+| ZH Abstract | 开发检测CRISPR编辑等位基因的方法。 |
+| EN Abstract | CRISPR/Cas9 genome-editing has emerged as a powerful tool to create mutant alleles in model organisms. However, the precision with which these mutations are created has introduced a new set of complications for genotyping and colony management. Traditional gene-targeting approaches in many experimental organisms incorporated exogenous DNA and/or allele specific sequence that allow for genotyping strategies based on binary readout of PCR product amplification and size selection. In contrast, alle |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75629. 通过弹性蛋白基因的亚功能化/新功能化实现鱼类心脏的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of the fish heart by sub/neofunctionalization of an elastin gene |
+| ZH Title | 通过弹性蛋白基因的亚功能化/新功能化实现鱼类心脏的进化 |
+| ZH Abstract | 研究弹性蛋白基因在硬骨鱼心脏进化中的作用。 |
+| EN Abstract | The evolution of phenotypic traits is a key process in diversification of life. However, the mechanisms underlying the emergence of such evolutionary novelties are largely unknown. Here we address the origin of bulbus arteriosus (BA), an organ of evolutionary novelty seen in the teleost heart outflow tract (OFT), which sophisticates their circulatory system. The BA is a unique organ that is composed of smooth muscle while the OFTs in other vertebrates are composed of cardiac muscle. Here we reve |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75644. 前蛋白转化酶枯草溶菌素/kexin 6型（PCSK6）参与血管生成调控
+
+| Field | Content |
+|------|------|
+| EN Title | Proprotein Convertase Subtilisin/kexin Type 6 (PCSK6) Is Involved In Regulation Of Vasculogenesis |
+| ZH Title | 前蛋白转化酶枯草溶菌素/kexin 6型（PCSK6）参与血管生成调控 |
+| ZH Abstract | 研究PCSK6在血管生成中的作用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75647. 用于选择性检测H2S的近红外荧光探针及其在活体动物中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Near-infrared fluorescent probe for selective detection of H2S and its application in living animals |
+| ZH Title | 用于选择性检测H2S的近红外荧光探针及其在活体动物中的应用 |
+| ZH Abstract | 开发近红外荧光探针用于检测H2S。 |
+| EN Abstract | In this study, a novel near-infrared fluorescent off-on probe for H2S based on seminaphthorhodafluor fluorophore is designed and constructed, which could be used in detection with 121-fold (23-fold) fluorescent (absorbance) enhancement at 630 nm (572 nm), fast responsiveness (completed within 5 min), high sensitivity, and lower cellular autofluorescence interference. Based on these excellent optical properties, the probe was employed to monitor H2S in red wine samples with satisfactory results. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75662. 细胞外刚度调控细胞命运决定并驱动硬骨鱼心脏进化新颖性的出现
+
+| Field | Content |
+|------|------|
+| EN Title | Extracellular stiffness regulates cell fate determination and drives the emergence of evolutionary novelty in the teleost heart |
+| ZH Title | 细胞外刚度调控细胞命运决定并驱动硬骨鱼心脏进化新颖性的出现 |
+| ZH Abstract | 研究细胞外刚度在硬骨鱼心脏进化中的作用。 |
+| EN Abstract | The diversification of life is driven by the acquisition of new phenotypic traits, known as evolutionary novelties. While some genetic mechanisms underlying such traits have been identified, the role of physical properties of cellular and extracellular components remains largely unexplored. Here, we show that the evolution and development of the bulbus arteriosus (BA)-a teleost-specific, smooth muscle-rich heart outflow tract-is regulated by the mechanical properties of its extracellular environ |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75672. 生物体双RNA-seq揭示BarA/UvrY在副溶血弧菌毒力中的重要性
+
+| Field | Content |
+|------|------|
+| EN Title | Organism dual RNA-seq reveals the importance of BarA/UvrY in Vibrio parahaemolyticus virulence |
+| ZH Title | 生物体双RNA-seq揭示BarA/UvrY在副溶血弧菌毒力中的重要性 |
+| ZH Abstract | 研究副溶血弧菌与宿主互作。 |
+| EN Abstract | Elucidation of host-pathogen interaction is essential for developing effective strategies to combat bacterial infection. Dual RNA-Seq using cultured cells or tissues/organs as the host of pathogen has emerged as a novel strategy to understand the responses concurrently from both pathogen and host at cellular level. However, bacterial infection mostly causes systematic responses from the host at organism level where the interplay is urgently to be understood but inevitably being neglected by the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75684. 氧化应激调控机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms involved in oxidative stress regulation |
+| ZH Title | 氧化应激调控机制 |
+| ZH Abstract | 无摘要。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75701. FGCaMP7，一种改进的基于真菌的比率钙指示剂，用于神经元活动的体内可视化
+
+| Field | Content |
+|------|------|
+| EN Title | FGCaMP7, an Improved Version of Fungi-Based Ratiometric Calcium Indicator for In Vivo Visualization of Neuronal Activity |
+| ZH Title | FGCaMP7，一种改进的基于真菌的比率钙指示剂，用于神经元活动的体内可视化 |
+| ZH Abstract | 开发钙指示剂FGCaMP7。 |
+| EN Abstract | Genetically encoded calcium indicators (GECIs) have become a widespread tool for the visualization of neuronal activity. As compared to popular GCaMP GECIs, the FGCaMP indicator benefits from calmodulin and M13-peptide from the fungi Aspergillus niger and Aspergillus fumigatus, which prevent its interaction with the intracellular environment. However, FGCaMP exhibits a two-phase fluorescence behavior with the variation of calcium ion concentration, has moderate sensitivity in neurons (as compare |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75702. JCCS编辑委员会：广泛的专业知识
+
+| Field | Content |
+|------|------|
+| EN Title | JCCS editorial board: a wide array of expertise |
+| ZH Title | JCCS编辑委员会：广泛的专业知识 |
+| ZH Abstract | 无摘要。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75704. 致编辑的信：关于Cabrera等人2019年文章“叶酸受体被多替拉韦拮抗：补充叶酸减少发育毒性”
+
+| Field | Content |
+|------|------|
+| EN Title | Letter to the editor re: Cabrera et al., 2019 'The antagonism of folate receptor by dolutegravir: developmental toxicity reduction by supplemental folic acid' |
+| ZH Title | 致编辑的信：关于Cabrera等人2019年文章“叶酸受体被多替拉韦拮抗：补充叶酸减少发育毒性” |
+| ZH Abstract | 致编辑的信。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75749. 血管修剪与退化的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms of Vessel Pruning and Regression |
+| ZH Title | 血管修剪与退化的机制 |
+| ZH Abstract | 综述血管网络修剪与退化的过程及机制。 |
+| EN Abstract | The field of angiogenesis research has primarily focused on the mechanisms of sprouting angiogenesis. Yet vascular networks formed by vessel sprouting subsequently undergo extensive vascular remodeling to form a functional and mature vasculature. This "trimming'' includes distinct processes of vascular pruning, the regression of selected vascular branches. In some situations complete vascular networks may undergo physiological regression. Vessel regression is an understudied yet emerging field o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75751. Hox 5'UTR中的RNA调控子赋予基因调控的核糖体特异性
+
+| Field | Content |
+|------|------|
+| EN Title | RNA regulons in Hox 5′ UTRs confer ribosome specificity to gene regulation |
+| ZH Title | Hox 5'UTR中的RNA调控子赋予基因调控的核糖体特异性 |
+| ZH Abstract | 发现Hox mRNA 5'UTR中的RNA元件可介导核糖体调控基因表达。 |
+| EN Abstract | Emerging evidence suggests that the ribosome has a regulatory function in directing how the genome is translated in time and space. However, how this regulation is encoded in the messenger RNA sequence remains largely unknown. Here we uncover unique RNA regulons embedded in homeobox (Hox) 5' untranslated regions (UTRs) that confer ribosome-mediated control of gene expression. These structured RNA elements, resembling viral internal ribosome entry sites (IRESs), are found in subsets of Hox mRNAs. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75752. 什么造就了模式生物？
+
+| Field | Content |
+|------|------|
+| EN Title | What makes a model organism? |
+| ZH Title | 什么造就了模式生物？ |
+| ZH Abstract | 分析模式生物在当代研究中的关键作用及其局限性。 |
+| EN Abstract | This article explains the key role of model organisms within contemporary research, while at the same time acknowledging their limitations as biological models. We analyse the epistemic and social characteristics of model organism biology as a form of "big science", which includes the development of large, centralised infrastructures, a shared ethos and a specific long-term vision about the "right way" to do research. In order to make wise use of existing resources, researchers now find themselv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75753. Neuropilin，你让我该留还是该走？
+
+| Field | Content |
+|------|------|
+| EN Title | Neuropilin, you gotta let me know Should I stay or should I go? |
+| ZH Title | Neuropilin，你让我该留还是该走？ |
+| ZH Abstract | 综述Neuropilin在神经系统和血管中的功能。 |
+| EN Abstract | Neuropilins are highly conserved single pass transmembrane proteins specific to vertebrates. They were originally identified as adhesion molecules in the nervous system, but were subsequently rediscovered as the ligand binding subunit of the class 3 semaphorin receptor in neurons and then as blood vessel receptors for the vascular endothelial growth factor VEGF. More recently they have also been implicated as mediators of the T-cell immune response and as key prognostic markers in several types |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75755. Homer的发育作用：不仅仅是漂亮的支架
+
+| Field | Content |
+|------|------|
+| EN Title | Developmental roles for Homer: more than just a pretty scaffold |
+| ZH Title | Homer的发育作用：不仅仅是漂亮的支架 |
+| ZH Abstract | 综述Homer蛋白在神经系统发育中的作用。 |
+| EN Abstract | Homer proteins are best known as scaffold proteins at the post-synaptic density where they facilitate synaptic signalling and are thought to be required for learning and memory. Evidence implicating Homer proteins in the development of the nervous system is also steadily accumulating. Homer is highly conserved and is expressed at key developmental time points in the nervous system of several species. Homer regulates intracellular calcium homeostasis, clustering and trafficking of receptors and p |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75756. 表观遗传学？Mediator也能做到！
+
+| Field | Content |
+|------|------|
+| EN Title | Epigenetics? Mediator does that too! |
+| ZH Title | 表观遗传学？Mediator也能做到！ |
+| ZH Abstract | 评论Mediator通过招募G9a甲基转移酶促进表观遗传沉默。 |
+| EN Abstract | Adding to the concept that Mediator acts as an "integrative hub," Ding et al. (2008) report in this issue of Molecular Cell that, by facilitating the recruitment of the G9a methyl transferase, Mediator can also promote epigenetic silencing of selected genes. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75759. 保守的选择性剪接事件亚群受阅读框保留选择压力的证据
+
+| Field | Content |
+|------|------|
+| EN Title | Evidence for a subpopulation of conserved alternative splicing events under selection pressure for protein reading frame preservation. |
+| ZH Title | 保守的选择性剪接事件亚群受阅读框保留选择压力的证据 |
+| ZH Abstract | 计算选择性剪接中外显子长度对阅读框保留的影响。 |
+| EN Abstract | Recently there has been much interest in assessing the role of alternative splicing in evolution. We have sought to measure functional selection pressure on alternatively spliced single-exon skips, by calculating the fraction that are an exact multiple of 3 nt in length and therefore preserve protein reading-frame in both the exon-inclusion and exon-skip splice forms. The frame-preservation ratio (defined as the number of exons that are an exact multiple of three in length, divided by the number |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75762. 治疗性肽——快速发展的制药领域
+
+| Field | Content |
+|------|------|
+| EN Title | Therapeutical peptides - Rapidly developing pharmaceutical landscape |
+| ZH Title | 治疗性肽——快速发展的制药领域 |
+| ZH Abstract | 综述治疗性肽的发展现状。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75764. 连接神经营养因子和生物活性肽与阿尔茨海默病
+
+| Field | Content |
+|------|------|
+| EN Title | Bridging neurotrophic factors and bioactive peptides to Alzheimer's disease |
+| ZH Title | 连接神经营养因子和生物活性肽与阿尔茨海默病 |
+| ZH Abstract | 综述神经营养因子和生物活性肽在阿尔茨海默病中的神经保护作用。 |
+| EN Abstract | Alzheimer's disease (AD) is a neurodegenerative disorder. As the demographic shifting towards an aging population, AD has emerged as a prominent public health concern. The pathogenesis of AD is complex, and there are no effective treatment methods for AD until now. In recent years, neurotrophic factors and bioactive peptides including brain-derived neurotrophic factor (BDNF) and nerve growth factor (NGF), irisin, melatonin, have been discovered to exert neuroprotective functions for AD. Bioactiv |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75765. 三氯生的神经毒性机制：新兴的抗菌剂毒物
+
+| Field | Content |
+|------|------|
+| EN Title | Neurotoxic mechanisms of triclosan: The antimicrobial agent emerging as a toxicant |
+| ZH Title | 三氯生的神经毒性机制：新兴的抗菌剂毒物 |
+| ZH Abstract | 综述三氯生作为新兴污染物的神经毒性机制。 |
+| EN Abstract | Several scientific studies have suggested a link between increased exposure to pollutants and a rise in the number of neurodegenerative disorders of unknown origin. Notably, triclosan (an antimicrobial agent) is used in concentrations ranging from 0.3% to 1% in various consumer products. Recent studies have also highlighted triclosan as an emerging toxic pollutant due to its increasing global use. However, a definitive link is missing to associate the rising use of triclosan and the growing numb |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75767. 有机磷酸酯在偏远地区的长距离迁移、营养传递和生态风险
+
+| Field | Content |
+|------|------|
+| EN Title | Long-Range Transport, Trophic Transfer, and Ecological Risks of Organophosphate Esters in Remote Areas |
+| ZH Title | 有机磷酸酯在偏远地区的长距离迁移、营养传递和生态风险 |
+| ZH Abstract | 综述有机磷酸酯在偏远环境中的迁移和生态风险。 |
+| EN Abstract | Organophosphate esters (OPEs) have been a focus in the field of environmental science due to their large volume production, wide range of applications, ubiquitous occurrence, potential bioaccumulation, and worrisome ecological and health risks. Varied physicochemical properties among OPE analogues represent an outstanding scientific challenge in studying the environmental fate of OPEs in recent years. There is an increasing number of studies focusing on the long-range transport, trophic transfer |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75768. 保护耳蜗带状突触和预防隐性听力损失
+
+| Field | Content |
+|------|------|
+| EN Title | Protection of Cochlear Ribbon Synapses and Prevention of Hidden Hearing Loss |
+| ZH Title | 保护耳蜗带状突触和预防隐性听力损失 |
+| ZH Abstract | 综述耳蜗带状突触损伤与隐性听力损失的研究。 |
+| EN Abstract | In the auditory system, ribbon synapses are vesicle-associated structures located between inner hair cells (IHCs) and spiral ganglion neurons that are implicated in the modulation of trafficking and fusion of synaptic vesicles at the presynaptic terminals. Synapse loss may result in hearing loss and difficulties with understanding speech in a noisy environment. This phenomenon happens without permanent hearing loss; that is, the cochlear synaptopathy is "hidden." Recent studies have reported tha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75769. FDA/CDER关于非临床测试策略的观点：经典毒理学方法和新方法学
+
+| Field | Content |
+|------|------|
+| EN Title | An FDA/CDER perspective on nonclinical testing strategies: Classical toxicology approaches and new approach methodologies (NAMs) |
+| ZH Title | FDA/CDER关于非临床测试策略的观点：经典毒理学方法和新方法学 |
+| ZH Abstract | 综述FDA对药物非临床测试策略的指导。 |
+| EN Abstract | Nonclinical testing of human pharmaceuticals is conducted to assess the safety of compounds to be studied in human clinical trials and for marketing of new drugs. Although there is no exact number and type of nonclinical studies required for safety assessments, as there is inherent flexibility for each new compound, the traditional approach is outlined in various FDA and ICH guidance documents and involves a combination of in vitro assays and whole animal testing methods. Recent advances in scie |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75770. 纳米颗粒对社会的机遇与潜在风险
+
+| Field | Content |
+|------|------|
+| EN Title | Promising opportunities and potential risk of nanoparticle on the society |
+| ZH Title | 纳米颗粒对社会的机遇与潜在风险 |
+| ZH Abstract | 综述纳米颗粒对动物、植物和微生物的毒性效应。 |
+| EN Abstract | The ever-promising opportunities and the uses of NP in our life are increasing but their present and future potential risks on the animals, plants and microorganisms are not well discussed elsewhere. In this review, the authors have systematically discussed the toxic effect of the uses of NP on animals, plants and microorganisms including human health. They have also discussed about the bioaccumulation of these NP in the food chain. Finally, they have provided some possible suggestions for the u |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75772. 超越细胞间粘附：用于听觉和平衡的感知钙黏蛋白
+
+| Field | Content |
+|------|------|
+| EN Title | Beyond Cell-Cell Adhesion: Sensational Cadherins for Hearing and Balance |
+| ZH Title | 超越细胞间粘附：用于听觉和平衡的感知钙黏蛋白 |
+| ZH Abstract | 综述钙黏蛋白在听觉和平衡中形成尖端连接的作用。 |
+| EN Abstract | Cadherins form a large family of proteins often involved in calcium-dependent cellular adhesion. Although classical members of the family can provide a physical bond between cells, a subset of special cadherins use their extracellular domains to interlink apical specializations of single epithelial sensory cells. Two of these cadherins, cadherin-23 (CDH23) and protocadherin-15 (PCDH15), form extracellular "tip link" filaments that connect apical bundles of stereocilia on hair cells essential for |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75774. 蛋白质结合物及其在发育生物学中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Protein binders and their applications in developmental biology |
+| ZH Title | 蛋白质结合物及其在发育生物学中的应用 |
+| ZH Abstract | 综述蛋白质结合物在发育生物学中的工具应用。 |
+| EN Abstract | Developmental biology research would benefit greatly from tools that enable protein function to be regulated, both systematically and in a precise spatial and temporal manner, in vivo. In recent years, functionalized protein binders have emerged as versatile tools that can be used to target and manipulate proteins. Such protein binders can be based on various scaffolds, such as nanobodies, designed ankyrin repeat proteins (DARPins) and monobodies, and can be used to block or perturb protein func |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75777. 基于扰动的复合诱发电位分解用于神经纤维尺寸分布表征
+
+| Field | Content |
+|------|------|
+| EN Title | A Perturbation Based Decomposition of Compound-Evoked Potentials for Characterization of Nerve Fiber Size Distributions |
+| ZH Title | 基于扰动的复合诱发电位分解用于神经纤维尺寸分布表征 |
+| ZH Abstract | 提出一种基于扰动的神经纤维尺寸分布表征方法。 |
+| EN Abstract | The characterization of peripheral nerve fiber distributions, in terms of diameter or velocity, is of clinical significance because information associated with these distributions can be utilized in the differential diagnosis of peripheral neuropathies. Electro-diagnostic techniques can be applied to the investigation of peripheral neuropathies and can yield valuable diagnostic information while being minimally invasive. Nerve conduction velocity studies are single parameter tests that yield no |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75778. 核仁和核糖体蛋白在癌症、发育和衰老中的新作用
+
+| Field | Content |
+|------|------|
+| EN Title | Emerging roles of nucleolar and ribosomal proteins in cancer, development, and aging |
+| ZH Title | 核仁和核糖体蛋白在癌症、发育和衰老中的新作用 |
+| ZH Abstract | 综述核仁和核糖体蛋白在细胞活动中的调控作用。 |
+| EN Abstract | Changes in nucleolar morphology and function are tightly associated with cellular activity, such as growth, proliferation, and cell cycle progression. Historically, these relationships have been extensively examined in cancer cells, which frequently exhibit large nucleoli and increased ribosome biogenesis. Recent findings indicate that alteration of nucleolar activity is a key regulator of development and aging. In this review, we have provided evidences that the nucleolus is not just a housekee |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75779. 第33届意大利结缔组织研究学会全国会议摘要
+
+| Field | Content |
+|------|------|
+| EN Title | 33rd National Meeting of the Italian Society for the Study of Connective Tissues, Pavia, Italy, October 3-4, 2013 Abstracts |
+| ZH Title | 第33届意大利结缔组织研究学会全国会议摘要 |
+| ZH Abstract | 会议摘要集。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75780. 视网膜不同区域光谱敏感性差异的机制与功能意义综述
+
+| Field | Content |
+|------|------|
+| EN Title | Why different regions of the retina have different spectral sensitivities: A review of mechanisms and functional significance of intraretinal variability in spectral sensitivity in vertebrates |
+| ZH Title | 视网膜不同区域光谱敏感性差异的机制与功能意义综述 |
+| ZH Abstract | 综述脊椎动物视网膜内光谱敏感性差异的机制。 |
+| EN Abstract | Vision is used in nearly all aspects of animal behavior, from prey and predator detection to mate selection and parental care. However, the light environment typically is not uniform in every direction, and visual tasks may be specific to particular parts of an animal's field of view. These spatial differences may explain the presence of several adaptations in the eyes of vertebrates that alter spectral sensitivity of the eye in different directions. Mechanisms that alter spectral sensitivity ac |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75782. 含B56的PP2A在主要发育和癌症信号通路中的功能
+
+| Field | Content |
+|------|------|
+| EN Title | Functions of B56-containing PP2As in major developmental and cancer signaling pathways |
+| ZH Title | 含B56的PP2A在主要发育和癌症信号通路中的功能 |
+| ZH Abstract | 综述B56亚基PP2A在信号通路中的作用。 |
+| EN Abstract | Members of the B'/B56/PR61 family regulatory subunits of PP2A determine the subcellular localization, substrate specificity, and catalytic activity of PP2A in a wide range of biological processes. Here, we summarize the structure and intracellular localization of B56-containing PP2As and review functions of B56-containing PP2As in several major developmental/cancer signaling pathways. (C) 2010 Elsevier Inc. All rights reserved. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75784. 从祖细胞到分化细胞：脊椎动物视网膜
+
+| Field | Content |
+|------|------|
+| EN Title | From Progenitors to Differentiated Cells in the Vertebrate Retina |
+| ZH Title | 从祖细胞到分化细胞：脊椎动物视网膜 |
+| ZH Abstract | 综述视网膜祖细胞向分化细胞转变的调控。 |
+| EN Abstract | Multipotent retinal progenitors undergo a varied number of divisions to produce clones of heterogeneous sizes and cell types. We describe the transition from a proliferating progenitor to a differentiated post-mitotic cell and discuss how controls of proliferation operate within individual cells as well as in the whole tissue. We discuss how extracellular and intracellular signaling, transcriptional regulation, cell cycle kinetics, interkinetic nuclear migration, orientation of cell division, an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75818. IBANGS基因、大脑和行为会议摘要，2011年5月11-14日，意大利罗马
+
+| Field | Content |
+|------|------|
+| EN Title | Abstracts of the IBANGS Genes, Brain and Behavior MeetingMay 11-14, 2011 Rome, Italy Abstracts |
+| ZH Title | IBANGS基因、大脑和行为会议摘要，2011年5月11-14日，意大利罗马 |
+| ZH Abstract | 会议摘要集。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75838. 社论：MSPP第34届科学会议：天然产物在药物发现中的药理学前景
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: MSPP 34th scientific meeting: Pharmacological perspectives on natural products in drug discovery |
+| ZH Title | 社论：MSPP第34届科学会议：天然产物在药物发现中的药理学前景 |
+| ZH Abstract | 社论：MSPP第34届科学会议：天然产物在药物发现中的药理学（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75874. PCP依赖的单个细胞皮层极化力学在会聚延伸中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | PCP-dependent polarized mechanics in the cortex of individual cells during convergent extension |
+| ZH Title | PCP依赖的单个细胞皮层极化力学在会聚延伸中的作用 |
+| ZH Abstract | 研究PCP和Septin依赖的细胞皮层力学梯度在会聚延伸中的作用。 |
+| EN Abstract | Convergent extension (CE) is a key process for tissue elongation during vertebrate development and is driven by polarized cell behaviors. Here, we used a novel image-based technique to investigate the mechanical properties of individual cells undergoing CE. Our results suggest a PCP-and Septin-dependent mechanical gradient, where cortical tension is higher at the anterior face of the cells compared with their posterior face. Disruption of PCP protein Vangl2 or its downstream effector Septin7 eli |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75875. UNC13A的从头错义变异与癫痫性脑病和神经发育障碍相关
+
+| Field | Content |
+|------|------|
+| EN Title | De novo missense variants of UNC13A are implicated in epileptic encephalopathies and neurodevelopmental disorders |
+| ZH Title | UNC13A的从头错义变异与癫痫性脑病和神经发育障碍相关 |
+| ZH Abstract | UNC13A的从头错义变异与癫痫性脑病和神经发育障碍相关（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75883. Mauthner细胞中的视听整合提高了逃逸概率并减少了反应潜伏期
+
+| Field | Content |
+|------|------|
+| EN Title | Audiovisual integration in the Mauthner cell enhances escape probability and reduces response latency |
+| ZH Title | Mauthner细胞中的视听整合提高了逃逸概率并减少了反应潜伏期 |
+| ZH Abstract | 研究鱼类Mauthner细胞中视听整合对逃逸行为的影响。 |
+| EN Abstract | Fast and accurate threat detection is critical for animal survival. Reducing perceptual ambiguity by integrating multiple sources of sensory information can enhance perception and reduce response latency. However, studies addressing the link between behavioral correlates of multisensory integration and its underlying neural basis are rare. Fish that detect an urgent threat escape with an explosive behavior known as C-start. The C-start is driven by an identified neural circuit centered on the Ma |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75889. 研究真菌病原体的替代模型的现状和趋势
+
+| Field | Content |
+|------|------|
+| EN Title | Current Status and Trends in Alternative Models to Study Fungal Pathogens |
+| ZH Title | 研究真菌病原体的替代模型的现状和趋势 |
+| ZH Abstract | 综述研究真菌病原体的替代模型。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75912. 体内物理参数的直接定量扰动以阐明脊椎动物胚胎形态发生
+
+| Field | Content |
+|------|------|
+| EN Title | Direct quantitative perturbations of physical parameters in vivo to elucidate vertebrate embryo morphogenesis |
+| ZH Title | 体内物理参数的直接定量扰动以阐明脊椎动物胚胎形态发生 |
+| ZH Abstract | 综述体内物理参数扰动方法在胚胎形态发生研究中的应用。 |
+| EN Abstract | Physical parameters such as tissue interplay forces, luminal pressure, fluid flow, temperature, and electric fields are crucial regulators of embryonic morphogenesis. While significant attention has been given to cellular and molecular responses to these physical parameters, their roles in morphogenesis are not yet fully elucidated. This is largely due to a shortage of methods for spatiotemporal modulation and direct quantitative perturbation of physical parameters in embryos. Recent advancement |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75914. 非哺乳动物脑损伤模型的最新见解：新兴文献
+
+| Field | Content |
+|------|------|
+| EN Title | Recent insights from non-mammalian models of brain injuries: an emerging literature |
+| ZH Title | 非哺乳动物脑损伤模型的最新见解：新兴文献 |
+| ZH Abstract | 综述非哺乳动物模型在脑损伤研究中的应用。 |
+| EN Abstract | Traumatic brain injury (TBI) is a major global health concern and is increasingly recognized as a risk factor for neurodegenerative diseases including Alzheimer's disease (AD) and chronic traumatic encephalopathy (CTE). Repetitive TBIs (rTBIs), commonly observed in contact sports, military service, and intimate partner violence (IPV), pose a significant risk for long-term sequelae. To study the long-term consequences of TBI and rTBI, researchers have typically used mammalian models to recapitula |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75917. 一种可逆近红外荧光探针用于体内HSO3-/H2O2调节循环的监测
+
+| Field | Content |
+|------|------|
+| EN Title | A reversible near-infrared fluorescence probe for the monitoring of HSO3-/H2O2-regulated cycles in vivo |
+| ZH Title | 一种可逆近红外荧光探针用于体内HSO3-/H2O2调节循环的监测 |
+| ZH Abstract | 开发可逆近红外荧光探针监测体内氧化还原循环。 |
+| EN Abstract | The development of well-designed fluorescence probes for the monitoring of redox homeostasis in biosystems has attracted significant research interest owing to their non-invasive and real-time detection capability in vivo. In this work, a reversible near-infrared (NIR) fluorescence probe (XC) was designed and synthesized for the monitoring of HSO3-/H2O2-regulated cycles in vivo. The XC probe contains a D-pi-A-pi-D conjugated structure with a reactive C-C double bond in the benzopyrylium moiety. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75921. 机械线索在塑造神经元形态和连接中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of mechanical cues in shaping neuronal morphology and connectivity |
+| ZH Title | 机械线索在塑造神经元形态和连接中的作用 |
+| ZH Abstract | 综述机械线索在神经元形态和连接中的作用。 |
+| EN Abstract | Neuronal circuits, the functional building blocks of the nervous system, assemble during development through a series of dynamic processes including the migration of neurons to their final position, the growth and navigation of axons and their synaptic connection with target cells. While the role of chemical cues in guiding neuronal migration and axonal development has been extensively analysed, the contribution of mechanical inputs, such as forces and stiffness, has received far less attention. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75925. 使Morpholino实验成功：对照、促进特异性、提高效率、储存和剂量
+
+| Field | Content |
+|------|------|
+| EN Title | Making a Morpholino Experiment Work: Controls, Favoring Specificity, Improving Efficacy, Storage, and Dose. |
+| ZH Title | 使Morpholino实验成功：对照、促进特异性、提高效率、储存和剂量 |
+| ZH Abstract | 提供Morpholino实验操作指南。 |
+| EN Abstract | A good Morpholino experiment starts with oligos that have been carefully designed to minimize off-target RNA binding. Performing a successful, reproducible, and well-controlled Morpholino experiment requires oligos that are single stranded and in solution at a known concentration. The outcome of treatment with the oligo needs to be checked for specificity, that is, that the observed outcome is due to interaction with the intended RNA and not an interaction with an unexpected RNA. In this chapter |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75926. 集体细胞迁移和形态发生中的细胞牵引：追逐与逃跑机制
+
+| Field | Content |
+|------|------|
+| EN Title | Cell traction in collective cell migration and morphogenesis: The chase and run mechanism |
+| ZH Title | 集体细胞迁移和形态发生中的细胞牵引：追逐与逃跑机制 |
+| ZH Abstract | 综述集体细胞迁移中的追逐与逃跑机制。 |
+| EN Abstract | Directional collective cell migration plays an important role in development, physiology, and disease. An increasing number of studies revealed key aspects of how cells coordinate their movement through distances surpassing several cell diameters. While physical modeling and measurements of forces during collective cell movements helped to reveal key mechanisms, most of these studies focus on tightly connected epithelial cultures. Less is known about collective migration of mesenchymal cells. A |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75927. 肾脏发育中的信号传导
+
+| Field | Content |
+|------|------|
+| EN Title | Signaling during Kidney Development |
+| ZH Title | 肾脏发育中的信号传导 |
+| ZH Abstract | 综述肾脏发育过程中的信号通路。 |
+| EN Abstract | The kidney plays an essential role during excretion of metabolic waste products, maintenance of key homeostasis components such as ion concentrations and hormone levels. It influences the blood pressure, composition and volume. The kidney tubule system is composed of two distinct cell populations: the nephrons forming the filtering units and the collecting duct system derived from the ureteric bud. Nephrons are composed of glomeruli that filter the blood to the Bowman's capsule and tubular struc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75932. 再生的细胞生物学
+
+| Field | Content |
+|------|------|
+| EN Title | The cell biology of regeneration |
+| ZH Title | 再生的细胞生物学 |
+| ZH Abstract | 综述再生过程中细胞行为的分子机制。 |
+| EN Abstract | Regeneration of complex structures after injury requires dramatic changes in cellular behavior. Regenerating tissues initiate a program that includes diverse processes such as wound healing, cell death, dedifferentiation, and stem (or progenitor) cell proliferation; furthermore, newly regenerated tissues must integrate polarity and positional identity cues with preexisting body structures. Gene knockdown approaches and transgenesis-based lineage and functional analyses have been instrumental in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75934. 纳米颗粒对水生生物的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Effect of nanoparticles on aquatic organisms |
+| ZH Title | 纳米颗粒对水生生物的影响 |
+| ZH Abstract | 综述纳米颗粒对水生生物的影响。 |
+| EN Abstract | This paper summarizes the data on the effect of engineered nanoparticles on aquatic organisms. The issues of penetration and accumulation of nanoparticles in the body of aquatic organisms and their toxic effect, biotransformation, and migration along food webs are considered. It is demonstrated that the behavior of nanomaterials in the environment and their effect on living organisms have been studied insufficiently and require close attention, because their release into the environment will inc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75935. Wnt信号在发育和疾病中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt signaling in development and disease |
+| ZH Title | Wnt信号在发育和疾病中的作用 |
+| ZH Abstract | 综述Wnt信号通路在发育和神经系统中的作用。 |
+| EN Abstract | The Wnt signaling pathway is one of the central morphogenic signaling pathways regulating early vertebrate development. In recent years, it has become clear that the Wnt pathway also regulates many aspects of nervous system development from the patterning stage through the regulation of neural plasticity. In this review, we first present an overview of the components of the Wnt signaling pathway and then go on to discuss the literature describing the multitude of roles of Wnts in nervous system. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75936. 肌节与肌节生成
+
+| Field | Content |
+|------|------|
+| EN Title | The Sarcomere and Sarcomerogenesis |
+| ZH Title | 肌节与肌节生成 |
+| ZH Abstract | 综述肌节组装与调控机制。 |
+| EN Abstract | Striated muscle owes its name to the microscopic appearance, caused by the longitudinal alignment of thousands, of highly ordered contractile units, the sarcomeres. The assembly (and disassembly) of these multiprotein complexes (sarcomere assembly or sarcomerogenesis) follows ordered pathways, which are regulated on the transcriptional, translational and posttranslational level. Furthermore, myofibril assembly involves the participation of transient scaffolds and adaptors, notably the microtubul |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75944. 脊椎动物气味受体的分子生物学
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular biology of odorant receptors in vertebrates. |
+| ZH Title | 脊椎动物气味受体的分子生物学 |
+| ZH Abstract | 综述脊椎动物气味受体基因家族的研究进展。 |
+| EN Abstract | The initial step in olfactory discrimination involves the interaction of odorous ligands with specific receptors on the surface of olfactory sensory neurons. The foundation for a molecular understanding of odor recognition in vertebrates was provided by the identification of a family of genes encoding putative odorant receptors, by Buck & Axel in 1991. Odorant receptor (OR) genes from the largest gene family in the vertebrate genome. This review summarizes progress over the past seven years. Maj |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75946. 颅神经嵴和心神经嵴细胞的极性与迁移：潜在分子机制及疾病意义
+
+| Field | Content |
+|------|------|
+| EN Title | Polarity and migration of cranial and cardiac neural crest cells: underlying molecular mechanisms and disease implications |
+| ZH Title | 颅神经嵴和心神经嵴细胞的极性与迁移：潜在分子机制及疾病意义 |
+| ZH Abstract | 综述神经嵴细胞迁移的分子机制及疾病意义。 |
+| EN Abstract | The Neural Crest cells are multipotent progenitor cells formed at the neural plate border that differentiate and give rise to a wide range of cell types and organs. Directional migration of NC cells and their correct positioning at target sites are essential during embryonic development, and defects in these processes results in congenital diseases. The NC migration begins with the epithelial-mesenchymal transition and extracellular matrix remodeling. The main cellular mechanisms that sustain th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75947. 内质网靶向荧光探针用于实时监测钙稳态破坏引起的粘度变化
+
+| Field | Content |
+|------|------|
+| EN Title | Endoplasmic reticulum targeted fluorescent probe for real-time monitoring the viscosity changes induced by calcium homeostasis disruption |
+| ZH Title | 内质网靶向荧光探针用于实时监测钙稳态破坏引起的粘度变化 |
+| ZH Abstract | 开发内质网靶向荧光探针监测钙稳态破坏引起的粘度变化。 |
+| EN Abstract | The endoplasmic reticulum (ER) acts as the major storage site for calcium ions, which are messenger ions for intracellular signaling. Disruption of calcium ion homeostasis can significantly affect the viscosity, polarity and pH of the ER. However, it is still unclear the relationship between the viscosity changes in ER and the imbalance of calcium ion homeostasis. Herein, we developed a novel fluorescent probe, named TPA, for monitoring viscosity changes that specifically targets the endoplasmic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75949. 颅神经基板分化的体外建模：最新进展、挑战与展望
+
+| Field | Content |
+|------|------|
+| EN Title | In vitro modeling of cranial placode differentiation: Recent advances, challenges, and perspectives |
+| ZH Title | 颅神经基板分化的体外建模：最新进展、挑战与展望 |
+| ZH Abstract | 综述颅神经基板分化体外模型的研究进展。 |
+| EN Abstract | Cranial placodes are transient ectodermal thickenings that contribute to a diverse array of organs in the vertebrate head. They develop from a common territory, the pre-placodal region that over time segregates along the antero-posterior axis into individual placodal domains: the adenohypophyseal, olfactory, lens, trigeminal, otic, and epibranchial placodes. These placodes terminally differentiate into the anterior pituitary, the lens, and contribute to sensory organs including the olfactory epi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75954. 脊椎动物体节形成的细胞学方面
+
+| Field | Content |
+|------|------|
+| EN Title | Cellular aspects of somite formation in vertebrates |
+| ZH Title | 脊椎动物体节形成的细胞学方面 |
+| ZH Abstract | 综述脊椎动物体节形成的分子机制。 |
+| EN Abstract | Vertebrate segmentation, the process that generates a regular arrangement of somites and thereby establishes the pattern of the adult body and of the musculoskeletal and peripheral nervous systems, was noticed many centuries ago. In the last few decades, there has been renewed interest in the process and especially in the molecular mechanisms that might account for its regularity and other spatial-temporal properties. Several models have been proposed but surprisingly, most of these do not provi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75955. 中心体在神经元发育中的新兴作用
+
+| Field | Content |
+|------|------|
+| EN Title | Emerging roles of the centrosome in neuronal development |
+| ZH Title | 中心体在神经元发育中的新兴作用 |
+| ZH Abstract | 综述中心体在神经元发育中的作用。 |
+| EN Abstract | The role of the centrosome-a microtubule-organizing center-in neuronal development has been under scrutiny and is controversial. The function and position of the centrosome have been shown to play an important role in selecting the position of axon outgrowth in cultured neurons and in situ. However, other studies have shown that axonal growth is independent of centrosomal functions. Recent discoveries define the centrosome as an F-actin organizing organelle in various cell types; thus, giving a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75956. Tsukushi参与多种发育过程
+
+| Field | Content |
+|------|------|
+| EN Title | Involvement of Tsukushi in diverse developmental processes |
+| ZH Title | Tsukushi参与多种发育过程 |
+| ZH Abstract | 综述Tsukushi在脊椎动物发育中的作用。 |
+| EN Abstract | Tsukushi (TSK) is a small signaling molecule which takes part in different developmental processes of multiple vertebrate organisms. The diverse activity of TSK depends on its ability to bind various intermediate molecules from different major signaling pathways. Interactions of TSK with BMP, FGF, TGF-ss and Wnt pathways have already been confirmed. In this review, we will introduce the latest information regarding the involvement of TSK in developmental events. We suggest a fine tuning role for |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75959. 环境过滤随鱼类发育对肠道微生物群组装的影响减弱
+
+| Field | Content |
+|------|------|
+| EN Title | Environmental filtering decreases with fish development for the assembly of gut microbiota |
+| ZH Title | 环境过滤随鱼类发育对肠道微生物群组装的影响减弱 |
+| ZH Abstract | 研究鱼类发育对肠道微生物群组装的影响。 |
+| EN Abstract | Gut microbiota typically occupy habitats with definable limits/borders that are comparable to oceanic islands. The gut therefore can be regarded as an 'island' for the assembly of microbial communities within the 'sea' of surrounding environments. This study aims to reveal the ecological mechanisms that govern microbiota in the fish gut 'island' ecosystem. Taxonomic compositions, phylogenetic diversity, and community turnover across host development were analyzed via the high-throughput sequenci |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75965. Wnt和平面细胞极性信号在囊性肾病中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt and planar cell polarity signaling in cystic renal disease |
+| ZH Title | Wnt和平面细胞极性信号在囊性肾病中的作用 |
+| ZH Abstract | 综述Wnt信号在囊性肾病中的作用。 |
+| EN Abstract | Cystic kidney diseases can cause end stage renal disease, affecting millions of individuals worldwide. They may arise early or later in life, are characterized by a spectrum of symptoms and can be caused by diverse genetic defects. The primary cilium, a microtubule-based organelle that can serve as a signaling antenna, has been demonstrated to have a significant role in ensuring correct kidney development and function. In the kidney, one of the signaling pathways that requires the cilium for nor |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75968. 胚胎后发育的比较遗传学作为理解进化变化的手段
+
+| Field | Content |
+|------|------|
+| EN Title | Comparative genetics of postembryonic development as a means to understand evolutionary change |
+| ZH Title | 胚胎后发育的比较遗传学作为理解进化变化的手段 |
+| ZH Abstract | 综述比较发育遗传学在进化研究中的应用。 |
+| EN Abstract | This review addresses the use of comparative studies of development to help understand the mechanisms underlying the evolution of morphological and physiological diversity. Mutation analysis in experimental model organisms is at the core of our understanding of how development works, and these findings have proven important in the identification and functional support of genetic variations associated with character change in natural populations. However, it has been argued that the essential and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75969. 关于用于科学程序的鱼类心理生理福利及2007/526/EC建议的思考
+
+| Field | Content |
+|------|------|
+| EN Title | Considerations on psychophysical welfare of fish employed in scientific procedures and on Recommendation 2007/526/EC |
+| ZH Title | 关于用于科学程序的鱼类心理生理福利及2007/526/EC建议的思考 |
+| ZH Abstract | 讨论实验鱼类的福利法规。 |
+| EN Abstract | The use of fish for experimental purposes has seen a significant increase over the past years, consequently scientific findings on factors influencing welfare of these vertebrates are now available, as well as debates on their capacity of experiencing suffering are increasingly found in animal welfare discussions. Nowadays, in Europe, the use of these animals as experimental models is regulated by the Recommendation 2007/526/EC, where in the Section on the species-specific guidelines for fish, a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75977. 脊髓从发育到病理生理的神经血管动力学
+
+| Field | Content |
+|------|------|
+| EN Title | Neurovascular dynamics in the spinal cord from development to pathophysiology |
+| ZH Title | 脊髓从发育到病理生理的神经血管动力学 |
+| ZH Abstract | 综述脊髓神经血管的发育与病理。 |
+| EN Abstract | The vasculature is increasingly recognized as an active regulator of homeostasis and repair, beyond conventional roles in nutrient delivery. In the central nervous system, vascular cells adopt region-specific traits tailored to the distinct demands of the brain, retina, and spinal cord. Despite long-standing interest in the spinal cord as a model for neural development and injury, its vascular organization and properties remain understudied. The assumption that spinal cord and brain neurovascula |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75978. CRISPR-Cas9在基因工程动物定制中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | CRISPR-Cas9 in the Tailoring of Genetically Engineered Animals |
+| ZH Title | CRISPR-Cas9在基因工程动物定制中的应用 |
+| ZH Abstract | 综述CRISPR-Cas9在基因修饰动物中的应用。 |
+| EN Abstract | CRISPR-Cas9 enables targeted genome editing and has become a pivotal tool in biomedical research and animal genome engineering. This review highlights its application in generating genetically modified animals used as preclinical disease models, bioreactors for recombinant protein production, and potential sources of xenotransplantation organs. We also discuss its role in improving livestock traits, welfare, and breeding efficiency. The benefits and limitations of CRISPR-Cas9 are examined, empha |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75979. 自闭症谱系障碍的动物模型：遗传、结构和环境模型的见解
+
+| Field | Content |
+|------|------|
+| EN Title | Animal models of autism spectrum disorder: Insights into genetic, structural and environmental models |
+| ZH Title | 自闭症谱系障碍的动物模型：遗传、结构和环境模型的见解 |
+| ZH Abstract | 综述自闭症动物模型的研究进展。 |
+| EN Abstract | Autism spectrum disorder (ASD) is a group of human neurodevelopmental disorders with significant global prevalence. Deficits in social communication and interaction and repetitive, stereotyped patterns of behaviour characterise ASD. The aetiology of ASD is unclear, but several genetic and environmental risk factors, either alone or in combination, are implicated in its development. To date, the underlying pathogenic mechanisms of ASD remain incompletely understood due to its heterogeneity. To be |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75981. 基于Sanger测序的基因组编辑分析计算工具的系统比较
+
+| Field | Content |
+|------|------|
+| EN Title | Systematic Comparison of Computational Tools for Sanger Sequencing-Based Genome Editing Analysis |
+| ZH Title | 基于Sanger测序的基因组编辑分析计算工具的系统比较 |
+| ZH Abstract | 比较分析基因组编辑效率的计算工具。 |
+| EN Abstract | Successful genome editing depends on the cleavage efficiency of programmable nucleases (PNs) such as the CRISPR-Cas system. Various methods have been developed to assess the efficiency of PNs, most of which estimate the occurrence of indels caused by PN-induced double-strand breaks. In these methods, PN genomic target sites are amplified through PCR, and the resulting PCR products are subsequently analyzed using Sanger sequencing, high-throughput sequencing, or mismatch detection assays. Among t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75982. 使用非束缚非抓握磁性微型机器人进行生物力学参数估计
+
+| Field | Content |
+|------|------|
+| EN Title | Biomechanical parameter estimation using untethered nonprehensile magnetic microrobot |
+| ZH Title | 使用非束缚非抓握磁性微型机器人进行生物力学参数估计 |
+| ZH Abstract | 开发磁性微型机器人用于细胞力学参数估计。 |
+| EN Abstract | Cell biomechanical parameters, such as modulus of elasticity, are crucial biomarkers for indicating their physiological and pathological states. Traditionally, tethered techniques like atomic force microscopy (AFM), micropipette aspiration, and microinjection are used for the estimation of cell biomechanical parameters. These techniques being tethered are restricted by the direction of approach and require skilled manual interventions. This paper presents an untethered approach based on magnetic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75983. 社论：人类世期间环境变化对中国热带沿海生态系统的影响：陆地与海洋影响
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Environmental change affecting COastal ecosystems of tropical China during the Anthropocene: Landward vs. OCeanic influence (ECOLOC) |
+| ZH Title | 社论：人类世期间环境变化对中国热带沿海生态系统的影响：陆地与海洋影响 |
+| ZH Abstract | 社论：人类世期间环境变化对中国热带沿海生态系统的影响：陆地与（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75984. 社论：微生物生物反应器在循环生物经济中应对挑战的价值
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: "The value of microbial bioreactors to meet challenges in the circular bioeconomy" |
+| ZH Title | 社论：微生物生物反应器在循环生物经济中应对挑战的价值 |
+| ZH Abstract | 社论：微生物生物反应器在循环生物经济中应对挑战的价值（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75985. 水生环境中微塑料的发生及其对生物体的毒性效应
+
+| Field | Content |
+|------|------|
+| EN Title | The occurrence of microplastic in aquatic environment and toxic effects for organisms |
+| ZH Title | 水生环境中微塑料的发生及其对生物体的毒性效应 |
+| ZH Abstract | 综述微塑料对水生生物的毒性效应。 |
+| EN Abstract | Microplastics pollution caused by the popularity of plastic products has become a global environmental concern. The frequent occurrence of microplastics in the aquatic environment has aroused people's concern about the potential risks of pollution in microplastics to the ecosystems and organisms. Moreover, other contaminants (organic pollutants, additives, heavy metals) may be absorbed on the surface of the microplastics, which can be used as a carrier for entering aquatic organisms and even hum |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75986. 银纳米颗粒在生物体水平效应的最新综述：内化、反应和影响因素
+
+| Field | Content |
+|------|------|
+| EN Title | An Updated Review on Ag NP Effects at Organismal Level: Internalization, Responses, and Influencing Factors |
+| ZH Title | 银纳米颗粒在生物体水平效应的最新综述：内化、反应和影响因素 |
+| ZH Abstract | 综述银纳米颗粒对生物体的影响。 |
+| EN Abstract | Silver nanoparticles (Ag NPs) can be widely applied in daily necessities and industrial fields, leading to their mass production and discharge. Their highly active and easily bio-accumulative characteristics have resulted in environmental accumulation and toxic effects. The studies with regard to the behaviors and effects of Ag NPs have received wide attentions. Therefore, this review comprehensively summarizes the latest studies on behaviors and effects of Ag NPs based on plants, animals, and h |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75988. 微生物群在再生相关过程中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The Role of the Microbiota in Regeneration-Associated Processes |
+| ZH Title | 微生物群在再生相关过程中的作用 |
+| ZH Abstract | 综述微生物群在再生过程中的作用。 |
+| EN Abstract | The microbiota, the set of microorganisms associated with a particular environment or host, has acquired a prominent role in the study of many physiological and developmental processes. Among these, is the relationship between the microbiota and regenerative processes in various organisms. Here we introduce the concept of the microbiota and its involvement in regeneration-related cellular events. We then review the role of the microbiota in regenerative models that extend from the repair of tiss |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 75999. 光遗传学：将显微镜颠倒过来
+
+| Field | Content |
+|------|------|
+| EN Title | Optogenetics: Turning the Microscope on Its Head |
+| ZH Title | 光遗传学：将显微镜颠倒过来 |
+| ZH Abstract | 光遗传学：将显微镜颠倒过来（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76021. 社论：神经发育疾病的体外和体内模型
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: In vitro and in vivo models for neurodevelopmental disorders |
+| ZH Title | 社论：神经发育疾病的体外和体内模型 |
+| ZH Abstract | 社论：神经发育疾病的体外和体内模型（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76073. 神经嵴与脊椎动物头/躯干界面的进化
+
+| Field | Content |
+|------|------|
+| EN Title | The neural crest and evolution of the head/trunk interface in vertebrates |
+| ZH Title | 神经嵴与脊椎动物头/躯干界面的进化 |
+| ZH Abstract | 综述神经嵴细胞在脊椎动物头躯干界面的进化。 |
+| EN Abstract | The migration and distribution patterns of neural crest (NC) cells reflect the distinct embryonic environments of the head and trunk: cephalic NC cells migrate predominantly along the dorsolateral pathway to populate the craniofacial and pharyngeal regions, whereas trunk crest cells migrate along the ventrolateral pathways to form the dorsal root ganglia. These two patterns thus reflect the branchiomeric and somitomeric architecture, respectively, of the vertebrate body plan. The so-called vagal |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76076. 基于心肌细胞增殖和分化机制的心脏再生
+
+| Field | Content |
+|------|------|
+| EN Title | Cardiac regeneration based on mechanisms of cardiomyocyte proliferation and differentiation |
+| ZH Title | 基于心肌细胞增殖和分化机制的心脏再生 |
+| ZH Abstract | 综述心肌细胞增殖和分化促进心脏再生的机制。 |
+| EN Abstract | Cardiomyocyte proliferation and progenitor differentiation are endogenous mechanisms of myocardial development. Cardiomyocytes continue to proliferate in mammals for part of post-natal development. In adult mammals under homeostatic conditions, cardiomyocytes proliferate at an extremely low rate. Because the mechanisms of cardiomyocyte generation provide potential targets for stimulating myocardial regeneration, a deep understanding is required for developing such strategies. We will discuss app |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76079. 鱼类的皮肤作为运输上皮：综述
+
+| Field | Content |
+|------|------|
+| EN Title | The skin of fish as a transport epithelium: a review |
+| ZH Title | 鱼类的皮肤作为运输上皮：综述 |
+| ZH Abstract | 综述鱼类皮肤的主动生理功能。 |
+| EN Abstract | The primary function of fish skin is to act as a barrier. It provides protection against physical damage and assists with the maintenance of homoeostasis by minimising exchange between the animal and the environment. However in some fish, the skin may play a more active physiological role. This is particularly true in species that inhabit specialised environmental niches (e.g. amphibious and air-breathing fish such as the lungfish), those with physiological characteristics that may subvert the n |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76080. 分割时钟分子动力学中的延迟管理权衡
+
+| Field | Content |
+|------|------|
+| EN Title | Delay-managed tradeoff in the molecular dynamics of the segmentation clock |
+| ZH Title | 分割时钟分子动力学中的延迟管理权衡 |
+| ZH Abstract | 研究分割时钟分子网络中的延迟与噪声权衡。 |
+| EN Abstract | The molecular segmentation clock is a complex regulatory network that governs the periodic somite segmentation in vertebrate embryos. Underlying the rhythm of the segmentation clock is a single-cell level pace-making circuit, where inevitable molecular noise and time delay impose normal operating constraints to the pace-making. However, how the molecular mechanisms of the core circuit of the segmentation clock coordinate the operating constraints and maintain the rhythmic nature of the developme |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76081. 脊椎动物腹侧肌肉形成的不同模式对硬骨鱼体壁肌肉组织的贡献
+
+| Field | Content |
+|------|------|
+| EN Title | Distinct modes of vertebrate hypaxial muscle formation contribute to the teleost body wall musculature |
+| ZH Title | 脊椎动物腹侧肌肉形成的不同模式对硬骨鱼体壁肌肉组织的贡献 |
+| ZH Abstract | 研究脊椎动物体壁肌肉形成的不同模式。 |
+| EN Abstract | The formation of the body wall musculature in vertebrates is assumed to be initiated by direct ventral extension of the somites/myotomes. This contrasts to the formation of limb muscles and muscles involved in feeding or respiration/ventilation, which are founded by migratory muscle precursors (MMPs) distant to the somites. Here, we present evidence from morphology and expression of molecular markers proposing that the formation of the two muscle layers of the teleost body wall involves both of |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76084. 气味诱发活动在梨状皮层中的时空分布
+
+| Field | Content |
+|------|------|
+| EN Title | Spatial and temporal distribution of odorant-evoked activity in the piriform cortex |
+| ZH Title | 气味诱发活动在梨状皮层中的时空分布 |
+| ZH Abstract | 研究气味刺激在梨状皮层的时空编码。 |
+| EN Abstract | Despite a remarkably precise spatial representation of odorant stimuli in the early stages of olfactory processing, the projections to the olfactory (piriform) cortex are more diffuse and show characteristics of a combinatorial array, with extensive overlap of afferent inputs and widespread intracortical association connections. Furthermore, although there is increasing evidence for the importance of temporal structure in olfactory bulb odorant-evoked output, little is known about how this tempo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76087. Wnt信号：一个复杂的问题
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt signaling: a complex issue. |
+| ZH Title | Wnt信号：一个复杂的问题 |
+| ZH Abstract | 综述Wnt信号通路的分子机制和生物学功能。 |
+| EN Abstract | The development of tissues and organs in multicellular organisms is controlled by the interplay of several signaling pathways that cross-talk to provide positional information and induce cell fate specification. Together with other families of secreted factors such as TGF beta s, FGFs, Hedgehog and Notch proteins, Wnt growth factors are crucially implicated in these processes. Here, we will first discuss molecular mechanisms and then consider some biological consequences of Wnt signaling. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76088. Wnt通路中β-catenin信号的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of beta-catenin signaling in the Wnt pathway. |
+| ZH Title | Wnt通路中β-catenin信号的调控 |
+| ZH Abstract | 综述β-catenin在Wnt信号通路中的调控机制。 |
+| EN Abstract | beta-Catenin not only regulates cell to cell adhesion as a protein interacting with cadherin, but also functions as a component of the Wnt signaling pathway. The Wnt signaling pathway is conserved in various organisms from worms to mammals, and plays important roles in development, cellular proliferation, and differentiation. Wnt stabilizes cytoplasmic beta-catenin and then beta-catenin is translocated into the nucleus where it stimulates the expression of genes including c-myc, c-jun, fra-1, an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76094. Flow Upregulated Scap Dictates Hematopoiesis
+
+| Field | Content |
+|------|------|
+| EN Title | Flow Upregulated Scap Dictates Hematopoiesis |
+| ZH Title | Flow Upregulated Scap Dictates Hematopoiesis |
+| ZH Abstract | Flow Upregulated Scap Dictates（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76097. 基于II型内含子的真核生物基因靶向反应
+
+| Field | Content |
+|------|------|
+| EN Title | Group II Intron-Based Gene Targeting Reactions in Eukaryotes |
+| ZH Title | 基于II型内含子的真核生物基因靶向反应 |
+| ZH Abstract | 综述II型内含子在真核生物中的基因靶向应用。 |
+| EN Abstract | Background: Mobile group II introns insert site-specifically into DNA target sites by a mechanism termed retrohoming in which the excised intron RNA reverse splices into a DNA strand and is reverse transcribed by the intron-encoded protein. Retrohoming is mediated by a ribonucleoprotein particle that contains the intron-encoded protein and excised intron RNA, with target specificity determined largely by base pairing of the intron RNA to the DNA target sequence. This feature enabled the developm |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76098. 测试哺乳动物、鸟类和鱼类雌性生殖蛋白ZPC的适应性进化揭示了M7-M8似然比检验的问题
+
+| Field | Content |
+|------|------|
+| EN Title | Testing for adaptive evolution of the female reproductive protein ZPC in mammals, birds and fishes reveals problems with the M7-M8 likelihood ratio test |
+| ZH Title | 测试哺乳动物、鸟类和鱼类雌性生殖蛋白ZPC的适应性进化揭示了M7-M8似然比检验的问题 |
+| ZH Abstract | 测试ZPC蛋白在脊椎动物中的适应性进化。 |
+| EN Abstract | Background: Adaptive evolution appears to be a common feature of reproductive proteins across a very wide range of organisms. A promising way of addressing the evolutionary forces responsible for this general phenomenon is to test for adaptive evolution in the same gene but among groups of species, which differ in their reproductive biology. One can then test evolutionary hypotheses by asking whether the variation in adaptive evolution is consistent with the variation in reproductive biology. We |
+| Judgment | 是 |
+| Reason | 摘要未明确以斑马鱼为主要研究对象。 |
+---
+### 76121. 应用光遗传学淀粉样蛋白-β区分神经退行性变中的代谢和物理损伤
+
+| Field | Content |
+|------|------|
+| EN Title | Application of optogenetic Amyloid-β distinguishes between metabolic and physical damages in neurodegeneration |
+| ZH Title | 应用光遗传学淀粉样蛋白-β区分神经退行性变中的代谢和物理损伤 |
+| ZH Abstract | 研究光遗传学Aβ在神经退行性变中的作用。 |
+| EN Abstract | The brains of Alzheimer's disease patients show a decrease in brain mass and a preponderance of extracellular Amyloid-beta plaques. These plaques are formed by aggregation of polypeptides that are derived from the Amyloid Precursor Protein (APP). Amyloid-beta plaques are thought to play either a direct or an indirect role in disease progression, however the exact role of aggregation and plaque formation in the aetiology of Alzheimer's disease (AD) is subject to debate as the biological effects o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76124. 硬骨鱼中新型免疫球蛋白样转录本编码具有胞质ITAM或ITIM的多态性受体以及类似于自然杀伤细胞受体NKp44的新型结构Ig结构域
+
+| Field | Content |
+|------|------|
+| EN Title | Novel immunoglobulin-like transcripts in teleost fish encode polymorphic receptors with cytoplasmic ITAM or ITIM and a new structural Ig domain similar to the natural cytotoxicity receptor NKp44 |
+| ZH Title | 硬骨鱼中新型免疫球蛋白样转录本编码具有胞质ITAM或ITIM的多态性受体以及类似于自然杀伤细胞受体NKp44的新型结构Ig结构域 |
+| ZH Abstract | 研究硬骨鱼新型免疫受体基因。 |
+| EN Abstract | Members of the immunoglobulin superfamily (IgSF) include a group of innate immune receptors located in the leukocyte receptor complex (LRC) and other small clusters such as the TREM/ NKp44 cluster. These receptors are characterised by the presence of immunoglobulin domains, a stalk, a transmembrane domain, and a cytoplasmic region containing either an immunoreceptor tyrosine-based inhibitory motif (ITIM) or are linked to an adapter molecule with an activation motif (ITAM) for downstream signalli |
+| Judgment | 是 |
+| Reason | 摘要未指明具体鱼类物种 |
+---
+### 76128. 细胞周期中TATA结合蛋白复合物及其亚基磷酸化的定量质谱分析
+
+| Field | Content |
+|------|------|
+| EN Title | Quantitative mass spectrometry of TATA binding protein-containing complexes and subunit phosphorylations during the cell cycle |
+| ZH Title | 细胞周期中TATA结合蛋白复合物及其亚基磷酸化的定量质谱分析 |
+| ZH Abstract | 定量分析细胞周期中TBP复合物。 |
+| EN Abstract | Background: Progression through the cell cycle is accompanied by tightly controlled regulation of transcription. On one hand, a subset of genes is expressed in a cell cycle-dependent manner. On the other hand, a general inhibition of transcription occurs during mitosis.Genetic and genome-wide studies suggest cell cycle regulation at the level of transcription initiation by protein complexes containing the common DNA-binding subunit TATA binding protein (TBP). TBP is a key player in regulating tr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76129. 检测节律性基因表达的方法仅对强信号具有生物学相关性
+
+| Field | Content |
+|------|------|
+| EN Title | Methods detecting rhythmic gene expression are biologically relevant only for strong signal |
+| ZH Title | 检测节律性基因表达的方法仅对强信号具有生物学相关性 |
+| ZH Abstract | 评估检测节律基因表达的方法。 |
+| EN Abstract | Author summaryTo be active, genes have to be transcribed to RNA. For some genes, the transcription rate follows a circadian rhythm with a periodicity of approximately 24 hours; we call these genes "rhythmic". In this study, we compared methods designed to detect rhythmic genes in gene expression data. The data are measures of the number of RNA molecules for each gene, given at several time-points, usually spaced 2 to 4 hours, over one or several periods of 24 hours. There are many such methods, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76131. 突破瓶颈：行为神经内分泌学中的Krogh原理与基因编辑的潜力
+
+| Field | Content |
+|------|------|
+| EN Title | Breaking Through the Bottleneck: Krogh's Principle in Behavioral Neuroendocrinology and the Potential of Gene Editing |
+| ZH Title | 突破瓶颈：行为神经内分泌学中的Krogh原理与基因编辑的潜力 |
+| ZH Abstract | 讨论Krogh原理在行为神经内分泌学应用。 |
+| EN Abstract | Synopsis In 1929, August Krogh wrote that for every question in biology, there is a species or collection of species in which pursuing such questions is the most appropriate for achieving the deepest insights. Referred to as "Krogh's Principle," these words are a guiding force for many biologists. In practice, Krogh's principle might guide a biologist interested in studying bi-parental care to choose not to use lab mice, in which the female does most of the parenting, but instead study species i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76143. 脊椎动物上丘脑的不对称性
+
+| Field | Content |
+|------|------|
+| EN Title | Asymmetry in the epithalamus of vertebrates. |
+| ZH Title | 脊椎动物上丘脑的不对称性 |
+| ZH Abstract | 综述脊椎动物上丘脑结构不对称。 |
+| EN Abstract | The epithalamus is a major subdivision of the diencephalon constituted by the habenular nuclei and pineal complex. Structural asymmetries in this region are widespread amongst vertebrates and involve differences in size. neuronal organisation, neurochemistry and connectivity. In species that possess a photoreceptive parapineal organ, this structure projects asymmetrically to the left habenula, and in teleosts it is also situated on the left side of the brain. Asymmetries in size between the left |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76176. 揭示Bmp13之谜：冗余形态发生素还是关键调节因子？
+
+| Field | Content |
+|------|------|
+| EN Title | Unveiling the Bmp13 Enigma: Redundant Morphogen or Crucial Regulator? |
+| ZH Title | 揭示Bmp13之谜：冗余形态发生素还是关键调节因子？ |
+| ZH Abstract | 综述BMP13的功能。 |
+| EN Abstract | Bone morphogenetic proteins are a diverse group of morphogens with influences not only on bone tissue, as the nomenclature suggests, but on multiple tissues in the body and often at crucial and influential periods in development.The purpose of this review is to identify and discuss current knowledge of one vertebrate BMP, Bone Morphogenetic Protein 13 (BMP13), from a variety of research fields, in order to clarify BMP13's functional contribution to developing and maintaining healthy tissues, and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76181. Hnf4α整合AIF和caspase 3/9信号以限制硬骨鱼中的单一和共感染病原体
+
+| Field | Content |
+|------|------|
+| EN Title | Hnf4α integrates AIF and caspase 3/9 signaling to restrict single and coinfecting pathogens in teleosts |
+| ZH Title | Hnf4α整合AIF和caspase 3/9信号以限制硬骨鱼中的单一和共感染病原体 |
+| ZH Abstract | 研究硬骨鱼中Hnf4α的免疫调节功能。 |
+| EN Abstract | Hepatocyte nuclear factor 4 alpha (Hnf4 alpha), a conserved nuclear receptor central to vertebrate liver development and metabolic regulation, emerges here as a pivotal immune regulator in teleosts against complex infectious threats. While its metabolic roles are well-established, Hnf4 alpha's function in bacterial infection, viral infection, and bacterial-viral coinfection-major challenges in global aquaculture-remained uncharacterized. This study reveals that teleost Hnf4 alpha acts as a dual- |
+| Judgment | 是 |
+| Reason | 摘要未明确具体鱼类物种 |
+---
+### 76187. 酸性氨基酸赋予ATP门控P2X受体家族两个成员增强的Ca2+通透性和通量
+
+| Field | Content |
+|------|------|
+| EN Title | Acidic amino acids impart enhanced Ca2+ permeability and flux in two members of the ATP-gated P2X receptor family |
+| ZH Title | 酸性氨基酸赋予ATP门控P2X受体家族两个成员增强的Ca2+通透性和通量 |
+| ZH Abstract | 研究P2X受体的Ca2+通透性。 |
+| EN Abstract | P2X receptors are ATP-gated cation channels expressed in nerve, muscle, bone, glands, and the immune system. The seven family members display variable Ca2+ permeabilities that are amongst the highest of all ligand-gated channels (Egan and Khakh, 2004). We previously reported that polar residues regulate the Ca2+ permeability of the P2X(2) receptor (Migita et al., 2001). Here, we test the hypothesis that the formal charge of acidic amino acids underlies the higher fractional Ca2+ currents (Pf%) o |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76190. 呼肠孤病毒NS1-2具有病毒孔蛋白活性，诱导异常细胞钙信号以促进病毒复制
+
+| Field | Content |
+|------|------|
+| EN Title | Recovirus NS1-2 Has Viroporin Activity That Induces Aberrant Cellular Calcium Signaling To Facilitate Virus Replication |
+| ZH Title | 呼肠孤病毒NS1-2具有病毒孔蛋白活性，诱导异常细胞钙信号以促进病毒复制 |
+| ZH Abstract | 研究呼肠孤病毒NS1-2的病毒孔蛋白活性。 |
+| EN Abstract | Enteric viruses in the Caliciviridae family cause acute gastroenteritis in humans and animals, but the cellular processes needed for virus replication and disease remain unknown. A common strategy among enteric viruses, including rotaviruses and enteroviruses, is to encode a viral ion channel (i.e., viroporin) that is targeted to the endoplasmic reticulum (ER) and disrupts host calcium (Ca2+) homeostasis. Previous reports have demonstrated genetic and functional similarities between the nonstruc |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76193. 突触前蛋白激酶C控制发育中的视网膜顶盖树突的成熟和分支动态：可能在活动驱动的锐化中起作用
+
+| Field | Content |
+|------|------|
+| EN Title | Presynaptic protein kinase C controls maturation and branch dynamics of developing retinotectal arbors: possible role in activity-driven sharpening. |
+| ZH Title | 突触前蛋白激酶C控制发育中的视网膜顶盖树突的成熟和分支动态：可能在活动驱动的锐化中起作用 |
+| ZH Abstract | 研究蛋白激酶C在视网膜顶盖树突发育中的作用。 |
+| EN Abstract | Visual activity refines developing retinotectal maps and shapes individual retinal arbors via an NMDA receptor-dependent mechanism. As retinal axons grow into tectum, they slow markedly and emit many transient side branches behind the tip, assuming a "bottlebrush" morphology. Some branches are stabilized and branch further, giving rise to a compact arbor. The dynamic rate of branch addition and deletion is increased twofold when MK801 is used to block NMDA receptors, as if this prevents release |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76203. 硬骨鱼特异性基因组复制后信号转导和代谢通路中重复基因丢失/保留的时间模式
+
+| Field | Content |
+|------|------|
+| EN Title | Temporal pattern of loss/persistence of duplicate genes involved in signal transduction and metabolic pathways after teleost-specific genome duplication |
+| ZH Title | 硬骨鱼特异性基因组复制后信号转导和代谢通路中重复基因丢失/保留的时间模式 |
+| ZH Abstract | 硬骨鱼基因组复制后基因进化模式 |
+| EN Abstract | Background: Recent genomic studies have revealed a teleost-specific third-round whole genome duplication (3R-WGD) event occurred in a common ancestor of teleost fishes. However, it is unclear how the genes duplicated in this event were lost or persisted during the diversification of teleosts, and therefore, how many of the duplicated genes contribute to the genetic differences among teleosts. This subject is also important for understanding the process of vertebrate evolution through WGD events. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76220. 松弛素样肽家族的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of the relaxin-like peptide family - art. no. 14 |
+| ZH Title | 松弛素样肽家族的进化 |
+| ZH Abstract | 松弛素样肽家族进化分析 |
+| EN Abstract | Background: The relaxin-like peptide family belongs in the insulin superfamily and consists of 7 peptides of high structural but low sequence similarity; relaxin-1, 2 and 3, and the insulin-like (INSL) peptides, INSL3, INSL4, INSL5 and INSL6. The functions of relaxin-3, INSL4, INSL5, INSL6 remain uncharacterised. The evolution of this family has been contentious; high sequence variability is seen between closely related species, while distantly related species show high similarity; an invertebra |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76221. 一个GATA依赖的右心室增强子控制发育中心脏的dHAND转录
+
+| Field | Content |
+|------|------|
+| EN Title | A GATA-dependent right ventricular enhancer controls dHAND transcription in the developing heart. |
+| ZH Title | 一个GATA依赖的右心室增强子控制发育中心脏的dHAND转录 |
+| ZH Abstract | 心脏发育中dHAND转录调控机制 |
+| EN Abstract | Heart formation in vertebrates is believed to occur in a segmental fashion, with discreet populations of cardiac progenitors giving rise to different chambers of the heart. However, the mechanisms involved in specification of different chamber lineages are unclear. The basic helix-loop-helix transcription factor dHAND is expressed in cardiac precursors throughout the cardiac crescent and the linear heart tube, before becoming restricted to the right ventricular chamber at the onset of looping mo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76232. 脊椎动物密码子偏好性表明一个高GC含量的祖先基因组
+
+| Field | Content |
+|------|------|
+| EN Title | Vertebrate codon bias indicates a highly GC-rich ancestral genome |
+| ZH Title | 脊椎动物密码子偏好性表明一个高GC含量的祖先基因组 |
+| ZH Abstract | 脊椎动物密码子偏好性进化分析 |
+| EN Abstract | Two factors are thought to have contributed to the origin of codon usage bias in eukaryotes: 1) genome-wide mutational forces that shape overall GC-content and create context-dependent nucleotide bias, and 2) positive selection for codons that maximize efficient and accurate translation. Particularly invertebrates, these two explanations contradict each other and cloud the origin of codon bias in the taxon. On the one hand, mutational forces fail to explain GC-richness (similar to 60%) of third |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76233. Phox2b在协调泛神经元和类型特异性神经发生方面的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of Phox2b in synchronizing pan-neuronal and type-specific aspects of neurogenesis. |
+| ZH Title | Phox2b在协调泛神经元和类型特异性神经发生方面的作用 |
+| ZH Abstract | Phox2b协调神经发生机制研究 |
+| EN Abstract | Within the developing vertebrate nervous system, specific subclasses of neurons are produced in vastly different numbers at defined times and locations. This implies the concomitant activation of a program that controls pan-neuronal differentiation and of a program that specifies neuronal subtype identity, but how these programs are coordinated in time and space is not well understood. Our previous loss- and gain-of-function studies have defined Phox2b as a homeodomain transcription factor that |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76288. 血红素加氧酶-1通过增强肠道细菌清除维持肠道稳态
+
+| Field | Content |
+|------|------|
+| EN Title | Heme Oxygenase-1 Maintains Intestinal Homeostasis Through Augmented Enteric Bacterial Clearance |
+| ZH Title | 血红素加氧酶-1通过增强肠道细菌清除维持肠道稳态 |
+| ZH Abstract | 血红素加氧酶-1通过增强肠道细菌清除维持肠道稳态（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76297. RETINOBASE：一个用于视网膜基因表达数据的网络数据库、数据挖掘和分析平台
+
+| Field | Content |
+|------|------|
+| EN Title | RETINOBASE: a web database, data mining and analysis platform for gene expression data on retina |
+| ZH Title | RETINOBASE：一个用于视网膜基因表达数据的网络数据库、数据挖掘和分析平台 |
+| ZH Abstract | 构建视网膜基因表达数据库。 |
+| EN Abstract | Background: The retina is a multi-layered sensory tissue that lines the back of the eye and acts at the interface of input light and visual perception. Its main function is to capture photons and convert them into electrical impulses that travel along the optic nerve to the brain where they are turned into images. It consists of neurons, nourishing blood vessels and different cell types, of which neural cells predominate. Defects in any of these cells can lead to a variety of retinal diseases, i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76317. 使用电可调透镜的高速多模态扩展景深显微镜
+
+| Field | Content |
+|------|------|
+| EN Title | High-Speed Multi-Modal Extended Depth-of-Field Microscopy with an Electrically Tunable Lens |
+| ZH Title | 使用电可调透镜的高速多模态扩展景深显微镜 |
+| ZH Abstract | 开发扩展景深显微镜技术。 |
+| EN Abstract | High spatial resolution imaging over the entire volume for intravital imaging of biological specimens has long been vital. However, the depth-of-field (DOF) and spatial resolution are intrinsically interdependent. Here, a new extended DOF (EDOF) microscopy technique based on partially coherent annular illumination is proposed, termed AI-EDOF, by combining an electrically tunable lens with a conventional microscope with modified illumination, for motion-free, high spatial resolution real-time all |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76321. 辐射诱导旁观者效应中物理成分的证据？
+
+| Field | Content |
+|------|------|
+| EN Title | Evidence for a physical component to the radiation-induced bystander effect? |
+| ZH Title | 辐射诱导旁观者效应中物理成分的证据？ |
+| ZH Abstract | 利用鱼类模型测试辐射信号物理成分 |
+| EN Abstract | Purpose : The nature of the transferrable factor which goes from irradiated objects to bystander objects remains undefined. Most agree that a chemical entity is the likely 'factor' although some authors have produced in vitro evidence for the involvement of a physical component or a very potent volatile capable of traveling through air distances. In this paper we test the hypothesis that the communicated signal may be physical at least in part.Methods : The in vivo fish model was used to allow s |
+| Judgment | 是 |
+| Reason | 未明确鱼类种类 |
+---
+### 76329. 21世纪的物种外推
+
+| Field | Content |
+|------|------|
+| EN Title | SPECIES EXTRAPOLATION FOR THE 21ST CENTURY |
+| ZH Title | 21世纪的物种外推 |
+| ZH Abstract | 讨论生态风险评估中物种外推的安全因子 |
+| EN Abstract | Safety factors are used in ecological risk assessments to extrapolate from the toxic responses of laboratory test species to all species representing that group in the environment More accurate extrapolation of species responses is important Advances in understanding the mechanistic basis for toxicological responses and identifying molecular response pathways can provide a basis for extrapolation across species and in part an explanation for the variability in whole organism responses to toxican |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76334. 一种从不同物种粪便中高效提取微塑料的方法
+
+| Field | Content |
+|------|------|
+| EN Title | An efficient method for extracting microplastics from feces of different species |
+| ZH Title | 一种从不同物种粪便中高效提取微塑料的方法 |
+| ZH Abstract | 开发Fenton试剂与硝酸联合消化粪便提取微塑料 |
+| EN Abstract | Concerns have been raised regarding the ingestion of microplastics (MPs) by numerous organisms including humans. However, no efficient and standardized methods are available for extracting MPs from feces. In this study, we introduce a novel approach with high digestion efficiency that involves using Fenton's reagent and nitric add to remove feces solids. Firstly, Fenton's reagent was used to degrade small solids and decompose large solids into small pieces. Secondly, nitric acid was used to dige |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76345. 明亮灵敏的比率荧光探针实现内源性甲醛成像及甲醛间接氧化损伤机制探索
+
+| Field | Content |
+|------|------|
+| EN Title | Bright and sensitive ratiometric fluorescent probe enabling endogenous FA imaging and mechanistic exploration of indirect oxidative damage due to FA in various living systems |
+| ZH Title | 明亮灵敏的比率荧光探针实现内源性甲醛成像及甲醛间接氧化损伤机制探索 |
+| ZH Abstract | 开发荧光探针用于活体甲醛成像 |
+| EN Abstract | As a notorious toxin, formaldehyde (FA) poses an immense threat to human health. Aberrantly elevated FA levels lead to serious pathologies, including organ damage, neurodegeneration, and cancer. Unfortunately, current techniques limit FA imaging to general comparative studies, instead of a mechanistic exploration of its biological role, and this is presumably due to the lack of robust molecular tools for reporting FA in living systems. More importantly, despite being reductive, FA, however, can |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76347. 蓝藻粗提物对不同水生生物的影响：蓝藻毒素调节因子的证据
+
+| Field | Content |
+|------|------|
+| EN Title | The effects of a cyanobacterial crude extract on different aquatic organisms: evidence for cyanobacterial toxin modulating factors. |
+| ZH Title | 蓝藻粗提物对不同水生生物的影响：蓝藻毒素调节因子的证据 |
+| ZH Abstract | 研究蓝藻粗提物对多种水生生物的毒性 |
+| EN Abstract | In an aquatic ecosystem, during cyanobacterial bloom lysis, a mixture of toxins and other cyanobacterial and bacterial components will be present in the water, acting on aquatic organisms. Most of the research into toxic effects of cyanobacteria has involved the use of purified toxins. In this study, the "real-life" situation of a cyanobacterial lysis event was investigated. For this purpose, intact cells from a natural cyanobacterial bloom from Lake Muggelsee, Berlin, were taken and the cells w |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76353. SHROOM3编码/非编码变异在CKD患者中的特征分析
+
+| Field | Content |
+|------|------|
+| EN Title | Characterization of Coding/Noncoding Variants for SHROOM3 in Patients with CKD |
+| ZH Title | SHROOM3编码/非编码变异在CKD患者中的特征分析 |
+| ZH Abstract | 整合多种方法研究SHROOM3变异与CKD关联 |
+| EN Abstract | Background Interpreting genetic variants is one of the greatest challenges impeding analysis of rapidly increasing volumes of genomic data from patients. For example, SHROOM3 is an associated risk gene for CKD, yet causative mechanism(s) of SHROOM3 allele(s) are unknown.Methods We used our analytic pipeline that integrates genetic, computational, biochemical, CRISPR/Cas9 editing, molecular, and physiologic data to characterize coding and noncoding variants to study the human SHROOM3 risk locus f |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76355. 视网膜双极细胞尖峰以毫秒精度锁相视觉刺激
+
+| Field | Content |
+|------|------|
+| EN Title | Spikes in Retinal Bipolar Cells Phase-Lock to Visual Stimuli with Millisecond Precision |
+| ZH Title | 视网膜双极细胞尖峰以毫秒精度锁相视觉刺激 |
+| ZH Abstract | 通过斑马鱼活体成像研究双极细胞编码 |
+| EN Abstract | Background: The conversion of an analog stimulus into the digital form of spikes is a fundamental step in encoding sensory information. Here, we investigate this transformation in the visual system of fish by in vivo calcium imaging and electrophysiology of retinal bipolar cells, which have been assumed to be purely graded neurons.Results: Synapses of all major classes of retinal bipolar cell encode visual information by using a combination of spikes and graded signals. Spikes are triggered with |
+| Judgment | 是 |
+| Reason | 仅提及fish，未明确斑马鱼 |
+---
+### 76378. 鱼类中的RNAi介导基因沉默？
+
+| Field | Content |
+|------|------|
+| EN Title | RNAi-mediated gene silencing in fishes? |
+| ZH Title | 鱼类中的RNAi介导基因沉默？ |
+| ZH Abstract | 综述RNAi在鱼类中的应用。 |
+| EN Abstract | The recent discovery that small regulatory RNAs have diverse roles in eukaryotic intracellular life, such as fine tuners of endogenous gene expression, as inhibitors of viral replication and as suppressors of transposon activity, is now widely recognized as a major breakthrough in the understanding of cellular biology. The pathways used by these small RNAs seem to build upon a few central mechanisms in which small double-stranded RNAs (dsRNAs) are generated from various precursor RNAs of exogeno |
+| Judgment | 是 |
+| Reason | 摘要未明确研究对象 |
+---
+### 76393. Egfl6 is
+
+| Field | Content |
+|------|------|
+| EN Title | Egfl6 is |
+| ZH Title | Egfl6 is |
+| ZH Abstract | 摘要缺失 |
+| EN Abstract | [8] abstract_zh: 摘要缺失 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76486. 通过新型笼化剂实现光介导的基因激活/失活
+
+| Field | Content |
+|------|------|
+| EN Title | [Photo-mediated gene activation/inactivation by novel caging agent]. |
+| ZH Title | 通过新型笼化剂实现光介导的基因激活/失活 |
+| ZH Abstract | 通过新型笼化剂实现光介导的基因激活/失活（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76600. 脊椎动物twist家族的进化和功能协同化：通过表达域合并导致差异基因丢失的机制（第24卷，第1912页，2007年）
+
+| Field | Content |
+|------|------|
+| EN Title | Evolution of the vertebrate twist family and synfunctionalization: a mechanism for differential gene loss through merging of expression domains (vol 24, pg 1912, 2007) |
+| ZH Title | 脊椎动物twist家族的进化和功能协同化：通过表达域合并导致差异基因丢失的机制（第24卷，第1912页，2007年） |
+| ZH Abstract | 脊椎动物twist家族的进化和功能协同化：通过表达域合并导致（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76646. 无需重新思考感觉运动回路——对Goldblatt等人（2024）的评论
+
+| Field | Content |
+|------|------|
+| EN Title | No need to rethink sensorimotor circuits-Commentary on Goldblatt et al. (2024) |
+| ZH Title | 无需重新思考感觉运动回路——对Goldblatt等人（2024）的评论 |
+| ZH Abstract | 无需重新思考感觉运动回路——对Goldblatt等人（202（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76663. 解读prominins在视觉系统中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Deciphering the roles of prominins in the visual system |
+| ZH Title | 解读prominins在视觉系统中的作用 |
+| ZH Abstract | 解读prominins在视觉系统中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76698. 早期压力筛选
+
+| Field | Content |
+|------|------|
+| EN Title | Early pressure screens. |
+| ZH Title | 早期压力筛选 |
+| ZH Abstract | 早期压力筛选（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76733. 阐明沉默的时间顺序
+
+| Field | Content |
+|------|------|
+| EN Title | Elucidating the temporal order of silencing |
+| ZH Title | 阐明沉默的时间顺序 |
+| ZH Abstract | 阐明沉默的时间顺序（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76917. 支持肿瘤可能进化作用的新数据：鱼类肿瘤中表达的进化新基因决定人类渐进进化特征
+
+| Field | Content |
+|------|------|
+| EN Title | New data supporting the possible evolutionary role of tumors: Evolutionary novel genes expressed in fish tumors determine progressive evolutionary characters in humans |
+| ZH Title | 支持肿瘤可能进化作用的新数据：鱼类肿瘤中表达的进化新基因决定人类渐进进化特征 |
+| ZH Abstract | 支持肿瘤可能进化作用的新数据：鱼类肿瘤中表达的进化新基因决定（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 76999. TCF12功能缺失突变导致常染色体显性卡尔曼综合征并揭示致病位点间的网络水平相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Loss of function mutations in TCF12 cause autosomal dominant Kallmann syndrome and reveal network-level interactions between causal loci |
+| ZH Title | TCF12功能缺失突变导致常染色体显性卡尔曼综合征并揭示致病位点间的网络水平相互作用 |
+| ZH Abstract | TCF12功能缺失突变导致常染色体显性卡尔曼综合征并揭示致病（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77015. 骨细胞是低强度脉冲超声治疗骨折愈合的主要响应者
+
+| Field | Content |
+|------|------|
+| EN Title | Osteocytes as main responders to Low Intensity Pulsed Ultrasound for the treatment of fracture healing |
+| ZH Title | 骨细胞是低强度脉冲超声治疗骨折愈合的主要响应者 |
+| ZH Abstract | 骨细胞是低强度脉冲超声治疗骨折愈合的主要响应者（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77017. 胸腺发育的遗传解析
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic dissection of thymus development. |
+| ZH Title | 胸腺发育的遗传解析 |
+| ZH Abstract | 胸腺发育的遗传解析（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77055. 概述otopetrin通道中的质子传导途径
+
+| Field | Content |
+|------|------|
+| EN Title | Outlining the proton-conduction pathway in otopetrin channels |
+| ZH Title | 概述otopetrin通道中的质子传导途径 |
+| ZH Abstract | 概述otopetrin通道中的质子传导途径（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77081. 一个有许多房间的房子：foxn4如何赋予心脏腔室
+
+| Field | Content |
+|------|------|
+| EN Title | A house with many rooms:: how the heart got its chambers with foxn4 |
+| ZH Title | 一个有许多房间的房子：foxn4如何赋予心脏腔室 |
+| ZH Abstract | 一个有许多房间的房子：foxn4如何赋予心脏腔室（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77099. 超级快的鱼展现超级快的耦合
+
+| Field | Content |
+|------|------|
+| EN Title | Superfast fish show superfast coupling |
+| ZH Title | 超级快的鱼展现超级快的耦合 |
+| ZH Abstract | 超级快的鱼展现超级快的耦合（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 是 |
+| Reason | 摘要缺失，无法判断 |
+---
+### 77186. Creb3l3缺乏促进肠道脂质积累并改变含ApoB脂蛋白动力学
+
+| Field | Content |
+|------|------|
+| EN Title | Creb3l3 deficiency promotes intestinal lipid accumulation and alters ApoB-containing lipoprotein kinetics |
+| ZH Title | Creb3l3缺乏促进肠道脂质积累并改变含ApoB脂蛋白动力学 |
+| ZH Abstract | 利用斑马鱼研究Creb3l3在脂质代谢中的作用。 |
+| EN Abstract | Elevated levels of triglycerides in the bloodstream, a condition known as hypertriglyceridemia, represent a significant risk factor for the development of metabolic disorders and cardiovascular diseases. One key regulator of lipid metabolism is the transcrip3-like 3 (CREB3L3), which is expressed in the liver, intestine, and adipose tissue. CREB3L3 is localized to the endoplasmic reticulum membrane, and in vertebrates plays a crucial role in plasma lipid homeostasis. However, the precise molecula |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77231. Bmp-Id2a-Twist1-Fli1a网络指定颅神经嵴来源的外胚间充质
+
+| Field | Content |
+|------|------|
+| EN Title | A Bmp-Id2a-Twist1-Fli1a network specifies ectomesenchyme from cranial neural crest |
+| ZH Title | Bmp-Id2a-Twist1-Fli1a网络指定颅神经嵴来源的外胚间充质 |
+| ZH Abstract | Bmp-Id2a-Twist1-Fli1a网络指定颅神经嵴来（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77234. 滋养层糖蛋白样蛋白对Wnt信号的反馈调节
+
+| Field | Content |
+|------|------|
+| EN Title | Feedback modulation of Wnt signaling by trophoblast glycoprotein-like |
+| ZH Title | 滋养层糖蛋白样蛋白对Wnt信号的反馈调节 |
+| ZH Abstract | 滋养层糖蛋白样蛋白对Wnt信号的反馈调节（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77254. 肿瘤抑制因子的双重作用
+
+| Field | Content |
+|------|------|
+| EN Title | At the double for tumor suppressor |
+| ZH Title | 肿瘤抑制因子的双重作用 |
+| ZH Abstract | 肿瘤抑制因子的双重作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77280. 整合素连接激酶结合蛋白是心脏机械拉伸传感器的必需组分
+
+| Field | Content |
+|------|------|
+| EN Title | Integrin-linked-kinase Binding Proteins Are Essential Components Of The Cardiac Mechanical Strech Sensor |
+| ZH Title | 整合素连接激酶结合蛋白是心脏机械拉伸传感器的必需组分 |
+| ZH Abstract | 整合素连接激酶结合蛋白是心脏机械拉伸传感器的必需组分（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77334. 单细胞转录组和基因敲除分析揭示影响眼前段发育的新候选基因
+
+| Field | Content |
+|------|------|
+| EN Title | Single cell transcriptome and gene knockout analysis reveals novel candidate genes with impact on anterior segment development |
+| ZH Title | 单细胞转录组和基因敲除分析揭示影响眼前段发育的新候选基因 |
+| ZH Abstract | 单细胞转录组和基因敲除分析揭示影响眼前段发育的新候选基因（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77340. Hif抑制因子(Fih)在Hif失调条件下影响血管的形成和功能
+
+| Field | Content |
+|------|------|
+| EN Title | Factor inhibiting Hif (Fih) affects formation and functionality of blood vessels, under conditions of de-regulated Hif |
+| ZH Title | Hif抑制因子(Fih)在Hif失调条件下影响血管的形成和功能 |
+| ZH Abstract | Hif抑制因子(Fih)在Hif失调条件下影响血管的形成和功（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77341. Agtrl1b以非细胞自主方式作用于心肌祖细胞发育过程中的正确细胞迁移
+
+| Field | Content |
+|------|------|
+| EN Title | Agtrl1b acts non-cell-autonomously for proper cell migration during myocardial progenitor development |
+| ZH Title | Agtrl1b以非细胞自主方式作用于心肌祖细胞发育过程中的正确细胞迁移 |
+| ZH Abstract | Agtrl1b以非细胞自主方式作用于心肌祖细胞发育过程中的正（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77414. 用于将机器人整合到动物社会中的生物混合交互框架
+
+| Field | Content |
+|------|------|
+| EN Title | A Biohybrid Interaction Framework for the Integration of Robots in Animal Societies |
+| ZH Title | 用于将机器人整合到动物社会中的生物混合交互框架 |
+| ZH Abstract | 提出生物混合框架，未指定斑马鱼。 |
+| EN Abstract | The collective behavior of animals has been traditionally studied through observation, quantitative models of behavior, and devices of low intelligence. Nowadays, the advancements in the field of robotics allow for closed-loop experiments that occur in real-time, and for artificial agents that intelligently and autonomously blend into hybrid groups of animals and robots (i.e., biohybrid groups). Such systems provide scientists with the opportunity to study the social interactions that govern col |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77421. ReCodLiver0.9：克服非模式物种基因组规模代谢重建的挑战
+
+| Field | Content |
+|------|------|
+| EN Title | ReCodLiver0.9: Overcoming Challenges in Genome-Scale Metabolic Reconstruction of a Non-model Species |
+| ZH Title | ReCodLiver0.9：克服非模式物种基因组规模代谢重建的挑战 |
+| ZH Abstract | 介绍非模式物种基因组规模代谢模型重建方法。 |
+| EN Abstract | The availability of genome sequences, annotations, and knowledge of the biochemistry underlying metabolic transformations has led to the generation of metabolic network reconstructions for a wide range of organisms in bacteria, archaea, and eukaryotes. When modeled using mathematical representations, a reconstruction can simulate underlying genotype-phenotype relationships. Accordingly, genome-scale metabolic models (GEMs) can be used to predict the response of organisms to genetic and environme |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77429. 体内全场功能光学血细胞计数器
+
+| Field | Content |
+|------|------|
+| EN Title | In vivo full-field functional optical hemocytometer |
+| ZH Title | 体内全场功能光学血细胞计数器 |
+| ZH Abstract | 提出基于吸收强度波动调制的活体光学血细胞计数方法。 |
+| EN Abstract | We present an in vivo lab-free full-field functional optical hemocytometer (FFOH) for application to the capillaries of a live biological specimen, based on the absorption intensity fluctuation modulation (AIFM) effect. Because of the absorption difference between the red blood cells (RBCs) and background tissue under low-coherence light illumination, an endogenous instantaneous intensity fluctuation is generated by the AIFM effect when RBCs discontinuously traverse the capillary. The AIFM effec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77442. 法国基因缺陷鉴定进展
+
+| Field | Content |
+|------|------|
+| EN Title | Advances in gene defect identification in France |
+| ZH Title | 法国基因缺陷鉴定进展 |
+| ZH Abstract | 综述法国基因缺陷鉴定进展。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77443. 利用深度学习揭示发育时间和节奏
+
+| Field | Content |
+|------|------|
+| EN Title | Uncovering developmental time and tempo using deep learning |
+| ZH Title | 利用深度学习揭示发育时间和节奏 |
+| ZH Abstract | 用深度学习分析胚胎发育时间相似性。 |
+| EN Abstract | During animal development, embryos undergo complex morphological changes over time. Differences in developmental tempo between species are emerging as principal drivers of evolutionary novelty, but accurate description of these processes is very challenging. To address this challenge, we present here an automated and unbiased deep learning approach to analyze the similarity between embryos of different timepoints. Calculation of similarities across stages resulted in complex phenotypic fingerpri |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77453. 促红细胞生成素靶点Fam210b通过控制线粒体铁输入和调节Fech活性调控红细胞血红素合成
+
+| Field | Content |
+|------|------|
+| EN Title | Target of Erythropoietin, Fam210b, Regulates Erythroid Heme Synthesis By Control of Mitochondrial Iron Import and Regulation of Fech Activity |
+| ZH Title | 促红细胞生成素靶点Fam210b通过控制线粒体铁输入和调节Fech活性调控红细胞血红素合成 |
+| ZH Abstract | 研究Fam210b在红细胞血红素合成中的作用。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77454. 脊椎动物的集体行为：感官视角
+
+| Field | Content |
+|------|------|
+| EN Title | Collective behaviour in vertebrates: a sensory perspective |
+| ZH Title | 脊椎动物的集体行为：感官视角 |
+| ZH Abstract | 探讨感官能力对集体行为模型的影响。 |
+| EN Abstract | Collective behaviour models can predict behaviours of schools, flocks, and herds. However, in many cases, these models make biologically unrealistic assumptions in terms of the sensory capabilities of the organism, which are applied across different species. We explored how sensitive collective behaviour models are to these sensory assumptions. Specifically, we used parameters reflecting the visual coverage and visual acuity that determine the spatial range over which an individual can detect an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77461. 推进水生毒理学组学：SETAC北美第31届年会
+
+| Field | Content |
+|------|------|
+| EN Title | Advancing the Omics in aquatic toxicology: SETAC North America 31st Annual Meeting |
+| ZH Title | 推进水生毒理学组学：SETAC北美第31届年会 |
+| ZH Abstract | 会议摘要，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77468. 量子噪声可能限制脊椎动物体轴左右组织器中纤毛的机械感觉灵敏度
+
+| Field | Content |
+|------|------|
+| EN Title | Quantum noise may limit the mechanosensory sensitivity of cilia in the left-right organizer of the vertebrate bodyplan |
+| ZH Title | 量子噪声可能限制脊椎动物体轴左右组织器中纤毛的机械感觉灵敏度 |
+| ZH Abstract | 探讨量子力学在脊椎动物左右对称破缺机制中的作用。 |
+| EN Abstract | Could nature be harnessing quantum mechanics in cilia to optimize the sensitivity of the mechanism of left-right symmetry breaking during development in vertebrates? I evaluate whether mechanosensing - i.e., the detection of a left-right asymmetric signal through mechanical stimulation of sensory cilia, as opposed to biochemical signalling - might be functioning in the embryonic left-right organizer of the vertebrate bodyplan through quantum mechanics. I conclude that there is a possible role fo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77470. mTORC1信号在硬骨鱼B细胞免疫中的保守作用
+
+| Field | Content |
+|------|------|
+| EN Title | Conserved Role of mTORC1 Signaling in B Cell Immunity in Teleost Fish |
+| ZH Title | mTORC1信号在硬骨鱼B细胞免疫中的保守作用 |
+| ZH Abstract | 研究mTORC1信号在鱼类B细胞免疫中的作用。 |
+| EN Abstract | Mammalian studies have demonstrated that B cell immune responses are regulated by mechanistic target of rapamycin complex 1 (mTORC1) signaling. Teleost fish represent the oldest living bony vertebrates that contain bona fide B cells. So far, whether the regulatory mechanism of mTORC1 signaling in B cells occurred in teleost fish is still unknown. In this study, we developed a fish model by using rapamycin (RAPA) treatment to inhibit mTORC1 signaling and demonstrated the role of mTORC1 signaling |
+| Judgment | 是 |
+| Reason | 未明确说明鱼种 |
+---
+### 77481. 生成用于全基因组序列支架的物理图谱重叠群特异性序列
+
+| Field | Content |
+|------|------|
+| EN Title | Generation of Physical Map Contig-Specific Sequences Useful for Whole Genome Sequence Scaffolding |
+| ZH Title | 生成用于全基因组序列支架的物理图谱重叠群特异性序列 |
+| ZH Abstract | 开发策略生成基因组组装所需的序列资源。 |
+| EN Abstract | Along with the rapid advances of the nextgen sequencing technologies, more and more species are added to the list of organisms whose whole genomes are sequenced. However, the assembled draft genome of many organisms consists of numerous small contigs, due to the short length of the reads generated by nextgen sequencing platforms. In order to improve the assembly and bring the genome contigs together, more genome resources are needed. In this study, we developed a strategy to generate a valuable |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77494. 头部和心脏发育与进化中的基因调控网络和组织相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Gene Regulatory Network and Tissue Interactions Important for Head and Heart Development and Evolution |
+| ZH Title | 头部和心脏发育与进化中的基因调控网络和组织相互作用 |
+| ZH Abstract | 头部和心脏发育与进化中的基因调控网络和组织相互作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77497. 新的双等位ABCC9功能缺失变异扩展ABCC9相关智力障碍和肌病综合征
+
+| Field | Content |
+|------|------|
+| EN Title | Novel biallelic ABCC9 loss-of-function variants expand ABCC9-related intellectual disability and myopathy syndrome |
+| ZH Title | 新的双等位ABCC9功能缺失变异扩展ABCC9相关智力障碍和肌病综合征 |
+| ZH Abstract | 新的双等位ABCC9功能缺失变异扩展ABCC9相关智力障碍和（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77546. 第61届意大利胚胎学组大会及第36届意大利组织化学大会摘要
+
+| Field | Content |
+|------|------|
+| EN Title | 61st Congress of the Italian Embryological Group (GEI) and 36th Congress of the Italian Society of Histochemistry, Pisa, Italy, June 7-10, 2015 Abstracts |
+| ZH Title | 第61届意大利胚胎学组大会及第36届意大利组织化学大会摘要 |
+| ZH Abstract | 会议摘要集，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77577. 脊髓运动节律器的发育
+
+| Field | Content |
+|------|------|
+| EN Title | Development of a spinal locomotor rheostat |
+| ZH Title | 脊髓运动节律器的发育 |
+| ZH Abstract | 研究脊髓运动网络发育，未明确提及斑马鱼。 |
+| EN Abstract | Locomotion in immature animals is often inflexible, but gradually acquires versatility to enable animals to maneuver efficiently through their environment. Locomotor activity in adults is produced by complex spinal cord networks that develop from simpler precursors. How does complexity and plasticity emerge during development to bestow flexibility upon motor behavior? And how does this complexity map onto the peripheral innervation fields of motorneurons during development? We show in postembryo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77621. 从卵母细胞角度看受精成功的社论
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: The Fertilization Success From the Oocyte's Perspective |
+| ZH Title | 从卵母细胞角度看受精成功的社论 |
+| ZH Abstract | 从卵母细胞角度看受精成功的社论（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77623. 常规鱼类机动的控制：连接中线运动学与转向结果
+
+| Field | Content |
+|------|------|
+| EN Title | The control of routine fish maneuvers: Connecting midline kinematics to turn outcomes |
+| ZH Title | 常规鱼类机动的控制：连接中线运动学与转向结果 |
+| ZH Abstract | 研究鱼类机动性，分析身体变形与机动结果的关系。 |
+| EN Abstract | Maneuverability is an important factor in determining an animal's ability to navigate its environment and succeed in predator-prey interactions. Although fish are capable of a wide range of maneuvers, most of the literature has focused on escape maneuvers while less attention has been paid to routine maneuvers, such as those used for habitat navigation. The quantitative relationships between body deformations and maneuver outcomes (displacement of the center of mass and change in trajectory) are |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77629. 侧线鳞片类型及其分类分布综述
+
+| Field | Content |
+|------|------|
+| EN Title | Lateral line scale types and review of their taxonomic distribution |
+| ZH Title | 侧线鳞片类型及其分类分布综述 |
+| ZH Abstract | 综述鱼类侧线鳞片结构类型及其分类分布。 |
+| EN Abstract | The trunk canal of fishes is contained within a series of lateral line (LL) scales. To categorise LL scale structural types, and determine their distribution, an analysis of original data was undertaken using light and scanning electron microscopy in combination with a literature survey from over 1,000 species representative of most orders of bony fishes. Our categorisation of LL scales is based on the relationship between the tube, or ossified trunk canal segment, and associated scale. Tubular- |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77631. 组织模式与细胞力学
+
+| Field | Content |
+|------|------|
+| EN Title | Tissue patterning and cellular mechanics |
+| ZH Title | 组织模式与细胞力学 |
+| ZH Abstract | 综述发育过程中细胞组织成组织的机制。 |
+| EN Abstract | In development, cells organize into biological tissues through cell growth, migration, and differentiation. Globally, this process is dictated by a genetically encoded program in which secreted morphogens and cell-cell interactions prompt the adoption of unique cell fates. Yet, at its lowest level, development is achieved through the modification of cell cell adhesion and actomyosin-based contractility, which set the level of tension within cells and dictate how they pack together into tissues. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77632. 药理学靶向肌动蛋白依赖性发动蛋白寡聚化改善多种动物模型的慢性肾病
+
+| Field | Content |
+|------|------|
+| EN Title | Pharmacological targeting of actin-dependent dynamin oligomerization ameliorates chronic kidney disease in diverse animal models |
+| ZH Title | 药理学靶向肌动蛋白依赖性发动蛋白寡聚化改善多种动物模型的慢性肾病 |
+| ZH Abstract | 研究靶向发动蛋白寡聚化治疗慢性肾病。 |
+| EN Abstract | Dysregulation of the actin cytoskeleton in podocytes represents a common pathway in the pathogenesis of proteinuria across a spectrum of chronic kidney diseases (CKD). The GTPase dynamin has been implicated in the maintenance of cellular architecture in podocytes through its direct interaction with actin. Furthermore, the propensity of dynamin to oligomerize into higher-order structures in an actin-dependent manner and to cross-link actin microfilaments into higher-order structures has been corr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77637. 锌指核酸酶基因敲除和敲入：现状与展望
+
+| Field | Content |
+|------|------|
+| EN Title | Gene knockout and knockin by zinc-finger nucleases: current status and perspectives |
+| ZH Title | 锌指核酸酶基因敲除和敲入：现状与展望 |
+| ZH Abstract | 综述锌指核酸酶在基因编辑中的应用。 |
+| EN Abstract | Zinc-finger nucleases (ZFNs) are engineered site-specific DNA cleavage enzymes that may be designed to recognize long target sites and thus cut DNA with high specificity. ZFNs mediate permanent and targeted genetic alteration via induction of a double-strand break at a specific genomic site. Compared to conventional homology-based gene targeting, ZFNs can increase the targeting rate by up to 100,000-fold; gene disruption via mutagenic DNA repair is similarly efficient. The utility of ZFNs has be |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77638. 水生生态系统中的氧化应激：第一届国际会议论文选前言
+
+| Field | Content |
+|------|------|
+| EN Title | Oxidative stress in aquatic ecosystems: Selected papers from the First International Conference Preface |
+| ZH Title | 水生生态系统中的氧化应激：第一届国际会议论文选前言 |
+| ZH Abstract | 水生生态系统中的氧化应激：第一届国际会议论文选前言（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77639. 突变p53蛋白，人类恶性肿瘤的主调控因子：第五届突变p53研讨会报告
+
+| Field | Content |
+|------|------|
+| EN Title | Mutant p53 protein, master regulator of human malignancies: a report on the fifth Mutant p53 Workshop |
+| ZH Title | 突变p53蛋白，人类恶性肿瘤的主调控因子：第五届突变p53研讨会报告 |
+| ZH Abstract | 突变p53蛋白，人类恶性肿瘤的主调控因子：第五届突变p53研（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77641. 硬骨鱼类中枢神经系统的成体神经发生和神经元再生
+
+| Field | Content |
+|------|------|
+| EN Title | Adult neurogenesis and neuronal regeneration in the central nervous system of teleost fish |
+| ZH Title | 硬骨鱼类中枢神经系统的成体神经发生和神经元再生 |
+| ZH Abstract | 综述硬骨鱼类成体神经发生和再生能力。 |
+| EN Abstract | Teleost fish are distinguished by their ability to constitutively generate new neurons in the adult central nervous system ('adult neurogenesis'), and to regenerate whole neurons after injury ('neuronal regeneration'). In the brain, new neurons are produced in large numbers in several dozens of proliferation zones. In the spinal cord, proliferating cells are present in the ependymal layer and throughout the parenchyma. In the retina, new cells arise from the ciliary marginal zone and from Muller |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77642. 脑干的结构、功能和分子组织
+
+| Field | Content |
+|------|------|
+| EN Title | The structural, functional, and molecular organization of the brainstem |
+| ZH Title | 脑干的结构、功能和分子组织 |
+| ZH Abstract | 综述脑干的结构和功能组织。 |
+| EN Abstract | According to His (1891, 1893) the brainstem consists of two longitudinal zones, the dorsal alar plate (sensory in nature) and the ventral basal plate (motor in nature). Johnston and Herrick indicated that both plates can be subdivided into separate somatic and visceral zones, distinguishing somatosensory and viscerosensory zones within the alar plate, and visceromotor and somatomotor zones within the basal plate. To test the validity of this "four-functional-zones" concept, I developed a topolog |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77644. 激酶抑制剂的心脏毒性：临床前模型预测和转化为临床结果
+
+| Field | Content |
+|------|------|
+| EN Title | Cardiotoxicity of kinase inhibitors: the prediction and translation of preclinical models to clinical outcomes |
+| ZH Title | 激酶抑制剂的心脏毒性：临床前模型预测和转化为临床结果 |
+| ZH Abstract | 综述激酶抑制剂的心脏毒性机制和临床转化。 |
+| EN Abstract | Targeted therapeutics, particularly those that inhibit the activity of protein kinases that are mutated and/or overexpressed in cancer, have revolutionized the treatment of some cancers and improved survival rates in many others. Although these agents dominate drug development in cancer, significant toxicities, including cardiotoxicity, have emerged. In this Review, we examine the underlying mechanisms that result in on-target or off-target cardiotoxicities of small molecule kinase inhibitors. W |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77645. 研究稀有造血干细胞和祖细胞表观遗传染色质状态的方法：MiniChIP-Chip
+
+| Field | Content |
+|------|------|
+| EN Title | A Method to Study the Epigenetic Chromatin States of Rare Hematopoietic Stem and Progenitor Cells; MiniChIP-Chip |
+| ZH Title | 研究稀有造血干细胞和祖细胞表观遗传染色质状态的方法：MiniChIP-Chip |
+| ZH Abstract | 介绍研究稀有造血干细胞染色质状态的方法。 |
+| EN Abstract | Dynamic chromatin structure is a fundamental property of gene transcriptional regulation, and has emerged as a critical modulator of physiological processes during cellular differentiation and development. Analysis of chromatin structure using molecular biology and biochemical assays in rare somatic stem and progenitor cells is key for understanding these processes but poses a great challenge because of their reliance on millions of cells. Through the development of a miniaturized genome-scale c |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77650. 脑和神经系统特异性蛋白中的简单序列
+
+| Field | Content |
+|------|------|
+| EN Title | Simple sequence in brain and nervous system specific proteins |
+| ZH Title | 脑和神经系统特异性蛋白中的简单序列 |
+| ZH Abstract | 分析脑和神经系统表达序列中的简单序列。 |
+| EN Abstract | We examined sequences expressed in the brain and nervous system using EST data. A previous study including sequences thought to have neurological function found a deficiency of simple sequence within such sequences. This was despite many examples of neurodegenerative diseases, such as Huntington disease, which are thought to be caused by expansions of polyglutamine tracts within associated protein sequences. It may be that many of the sequences thought to have neurological function have other ad |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77651. 培养细胞中基于Hes1的振荡器及其对分节钟的潜在意义
+
+| Field | Content |
+|------|------|
+| EN Title | A Hes1-based oscillator in cultured cells and its potential implications for the segmentation clock. |
+| ZH Title | 培养细胞中基于Hes1的振荡器及其对分节钟的潜在意义 |
+| ZH Abstract | 研究培养细胞中Hes1依赖的生物钟及其与分节钟的关系。 |
+| EN Abstract | During somitogenesis an oscillatory mechanism termed the "segmentation" clock generates periodic waves of gene expression, which translate into the periodic spatial pattern manifest as somites. The dynamic expression of the clock genes shares the same periodicity as somitogenesis. Notch signaling is believed to play a role in the segmentation clock mechanism. The paper by Hirata et al.(1) identifies a biological clock in cultured cells that is dependent upon the Notch target gene Hes1, and which |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77652. 体外多组分重建应激颗粒的方案
+
+| Field | Content |
+|------|------|
+| EN Title | Protocol for multi-component reconstitution of stress granules in vitro |
+| ZH Title | 体外多组分重建应激颗粒的方案 |
+| ZH Abstract | 提供体外重建应激颗粒的方案。 |
+| EN Abstract | To date, stress granule studies mainly focus on cell models. The diversity of molecules in stress granules makes it challenging to uncover the function of each molecule in stress granule regulation. Here, we provide a protocol to reconstitute stress granules with multi-components in vitro. We describe steps for strain amplification, protein purification, and liquid-liquid phase separation (LLPS). The multi-component reconstitution system constructed in this protocol also provides a technique for |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77654. 揭示先天性肾和尿路畸形病因的转化策略
+
+| Field | Content |
+|------|------|
+| EN Title | Translational strategies to uncover the etiology of congenital anomalies of the kidney and urinary tract |
+| ZH Title | 揭示先天性肾和尿路畸形病因的转化策略 |
+| ZH Abstract | 综述先天性肾和尿路畸形的病因研究策略。 |
+| EN Abstract | While up to 50% of children requiring kidney replacement therapy have congenital anomalies of the kidney and urinary tract (CAKUT), they represent only a fraction of the total patient population with CAKUT. The extreme variability in clinical outcome underlines the fundamental need to devise personalized clinical management strategies for individuals with CAKUT. Better understanding of the pathophysiology of abnormal kidney and urinary tract development provides a framework for precise diagnoses |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77655. 社论：ADAM、ADAMTS和astacin蛋白酶：组学时代的挑战与突破——第二卷
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: ADAM, ADAMTS and astacin proteases: Challenges and breakthroughs in the -Omics era-Volume II |
+| ZH Title | 社论：ADAM、ADAMTS和astacin蛋白酶：组学时代的挑战与突破——第二卷 |
+| ZH Abstract | 社论：ADAM、ADAMTS和astacin蛋白酶：组学时代（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77656. MYC在T细胞急性淋巴细胞白血病中的功能意义和靶向策略
+
+| Field | Content |
+|------|------|
+| EN Title | MYC in T-cell acute lymphoblastic leukemia: functional implications and targeted strategies |
+| ZH Title | MYC在T细胞急性淋巴细胞白血病中的功能意义和靶向策略 |
+| ZH Abstract | 综述MYC在T-ALL中的作用和靶向治疗。 |
+| EN Abstract | T-cell acute lymphoblastic leukemia (T-ALL) is an aggressive hematological cancer that frequently occurs in children and adolescents, which results from the transformation of immature T-cell progenitors. Aberrant cell growth and proliferation of T-ALL lymphoblasts are sustained by activation of strong oncogenic drivers. Mounting evidence highlights the critical role of the NOTCH1-MYC highway toward the initiation and progression of T-ALL. MYC has been emphasized as a primary NOTCH1 transcription |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77657. 基因组学研究中自闭症谱系障碍遗传变异的生物学意义
+
+| Field | Content |
+|------|------|
+| EN Title | Biological implications of genetic variations in autism spectrum disorders from genomics studies |
+| ZH Title | 基因组学研究中自闭症谱系障碍遗传变异的生物学意义 |
+| ZH Abstract | 综述自闭症谱系障碍的遗传因素。 |
+| EN Abstract | Autism spectrum disorder (ASD) is a highly heterogeneous neurodevelopmental condition characterized by atypical social interaction and communication together with repetitive behaviors and restricted interests. The prevalence of ASD has been increased these years. Compelling evidence has shown that genetic factors contribute largely to the development of ASD. However, knowledge about its genetic etiology and pathogenesis is limited. Broad applications of genomics studies have revealed the importa |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77658. 心脏再生：超越新肌肉和血管
+
+| Field | Content |
+|------|------|
+| EN Title | Heart regeneration: beyond new muscle and vessels |
+| ZH Title | 心脏再生：超越新肌肉和血管 |
+| ZH Abstract | 综述心脏再生研究进展。 |
+| EN Abstract | The most striking consequence of a heart attack is the loss of billions of heart muscle cells, alongside damage to the associated vasculature. The lost cardiovascular tissue is replaced by scar formation, which is non-functional and results in pathological remodelling of the heart and ultimately heart failure. It is, therefore, unsurprising that the heart regeneration field has centred efforts to generate new muscle and blood vessels through targeting cardiomyocyte proliferation and angiogenesis |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77659. 甲状腺激素对神经干细胞命运的调控：从发育到衰老
+
+| Field | Content |
+|------|------|
+| EN Title | Thyroid hormone regulation of neural stem cell fate: From development to ageing |
+| ZH Title | 甲状腺激素对神经干细胞命运的调控：从发育到衰老 |
+| ZH Abstract | 综述甲状腺激素对神经干细胞命运的调控。 |
+| EN Abstract | In the vertebrate brain, neural stem cells (NSCs) generate both neuronal and glial cells throughout life. However, their neuro- and gliogenic capacity changes as a function of the developmental context. Despite the growing body of evidence on the variety of intrinsic and extrinsic factors regulating NSC physiology, their precise cellular and molecular actions are not fully determined. Our review focuses on thyroid hormone (TH), a vital component for both development and adult brain function that |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77722. 洞察再生医学中的细胞去分化
+
+| Field | Content |
+|------|------|
+| EN Title | Insight into cellular dedifferentiation in regenerative medicine |
+| ZH Title | 洞察再生医学中的细胞去分化 |
+| ZH Abstract | 洞察再生医学中的细胞去分化（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77735. 生物医学研究中灵长类模型的需求
+
+| Field | Content |
+|------|------|
+| EN Title | Need for primate models in biomedical research. |
+| ZH Title | 生物医学研究中灵长类模型的需求 |
+| ZH Abstract | 生物医学研究中灵长类模型的需求（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77743. 探索海洋来源的抗氧化和抗炎剂：近期研究结果
+
+| Field | Content |
+|------|------|
+| EN Title | Exploring Marine-Derived Antioxidant and Anti-Inflammatory Agents: Findings from Recent Studies |
+| ZH Title | 探索海洋来源的抗氧化和抗炎剂：近期研究结果 |
+| ZH Abstract | 探索海洋来源的抗氧化和抗炎剂：近期研究结果（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77769. 一种光激活小分子抑制剂用于活体胚胎中Rho激酶的光控时空调节
+
+| Field | Content |
+|------|------|
+| EN Title | A photoactivatable small-molecule inhibitor for light-controlled spatiotemporal regulation of Rho kinase in live embryos |
+| ZH Title | 一种光激活小分子抑制剂用于活体胚胎中Rho激酶的光控时空调节 |
+| ZH Abstract | 开发光激活Rho激酶抑制剂用于胚胎研究。 |
+| EN Abstract | To uncover the molecular mechanisms of embryonic development, the ideal loss-of-function strategy would be capable of targeting specific regions of the living embryo with both temporal and spatial precision. To this end, we have developed a novel pharmacological agent that can be light activated to achieve spatiotemporally limited inhibition of Rho kinase activity in vivo. A new photolabile caging group, 6-nitropiperonyloxymethyl (NPOM), was installed on a small-molecule inhibitor of Rho kinase, |
+| Judgment | 是 |
+| Reason | 未明确提及模式生物 |
+---
+### 77784. 平面极化力传播在收敛延伸过程中整合细胞行为与组织塑形
+
+| Field | Content |
+|------|------|
+| EN Title | Planar polarized force propagation integrates cell behavior with tissue shaping during convergent extension |
+| ZH Title | 平面极化力传播在收敛延伸过程中整合细胞行为与组织塑形 |
+| ZH Abstract | 研究细胞间力平衡在组织伸长中的作用。 |
+| EN Abstract | Convergent extension (CE) is an evolutionarily conserved developmental process that elongates tissues and organs via collective cell movements known as cell intercalation. Here, we sought to understand the mechanisms connecting cell behaviors and tissue shaping. We focus on an often-overlooked aspect of cell intercalation, the resolution of 4-cell vertices. Our data reveal that imbalanced cellular forces are involved in a timely vertex resolution, which, in turn, enables the propagation of such |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77785. 疾病的动物模型：成就与挑战。
+
+| Field | Content |
+|------|------|
+| EN Title | Animal models of disease: Achievements and challenges. |
+| ZH Title | 疾病的动物模型：成就与挑战。 |
+| ZH Abstract | 综述动物模型在疾病研究中的成就与挑战。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77786. 通过光遗传学对发育过程中集体细胞迁移和组织形态发生的时空解析
+
+| Field | Content |
+|------|------|
+| EN Title | Spatiotemporal dissection of collective cell migration and tissue morphogenesis during development by optogenetics |
+| ZH Title | 通过光遗传学对发育过程中集体细胞迁移和组织形态发生的时空解析 |
+| ZH Abstract | 综述光遗传学在发育生物学中的应用。 |
+| EN Abstract | Collective cell migration and tissue morphogenesis play a variety of important roles in the development of many species. Tissue morphogenesis often generates mechanical forces that alter cell shapes and arrangements, resembling collective cell migration-like behaviors. Genetic methods have been widely used to study collective cell migration and its like behavior, advancing our understanding of these processes during development. However, a growing body of research shows that collective cell migr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77789. 针对移动群体中定向相互作用的力映射检验
+
+| Field | Content |
+|------|------|
+| EN Title | An examination of force maps targeted at orientation interactions in moving groups |
+| ZH Title | 针对移动群体中定向相互作用的力映射检验 |
+| ZH Abstract | 检验力映射方法在重建群体定向规则中的有效性。 |
+| EN Abstract | Force mapping is an established method for inferring the underlying interaction rules thought to govern collective motion from trajectory data. Here we examine the ability of force maps to reconstruct interactions that govern individual's tendency to orient, or align, their heading within a moving group, one of the primary factors thought to drive collective motion, using data from three established general collective motion models. Specifically, our force maps extract how individuals adjust the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77790. 环境变化下微生物组对鱼类黏膜免疫的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of the microbiome on fish mucosal immunity under changing environments |
+| ZH Title | 环境变化下微生物组对鱼类黏膜免疫的作用 |
+| ZH Abstract | 综述微生物组与鱼类黏膜免疫的相互作用。 |
+| EN Abstract | The environment is crucial for fish as their mucosal surfaces face continuous challenges in the water. Fish mucosal surfaces harbor the microbiome and mucosal immunity. Changes in the environment could affect the microbiome, thus altering mucosal immunity. Homeostasis between the microbiome and mucosal immunity is crucial for the overall health of fish. To date, very few studies have investigated mucosal immunity and its interaction with the microbiome in response to environmental changes. Based |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77791. 微塑料吸附重金属的影响因素及其对鱼类的毒性效应
+
+| Field | Content |
+|------|------|
+| EN Title | Factors Affecting the Adsorption of Heavy Metals by Microplastics and Their Toxic Effects on Fish |
+| ZH Title | 微塑料吸附重金属的影响因素及其对鱼类的毒性效应 |
+| ZH Abstract | 综述微塑料吸附重金属对鱼类健康的影响。 |
+| EN Abstract | Fish not only constitute an important trophic level in aquatic ecosystems but also serve as an important source of protein for human beings. The health of fish is related to the sustained and healthy development of their entire aquatic ecosystem. Due to the widespread use, mass production, high disposal frequency, and degradation resistance of plastics, these pollutants are released into aquatic environments on a large scale. They have become one of the fastest growing pollutants and have a subs |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77793. 轴突再生的内在异质性
+
+| Field | Content |
+|------|------|
+| EN Title | Intrinsic heterogeneity in axon regeneration |
+| ZH Title | 轴突再生的内在异质性 |
+| ZH Abstract | 综述不同神经元轴突再生能力的异质性。 |
+| EN Abstract | The nervous system is composed of a variety of neurons and glial cells with different morphology and functions. In the mammalian peripheral nervous system (PNS) or the lower vertebrate central nervous system (CNS), most neurons can regenerate extensively after axotomy, while the neurons in the mammalian CNS possess only limited regenera-tive ability. This heterogeneity is common within and across species. The studies about the transcriptomes after nerve injury in different animal models have rev |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77798. 用于细胞缺氧相关硝基还原酶荧光检测的小分子探针
+
+| Field | Content |
+|------|------|
+| EN Title | Small-molecule probes for fluorescent detection of cellular hypoxia-related nitroreductase |
+| ZH Title | 用于细胞缺氧相关硝基还原酶荧光检测的小分子探针 |
+| ZH Abstract | 综述硝基还原酶荧光探针的研究进展。 |
+| EN Abstract | Nitroreductase is a reductase that catalyzes nitro aromatic compounds to aromatic amines. It effectively reduces nitro to hydroxylamine or amino when in the presence of nicotinamide adenine dinucleotide or nicotinamide adenine dinucleotide phosphate. In terms of tumor, nitroreductase is upregulated in hypoxic tumor cells, and its content is directly related to the degree of hypoxia. Therefore, effective detection of nitroreductase is important not only for the study of cellular hypoxia, but also |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77801. 心肌细胞增殖与成熟：心脏再生的同一枚硬币的两面
+
+| Field | Content |
+|------|------|
+| EN Title | Cardiomyocyte Proliferation and Maturation: Two Sides of the Same Coin for Heart Regeneration |
+| ZH Title | 心肌细胞增殖与成熟：心脏再生的同一枚硬币的两面 |
+| ZH Abstract | 综述心肌细胞增殖与成熟在心脏再生中的作用。 |
+| EN Abstract | In the past few decades, cardiac regeneration has been the central target for restoring the injured heart. In mammals, cardiomyocytes are terminally differentiated and rarely divide during adulthood. Embryonic and fetal cardiomyocytes undergo robust proliferation to form mature heart chambers in order to accommodate the increased workload of a systemic circulation. In contrast, postnatal cardiomyocytes stop dividing and initiate hypertrophic growth by increasing the size of the cardiomyocyte whe |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77802. 共生中的进化“实验”：模式动物研究揭示宿主-微生物互作多样性的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Evolutionary "Experiments" in Symbiosis: The Study of Model Animals Provides Insights into the Mechanisms Underlying the Diversity of Host-Microbe Interactions |
+| ZH Title | 共生中的进化“实验”：模式动物研究揭示宿主-微生物互作多样性的机制 |
+| ZH Abstract | 综述模式动物在宿主-微生物互作研究中的价值。 |
+| EN Abstract | Current work in experimental biology revolves around a handful of animal species. Studying only a few organisms limits science to the answers that those organisms can provide. Nature has given us an overwhelming diversity of animals to study, and recent technological advances have greatly accelerated the ability to generate genetic and genomic tools to develop model organisms for research on host-microbe interactions. With the help of such models the authors therefore hope to construct a more co |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77805. 氨基糖苷类抗生素诱导的耳蜗毒性：综述
+
+| Field | Content |
+|------|------|
+| EN Title | Aminoglycoside-Induced Cochleotoxicity: A Review |
+| ZH Title | 氨基糖苷类抗生素诱导的耳蜗毒性：综述 |
+| ZH Abstract | 综述氨基糖苷类抗生素耳毒性的机制。 |
+| EN Abstract | Aminoglycoside antibiotics are used as prophylaxis, or urgent treatment, for many life-threatening bacterial infections, including tuberculosis, sepsis, respiratory infections in cystic fibrosis, complex urinary tract infections and endocarditis. Although aminoglycosides are clinically-essential antibiotics, the mechanisms underlying their selective toxicity to the kidney and inner ear continue to be unraveled despite more than 70 years of investigation. The following mechanisms each contribute |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77807. 活细胞和生物体中的成像荧光（交叉）相关光谱学
+
+| Field | Content |
+|------|------|
+| EN Title | Imaging fluorescence (cross-) correlation spectroscopy in live cells and organisms |
+| ZH Title | 活细胞和生物体中的成像荧光（交叉）相关光谱学 |
+| ZH Abstract | 综述成像FCS/FCCS在活细胞和生物体中的应用。 |
+| EN Abstract | Single-plane illumination (SPIM) or total internal reflection fluorescence (TIRF) microscopes can be combined with fast and single-molecule-sensitive cameras to allow spatially resolved fluorescence (cross-) correlation spectroscopy (FCS or FCCS, hereafter referred to FCS/FCCS). This creates a powerful quantitative bioimaging tool that can generate spatially resolved mobility and interaction maps with hundreds to thousands of pixels per sample. These massively parallel imaging schemes also cause |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77811. DNA编码的染色质结构内含子边界信号识别具有共同功能的保守基因
+
+| Field | Content |
+|------|------|
+| EN Title | DNA-Encoded Chromatin Structural Intron Boundary Signals Identify Conserved Genes with Common Function |
+| ZH Title | DNA编码的染色质结构内含子边界信号识别具有共同功能的保守基因 |
+| ZH Abstract | 分析多种后生动物内含子边界的核小体占据信号。 |
+| EN Abstract | The regulation of metazoan gene expression occurs in part by pre-mRNA splicing into mature RNAs. Signals affecting the efficiency and specificity with which introns are removed have not been completely elucidated. Splicing likely occurs cotranscriptionally, with chromatin structure playing a key regulatory role. We calculated DNA encoded nucleosome occupancy likelihood (NOL) scores at the boundaries between introns and exons across five metazoan species. We found that (i) NOL scores reveal a seq |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77812. microRNA与脆性X综合征
+
+| Field | Content |
+|------|------|
+| EN Title | microRNAs and Fragile X Syndrome |
+| ZH Title | microRNA与脆性X综合征 |
+| ZH Abstract | 综述microRNA在脆性X综合征发病机制中的作用。 |
+| EN Abstract | Fragile X syndrome (FXS) is one of the major causes for autism and mental retardation in humans. The etiology of FXS is linked to the expansion of the CGG trinucleotide repeats, r(CGG), suppressing the fragile X mental retardation 1 (FMR1) gene on the X chromosome, resulting in a loss of fragile X mental retardation protein (FMRP) expression, which is required for regulating normal neuronal connectivity and plasticity. Recent studies have further identified that microRNAs are involved in the mec |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77815. 第四届（2012）英国嘌呤俱乐部年度研讨会摘要，英国诺里奇，2012年11月20日
+
+| Field | Content |
+|------|------|
+| EN Title | Abstracts of the Fourth (2012) UK Purine Club Annual Symposium, Norwich, England, November 20, 2012 Abstracts |
+| ZH Title | 第四届（2012）英国嘌呤俱乐部年度研讨会摘要，英国诺里奇，2012年11月20日 |
+| ZH Abstract | 会议摘要集。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77816. 拓展视野：纤毛蛋白超越纤毛
+
+| Field | Content |
+|------|------|
+| EN Title | Expanding Horizons: Ciliary Proteins Reach Beyond Cilia |
+| ZH Title | 拓展视野：纤毛蛋白超越纤毛 |
+| ZH Abstract | 综述纤毛蛋白在细胞信号传导中的非纤毛功能。 |
+| EN Abstract | Once obscure, the cilium has come into the spotlight during the past decade. It is now clear that aside from generating locomotion by motile cilia, both motile and immotile cilia serve as signaling platforms for the cell. Through both motility and sensory functions, cilia play critical roles in development, homeostasis, and disease. To date, the cilium proteome contains more than 1,000 different proteins, and human genetics is identifying new ciliopathy genes at an increasing pace. Although assi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77817. 构建稳健的前后轴
+
+| Field | Content |
+|------|------|
+| EN Title | Building a Robust A-P Axis |
+| ZH Title | 构建稳健的前后轴 |
+| ZH Abstract | 综述动物前后轴建立的进化与分子机制。 |
+| EN Abstract | Since the last common ancestor of Metazoa, animals have evolved complex body plans with specialized cells and spatial organization of tissues and organs. Arguably, one of the most significant innovations during animal evolutionary history was the establishment of a bilateral plane of symmetry on which morphological features (e.g. tissues, organs, appendages, skeleton) could be given specific coordinates within the animal along the anterior-posterior (A-P) and dorsal-ventral (D-V) axes. Hox genes |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77818. 使用笼合法尼基转移酶抑制剂光化学调节Ras介导的信号转导：单光子和双光子激发激活
+
+| Field | Content |
+|------|------|
+| EN Title | Photochemical Modulation of Ras-Mediated Signal Transduction Using Caged Farnesyltransferase Inhibitors: Activation by One- and Two-Photon Excitation |
+| ZH Title | 使用笼合法尼基转移酶抑制剂光化学调节Ras介导的信号转导：单光子和双光子激发激活 |
+| ZH Abstract | 合成并研究笼合法尼基转移酶抑制剂的光化学性质。 |
+| EN Abstract | The creation of caged molecules involves the attachment of protecting groups to biologically active compounds such as ligands, substrates and drugs that can be removed under specific conditions. Photoremovable caging groups are the most common due to their ability to be removed with high spatial and temporal resolution. Here, the synthesis and photochemistry of a caged inhibitor of protein farnesyltransferase is described. The inhibitor, FTI, was caged by alkylation of a critical thiol group wit |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77819. 简明综述：构建视网膜——从基础元件到临床应用
+
+| Field | Content |
+|------|------|
+| EN Title | Concise Review: Making a Retina-From the Building Blocks to Clinical Applications |
+| ZH Title | 简明综述：构建视网膜——从基础元件到临床应用 |
+| ZH Abstract | 综述视网膜发育的细胞和分子事件及临床应用。 |
+| EN Abstract | The retina is the neural tissue located at the back of the eye that captures and processes light and transmits this information to visual processing centers in the brain, which enables us to see. Basic research in retinal development has provided important insight on the control of cell fate, proliferation, and neurogenesis in the central nervous system. This review summarizes the major cellular and molecular events that occur during retinal development and highlights how this knowledge may be h |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77820. 一种新的Crumbs3亚型通过importin β相互作用调控细胞分裂和纤毛发生
+
+| Field | Content |
+|------|------|
+| EN Title | A novel Crumbs3 isoform regulates cell division and ciliogenesis via importin β interactions |
+| ZH Title | 一种新的Crumbs3亚型通过importin β相互作用调控细胞分裂和纤毛发生 |
+| ZH Abstract | 研究Crumbs3-CLPI亚型在细胞分裂和纤毛发生中的作用。 |
+| EN Abstract | The Crumbs family of apical transmembrane proteins regulates apicobasal polarity via protein interactions with a conserved C-terminal sequence, ERLI. However, one of the mammalian Crumbs proteins, Crumbs3 (CRB3) has an alternate splice form with a novel C-terminal sequence ending in CLPI (CRB3-CLPI). We report that CRB3-CLPI localizes to the cilia membrane and a membrane compartment at the mitotic spindle poles. Knockdown of CRB3-CLPI leads to both a loss of cilia and a multinuclear phenotype as |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77821. FGF作为由LIM代码遗传编程的发育中运动轴突的靶源性化学吸引因子
+
+| Field | Content |
+|------|------|
+| EN Title | FGF as a target-derived chemoattractant for developing motor axons genetically programmed by the LIM code |
+| ZH Title | FGF作为由LIM代码遗传编程的发育中运动轴突的靶源性化学吸引因子 |
+| ZH Abstract | 研究FGF作为运动轴突化学吸引因子的作用。 |
+| EN Abstract | LIM transcription factors confer developing axons with specific navigational properties, but the downstream guidance receptors and ligands are not well defined. The dermomyotome, a transient structure from which axial muscles arise, is the source of a secreted long-range chemoattractant specific for medial-class spinal motor neuron axons (MMCm axons). We show that fibroblast growth factors (FGFs) produced by the dermomyotome selectively attract MMCm axons in vitro. FGF receptor 1 (FGFR1) express |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77822. 揭示再生细胞可塑性的分子基础
+
+| Field | Content |
+|------|------|
+| EN Title | Unraveling the molecular basis for regenerative cellular plasticity. |
+| ZH Title | 揭示再生细胞可塑性的分子基础 |
+| ZH Abstract | 揭示再生细胞可塑性的分子基础（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77845. 集体行为分类：比较追踪和机器学习方法研究环境光对鱼类集群的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Classification of collective behavior: a comparison of tracking and machine learning methods to study the effect of ambient light on fish shoaling |
+| ZH Title | 集体行为分类：比较追踪和机器学习方法研究环境光对鱼类集群的影响 |
+| ZH Abstract | 研究鱼类集群行为，未指明具体鱼种。 |
+| EN Abstract | Traditional approaches for the analysis of collective behavior entail digitizing the position of each individual, followed by evaluation of pertinent group observables, such as cohesion and polarization. Machine learning may enable considerable advancements in this area by affording the classification of these observables directly from images. While such methods have been successfully implemented in the classification of individual behavior, their potential in the study collective behavior is la |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77867. 镧系元素对多种鱼类细胞系的毒性
+
+| Field | Content |
+|------|------|
+| EN Title | Toxicity of lanthanides on various fish cell lines |
+| ZH Title | 镧系元素对多种鱼类细胞系的毒性 |
+| ZH Abstract | 评估镧系元素对鱼类细胞系的毒性 |
+| EN Abstract | The growing use of Lanthanides in new technologies has increased their anthropogenic releases into the aquatic environment over the last decades. However, knowledge on their ecotoxicological impacts is still incomplete, especially with regard to biological effects of Lanthanides mixtures and the possible regular variation in toxicity along the Lanthanides series. The present study evaluated the individual toxicity of all Lanthanides and the toxicity of mixtures of three of them, namely Neodymium |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77872. 神经球蛋白表达模型作为研究其功能的工具
+
+| Field | Content |
+|------|------|
+| EN Title | Neuroglobin Expression Models as a Tool to Study Its Function |
+| ZH Title | 神经球蛋白表达模型作为研究其功能的工具 |
+| ZH Abstract | 综述神经球蛋白表达模型及其功能 |
+| EN Abstract | Neuroglobin (Ngb) is an evolutionary conserved member of the globin family with a primary expression in neurons of which the exact functions remain elusive. A plethora of in vivo and in vitro model systems has been generated to this day to determine the functional biological roles of Ngb. Here, we provide a comprehensive overview and discussion of the different Ngb models, covering animal and cellular models of both overexpression and knockout strategies. Intriguingly, an in-depth literature sea |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77879. 鱼类感觉毛细胞损伤与恢复的原因和后果
+
+| Field | Content |
+|------|------|
+| EN Title | Causes and Consequences of Sensory Hair Cell Damage and Recovery in Fishes |
+| ZH Title | 鱼类感觉毛细胞损伤与恢复的原因和后果 |
+| ZH Abstract | 综述鱼类感觉毛细胞损伤与再生 |
+| EN Abstract | Sensory hair cells are the mechanotransductive receptors that detect gravity, sound, and vibration in all vertebrates. Damage to these sensitive receptors often results in deficits in vestibular function and hearing. There are currently two main reasons for studying the process of hair cell loss in fishes. First, fishes, like other non-mammalian vertebrates, have the ability to regenerate hair cells that have been damaged or lost via exposure to ototoxic chemicals or acoustic overstimulation. Th |
+| Judgment | 是 |
+| Reason | 综述鱼类，未特指斑马鱼 |
+---
+### 77881. 用于富集TALEN诱导突变和大片段缺失细胞的FAST-id系统
+
+| Field | Content |
+|------|------|
+| EN Title | FAST-id system for enrichment of cells with TALEN-induced mutations and large deletions |
+| ZH Title | 用于富集TALEN诱导突变和大片段缺失细胞的FAST-id系统 |
+| ZH Abstract | 建立富集TALEN突变细胞的FAST-id系统 |
+| EN Abstract | Transcription activator-like effector nuclease (TALEN)-mediated genome editing is a powerful technique for analyzing gene functions in various cells and organisms. At target loci, TALENs can not only introduce short insertions and deletions, but also yield large deletions through the use of two TALEN pairs. Here, we report easy and efficient methods for enrichment of cells with TALEN-induced mutations and large deletions. First, we established the fluorescence-activated sorting of TALEN-induced |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77882. 神经嵴干细胞多能性需要Foxd3维持神经潜能并抑制间充质命运
+
+| Field | Content |
+|------|------|
+| EN Title | Neural crest stem cell multipotency requires Foxd3 to maintain neural potential and repress mesenchymal fates |
+| ZH Title | 神经嵴干细胞多能性需要Foxd3维持神经潜能并抑制间充质命运 |
+| ZH Abstract | 研究Foxd3在神经嵴干细胞多能性中的作用 |
+| EN Abstract | Neural crest (NC) progenitors generate a wide array of cell types, yet molecules controlling NC multipotency and self-renewal and factors mediating cell-intrinsic distinctions between multipotent versus fate-restricted progenitors are poorly understood. Our earlier work demonstrated that Foxd3 is required for maintenance of NC progenitors in the embryo. Here, we show that Foxd3 mediates a fate restriction choice for multipotent NC progenitors with loss of Foxd3 biasing NC toward a mesenchymal fa |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77893. 基因组编辑及其在水产养殖遗传改良中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Genome editing and its applications in genetic improvement in aquaculture |
+| ZH Title | 基因组编辑及其在水产养殖遗传改良中的应用 |
+| ZH Abstract | 综述基因组编辑技术在水产养殖中的应用 |
+| EN Abstract | In the aquaculture industry, selective breeding has played an important role in increasing aquaculture production significantly. To meet the global growing demand for high quality proteins, it is essential to apply novel technologies to accelerate breeding to facilitate the increase in aquaculture production. Gene and genome editing technologies, including ZFNs, TALLENS and Crispr/Cas9, are promising tools to speed up genetic improvement. Among all the genome editing approaches, the CRISPR/Cas9 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77895. TRex，一种快速的多动物追踪系统，具有无标记识别和2D姿态及视野估计功能
+
+| Field | Content |
+|------|------|
+| EN Title | TRex, a fast multi-animal tracking system with markerless identification, and 2D estimation of posture and visual fields |
+| ZH Title | TRex，一种快速的多动物追踪系统，具有无标记识别和2D姿态及视野估计功能 |
+| ZH Abstract | 介绍多动物追踪系统TRex |
+| EN Abstract | Automated visual tracking of animals is rapidly becoming an indispensable tool for the study of behavior. It offers a quantitative methodology by which organisms' sensing and decision-making can be studied in a wide range of ecological contexts. Despite this, existing solutions tend to be challenging to deploy in practice, especially when considering long and/or high-resolution video-streams. Here, we present TRex, a fast and easy-to-use solution for tracking a large number of individuals simult |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77906. Runx1是CD41+胚胎前体细胞向HSC进展所必需的，但在此之前并非必需
+
+| Field | Content |
+|------|------|
+| EN Title | Runx1 is required for progression of CD41+ embryonic precursors into HSCs but not prior to this |
+| ZH Title | Runx1是CD41+胚胎前体细胞向HSC进展所必需的，但在此之前并非必需 |
+| ZH Abstract | 研究Runx1在造血干细胞发育中的作用。 |
+| EN Abstract | Haematopoiesis in adult animals is maintained by haematopoietic stem cells (HSCs), which self-renew and can give rise to all blood cell lineages. The AGM region is an important intra-embryonic site of HSC development and a wealth of evidence indicates that HSCs emerge from the endothelium of the embryonic dorsal aorta and extra-embryonic large arteries. This, however, is a stepwise process that occurs through sequential upregulation of CD41 and CD45 followed by emergence of fully functional defi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77935. 开发用于大体积和荧光蛋白表达组织的塑料包埋方法
+
+| Field | Content |
+|------|------|
+| EN Title | Development of a Plastic Embedding Method for Large-Volume and Fluorescent-Protein-Expressing Tissues |
+| ZH Title | 开发用于大体积和荧光蛋白表达组织的塑料包埋方法 |
+| ZH Abstract | 开发适用于大体积荧光组织塑料包埋方法。 |
+| EN Abstract | Fluorescent proteins serve as important biomarkers for visualizing both subcellular organelles in living cells and structural and functional details in large-volume tissues or organs. However, current techniques for plastic embedding are limited in their ability to preserve fluorescence while remaining suitable for micro-optical sectioning tomography of large-volume samples. In this study, we quantitatively evaluated the fluorescence preservation and penetration time of several commonly used res |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77949. 将种群水平效应整合到内分泌干扰物质的监管评估中
+
+| Field | Content |
+|------|------|
+| EN Title | Integrating population-level effects into the regulatory assessment of endocrine disrupting substances |
+| ZH Title | 将种群水平效应整合到内分泌干扰物质的监管评估中 |
+| ZH Abstract | 综述内分泌干扰物种群效应评估方法。 |
+| EN Abstract | Population modeling, field studies, and monitoring approaches have all been proposed for assessing the relevance of adverse effects of endocrine disrupting chemicals (EDCs) at the population level for nontarget (wild) vertebrates, but how these approaches should be used in the regulatory hazard assessment is unclear and not detailed in the relevant European Guidance Document. A literature review focused on identifying published approaches assessing the population relevance of adverse effects fro |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77950. 产生节律运动模式的重要神经元和回路机制
+
+| Field | Content |
+|------|------|
+| EN Title | DEGENERATE NEURONAL AND CIRCUIT MECHANISMS IMPORTANT FOR GENERATING RHYTHMIC MOTOR PATTERNS |
+| ZH Title | 产生节律运动模式的重要神经元和回路机制 |
+| ZH Abstract | 综述节律运动模式产生的神经机制。 |
+| EN Abstract | In 1996, we published a review article (Marder E, Calabrese RL. Physiol Rev 76: 687-717, 1996) describing the state of knowledge about the structure and function of the central pattern-generating circuits important for producing rhythmic behaviors. Although many of the core questions persist, much has changed since 1996. Here, we focus on newer studies that reveal ambiguities that complicate understanding circuit dynamics, despite the enormous technical advances of the recent past. In particular |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77955. 两亲性接枝纳米颗粒作为油分散剂的物理证据及毒性评估
+
+| Field | Content |
+|------|------|
+| EN Title | Physical Evidence of Oil Uptake and Toxicity Assessment of Amphiphilic Grafted Nanoparticles Used as Oil Dispersants |
+| ZH Title | 两亲性接枝纳米颗粒作为油分散剂的物理证据及毒性评估 |
+| ZH Abstract | 评估纳米颗粒分散剂的毒性。 |
+| EN Abstract | Herein, we report the toxicity evaluation of a new prototype dispersant system, silicon dioxide nanoparticles (NPs) functionalized with (3-glycidoxypropyl)triethoxysilane (GPS) and grafted poly(epsilon-caprolactone)-block-poly[oligo(ethylene glycol)methyl methacrylate mono-methyl ether] (NP-PCL-POEGMA). This serves as a follow up of our previous study where grafted silicon dioxide NPs functionalized with GPS and grafted hyperbranched poly(glycidol) (NP-HPG) were evaluated for reducing the toxici |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77956. 脊椎动物前肾发育调控的进化转变：视黄酸的新作用
+
+| Field | Content |
+|------|------|
+| EN Title | Evolutionary Transition in the Regulation of Vertebrate Pronephros Development: A New Role for Retinoic Acid |
+| ZH Title | 脊椎动物前肾发育调控的进化转变：视黄酸的新作用 |
+| ZH Abstract | 研究视黄酸在脊椎动物前肾发育中的新作用。 |
+| EN Abstract | The anterior-posterior (AP) axis in chordates is regulated by a conserved set of genes and signaling pathways, including Hox genes and retinoic acid (RA), which play well-characterized roles in the organization of the chordate body plan. The intermediate mesoderm (IM), which gives rise to all vertebrate kidneys, is an example of a tissue that differentiates sequentially along this axis. Yet, the conservation of the spatiotemporal regulation of the IM across vertebrates remains poorly understood. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77958. 评估介孔二氧化硅纳米颗粒的内在成骨和血管生成潜力以增强血管化骨组织形成
+
+| Field | Content |
+|------|------|
+| EN Title | Evaluating the inherent osteogenic and angiogenic potential of mesoporous silica nanoparticles to augment vascularized bone tissue formation |
+| ZH Title | 评估介孔二氧化硅纳米颗粒的内在成骨和血管生成潜力以增强血管化骨组织形成 |
+| ZH Abstract | 评估介孔二氧化硅纳米颗粒的成骨和血管生成潜力。 |
+| EN Abstract | In recent years, there has been an increasing focus on inorganic nanomaterials for various applications, such as catalysis, thermal energy storage, biomedical imaging, drug delivery, and tissue engineering. Amongst these, Mesoporous Silica Nanoparticles (MSNs) possess an orderly mesoporous structure, large surface area, and pore volume. Hence, MSNs have shown tremendous potential for drug delivery and tissue engineering. In this work, we have studied the potential of pure MSNs for bone tissue en |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77959. 含功能化四氢吡啶环的新型吲哚七甲川菁染料的构建及生物成像应用
+
+| Field | Content |
+|------|------|
+| EN Title | Construction and bioimaging application of novel indole heptamethine cyanines containing functionalized tetrahydropyridine rings |
+| ZH Title | 含功能化四氢吡啶环的新型吲哚七甲川菁染料的构建及生物成像应用 |
+| ZH Abstract | 构建新型菁染料并用于生物成像。 |
+| EN Abstract | IR780 as a commercially available dye with near-infrared emission has been extensively applied in fluorescent probes and bioimaging. In this work, to further intensify the optical behavior, a tetrahydropyridine ring was used to replace the cyclohexene ring at the center of IR780, forming a cyanine dye Cy-NH with near-infrared emission. Photophysical properties demonstrated that Cy-NH exhibits good optical performance. In particular, Cy-NH contains two functional reaction sites (e.g. Cl and NH si |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77960. 为药物开发模拟遗传疾病：肥厚型心肌病
+
+| Field | Content |
+|------|------|
+| EN Title | Modelling genetic diseases for drug development: Hypertrophic cardiomyopathy |
+| ZH Title | 为药物开发模拟遗传疾病：肥厚型心肌病 |
+| ZH Abstract | 综述肥厚型心肌病的模型和药物开发。 |
+| EN Abstract | Hypertrophic cardiomyopathy (HCM) is the commonest genetic cardiac disease, with a prevalence of 1/500. It is caused by over 1400 different mutations, mainly involving the genes coding for sarcomere proteins. The main pathological features of HCM are left ventricular hypertrophy, diastolic dysfunction and the increased ventricular arrhythmogenesis. Predicting the risk of heart failure and lethal arrhythmias is the most challenging clinical task for HCM patient management. Moreover, there are no |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77961. Petromurin C诱导FLT3-ITD阳性AML的保护性自噬和凋亡：与Gilteritinib的协同作用
+
+| Field | Content |
+|------|------|
+| EN Title | Petromurin C Induces Protective Autophagy and Apoptosis in FLT3-ITD-Positive AML: Synergy with Gilteritinib |
+| ZH Title | Petromurin C诱导FLT3-ITD阳性AML的保护性自噬和凋亡：与Gilteritinib的协同作用 |
+| ZH Abstract | 研究Petromurin C对AML细胞的作用。 |
+| EN Abstract | Treatment of acute myeloid leukemia (AML) remains inefficient due to drug resistance and relapse, particularly in patients with FMS-like tyrosine kinase 3 (FLT3)-internal tandem duplication (ITD). Marine-derived natural products have recently been used for drug development against AML. We show in this study that petromurin C, which was isolated from the culture extract of the marine-derived fungus Aspergillus candidus KUFA0062, isolated from the marine sponge Epipolasis sp., induces early autoph |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77963. 应激、糖皮质激素与骨骼：来自哺乳动物和鱼类的综述
+
+| Field | Content |
+|------|------|
+| EN Title | Stress, Glucocorticoids and Bone: A Review From Mammals and Fish |
+| ZH Title | 应激、糖皮质激素与骨骼：来自哺乳动物和鱼类的综述 |
+| ZH Abstract | 综述糖皮质激素对骨骼的作用，涉及鱼类。 |
+| EN Abstract | Glucocorticoids (GCs) are the final effector products of a neuroendocrine HPA/HPI axis governing energy balance and stress response in vertebrates. From a physiological point of view, basal GC levels are essential for intermediary metabolism and participate in the development and homeostasis of a wide range of body tissues, including the skeleton. Numerous mammalian studies have demonstrated that GC hormones exert a positive role during bone modeling and remodeling as they promote osteoblastogen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77964. 胎儿酒精谱系障碍中的非蛋白编码RNA
+
+| Field | Content |
+|------|------|
+| EN Title | Nonprotein-coding RNAs in Fetal Alcohol Spectrum Disorders |
+| ZH Title | 胎儿酒精谱系障碍中的非蛋白编码RNA |
+| ZH Abstract | 综述非编码RNA在胎儿酒精谱系障碍中的作用。 |
+| EN Abstract | Early developmental exposure to ethanol, a known teratogen, can result in a range of neurodevelopmental disorders, collectively referred to as Fetal Alcohol Spectrum Disorders (FASDs). Changes in the environment, including exposure to teratogens, can result in long term alterations to the epigenetic landscape of a cell, thereby altering gene expression. Non-coding RNAs (ncRNAs) can affect transcription and translation of networks of genes. ncRNAs are dynamically expressed during development and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77966. 血管生成实验
+
+| Field | Content |
+|------|------|
+| EN Title | Angiogenesis Assays. |
+| ZH Title | 血管生成实验 |
+| ZH Abstract | 综述血管生成实验方法。 |
+| EN Abstract | Neoangiogenesis constitutes one of the first steps of tumor progression beyond a critical size of tumor growth, which supplies a dormant mass of cancerous cells with the required nutrient supply and gaseous exchange through blood vessels essentially needed for their sustained and aggressive growth. In order to understand any biological process, it becomes imperative that we use models, which could mimic the actual biological system as closely as possible. Hence, finding the most appropriate mode |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77969. 鱼类病毒疫苗的细胞内和细胞外抗原递送系统综述
+
+| Field | Content |
+|------|------|
+| EN Title | A Review of Intra- and Extracellular Antigen Delivery Systems for Virus Vaccines of Finfish |
+| ZH Title | 鱼类病毒疫苗的细胞内和细胞外抗原递送系统综述 |
+| ZH Abstract | 综述鱼类病毒疫苗的抗原递送系统。 |
+| EN Abstract | Vaccine efficacy in aquaculture has for a long time depended on evaluating relative percent survival and antibody responses after vaccination. However, current advances in vaccine immunology show that the route in which antigens are delivered into cells is deterministic of the type of adaptive immune response evoked by vaccination. Antigens delivered by the intracellular route induce MHC-I restricted CD8+ responses while antigens presented through the extracellular route activate MHC-II restrict |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77970. 先天性肾和尿路畸形的功能模型
+
+| Field | Content |
+|------|------|
+| EN Title | Functional Models for Congenital Anomalies of the Kidney and Urinary Tract |
+| ZH Title | 先天性肾和尿路畸形的功能模型 |
+| ZH Abstract | 综述先天性肾和尿路畸形的模型。 |
+| EN Abstract | Congenital anomalies of the kidney and urinary tract (CAKUT) constitute one of the most common developmental diseases in humans; however, the cause for most patients remains unknown. Efforts to identify novel genetic causes for CAKUT through next-generation sequencing techniques have led to the discovery of new genes and risk factors. Concomitantly, these same efforts have generated large gene candidate lists requiring individual functional characterization. Appropriate model systems are needed |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77972. 生物成像中荧光和颜色通道融合的稳健叠加方案
+
+| Field | Content |
+|------|------|
+| EN Title | Robust overlay schemes for the fusion of fluorescence and color channels in biological imaging |
+| ZH Title | 生物成像中荧光和颜色通道融合的稳健叠加方案 |
+| ZH Abstract | 提出生物成像中荧光和颜色通道的叠加方法。 |
+| EN Abstract | Molecular fluorescence imaging is a commonly used method in various biomedical fields and is undergoing rapid translation toward clinical applications. Color images are commonly superimposed with fluorescence measurements to provide orientation, anatomical information, and molecular tissue properties in a single image. New adaptive methods that produce a more robust composite image than conventional lime green alpha blending are presented and demonstrated herein. Moreover, visualization through |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77973. Dishevelled通过抑制CSL限制Notch信号
+
+| Field | Content |
+|------|------|
+| EN Title | Dishevelled limits Notch signalling through inhibition of CSL |
+| ZH Title | Dishevelled通过抑制CSL限制Notch信号 |
+| ZH Abstract | 研究Dishevelled抑制Notch信号的机制。 |
+| EN Abstract | Notch and Wnt are highly conserved signalling pathways that are used repeatedly throughout animal development to generate a diverse array of cell types. However, they often have opposing effects on cell-fate decisions with each pathway promoting an alternate outcome. Commonly, a cell receiving both signals exhibits only Wnt pathway activity. This suggests that Wnt inhibits Notch activity to promote a Wnt-ON/Notch-OFF output; but what might underpin this Notch regulation is not understood. Here, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77974. GATA和FOG因子对组织特化的组合调控
+
+| Field | Content |
+|------|------|
+| EN Title | Combinatorial regulation of tissue specification by GATA and FOG factors |
+| ZH Title | GATA和FOG因子对组织特化的组合调控 |
+| ZH Abstract | 综述GATA和FOG因子在组织特化中的作用。 |
+| EN Abstract | The development of complex organisms requires the formation of diverse cell types from common stem and progenitor cells. GATA family transcriptional regulators and their dedicated cofactors, termed Friend of GATA (FOG) proteins, control cell fate and differentiation in multiple tissue types from Drosophila to man. FOGs can both facilitate and antagonize GATA factor transcriptional regulation depending on the factor, cell, and even the specific gene target. In this review, we highlight recent stu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77976. MirZ：整合的microRNA表达图谱和靶标预测资源
+
+| Field | Content |
+|------|------|
+| EN Title | MirZ: an integrated microRNA expression atlas and target prediction resource |
+| ZH Title | MirZ：整合的microRNA表达图谱和靶标预测资源 |
+| ZH Abstract | 介绍整合的microRNA表达图谱和靶标预测资源。 |
+| EN Abstract | MicroRNAs (miRNAs) are short RNAs that act as guides for the degradation and translational repression of protein-coding mRNAs. A large body of work showed that miRNAs are involved in the regulation of a broad range of biological functions, from development to cardiac and immune system function, to metabolism, to cancer. For most of the over 500 miRNAs that are encoded in the human genome the functions still remain to be uncovered. Identifying miRNAs whose expression changes between cell types or |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77980. 鱼类酶和其他鱼类蛋白基因的克隆
+
+| Field | Content |
+|------|------|
+| EN Title | Cloning of fish enzymes and other fish protein genes. |
+| ZH Title | 鱼类酶和其他鱼类蛋白基因的克隆 |
+| ZH Abstract | 综述鱼类酶和蛋白基因的克隆。 |
+| EN Abstract | Fish metabolism needs special enzymes that have maximum activity at very different conditions than their mammalian counterparts. Due to the differences in activity, these enzymes, especially cold-adapted proteases, could be used advantageously for the production of some foods. In addition to the enzymes, this review describes some other unique fish polypeptides such as antifreeze proteins, fluorescent proteins, antitumor peptides, antibiotics, and hormones, that have already been cloned and used |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77982. Sonic hedgehog：肢体前后模式和轴结构背腹模式的关键介质
+
+| Field | Content |
+|------|------|
+| EN Title | Sonic hedgehog: a key mediator of anterior-posterior patterning of the limb and dorso-ventral patterning of axial embryonic structures. |
+| ZH Title | Sonic hedgehog：肢体前后模式和轴结构背腹模式的关键介质 |
+| ZH Abstract | 综述Sonic hedgehog在胚胎模式形成中的作用。 |
+| EN Abstract | Sonic hedgehog is expressed in several sites during embryogenesis which are known to be important in directing the development of neighbouring tissues, including Hensen's node, the notochord, the floor plate of the neural tube, and the posterior of the limb bud. A unity in signalling mechanisms utilized by these inducers was first indicated because they all can provide a source of limb polarizing activity, assayed by grafting into the anterior of a limb bud. The hypothesis that they share a comm |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77984. 线粒体微蛋白：神经发育和神经退行性疾病中的新兴调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | Mitochondrial Microproteins: Emerging Regulators in Neurodevelopment and Neurodegeneration |
+| ZH Title | 线粒体微蛋白：神经发育和神经退行性疾病中的新兴调控因子 |
+| ZH Abstract | 综述线粒体微蛋白在神经发育和疾病中的作用。 |
+| EN Abstract | Recent advances in genomics uncovered a large number of microproteins, which are peptides of less than 100 amino-acids encoded by small open reading frames. In contrast to their identification, the validation of the functions of microproteins remains challenging. Especially, what are their biological functions in the cell and how this relates to disease conditions are still largely unknown. Although microproteins ensure a plethora of cellular functions, recent evidence demonstrate that they may |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77986. 鱼类模型中微塑料和纳米塑料的生物转运及毒性效应及其对人类潜在风险：综述
+
+| Field | Content |
+|------|------|
+| EN Title | Biotransport and toxic effects of micro- and nanoplastics in fish model and their potential risk to humans: A review |
+| ZH Title | 鱼类模型中微塑料和纳米塑料的生物转运及毒性效应及其对人类潜在风险：综述 |
+| ZH Abstract | 综述微纳塑料在鱼类模型中的生物转运和毒性。 |
+| EN Abstract | The growing body of scientific evidence suggests that micro- and nanoplastics (MPs/NPs) pose a significant threat to aquatic ecosystems and human health. These particles can enter organisms through ingestion, inhalation, dermal contact, and trophic transfer. Exposure can directly affect multiple organs and systems (respiratory, digestive, neurological, reproductive, urinary, cardiovascular) and activate extensive intracellular signaling, inducing cytotoxicity involving mechanisms such as membran |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77989. 雌激素对硬骨鱼类攻击行为的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Estrogenic influences on agonistic behavior in teleost fishes |
+| ZH Title | 雌激素对硬骨鱼类攻击行为的影响 |
+| ZH Abstract | 综述雌激素对硬骨鱼类攻击行为的调节作用。 |
+| EN Abstract | Teleost fishes show an extraordinary diversity of sexual patterns, social structures, and sociosexual behaviors. Sex steroid hormones are key modulators of social behaviors in teleosts as in other vertebrates and act on sex steroid receptor-containing brain nuclei that form the evolutionarily conserved vertebrate social behavior network (SBN). Fishes also display important differences relative to tetrapod vertebrates that make them particularly well-suited to study the physiological mechanisms m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 77994. 水产养殖中生长、繁殖、抗病和应激反应的遗传与表观遗传调控
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic and epigenetic regulation of growth, reproduction, disease resistance and stress responses in aquaculture |
+| ZH Title | 水产养殖中生长、繁殖、抗病和应激反应的遗传与表观遗传调控 |
+| ZH Abstract | 综述水产养殖性状的遗传和表观遗传调控。 |
+| EN Abstract | Major progress has been made with genomic and genetic studies in aquaculture in the last decade. However, research on epigenetic regulation of aquaculture traits is still at an early stage. It is apparent that most, if not all, aquaculture traits are regulated at both genetic and epigenetic levels. This paper reviews recent progress in understanding of genetic and epigenetic regulation of important aquaculture traits such as growth, reproduction, disease resistance, and stress responses. Althoug |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78018. 新烟碱类杀虫剂在水生生态系统中的污染：毒性效应、潜在机制和缓解策略的综合综述及其对养殖硬骨鱼的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Neonicotinoid contamination in aquatic ecosystems: A comprehensive review of toxic effects, underlying mechanisms, and mitigation strategies with implications for farmed teleosts |
+| ZH Title | 新烟碱类杀虫剂在水生生态系统中的污染：毒性效应、潜在机制和缓解策略的综合综述及其对养殖硬骨鱼的影响 |
+| ZH Abstract | 综述新烟碱类杀虫剂对养殖硬骨鱼的毒性。 |
+| EN Abstract | Neonicotinoids (NNIs) are the most widely used class of insecticides globally, characterized by high insecticidal activity and low acute toxicity to mammals. However, their extensive application has led to widespread contamination of freshwater and seawater ecosystems-via agricultural runoff, sewage discharge, and even indirect exposure through contaminated feed. Teleosts, as key aquatic organisms in both natural ecosystems and aquaculture systems, are inevitably exposed to environmental concent |
+| Judgment | 是 |
+| Reason | 未明确指定斑马鱼 |
+---
+### 78022. 将生物技术方法整合到鱼类肠道微生物组研究中的时机
+
+| Field | Content |
+|------|------|
+| EN Title | Time to integrate biotechnological approaches into fish gut microbiome research |
+| ZH Title | 将生物技术方法整合到鱼类肠道微生物组研究中的时机 |
+| ZH Abstract | 讨论鱼类肠道微生物组研究的生物技术方法。 |
+| EN Abstract | Like for other vertebrates, the fish microbiome is critical to the health of its host and has complex and dynamic interactions with the surrounding environment. Thus, the study of the fish microbiome can benefit from the new prospects gained by innovative biotechnological applications in human and other animals, that include manipulation of the associated microbial communities (to improve the health, productivity, and sustainability of fish production), in vitro gut simulators, synthetic microbi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78025. 胚胎心脏腔室成熟的分子和细胞基础
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular and cellular basis of embryonic cardiac chamber maturation |
+| ZH Title | 胚胎心脏腔室成熟的分子和细胞基础 |
+| ZH Abstract | 研究心脏小梁形成等成熟过程，涉及斑马鱼等模式生物。 |
+| EN Abstract | Heart malformation is the leading cause of human birth defects, and many of the congenital heart diseases (CHDs) originate from genetic defects that impact cardiac development and maturation. During development, the vertebrate heart undergoes a series of complex morphogenetic processes that increase its ability to pump blood. One of these processes leads to the formation of the sheet-like muscular projections called trabeculae. Trabeculae increase cardiac output and permit nutrition and oxygen u |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78026. 超越传统与惯例：非传统模式生物在癌症研究中的益处
+
+| Field | Content |
+|------|------|
+| EN Title | Beyond tradition and convention: benefits of non-traditional model organisms in cancer research |
+| ZH Title | 超越传统与惯例：非传统模式生物在癌症研究中的益处 |
+| ZH Abstract | 讨论非传统模式生物在癌症研究中的优势，可能包括斑马鱼。 |
+| EN Abstract | Traditional laboratory model organisms are indispensable for cancer research and have provided insight into numerous mechanisms that contribute to cancer development and progression in humans. However, these models do have some limitations, most notably related to successful drug translation, because traditional model organisms are often short-lived, small-bodied, genetically homogeneous, often immunocompromised, are not exposed to natural environments shared with humans, and usually do not deve |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78031. Usp7/HAUSP去泛素化Ci/Gli调节Hedgehog信号
+
+| Field | Content |
+|------|------|
+| EN Title | Deubiquitination of Ci/Gli by Usp7/HAUSP Regulates Hedgehog Signaling |
+| ZH Title | Usp7/HAUSP去泛素化Ci/Gli调节Hedgehog信号 |
+| ZH Abstract | 研究Hedgehog信号通路，可能涉及斑马鱼。 |
+| EN Abstract | Hedgehog (Hh) signaling plays essential roles in animal development and tissue homeostasis, and its misregulation causes congenital diseases and cancers. Regulation of the ubiquitin/proteasome-mediated proteolysis of Ci/Gli transcription factors is central to Hh signaling, but whether deubiquitinase is involved in this process remains unknown. Here, we show that Hh stimulates the binding of a ubiquitin-specific protease Usp7 to Ci, which positively regulates Hh signaling activity through inhibit |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78045. 宿主相关和自由生活微生物群生物地理学的一致尺度依赖性差异
+
+| Field | Content |
+|------|------|
+| EN Title | Consistent, Scale-Dependent Differences in the Biogeography of Host-Associated and Free-Living Microbiomes Across Systems |
+| ZH Title | 宿主相关和自由生活微生物群生物地理学的一致尺度依赖性差异 |
+| ZH Abstract | 研究鱼类肠道和湖泊微生物，未明确提及斑马鱼。 |
+| EN Abstract | Microbial communities are critical to the functioning of ecosystems and shape the ecology and evolution of host organisms. However, we have a limited understanding of how host-associated and free-living microbes differ in their structure and biogeography. Here, we test whether host-associated (fish gut) and free-living (lake bacterioplankton) microbes exhibit different metacommunity structure, spatial turnover, and consistency with neutral expectations using two independent lake systems. We char |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78046. 碳基纳米材料在水生环境中的来源、归趋、毒理效应及风险评估——特别参考水产养殖系统
+
+| Field | Content |
+|------|------|
+| EN Title | Carbon-based nanomaterials in aquatic environments: sources, fate, toxicological effects, and risk profiling with special reference to aquaculture systems |
+| ZH Title | 碳基纳米材料在水生环境中的来源、归趋、毒理效应及风险评估——特别参考水产养殖系统 |
+| ZH Abstract | 综述碳基纳米材料对水生环境的影响，可能涉及斑马鱼。 |
+| EN Abstract | Carbon-based nanomaterials (CBMs), including fullerenes, carbon nanotubes (CNTs), graphene, and their derivatives, are increasingly utilized across industrial, biomedical, and environmental applications, leading to their inevitable release into aquatic ecosystems. Despite extensive studies on CBMs toxicity, a critical gap remains in integrating their envi-ronmental sources, transformation processes, and mechanistic toxicity within an aquacul-ture-specific risk assessment framework. This review s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78052. 可持续集约化水产养殖发展背景下的微生物组
+
+| Field | Content |
+|------|------|
+| EN Title | Microbiomes in the context of developing sustainable intensified aquaculture |
+| ZH Title | 可持续集约化水产养殖发展背景下的微生物组 |
+| ZH Abstract | 综述水产养殖微生物组，可能涉及斑马鱼。 |
+| EN Abstract | With an ever-growing human population, the need for sustainable production of nutritional food sources has never been greater. Aquaculture is a key industry engaged in active development to increase production in line with this need while remaining sustainable in terms of environmental impact and promoting good welfare and health in farmed species. Microbiomes fundamentally underpin animal health, being a key part of their digestive, metabolic and defense systems, in the latter case protecting a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78053. 鱼眼视角：从视杯到神经元层化的视网膜形态发生
+
+| Field | Content |
+|------|------|
+| EN Title | A Fish Eye View: Retinal Morphogenesis from Optic Cup to Neuronal Lamination |
+| ZH Title | 鱼眼视角：从视杯到神经元层化的视网膜形态发生 |
+| ZH Abstract | 综述鱼类视网膜发育，可能以斑马鱼为例。 |
+| EN Abstract | The neural retina, at the back of the eye, is a fascinating system to use to discover how cells form tissues in the context of the developing nervous system. The retina is the tissue responsible for perception and transmission of visual information from the environment. It consists of five types of neurons and one type of glia cells that are arranged in a highly organized, layered structure to assure visual information flow. To reach this highly ordered arrangement, intricate morphogenic movemen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78057. 注射伊文思蓝荧光标记和成像完整血管
+
+| Field | Content |
+|------|------|
+| EN Title | Injection of Evans blue dye to fluorescently label and image intact vasculature |
+| ZH Title | 注射伊文思蓝荧光标记和成像完整血管 |
+| ZH Abstract | 介绍血管标记方法，可能涉及斑马鱼。 |
+| EN Abstract | Blood vessels perform critical functions in both health and disease. Understanding how vessels form, pattern and respond to damage is essential. However, labeling and imaging the vasculature to ascertain these properties can be difficult and time-consuming. Here, the authors present a novel methodology for rapidly and efficiently labeling whole vascular networks in vivo by exploiting the fluorescent properties of Evans blue. By combining the labeling with fluorescence microscopy, this method ena |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78062. Wnt和Notch信号在调节耳蜗毛细胞再生中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Role of Wnt and Notch signaling in regulating hair cell regeneration in the cochlea |
+| ZH Title | Wnt和Notch信号在调节耳蜗毛细胞再生中的作用 |
+| ZH Abstract | 综述耳蜗毛细胞再生，可能涉及斑马鱼。 |
+| EN Abstract | Sensory hair cells in the inner ear are responsible for sound recognition. Damage to hair cells in adult mammals causes permanent hearing impairment because these cells cannot regenerate. By contrast, newborn mammals possess limited regenerative capacity because of the active participation of various signaling pathways, including Wnt and Notch signaling. The Wnt and Notch pathways are highly sophisticated and conserved signaling pathways that control multiple cellular events necessary for the fo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78063. 囊性纤维化中的胰腺病理生理学
+
+| Field | Content |
+|------|------|
+| EN Title | Pancreatic pathophysiology in cystic fibrosis |
+| ZH Title | 囊性纤维化中的胰腺病理生理学 |
+| ZH Abstract | 综述囊性纤维化胰腺疾病，提及动物模型但未明确斑马鱼。 |
+| EN Abstract | The pancreas is one of the earliest, and most commonly affected, organs in patients with cystic fibrosis (CF). Studying the pathogenesis of pancreatic disease is limited in CF patients, due to its early clinical onset, co-morbidities and lack of tissue samples from the early phases of disease. In recent years, several new CF animal models have been developed that have advanced our understanding of both CF exocrine and endocrine pancreatic disease. Additionally, these models have helped us to bet |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78066. 情绪系统促进多样性和可进化性
+
+| Field | Content |
+|------|------|
+| EN Title | The emotion system promotes diversity and evolvability |
+| ZH Title | 情绪系统促进多样性和可进化性 |
+| ZH Abstract | 模型研究显示情绪系统架构可产生遗传和表型多样性。 |
+| EN Abstract | Studies on the relationship between the optimal phenotype and its environment have had limited focus on genotype-to-phenotype pathways and their evolutionary consequences. Here, we study how multi-layered trait architecture and its associated constraints prescribe diversity. Using an idealized model of the emotion system in fish, we find that trait architecture yields genetic and phenotypic diversity even in absence of frequency-dependent selection or environmental variation. That is, for a give |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78069. 片段基因组重复产生功能性内含子
+
+| Field | Content |
+|------|------|
+| EN Title | A segmental genomic duplication generates a functional intron |
+| ZH Title | 片段基因组重复产生功能性内含子 |
+| ZH Abstract | 实验证明片段重复可一步创建功能性内含子。 |
+| EN Abstract | An intron is an extended genomic feature whose function requires multiple constrained positions-donor and acceptor splice sites, a branch point, a polypyrimidine tract and suitable splicing enhancers-that may be distributed over hundreds or thousands of nucleotides. New introns are therefore unlikely to emerge by incremental accumulation of functional sub-elements. Here we demonstrate that a functional intron can be created de novo in a single step by a segmental genomic duplication. This experi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78071. 微调细胞识别：富含亮氨酸重复跨膜蛋白LRT在肌肉靶向肌腱细胞中的功能
+
+| Field | Content |
+|------|------|
+| EN Title | Fine tuning cellular recognition The function of the leucine rich repeat (LRR) trans-membrane protein, LRT, in muscle targeting to tendon cells |
+| ZH Title | 微调细胞识别：富含亮氨酸重复跨膜蛋白LRT在肌肉靶向肌腱细胞中的功能 |
+| ZH Abstract | 综述LRR跨膜蛋白LRT在细胞识别和肌肉靶向中的作用。 |
+| EN Abstract | The formation of complex tissues during embryonic development is often accompanied by directed cellular migration towards a target tissue. Specific mutual recognition between the migrating cell and its target tissue leads to the arrest of the cell migratory behavior and subsequent contact formation between the two interacting cell types. Recent studies implicated a novel family of surface proteins containing a trans-membrane domain and single leucine-rich repeat (LRR) domain in inter-cellular re |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78076. Dapper，一个Dishevelled相关的β-catenin和JNK信号拮抗剂，是脊索形成所必需的
+
+| Field | Content |
+|------|------|
+| EN Title | Dapper, a Dishevelled-associated antagonist of beta-catenin and JNK signaling, is required for notochord formation. |
+| ZH Title | Dapper，一个Dishevelled相关的β-catenin和JNK信号拮抗剂，是脊索形成所必需的 |
+| ZH Abstract | Dapper蛋白在Wnt信号中拮抗β-catenin和JNK通路。 |
+| EN Abstract | Dapper was isolated in a screen for proteins interacting with Dishevelled, a key factor in Wnt signaling. Dapper and Dishevelled colocalize intracellularly and form a complex with Axin, GSK-3, CKI, and beta-catenin. Overexpression of Dapper increases Axin and GSK-3 in this complex, resulting in decreased soluble beta-catenin and decreased activation of beta-catenin-responsive genes. Dapper also inhibits activation by Dishevelled of c-Jun N-terminal kinase (JNK), a component of beta-catenin-indep |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78078. Frzb-1，Wnt-1和Wnt-8的拮抗剂，不阻断Wnt-3A、-5A或-11的信号
+
+| Field | Content |
+|------|------|
+| EN Title | Frzb-1, an antagonist of Wnt-1 and Wnt-8, does not block signaling by Wnts -3A, -5A, or -11. |
+| ZH Title | Frzb-1，Wnt-1和Wnt-8的拮抗剂，不阻断Wnt-3A、-5A或-11的信号 |
+| ZH Abstract | Frzb-1选择性抑制特定Wnt信号。 |
+| EN Abstract | Frzb-1 is a secreted factor that was recently shown to inhibit signaling by Wnts 1 and 8. Frzb-1 contains an amino terminal domain that is homologous to the Drosophila polarity gene frizzled; several other secreted proteins that share this feature have now been identified. These findings raise the question of whether or not Frzb-1 is a general inhibitor of signaling by all Wnts. We show that signaling of Wnts -3A, 5A, and 11 is not blocked by Frzb-1, demonstrating that Frzb-1 can discriminate bo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78082. 传染病研究中的非常规动物模型
+
+| Field | Content |
+|------|------|
+| EN Title | Unconventional Animal Models in Infectious Disease Research |
+| ZH Title | 传染病研究中的非常规动物模型 |
+| ZH Abstract | 传染病研究中的非常规动物模型（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78102. 高度保守的序列介导调控视网膜发生的bHLH蛋白的动态相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Highly conserved sequences mediate the dynamic interplay of basic helix-loop-helix proteins regulating retinogenesis |
+| ZH Title | 高度保守的序列介导调控视网膜发生的bHLH蛋白的动态相互作用 |
+| ZH Abstract | 研究bHLH蛋白在视网膜神经节细胞特化中的调控。 |
+| EN Abstract | The atonal homolog 5 (ATH5) protein is central to the transcriptional network regulating the specification of retinal ganglion cells, and its expression comes under the spatiotemporal control of several basic helix-loop-helix (bHLH) proteins in the course of retina development. Monitoring the in vivo occupancy of the ATH5 promoter by the ATH5, Ngn2, and NeuroM proteins and analyzing the DNA motifs they bind, we show that three evolutionarily conserved E-boxes are required for the bHLH proteins t |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78105. Nrarp是Notch信号通路的一个新型细胞内组分
+
+| Field | Content |
+|------|------|
+| EN Title | Nrarp is a novel intracellular component of the Notch signaling pathway. |
+| ZH Title | Nrarp是Notch信号通路的一个新型细胞内组分 |
+| ZH Abstract | 研究Nrarp在Notch信号通路中的作用，未明确提及斑马鱼。 |
+| EN Abstract | The Lin12/Notch receptors regulate cell fate during embryogenesis by activating the expression of downstream target genes. These receptors signal via their intracellular domain (ICD), which is released from the plasma membrane by proteolytic processing and associates in the nucleus with the CSL family of DNA-binding proteins to form a transcriptional activator. How the CSL/ICD complex activates transcription and how this complex is regulated during development remains poorly understood. Here we |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78116. DDX5通过促进TBK1降解和破坏TBK1-TRAF3复合物形成抑制I型IFN产生
+
+| Field | Content |
+|------|------|
+| EN Title | DDX5 inhibits type I IFN production by promoting degradation of TBK1 and disrupting formation of TBK1-TRAF3 complex |
+| ZH Title | DDX5通过促进TBK1降解和破坏TBK1-TRAF3复合物形成抑制I型IFN产生 |
+| ZH Abstract | 研究DDX5在鲤鱼病毒免疫中的作用，涉及斑马鱼细胞系。 |
+| EN Abstract | DExD/H-box helicase (DDX) 5 belongs to the DExD/H-box helicase family. DDX family members play differential roles in the regulation of innate antiviral immune response. However, whether DDX5 is involved in antiviral immunity remains unclear. In this study, we found that DDX5 serves as a negative regulator of type I interferon (IFN) response. Overexpression of DDX5 inhibited IFN production induced by Spring viremia of carp virus (SVCV) and poly(I:C) and enhanced virus replication by targeting key |
+| Judgment | 是 |
+| Reason | 摘要未明确斑马鱼 |
+---
+### 78119. 父系遗传是影响微塑料和纳米塑料对后代不利影响的一个重要但被忽视的因素
+
+| Field | Content |
+|------|------|
+| EN Title | Paternal Inheritance Is an Important, but Overlooked, Factor Affecting the Adverse Effects of Microplastics and Nanoplastics on Subsequent Generations |
+| ZH Title | 父系遗传是影响微塑料和纳米塑料对后代不利影响的一个重要但被忽视的因素 |
+| ZH Abstract | 观点文章讨论微塑料的父系遗传影响，未明确斑马鱼。 |
+| EN Abstract | Microplastics (MPs) and nanoplastics (NPs) are widely detected in food and the human environment. More studies have begun to pay attention to the influence of MPs and NPs on genetics; in particular, exposure of paternal generation to MPs and NPs on epigenetic inheritance and the offspring of animal models have attracted considerable interest. In this Viewpoint, we mainly discuss the suggestion that reproductive genetic changes in the male parent have the potential to be transferred to the offspr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78136. Mst1通过IRF3磷酸化关闭胞质抗病毒防御
+
+| Field | Content |
+|------|------|
+| EN Title | Mst1 shuts off cytosolic antiviral defense through IRF3 phosphorylation |
+| ZH Title | Mst1通过IRF3磷酸化关闭胞质抗病毒防御 |
+| ZH Abstract | 研究Mst1在抗病毒中的作用，未明确斑马鱼。 |
+| EN Abstract | Cytosolic RNA/DNA sensing elicits primary defense against viral pathogens. Interferon regulatory factor 3 (IRF3), a key signal mediator/transcriptional factor of the antiviral-sensing pathway, is indispensible for interferon production and antiviral defense. However, how the status of IRF3 activation is controlled remains elusive. Through a functional screen of the human kinome, we found that mammalian sterile 20-like kinase 1 (Mst1), but not Mst2, profoundly inhibited cytosolic nucleic acid sen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78156. 社论：比较内分泌学与神经生物学趋势
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Trends in Comparative Endocrinology and Neurobiology |
+| ZH Title | 社论：比较内分泌学与神经生物学趋势 |
+| ZH Abstract | 社论，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78160. 发育、成熟和再生鱼类视网膜中细胞类型的分子特征
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular characterization of cell types in the developing, mature, and regenerating fish retina |
+| ZH Title | 发育、成熟和再生鱼类视网膜中细胞类型的分子特征 |
+| ZH Abstract | 综述鱼类视网膜研究，可能涉及斑马鱼。 |
+| EN Abstract | The fish retina has become a powerful model system for the study of different aspects of development and regeneration. An important aspect in understanding retinal anatomy and function is to trace the development of various cell types during embryonic stages. Several markers that detect the cessation of proliferative activity have been used in studies of cellular birth days, in order to follow the temporal progression of retinogenesis. Moreover, by using cell type-specific markers, the onset of |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78169. chordin-like1在有颌类中的出现可能促进了附肢的进化
+
+| Field | Content |
+|------|------|
+| EN Title | The emergence of chordin-like1 in gnathostomes may have contributed to the evolution of paired appendages |
+| ZH Title | chordin-like1在有颌类中的出现可能促进了附肢的进化 |
+| ZH Abstract | 进化发育生物学研究，未明确斑马鱼。 |
+| EN Abstract | Genomic transformations during early vertebrate evolution, including two rounds of whole-genome duplication, laid the groundwork for the emergence of novel morphological features in jawed vertebrates. Among these innovations, paired appendages represent a major evolutionary milestone, whose development and diversification enabled vertebrates to exploit diverse ecological niches in aquatic, terrestrial, and aerial environments. Here, we combined phylogenetic and local genomic synteny analyses to |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78176. 脊椎动物颜色模式形成与进化的机制
+
+| Field | Content |
+|------|------|
+| EN Title | Mechanisms Underlying the Formation and Evolution of Vertebrate Color Patterns |
+| ZH Title | 脊椎动物颜色模式形成与进化的机制 |
+| ZH Abstract | 综述脊椎动物颜色模式，可能提及斑马鱼。 |
+| EN Abstract | Vertebrates exhibit a wide range of color patterns, which play critical roles in mediating intra- and interspecific communication. Because of their diversity and visual accessibility, color patterns offer a unique and fascinating window into the processes underlying biological organization. In this review, we focus on describing many of the general principles governing the formation and evolution of color patterns in different vertebrate groups.We characterize the types of patterns, review the m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78182. 社论：从放线菌中寻找生物活性物质
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: The Search for Biological Active Agent(s) From Actinobacteria |
+| ZH Title | 社论：从放线菌中寻找生物活性物质 |
+| ZH Abstract | 社论，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78188. 鱼骨来源的细胞系：研究骨生物学的替代体外细胞系统
+
+| Field | Content |
+|------|------|
+| EN Title | Fish bone-derived cell lines: an alternative in vitro cell system to study bone biology |
+| ZH Title | 鱼骨来源的细胞系：研究骨生物学的替代体外细胞系统 |
+| ZH Abstract | 综述鱼类细胞系作为骨生物学研究模型。 |
+| EN Abstract | P>Human bone diseases represent a major health problem worldwide and effective therapies have still to be developed. Despite numerous studies using mammalian systems, cellular and molecular processes governing bone and cartilage homeostasis in vertebrates are still not fully understood. Recently, fish have emerged as a suitable model and a promising alternative to the classical mammalian systems to study vertebrate development, in particular skeletogenesis. To complement in vivo developmental st |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78189. 尿素循环基因的自然变异
+
+| Field | Content |
+|------|------|
+| EN Title | Natural variation in expression of urea cycle genes |
+| ZH Title | 尿素循环基因的自然变异 |
+| ZH Abstract | 尿素循环基因的自然变异（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78204. RNA结合蛋白Rbm24作为胚胎谱系分化和细胞稳态的多层面转录后调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | RNA-Binding Protein Rbm24 as a Multifaceted Post-Transcriptional Regulator of Embryonic Lineage Differentiation and Cellular Homeostasis |
+| ZH Title | RNA结合蛋白Rbm24作为胚胎谱系分化和细胞稳态的多层面转录后调控因子 |
+| ZH Abstract | 综述Rbm24在胚胎发育中的调控作用。 |
+| EN Abstract | RNA-binding proteins control the metabolism of RNAs at all stages of their lifetime. They are critically required for the post-transcriptional regulation of gene expression in a wide variety of physiological and pathological processes. Rbm24 is a highly conserved RNA-binding protein that displays strongly regionalized expression patterns and exhibits dynamic changes in subcellular localization during early development. There is increasing evidence that it acts as a multifunctional regulator to s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78205. 鱼类饲料中真菌和霉菌毒素的发生及其对鱼类健康的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Occurrence of Fungi and Mycotoxins in Fish Feeds and Their Impact on Fish Health. |
+| ZH Title | 鱼类饲料中真菌和霉菌毒素的发生及其对鱼类健康的影响 |
+| ZH Abstract | 综述鱼类饲料中真菌毒素对鱼类健康的影响。 |
+| EN Abstract | The rapid population growth in developing countries has led to strong pressure on capture fisheries. However, capture fisheries have reached their maximal limits of fish production and are supplemented by farmed fish. The growth in aquaculture has led to high demand for fish feeds, which play a very important role in fish nutrition and health. Use of animal protein in fish feeds is expensive; hence, a majority of farmers from developing countries use local feed ingredients from plant origin as a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78208. 人类生命程序的开始
+
+| Field | Content |
+|------|------|
+| EN Title | The start of a human life program |
+| ZH Title | 人类生命程序的开始 |
+| ZH Abstract | 人类生命程序的开始（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78214. 时间协调信号逐步模式化前后轴和背腹轴
+
+| Field | Content |
+|------|------|
+| EN Title | Temporally coordinated signals progressively pattern the anteroposterior and dorsoventral body axes |
+| ZH Title | 时间协调信号逐步模式化前后轴和背腹轴 |
+| ZH Abstract | 综述脊椎动物体轴模式化的信号通路。 |
+| EN Abstract | The vertebrate body plan is established through the precise spatiotemporal coordination of morphogen signaling pathways that pattern the anteroposterior (AP) and dorsoventral (DV) axes. Patterning along the AP axis is directed by posteriorizing signals Wnt, fibroblast growth factor (FGF), Nodal, and retinoic acid (RA), while patterning along the DV axis is directed by bone morphogenetic proteins (BMP) ventralizing signals. This review addresses the current understanding of how Wnt, FGF, RA and B |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78217. Foxn4：脊椎动物发育中细胞命运的多面转录调控因子
+
+| Field | Content |
+|------|------|
+| EN Title | Foxn4: A multi-faceted transcriptional regulator of cell fates in vertebrate development |
+| ZH Title | Foxn4：脊椎动物发育中细胞命运的多面转录调控因子 |
+| ZH Abstract | 综述Foxn4在脊椎动物发育中的作用。 |
+| EN Abstract | Vertebrate development culminates in the generation of proper proportions of a large variety of different cell types and subtypes essential for tissue, organ and system functions in the right place at the right time. Foxn4, a member of the forkhead box/winged-helix transcription factor superfamily, is expressed in mitotic progenitors and/or postmitotic precursors in both neural (e.g., retina and spinal cord) and non-neural tissues (e.g., atrioventricular canal and proximal airway). During develo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78219. SoxF基因：心血管系统发育的关键参与者
+
+| Field | Content |
+|------|------|
+| EN Title | SoxF genes: Key players in the development of the cardio-vascular system |
+| ZH Title | SoxF基因：心血管系统发育的关键参与者 |
+| ZH Abstract | 综述SoxF基因在心血管发育中的作用。 |
+| EN Abstract | SoxF genes (Sox7, Sox17 and Sox18) encode a group of transcription factors that have a pivotal role in cardio-vascular development. SOXF factors orchestrate endothelial cell fate or direct cell differentiation in developing heart, blood vessels and lymphatic vessels. Their roles are highly conserved throughout animal evolution. SOXF activity is finely tuned with a variety of cell type-specific co-factors and partner proteins to effect transcription of genes critical for endothelial cell phenotyp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78220. 脊椎动物阿片受体的进化
+
+| Field | Content |
+|------|------|
+| EN Title | The evolution of vertebrate opioid receptors |
+| ZH Title | 脊椎动物阿片受体的进化 |
+| ZH Abstract | 综述脊椎动物阿片受体的进化。 |
+| EN Abstract | The proteins that mediate the analgesic and other effects of opioid drugs and endogenous opioid peptides are known as opioid receptors. Opioid receptors consist of a family of four closely-related proteins belonging to the large superfamily of G-protein coupled receptors. The three types of opioid receptors shown unequivocally to mediate analgesia in animal models are the mu (MOR), delta (DOR), and kappa (KOR) opioid receptor proteins. The role of the fourth member of the opioid receptor family, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78221. 亚功能划分、硬骨鱼辐射和人类基因组注释
+
+| Field | Content |
+|------|------|
+| EN Title | Subfunction partitioning, the teleost radiation and the annotation of the human genome. |
+| ZH Title | 亚功能划分、硬骨鱼辐射和人类基因组注释 |
+| ZH Abstract | 综述硬骨鱼基因组复制与辐射。 |
+| EN Abstract | Half of all vertebrate species are teleost fish. What accounts for this explosion of biodiversity? Recent evidence and advances in evolutionary theory suggest that genomic features could have played a significant role in the teleost radiation. This review examines evidence for an ancient whole-genome duplication (tetraploidization) event that probably occurred just before the teleost radiation. The partitioning of ancestral subfunctions between gene copies arising from this duplication could hav |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78225. 微塑料对海鲜的影响：实验发现的全球综合
+
+| Field | Content |
+|------|------|
+| EN Title | Microplastic Impacts on Seafood: A Global Synthesis of Experimental Findings |
+| ZH Title | 微塑料对海鲜的影响：实验发现的全球综合 |
+| ZH Abstract | 综述微塑料对海鲜物种的影响。 |
+| EN Abstract | Plastic pollution is a growing global concern, with plastic and microplastic particles now widespread in aquatic environments. Microplastics are frequently ingested by marine organisms, including commercially important seafood species. Ingestion can lead to a range of biological effects, influenced by the size, type and quantity of plastic, as well as the species impacted. Despite rising concern, and an escalating body of literature, there has been limited synthesis of how microplastics effect s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78229. 鱼类作为生物模型：在生物医学和水产科学中肠道微生物研究的意义
+
+| Field | Content |
+|------|------|
+| EN Title | Fish as biological models: Implications for gut microbiota research in biomedical and aquaculture sciences |
+| ZH Title | 鱼类作为生物模型：在生物医学和水产科学中肠道微生物研究的意义 |
+| ZH Abstract | 综述鱼类作为肠道微生物研究模型的价值。 |
+| EN Abstract | Animal models are invaluable for studying biological processes and disease mechanisms. Fish, as vertebrates, share many conserved physiological, anatomical, and molecular features with humans, making them a valuable biological model. Their unique biological characteristics make them easy to manipulate and maintain in laboratory conditions. Also, fish diversity provides many options for choosing the most suitable model for a specific study. The increasing prevalence of microbiota-related diseases |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78230. 从基因到通路：硬骨鱼转录组学中精确通路重建的基因筛选方法
+
+| Field | Content |
+|------|------|
+| EN Title | From Genes to Pathways: A Curated Gene Approach to Accurate Pathway Reconstruction in Teleost Fish Transcriptomics |
+| ZH Title | 从基因到通路：硬骨鱼转录组学中精确通路重建的基因筛选方法 |
+| ZH Abstract | 为硬骨鱼转录组学提供手动筛选的基因列表。 |
+| EN Abstract | Interpreting the vast amounts of data generated by high-throughput sequencing technologies can often present a significant challenge, particularly for non-model organisms. While automated approaches like GO (Gene Ontology) and KEGG (Kyoto Encyclopedia of Genes and Genomes) enrichment analyses are widely used, they often lack specificity for non-model organisms. To bridge this gap, we present a manually curated gene list tailored for teleost fish transcriptomics. This resource focuses on key biol |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78231. HeartCV：用于透明动物心率和心率变异性自动化测量的可迁移工具
+
+| Field | Content |
+|------|------|
+| EN Title | HeartCV: a tool for transferrable, automated measurement of heart rate and heart rate variability in transparent animals |
+| ZH Title | HeartCV：用于透明动物心率和心率变异性自动化测量的可迁移工具 |
+| ZH Abstract | 开发适用于透明动物心脏功能测量的自动化工具。 |
+| EN Abstract | Heart function is a key component of whole-organismal physiology. Bioimaging is commonly, but not exclusively, used for quantifying heart function in transparent individuals, including early developmental stages of aquatic animals, many of which are transparent. However, a central limitation of many imaging-related methods is the lack of transferability between species, life-history stages and experimental approaches. Furthermore, locating the heart in mobile individuals remains challenging. Her |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78235. 酪氨酸酶抑制剂对硬骨鱼的潜在不良影响：综述
+
+| Field | Content |
+|------|------|
+| EN Title | Potential adverse effect of tyrosinase inhibitors on teleosts:A review |
+| ZH Title | 酪氨酸酶抑制剂对硬骨鱼的潜在不良影响：综述 |
+| ZH Abstract | 综述酪氨酸酶抑制剂对硬骨鱼着色的影响。 |
+| EN Abstract | Coloration plays a crucial role in the social communication and survival of organisms. Multidisciplinary studies have been conducted to elucidate the correlation between coloration and melanin biosynthesis (referred as melanogenesis). The multi-copper enzyme tyrosinase catalyzes the first two steps of melanogenesis for coloration in teleosts. Due to the increasing demand of tyrosinase inhibitors for the production of skin whitening cosmetics, hypopigmentation pharmaceuticals, and anti-browning a |
+| Judgment | 是 |
+| Reason | 综述硬骨鱼，未特指斑马鱼 |
+---
+### 78237. 鱼类拟除虫菊酯毒性生物标志物
+
+| Field | Content |
+|------|------|
+| EN Title | Biomarkers of pyrethroid toxicity in fish |
+| ZH Title | 鱼类拟除虫菊酯毒性生物标志物 |
+| ZH Abstract | 综述鱼类中拟除虫菊酯毒性生物标志物。 |
+| EN Abstract | Pesticides contribute to human welfare by reducing vector-borne diseases and protecting crops against pests. Insecticides are the most widely employed pesticides for agricultural, domestic, and industrial pest control. However, some insecticides such as synthetic pyrethroids, analogs of the natural pyrethrin, persist in the environment and result in different hostile effects on nontarget organisms. Due to a continuous increase in the use of pyrethroids and their widespread application, different |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78239. p53：机制、生物学和治疗的最新进展（I）
+
+| Field | Content |
+|------|------|
+| EN Title | p53: updates on mechanisms, biology and therapy (I) |
+| ZH Title | p53：机制、生物学和治疗的最新进展（I） |
+| ZH Abstract | 综述p53的最新研究进展。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78240. 神经嵴的规格和形成：谱系分离的观点
+
+| Field | Content |
+|------|------|
+| EN Title | Specification and formation of the neural crest: Perspectives on lineage segregation |
+| ZH Title | 神经嵴的规格和形成：谱系分离的观点 |
+| ZH Abstract | 综述神经嵴细胞谱系分离的机制。 |
+| EN Abstract | The neural crest is a fascinating embryonic population unique to vertebrates that is endowed with remarkable differentiation capacity. Thought to originate from ectodermal tissue, neural crest cells generate neurons and glia of the peripheral nervous system, and melanocytes throughout the body. However, the neural crest also generates many ectomesenchymal derivatives in the cranial region, including cell types considered to be of mesodermal origin such as cartilage, bone, and adipose tissue. The |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78243. 干细胞与昼夜节律钟
+
+| Field | Content |
+|------|------|
+| EN Title | Stem cells and the circadian clock |
+| ZH Title | 干细胞与昼夜节律钟 |
+| ZH Abstract | 综述昼夜节律对干细胞稳态的调控。 |
+| EN Abstract | The circadian timing system is a complex biological network of interacting circadian clocks that regulates 24 h rhythms of behavioral and physiological processes. One intriguing observation is that stem cell homeostasis is subject to circadian clock regulation. Rhythmic oscillations have been observed in a variety of embryonic and adult stem cell dependent processes, such as hematopoietic progenitor cell migration, the hair follicle cycle, bone remodeling, regenerative myogenesis and neurogenesi |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78244. 功能基因组学评估海洋污染在生理和进化时间尺度上的生物反应：迈向预测性生态毒理学
+
+| Field | Content |
+|------|------|
+| EN Title | Functional genomics to assess biological responses to marine pollution at physiological and evolutionary timescales: toward a vision of predictive ecotoxicology |
+| ZH Title | 功能基因组学评估海洋污染在生理和进化时间尺度上的生物反应：迈向预测性生态毒理学 |
+| ZH Abstract | 综述基因组学在海洋污染评估中的应用。 |
+| EN Abstract | Marine pollution is ubiquitous, and is one of the key factors influencing contemporary marine biodiversity worldwide. To protect marine biodiversity, how do we surveil, document and predict the short- and long-term impacts of pollutants on at-risk species? Modern genomics tools offer high-throughput, information-rich and increasingly cost-effective approaches for characterizing biological responses to environmental stress, and are important tools within an increasing sophisticated kit for survei |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78246. 阿托伐他汀通过调节Rho蛋白的香叶基香叶基化诱导肝脏NgBR表达
+
+| Field | Content |
+|------|------|
+| EN Title | Atorvastatin Induces Hepatic NgBR Expression by Regulating Geranylgeranylation of Rho Protein |
+| ZH Title | 阿托伐他汀通过调节Rho蛋白的香叶基香叶基化诱导肝脏NgBR表达 |
+| ZH Abstract | 研究阿托伐他汀调控肝脏NgBR表达的机制。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78247. 脊椎动物真菌感染模型概述
+
+| Field | Content |
+|------|------|
+| EN Title | Overview of vertebrate animal models of fungal infection |
+| ZH Title | 脊椎动物真菌感染模型概述 |
+| ZH Abstract | 综述脊椎动物真菌感染模型。 |
+| EN Abstract | Fungi represent emerging infectious threats to human populations worldwide. Mice and other laboratory animals have proved invaluable in modeling clinical syndromes associated with superficial and life-threatening invasive mycoses. This review outlines salient features of common vertebrate animal model systems to study fungal pathogenesis, host antifungal immune responses, and antifungal compounds. (C) 2014 Elsevier B.V. All rights reserved. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78248. 睫状缘区在脊椎动物眼睛发育和再生中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The ciliary marginal zone (CMZ) in development and regeneration of the vertebrate eye |
+| ZH Title | 睫状缘区在脊椎动物眼睛发育和再生中的作用 |
+| ZH Abstract | 综述睫状缘区在视网膜发育和再生中的功能。 |
+| EN Abstract | The ciliary marginal zone (CMZ) is a circumferential ring of cells found at the extreme periphery of the maturing and mature neural retina that consists of retinal stem and progenitor cells. It functions to add retinal neurons to the periphery of the neural retina in larval and adult fish, larval frogs, and birds. Additionally, the CMZ may contribute to regeneration of the damaged retina in frogs and fish. In mammals, cells from the ciliary epithelium can be induced to express retinal stem cell- |
+| Judgment | 是 |
+| Reason | 综述脊椎动物，未特指斑马鱼 |
+---
+### 78250. 小圆细胞肉瘤
+
+| Field | Content |
+|------|------|
+| EN Title | Small Round Cell Sarcomas |
+| ZH Title | 小圆细胞肉瘤 |
+| ZH Abstract | 小圆细胞肉瘤（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78253. PACdb：多聚腺苷酸化切割位点和3'-UTR数据库
+
+| Field | Content |
+|------|------|
+| EN Title | PACdb: PolyA cleavage site and 3′-UTR database |
+| ZH Title | PACdb：多聚腺苷酸化切割位点和3'-UTR数据库 |
+| ZH Abstract | 构建多物种多聚腺苷酸化位点数据库。 |
+| EN Abstract | The PolyA Cleavage Site and 3'-UTR Database (PACdb) is a web-accessible database that catalogs putative 3'-processing sites and 3'-UTR sequences for multiple organisms. Sites have been identified primarily via expressed sequence tag-genome alignments, enabling delineation of both the specificities and heterogeneity of 3'-processing events. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78256. WNT/钙离子通路：生化介质、工具和未来需求
+
+| Field | Content |
+|------|------|
+| EN Title | The WNT/calcium pathway: biochemical mediators, tools and future requirements. |
+| ZH Title | WNT/钙离子通路：生化介质、工具和未来需求 |
+| ZH Abstract | 综述Wnt/钙离子通路的生化机制和研究工具。 |
+| EN Abstract | Wnt proteins represent a family of secreted, lipid-modified glycoproteins that can activate different intracellular pathways. Upon binding to certain members of the Frizzled family of Wnt receptors some Wnts like Wnt-4, Wnt-5A or Wnt-11 are able to elicit an intracellular release of calcium ions. This calcium signaling acitivity is sufficient to activate calcium sensitive enzymes like protein kinase C (PKC), calcium-calmodulin dependent kinase II (CamKII) or calcineurin (CaCN). This so-called Wn |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78262. 力量变化：生物力学信号如何驱动内皮可塑性和形态发生
+
+| Field | Content |
+|------|------|
+| EN Title | Force of change: How biomechanical cues drive endothelial plasticity and morphogenesis |
+| ZH Title | 力量变化：生物力学信号如何驱动内皮可塑性和形态发生 |
+| ZH Abstract | 综述生物力学信号在内皮细胞可塑性中的作用。 |
+| EN Abstract | Endothelial cells (ECs), which line the inner surface of blood vessels, continuously respond to biomechanical forces from blood flow, extracellular matrix, and intracellular tension. Recent advances have highlighted the pivotal role of these forces in regulating cellular plasticity during endothelial-to-hematopoietic transition (EHT) and endothelial-to-mesenchymal transition (EndMT), two processes essential for embryogenesis, tissue repair, and disease progression. EHT contributes to hematopoiet |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78263. 蛋白质乳酰化在各种疾病中的调控作用：特别关注非组蛋白乳酰化
+
+| Field | Content |
+|------|------|
+| EN Title | The regulatory role of protein lactylation in various diseases: Special focus on the regulatory role of non-histone lactylation |
+| ZH Title | 蛋白质乳酰化在各种疾病中的调控作用：特别关注非组蛋白乳酰化 |
+| ZH Abstract | 综述蛋白质乳酰化在疾病中的调控机制。 |
+| EN Abstract | Lactylation, an emerging form of post-translational modification derived from lactate, plays a pivotal role in numerous cellular processes such as tumor proliferation, metabolism, inflammation, and embryonic development. However, the precise molecular mechanisms by which lactylation controls these biological functions in both physiological and pathological contexts remain elusive. This review summarizes the latest reported regulatory mechanisms of protein lactylation in various diseases since 20 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78303. 微/纳米塑料毒性与健康效应：特刊客座社论
+
+| Field | Content |
+|------|------|
+| EN Title | Micro(nano)plastic toxicity and health effects: Special issue guest editorial |
+| ZH Title | 微/纳米塑料毒性与健康效应：特刊客座社论 |
+| ZH Abstract | 特刊社论，介绍微/纳米塑料毒性与健康效应。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78306. 神经科学前沿：神经元钙传感器在健康与疾病中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | Editorial: Neuronal Calcium Sensors in Health and Disease |
+| ZH Title | 神经科学前沿：神经元钙传感器在健康与疾病中的作用 |
+| ZH Abstract | 神经科学前沿：神经元钙传感器在健康与疾病中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78308. 水族箱鱼类中海分枝杆菌、海龟分枝杆菌、偶发分枝杆菌和脓肿分枝杆菌的检测
+
+| Field | Content |
+|------|------|
+| EN Title | Detection of Mycobacterium marinum, M.peregrinum, M.fortuitum and M.abscessus in aquarium fish |
+| ZH Title | 水族箱鱼类中海分枝杆菌、海龟分枝杆菌、偶发分枝杆菌和脓肿分枝杆菌的检测 |
+| ZH Abstract | 检测水族箱鱼类中的四种分枝杆菌。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78311. 帕金森病模型评估
+
+| Field | Content |
+|------|------|
+| EN Title | Evaluation of Models of Parkinson's Disease |
+| ZH Title | 帕金森病模型评估 |
+| ZH Abstract | 综述帕金森病动物模型的优缺点。 |
+| EN Abstract | Parkinson's disease is one of the most common neurodegenerative diseases. Animal models have contributed a large part to our understanding and therapeutics developed for treatment of PD. There are several more exhaustive reviews of literature that provide the initiated insights into the specific models; however a novel synthesis of the basic advantages and disadvantages of different models is much needed. Here we compare both neurotoxin based and genetic models while suggesting some novel avenue |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78316. 脊椎动物眼睛发育的遗传调控
+
+| Field | Content |
+|------|------|
+| EN Title | Genetic regulation of vertebrate eye development |
+| ZH Title | 脊椎动物眼睛发育的遗传调控 |
+| ZH Abstract | 综述脊椎动物眼睛发育的遗传调控过程。 |
+| EN Abstract | Eye development is a complex and highly regulated process that consists of several overlapping stages: (i) specification then splitting of the eye field from the developing forebrain; (ii) genesis and patterning of the optic vesicle; (iii) regionalization of the optic cup into neural retina and retina pigment epithelium; and (iv) specification and differentiation of all seven retinal cell types that develop from a pool of retinal progenitor cells in a precise temporal and spatial manner: retinal |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78317. 利用进化相关性探索miRNA调控网络
+
+| Field | Content |
+|------|------|
+| EN Title | Exploring the miRNA Regulatory Network Using Evolutionary Correlations |
+| ZH Title | 利用进化相关性探索miRNA调控网络 |
+| ZH Abstract | 综述miRNA调控网络的进化保守性。 |
+| EN Abstract | Post-transcriptional regulation by miRNAs is a widespread and highly conserved phenomenon in metazoans, with several hundreds to thousands of conserved binding sites for each miRNA, and up to two thirds of all genes under miRNA regulation. At the same time, the effect of miRNA regulation on mRNA and protein levels is usually quite modest and associated phenotypes are often weak or subtle. This has given rise to the notion that the highly interconnected miRNA regulatory network exerts its functio |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78318. 从性别扭曲到大脑扭曲（及更多！）
+
+| Field | Content |
+|------|------|
+| EN Title | From gender benders to brain benders (and beyond!) |
+| ZH Title | 从性别扭曲到大脑扭曲（及更多！） |
+| ZH Abstract | 从性别扭曲到大脑扭曲（及更多！）（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78319. Shh-hippo信号通路控制心肌细胞增殖
+
+| Field | Content |
+|------|------|
+| EN Title | Shh-hippo Signaling Pathway Controls Cardiomyocyte Proliferation |
+| ZH Title | Shh-hippo信号通路控制心肌细胞增殖 |
+| ZH Abstract | Shh-hippo信号通路控制心肌细胞增殖（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78321. 初级纤毛的新面貌
+
+| Field | Content |
+|------|------|
+| EN Title | The Emerging Face of Primary Cilia |
+| ZH Title | 初级纤毛的新面貌 |
+| ZH Abstract | 综述初级纤毛在发育信号转导中的作用。 |
+| EN Abstract | Primary cilia are microtubule-based organelles that serve as hubs for the transduction of various developmental signaling pathways including Hedgehog, Wnt, FGF, and PDGF. Ciliary dysfunction contributes to a range of disorders, collectively known as the ciliopathies. Recently, interest has grown in these syndromes, particularly among craniofacial biologists, as many known and putative ciliopathies have severe craniofacial defects. Herein we discuss the current understanding of ciliary biology an |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78324. 胚胎发育中的振荡信号通路
+
+| Field | Content |
+|------|------|
+| EN Title | Oscillating signaling pathways during embryonic development |
+| ZH Title | 胚胎发育中的振荡信号通路 |
+| ZH Abstract | 综述脊椎动物体节形成中的振荡信号网络。 |
+| EN Abstract | Oscillatory signaling pathway activity during embryonic development was first identified in the process of vertebrate somite formation. In mouse, this process is thought to be largely controlled by a cyclic signaling network involving the Notch, FGF, and Writ pathways. Surprisingly, several recent genetic studies reveal that the core oscillation pacemaker is unlikely to involve periodic activation by these pathways. The mechanism(s) responsible for the production of oscillatory gene activity dur |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78328. 当前和新兴的研究睡眠与自闭症动物模型的工具
+
+| Field | Content |
+|------|------|
+| EN Title | Current and emerging tools for studying animal models of sleep and autism |
+| ZH Title | 当前和新兴的研究睡眠与自闭症动物模型的工具 |
+| ZH Abstract | 综述研究自闭症动物模型睡眠的工具。 |
+| EN Abstract | Sleep disturbances and the role of sleep in neuropsychiatric disorders have been studied in numerous animal models using complementary approaches. This review focuses on preclinical tools for studying sleep in several animal models of ASD, including existing non-genetic and genetic models, new tools for generating different types of genetic models, and methods to facilitate efficient animal model generation. Tools for studying sleep in these models, including EEG, fluorescent imaging, and geneti |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78331. 运动通过Hmgcr改善衰老引起的心脏功能障碍并延长寿命
+
+| Field | Content |
+|------|------|
+| EN Title | Exercise improves aging-induced cardiac dysfunction and prolongs lifespan via Hmgcr |
+| ZH Title | 运动通过Hmgcr改善衰老引起的心脏功能障碍并延长寿命 |
+| ZH Abstract | 研究运动通过Hmgcr改善衰老心脏功能。 |
+| EN Abstract | Since the incidence of cardiovascular disease increases dramatically with age, it is crucial to understand the molecular mechanisms of heart damage in aging and how to reduce the damage caused by aging to the heart. 3-Hydroxy-3-methylglutaryl coenzyme A (HMG-CoA) reductase (HMGCR) is the rate-limiting step in cholesterol biosynthesis and catalyzes the conversion of HMG-CoA to mevalonate (MVA). Hmgcr not only affects cholesterol synthesis during the development process, but also regulates primord |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78332. 通过光片显微镜和计算重建进行谱系追踪
+
+| Field | Content |
+|------|------|
+| EN Title | Lineage Tracing by Light-Sheet Microscopy and Computational Reconstruction. |
+| ZH Title | 通过光片显微镜和计算重建进行谱系追踪 |
+| ZH Abstract | 综述光片显微镜在谱系追踪中的应用。 |
+| EN Abstract | Lineage tracing based on modern live imaging approaches enables to visualize, reconstruct, and analyze the developmental history, fate, and dynamic behaviors of cells in vivo in a direct, comprehensive, and quantitative manner. Light-sheet fluorescence microscopy (LSFM) has greatly boosted lineage tracing efforts, because fluorescently labeled specimens can be imaged in their entirety, over long periods of time, with high spatiotemporal resolution and minimal photodamage. In addition, an increas |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78338. BPA替代物对产前和心血管系统的影响
+
+| Field | Content |
+|------|------|
+| EN Title | Effects of BPA substitutes on the prenatal and cardiovascular systems |
+| ZH Title | BPA替代物对产前和心血管系统的影响 |
+| ZH Abstract | 综述BPA替代物对心血管系统的毒性。 |
+| EN Abstract | Bisphenol A (BPA) is a ubiquitous chemical compound constantly being released into the environment, making it one of the most persistent endocrine-disrupting chemical (EDC) in nature. This EDC has already been associated with developing various pathologies, such as diabetes, obesity, and cardiovascular, renal, and behavioral complications, among others. Therefore, over the years, BPA has been replaced, gradually, by its analog compounds. However, these compounds are structurally similar to BPA, |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78339. 小分子筛选作为应对低效髓鞘修复的方法
+
+| Field | Content |
+|------|------|
+| EN Title | Small molecule screening as an approach to encounter inefficient myelin repair |
+| ZH Title | 小分子筛选作为应对低效髓鞘修复的方法 |
+| ZH Abstract | 综述小分子筛选在髓鞘修复中的应用。 |
+| EN Abstract | While current multiple sclerosis therapies are focused on immunomodulation, thereby slowing down disease progression, scientific interest has nowadays been shifted toward regenerative therapies aiming at reversing already existing deficits. The application of chemical compounds was proven to be valuable for the understanding of oligodendrogenesis and for exposing mechanisms that can boost remyelination. However, sufficient myelin repair has not been achieved yet, thus underscoring the need for m |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78342. 水生生物暴露于金属纳米颗粒后的基因表达模式变化
+
+| Field | Content |
+|------|------|
+| EN Title | Changes of Gene Expression Patterns from Aquatic Organisms Exposed to Metal Nanoparticles |
+| ZH Title | 水生生物暴露于金属纳米颗粒后的基因表达模式变化 |
+| ZH Abstract | 综述金属纳米颗粒对水生生物基因表达的影响。 |
+| EN Abstract | Metal nanoparticles are used in various branches of industry due to their physicochemical properties. However, with intensive use, most of the waste and by-products from industries and household items, and from weathering of products containing nanoparticles, end up in the waters. These pollutants pose a risk to aquatic organisms, one of which is a change in the expression of various genes. Most of the data that focus on metal nanoparticles and their effects on aquatic organisms are about copper |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78351. 第八届水生动物人类疾病模型会议
+
+| Field | Content |
+|------|------|
+| EN Title | 8th Aquatic Animal Models of Human Disease Conference |
+| ZH Title | 第八届水生动物人类疾病模型会议 |
+| ZH Abstract | 会议摘要，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78359. 解剖学会2013年冬季会议：医学教育评估与感觉器官
+
+| Field | Content |
+|------|------|
+| EN Title | Anatomical Society Winter Meeting 2013: Assessment Within Medical Education & Sense Organs University of Newcastle, Newcastle upon Tyne, UK, 16th-18th December 2013 Abstracts |
+| ZH Title | 解剖学会2013年冬季会议：医学教育评估与感觉器官 |
+| ZH Abstract | 会议摘要，无具体研究内容。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78437. 运动纤毛在发育和疾病中的新见解
+
+| Field | Content |
+|------|------|
+| EN Title | The motile cilium in development and disease: emerging new insights |
+| ZH Title | 运动纤毛在发育和疾病中的新见解 |
+| ZH Abstract | 综述运动纤毛的生物发生与功能新发现。 |
+| EN Abstract | In this paper, I review a collection of recently published papers that have provided significant new information about the biogenesis and functions of motile cilia. In vertebrates, the activity of motile cilia has been associated with a fascinating diversity of developmental and physiological processes. Despite the importance, much remains to be learned about the genetic control and cellular events that are involved in the differentiation of motile cilia. We also need to better understand the me |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78442. 胸带发育的细胞和分子研究
+
+| Field | Content |
+|------|------|
+| EN Title | Cellular and molecular investigations into the development of the pectoral girdle |
+| ZH Title | 胸带发育的细胞和分子研究 |
+| ZH Abstract | 研究前肢近端肌肉形成的两种机制。 |
+| EN Abstract | The forelimbs of higher vertebrates are composed of two portions: the appendicular region (stylopod, zeugopod and autopod) and the less prominent proximal girdle elements (scapula and clavicle) that brace the limb to the main trunk axis.We show that the formation of the muscles of the proximal limb occurs through two distinct mechanisms. The more superficial girdle muscles (pectoral and latissimus dorsi) develop by the "In-Out" mechanism whereby migration of myogenic cells from the somites into |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78447. 使用内含子 microRNA 的转基因样动物模型
+
+| Field | Content |
+|------|------|
+| EN Title | Transgene-Like Animal Models Using Intronic MicroRNAs. |
+| ZH Title | 使用内含子 microRNA 的转基因样动物模型 |
+| ZH Abstract | 综述利用内含子 miRNA 构建转基因动物模型。 |
+| EN Abstract | Transgenic animal models are valuable tools for testing gene functions and drug mechanisms in vivo. They are also the best similitude for a human body for etiological and pathological research of diseases. All pharmaceutically developed medicines must be proven to be safe and effective in animals before approval by the Food and Drug Administration(FDA) to be used in clinical trials. To this end, the transgenic animal models of diseases serve as the front line of drug evaluation. However, there i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78449. 生物医学重要实验动物的基因组资源库
+
+| Field | Content |
+|------|------|
+| EN Title | Genome resource banking of biomedically important laboratory animals |
+| ZH Title | 生物医学重要实验动物的基因组资源库 |
+| ZH Abstract | 综述实验动物基因组资源库的建立与应用。 |
+| EN Abstract | Genome resource banking is the systematic collection, storage, and redistribution of biomaterials in an organized, logistical, and secure manner. Genome cryobanks usually contain biomaterials and associated genomic information essential for progression of biomedicine, human health, and research. In that regard, appropriate genome cryobanks could provide essential biomaterials for both current and future research projects in the form of various cell types and tissues, including sperm, oocytes, em |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78450. 体内接触抑制运动控制神经嵴定向迁移
+
+| Field | Content |
+|------|------|
+| EN Title | Contact inhibition of locomotion in vivo controls neural crest directional migration |
+| ZH Title | 体内接触抑制运动控制神经嵴定向迁移 |
+| ZH Abstract | 神经嵴细胞体内接触抑制运动机制研究。 |
+| EN Abstract | Contact inhibition of locomotion was discovered by Abercrombie more than 50 years ago and describes the behaviour of fibroblast cells confronting each other in vitro, where they retract their protrusions and change direction on contact(1,2). Its failure was suggested to contribute to malignant invasion(3-6). However, the molecular basis of contact inhibition of locomotion and whether it also occurs in vivo are still unknown. Here we show that neural crest cells, a highly migratory and multipoten |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78463. 视锥细胞特异性视觉循环
+
+| Field | Content |
+|------|------|
+| EN Title | The Cone-specific visual cycle |
+| ZH Title | 视锥细胞特异性视觉循环 |
+| ZH Abstract | 综述视锥细胞视觉色素快速再生的机制。 |
+| EN Abstract | Cone photoreceptors mediate our daytime vision and function under bright and rapidly-changing light conditions. As their visual pigment is destroyed in the process of photoactivation, the continuous function of cones imposes the need for rapid recycling of their chromophore and regeneration of their pigment. The canonical retinoid visual cycle through the retinal pigment epithelium cells recycles chromophore and supplies it to both rods and cones. However, shortcomings of this pathway, including |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78467. 生长锥形态动力学
+
+| Field | Content |
+|------|------|
+| EN Title | The dynamics of growth cone morphology |
+| ZH Title | 生长锥形态动力学 |
+| ZH Abstract | 利用特征形状分析研究生长锥形态动态。 |
+| EN Abstract | Background: Normal brain function depends on the development of appropriate patterns of neural connections. A critical role in guiding axons to their targets during neural development is played by neuronal growth cones. These have a complex and rapidly changing morphology; however, a quantitative understanding of this morphology, its dynamics and how these are related to growth cone movement, is lacking.Results: Here we use eigenshape analysis (principal components analysis in shape space) to un |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78471. 左右心室流出道梗阻的分子决定因素
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular determinants of left and right outflow tract obstruction. |
+| ZH Title | 左右心室流出道梗阻的分子决定因素 |
+| ZH Abstract | 综述左右心室流出道梗阻的分子机制。 |
+| EN Abstract | Congenital heart defects represent the most common group of human birth defects; they occur in 0.8-1% of live births and in 10% of spontaneously aborted fetuses. Heart defects seen in newborns typically represent specific morphogenetic defects of individual chambers or regions of the heart, with the remaining portions of the heart developing relatively normally. These developmental defects are commonly compatible with the intrauterine circulation, where the pulmonary circulation and systemic cir |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78474. 造血和主动脉内皮起源于共同的生血成血管细胞前体，并由 Etv2 剂量决定
+
+| Field | Content |
+|------|------|
+| EN Title | Hemogenic and aortic endothelium arise from a common hemogenic angioblast precursor and are specified by the Etv2 dosage |
+| ZH Title | 造血和主动脉内皮起源于共同的生血成血管细胞前体，并由 Etv2 剂量决定 |
+| ZH Abstract | Etv2 剂量决定造血内皮与普通内皮命运。 |
+| EN Abstract | Hematopoietic stem cells (HSCs) are generated from hemogenic endothelial cells (HECs) in the floor of the dorsal aorta (DA) via endothelial-to-hematopoietic transition (EHT). Yet whether HECs and conventional endothelial cells (cECs) in the DA share a common precursor is controversial, and the molecular mechanisms governing their fate specification remain incompletely defined. Using a combination of fate mapping, time-lapse imaging, genetic manipulation, and single-cell RNA sequencing, here we s |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78475. 共生细菌通过灭活吞噬细胞来源的活性氧增强金黄色葡萄球菌感染
+
+| Field | Content |
+|------|------|
+| EN Title | Commensal bacteria augment Staphylococcus aureus infection by inactivation of phagocyte-derived reactive oxygen species |
+| ZH Title | 共生细菌通过灭活吞噬细胞来源的活性氧增强金黄色葡萄球菌感染 |
+| ZH Abstract | 共生细菌通过灭活 ROS 增强金葡菌感染。 |
+| EN Abstract | Author summaryS. aureus is a commensal inhabitant of the human skin and nares. However, it can cause serious diseases if it is able to breach our protective barriers such as the skin, often via wounds or surgery. If infection occurs via a wound, this initial inoculum contains both the pathogen, other members of the microflora and also wider environmental microbes. We have previously described "augmentation", whereby this other non-pathogenic material can enhance the ability of S. aureus to lead |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78476. 心外膜来源的细胞外囊泡通过保守的miRNA转移介导的再生潜力
+
+| Field | Content |
+|------|------|
+| EN Title | Regenerative potential of epicardium-derived extracellular vesicles mediated by conserved miRNA transfer |
+| ZH Title | 心外膜来源的细胞外囊泡通过保守的miRNA转移介导的再生潜力 |
+| ZH Abstract | 研究心外膜囊泡在心脏再生中的作用，未明确提及斑马鱼。 |
+| EN Abstract | Aims After a myocardial infarction, the adult human heart lacks sufficient regenerative capacity to restore lost tissue, leading to heart failure progression. Finding novel ways to reprogram adult cardiomyocytes into a regenerative state is a major therapeutic goal. The epicardium, the outermost layer of the heart, contributes cardiovascular cell types to the forming heart and is a source of trophic signals to promote heart muscle growth during embryonic development. The epicardium is also essen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78480. FAM20：一个进化上保守的分泌蛋白家族，在造血细胞中表达
+
+| Field | Content |
+|------|------|
+| EN Title | FAM20: an evolutionarily conserved family of secreted proteins expressed in hematopoietic cells - art. no. 11 |
+| ZH Title | FAM20：一个进化上保守的分泌蛋白家族，在造血细胞中表达 |
+| ZH Abstract | 研究FAM20蛋白家族，未提及斑马鱼。 |
+| EN Abstract | Background: Hematopoiesis is a complex developmental process controlled by a large number of factors that regulate stem cell renewal, lineage commitment and differentiation. Secreted proteins, including the hematopoietic growth factors, play critical roles in these processes and have important biological and clinical significance. We have employed representational difference analysis to identify genes that are differentially expressed during experimentally induced myeloid differentiation in the |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78485. TAp63γ通过转录调控DNA修复基因增强核苷酸切除修复
+
+| Field | Content |
+|------|------|
+| EN Title | TAp63γ enhances nucleotide excision repair through transcriptional regulation of DNA repair genes |
+| ZH Title | TAp63γ通过转录调控DNA修复基因增强核苷酸切除修复 |
+| ZH Abstract | 研究TAp63γ在DNA修复中的作用，未提及斑马鱼。 |
+| EN Abstract | p63 and p73, two p53 family members, play crucial roles in development and tumor suppression. p63 and p73 have multiple isoforms, which have similar or distinct biological functions. Transactivation (TA) isoforms of p63 and p73 have high similarity with p53 and often have biological functions similar to p53. p53 plays an important role in nucleotide excision repair (NER) through transcriptional regulation of target genes involved in NER, including DDB2, XPC and GADD45. To investigate whether TAp |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78494. 颅神经基板的诱导和特化
+
+| Field | Content |
+|------|------|
+| EN Title | Induction and specification of cranial placodes |
+| ZH Title | 颅神经基板的诱导和特化 |
+| ZH Abstract | 综述颅神经基板发育，提及斑马鱼。 |
+| EN Abstract | Cranial placodes are specialized regions of the ectoderm, which give rise to various sensory ganglia and contribute to the pituitary gland and sensory organs of the vertebrate head. They include the adenohypophyseal, olfactory, lens, trigeminal, and profundal placodes, a series of epibranchial placodes, an otic placode, and a series of lateral line placodes. After a long period of neglect, recent years have seen a resurgence of interest in placode induction and specification. There is increasing |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78498. 开发用于发育神经毒性风险评估的综合测试与评估方法（IATA）案例研究
+
+| Field | Content |
+|------|------|
+| EN Title | Development of Integrated Approaches to Testing and Assessment (IATA) case studies on developmental neurotoxicity (DNT) risk assessment |
+| ZH Title | 开发用于发育神经毒性风险评估的综合测试与评估方法（IATA）案例研究 |
+| ZH Abstract | 评估农药发育神经毒性，提及斑马鱼。 |
+| EN Abstract | The EFSA Panel on Plant Protection Products and their Residues (PPR) has developed, as a self-task mandate (EFSA-Q-2019-00100), two adverse outcome pathway (AOP)-informed integrated approach to testing and assessment (IATA) case studies to answer a developmental neurotoxicity (DNT) hazard identification and characterisation problem formulation that could support the regulatory decisions for the pesticide active substances deltamethrin and flufenacet. The IATA were developed to assess the applica |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78499. 我们水中的塑料：鱼类微生物组面临风险？
+
+| Field | Content |
+|------|------|
+| EN Title | Plastics in our water: Fish microbiomes at risk? |
+| ZH Title | 我们水中的塑料：鱼类微生物组面临风险？ |
+| ZH Abstract | 综述塑料对鱼类微生物组的影响，提及斑马鱼。 |
+| EN Abstract | Water contaminated with plastic debris and leached plasticizers can be ingested or taken up by aquatic invertebrates and vertebrates alike, exerting adverse effects on multiple tissues including the gastrointestinal tract. As such, gut microbiomes of aquatic animals are susceptible targets for toxicity. Recent studies conducted in teleost fishes report that microplastics and plasticizers (e.g., phthalates, bisphenol A) induce gastrointestinal dysbiosis and alter microbial diversity in the gastro |
+| Judgment | 是 |
+| Reason | 摘要不完整，无法判断是否主要综述斑马鱼 |
+---
+### 78525. SEC23A和SEC23B功能重叠提示先天性红细胞生成不良性贫血II型的新型治疗策略
+
+| Field | Content |
+|------|------|
+| EN Title | Overlap of SEC23A and SEC23B Function Suggests a Novel Therapeutic Approach for Congenital Dyserythropoietic Anemia Type II |
+| ZH Title | SEC23A和SEC23B功能重叠提示先天性红细胞生成不良性贫血II型的新型治疗策略 |
+| ZH Abstract | SEC23A和SEC23B功能重叠提示先天性红细胞生成不良性（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78533. 连接脊椎动物心肌细胞的粘附连接复合区：VI. 非哺乳动物物种中的不同前体结构
+
+| Field | Content |
+|------|------|
+| EN Title | The area composita of adhering junctions connecting heart muscle cells of vertebrates.: VI.: Different precursor structures in non-mammalian species |
+| ZH Title | 连接脊椎动物心肌细胞的粘附连接复合区：VI. 非哺乳动物物种中的不同前体结构 |
+| ZH Abstract | 比较研究，提及非哺乳动物，未特指斑马鱼。 |
+| EN Abstract | Recent studies on the formation and molecular organization of the mammalian heart have emphasized the architectural and functional importance of the adhering junctions (AJs), which are densely clustered in the bipolar end regions (intercalated disks, 113s) connecting the elongated cardiornyocytes of the adult heart. Moreover, we learned from genetic studies of mutated AJ proteins that desmosornal proteins, which for the most part are integral components of ID-specitic composite AJs (areae cornpo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78535. 造血干细胞和祖细胞中细胞间过氧化物酶体转移的首次记录：一种“缓解压力”的方法？
+
+| Field | Content |
+|------|------|
+| EN Title | First Documentation of Cell-to-Cell Peroxisome Transfer in Hematopoietic Stem and Progenitor Cells: A Method to "Relieve Stress"? |
+| ZH Title | 造血干细胞和祖细胞中细胞间过氧化物酶体转移的首次记录：一种“缓解压力”的方法？ |
+| ZH Abstract | 造血干细胞和祖细胞中细胞间过氧化物酶体转移的首次记录：一种“（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78540. 氘氢交换结合质谱揭示ADAMTS13蛋白酶中新的自身抗体结合表位和底物识别位点
+
+| Field | Content |
+|------|------|
+| EN Title | Deuterium-Hydrogen Exchange Coupled With Mass Spectrometry Revealed A Novel Autoantibody Binding Epitope and Substrate Recognition Site In ADAMTS13 Protease |
+| ZH Title | 氘氢交换结合质谱揭示ADAMTS13蛋白酶中新的自身抗体结合表位和底物识别位点 |
+| ZH Abstract | 氘氢交换结合质谱揭示ADAMTS13蛋白酶中新的自身抗体结合（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78542. 石油基和生物聚合物基纳米塑料对水生生物的影响：机械降解原始聚合物的案例研究
+
+| Field | Content |
+|------|------|
+| EN Title | Effects of petroleum-based and biopolymer-based nanoplastics on aquatic organisms: A case study with mechanically degraded pristine polymers |
+| ZH Title | 石油基和生物聚合物基纳米塑料对水生生物的影响：机械降解原始聚合物的案例研究 |
+| ZH Abstract | 毒性研究，提及淡水次级消费者，未特指斑马鱼。 |
+| EN Abstract | Mismanaged plastic litter submitted to environmental conditions may breakdown into smaller fragments, eventually reaching nano-scale particles (nanoplastics, NPLs). In this study, pristine beads of four different types of polymers, three oil-based (polypropylene, PP; polystyrene, PS; and low-density polyethylene, LDPE) and one bio-based (polylactic acid, PLA) were mechanically broken down to obtain more environmentally realistic NPLs and its toxicity to two freshwater secondary consumers was ass |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78559. 癌症研究中的患者来源异种移植模型
+
+| Field | Content |
+|------|------|
+| EN Title | Patient-Derived Xenograft Models in Cancer Research |
+| ZH Title | 癌症研究中的患者来源异种移植模型 |
+| ZH Abstract | 综述患者来源异种移植模型在癌症研究中的应用。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78564. 心脏再生中的非心肌细胞
+
+| Field | Content |
+|------|------|
+| EN Title | Non-Cardiomyocytes in Heart Regeneration |
+| ZH Title | 心脏再生中的非心肌细胞 |
+| ZH Abstract | 综述非心肌细胞在心脏再生中的作用。 |
+| EN Abstract | Heart failure represents a challenging clinical and public health problem and is associated with significant morbidity and mortality. Mechanistically, loss of cardiomyocytes leads to decompensated ventricular remodeling, which eventually progresses to cardiac failure. Regenerative medicine aimed to supplement functional cardiomyocytes is supposedly a promising approach for the effective treatment of heart failure. Over the past decades, investigations on heart regeneration have revealed the regu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78565. 鱼类内耳结构和敏感性的发育
+
+| Field | Content |
+|------|------|
+| EN Title | Development of Structure and Sensitivity of the Fish Inner Ear |
+| ZH Title | 鱼类内耳结构和敏感性的发育 |
+| ZH Abstract | 综述鱼类听觉系统发育。 |
+| EN Abstract | Fish represent the largest group of vertebrates and display the greatest diversity of auditory structures. However, studies addressing how the form and function of the auditory system change during development to enhance perception of the acoustic environment are rather sparse in this taxon compared to other vertebrate groups. An ontogenetic perspective of the auditory system in fishes provides a readily testable framework for understanding structure-function relationships. Additionally, studyin |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78567. 极化蛋白运输与上皮管腔形成
+
+| Field | Content |
+|------|------|
+| EN Title | Polarized Protein Transport and Lumen Formation During Epithelial |
+| ZH Title | 极化蛋白运输与上皮管腔形成 |
+| ZH Abstract | 综述上皮管腔形成机制。 |
+| EN Abstract | One of the major challenges in biology is to explain how complex tissues and organs arise from the collective action of individual polarized cells. The best-studied model of this process is the cross talk between individual epithelial cells during their polarization to form the multicellular epithelial lumen during tissue morphogenesis. Multiple mechanisms of apical lumen formation have been proposed. Sonic epithelial lumens form from preexisting polarized epithelial structures. However, de novo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78569. 利用基因本体论表示肾脏发育
+
+| Field | Content |
+|------|------|
+| EN Title | Representing Kidney Development Using the Gene Ontology |
+| ZH Title | 利用基因本体论表示肾脏发育 |
+| ZH Abstract | 改进基因本体论中肾脏发育术语。 |
+| EN Abstract | Gene Ontology (GO) provides dynamic controlled vocabularies to aid in the description of the functional biological attributes and subcellular locations of gene products from all taxonomic groups (www.geneontology.org). Here we describe collaboration between the renal biomedical research community and the GO Consortium to improve the quality and quantity of GO terms describing renal development. In the associated annotation activity, the new and revised terms were associated with gene products in |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78571. Neurod1的调控影响胰腺中Neurogenin3+内分泌前体细胞的谱系潜能
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of Neurod1 Contributes to the Lineage Potential of Neurogenin3+ Endocrine Precursor Cells in the Pancreas |
+| ZH Title | Neurod1的调控影响胰腺中Neurogenin3+内分泌前体细胞的谱系潜能 |
+| ZH Abstract | 研究胰腺内分泌前体细胞谱系决定。 |
+| EN Abstract | During pancreatic development, transcription factor cascades gradually commit precursor populations to the different endocrine cell fate pathways. Although mutational analyses have defined the functions of many individual pancreatic transcription factors, the integrative transcription factor networks required to regulate lineage specification, as well as their sites of action, are poorly understood. In this study, we investigated where and how the transcription factors Nkx2.2 and Neurod1 genetic |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78577. Pea3亚家族Ets转录因子的反式激活功能受SUMO化调控
+
+| Field | Content |
+|------|------|
+| EN Title | The transactivation function of the Pea3 subfamily Ets transcription factors is regulated by sumoylation |
+| ZH Title | Pea3亚家族Ets转录因子的反式激活功能受SUMO化调控 |
+| ZH Abstract | 研究Pea3转录因子SUMO化调控机制。 |
+| EN Abstract | Pea3, an Ets transcriptional factor, comprises multiple regulatory domains that affect its DNA binding and transcriptional activation. The aim of this work is to uncover the mechanism of action of negative regulatory regions flanking the transactivation domain. Mutagenesis of amino acid residues in the C-terminal negative regulatory region for transactivation revealed critical residues, including a lysine residue, K96, required for its function. Corresponding mutations in the closely related Pea |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78578. TGF-β信号介导的形态发生：通过钙黏蛋白内吞调节细胞粘附
+
+| Field | Content |
+|------|------|
+| EN Title | TGF-β signaling-mediated morphogenesis:: modulation of cell adhesion via cadherin endocytosis |
+| ZH Title | TGF-β信号介导的形态发生：通过钙黏蛋白内吞调节细胞粘附 |
+| ZH Abstract | 研究TGF-β信号在脊椎动物原肠胚形成中的作用。 |
+| EN Abstract | The molecular mechanisms governing the cell behaviors underlying morphogenesis remain a major focus of research in both developmental biology and cancer biology. TGF-beta ligands control cell fate specification via Smad-mediated signaling. However, their ability to guide cellular morphogenesis in a variety of biological contexts is poorly understood. We report on the discovery of a novel TGF-beta signaling-mediated cellular morphogenesis occurring during vertebrate gastrulation. Activin/nodal me |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78580. 核苷酸组成约束基因组产生转录因子中富含丙氨酸、甘氨酸和脯氨酸的结构
+
+| Field | Content |
+|------|------|
+| EN Title | Nucleotide compositional constraints on genomes generate alanine-, glycine-, and proline-rich structures in transcription factors. |
+| ZH Title | 核苷酸组成约束基因组产生转录因子中富含丙氨酸、甘氨酸和脯氨酸的结构 |
+| ZH Abstract | 分析氨基酸组成与核苷酸组成相关性。 |
+| EN Abstract | Correlation between amino acid composition and nucleotide composition is examined. Class III POU transcription factors having higher third GC contents showed higher contents of alanine, glycine, and proline residues encoded by GC-rich nucleotides, and vice versa. This correlation was observed even among various types of transcription factors from vertebrates and invertebrates regardless of functional and structural constraints inherent to each protein. Furthermore, reptile class III POU sequence |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78581. 小动物临床前PET和SPECT成像：技术、挑战与转化影响
+
+| Field | Content |
+|------|------|
+| EN Title | Preclinical PET and SPECT Imaging in Small Animals: Technologies, Challenges and Translational Impact |
+| ZH Title | 小动物临床前PET和SPECT成像：技术、挑战与转化影响 |
+| ZH Abstract | 综述小动物PET/SPECT成像技术进展。 |
+| EN Abstract | Highlights What are the main findings? Advances in PET and SPECT technology significantly improved spatial resolution, sensitivity and quantitative accuracy in small-animal imaging. Experimental conditions and QC procedures critically affect data reliability and reproducibility in preclinical molecular imaging. What are the implications of the main findings? Enhanced imaging performance increases the translational value of animal models by enabling more precise assessment of biological processes |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78582. 基于深度学习的机器人细胞显微注射系统实时视觉检测方法
+
+| Field | Content |
+|------|------|
+| EN Title | Deep-Learning-Based Real-Time Visual Detection Method for Robotic Cell Microinjection System With High Accuracy and Efficiency |
+| ZH Title | 基于深度学习的机器人细胞显微注射系统实时视觉检测方法 |
+| ZH Abstract | 开发细胞显微注射视觉检测算法。 |
+| EN Abstract | The advancement of the life sciences has led to an increased demand for biological cell microinjection techniques. A number of algorithms have been developed for the purpose of detecting cells, and employed in automated cell microinjection systems. However, due to the significant difference in scale between the microinjector tip size (similar to 10 mu m) and the cell size (similar to 100 mu m), conventional cell detection algorithms struggle to accurately detect both the microinjector tip and th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78586. 纳米塑料在水生生态系统：对鱼类消化生理和肠道微生物群的干扰
+
+| Field | Content |
+|------|------|
+| EN Title | Nanoplastics in aquatic ecosystems: Disruptions to fish digestive physiology and gut microbiota |
+| ZH Title | 纳米塑料在水生生态系统：对鱼类消化生理和肠道微生物群的干扰 |
+| ZH Abstract | 综述纳米塑料对鱼类消化生理的影响。 |
+| EN Abstract | Nanoplastics (NPs) have emerged as pervasive contaminants in aquatic ecosystems, raising concerns due to their small size, high reactivity, and bioaccumulation potential. This review examines their impacts on fish digestive physiology and gut microbiota, highlighting key mechanisms and ecological implications. Evidence shows that NPs disrupt intestinal integrity by causing epithelial damage, villus degeneration, and increased gut permeability. These changes impair digestive enzyme activity, redu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78587. 邻苯二甲酸二烷基酯混合物对水生生物的生态毒性评估
+
+| Field | Content |
+|------|------|
+| EN Title | Ecotoxicity assessment of phthalic acid di-alkyl ester mixtures toward aquatic organisms based on results from a series of subchronic toxicity tests |
+| ZH Title | 邻苯二甲酸二烷基酯混合物对水生生物的生态毒性评估 |
+| ZH Abstract | 评估PAE混合物对水生生物的毒性。 |
+| EN Abstract | Phthalic acid di-alkyl esters (PAEs) constitute a class of industrial compounds with a wide range of carbon chain lengths and physicochemical properties that are predominantly used as plasticizers. Although multiple PAEs co-occur in water environments, which poses a combined exposure risk to aquatic organisms, no studies have quantitatively demonstrated the mixture ecotoxicity of multicomponent PAEs. This study performed a series of subchronic toxicity tests on three aquatic organisms (green alg |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78589. 发育过程中的粘弹性：它是什么？为什么你应该关心？
+
+| Field | Content |
+|------|------|
+| EN Title | Viscoelasticity during development: What is it? and why should you care? |
+| ZH Title | 发育过程中的粘弹性：它是什么？为什么你应该关心？ |
+| ZH Abstract | 综述粘弹性在胚胎发育中的作用。 |
+| EN Abstract | Viscoelasticity is a fundamental feature of biological tissues and plays a vital role in cells and tissues. This review explores the role of viscoelasticity in mechanobiology, emphasizing its impact on morphogenesis and organogenesis during embryonic development. We discuss the viscoelastic behavior of cells and tissues and its role in how cells and tissues absorb, dissipate, and transmit mechanical energy. We summarize experimental techniques such as Atomic Force Microscopy (AFM), Micropipette |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78591. 通过平面细胞极性、钙信号和纤毛的相互作用打破左右对称
+
+| Field | Content |
+|------|------|
+| EN Title | Breaking Left-Right Symmetry by the Interplay of Planar Cell Polarity, Calcium Signaling and Cilia |
+| ZH Title | 通过平面细胞极性、钙信号和纤毛的相互作用打破左右对称 |
+| ZH Abstract | 综述左右轴建立机制。 |
+| EN Abstract | The formation of the embryonic left-right axis is a fundamental process in animals, which subsequently conditions both the shape and the correct positioning of internal organs. During vertebrate early development, a transient structure, known as the left-right organizer, breaks the bilateral symmetry in a manner that is critically dependent on the activity of motile and immotile cilia or asymmetric cell migration. Extensive studies have partially elucidated the molecular pathways that initiate l |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78592. 基于肽的大斯托克斯位移荧光探针用于铜离子和组氨酸的连续检测：智能手机设备、实际样品、试纸条和生物成像应用
+
+| Field | Content |
+|------|------|
+| EN Title | Peptide-based fluorescent probe with large Stokes shift for specific sequential detection of copper (II) ions and histidine: Smartphone device, real samples, test strips and bioimaging applications |
+| ZH Title | 基于肽的大斯托克斯位移荧光探针用于铜离子和组氨酸的连续检测：智能手机设备、实际样品、试纸条和生物成像应用 |
+| ZH Abstract | 开发检测铜离子和组氨酸的荧光探针。 |
+| EN Abstract | A novel and facile fluorescent probe, DNH, was developed based on a dipeptide backbone (Asn-His-NH2) labelled with a dansyl fluorophore. DNH exhibited significant advantages in detecting Cu2+ based on the paramagnetic quenching mechanism, including satisfactory water solubility (100 % aqueous medium), a large Stokes shift (230 nm), excellent anti-interference capability (no interference), a low detection limit (19.6 nM), rapid response time (within 30 s) and a wide pH range (7-12). Employing a d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78593. 细胞外囊泡和microRNA在心肌细胞分化和增殖中的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Extracellular vesicles and microRNAs in the regulation of cardiomyocyte differentiation and proliferation |
+| ZH Title | 细胞外囊泡和microRNA在心肌细胞分化和增殖中的调控 |
+| ZH Abstract | 综述细胞外囊泡在心肌再生中的作用。 |
+| EN Abstract | Cardiomyocyte differentiation and proliferation are essential processes for the regeneration of an injured heart. In recent years, there have been several reports highlighting the involvement of extracellular vesicles (EVs) in cardiomyocyte differentiation and proliferation. These EVs originate from mesenchymal stem cells, pluripotent stem cells, and heart constituting cells (cardiomyocytes, cardiac fibroblasts, cardiac progenitor cells, epicardium). Numerous reports also indicate the involvemen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78642. 一种整体方法剖析复杂组织中的细胞相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | An In Toto Approach to Dissecting Cellular Interactions in Complex Tissues |
+| ZH Title | 一种整体方法剖析复杂组织中的细胞相互作用 |
+| ZH Abstract | 描述ShootingStar平台用于体内扰动分析。 |
+| EN Abstract | Single-cell measurements have broadened our understanding of heterogeneity in biology, yet have been limited to mostly observational studies of normal or globally perturbed systems. Typically, perturbations are utilized in an open-ended approach wherein an endpoint is assayed during or after the biological event of interest. Here we describe ShootingStar, a platform for perturbation analysis in vivo, which combines live imaging, real-time image analysis, and automated optical perturbations. Shoo |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78652. 视锥细胞中GRK7的磷酸化受光调节
+
+| Field | Content |
+|------|------|
+| EN Title | Phosphorylation of GRK7 by PKA in cone photoreceptor cells is regulated by light |
+| ZH Title | 视锥细胞中GRK7的磷酸化受光调节 |
+| ZH Abstract | 研究光对GRK7磷酸化的调控。 |
+| EN Abstract | The retina-specific G protein-coupled receptor kinases, GRK1 and GRK7, have been implicated in the shutoff of the photoresponse and adaptation to changing light conditions via rod and cone opsin phosphorylation. Recently, we have defined sites of phosphorylation by cAMP-dependent protein kinase (PKA) in the amino termini of both GRK1 and GRK7 in vitro. To determine the conditions under which GRK7 is phosphorylated in vivo, we have generated an antibody that recognizes GRK7 phosphorylated on Ser3 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78659. Wnt诱导的Axin去磷酸化从Axin复合物中释放β-catenin
+
+| Field | Content |
+|------|------|
+| EN Title | Wnt-induced dephosphorylation of axin releases beta-catenin from the axin complex. |
+| ZH Title | Wnt诱导的Axin去磷酸化从Axin复合物中释放β-catenin |
+| ZH Abstract | 研究Wnt信号调控β-catenin稳定的机制。 |
+| EN Abstract | The stabilization of beta-catenin is a key regulatory step during cell fate changes and transformations to tumor cells. Several interacting proteins, including Axin, APC, and the protein kinase GSK-3beta are implicated in regulating beta-catenin phosphorylation and its subsequent degradation. Wnt signaling stabilizes beta-catenin, but it was not clear whether and how Wnt signaling regulates the beta-catenin complex. Here we show that Axin is dephosphorylated in response to Wnt signaling. The dep |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78674. 生物导向识别工业废水中未靶向有毒物质指导水处理升级
+
+| Field | Content |
+|------|------|
+| EN Title | Biodirected Identification of Untargeted Toxicants in Industrial Wastewater Guides the Upgrading of Water Treatments |
+| ZH Title | 生物导向识别工业废水中未靶向有毒物质指导水处理升级 |
+| ZH Abstract | 开发识别工业废水中有毒物质的方法。 |
+| EN Abstract | Because industrial wastewater contains numerous chemicals and transformation products (TPs), it is important to select efficient wastewater treatments to remove toxic pollutants and their related toxicity. An integrated framework for biodirected identification of untargeted toxicants in industrial wastewater and evaluation of water treatments considering the removal of causative toxicants and overall toxicity was developed. A suite of in vivo bioassays, untargeted screening, and TP prediction we |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78677. 用于识别诱导代谢紊乱的内分泌干扰物的测试系统整合策略——OBERON项目介绍
+
+| Field | Content |
+|------|------|
+| EN Title | Integrative Strategy of Testing Systems for Identification of Endocrine Disruptors Inducing Metabolic Disorders-An Introduction to the OBERON Project |
+| ZH Title | 用于识别诱导代谢紊乱的内分泌干扰物的测试系统整合策略——OBERON项目介绍 |
+| ZH Abstract | 介绍OBERON项目用于检测内分泌干扰物的策略。 |
+| EN Abstract | Exposure to chemical substances that can produce endocrine disrupting effects represents one of the most critical public health threats nowadays. In line with the regulatory framework implemented within the European Union (EU) to reduce the levels of endocrine disruptors (EDs) for consumers, new and effective methods for ED testing are needed. The OBERON project will build an integrated testing strategy (ITS) to detect ED-related metabolic disorders by developing, improving and validating a batt |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78719. 改善眼科研究临床前模型中的微升注射
+
+| Field | Content |
+|------|------|
+| EN Title | Improving Microliter Injections in Pre-clinical Models for Ophthalmic Research |
+| ZH Title | 改善眼科研究临床前模型中的微升注射 |
+| ZH Abstract | 改善眼科研究临床前模型中的微升注射（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78724. 新型纳米材料减少橡胶硫化过程中氧化锌使用的体外和体内危害评估
+
+| Field | Content |
+|------|------|
+| EN Title | On the In Vitro and In Vivo Hazard Assessment of a Novel Nanomaterial to Reduce the Use of Zinc Oxide in the Rubber Vulcanization Process |
+| ZH Title | 新型纳米材料减少橡胶硫化过程中氧化锌使用的体外和体内危害评估 |
+| ZH Abstract | 评估新型纳米材料对水生生物的毒性。 |
+| EN Abstract | Zinc oxide (ZnO) is the most efficient curing activator employed in the industrial rubber production. However, ZnO and Zn(II) ions are largely recognized as an environmental hazard being toxic to aquatic organisms, especially considering Zn(II) release during tire lifecycle. In this context, aiming at reducing the amount of microcrystalline ZnO, a novel activator was recently synthetized, constituted by ZnO nanoparticles (NPs) anchored to silica NPs (ZnO-NP@SiO2-NP). The objective of this work i |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78728. 过表达AT2R的BMSC来源外泌体通过减轻损伤诱导的新生内膜增生预防颈动脉损伤后再狭窄（2022年7月，10.1007/s12265-022-10293-2）
+
+| Field | Content |
+|------|------|
+| EN Title | Exosomes Derived from AT2R-Overexpressing BMSC Prevent Restenosis After Carotid Artery Injury by Attenuating the Injury-Induced Neointimal Hyperplasia (Jul, 10.1007/s12265-022-10293-2, 2022) |
+| ZH Title | 过表达AT2R的BMSC来源外泌体通过减轻损伤诱导的新生内膜增生预防颈动脉损伤后再狭窄（2022年7月，10.1007/s12265-022-10293-2） |
+| ZH Abstract | 过表达AT2R的BMSC来源外泌体通过减轻损伤诱导的新生内膜（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78741. ETS转录因子Etv2对内皮和造血发育的调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of endothelial and hematopoietic development by the ETS transcription factor Etv2 |
+| ZH Title | ETS转录因子Etv2对内皮和造血发育的调控 |
+| ZH Abstract | 综述Etv2在血管和造血发育中的作用。 |
+| EN Abstract | Purpose of reviewVasculogenesis and hematopoiesis are essential for development. Recently, the ETS domain transcription factor Etv2 has been identified as an essential regulator of vasculogenesis and hematopoiesis. Here, we review the recent studies that have established the critical role of Etv2 in the specification of mesoderm to blood and endothelial cells.Recent findingsLoss and gain-of-function studies have demonstrated the conserved role of Etv2 in endothelial and hematopoietic development |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78747. 酪蛋白激酶I和酪蛋白激酶II差异调节Axin在Wnt和JNK通路中的功能
+
+| Field | Content |
+|------|------|
+| EN Title | Casein kinase I and casein kinase II differentially regulate axin function in Wnt and JNK pathways. |
+| ZH Title | 酪蛋白激酶I和酪蛋白激酶II差异调节Axin在Wnt和JNK通路中的功能 |
+| ZH Abstract | 研究CKI和CKII对Axin功能的调节。 |
+| EN Abstract | Axin uses different combinations of functional domains in down-regulation of the Wnt pathway and activation of the MEKK1/JNK pathway. We are interested in the elucidation of the functional switch of Axin. In the present study, we show that the Wnt activator CKIepsilon, but not CKIIalpha, Frat1, LRP5, or LRP6, inhibited Axin-mediated JNK activation. We also found that both CKIalpha and CKIepsilon interacted with Axin, whereas CKIIalpha did not bind to Axin and had no effect on Axin-mediated JNK a |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78767. 第26届日本色素细胞研究学会年会摘要
+
+| Field | Content |
+|------|------|
+| EN Title | 26th Annual Meeting of the Japanese Society for Pigment Cell Research, Sapporo, Japan, November 14-15, 2015 Abstracts |
+| ZH Title | 第26届日本色素细胞研究学会年会摘要 |
+| ZH Abstract | 会议摘要集，无具体研究内容。 |
+| EN Abstract | - **判断结果**：无法判别 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78799. 鱼类与细胞凋亡：分子与通路
+
+| Field | Content |
+|------|------|
+| EN Title | Fish and apoptosis: Molecules and pathways |
+| ZH Title | 鱼类与细胞凋亡：分子与通路 |
+| ZH Abstract | 综述鱼类细胞凋亡分子机制。 |
+| EN Abstract | Apoptosis is a genetically controlled and evolutionarily conserved form of active cell death, albeit with an increase in complexity with continuing development. A high conservation at the functional and molecular level has been described between the players of the apoptotic machinery in invertebrates (Caenorhabditis elegans and Drosophila) and mammals. However, fish represent an excellent and advantageous model for the study of vertebrate development and disease, bridging the gap between the C. |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78804. 视黄酸和成纤维细胞生长因子在内耳总脚和半规管模式形成中的相反作用
+
+| Field | Content |
+|------|------|
+| EN Title | Opposing effects between retinoic acid and Fibroblast growth factor in patterning the common crus and semicircular canals of the inner ear |
+| ZH Title | 视黄酸和成纤维细胞生长因子在内耳总脚和半规管模式形成中的相反作用 |
+| ZH Abstract | 研究视黄酸和FGF在内耳发育中的作用。 |
+| EN Abstract | The three orthogonally arranged semicircular canals and their sensory organs, cristae, of the inner ear are responsible for detecting angular head movements. A main functional component of this vestibular apparatus is the evolutionarily conserved unit of the anterior and posterior canals joined by a central stalk, the common crus. A resorption process (removal of epithelial cells) carves out these three connecting structures from an epithelial outpocket of the developing otic vesicle known as th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78807. 鱼类集群行为研究的问题与前景
+
+| Field | Content |
+|------|------|
+| EN Title | Problems and Prospects of Studying Schooling Behavior of Fish |
+| ZH Title | 鱼类集群行为研究的问题与前景 |
+| ZH Abstract | 综述鱼类集群行为研究现状。 |
+| EN Abstract | The problems and prospects of studying schooling behavior of fish have been considered. Areas that remain little developed or have controversial and contradictory results have been noted: the hydrodynamics and energetics of fish swimming in a school, the mechanisms of fish interaction and the dissemination of information within a school, the principles of forming a coordinated school response to external stimuli and the rapid decay of the reaction, interaction between different schools during th |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78814. Expression Atlas：跨多个研究和物种的基因和蛋白质表达
+
+| Field | Content |
+|------|------|
+| EN Title | Expression Atlas: gene and protein expression across multiple studies and organisms |
+| ZH Title | Expression Atlas：跨多个研究和物种的基因和蛋白质表达 |
+| ZH Abstract | 介绍Expression Atlas数据库。 |
+| EN Abstract | Expression Atlas (http://www.ebi.ac.uk/gxa) is an added value database that provides information about gene and protein expression in different species and contexts, such as tissue, developmental stage, disease or cell type. The available public and controlled access data sets from different sources are curated and re-analysed using standardized, open source pipelines and made available for queries, download and visualization. As of August 2017, Expression Atlas holds data from 3,126 studies acr |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78817. 单壁碳纳米管对胚胎的影响：简要综述
+
+| Field | Content |
+|------|------|
+| EN Title | Impact of single-walled carbon nanotubes on the embryo: a brief review |
+| ZH Title | 单壁碳纳米管对胚胎的影响：简要综述 |
+| ZH Abstract | 综述单壁碳纳米管的胚胎毒性。 |
+| EN Abstract | Carbon nanotubes (CNTs) are considered one of the most interesting materials in the 21st century due to their unique physiochemical characteristics and applicability to various industrial products and medical applications. However, in the last few years, questions have been raised regarding the potential toxicity of CNTs to humans and the environment; it is believed that the physiochemical characteristics of these materials are key determinants of CNT interaction with living cells and hence dete |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78820. 重离子治疗与空间辐射研讨会摘要
+
+| Field | Content |
+|------|------|
+| EN Title | Heavy Ions in Therapy and Space Radiation Symposium, Chiba, Japan, May 15-18, 2013 Abstracts |
+| ZH Title | 重离子治疗与空间辐射研讨会摘要 |
+| ZH Abstract | 会议摘要集。（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78824. Hox网络中的MicroRNA：与后部优势的明显联系
+
+| Field | Content |
+|------|------|
+| EN Title | MicroRNAs in the Hox network: an apparent link to posterior prevalence |
+| ZH Title | Hox网络中的MicroRNA：与后部优势的明显联系 |
+| ZH Abstract | 分析Hox簇miRNA靶向Hox mRNA。 |
+| EN Abstract | Homeobox (Hox) transcription factors confer anterior - posterior (AP) axial coordinates to vertebrate embryos. Hox genes are found in clusters that also contain genes for microRNAs (miRNAs). Our analysis of predicted miRNA targets indicates that Hox cluster- embedded miRNAs preferentially target Hox mRNAs. Moreover, the presumed Hox target genes are predominantly situated on the 3' side of each Hox miRNA locus. These results suggest that Hox miRNAs help repress more anterior programmes, thereby |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78825. Dishevelled的PDZ结构域与Frizzled C端区域保守内部序列的直接结合
+
+| Field | Content |
+|------|------|
+| EN Title | Direct binding of the PDZ domain of Dishevelled to a conserved internal sequence in the C-terminal region of Frizzled. |
+| ZH Title | Dishevelled的PDZ结构域与Frizzled C端区域保守内部序列的直接结合 |
+| ZH Abstract | 研究Dvl与Fz的PDZ结合机制。 |
+| EN Abstract | The cytoplasmic protein Dishevelled (Dvl) and the associated membrane-bound receptor Frizzled (Fz) are essential in canonical and noncanonical Wnt signaling pathways. However, the molecular mechanisms underlying this signaling are not well understood. By using NMR spectroscopy, we determined that an internal sequence of Fz binds to the conventional peptide binding site in the PDZ domain of Dvl; this type of site typically binds to C-terminal binding motifs. The C-terminal region of the Dvl inhib |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78826. QSulf1重塑细胞表面硫酸乙酰肝素蛋白聚糖的6-O硫酸化状态以促进Wnt信号
+
+| Field | Content |
+|------|------|
+| EN Title | QSulf1 remodels the 6-O sulfation states of cell surface heparan sulfate proteoglycans to promote Wnt signaling. |
+| ZH Title | QSulf1重塑细胞表面硫酸乙酰肝素蛋白聚糖的6-O硫酸化状态以促进Wnt信号 |
+| ZH Abstract | 研究QSulf1调控HSPG硫酸化促进Wnt信号。 |
+| EN Abstract | The 6-O sulfation states of cell surface heparan sulfate proteoglycans (HSPGs) are dynamically regulated to control the growth and specification of embryonic progenitor lineages. However, mechanisms for regulation of HSPG sulfation have been unknown. Here, we report on the biochemical and Wnt signaling activities of QSulf1, a novel cell surface sulfatase. Biochemical studies establish that QSulf1 is a heparan sulfate (HS) 6-O endosulfatase with preference, in particular, toward trisulfated IdoA2 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78837. Selaginellin通过MAPK信号通路抑制黑色素生成
+
+| Field | Content |
+|------|------|
+| EN Title | Selaginellin Inhibits Melanogenesis via the MAPK Signaling Pathway |
+| ZH Title | Selaginellin通过MAPK信号通路抑制黑色素生成 |
+| ZH Abstract | 研究Selaginellin抑制黑色素生成机制。 |
+| EN Abstract | Hyperpigmented skin diseases such as melasma, freckles, and melanosis usually mar the appearance of patients. Traditional herbal medicines are highly accepted in inhibiting skin pigmentation, with advantages of high efficiency, low cost, and low side effects. Selaginellin (SEL), one of the active compounds of selaginella, has been proved to be exhibit antineoplastic, antioxidant, antisenescence, and antiapoptosis activities. In this study, we found that SEL can inhibit melanogenesis in vitro and |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78838. GJD2(Cx36)在屈光不正发展中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The Role of GJD2(Cx36) in Refractive Error Development |
+| ZH Title | GJD2(Cx36)在屈光不正发展中的作用 |
+| ZH Abstract | 综述GJD2在屈光不正发展中的作用。 |
+| EN Abstract | Refractive errors are common eye disorders characterized by a mismatch between the focal power of the eye and its axial length. An increased axial length is a common cause of the refractive error myopia (nearsightedness). The substantial increase in myopia prevalence over the last decades has raised public health concerns because myopia can lead to severe ocular complications later in life. Genomewide association studies (GWAS) have made considerable contributions to the understanding of the gen |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78839. 人类GLI3相关中枢神经系统特异性增强子的分子选择特征
+
+| Field | Content |
+|------|------|
+| EN Title | Molecular signatures of selection on the human GLI3 associated central nervous system specific enhancers |
+| ZH Title | 人类GLI3相关中枢神经系统特异性增强子的分子选择特征 |
+| ZH Abstract | 研究人类GLI3增强子的分子选择特征。 |
+| EN Abstract | The zinc finger-containing transcription factor Gli3 is a key mediator of Hedgehog (Hh) signaling pathway. In vertebrates, Gli3 has widespread expression pattern during early embryonic development. Along the anteroposterior axes of the central nervous system (CNS), dorsoventral neural pattern elaboration is achieved through Hh mediated spatio-temporal deployment of Gli3 transcripts. Previously, we and others uncovered a set of enhancers that mediate many of the known aspects of Gli3 expression d |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78840. 通过谱系追踪和体内成像发现新的祖细胞群体
+
+| Field | Content |
+|------|------|
+| EN Title | Discovering New Progenitor Cell Populations through Lineage Tracing and In Vivo Imaging |
+| ZH Title | 通过谱系追踪和体内成像发现新的祖细胞群体 |
+| ZH Abstract | 综述谱系追踪技术发现祖细胞群体。 |
+| EN Abstract | Identification of progenitor cells that generate differentiated cell types during development, regeneration, and disease states is central to understanding the mechanisms governing such transitions. For more than a century, different lineage-tracing strategies have been developed, which helped disentangle the complex relationship between progenitor cells and their prog-enies. In this review, we discuss how lineage-tracing analyses have evolved alongside technological advances, and how this appro |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78841. 核糖体病的特征
+
+| Field | Content |
+|------|------|
+| EN Title | Hallmarks of ribosomopathies |
+| ZH Title | 核糖体病的特征 |
+| ZH Abstract | 综述核糖体病的特征和机制。 |
+| EN Abstract | Ribosomopathies are diseases caused by defects in ribosomal constituents or in factors with a role in ribosome assembly. Intriguingly, congenital ribosomopathies display a paradoxical transition from early symptoms due to cellular hypo-proliferation to an elevated cancer risk later in life. Another association between ribosome defects and cancer came into view after the recent discovery of somatic mutations in ribosomal proteins and rDNA copy number changes in a variety of tumor types, giving ri |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78843. Meis基因在视网膜发育中的作用
+
+| Field | Content |
+|------|------|
+| EN Title | The role of Meis genes in retina development |
+| ZH Title | Meis基因在视网膜发育中的作用 |
+| ZH Abstract | Meis基因在视网膜发育中的作用（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78844. WD40重复蛋白62（MCPH2）在大脑生长中的作用：皮层发育所需的多种分子和细胞机制
+
+| Field | Content |
+|------|------|
+| EN Title | The Role of WD40-Repeat Protein 62 (MCPH2) in Brain Growth: Diverse Molecular and Cellular Mechanisms Required for Cortical Development |
+| ZH Title | WD40重复蛋白62（MCPH2）在大脑生长中的作用：皮层发育所需的多种分子和细胞机制 |
+| ZH Abstract | 综述WDR62在大脑生长中的作用。 |
+| EN Abstract | Genetic disruptions of spindle/centrosome-associated WD40-repeat protein 62 (WDR62) are causative for autosomal recessive primary microcephaly (MCPH) and a broader range of cortical malformations. Since the identification of WDR62 as encoded by the MCPH2 locus in 2010, recent studies that have deleted/depleted WDR62 in various animal models of cortical development have highlighted conserved functions in brain growth. Here, we provide a timely review of our current understanding of WDR62 contribu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78848. 磁性纳米颗粒在受控组织组装和组织工程中的应用
+
+| Field | Content |
+|------|------|
+| EN Title | Application of magnetic nanoparticle for controlled tissue assembly and tissue engineering |
+| ZH Title | 磁性纳米颗粒在受控组织组装和组织工程中的应用 |
+| ZH Abstract | 综述磁性纳米颗粒在组织工程中的应用。 |
+| EN Abstract | Magnetic nanoparticles have been subjected to extensive studies in the past few decades owing to their promising potentials in biomedical applications. The versatile intrinsic properties of magnetic nanoparticles enable their use in many biomedical applications. Recently, magnetic nanoparticles were utilized to control the cell's function. In addition, intracellular delivery of magnetic nanoparticles allowed cell's positioning by appropriate use of magnetic field and created cellular cluster. Fu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78852. 胰岛素、IGF-1和钒酸盐在鱼类成骨细胞样细胞中的增殖和成矿作用
+
+| Field | Content |
+|------|------|
+| EN Title | Proliferative and mineralogenic effects of insulin, IGF-1, and vanadate in fish osteoblast-like cells |
+| ZH Title | 胰岛素、IGF-1和钒酸盐在鱼类成骨细胞样细胞中的增殖和成矿作用 |
+| ZH Abstract | 研究胰岛素等对鱼类成骨细胞的作用。 |
+| EN Abstract | Fish have recently been recognized as a suitable model and a promising alternative to mammalian systems to study skeletogenesis. In this regard, several fish bone-derived cell lines have been developed and are being used to investigate mechanisms associated with insulin-like action of vanadium on extracellular matrix (ECM) mineralization. Although proliferative and mineralogenic effects of vanadate, insulin-like growth factor 1 (IGF-1), and insulin have recently been evaluated in a fish prechond |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78854. 在其天然细胞环境中鉴定靶基因——EWS/FLI在尤文肉瘤中的分析
+
+| Field | Content |
+|------|------|
+| EN Title | Identification of target genes in their native cellular context - An analysis of EWS/FLI in Ewing's sarcoma |
+| ZH Title | 在其天然细胞环境中鉴定靶基因——EWS/FLI在尤文肉瘤中的分析 |
+| ZH Abstract | 研究尤文肉瘤中EWS/FLI的靶基因。 |
+| EN Abstract | Ewing's sarcoma is the second most common tumor of bone in children and young adults, and requires highly intensive chemotherapy along with surgery and/or radiation for successful treatment. Because these therapies are associated with significant short- and long-term side effects, new therapeutic approaches are needed. Most cases of Ewing's sarcoma contain somatic translocations between chromosomes 11 and 22 that result in the t(11;22)(q24;q12). This translocation encodes the EWS/FLI fusion prot |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78856. 选择性杀死癌细胞的基因治疗方法
+
+| Field | Content |
+|------|------|
+| EN Title | Gene therapy approaches for the selective killing of cancer cells. |
+| ZH Title | 选择性杀死癌细胞的基因治疗方法 |
+| ZH Abstract | 综述选择性杀死癌细胞的基因治疗策略。 |
+| EN Abstract | This review describes gene therapy strategies that take advantage of defective signal transduction pathways to selectively kill cancer cells without adversely affecting normal cells. The distinctive features of cancer cells currently exploited by gene therapy include mitosis, cell permissiveness to infection, specific protease activity, and the activity of the p53, Rb/E2F and wnt/catenin signal transduction pathways. In most cases, proof of concept has been obtained in vitro and in vivo, but onl |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78857. 脊椎动物眼睛形成的物种特异性机制
+
+| Field | Content |
+|------|------|
+| EN Title | Species-specific mechanisms of vertebrate eye formation |
+| ZH Title | 脊椎动物眼睛形成的物种特异性机制 |
+| ZH Abstract | 脊椎动物眼睛形成的物种特异性机制（由标题提炼） |
+| EN Abstract | 无摘要 |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78862. mScarlet3：一种明亮且快速成熟的红色荧光蛋白
+
+| Field | Content |
+|------|------|
+| EN Title | mScarlet3: a brilliant and fast-maturing red fluorescent protein |
+| ZH Title | mScarlet3：一种明亮且快速成熟的红色荧光蛋白 |
+| ZH Abstract | 开发一种新的红色荧光蛋白mScarlet3。 |
+| EN Abstract | We report the evolution of mScarlet3, a cysteine-free monomeric red fluorescent protein with fast and complete maturation, as well as record brightness, quantum yield (75%) and fluorescence lifetime (4.0 ns). The mScarlet3 crystal structure reveals a barrel rigidified at one of its heads by a large hydrophobic patch of internal residues. mScarlet3 behaves well as a fusion tag, displays no apparent cytotoxicity and it surpasses existing red fluorescent proteins as a Forster resonance energy trans |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78863. 维持皮肤表皮稳态和修复的组织结构和干细胞动力学调控
+
+| Field | Content |
+|------|------|
+| EN Title | Regulation of tissue architecture and stem cell dynamics to sustain homeostasis and repair in the skin epidermis |
+| ZH Title | 维持皮肤表皮稳态和修复的组织结构和干细胞动力学调控 |
+| ZH Abstract | 综述皮肤表皮干细胞动力学调控。 |
+| EN Abstract | Stratified epithelia are made up of several layers of cells, which act as a protective barrier for the organ they cover. To ensure their shielding effect, epithelia are naturally able to cope with constant environmental insults. This ability is enabled by their morphology and architecture, as well as the continuous turnover of stem and progenitor cells that constitute their building blocks. Stem cell fate decisions and dynamics are fundamental key biological processes that allow epithelia to exe |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78864. 一刀切并不适用：发育性造血中的异质性
+
+| Field | Content |
+|------|------|
+| EN Title | One Size Does Not Fit All: Heterogeneity in Developmental Hematopoiesis |
+| ZH Title | 一刀切并不适用：发育性造血中的异质性 |
+| ZH Abstract | 综述发育性造血的异质性。 |
+| EN Abstract | Our knowledge of the complexity of the developing hematopoietic system has dramatically expanded over the course of the last few decades. We now know that, while hematopoietic stem cells (HSCs) firmly reside at the top of the adult hematopoietic hierarchy, multiple HSC-independent progenitor populations play variegated and fundamental roles during fetal life, which reflect on adult physiology and can lead to disease if subject to perturbations. The importance of obtaining a high-resolution pictu |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78866. 环境化学物质和天然产物与水生生物消化系统中ABC和SLC转运蛋白的相互作用
+
+| Field | Content |
+|------|------|
+| EN Title | Interactions of Environmental Chemicals and Natural Products With ABC and SLC Transporters in the Digestive System of Aquatic Organisms |
+| ZH Title | 环境化学物质和天然产物与水生生物消化系统中ABC和SLC转运蛋白的相互作用 |
+| ZH Abstract | 综述水生生物消化系统转运蛋白与环境化学物质的相互作用。 |
+| EN Abstract | An organism's diet is a major route of exposure to both beneficial nutrients and toxic environmental chemicals and natural products. The uptake of dietary xenobiotics in the intestine is prevented by transporters of the Solute Carrier (SLC) and ATP Binding Cassette (ABC) family. Several environmental chemicals and natural toxins have been identified to induce expression of these defense transporters in fish and aquatic invertebrates, indicating that they are substrates and can be eliminated. How |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78868. 有颌脊椎动物中蛋白激酶C家族的进化
+
+| Field | Content |
+|------|------|
+| EN Title | Protein kinase C family evolution in jawed vertebrates |
+| ZH Title | 有颌脊椎动物中蛋白激酶C家族的进化 |
+| ZH Abstract | 分析有颌脊椎动物PKC基因家族的进化。 |
+| EN Abstract | Protein kinase C (PKC) was one of the first kinases identified in human cells. It is now known to constitute a family of kinases that respond to diacylglycerol, phosphatidylserine and for some family members, Ca2+. They have a plethora of different functions, such as cell cycle regulation, immune response and memory formation. In mammals, 12 PKC family members have been described, usually divided into 4 different subfamilies. We present here a comprehensive evolutionary analysis of the PKC genes |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |
+---
+### 78869. 硬骨鱼中的瘦素信号传导，重点关注食物摄入调节
+
+| Field | Content |
+|------|------|
+| EN Title | Leptin signalling in teleost fish with emphasis in food intake regulation |
+| ZH Title | 硬骨鱼中的瘦素信号传导，重点关注食物摄入调节 |
+| ZH Abstract | 综述硬骨鱼瘦素信号在摄食调节中的作用。 |
+| EN Abstract | Leptin, the product of the obese (ob or Lep) gene, was first cloned in teleost fish in 2005, more than a decade after its identification in mammals. This was because bony fish and mammalian leptins share a very low amino acid sequence identity, which suggests different functionality of the leptin system in fish compared to that of mammals. Indeed, major differences are evident between the mammalian and fish leptin system. Thus, for instance, mammalian leptin is synthesized and released by the ad |
+| Judgment | 是 |
+| Reason | 摘要不完整，未明确斑马鱼 |
+---
+### 78870. 评估细胞外囊泡治疗潜力的功能测定
+
+| Field | Content |
+|------|------|
+| EN Title | Functional assays to assess the therapeutic potential of extracellular vesicles |
+| ZH Title | 评估细胞外囊泡治疗潜力的功能测定 |
+| ZH Abstract | 综述评估细胞外囊泡治疗潜力的功能测定。 |
+| EN Abstract | An important aspect in the development of extracellular vesicle (EV) therapeutics is identifying and quantifying the key features defining their identity, purity, sterility, potency and stability to ensure batch-to-batch reproducibility of their therapeutic efficacy. Apart from EV-inherent features, therapeutic efficacy depends on a variety of additional parameters, like dosing, frequency of application, and administration route, some of which can be addressed only in clinical trials. Before ini |
+| Judgment | 否 |
+| Reason | 未涉及斑马鱼，研究对象非 Danio rerio |

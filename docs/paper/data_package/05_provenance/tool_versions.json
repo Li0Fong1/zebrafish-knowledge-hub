@@ -1,0 +1,29 @@
+{
+  "_note": "服务器端工具版本实拿快照（供 METHODS 数字对账）。只读探测，由 scripts/probe_tool_versions.py 生成；未取到的一律留空，**不猜**。",
+  "probed_at": "2026-10-02T16:23:00+08:00",
+  "host": "<lab-server>",
+  "base": "<server>/zebrafish_gene_qa",
+  "runtime": "<server>/zebrafish_runtime",
+  "tool_versions": {
+    "blastn": "2.17.0+",
+    "makeblastdb": "2.17.0+",
+    "mysql_client": "8.0.36",
+    "mysqld": "8.0.36",
+    "python": "3.10.20",
+    "conda_blast_package": "2.17.0"
+  },
+  "raw": {
+    "blastn_version": "blastn: 2.17.0+\n Package: blast 2.17.0, build Aug 22 2026 11:52:50",
+    "makeblastdb_version": "makeblastdb: 2.17.0+\n Package: blast 2.17.0, build Aug 22 2026 11:52:50",
+    "blast_bin_ls": "-rwxrwxr-x 2 deng deng 264728 Aug 22 22:17 <server>/zebrafish_runtime/conda_blast/bin/blastn\n-rwxrwxr-x 2 deng deng 207384 Aug 22 22:17 <server>/zebrafish_runtime/conda_blast/bin/makeblastdb",
+    "conda_blast_pkg": "blast                      2.17.0           hb02a186_1        bioconda",
+    "mysql_client_version": "<server>/zebrafish_runtime/mysql80/bin/mysql  Ver 8.0.36 for Linux on x86_64 (MySQL Community Server - GPL)",
+    "mysqld_version": "<server>/zebrafish_runtime/mysql80/bin/mysqld  Ver 8.0.36 for Linux on x86_64 (MySQL Community Server - GPL)",
+    "python_version": "Python 3.10.20",
+    "env_blast_keys": "BLAST_BIN=<server>/zebrafish_runtime/conda_blast/bin\nBLAST_DB_DIR=<server>/zebrafish_runtime/blast\nBLAST_FASTA=<server>/zebrafish_runtime/blast/grcz12tu_cds.fna"
+  },
+  "_redaction": {
+    "redacted": true,
+    "note": "公开数据包隐去具体主机名/端口与账号路径（保留 OS/Python/工具版本等事实）；原始标识仅存于私有工作区"
+  }
+}

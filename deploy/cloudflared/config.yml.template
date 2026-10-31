@@ -1,0 +1,37 @@
+# Cloudflare 命名隧道（Named Tunnel）配置 —— 固定域名用
+#
+# 用途：把本机的 127.0.0.1:8080 通过 Cloudflare 发布成一个**永久固定**的 HTTPS 域名，
+#       由 `hub_guard.sh` 每分钟巡检并在掉线时自动拉起（不需要 root、不开任何入站端口）。
+#
+# 用法：
+#   1. 本地跑 `python scripts/setup_named_tunnel.py`，它会自动登录、建隧道、绑域名，
+#      并把本模板渲染成 <RT>/cloudflared/config.yml 上传到服务器；
+#   2. 只要 <RT>/cloudflared/config.yml 存在，hub_guard.sh 就自动切到命名隧道模式；
+#      删掉它即退回快速隧道（随机域名）。改完不用重启守护，它每分钟自己会看。
+#
+# 注意：
+#   · <RT> = /data/zoujin/deng/zebrafish_runtime
+#   · credentials-file 里是**服务器上的绝对路径**，不是本机路径（这点最容易搞错）
+#   · 手动验证：<RT>/bin/cloudflared_run tunnel --config <RT>/cloudflared/config.yml run <名字>
+
+tunnel: REPLACE_WITH_TUNNEL_UUID
+credentials-file: REPLACE_WITH_CREDENTIALS_JSON_PATH
+
+# 连接层参数：这台机器负载会剧烈波动（load 1~118），给足超时更抗抖动
+originRequest:
+  connectTimeout: 30s
+  # 单次问答要 50~70s，回源读超时不能太短（默认 30s 会把长回答掐断）
+  tlsTimeout: 10s
+  keepAliveTimeout: 90s
+
+ingress:
+  # 唯一的对外入口。健康检查/页面/接口全部走同一条隧道
+  - hostname: REPLACE_WITH_HOSTNAME
+    service: http://127.0.0.1:8080
+    originRequest:
+      connectTimeout: 30s
+      keepAliveTimeout: 90s
+      # SSE 流式回答（/api/chat/stream）必须关闭分块编码缓冲，否则前端会“卡住不吐字”
+      disableChunkedEncoding: false
+  # 兜底：没匹配到的域名一律 404，不要漏到别处去
+  - service: http_status:404

@@ -1,0 +1,5 @@
+== crontab ==
+20 3 * * 0  cd /data/zoujin/deng/zebrafish_gene_qa && ZF_LIT_PER_QUERY=40 ZF_LIT_INCLUDE_GENES=0 /data/zoujin/deng/miniconda3/envs/zebrafish/bin/python /data/zoujin/deng/zebrafish_gene_qa/scripts/job_weekly_lit_refresh.py >>/data/zoujin/deng/zebrafish_runtime/logs/job_weekly_lit.log 2>&1
+10 4 */3 * *  cd /data/zoujin/deng/zebrafish_gene_qa && /data/zoujin/deng/miniconda3/envs/zebrafish/bin/python /data/zoujin/deng/zebrafish_gene_qa/scripts/job_gallery_seed.py >>/data/zoujin/deng/zebrafish_runtime/logs/job_gallery_seed.log 2>&1
+5 * * * *  ZF_HUB_URL=http://127.0.0.1:8080 /data/zoujin/deng/miniconda3/envs/zebrafish/bin/python /data/zoujin/deng/zebrafish_gene_qa/scripts/job_refresh_hub_stats.py >>/data/zoujin/deng/zebrafish_runtime/logs/job_stats.log 2>&1
+*/5 * * * * /data/zoujin/deng/zebrafish_runtime/hub_guard.sh >>/data/zoujin/deng/zebrafish_runtime/logs/hub_guard.log 2>&1

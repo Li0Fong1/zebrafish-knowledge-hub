@@ -1,0 +1,15 @@
+== procs ==
+1735463 16-02:54:44 /tmp/cloudflared_run tunnel --no-autoupdate --protocol http2 --url http://127.0.0.1:8080
+2409712       08:47 bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh
+== health ==
+000
+== cf log ==
+2026-09-30T12:14:10Z ERR Serve tunnel error error="connection with edge closed" connIndex=0 event=0 ip=2606:4700:a0::8
+2026-09-30T12:14:10Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=2606:4700:a0::8
+2026-09-30T12:14:11Z ERR Connection terminated error="connection with edge closed" connIndex=0
+== load/mem ==
+ 21:14:13 up 80 days, 22:39,  5 users,  load average: 107.93, 41.18, 26.43
+               total        used        free      shared  buff/cache   available
+Mem:          128559       28636       75941       23234       23981       75769
+Swap:           8191        8191           0
+== guard log ==

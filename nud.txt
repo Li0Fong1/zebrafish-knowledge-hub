@@ -1,0 +1,13 @@
+SAME  web/js/app.js
+SAME  web/js/i18n.js
+== 公网地址 ==
+https://million-paul-input-principles.trycloudflare.com
+
+== Hub 健康 ==
+200
+== 守护最近动作 ==
+[2026-10-09 12:10:01] cloudflared down -> restart
+[2026-10-09 12:10:01] cloudflared restarted url=https://million-paul-input-principles.trycloudflare.com
+
+
+汇总：推送 0，未变 2，失败 0

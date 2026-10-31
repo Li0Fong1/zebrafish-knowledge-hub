@@ -1,0 +1,19 @@
+== ss -ltnp 8080 ==
+== python procs ==
+2408909 2408904       00:00 Ss   bash -c echo "== ss -ltnp 8080 =="; ss -ltnp 2>/dev/null | grep 8080 echo "== python procs =="; ps -eo pid,ppid,etime,stat,cmd | grep -E "[p]ython" | head -12 echo "== supervise log =="; tail -8 /data/zoujin/deng/zebrafish_runtime/logs/hub_supervise.log 2>/dev/null echo "== hub.log tail =="; tail -6 /data/zoujin/deng/zebrafish_runtime/logs/hub.log 2>/dev/null | tr -d "\000" echo "== mem/swap =="; free -m | head -3 echo "== load =="; uptime
+== supervise log ==
+[2026-09-30 20:46:31] supervisor start pid=2407188
+[2026-09-30 20:46:31] launching uvicorn
+== hub.log tail ==
+INFO:     2409:8950:5c3:b6e:7498:701f:5cb5:6a95:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     2409:8950:5c3:b6e:7498:701f:5cb5:6a95:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     2409:8950:5c3:b6e:7498:701f:5cb5:6a95:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     2409:8950:5c3:b6e:7498:701f:5cb5:6a95:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     2409:8950:5c3:b6e:7498:701f:5cb5:6a95:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     2409:8950:5c3:b6e:7498:701f:5cb5:6a95:0 - "GET /api/health HTTP/1.1" 200 OK
+== mem/swap ==
+               total        used        free      shared  buff/cache   available
+Mem:          128559       32690       71707       23318       24162       71599
+Swap:           8191        8191           0
+== load ==
+ 20:59:47 up 80 days, 22:24,  5 users,  load average: 117.62, 64.76, 30.61

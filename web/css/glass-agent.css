@@ -1,0 +1,631 @@
+/* Zebrafish Agent · 视觉层「Glass Ocean」（2026-10-13）
+   目标：按 6.png 的观感统一全站——浅蓝渐变底 + 水下场景背景图 + 毛玻璃顶栏/卡片 +
+   深蓝主按钮，同时保留我们的功能布局（导航下拉、每日研究、检索、引用、工具页）。
+   实现方式：只叠样式、不改结构；每张卡片仍是原来的 DOM。
+
+   加载顺序：本文件必须排在 theme-agent.css 之后（见 index.html）。
+   暗色主题不动：所有规则都限定在 body:not(.dark) 下。 */
+
+:root {
+  --gl-ink: #14213d;
+  --gl-ink-2: #4a5a72;
+  --gl-accent: #316eff;
+  --gl-accent-soft: rgba(49, 110, 255, 0.1);
+  --gl-glass: rgba(255, 255, 255, 0.72);
+  --gl-glass-2: rgba(255, 255, 255, 0.55);
+  --gl-line: rgba(255, 255, 255, 0.65);
+  --gl-shadow: 0 26px 70px rgba(8, 14, 28, 0.14);
+  --gl-shadow-sm: 0 12px 30px rgba(8, 14, 28, 0.1);
+  --gl-radius: 22px;
+  --gl-radius-sm: 14px;
+  --gl-primary: #1d2d50;
+}
+
+/* ── 背景：浅蓝渐变 + 水下场景 ────────────────────────────────────────
+   坑（实测）：把背景放在 body::before/::after（position:fixed, z-index:0）**看不见**——
+   .app 是 position:relative + z-index:1，内容层整片盖在上面（实测 z-index:5 的测试层可见、
+   z-index:0 的不可见）。所以背景必须画在 **html 的 canvas 背景** 上：它永远在所有内容之下，
+   且 background-attachment: fixed 让它不随滚动移动。 */
+html {
+  background-color: #eef4fc !important;
+  background-image:
+    url("/static/assets/brand/ocean-scene.svg"),
+    radial-gradient(900px 520px at 12% 6%, rgba(49, 110, 255, 0.10), transparent 62%),
+    radial-gradient(760px 460px at 88% 10%, rgba(56, 189, 248, 0.14), transparent 62%),
+    linear-gradient(180deg, #f7f9fd 0%, #edf2fb 58%, #e3ecfa 100%) !important;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+  background-position: center center, center top, center top, center top !important;
+  background-size: cover, 100% 100%, 100% 100%, 100% 100% !important;
+  background-attachment: fixed, fixed, fixed, fixed !important;
+}
+
+/* 暗色主题下不套这套浅色画布 */
+html:has(body.dark) { background-image: none !important; background-color: #0b1220 !important; }
+
+/* body 保持透明，让画布透出来；旧的 body::before/::after 背景层停用（见上面的坑）。
+   优先级坑：simplify.css / theme-agent.css 里写的是 `html body.theme-atelier{background:#f9fafb!important}`（0,1,2），
+   单写 `body:not(.dark)`（0,1,1）盖不动 → 实测背景图还是被这层不透明底色裹住。 */
+html body:not(.dark),
+html body.theme-atelier:not(.dark),
+html body.theme-reef:not(.dark) {
+  background: transparent !important;
+}
+
+body:not(.dark)::before,
+body:not(.dark)::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+/* 内容层在画布之上 */
+body:not(.dark) .app { position: relative; z-index: 1; }
+
+/* ── 顶栏：毛玻璃 + 胶囊导航 ───────────────────────────────────────── */
+body:not(.dark) .header.site-header {
+  background: var(--gl-glass-2) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 18px 42px rgba(8, 15, 30, 0.1) !important;
+  margin: 10px 14px 0 !important;
+  padding: 8px 12px !important;
+}
+
+body:not(.dark) .top-nav.top-nav-pill {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  gap: 6px !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  scrollbar-width: none;
+  min-width: 0;
+}
+
+body:not(.dark) .top-nav.top-nav-pill::-webkit-scrollbar { display: none; }
+body:not(.dark) .top-nav-link,
+body:not(.dark) .nav-brand-pill { flex: 0 0 auto; white-space: nowrap; }
+body:not(.dark) .header.site-header { flex-wrap: nowrap !important; }
+
+body:not(.dark) .nav-brand-pill {
+  background: var(--gl-primary) !important;
+  color: #fff !important;
+  border-radius: var(--gl-radius-sm) !important;
+  box-shadow: 0 10px 24px rgba(29, 45, 80, 0.22) !important;
+  font-weight: 700 !important;
+}
+
+body:not(.dark) .top-nav-link {
+  background: rgba(255, 255, 255, 0.62) !important;
+  color: #17324d !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  padding: 0 14px !important;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+body:not(.dark) .top-nav-link:hover,
+body:not(.dark) .nav-item.open > .top-nav-link {
+  background: #fff !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+  transform: translateY(-1px);
+}
+
+body:not(.dark) .nav-item.active > .top-nav-link,
+body:not(.dark) .top-nav-link.active {
+  background: var(--gl-accent) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 24px rgba(49, 110, 255, 0.28) !important;
+}
+
+body:not(.dark) .nav-menu {
+  background: rgba(255, 255, 255, 0.9) !important;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 60px rgba(8, 14, 28, 0.16) !important;
+  padding: 8px !important;
+}
+
+body:not(.dark) .nav-menu a,
+body:not(.dark) .nav-soon-item {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+body:not(.dark) .nav-menu a:hover { background: var(--gl-accent-soft) !important; }
+
+body:not(.dark) .status-bar,
+body:not(.dark) .user-chip,
+body:not(.dark) .icon-btn,
+body:not(.dark) .history-toggle-btn {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 12px !important;
+  color: #17324d !important;
+  box-shadow: 0 8px 20px rgba(8, 14, 28, 0.08) !important;
+}
+
+/* ── 左侧快捷栏 ──────────────────────────────────────────────────── */
+body:not(.dark) .side-rail {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  gap: 6px !important;
+}
+
+body:not(.dark) .rail-item {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 12px !important;
+  color: #17324d !important;
+  box-shadow: 0 8px 18px rgba(8, 14, 28, 0.07) !important;
+}
+
+body:not(.dark) .rail-item:hover,
+body:not(.dark) .rail-item.active {
+  background: #fff !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+}
+
+body:not(.dark) .rail-item .rail-mark {
+  background: linear-gradient(160deg, #316eff, #22d3ee) !important;
+  color: #fff !important;
+  border-radius: 9px !important;
+}
+
+/* ── 首页：标题 + 两栏卡片 ───────────────────────────────────────── */
+/* hero 做成「水下场景带」：标题浮在场景上（对应 6.png 的顶部场景） */
+body:not(.dark) .agent-hero {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.06) 62%, rgba(233, 240, 251, 0.5) 100%),
+    url("/static/assets/brand/ocean-scene.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center 22%;
+  background-size: 100% 100%, cover;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  border-radius: 26px !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+  padding: 26px 30px 22px !important;
+  margin-bottom: 18px !important;
+  overflow: hidden;
+}
+
+body:not(.dark) .agent-hero-title {
+  color: #12203b !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.6px !important;
+  font-size: clamp(28px, 3.4vw, 40px) !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+body:not(.dark) .agent-hero-sub {
+  color: var(--gl-ink-2) !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+  max-width: 760px;
+}
+
+body:not(.dark) .agent-card {
+  background: rgba(255, 255, 255, 0.62) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid var(--gl-line) !important;
+  border-radius: var(--gl-radius) !important;
+  box-shadow: var(--gl-shadow) !important;
+  color: var(--gl-ink) !important;
+}
+
+body:not(.dark) .agent-card-title {
+  color: #12203b !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+}
+
+body:not(.dark) .agent-lang-toggle {
+  background: rgba(20, 33, 61, 0.06) !important;
+  border-radius: 999px !important;
+  padding: 3px !important;
+}
+
+body:not(.dark) .agent-lang-toggle button {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  color: #17324d !important;
+  background: transparent !important;
+}
+
+body:not(.dark) .agent-lang-toggle button.active,
+body:not(.dark) .agent-lang-toggle button[aria-pressed="true"],
+body:not(.dark) .agent-lang-toggle button.is-active {
+  background: #fff !important;
+  box-shadow: 0 6px 16px rgba(8, 14, 28, 0.12) !important;
+}
+
+body:not(.dark) .agent-status { color: var(--gl-ink-2) !important; }
+body:not(.dark) .agent-status-dot { background: #22c55e !important; }
+
+/* 搜索行：胶囊 + 白底 */
+body:not(.dark) .home-search.agent-search {
+  background: #fff !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+}
+
+body:not(.dark) .home-search.agent-search input { background: transparent !important; color: var(--gl-ink) !important; }
+
+body:not(.dark) .home-search.agent-search select {
+  background: rgba(20, 33, 61, 0.05) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #17324d !important;
+  font-weight: 600 !important;
+}
+
+body:not(.dark) .home-search.agent-search button,
+body:not(.dark) .home-upd-btn,
+/* 这两颗按钮在 style.css / simplify.css 里是 **ID 选择器**（#homeSearchBtn / #sendBtn），
+   有的还带渐变背景 + !important（`:root` 里的 teal 渐变）—— 类选择器压不住，
+   所以这里用更高优先级（html body.theme-*.…）写。 */
+html body:not(.dark) #homeSearchBtn,
+html body:not(.dark) #sendBtn,
+html body.theme-atelier:not(.dark) #sendBtn,
+html body.theme-reef:not(.dark) #sendBtn,
+/* 聊天页的发送键在 refine.css 里被 3 个 ID 的选择器盯上（#view-chat #chatForm #sendBtn），
+   所以这里也升到 3 个 ID，否则 teal 底色（--accent）会赢。 */
+html body:not(.dark) #view-chat #chatForm #sendBtn {
+  background: #1d2d50 !important;
+  background-color: #1d2d50 !important;
+  background-image: none !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 10px 24px rgba(29, 45, 80, 0.22) !important;
+}
+
+body:not(.dark) #homeSearchBtn:hover,
+body:not(.dark) #sendBtn:hover:not(:disabled) {
+  background: #16233d !important;
+  transform: translateY(-1px);
+}
+
+body:not(.dark) .home-chip {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 999px !important;
+  color: #17324d !important;
+  font-weight: 600 !important;
+}
+
+body:not(.dark) .home-chip:hover { background: #fff !important; box-shadow: var(--gl-shadow-sm) !important; }
+
+body:not(.dark) .agent-day-select {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 12px !important;
+  color: #17324d !important;
+  font-weight: 600 !important;
+}
+
+/* 论文条目：分隔线 + 强调色元信息（6.png 的列表观感） */
+body:not(.dark) .agent-paper {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(20, 33, 61, 0.1) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 16px 2px 15px !important;
+}
+
+body:not(.dark) .agent-paper:last-child { border-bottom: 0 !important; }
+
+body:not(.dark) .agent-paper-title {
+  color: #12203b !important;
+  font-weight: 700 !important;
+  font-size: 15.5px !important;
+  line-height: 1.55 !important;
+}
+
+body:not(.dark) .agent-paper-meta { color: var(--gl-accent) !important; font-weight: 600 !important; }
+body:not(.dark) .agent-paper-abs { color: var(--gl-ink-2) !important; line-height: 1.72 !important; }
+body:not(.dark) .agent-paper-links a,
+body:not(.dark) .home-more { color: var(--gl-accent) !important; font-weight: 700 !important; }
+body:not(.dark) .home-sec-note { color: #64748b !important; }
+
+/* ── 「限定范围」：列表固定高度 + 细滚动条（照同类站点的 daily-updates-scroll）──
+   之前的论文列表会随摘要长度无限变高，一屏塞不下、也显得散。
+   现在给列表一个固定高度，超出在里面滚动（scrollbar-width: thin + 自绘滑块）。 */
+body:not(.dark) .agent-papers,
+body:not(.dark) .home-upd-list {
+  max-height: 460px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 33, 61, 0.26) transparent;
+  overscroll-behavior: contain;
+  padding-right: 8px !important;
+}
+
+body:not(.dark) .agent-papers::-webkit-scrollbar,
+body:not(.dark) .home-upd-list::-webkit-scrollbar { width: 8px; }
+
+body:not(.dark) .agent-papers::-webkit-scrollbar-track,
+body:not(.dark) .home-upd-list::-webkit-scrollbar-track { background: transparent; }
+
+body:not(.dark) .agent-papers::-webkit-scrollbar-thumb,
+body:not(.dark) .home-upd-list::-webkit-scrollbar-thumb {
+  background: rgba(20, 33, 61, 0.24);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+body:not(.dark) .agent-papers::-webkit-scrollbar-thumb:hover,
+body:not(.dark) .home-upd-list::-webkit-scrollbar-thumb:hover { background: rgba(20, 33, 61, 0.4); background-clip: content-box; }
+
+/* 会话列表（问答页左栏）同样限定范围 */
+body:not(.dark) .chat-side-list,
+body:not(.dark) .side-rail-list { max-height: 52vh; overflow-y: auto; scrollbar-width: thin; }
+
+/* ── 原生下拉统一成「限定范围」的小盒子（圆角 + 细边 + 自绘箭头 + 细滚动条）── */
+body:not(.dark) select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 9px center;
+  background-size: 11px 11px;
+  border: 1px solid rgba(20, 33, 61, 0.14);
+  border-radius: 10px;
+  padding: 7px 28px 7px 11px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #17324d;
+  box-shadow: 0 1px 2px rgba(8, 14, 28, 0.05);
+  cursor: pointer;
+  max-width: 100%;
+  scrollbar-width: thin;
+}
+
+body:not(.dark) select:hover { border-color: rgba(49, 110, 255, 0.45); }
+
+body:not(.dark) select:focus-visible {
+  outline: 2px solid rgba(49, 110, 255, 0.35);
+  outline-offset: 1px;
+  border-color: rgba(49, 110, 255, 0.55);
+}
+
+/* 下拉弹层本身的高度由浏览器决定；改成小字号 + 细滚动条，长列表（日期 14 天）看起来更利落 */
+body:not(.dark) select option { font-size: 13px; padding: 6px 8px; }
+
+/* 搜索条里的「范围」下拉保留胶囊形，与输入框一致 */
+body:not(.dark) .home-search select,
+body:not(.dark) .home-search.agent-search select {
+  border-radius: 999px !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  padding-right: 26px !important;
+  background-position: right 8px center !important;
+}
+
+body:not(.dark) .agent-day-select { min-width: 168px; }
+
+/* 语言切换：照同类站点的分段控件（容器浅灰 8px、选中项白底 6px） */
+body:not(.dark) .agent-lang-toggle {
+  background: rgba(20, 33, 61, 0.06) !important;
+  border-radius: 8px !important;
+  padding: 3px !important;
+  gap: 2px !important;
+}
+
+body:not(.dark) .agent-lang-toggle button {
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 0 11px !important;
+  height: 30px !important;
+  color: #475569 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body:not(.dark) .agent-lang-toggle button.active,
+body:not(.dark) .agent-lang-toggle button[aria-pressed="true"] {
+  background: #fff !important;
+  color: #12203b !important;
+  box-shadow: 0 1px 3px rgba(8, 14, 28, 0.12) !important;
+}
+
+body:not(.dark) .agent-updates,
+body:not(.dark) .agent-cite {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 18px !important;
+  padding: 14px 16px !important;
+  margin-top: 16px !important;
+}
+
+/* ── 折叠框：文献更新 / 引用本平台（默认收起，点开看全貌）───────────────
+   结构规则不带主题前缀，暗色主题下同样可用。 */
+.agent-fold > summary.agent-fold-sum {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.agent-fold > summary.agent-fold-sum::-webkit-details-marker { display: none; }
+.agent-fold > summary.agent-fold-sum::marker { content: ""; }
+
+.agent-fold > summary.agent-fold-sum h3 {
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2px;
+}
+
+.agent-fold > summary.agent-fold-sum .home-upd-status {
+  font-size: 12px !important;
+  color: #64748b !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agent-fold-caret {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: #64748b;
+  transition: transform 0.18s ease;
+}
+
+.agent-fold[open] > summary .agent-fold-caret { transform: rotate(180deg); }
+.agent-fold[open] { padding-bottom: 14px !important; }
+
+.agent-fold-body { margin-top: 12px; }
+.agent-fold-body .home-sec-head { margin: 0 0 8px !important; }
+.agent-fold-body .home-copy { margin-top: 10px !important; }
+
+body:not(.dark) .agent-fold:hover {
+  background: rgba(255, 255, 255, 0.74) !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+}
+
+body:not(.dark) .agent-cite blockquote {
+  border-left: 3px solid var(--gl-accent) !important;
+  background: rgba(49, 110, 255, 0.06) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 10px 14px !important;
+  color: var(--gl-ink) !important;
+}
+
+/* 右栏品牌卡：圆形品牌图 + 深蓝主按钮 */
+body:not(.dark) .agent-brand-mark { border-radius: 50% !important; box-shadow: 0 18px 44px rgba(8, 14, 28, 0.18) !important; }
+body:not(.dark) .agent-brand-name { color: #12203b !important; font-weight: 800 !important; letter-spacing: 2px !important; }
+body:not(.dark) .agent-brand-tag { color: var(--gl-ink-2) !important; }
+
+body:not(.dark) .agent-btn {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 16px !important;
+  color: #17324d !important;
+  font-weight: 700 !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+}
+
+body:not(.dark) .agent-btn:hover { background: #fff !important; transform: translateY(-1px); }
+
+body:not(.dark) .agent-btn-primary {
+  background: var(--gl-primary) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 14px 30px rgba(29, 45, 80, 0.24) !important;
+}
+
+body:not(.dark) .agent-legal-link { color: #64748b !important; }
+
+/* ── 工具页 / 弹窗 / 表格：同一套玻璃卡片 ───────────────────────── */
+body:not(.dark) .feature-card,
+body:not(.dark) .tool-panel,
+body:not(.dark) .tool-card,
+body:not(.dark) .orch-steps,
+body:not(.dark) .zf-modal {
+  background: var(--gl-glass) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--gl-line) !important;
+  border-radius: var(--gl-radius) !important;
+  box-shadow: var(--gl-shadow) !important;
+  color: var(--gl-ink) !important;
+}
+
+body:not(.dark) .zf-modal-mask { background: rgba(15, 23, 42, 0.34) !important; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+
+body:not(.dark) .feature-hero,
+body:not(.dark) .tool-hero {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body:not(.dark) .feature-hero h2,
+body:not(.dark) .tool-hero h2 { color: #12203b !important; font-weight: 800 !important; letter-spacing: -0.4px !important; }
+
+body:not(.dark) .pub-table,
+body:not(.dark) .gene-table,
+body:not(.dark) .sgrna-table,
+body:not(.dark) .primer-table { border-radius: 14px !important; overflow: hidden; }
+
+body:not(.dark) .pub-table thead th,
+body:not(.dark) .gene-table thead th,
+body:not(.dark) .sgrna-table thead th,
+body:not(.dark) .primer-table thead th {
+  background: rgba(20, 33, 61, 0.05) !important;
+  color: #17324d !important;
+  font-weight: 700 !important;
+  border-bottom: 1px solid rgba(20, 33, 61, 0.1) !important;
+}
+
+body:not(.dark) .prov-block-title { color: #17324d !important; font-weight: 700 !important; }
+
+/* ── 问答页：气泡与输入区 ───────────────────────────────────────── */
+body:not(.dark) .msg .bubble {
+  border-radius: 18px !important;
+  border: 1px solid var(--gl-line) !important;
+  box-shadow: var(--gl-shadow-sm) !important;
+}
+
+body:not(.dark) .msg.bot .bubble { background: rgba(255, 255, 255, 0.9) !important; color: var(--gl-ink) !important; }
+body:not(.dark) .msg.user .bubble { background: linear-gradient(135deg, #316eff, #22d3ee) !important; color: #fff !important; border-color: transparent !important; }
+
+body:not(.dark) .composer,
+body:not(.dark) .chat-composer {
+  background: rgba(255, 255, 255, 0.82) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--gl-shadow) !important;
+}
+
+body:not(.dark) .prov-panel {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid var(--gl-line) !important;
+  border-radius: 14px !important;
+}
+
+/* ── 响应式：窄屏下紧凑排列，避免导航折成两行 ───────────────────── */
+@media (max-width: 1400px) {
+  /* 中等屏：顶栏改两行——上排 ☰ + 状态/账号/语言，下排导航整行铺开（不再被截断） */
+  body:not(.dark) .header.site-header { flex-wrap: wrap !important; row-gap: 8px !important; }
+  body:not(.dark) .header-left { order: 1; }
+  body:not(.dark) .header-right { order: 2; margin-left: auto; }
+  body:not(.dark) .top-nav.top-nav-pill { order: 3; flex: 1 0 100%; max-width: 100%; }
+  body:not(.dark) .top-nav-link { padding: 0 11px !important; font-size: 12.8px !important; }
+  body:not(.dark) .top-nav.top-nav-pill { gap: 4px !important; }
+}
+
+@media (max-width: 1240px) {
+  body:not(.dark) .top-nav-link { padding: 0 9px !important; font-size: 12.4px !important; }
+  body:not(.dark) .status-bar { font-size: 11.5px !important; }
+}
+
+@media (max-width: 900px) {
+  html { background-size: cover, 100% 100%, 100% 100%, 100% 100% !important; }
+  body:not(.dark) .header.site-header { margin: 8px 8px 0 !important; border-radius: 14px !important; }
+  body:not(.dark) .agent-card { border-radius: 18px !important; }
+  body:not(.dark) .top-nav.top-nav-pill { overflow-x: auto; }
+}

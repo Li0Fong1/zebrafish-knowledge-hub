@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斑马鱼基因问答体 · 发布前剩余工作清单</title>
+<style>
+  :root{
+    --ink:#16202b; --ink2:#41505f; --mute:#6b7a89; --line:#e3e9ef; --line2:#eef3f7;
+    --bg:#f6f9fb; --card:#fff; --brand:#0d6f7d; --ok:#0f7a4d; --ok-bg:#e8f6ee;
+    --warn:#b45309; --warn-bg:#fdf3e3; --bad:#b42318; --bad-bg:#fdecec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.65 "Microsoft YaHei","PingFang SC",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:40px 28px 64px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  h1{font-size:26px;margin:0 0 6px;line-height:1.3}
+  .sub{color:var(--mute);font-size:13px}
+  .meta{text-align:right;font-size:12.5px;color:var(--mute);line-height:1.9}
+  .meta b{color:var(--ink2)}
+  .sum{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 8px}
+  .s{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:8px;padding:12px 14px}
+  .s .n{font-size:22px;font-weight:800;line-height:1.2}
+  .s .l{font-size:12px;color:var(--mute);margin-top:2px}
+  .s.bad{border-left-color:var(--bad)} .s.warn{border-left-color:var(--warn)} .s.ok{border-left-color:var(--ok)}
+  section{margin:32px 0 0}
+  h2{font-size:17px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+  h2 .no{display:inline-flex;min-width:24px;height:24px;padding:0 6px;border-radius:6px;background:var(--ink);color:#fff;font-size:12px;align-items:center;justify-content:center;font-weight:700}
+  .lead{color:var(--mute);font-size:13px;margin:0 0 12px 34px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13.2px}
+  thead th{background:#eef4f7;color:var(--ink2);font-weight:700;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);font-size:12.5px;white-space:nowrap}
+  td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even){background:#fbfdfe}
+  td.k{color:var(--ink);font-weight:600}
+  code{font:12px/1.5 ui-monospace,Consolas,monospace;background:#eef3f7;padding:1px 5px;border-radius:4px;color:#0b4f5a}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .t-bad{background:var(--bad-bg);color:var(--bad)}
+  .t-warn{background:var(--warn-bg);color:var(--warn)}
+  .t-ok{background:var(--ok-bg);color:var(--ok)}
+  .t-info{background:#e6f4f6;color:var(--brand)}
+  .note{font-size:12px;color:var(--mute);margin:8px 0 0 2px}
+  footer{margin-top:38px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);line-height:1.8}
+  @media (max-width:900px){.sum{grid-template-columns:repeat(2,1fr)}.wrap{padding:24px 14px 48px}table{font-size:12.2px}}
+  @media print{body{background:#fff}.wrap{max-width:none;padding:0}section{break-inside:avoid}table{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>发布前剩余工作清单</h1>
+    <div class="sub">按「卡不卡发布」分三级：P0 硬阻塞 · P1 上线前必做 · P2 上线后补</div>
+  </div>
+  <div class="meta">
+    核对日期：<b>2026-10-31</b><br>
+    依据：<b>selfcheck 实跑 + .env 实读 + 论文占位符扫描</b><br>
+    配套：<b>docs/发布上线_链接与服务器选型表.html</b>
+  </div>
+</header>
+
+<div class="sum">
+  <div class="s bad"><div class="n">5</div><div class="l">P0 硬阻塞（不做完无法发布）</div></div>
+  <div class="s warn"><div class="n">10</div><div class="l">P1 上线前必做（影响可用/可信）</div></div>
+  <div class="s"><div class="n">5</div><div class="l">P2 上线后补（可持续运营）</div></div>
+  <div class="s ok"><div class="n">3–5 天</div><div class="l">纯技术工作量（外部信息另计）</div></div>
+</div>
+
+<!-- P0 -->
+<section>
+  <h2><span class="no">P0</span>硬阻塞：这 5 件不做完，就没有「已发布」</h2>
+  <p class="lead">每一行都有实测证据，不是推测。</p>
+  <table>
+    <thead>
+      <tr><th style="width:36px">#</th><th style="width:150px">事项</th><th style="width:320px">现状 / 证据</th><th style="width:300px">要做成什么</th><th style="width:70px">耗时</th><th style="width:92px">谁做</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="k">1</td><td class="k">固定入口<br><span class="cl">（域名 + 隧道/服务器）</span></td>
+        <td>记录中的隧道地址 <code>michigan-…trycloudflare.com</code> 已不可达（curl 502）；quick tunnel 重启即换址；服务器非自有、无入站端口</td>
+        <td>拿到永久地址 <code>https://hub.你的域名</code>：买域名 → NS 到 Cloudflare → 跑 <code>scripts/setup_named_tunnel.py</code></td>
+        <td class="num">0.5 天</td><td>你 + 我可代跑</td>
+      </tr>
+      <tr>
+        <td class="k">2</td><td class="k">对外开放的访问控制</td>
+        <td><code>.env</code>：<code>WEB_AUTH_REQUIRED=0</code>（公网免令牌），<code>WEB_ACCESS_TOKEN</code> 仅 <b>6 位</b></td>
+        <td>改 <code>WEB_AUTH_REQUIRED=1</code>，换 24 位以上随机令牌；<code>WEB_STRICT=1</code> 打开路径防护</td>
+        <td class="num">0.5 h</td><td>你 / 我</td>
+      </tr>
+      <tr>
+        <td class="k">3</td><td class="k">数据库弱口令</td>
+        <td><code>.env</code> 的 <code>MYSQL_PASSWORD</code> 仍是默认 <code>123456</code></td>
+        <td>改强密码 → 同步更新本机与服务器 <code>.env</code> → 重启服务并验证 health</td>
+        <td class="num">1 h</td><td>你 / 我</td>
+      </tr>
+      <tr>
+        <td class="k">4</td><td class="k">代码仓库</td>
+        <td><b>无 <code>.git</code>、无远端、README 无仓库地址</b>；论文正文写 “will be released upon publication”</td>
+        <td>建 Gitee/GitHub 私有库 → 首次提交 → 打 <code>v1.0</code> tag → 公开后回填 URL（拟提交 <b>2198 文件 / 160.6 MB</b>，自检无敏感命中）</td>
+        <td class="num">0.5 天</td><td>你（账号）+ 我（清单）</td>
+      </tr>
+      <tr>
+        <td class="k">5</td><td class="k">论文/数据的外部信息</td>
+        <td>数据包 <b>37 项已校验 0 问题</b>但未上传；<code>BACK_MATTER.tex</code> 仍有 4 处占位：<code>repo_url</code>(L36)、<code>data_deposit</code>(L39)、<code>funding</code>(L53)、<code>Author B</code>(L75)，另需通讯邮箱</td>
+        <td>数据包传 Figshare 拿 DOI → 回填全部占位；补齐基金号、合作者姓名单位、通讯邮箱</td>
+        <td class="num">1 天<br><span class="cl">外部信息另计</span></td><td>你（信息）+ 我（回填）</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- P1 -->
+<section>
+  <h2><span class="no">P1</span>上线前必做：决定「能不能用、敢不敢给人」</h2>
+  <p class="lead">这些不阻塞「有链接」，但决定审稿人打开后会不会踩坑。</p>
+  <table>
+    <thead>
+      <tr><th style="width:36px">#</th><th style="width:150px">事项</th><th style="width:330px">现状 / 证据</th><th style="width:300px">验收口径</th><th style="width:70px">耗时</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">6</td><td class="k">索引覆盖不全</td><td>线上只装 <b>31–36 / 170</b> 分片（36 GB 上限装不下 63 GB），返回体带 <code>partial:true</code></td><td>三选一并写进文档：抬到 64 GB 内存 / 重建小索引 / 明确披露「部分装载」</td><td class="num">0.5–3 天</td></tr>
+      <tr><td class="k">7</td><td class="k">回答时延长尾</td><td>单问 <b>30–80 s</b>，Cloudflare 免费版约 <b>100 s</b> 回 524，余量薄</td><td>固定域名下连问 10 次无 524；或改「任务号 + 轮询」；自有服务器走 Nginx 直连</td><td class="num">0.5–2 天</td></tr>
+      <tr><td class="k">8</td><td class="k">冷启动首问</td><td>实测冷启动 <b>238 s</b>，预热后约 50 s</td><td>访问 <code>/api/warmup</code> 预热 + 看门狗冷态触发；首页给出「首次较慢」提示</td><td class="num">2 h</td></tr>
+      <tr><td class="k">9</td><td class="k">守护与自愈</td><td><code>hub_guard.sh</code> 依赖 root cron，<b>2026-10-09 起失效</b>；现由 <code>hub_watchdog.sh</code> 兜底；隧道守护曾被外部信号打死</td><td>杀进程后 10 s 内自动恢复；迁自有服务器则改用 systemd（<code>Restart=always</code>）</td><td class="num">0.5 天</td></tr>
+      <tr><td class="k">10</td><td class="k">备份与恢复演练</td><td>有 <code>backup_database.bat</code> / <code>restore_database_full.py</code>，但<b>无定时任务、无异地副本、未做过恢复演练</b></td><td>每日 dump + 异地一份；实际恢复一次到临时库并核对 33 表行数</td><td class="num">0.5 天</td></tr>
+      <tr><td class="k">11</td><td class="k">日志与磁盘</td><td><code>logs/</code> 已 <b>677 个文件 / 311 MB</b>，无轮转</td><td>logrotate 或按周归档；磁盘水位告警 &gt;80%</td><td class="num">2 h</td></tr>
+      <tr><td class="k">12</td><td class="k">固定域名下的全链路验收</td><td>此前验收都在 quick tunnel 或 127.0.0.1 上做的</td><td><code>selfcheck.py --git</code> 10/10；39 个接口 e2e 全 PASS；SSE 不缓冲；工具页/移动端各一遍</td><td class="num">1 天</td></tr>
+      <tr><td class="k">13</td><td class="k">ICP 备案（仅大陆服务器）</td><td>若把服务放大陆云，域名必须备案</td><td>备案通过后再解析；走香港/新加坡则免</td><td class="num">2–3 周</td></tr>
+      <tr><td class="k">14</td><td class="k">README 与许可</td><td>README 明写 5 项「尚待作者提供」；<code>LICENSE</code> 为 MIT，版权人写的是 <b>Kaifeng Qu</b></td><td>补齐仓库地址/DOI/基金/署名/邮箱；确认版权人与年份</td><td class="num">2 h</td></tr>
+      <tr><td class="k">15</td><td class="k">对外说明材料</td><td>有设计稿与截图，缺「怎么用 + 边界」的对外页</td><td>Quick Start、支持的问题类型、已知限制（时延/并发 4/部分索引）、引用方式</td><td class="num">1 天</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- P2 -->
+<section>
+  <h2><span class="no">P2</span>上线后补：让它能长期活着</h2>
+  <table>
+    <thead>
+      <tr><th style="width:36px">#</th><th style="width:170px">事项</th><th style="width:420px">做什么</th><th style="width:80px">优先级</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">16</td><td class="k">监控告警</td><td>每 5 分钟探 <code>/api/health</code>（含 <code>mem_headroom_mb</code>），异常发邮件/微信；现在只有本机轮询脚本</td><td><span class="tag t-warn">高</span></td></tr>
+      <tr><td class="k">17</td><td class="k">用量与成本</td><td>DeepSeek 账单对账 + <code>/api/usage</code> 访问统计；设月度预算上限</td><td><span class="tag t-info">中</span></td></tr>
+      <tr><td class="k">18</td><td class="k">发布流程固化</td><td>tag + CHANGELOG；前端资源 <code>?v=</code> 必须随改动 bump（踩过多次缓存坑）</td><td><span class="tag t-info">中</span></td></tr>
+      <tr><td class="k">19</td><td class="k">数据更新管线</td><td>文献增量 → 判重 → 分块 → 向量化 → 分片重建，已有脚本但无排期</td><td><span class="tag t-info">中</span></td></tr>
+      <tr><td class="k">20</td><td class="k">仓库瘦身</td><td>拟提交 160.6 MB 里 <code>web/</code> 84 MB、<code>rag/</code> 64 MB；图片可压缩，语料更适合进 Figshare</td><td><span class="tag t-info">低</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 已修 -->
+<section>
+  <h2><span class="no">✓</span>本轮已顺手修掉的（原本也是阻塞项）</h2>
+  <table>
+    <thead>
+      <tr><th style="width:230px">问题</th><th style="width:340px">处置</th><th style="width:270px">验证</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">10 个脚本硬编码服务器密码 + 主机名</td><td>新增 <code>scripts/_zf_creds.py</code>，全部改为从 <code>.env</code> / 环境变量读取，缺失即报错、无兜底</td><td>11 个文件 <code>py_compile</code> 通过；凭据读取实测正确</td></tr>
+      <tr><td class="k">文档/预览数据里的主机名</td><td>脱敏为 <code>&lt;lab-server&gt;</code> / <code>hub.你的域名</code>（含上一份方案表）</td><td><code>secrets</code> 检查：命中 0 个文件</td></tr>
+      <tr><td class="k"><code>.workbuddy/</code> 未排除</td><td>加入 <code>.gitignore</code> 与自检忽略目录（内含部署脚本与密码痕迹，绝不入库）</td><td>拟提交清单无敏感命中</td></tr>
+      <tr><td class="k">自检 <code>secrets</code> 红灯</td><td>上述三项修完后复跑</td><td><b>10/10 全部通过</b>（<code>2198 文件 / 160.6 MB</code>）</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <b>最短路径（3 个工作日）：</b>Day 1 买域名 + 起命名隧道 + 开令牌 + 改数据库密码；Day 2 建仓库首提交 + 数据包传 Figshare；Day 3 固定域名下跑 selfcheck 与 e2e 全量验收，回填论文占位符。<br>
+  <b>真正的不确定项只有两件：</b>基金号与合作者信息（只有你能给），以及大陆服务器是否走备案（决定 3 天还是 3 周）。
+</footer>
+
+</div>
+</body>
+</html>

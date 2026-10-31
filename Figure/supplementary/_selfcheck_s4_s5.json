@@ -1,0 +1,227 @@
+{
+  "generated_at": "2026-10-31T13:00:41",
+  "audited_at": "2026-10-31T13:00:45",
+  "audit_script": "scripts/audit_s4_s5_figures.py",
+  "numbers": {
+    "lit": 32549,
+    "papers": 32532,
+    "chunks": 7651942,
+    "shards": 170,
+    "dim": 2048,
+    "model": "Qwen3-Embedding-4B",
+    "universe": 16386,
+    "gold": 11918,
+    "not_gold": 4468,
+    "floor": 35487,
+    "refs": 34.1,
+    "ack": 47.8,
+    "pmax": 360,
+    "pmin": 110,
+    "ovl": 48,
+    "cpp": 235.2,
+    "keep_pct": 99.9
+  },
+  "fig_s5": {
+    "shots": [
+      "ChatGPT",
+      "DeepSeek",
+      "Zebrafish Hub"
+    ],
+    "kind": "screenshots"
+  },
+  "shots": [
+    {
+      "name": "ChatGPT",
+      "ok": true,
+      "src": "1270x565",
+      "crop": "800x361"
+    },
+    {
+      "name": "DeepSeek",
+      "ok": true,
+      "src": "1072x715",
+      "crop": "858x322"
+    },
+    {
+      "name": "Zebrafish Hub",
+      "ok": true,
+      "src": "1260x761",
+      "crop": "1222x663"
+    }
+  ],
+  "records": [
+    {
+      "id": "overlap-FigS4",
+      "claim": "FigS4 文字无遮挡重叠",
+      "status": "ok",
+      "detail": "overlaps=0",
+      "severity": "info"
+    },
+    {
+      "id": "S4-nodes",
+      "claim": "FigS4 十节点蛇形布局齐全",
+      "status": "ok",
+      "detail": "10 nodes（上行 a–e 向右，下行 f–j 向左）",
+      "severity": "info"
+    },
+    {
+      "id": "S4-file",
+      "claim": "FigS4 已输出",
+      "status": "ok",
+      "detail": "FigS4_Literature_Pipeline.png",
+      "severity": "info"
+    },
+    {
+      "id": "S5-shot-ChatGPT",
+      "claim": "FigS5「ChatGPT」截图已嵌入",
+      "status": "ok",
+      "detail": "ChatGPT.png 原图 1270x565 → 裁剪 800x361",
+      "severity": "info"
+    },
+    {
+      "id": "S5-shot-DeepSeek",
+      "claim": "FigS5「DeepSeek」截图已嵌入",
+      "status": "ok",
+      "detail": "DeepSeek.png 原图 1072x715 → 裁剪 858x322",
+      "severity": "info"
+    },
+    {
+      "id": "S5-shot-Zebrafish Hub",
+      "claim": "FigS5「Zebrafish Hub」截图已嵌入",
+      "status": "ok",
+      "detail": "Zebrafish Hub.png 原图 1260x761 → 裁剪 1222x663",
+      "severity": "info"
+    },
+    {
+      "id": "overlap-FigS5",
+      "claim": "FigS5 文字无遮挡重叠",
+      "status": "ok",
+      "detail": "overlaps=0",
+      "severity": "info"
+    },
+    {
+      "id": "S5-file",
+      "claim": "FigS5（竖排版式）已输出",
+      "status": "ok",
+      "detail": "FigS5_QA_Comparison.png；嵌入 3 张截图 · 画布 9.6x10.8 in",
+      "severity": "info"
+    },
+    {
+      "id": "chk-exist-FigS4_Pipelines_EN.png",
+      "claim": "FigS4_Pipelines_EN.png 存在且可解码",
+      "status": "ok",
+      "detail": "311351 bytes",
+      "severity": "info"
+    },
+    {
+      "id": "chk-size-FigS4_Pipelines_EN.png",
+      "claim": "FigS4_Pipelines_EN.png 分辨率与非空白",
+      "status": "ok",
+      "detail": "4080x1230 ink=0.0809",
+      "severity": "info"
+    },
+    {
+      "id": "chk-exist-FigS5_QA_Comparison.png",
+      "claim": "FigS5_QA_Comparison.png 存在且可解码",
+      "status": "ok",
+      "detail": "1281606 bytes",
+      "severity": "info"
+    },
+    {
+      "id": "chk-size-FigS5_QA_Comparison.png",
+      "claim": "FigS5_QA_Comparison.png 分辨率与非空白",
+      "status": "ok",
+      "detail": "2940x3294 ink=0.1699",
+      "severity": "info"
+    },
+    {
+      "id": "chk-exist-FigS4_Literature_Pipeline.png",
+      "claim": "FigS4_Literature_Pipeline.png 存在且可解码",
+      "status": "ok",
+      "detail": "300182 bytes",
+      "severity": "info"
+    },
+    {
+      "id": "chk-size-FigS4_Literature_Pipeline.png",
+      "claim": "FigS4_Literature_Pipeline.png 分辨率与非空白",
+      "status": "ok",
+      "detail": "3631x1395 ink=0.0676",
+      "severity": "info"
+    },
+    {
+      "id": "chk-shots",
+      "claim": "FigS5 三张截图均已嵌入",
+      "status": "ok",
+      "detail": "embedded=['ChatGPT', 'DeepSeek', 'Zebrafish Hub']",
+      "severity": "high"
+    },
+    {
+      "id": "chk-pipeline-numbers",
+      "claim": "FigS4 流水线读数均可回溯数据源",
+      "status": "ok",
+      "detail": "不一致项 无",
+      "severity": "info"
+    },
+    {
+      "id": "chk-facts",
+      "claim": "判定基准来自服务器 MySQL 的 nanog 真实注释",
+      "status": "ok",
+      "detail": "gene_id=5 GO=27 表达=20 文献=12",
+      "severity": "high"
+    },
+    {
+      "id": "gen-compare-check",
+      "claim": "出图脚本（截图版）自检通过",
+      "status": "ok",
+      "detail": "rc=0",
+      "severity": "high"
+    },
+    {
+      "id": "gen-enscript-check",
+      "claim": "出图脚本（EN 流水线）三道防线通过",
+      "status": "ok",
+      "detail": "rc=0",
+      "severity": "high"
+    },
+    {
+      "id": "a-notes-facts",
+      "claim": "图内脚注数字全部对得上源产物",
+      "status": "ok",
+      "detail": "8 项读数核对一致",
+      "severity": "high"
+    },
+    {
+      "id": "a-shots-crop",
+      "claim": "三张截图均可打开且裁剪非空",
+      "status": "ok",
+      "detail": "ChatGPT: 1270x565→800x361; DeepSeek: 1072x715→858x322; Zebrafish Hub: 1260x761→1222x663",
+      "severity": "high"
+    },
+    {
+      "id": "a-fresh",
+      "claim": "交付 PNG 均为最新（不比数据源旧）",
+      "status": "ok",
+      "detail": "3 张交付图均新于数据源",
+      "severity": "high"
+    },
+    {
+      "id": "a-res-ink",
+      "claim": "交付 PNG 分辨率≥2800px 且非空白",
+      "status": "ok",
+      "detail": "FigS4_Pipelines_EN.png 4080x1230 ink=0.0809; FigS4_Stats_EN.png 3765x1630 ink=0.1076; FigS5_QA_Comparison.png 2940x3294 ink=0.1699",
+      "severity": "high"
+    },
+    {
+      "id": "a-no-fabricated",
+      "claim": "图上数字均可在源产物中找到出处（无编造）",
+      "status": "ok",
+      "detail": "14 个图上读数反向查表全部命中",
+      "severity": "high"
+    }
+  ],
+  "summary": {
+    "total": 24,
+    "mismatch": 0,
+    "audit": "generators(--check) + independent fact re-read"
+  }
+}

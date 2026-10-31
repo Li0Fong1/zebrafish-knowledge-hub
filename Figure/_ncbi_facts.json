@@ -1,0 +1,57 @@
+{
+  "_note": "NCBI 权威记录快照，用于佐证 Fig 10(A) 中关于参考组装的事实声明。由 scripts/audit_fig9_10_deep.py 的 D5 层读取核对；不可手工改动，须重新抓取。",
+  "fetched_at": "2026-09-28T10:20:00",
+  "source_kind": "NCBI Datasets genome record (web)",
+  "GCF_049306965.1": {
+    "assembly_name": "GRCz12tu",
+    "assembly_date": "2025-04-04",
+    "date_text": "Apr 4, 2025",
+    "assembly_level": "Complete Genome",
+    "strain": "Tuebingen",
+    "submitter": "National Human Genome Research Institute",
+    "bioproject": "PRJNA1193077",
+    "refseq_status": "replaced",
+    "superseded_by": "GCF_049306965.2",
+    "annotation": {
+      "name": "GCF_049306965.1-RS_2025_04",
+      "date": "2025-04-11",
+      "genes": 49597,
+      "protein_coding": 27039
+    },
+    "assembly_note": "The genomic sequence for this RefSeq record is from the whole-genome assembly released by the National Human Genome Research Institute on 2025/04/04.",
+    "stats": {"chromosomes": 25, "scaffolds": 25, "scaffold_n50": 59305174, "gc_percent": 37},
+    "source": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.1/"
+  },
+  "GCF_000002035.6": {
+    "assembly_name": "GRCz11",
+    "assembly_date": "2017-05-09",
+    "date_text": "May 9, 2017",
+    "assembly_level": "Chromosome",
+    "strain": "Tuebingen",
+    "submitter": "Genome Reference Consortium",
+    "bioproject": "PRJNA11776",
+    "synonym": "danRer11",
+    "refseq_status": "suppressed",
+    "superseded_by": null,
+    "annotation": {
+      "name": "GCF_000002035.6-RS_2024_08",
+      "date": "2024-08-15",
+      "genes": 46466,
+      "protein_coding": 27158
+    },
+    "genome_note": "superseded by newer assembly for species",
+    "stats": {"chromosomes": 25, "scaffolds": 1917, "contigs": 19725, "gc_percent": 36.5},
+    "source": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000002035.6/"
+  },
+  "revision_history": {
+    "source": "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000002035.6/ (Revision history)",
+    "entries": [
+      {"accession": "GCF_049306965.1", "name": "GRCz12tu", "date": "2025-04-04"},
+      {"accession": "GCF_000002035.6", "name": "GRCz11", "date": "2017-05-09"},
+      {"accession": "GCF_000002035.5", "name": "GRCz10", "date": "2014-09-02"},
+      {"accession": "GCF_000002035.4", "name": "Zv9", "date": "2010-07-15"},
+      {"accession": "GCF_000002035.3", "name": "Zv8", "date": "2009-06-23"},
+      {"accession": "GCF_000002035.1", "name": "Zv7", "date": "2008-02-01"}
+    ]
+  }
+}

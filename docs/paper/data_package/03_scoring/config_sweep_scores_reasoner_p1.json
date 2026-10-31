@@ -1,0 +1,184 @@
+{
+ "dims": [
+  "direct_first",
+  "factor_structure",
+  "ge_formula",
+  "inline_cite",
+  "ref_count",
+  "recency",
+  "no_review_shell"
+ ],
+ "max_total": 10,
+ "model": "deepseek-reasoner",
+ "skipped_qids": [],
+ "rows": [
+  {
+   "qid": 1,
+   "config": "fusion_full",
+   "dims": {
+    "direct_first": 2.0,
+    "factor_structure": 1.75,
+    "ge_formula": 0.75,
+    "inline_cite": 2.0,
+    "ref_count": 0.25,
+    "recency": 0.75,
+    "no_review_shell": 0.5
+   },
+   "total": 8.0
+  },
+  {
+   "qid": 1,
+   "config": "fusion_partial",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 1.75,
+    "ge_formula": 0.75,
+    "inline_cite": 1.75,
+    "ref_count": 0.25,
+    "recency": 0.75,
+    "no_review_shell": 0.5
+   },
+   "total": 7.5
+  },
+  {
+   "qid": 1,
+   "config": "hub_full",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 2.0,
+    "ge_formula": 1.0,
+    "inline_cite": 1.25,
+    "ref_count": 0.5,
+    "recency": 1.0,
+    "no_review_shell": 0.75
+   },
+   "total": 8.2
+  },
+  {
+   "qid": 1,
+   "config": "hub_partial",
+   "dims": {
+    "direct_first": 2.0,
+    "factor_structure": 2.0,
+    "ge_formula": 1.0,
+    "inline_cite": 2.0,
+    "ref_count": 0.25,
+    "recency": 1.0,
+    "no_review_shell": 0.75
+   },
+   "total": 9.0
+  },
+  {
+   "qid": 1,
+   "config": "rag_full",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 1.5,
+    "ge_formula": 0.75,
+    "inline_cite": 1.5,
+    "ref_count": 0.5,
+    "recency": 0.75,
+    "no_review_shell": 0.5
+   },
+   "total": 7.2
+  },
+  {
+   "qid": 1,
+   "config": "rag_partial",
+   "dims": {
+    "direct_first": 1.5,
+    "factor_structure": 1.5,
+    "ge_formula": 0.75,
+    "inline_cite": 1.75,
+    "ref_count": 0.25,
+    "recency": 0.75,
+    "no_review_shell": 0.5
+   },
+   "total": 7.0
+  },
+  {
+   "qid": 2,
+   "config": "fusion_full",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 1.75,
+    "ge_formula": 0.75,
+    "inline_cite": 0.25,
+    "ref_count": 0.0,
+    "recency": 0.0,
+    "no_review_shell": 0.25
+   },
+   "total": 4.8
+  },
+  {
+   "qid": 2,
+   "config": "fusion_partial",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 1.5,
+    "ge_formula": 0.75,
+    "inline_cite": 0.25,
+    "ref_count": 0.0,
+    "recency": 0.0,
+    "no_review_shell": 0.25
+   },
+   "total": 4.5
+  },
+  {
+   "qid": 2,
+   "config": "hub_full",
+   "dims": {
+    "direct_first": 2.0,
+    "factor_structure": 2.0,
+    "ge_formula": 1.0,
+    "inline_cite": 2.0,
+    "ref_count": 0.5,
+    "recency": 1.0,
+    "no_review_shell": 1.0
+   },
+   "total": 9.5
+  },
+  {
+   "qid": 2,
+   "config": "hub_partial",
+   "dims": {
+    "direct_first": 2.0,
+    "factor_structure": 2.0,
+    "ge_formula": 1.0,
+    "inline_cite": 2.0,
+    "ref_count": 0.5,
+    "recency": 1.0,
+    "no_review_shell": 0.25
+   },
+   "total": 8.8
+  },
+  {
+   "qid": 2,
+   "config": "rag_full",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 1.25,
+    "ge_formula": 0.75,
+    "inline_cite": 0.25,
+    "ref_count": 0.0,
+    "recency": 0.0,
+    "no_review_shell": 0.0
+   },
+   "total": 4.0
+  },
+  {
+   "qid": 2,
+   "config": "rag_partial",
+   "dims": {
+    "direct_first": 1.75,
+    "factor_structure": 1.5,
+    "ge_formula": 0.75,
+    "inline_cite": 0.25,
+    "ref_count": 0.0,
+    "recency": 0.0,
+    "no_review_shell": 0.0
+   },
+   "total": 4.2
+  }
+ ]
+}

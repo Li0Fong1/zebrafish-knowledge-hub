@@ -1,0 +1,283 @@
+{
+  "package": "zebrafish-knowledge-hub-evaluation",
+  "generated_at": "2026-10-09 08:07:21",
+  "generator": "scripts/build_figshare_package.py",
+  "root": "D:\\PycharmProjects\\斑马鱼基因问答体",
+  "file_count": 37,
+  "totals": {
+    "verbatim": 31,
+    "derived": 6,
+    "bytes": 1156559
+  },
+  "skipped": [
+    {
+      "path": "02_raw_outputs/judge_raw_deepseek-reasoner.jsonl",
+      "source": "logs/_config_sweep_judge_raw_reasoner.jsonl",
+      "reason": "empty"
+    }
+  ],
+  "pending_placeholders": [
+    "data_deposit"
+  ],
+  "files": [
+    {
+      "path": "01_benchmark/benchmark_100_questions.source.json",
+      "kind": "verbatim",
+      "source": "项目阶段/01_金标全文/清单与验收/eval_isomorph_100_20260901.json",
+      "bytes": 22519,
+      "sha256": "6cb8a763c53cc9418b6c50f051ed6baa97ee3d19f3c71a725535e2b2f75ff4e3"
+    },
+    {
+      "path": "01_benchmark/benchmark_30_questions.source.json",
+      "kind": "verbatim",
+      "source": "项目阶段/01_金标全文/清单与验收/eval_30_questions_20260901.json",
+      "bytes": 3533,
+      "sha256": "d4df6cd08fa5b087a68d238364d49b5e9509c0080c76e9a543c95c15417d1c1e"
+    },
+    {
+      "path": "02_raw_outputs/eval_isomorph_answers.json",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph/_eval_isomorph_answers.json",
+      "bytes": 71101,
+      "sha256": "c6e928f80afe90844f13471c2d21c972114e116544e67af680f11c89d3fae950"
+    },
+    {
+      "path": "02_raw_outputs/eval_isomorph_result.json",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph/_eval_isomorph_result.json",
+      "bytes": 114260,
+      "sha256": "084560d7257747e6fbeb1a10b45135b80747824d6a839c6f4ca93bf04ced4ecb"
+    },
+    {
+      "path": "02_raw_outputs/blind_pack.json",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph/blind_pack.json",
+      "bytes": 121695,
+      "sha256": "3248df94b86d3ee63cf138ecd82d23feddd4c4928d356e9e6e0fae709bc1c38c"
+    },
+    {
+      "path": "02_raw_outputs/blind_label_secrets.json",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph/_blind_label_secrets.json",
+      "bytes": 1203,
+      "sha256": "d93c894d61221d278f15a525bce7e6fec9255191e8ef60fe05a5b96f55f1a1e7"
+    },
+    {
+      "path": "02_raw_outputs/eval_isomorph_50_answers.json",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph_50/_eval_isomorph_answers.json",
+      "bytes": 165642,
+      "sha256": "5fad41f75e4abdbbf01c6a1a1cad006cab886d292a9e3c9b7114301f2fd1b131"
+    },
+    {
+      "path": "02_raw_outputs/eval_isomorph_50_result.json",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph_50/_eval_isomorph_result.json",
+      "bytes": 160556,
+      "sha256": "71b0b32388acf2e4159cb18a7ebcd03d648b8276acb7de7126da7f6889d85015"
+    },
+    {
+      "path": "02_raw_outputs/blind_scoring_sheet_50.md",
+      "kind": "verbatim",
+      "source": "logs/eval_isomorph_50/盲评打分表.md",
+      "bytes": 63133,
+      "sha256": "fbb674f49c3cf98a89c3fed491a2d21b6e2ed577f62ceccc49edfbb53983964f"
+    },
+    {
+      "path": "02_raw_outputs/config_sweep_answers.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_answers.json",
+      "bytes": 307822,
+      "sha256": "78bf81d0cb1028e857ac68b4384501991d1044c69244e24c4339a1bc5114b195"
+    },
+    {
+      "path": "02_raw_outputs/judge_raw_deepseek-chat.jsonl",
+      "kind": "verbatim",
+      "source": "logs/_config_sweep_judge_raw.jsonl",
+      "bytes": 10962,
+      "sha256": "1f7755e2a43c5dac18b9ecc33c3df517b679d22999364b6828c263b9c01e624e"
+    },
+    {
+      "path": "02_raw_outputs/judge_raw_reasoner_p1.jsonl",
+      "kind": "verbatim",
+      "source": "logs/_config_sweep_judge_raw_reasoner_p1.jsonl",
+      "bytes": 2267,
+      "sha256": "ed2bccd1bbb608b925d88a4c800c338d3e7b49b0c0b9538f4402b69ffa514f15"
+    },
+    {
+      "path": "02_raw_outputs/judge_raw_reasoner_p2.jsonl",
+      "kind": "verbatim",
+      "source": "logs/_config_sweep_judge_raw_reasoner_p2.jsonl",
+      "bytes": 2239,
+      "sha256": "1388f5f9730e68d55acc843a741081721eb46c0c41b2450844ca34708694201e"
+    },
+    {
+      "path": "02_raw_outputs/judge_raw_reasoner_p3.jsonl",
+      "kind": "verbatim",
+      "source": "logs/_config_sweep_judge_raw_reasoner_p3.jsonl",
+      "bytes": 2262,
+      "sha256": "9d8cc114c4470920e7190d28d6c42aa69d95fc150b75101732e2643f80ce08b6"
+    },
+    {
+      "path": "02_raw_outputs/judge_raw_reasoner_p4.jsonl",
+      "kind": "verbatim",
+      "source": "logs/_config_sweep_judge_raw_reasoner_p4.jsonl",
+      "bytes": 2246,
+      "sha256": "d3d595570313c1833ba62390d1fbc792db476e5bb8915c550e91d2e37a803f17"
+    },
+    {
+      "path": "02_raw_outputs/judge_raw_reasoner_p5.jsonl",
+      "kind": "verbatim",
+      "source": "logs/_config_sweep_judge_raw_reasoner_p5.jsonl",
+      "bytes": 2175,
+      "sha256": "a0002637a76662b7ce2d8f3476a15fa2ff5c72d9ad63cde9d5362fbb213435e4"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores.json",
+      "bytes": 16536,
+      "sha256": "32d5f22a806c750f33799de789ef0b5f7e22ef374875e1656aceabd35ff5330d"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores_reasoner.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores_reasoner.json",
+      "bytes": 16780,
+      "sha256": "3293d5b4d42b6c243d0b219d9982c4e321c6bf70499c83afbacb2e92d919bfaf"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores_reasoner_p1.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores_reasoner_p1.json",
+      "bytes": 3498,
+      "sha256": "55796ccb3933887a4204c4f9553cc5e52de7f6687bde19f6965ca047d0ef11b6"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores_reasoner_p2.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores_reasoner_p2.json",
+      "bytes": 3490,
+      "sha256": "81e4fc3adf998e60be3403d938b8e9aa17d9aebd1a25200b1df9467db7fcd5bf"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores_reasoner_p3.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores_reasoner_p3.json",
+      "bytes": 3495,
+      "sha256": "50a9bb9413292a797e82747602644daaf0fd98a0eb6612659219db44dd6a878a"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores_reasoner_p4.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores_reasoner_p4.json",
+      "bytes": 3499,
+      "sha256": "5fee13c7222b1561baae807c36a846658b90e5ef94e07e2a6bdd1559d723b644"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores_reasoner_p5.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_scores_reasoner_p5.json",
+      "bytes": 3509,
+      "sha256": "c4d00f0ff75304a5b5b7754ab00eeb75cf5b35adcb12b327eba2734abd780eda"
+    },
+    {
+      "path": "04_statistics/config_sweep_verify.json",
+      "kind": "verbatim",
+      "source": "Figure/_config_sweep_verify.json",
+      "bytes": 5006,
+      "sha256": "62fedfc1131c9be6478e905478d164344f0cd1190be5e5165120891774a13f05"
+    },
+    {
+      "path": "04_statistics/figs4c_summary.json",
+      "kind": "verbatim",
+      "source": "Figure/_figs4c_summary.json",
+      "bytes": 6102,
+      "sha256": "d92ff7ccec9fd5180ad295bdb4a1d7c62866b5195669e2d26636036d7c1dada1"
+    },
+    {
+      "path": "04_statistics/figs4c_audit.json",
+      "kind": "verbatim",
+      "source": "Figure/_figs4c_audit.json",
+      "bytes": 8934,
+      "sha256": "a6170b8b9e7018bc84201605e92f512fba2d3116d9d7fde6d64c55b8db41e314"
+    },
+    {
+      "path": "05_provenance/audit_sources.json",
+      "kind": "verbatim",
+      "source": "Figure/_audit_sources.json",
+      "bytes": 5350,
+      "sha256": "7daa00a000ba944dc96194d752836bcf4828344b4991a33a804313a64c69f6b2"
+    },
+    {
+      "path": "05_provenance/clean_stats.json",
+      "kind": "verbatim",
+      "source": "Figure/_clean_stats.json",
+      "bytes": 2051,
+      "sha256": "23f21243928cd5311a51c528b8c6f2b4a24e6f2c35a92578b7be8b6c8202fcc3"
+    },
+    {
+      "path": "05_provenance/server_env_probe.json",
+      "kind": "verbatim",
+      "source": "Figure/_server_env_probe.json",
+      "bytes": 1061,
+      "sha256": "3213c5d5be9bedb04602ea62a4f01cb8543c59c630347b9f07a5e7091ff5fe3e"
+    },
+    {
+      "path": "05_provenance/llm_usage.json",
+      "kind": "verbatim",
+      "source": "Figure/_llm_usage.json",
+      "bytes": 3159,
+      "sha256": "99b0314177f390785a39f19d86cbd2cb9f7a3286a693af2cce5fdcfe72aa94b7"
+    },
+    {
+      "path": "05_provenance/tool_versions.json",
+      "kind": "verbatim",
+      "source": "docs/paper/provenance/tool_versions.json",
+      "bytes": 1787,
+      "sha256": "7133d0ea4dc4f28e0f4c9a786ba5b2a3ddc3af5d3541061959ab95023c4d8dd2"
+    },
+    {
+      "path": "01_benchmark/benchmark_100_questions.csv",
+      "kind": "derived",
+      "derived_from": "项目阶段\\01_金标全文\\清单与验收\\eval_isomorph_100_20260901.json · questions[100]",
+      "bytes": 5434,
+      "sha256": "b65bc1ee7333f3eea09b7a48a159d30a9c6730ed6d399f127ea6d39f5cb7e520"
+    },
+    {
+      "path": "01_benchmark/isomorphic_pairs.csv",
+      "kind": "derived",
+      "derived_from": "项目阶段\\01_金标全文\\清单与验收\\eval_isomorph_100_20260901.json · isomorphic_pairs[20]",
+      "bytes": 1847,
+      "sha256": "ada777b2b8a4fce986154e6756d4921a2c4de4225e913483d80251306b64704d"
+    },
+    {
+      "path": "01_benchmark/rubric.md",
+      "kind": "derived",
+      "derived_from": "项目阶段\\01_金标全文\\清单与验收\\eval_isomorph_100_20260901.json · rubric",
+      "bytes": 724,
+      "sha256": "b51525e95acc0cb66afccf363f6310c37c56a2ff1439f743440f43b47c5ac560"
+    },
+    {
+      "path": "03_scoring/config_sweep_scores.csv",
+      "kind": "derived",
+      "derived_from": "Figure\\_config_sweep_scores.json · rows[60], dims[7]",
+      "bytes": 3022,
+      "sha256": "71826c8f15aae92f9bac8db670f2f9303eb434abf64f3b92c5c1891e867dcde4"
+    },
+    {
+      "path": "04_statistics/config_sweep_verify_summary.md",
+      "kind": "derived",
+      "derived_from": "Figure\\_config_sweep_verify.json · stats+checks",
+      "bytes": 2163,
+      "sha256": "1d9a5866e7e1d3a8ddb43358e8d0446b37b3a853927b9158c1e126e1bd503e7e"
+    },
+    {
+      "path": "README.md",
+      "kind": "derived",
+      "derived_from": "scripts/build_figshare_package.py",
+      "bytes": 5497,
+      "sha256": "d2caaf5434d0c69c16d7f69b7f8a97e8753d7b114c3eaf1ad61bb35243298215"
+    }
+  ]
+}

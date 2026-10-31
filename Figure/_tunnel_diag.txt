@@ -1,0 +1,23 @@
+== procs ==
+1735463 16-02:40:06 /tmp/cloudflared_run tunnel --no-autoupdate --protocol http2 --url http://127.0.0.1:8080
+2407187       13:01 bash -c cd /data/zoujin/deng/zebrafish_gene_qa && setsid nohup bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh >/dev/null 2>&1 & echo started
+2407188       13:01 bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh
+== listen ==
+LISTEN 208    2048       127.0.0.1:8080       0.0.0.0:*          
+== health ==
+000
+== tunnel log tail ==
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:31Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://127.0.0.1:8080
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:31Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://127.0.0.1:8080
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:31Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://127.0.0.1:8080
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:31Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://127.0.0.1:8080
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:31Z ERR failed to serve incoming request error="Failed to proxy HTTP: Incoming request ended abruptly: context canceled"
+2026-09-30T11:59:32Z ERR Connection terminated error="connection with edge closed" connIndex=0
+== tunnel url now ==
+https://explains-laden-main-acres.trycloudflare.com

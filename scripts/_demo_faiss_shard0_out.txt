@@ -1,0 +1,50 @@
+﻿shard_dir: C:\Users\Lenovo\AppData\Local\ZebrafishGeneQA\faiss_pubmed_yes\shard_0000
+  index.faiss: 25,360,429 bytes
+  index.pkl:   11,175,756 bytes
+
+=== FAISS index ===
+type:   IndexFlatL2
+ntotal: 12383
+d:      512
+metric: 1 (1=L2)
+
+=== sidecar meta (LangChain FAISS pickle) ===
+docstore docs: 12383
+id_map size:   12383
+
+=== first 5 metadata samples ===
+
+[0] id=030e5806-226d-4747-8798-4db9a1179287
+    pmid=1465413 doc_id=pmid:1465413 field=title chunk_index=0 source=pmid_fulltext_gold
+    title_zh=鏂戦┈楸肩殑涓昏缁勭粐鐩稿鎬у鍚堜綋II绫诲熀鍥?
+    text_80=銆怭UBMED YES PMID:1465413銆?鏍囬锛堣嫳锛夛細Major histocompatibility complex class II genes 
+
+[1] id=83bae48f-5264-4192-ae8a-78606f1e14da
+    pmid=1465413 doc_id=pmid:1465413 field=meta chunk_index=1 source=pmid_fulltext_gold
+    title_zh=鏂戦┈楸肩殑涓昏缁勭粐鐩稿鎬у鍚堜綋II绫诲熀鍥?
+    text_80=銆怭UBMED YES PMID:1465413銆?鏉ユ簮淇℃伅锛歅roceedings of the National Academy of Sciences o
+
+[2] id=5cb1b2e2-a283-4bc3-823c-085eba251a38
+    pmid=1465413 doc_id=pmid:1465413 field=abstract chunk_index=2 source=pmid_fulltext_gold
+    title_zh=鏂戦┈楸肩殑涓昏缁勭粐鐩稿鎬у鍚堜綋II绫诲熀鍥?
+    text_80=銆怭UBMED YES PMID:1465413銆?鎽樿锛堣嫳锛夛細Twenty cDNA clones derived from beta-chain-encod
+
+[3] id=0cf26b07-147b-4bff-8495-a502f0edbd17
+    pmid=1465413 doc_id=pmid:1465413 field=abstract chunk_index=3 source=pmid_fulltext_gold
+    title_zh=鏂戦┈楸肩殑涓昏缁勭粐鐩稿鎬у鍚堜綋II绫诲熀鍥?
+    text_80=銆怭UBMED YES PMID:1465413銆?ances between alleles suggest trans-specific evolution
+
+[4] id=9ce54950-ff4f-4849-b4e6-a075bbd2a2d8
+    pmid=1465413 doc_id=pmid:1465413 field=body chunk_index=4 source=pmid_fulltext_gold
+    title_zh=鏂戦┈楸肩殑涓昏缁勭粐鐩稿鎬у鍚堜綋II绫诲熀鍥?
+    text_80=銆怭UBMED YES PMID:1465413銆?姝ｆ枃锛?Major histocompatibility complex class II genes of
+
+=== search top3 (query = reconstruct vector #0; skip heavy embed) ===
+  #1 idx=0 L2=0.000000 pmid=1465413 field=title
+      text_80=銆怭UBMED YES PMID:1465413銆?鏍囬锛堣嫳锛夛細Major histocompatibility complex class II genes 
+  #2 idx=11787 L2=0.303339 pmid=18618001 field=title
+      text_80=銆怭UBMED YES PMID:18618001銆?鏍囬锛堣嫳锛夛細Zebrafish Whole-Adult-Organism Chemogenomics fo
+  #3 idx=370 L2=0.315518 pmid=8893009 field=title
+      text_80=銆怭UBMED YES PMID:8893009銆?鏍囬锛堣嫳锛夛細Insertional mutagenesis and rapid cloning of ess
+
+(embedding 妯″瀷鏈姞杞斤細鐢?reconstruct 鑷妫€绱紱姝ｅ紡闂瓟璇疯蛋椤圭洰 RAG Hub銆?

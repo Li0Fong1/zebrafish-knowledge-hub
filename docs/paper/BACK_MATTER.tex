@@ -1,0 +1,87 @@
+% =============================================================================
+% Back matter（尾段）— 与马铃薯（Plant Communications / Cell Press 同序）完全同序同名
+%
+% 用途：投稿时把本文件**整体粘贴/`\input` 到正文 Methods 之后、References 之前**。
+%       本文件与 docs/METHODS/METHODS.md、docs/paper/BACK_MATTER.md 内容一致。
+%
+% 顺序（马铃薯同序）：
+%   Methods → DATA AND CODE AVAILABILITY → FUNDING → ACKNOWLEDGMENTS
+%           → AUTHOR CONTRIBUTIONS → SUPPLEMENTAL INFORMATION → References
+%
+% 依赖：需要 hyperref（或 url 包）以支持 \url{}。
+%       若需独立编译本文件（自检用），取消下面 preamble 注释即可。
+%
+% 数值纪律：能确定的写实；缺外部编号的用 \tbd{} 标注占位，**不得编造**。
+% 占位符对账：.venv\Scripts\python.exe -X utf8 scripts\verify_methods_numbers.py --write
+%   → 代码仓库地址：**已定**按“出版时公开”处理（The code will be released upon publication.），公开后回填 URL
+%   → {{TODO:data_deposit}}（Figshare DOI）
+%   → \tbd{Author B}（组学数据合作者姓名 + 单位）
+%   → {{TODO:funding}}（基金项目名 + 项目号）
+%   → \tbd{Corresponding email}（通讯邮箱）
+% =============================================================================
+
+% ------------------------------- 独立编译用 preamble（粘贴时可删） ---------
+% \documentclass[11pt]{article}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+% \usepackage{hyperref}
+% \newcommand{\tbd}[1]{\textbf{[[#1]]}}   % 待补占位：加粗方括号，投稿前必须替换
+% \begin{document}
+% ---------------------------------------------------------------------------
+
+\section*{DATA AND CODE AVAILABILITY}
+
+The code for the Zebrafish Knowledge Hub (agent orchestration, retrieval and
+packing pipeline, web front-end and deployment scripts) is hosted on Gitee
+(\tbd{TODO: repo\_url}). Benchmark questions, manually curated reference answers,
+blinded judge inputs and raw model outputs, scoring tables and the exact
+permutation-test results are available on Figshare
+(\tbd{TODO: data\_deposit}). Reference annotations were downloaded from Ensembl
+(GRCz11, release 116; \url{https://www.ensembl.org/}), NCBI RefSeq (GRCz12tu,
+GCF\_049306965.1; \url{https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.1/}),
+ZFIN (\url{https://zfin.org/}), Bgee (v15.2; \url{https://www.bgee.org/}) and the
+EBI Expression Atlas (E-ERAD-475; \url{https://www.ebi.ac.uk/gxa/}), and literature
+records were retrieved from PubMed (\url{https://pubmed.ncbi.nlm.nih.gov/}) and
+Europe PMC (\url{https://europepmc.org/}).
+
+% 说明：数据包已在仓库内备好，可直接上传 Figshare 后回填 DOI：
+%   docs/paper/data_package/          （36 个文件，含 MANIFEST.json 的 sha256 清单）
+%   构建/校验：python -X utf8 scripts\build_figshare_package.py [--check]
+
+\section*{FUNDING}
+
+This work was supported by \tbd{TODO: funding}.
+
+% 写法约定（与马铃薯一致）：逐一列「项目名 + 项目号」，逗号分隔，句点结束。
+% 常见可填项（有哪个写哪个，无则删除本行）：
+%   the National Natural Science Foundation of China (NSFC) (项目号)
+%   the Natural Science Foundation of Hunan Province (项目号)
+%   the Scientific Research Foundation of Hunan Normal University (项目号)
+%   the National Key R\&D Program of China / 湖南省重点研发计划 / 重点实验室开放基金 (项目号)
+
+\section*{ACKNOWLEDGMENTS}
+
+We acknowledge the computing resources of Hunan Normal University used for index
+construction and model serving, and we thank the researchers who tested the
+platform for performance and stability and provided constructive feedback. No
+conflict of interest is declared.
+
+\section*{AUTHOR CONTRIBUTIONS}
+
+Kaifeng Qu conceived the study; developed the code of the Zebrafish Knowledge Hub
+(agent orchestration framework, web front-end and back-end, initial creation of the
+relational database, full-text parsing, and the vectorisation and retrieval
+pipeline); performed the performance evaluation; and wrote the manuscript with the
+assistance of AI coding environments as declared in section~2.6. \tbd{Author B}
+collected and curated the omics annotation data (gene coordinates, expression, GO
+and pathway annotations). All authors read and approved the final version.
+
+\section*{SUPPLEMENTAL INFORMATION}
+
+Supplemental information includes the pipeline and benchmark figures, the API-usage
+table (Table~2.1 / supplementary version) and the audited numeric-provenance tables
+that link every reported value to the underlying project artefact.
+
+% ------------------------------- 独立编译用结尾（粘贴时可删） ---------------
+% \end{document}
+% ---------------------------------------------------------------------------

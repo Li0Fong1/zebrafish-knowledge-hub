@@ -1,0 +1,105 @@
+# ==============================================================================
+# 发布用 .gitignore（2026-10-05 收敛）
+# 目标：公开仓库只含「代码 + 文档 + 论文产物」；
+#       排除 ①凭据 ②大型数据/模型 ③运行日志与一次性脚本 ④本机环境与缓存。
+# 依据：docs/paper/RELEASE_SECURITY_AUDIT.md（实测敏感信息分布）
+# 校验：.venv\Scripts\python.exe scripts\selfcheck.py --git
+#       会在临时 git 目录里算"拟提交清单"，命中敏感词即 FAIL。
+# ==============================================================================
+
+# ---- ① 凭据 / 敏感信息：任何情况下不得提交 ----
+.env
+.env.bak*
+.env.*.local
+*.pem
+*.key
+密码箱/
+**/公网密码*
+.vscode/
+.idea/
+
+# 项目阶段/：阶段化暂存区，实测 558 个文件含服务器账号/主机名（见安全审计）
+项目阶段/
+
+# 解析文件/：运行态清单与快照（28 GB），含主机/账号信息
+解析文件/
+
+# 参考文件/：外部参考材料（他人 README / 未刊稿），含服务器主机信息，不随仓库公开
+参考文件/
+
+# 服务器侧临时部署目录与同步备份
+_server_web/
+_presync_backup_*/
+
+# ---- ② 大型数据 / 模型（不随代码发布；数据走 Figshare 存档）----
+data/
+models/
+merged_corpus/
+tools/
+release/
+
+# 知识库语料与图库图片（体积大、可由数据包/重建脚本恢复，不入代码仓）
+rag/knowledge.d/
+web/assets/zf-gallery/
+
+# ---- ③ 运行日志 / 一次性脚本 / 备份 ----
+logs/
+runtime_logs/
+/_*.py
+core/_restored_config_314.py
+*.bak
+*.bak.*
+*.broken.bak
+*.orig
+*.rej
+*~
+*.tmp
+
+# ---- ③b 第三方参考文献与参考图（他人未刊稿，不得随本仓库公开分发）----
+# 参考图 Fig. S4 / Fig. S5 的对照来源；仅本地留存供格式对齐，对图注/打分的引用见
+# Figure/supplementary/README.md 的「参考格式来源」小节
+实例图.png
+数据清洗图.png
+马铃薯AI智能体.pdf
+Figure legend.pptx
+海洋鱼类数据库.pdf
+
+# ---- ④ 本机环境与缓存 ----
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- ④b 本机工作区数据（不发布）----
+# .workbuddy/ 是 AI 助手的工作区记忆与临时部署脚本，内含主机名/密码痕迹
+.workbuddy/
+# 根目录一次性探针脚本（临时，不入库）
+_tmp_*.py
+
+# ---- ⑤ 既有规则（保留）----
+.env
+.env.bak*
+项目阶段/00_环境与配置/归档/server_env_bak/
+logs/_gene_union_from_server.sql
+.venv/
+__pycache__/
+*.pyc
+.idea/
+tools/cloudflared.exe
+release/ZebrafishGeneQA-*/
+release/ZebrafishGeneQA-*
+
+# ---- ⑥ 2026-10-31 首次建仓时补的规则 ----
+# 本机截图/同步/备份的临时目录（Chrome profile、服务器拉取副本、一次性脚本）
+.tmp_*/
+.tmp_*
+_backup_*/
+_shots/
+_*.png
+_tmp_*.py
+*.pma
+# 页面/CSS 的历史副本（.bak_fish2 / .bak_glow / .bak-zficon2 等）
+*.bak*

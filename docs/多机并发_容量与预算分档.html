@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斑马鱼基因问答体 · 5–8 台并发：容量测算与预算分档</title>
+<style>
+  :root{
+    --ink:#16202b; --ink2:#41505f; --mute:#6b7a89; --line:#e3e9ef; --line2:#eef3f7;
+    --bg:#f6f9fb; --card:#fff; --brand:#0d6f7d; --ok:#0f7a4d; --ok-bg:#e8f6ee;
+    --warn:#b45309; --warn-bg:#fdf3e3; --bad:#b42318; --bad-bg:#fdecec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.65 "Microsoft YaHei","PingFang SC",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:40px 28px 64px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  h1{font-size:25px;margin:0 0 6px;line-height:1.3}
+  .sub{color:var(--mute);font-size:13px}
+  .meta{text-align:right;font-size:12.5px;color:var(--mute);line-height:1.9}
+  .meta b{color:var(--ink2)}
+  .sum{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 8px}
+  .s{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:8px;padding:12px 14px}
+  .s .k{font-size:11.5px;letter-spacing:1px;color:var(--brand);font-weight:700}
+  .s .t{font-size:14.5px;font-weight:700;margin:3px 0 2px}
+  .s .d{font-size:12px;color:var(--mute);line-height:1.55}
+  section{margin:34px 0 0}
+  h2{font-size:17px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+  h2 .no{display:inline-flex;min-width:24px;height:24px;padding:0 6px;border-radius:6px;background:var(--ink);color:#fff;font-size:12px;align-items:center;justify-content:center;font-weight:700}
+  .lead{color:var(--mute);font-size:13px;margin:0 0 12px 34px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13.2px}
+  thead th{background:#eef4f7;color:var(--ink2);font-weight:700;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);font-size:12.5px;white-space:nowrap}
+  td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even){background:#fbfdfe}
+  td.k{color:var(--ink);font-weight:600}
+  code{font:12px/1.5 ui-monospace,Consolas,monospace;background:#eef3f7;padding:1px 5px;border-radius:4px;color:#0b4f5a}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:700;white-space:nowrap}
+  .t-ok{background:var(--ok-bg);color:var(--ok)}
+  .t-warn{background:var(--warn-bg);color:var(--warn)}
+  .t-bad{background:var(--bad-bg);color:var(--bad)}
+  .t-info{background:#e6f4f6;color:var(--brand)}
+  .rec{background:#f4fbf7 !important;box-shadow:inset 3px 0 0 var(--ok)}
+  .note{font-size:12px;color:var(--mute);margin:8px 0 0 2px;line-height:1.7}
+  footer{margin-top:38px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);line-height:1.85}
+  @media (max-width:920px){.sum{grid-template-columns:repeat(2,1fr)}.wrap{padding:24px 14px 48px}table{font-size:12.2px}}
+  @media print{body{background:#fff}.wrap{max-width:none;padding:0}section{break-inside:avoid}table{font-size:10.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>5–8 台机器并发：容量测算与预算分档</h1>
+    <div class="sub">目标：8 台机器同时提问、互不排队、不 OOM、不被网关掐断；并给出「从别人的服务器搬走」的路径</div>
+  </div>
+  <div class="meta">
+    编制：<b>2026-10-31</b><br>
+    依据：<b>chat_gate 实测 · 多机并行问答_20261030 · 系统架构总览 · 本机/服务器资产盘点</b><br>
+    价格：<b>2026-10 公开报价区间，以官网为准</b>
+  </div>
+</header>
+
+<div class="sum">
+  <div class="s">
+    <div class="k">真瓶颈</div>
+    <div class="t">内存 + 网关超时</div>
+    <div class="d">CPU 不是瓶颈：一次 183 s 问答只花 ~20 s CPU，其余在等 DeepSeek API</div>
+  </div>
+  <div class="s">
+    <div class="k">并发公式</div>
+    <div class="t">余量 ÷ 每车道 1.5 GB</div>
+    <div class="d">索引常驻后单请求边际仅 ~60 MB，不是「每问 27 GB」</div>
+  </div>
+  <div class="s">
+    <div class="k">推荐档位</div>
+    <div class="t">中档：16C / 64 GB + 索引量化</div>
+    <div class="d">8 车道 + 全量语义覆盖，常驻约 50 GB；月费 ¥1500–2500（API 另计）</div>
+  </div>
+  <div class="s">
+    <div class="k">最容易被忽略</div>
+    <div class="t">Cloudflare 100 s 上限</div>
+    <div class="d">8 并发时延迟会破 100 s → 必 524，必须走 Nginx 直连</div>
+  </div>
+</div>
+
+<!-- 1 现状与硬约束 -->
+<section>
+  <h2><span class="no">1</span>先看清手里的牌：本机 + 服务器实测资产</h2>
+  <p class="lead">所有数字都来自项目实测记录，不是估算；它们决定了「哪些能搬、搬多久、瓶颈在哪」。</p>
+  <table>
+    <thead><tr><th style="width:150px">资产 / 约束</th><th style="width:330px">实测值</th><th>对 5–8 台并发意味着什么</th></tr></thead>
+    <tbody>
+      <tr><td class="k">代码与前端</td><td>FastAPI 单进程 + 单页前端；48 端点；SSE 流式</td><td>单进程即可，靠线程并发；不需要容器编排</td></tr>
+      <tr><td class="k">并发模型（已改好）</td><td><code>chat_gate.py</code>：全局 N 车道 + 同会话串行 + FIFO 排队；车道按 <b>session-id</b> 区分</td><td>5–8 台机器 = 5–8 条车道，<b>代码层面已支持</b>，只需把 N 调到 8</td></tr>
+      <tr><td class="k">当前车道数</td><td>默认 <b>3</b>（<code>CHAT_MAX_CONCURRENCY=3</code>）</td><td>第 4 台起排队：实测第 3、4 个请求 <b>393 s / 397 s</b> 才回来</td></tr>
+      <tr><td class="k">内存曲线</td><td>索引常驻 <b>31.7 GB</b>（35 片）；单请求边际 <b>≈60 MB</b>；cgroup 上限 36.8 GB</td><td>现机器余量仅 5.1 GB → 3 车道是它的物理上限，不是配置懒</td></tr>
+      <tr><td class="k">全量索引</td><td>170 片 / <b>58.4 GB</b>（磁盘 63 GB）；线上只装 31–36 片</td><td>要「完美」= 全量常驻，内存门槛直接抬到 128 GB 级（或把索引量化到 1/4）</td></tr>
+      <tr><td class="k">模型三件套</td><td>13 GB：Qwen3-Embedding-4B 8.9G + reranker 3.1G + 0.5B 0.9G</td><td>常驻 9.5 GB，每台机器都要一份（除非拆成模型服务）</td></tr>
+      <tr><td class="k">关系库</td><td>MySQL 8.0，33 表 <b>4.8 GB</b>，6.7 万 PubMed / 3.25 万全文</td><td>同机部署最省；多节点则必须独立或 RDS</td></tr>
+      <tr><td class="k">单问耗时</td><td><b>30–80 s</b>（预热后）；并发 3 时实测 123 s / 183 s</td><td>8 并发下 P95 预计 <b>90–150 s</b> → 超过 CF 的 100 s</td></tr>
+      <tr><td class="k">现服务器</td><td>32 核 Xeon / cgroup 36.8 GB / <b>非自有、无 root、无 443 入站</b>；账号曾过期停摆</td><td>不能装 systemd、不能开端口、不能调内存上限；<b>必须搬</b></td></tr>
+      <tr><td class="k">本机</td><td>i7-14650HX 16 核 / <b>16 GB</b> / D 盘剩 420 GB 笔记本</td><td>可做迁移中转与开发，不能做对外服务</td></tr>
+      <tr><td class="k">搬迁体量</td><td>模型 13 GB + 索引 58.4 GB + 库 4.8 GB + 其它数据 21 GB ≈ <b>100 GB</b></td><td>按 50 Mbps 上传约 <b>4–5 小时</b>；建议走对象存储中转</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 2 容量测算 -->
+<section>
+  <h2><span class="no">2</span>8 台同时用，到底需要多少内存</h2>
+  <p class="lead">把「常驻工作集」和「每车道安全垫」分开算，这是唯一不会算错的算法。</p>
+  <table>
+    <thead><tr><th style="width:250px">方案</th><th style="width:150px">索引常驻</th><th style="width:130px">模型 + 系统</th><th style="width:150px">8 车道安全垫</th><th style="width:130px">合计</th><th>结论</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="k">A. 全量索引直装（170 片）</td><td class="num">≈100 GB</td><td class="num">12.5 GB</td><td class="num">12 GB</td><td class="num"><b>≈125 GB</b></td>
+        <td><span class="tag t-warn">128 GB 才稳</span> 96 GB 会 OOM；这正是线上只装 31–36 片的物理原因</td>
+      </tr>
+      <tr>
+        <td class="k">B. 部分索引（约 60 片）</td><td class="num">35 GB</td><td class="num">12.5 GB</td><td class="num">12 GB</td><td class="num"><b>≈60 GB</b></td>
+        <td><span class="tag t-warn">96 GB 够</span> 但只覆盖约 35% 文献，回答标 <code>partial</code></td>
+      </tr>
+      <tr class="rec">
+        <td class="k">C. 索引量化（SQ8 / IVF-PQ）</td><td class="num">≈25 GB</td><td class="num">12.5 GB</td><td class="num">12 GB</td><td class="num"><b>≈50 GB</b></td>
+        <td><b>64 GB 即可全量语义覆盖</b>；代价是 3–5 天重建 + 召回需 A/B 验证（项目已有 100 题基准）</td>
+      </tr>
+      <tr>
+        <td class="k">D. 拆模型服务（1 模型节点 + N 应用节点）</td><td class="num">100 GB（模型节点）</td><td class="num">应用节点仅 2 GB</td><td class="num">按节点算</td><td class="num">—</td>
+        <td>应用节点可横向扩到 8–16；<b>但要改代码</b>（嵌入/重排走 HTTP），工程量 1–2 周</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note"><b>每片常驻怎么来的：</b>线上 35 片时 RSS 31.7 GB，减去模型 9.5 GB 与应用 ~1.5 GB ≈ 20.7 GB，折合 <b>0.59 GB/片</b>；170 片 ≈ 100 GB（含 pickle 与堆开销，磁盘上只有 58.4 GB，内存占用高于磁盘是 FAISS + Python 对象的正常现象）。</p>
+  <p class="note"><b>判定「支撑住了」的四条硬指标：</b>① 8 个 session 同时提交，<code>/api/chat/queue</code> 的 <code>chat_running=8, chat_queued=0</code>；② P95 ≤ 150 s；③ <code>/api/health</code> 的 <code>mem_headroom_mb</code> 始终 &gt; 3000；④ 全程 0 次 <code>exited code=137</code>、0 次 524。</p>
+</section>
+
+<!-- 3 预算分档 -->
+<section>
+  <h2><span class="no">3</span>四档预算：从「白嫖」到「高可用」</h2>
+  <p class="lead">月费为香港节点区间（免备案）；同规格大陆节点约便宜 10–20%，但域名要 ICP 备案 2–3 周。API 费按「8 人 × 每天 20 问」估。</p>
+  <table>
+    <thead>
+      <tr><th style="width:78px">档位</th><th style="width:190px">规格</th><th style="width:96px">车道</th><th style="width:200px">8 台同时用会怎样</th><th style="width:132px">月费</th><th style="width:110px">年费</th><th>结论</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="k">最低<br><span class="note" style="margin:0">沿用现服务器</span></td>
+        <td>共享 32 核 / 36.8 GB 配额<br>无 root、无入站端口</td>
+        <td class="num">3</td>
+        <td>前 3 个 60–183 s；第 4–8 个排队 <b>6–10 分钟</b>；并发下必撞 CF 100 s → 524</td>
+        <td class="num">¥0<br><span class="note" style="margin:0">+ 域名 ¥75/年</span></td>
+        <td class="num">≈¥75</td>
+        <td><span class="tag t-bad">不达标</span> 只能演示；且服务器不是你的</td>
+      </tr>
+      <tr>
+        <td class="k">低</td>
+        <td>8 核 / 32 GB / 300 GB SSD<br>香港</td>
+        <td class="num">4</td>
+        <td>分两轮跑，P95 <b>180–220 s</b>；索引只能装 <b>15–30 片（覆盖 10–18%）</b></td>
+        <td class="num">¥600–900<br><span class="note" style="margin:0">+API ¥250–400</span></td>
+        <td class="num">¥1.0–1.6 万</td>
+        <td><span class="tag t-warn">勉强</span> 5 台可用，8 台体验差</td>
+      </tr>
+      <tr class="rec">
+        <td class="k">中 <span class="tag t-ok">推荐</span></td>
+        <td>16 核 / 64 GB / 400 GB SSD<br>+ 索引量化（SQ8）</td>
+        <td class="num">8</td>
+        <td>8 台<b>同时</b>跑，P95 <b>90–150 s</b>；全量语义覆盖，无 <code>partial</code></td>
+        <td class="num">¥1500–2500<br><span class="note" style="margin:0">+API ¥400–500</span></td>
+        <td class="num">¥2.4–3.6 万</td>
+        <td><span class="tag t-ok">达标</span> 性价比最高；单点故障仍是短板</td>
+      </tr>
+      <tr>
+        <td class="k">中＋<br><span class="note" style="margin:0">省事变体</span></td>
+        <td>16 核 / <b>128 GB</b> / 400 GB SSD<br>原索引直装，不改数据</td>
+        <td class="num">8</td>
+        <td>同上，但省掉 3–5 天量化工程与召回验证风险</td>
+        <td class="num">¥3000–4500<br><span class="note" style="margin:0">+API ¥400–500</span></td>
+        <td class="num">¥4.1–6.0 万</td>
+        <td><span class="tag t-ok">达标</span> 花钱买确定性</td>
+      </tr>
+      <tr>
+        <td class="k">高</td>
+        <td>2 ×（16 核 / 64 GB + 量化索引）<br>+ 托管 MySQL + 对象存储 + LB</td>
+        <td class="num">8<br><span class="note" style="margin:0">单节点 4</span></td>
+        <td>8 台同时跑且有冗余：一台宕机自动切，滚动发布不断服</td>
+        <td class="num">¥4000–6000<br><span class="note" style="margin:0">+API ¥500</span></td>
+        <td class="num">¥5.4–7.8 万</td>
+        <td><span class="tag t-ok">达标 + 高可用</span> 成本与运维复杂度翻倍</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note"><b>一次性投入：</b>域名 ¥75/年；迁移人力 2–3 天；若选方案 C（量化）另加 3–5 天；监控与备份搭建 1 天。<b>API 费口径：</b>单问约 1.5–2.5 万输入 token + 2–4 千输出 token，按 DeepSeek 现价约 ¥0.05–0.10/问；开启上下文缓存（system prompt 固定）可再降 30–50%。</p>
+</section>
+
+<!-- 4 风险 -->
+<section>
+  <h2><span class="no">4</span>每档的风险：概率 × 影响 × 兜底</h2>
+  <p class="lead">「风险」只写真实发生过的或物理上必然的，不写理论风险。</p>
+
+  <table>
+    <thead><tr><th style="width:70px">档位</th><th style="width:220px">风险</th><th style="width:64px">概率</th><th style="width:64px">影响</th><th>兜底 / 触发信号</th></tr></thead>
+    <tbody>
+      <tr><td class="k" rowspan="4">最低</td>
+        <td class="k">账号/服务器被回收</td><td><span class="tag t-bad">已发生</span></td><td><span class="tag t-bad">致命</span></td>
+        <td>2026-10-01 账号过期导致全站停摆一天；服务器非自有，管理员随时可清</td></tr>
+      <tr><td class="k">并发撞 100 s 网关上限</td><td><span class="tag t-bad">必然</span></td><td><span class="tag t-bad">高</span></td>
+        <td>8 并发延迟 &gt;100 s → Cloudflare 524，前端表现为「答案断掉」</td></tr>
+      <tr><td class="k">OOM 被动杀进程</td><td><span class="tag t-warn">高</span></td><td><span class="tag t-warn">中</span></td>
+        <td>余量仅 5.1 GB；抬车道数即触发 <code>code=137</code>，守护 10–15 s 重拉</td></tr>
+      <tr><td class="k">无 root，无法自救</td><td><span class="tag t-bad">确定</span></td><td><span class="tag t-warn">中</span></td>
+        <td>不能装 systemd、不能开 443、不能调 cgroup 上限——所有优化都做不了</td></tr>
+
+      <tr><td class="k" rowspan="4">低</td>
+        <td class="k">索引只能部分装载</td><td><span class="tag t-bad">必然</span></td><td><span class="tag t-warn">中</span></td>
+        <td>32 GB 装不下约 100 GB 的内存工作集，只能装 15–30 片；召回覆盖 10–18%，页面必须明示 <code>partial</code></td></tr>
+      <tr><td class="k">8 台排队两轮</td><td><span class="tag t-bad">必然</span></td><td><span class="tag t-warn">中</span></td>
+        <td>P95 180–220 s，审稿人体验明显差；前端队列提示必须做好</td></tr>
+      <tr><td class="k">单点 + 冷启动</td><td><span class="tag t-warn">中</span></td><td><span class="tag t-warn">中</span></td>
+        <td>重启后首问 238 s；需开机自动 <code>/api/warmup</code></td></tr>
+      <tr><td class="k">无备份</td><td><span class="tag t-warn">中</span></td><td><span class="tag t-bad">致命</span></td>
+        <td>4.8 GB 库丢了要重跑数月文献管线；必须每日 dump + 异地</td></tr>
+
+      <tr><td class="k" rowspan="4">中</td>
+        <td class="k">单机故障 = 全站停</td><td><span class="tag t-warn">中</span></td><td><span class="tag t-bad">高</span></td>
+        <td>快照 + 1 小时内可重建；对外公告维护窗口</td></tr>
+      <tr><td class="k">量化导致召回下降</td><td><span class="tag t-warn">中</span></td><td><span class="tag t-warn">中</span></td>
+        <td>选中档（64 G + 量化）才有；用现成 100 题基准做 A/B，引用命中率不过线就改选 128 G 直装</td></tr>
+      <tr><td class="k">64 GB 余量偏紧</td><td><span class="tag t-info">低</span></td><td><span class="tag t-warn">中</span></td>
+        <td>量化后常驻 ~50 GB，剩 14 GB 撑 8 车道；用 <code>PUBMED_YES_SHARD_RESERVE_MB</code> 与内存闸门兜底</td></tr>
+      <tr><td class="k">DeepSeek API 限流/欠费</td><td><span class="tag t-warn">中</span></td><td><span class="tag t-bad">高</span></td>
+        <td>8 并发时上游 TPM 可能触顶 → 降级到本地 0.5B，答案质量骤降；需余额告警 + 明确降级提示</td></tr>
+
+      <tr><td class="k" rowspan="4">高</td>
+        <td class="k">成本翻倍</td><td><span class="tag t-bad">确定</span></td><td><span class="tag t-info">低</span></td>
+        <td>年费 5–7 万；若无经费来源不建议</td></tr>
+      <tr><td class="k">索引两份（2×63 GB）</td><td><span class="tag t-bad">确定</span></td><td><span class="tag t-info">低</span></td>
+        <td>磁盘成本 + 发布时双写；可用共享存储挂载，但会引入网络 I/O 抖动</td></tr>
+      <tr><td class="k">会话/统计跨节点不一致</td><td><span class="tag t-info">低</span></td><td><span class="tag t-warn">中</span></td>
+        <td>会话在 MySQL 共享即可；SSE 需 LB 保持长连接与会话粘性</td></tr>
+      <tr><td class="k">运维复杂度上升</td><td><span class="tag t-warn">中</span></td><td><span class="tag t-warn">中</span></td>
+        <td>滚动发布、双节点配置一致性、日志聚合——需要脚本化，否则人肉易错</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 5 迁移 -->
+<section>
+  <h2><span class="no">5</span>从「别人的服务器」搬走：5 个阶段</h2>
+  <p class="lead">这是本次最确定的动作——不管选哪档预算，服务器都不是你的，早晚要搬。总体 2–3 天，可分批停机。</p>
+  <table>
+    <thead><tr><th style="width:52px">阶段</th><th style="width:190px">做什么</th><th style="width:340px">具体命令 / 产物</th><th style="width:220px">验收</th><th style="width:64px">耗时</th></tr></thead>
+    <tbody>
+      <tr><td class="k">0</td><td class="k">盘点与冻结</td>
+        <td>导出 <code>mysqldump</code>（4.8 GB）；rsync <code>models/ data/ rag/</code>（34 GB）；记录 <code>.env</code> 全部键；核对 170 分片 <code>index.faiss + index.pkl</code> 齐全</td>
+        <td>dump 可恢复；分片 170/170、0 字节文件 0 个</td><td class="num">0.5 天</td></tr>
+      <tr><td class="k">1</td><td class="k">新机基线</td>
+        <td>Ubuntu 22.04 + Python 3.10（与线上一致，避免 3.13 依赖漂移）+ venv + <code>pip install -r requirements.txt</code>；先只跑 <code>/api/health</code></td>
+        <td>health 200、MySQL 连通、静态页 200</td><td class="num">0.5 天</td></tr>
+      <tr><td class="k">2</td><td class="k">数据搬迁</td>
+        <td>建议「服务器 → 对象存储 → 新机」中转，避免经家用宽带上行；索引与库分别校验 sha256</td>
+        <td>33 表行数与旧库一致；抽样 20 个基因/文献查询返回一致</td><td class="num">0.5–1 天</td></tr>
+      <tr><td class="k">3</td><td class="k">双跑比对</td>
+        <td>同一批 20 题在两台各跑一遍，比对答案结构、引用条数、时延；同时把 <code>CHAT_MAX_CONCURRENCY</code> 调到 8 做 8 并发压测</td>
+        <td>8 并发 <code>chat_queued=0</code>，P95 ≤150 s，无 137/524</td><td class="num">1 天</td></tr>
+      <tr><td class="k">4</td><td class="k">切流与关停</td>
+        <td>域名解析切到新机（或隧道换绑）；旧机放 <code>HUB_STOPPED</code> 防 root cron 反复拉起；观察 7 天后回收账号、轮换密码</td>
+        <td>连续 72 h 无 5xx；旧机无进程；<code>oom_kill</code> 不再增长</td><td class="num">0.5 天 + 7 天观察</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 6 达标清单 -->
+<section>
+  <h2><span class="no">6</span>不管选哪档，这 10 项必须做到才算「完美运行」</h2>
+  <table>
+    <thead><tr><th style="width:36px">#</th><th style="width:210px">项</th><th style="width:360px">做法</th><th>不做的后果</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1</td><td class="k">车道数 = 8</td><td><code>CHAT_MAX_CONCURRENCY=8</code>；按内存公式先确认余量 ≥ 8×1.5 GB</td><td>第 4 台起排队 6–10 分钟</td></tr>
+      <tr><td class="k">2</td><td class="k">直连 Nginx，不走 CF 隧道</td><td>443 + 证书 + <code>proxy_read_timeout 300s</code> + <code>proxy_buffering off</code>（SSE 必需）</td><td>并发下延迟破 100 s → 524 断流</td></tr>
+      <tr><td class="k">3</td><td class="k">索引全覆盖</td><td>128 GB 直装全量，或 64 GB + 量化索引（A/B 验证召回）</td><td>回答带 <code>partial</code>，文献召回不全</td></tr>
+      <tr><td class="k">4</td><td class="k">开机预热</td><td>systemd <code>ExecStartPost</code> 调 <code>POST /api/warmup</code></td><td>重启后首问 238 s</td></tr>
+      <tr><td class="k">5</td><td class="k">进程守护</td><td>systemd <code>Restart=always</code> + <code>RestartSec=10</code>；保留 <code>hub_watchdog.sh</code> 做健康检查</td><td>进程被杀后无人拉起</td></tr>
+      <tr><td class="k">6</td><td class="k">每日备份 + 恢复演练</td><td>mysqldump + 对象存储保留 30 天；每月真恢复一次到临时库</td><td>库损坏即数月工作归零</td></tr>
+      <tr><td class="k">7</td><td class="k">监控与告警</td><td>每 5 min 探 <code>/api/health</code>（<code>mem_headroom_mb</code>、<code>pubmed_status</code>）→ 邮件/微信</td><td>OOM 了才知道，用户先发现</td></tr>
+      <tr><td class="k">8</td><td class="k">线程数收敛</td><td><code>OMP_NUM_THREADS=2</code>、<code>torch.set_num_threads(2)</code>、FAISS 线程限 2</td><td>8 并发 × 16 线程互相抢核，反而更慢</td></tr>
+      <tr><td class="k">9</td><td class="k">访问控制</td><td><code>WEB_AUTH_REQUIRED=1</code> + 24 位令牌 + 限流 + 上传白名单</td><td>公网裸奔，被扫即被刷 API</td></tr>
+      <tr><td class="k">10</td><td class="k">日志轮转</td><td>logrotate 按周切、保留 8 周；磁盘水位告警 80%</td><td>现 <code>logs/</code> 已 311 MB / 677 文件，无轮转</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 附录 -->
+<section>
+  <h2><span class="no">附</span>切到 8 车道时要动的配置（照抄即可）</h2>
+  <table>
+    <thead><tr><th style="width:250px">位置</th><th style="width:300px">值</th><th>作用</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>.env</code></td><td><code>CHAT_MAX_CONCURRENCY=8</code></td><td>全局车道数；前提是内存余量 ≥ 12 GB</td></tr>
+      <tr><td class="k"><code>.env</code></td><td><code>CHAT_QUEUE_WAIT_SEC=300</code>、<code>CHAT_QUEUE_MAX=32</code></td><td>排队上限从 900 s 收紧到 5 min，避免用户干等</td></tr>
+      <tr><td class="k"><code>.env</code></td><td><code>PUBMED_YES_SHARD_RESERVE_MB=6000</code></td><td>分片按内存预算装载，宁可少装也不 OOM</td></tr>
+      <tr><td class="k"><code>.env</code></td><td><code>HUB_WARMUP_RAG=1</code>、<code>HUB_PUBMED_WARMUP=0</code></td><td>启动预热嵌入与知识库；文献分片仍按需（首次检索会慢一次）</td></tr>
+      <tr><td class="k"><code>.env</code></td><td><code>OMP_NUM_THREADS=2</code>、<code>MKL_NUM_THREADS=2</code></td><td>8 车道各自限 2 线程，避免 16 核被 128 个线程抢爆</td></tr>
+      <tr><td class="k">Nginx</td><td><code>proxy_read_timeout 300s</code>、<code>proxy_buffering off</code>、<code>proxy_http_version 1.1</code></td><td>SSE 不缓冲、长回答不被掐断（<code>deploy/nginx/zebrafish.conf</code> 已含前两条）</td></tr>
+      <tr><td class="k">systemd</td><td><code>Restart=always</code>、<code>RestartSec=10</code>、<code>ExecStartPost=/usr/bin/curl -X POST 127.0.0.1:8080/api/warmup</code></td><td>挂了自动起，起来就预热</td></tr>
+    </tbody>
+  </table>
+  <p class="note">改完用 <code>POST /api/chat</code> 起 8 个不同 <code>x-session-id</code> 的并发请求，观察 <code>GET /api/chat/queue</code> 是否出现 <code>chat_running=8</code>、<code>chat_queued=0</code>；再连打 10 轮确认无 137 / 524。</p>
+</section>
+
+<footer>
+  <b>一句话方案：</b>选「中档 16 核 / 64 GB / 400 GB SSD（香港，免备案）+ 索引量化」，把 <code>CHAT_MAX_CONCURRENCY</code> 调到 8、走 Nginx 直连，常驻约 50 GB，月成本约 <b>¥1900–3000（含 API）</b>，即可稳定支撑 8 台机器同时使用；不想做量化就改 16C128G 直装（+¥1500/月）。预算再紧只能选「低档 8C32G」，并把预期降到 5 台、接受召回覆盖 10–18%。<br>
+  <b>价格说明：</b>服务器为香港节点公开报价区间，包年通常再降 20–30%；DeepSeek 单价以官网为准，本表只给量级（每问约 1.5–2.5 万输入 token / 2–4 千输出 token）。
+</footer>
+
+</div>
+</body>
+</html>

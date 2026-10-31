@@ -1,0 +1,651 @@
+[
+  {
+    "id": "idx_chunks",
+    "kind": "stale-index",
+    "severity": "critical",
+    "figs": [
+      1,
+      2,
+      3
+    ],
+    "claim": "语义块数",
+    "fig_pattern": "(\\d{1,3}(?:,\\d{3})+)\\s*(?:paragraph-level\\s*)?chunks",
+    "real": 7651942,
+    "real_src": "server FAISS manifest total_chunks",
+    "fix": "Fig1(A)/Fig2(A)/Fig3(A): 516,476 → 7651942",
+    "fig_hits": {
+      "1": "7,651,942",
+      "2": "7,651,942"
+    },
+    "fig_values": {
+      "1": "7651942",
+      "2": "7651942"
+    },
+    "real_str": "7,651,942",
+    "consistent": true
+  },
+  {
+    "id": "idx_papers",
+    "kind": "stale-index",
+    "severity": "critical",
+    "figs": [
+      1,
+      2,
+      3
+    ],
+    "claim": "入索引论文数",
+    "fig_pattern": "(\\d{1,3},\\d{3})\\s*(?:gold\\s*)?papers",
+    "real": 32532,
+    "real_src": "server FAISS manifest total_papers (2026-09-10T00:18:42)",
+    "fix": "Fig1(A)/Fig2(A)/Fig3(A): 13,534 → 32532",
+    "fig_hits": {
+      "1": "32,532",
+      "3": "32,532"
+    },
+    "fig_values": {
+      "1": "32532",
+      "3": "32532"
+    },
+    "real_str": "32,532",
+    "consistent": true
+  },
+  {
+    "id": "idx_shards",
+    "kind": "stale-index",
+    "severity": "critical",
+    "figs": [
+      1,
+      2,
+      3
+    ],
+    "claim": "FAISS 分片数",
+    "fig_pattern": "(\\d+(?:,\\d{3})*)\\s*(?:FAISS\\s+)?shards",
+    "real": 170,
+    "real_src": "server FAISS manifest len(shards)",
+    "fix": "Fig1/Fig2(A)/Fig3(A): 1,269 → 170",
+    "fig_hits": {
+      "1": "170",
+      "2": "170",
+      "3": "170"
+    },
+    "fig_values": {
+      "1": "170",
+      "2": "170",
+      "3": "170"
+    },
+    "real_str": "170",
+    "consistent": true
+  },
+  {
+    "id": "param_candidates",
+    "kind": "param-drift",
+    "severity": "critical",
+    "figs": [
+      1,
+      3
+    ],
+    "claim": "检索候选数",
+    "fig_pattern": "(?:coarse\\s*scoring:?|candidates\\s*=)\\s*(\\d+)",
+    "real": 500,
+    "real_src": "server/.env PUBMED_YES_RETRIEVE_CANDIDATES",
+    "fix": "Fig1(A)/Fig3(B): candidates 200 → 500（按篇粗打分）",
+    "fig_hits": {
+      "3": "500"
+    },
+    "fig_values": {
+      "3": "500"
+    },
+    "real_str": "500",
+    "consistent": true
+  },
+  {
+    "id": "param_pack",
+    "kind": "param-drift",
+    "severity": "critical",
+    "figs": [
+      3
+    ],
+    "claim": "上下文预算",
+    "fig_pattern": "([\\d,]{3,})-character",
+    "real": 48000,
+    "real_src": "server/.env PUBMED_YES_PACK_CHARS",
+    "fix": "Fig3(B): ≈5.3-5.8 k characters → 48,000 字符预算",
+    "fig_hits": {
+      "3": "48,000"
+    },
+    "fig_values": {
+      "3": "48000"
+    },
+    "real_str": "48,000",
+    "consistent": true
+  },
+  {
+    "id": "param_topn",
+    "kind": "param-drift",
+    "severity": "critical",
+    "figs": [
+      1,
+      3
+    ],
+    "claim": "重排取用篇数",
+    "fig_pattern": "top\\s*[- ]?\\s*(\\d+)|(\\d+)\\s*reranked",
+    "real": 100,
+    "real_src": "server/.env PUBMED_YES_RERANK_TOP_N",
+    "fix": "Fig1(A)/Fig3(B): top 10 → 100（按篇细打分，非段落）",
+    "fig_hits": {
+      "1": "100",
+      "3": "100"
+    },
+    "fig_values": {
+      "1": "100",
+      "3": "100"
+    },
+    "real_str": "100",
+    "consistent": true
+  },
+  {
+    "id": "probe_selfrank",
+    "kind": "stale-index",
+    "severity": "critical",
+    "figs": [
+      4
+    ],
+    "claim": "探针文献的自身排名下界",
+    "fig_pattern": "self-rank\\s+(\\d+)\\s*[-–]",
+    "real": 14,
+    "real_src": "probe_retrieval_health --collect（正式索引 /api/retrieval/debug 实测）",
+    "fix": "Fig4(C)/图注：不得再写 self-rank=1（那是 994 篇小索引时代的结论）",
+    "fig_hits": {
+      "4": "14"
+    },
+    "fig_values": {
+      "4": "14"
+    },
+    "real_str": "14",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_alias",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_alias",
+    "fig_pattern": "145,439",
+    "real": 145439,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 145,439）",
+    "fig_hits": {
+      "1": "145,439",
+      "6": "145,439"
+    },
+    "fig_values": {
+      "1": "145439",
+      "6": "145439"
+    },
+    "real_str": "145,439",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_assembly_xref",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_assembly_xref",
+    "fig_pattern": "22,628",
+    "real": 22628,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 22,628）",
+    "fig_hits": {
+      "1": "22,628",
+      "6": "22,628",
+      "7": "22,628"
+    },
+    "fig_values": {
+      "1": "22628",
+      "6": "22628",
+      "7": "22628"
+    },
+    "real_str": "22,628",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_basic",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_basic",
+    "fig_pattern": "26,321",
+    "real": 26321,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 26,321）",
+    "fig_hits": {
+      "1": "26,321",
+      "6": "26,321"
+    },
+    "fig_values": {
+      "1": "26321",
+      "6": "26321"
+    },
+    "real_str": "26,321",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_expression",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_expression",
+    "fig_pattern": "319,344",
+    "real": 319344,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 319,344）",
+    "fig_hits": {
+      "1": "319,344",
+      "6": "319,344",
+      "7": "319,344"
+    },
+    "fig_values": {
+      "1": "319344",
+      "6": "319344",
+      "7": "319344"
+    },
+    "real_str": "319,344",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_go",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_go",
+    "fig_pattern": "110,966",
+    "real": 110966,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 110,966）",
+    "fig_hits": {
+      "1": "110,966",
+      "6": "110,966",
+      "7": "110,966"
+    },
+    "fig_values": {
+      "1": "110966",
+      "6": "110966",
+      "7": "110966"
+    },
+    "real_str": "110,966",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_kegg",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_kegg",
+    "fig_pattern": "36,959",
+    "real": 36959,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 36,959）",
+    "fig_hits": {
+      "1": "36,959",
+      "6": "36,959",
+      "7": "36,959"
+    },
+    "fig_values": {
+      "1": "36959",
+      "6": "36959",
+      "7": "36959"
+    },
+    "real_str": "36,959",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_reference",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_reference",
+    "fig_pattern": "161,298",
+    "real": 161298,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 161,298）",
+    "fig_hits": {
+      "1": "161,298",
+      "6": "161,298",
+      "7": "161,298"
+    },
+    "fig_values": {
+      "1": "161298",
+      "6": "161298",
+      "7": "161298"
+    },
+    "real_str": "161,298",
+    "consistent": true
+  },
+  {
+    "id": "db_gene_xref",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 gene_xref",
+    "fig_pattern": "80,212",
+    "real": 80212,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 80,212）",
+    "fig_hits": {
+      "1": "80,212",
+      "6": "80,212",
+      "7": "80,212"
+    },
+    "fig_values": {
+      "1": "80212",
+      "6": "80212",
+      "7": "80212"
+    },
+    "real_str": "80,212",
+    "consistent": true
+  },
+  {
+    "id": "db_genes_ensembl",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 genes_ensembl",
+    "fig_pattern": "25,432",
+    "real": 25432,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 25,432）",
+    "fig_hits": {
+      "1": "25,432",
+      "6": "25,432",
+      "7": "25,432"
+    },
+    "fig_values": {
+      "1": "25432",
+      "6": "25432",
+      "7": "25432"
+    },
+    "real_str": "25,432",
+    "consistent": true
+  },
+  {
+    "id": "db_genes_with_expr",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 genes_with_expr",
+    "fig_pattern": "24,245",
+    "real": 24245,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 24,245）",
+    "fig_hits": {
+      "6": "24,245"
+    },
+    "fig_values": {
+      "6": "24245"
+    },
+    "real_str": "24,245",
+    "consistent": true
+  },
+  {
+    "id": "db_genes_with_refs",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 genes_with_refs",
+    "fig_pattern": "12,882",
+    "real": 12882,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 12,882）",
+    "fig_hits": {
+      "6": "12,882"
+    },
+    "fig_values": {
+      "6": "12882"
+    },
+    "real_str": "12,882",
+    "consistent": true
+  },
+  {
+    "id": "db_kegg_pathways",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 kegg_pathways",
+    "fig_pattern": "1,520",
+    "real": 1520,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 1,520）",
+    "fig_hits": {
+      "6": "1,520",
+      "7": "1,520"
+    },
+    "fig_values": {
+      "6": "1520",
+      "7": "1520"
+    },
+    "real_str": "1,520",
+    "consistent": true
+  },
+  {
+    "id": "db_literature_paper",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "claim": "基因库 literature_paper",
+    "fig_pattern": "32,549",
+    "real": 32549,
+    "real_src": "server MySQL exact COUNT",
+    "fix": "与服务器一致则无需修改（图上 32,549）",
+    "fig_hits": {
+      "2": "32,549"
+    },
+    "fig_values": {
+      "2": "32549"
+    },
+    "real_str": "32,549",
+    "consistent": true
+  },
+  {
+    "id": "idx_dim",
+    "kind": "wrong-claim",
+    "severity": "high",
+    "figs": [
+      3
+    ],
+    "claim": "嵌入维度",
+    "fig_pattern": "(\\d{3,4})-d(?:imensional)?",
+    "real": 2048,
+    "real_src": "server FAISS manifest embedding_dim",
+    "fix": "保持 2048 ✓",
+    "fig_hits": {
+      "3": "2048"
+    },
+    "fig_values": {
+      "3": "2048"
+    },
+    "real_str": "2,048",
+    "consistent": true
+  },
+  {
+    "id": "probe_latency",
+    "kind": "stale-index",
+    "severity": "high",
+    "figs": [
+      4
+    ],
+    "claim": "检索耗时中位数",
+    "fig_pattern": "median query time\\s+([\\d.]+)\\s*s",
+    "real": 16.8,
+    "real_src": "probe_retrieval_health --collect（实测）",
+    "fix": "Fig4(C)：174 ms 为小索引单次值，应改为正式索引实测中位数",
+    "fig_hits": {
+      "4": "16.8"
+    },
+    "fig_values": {
+      "4": "16.8"
+    },
+    "real_str": "16.8",
+    "consistent": true
+  },
+  {
+    "id": "idx_mode",
+    "kind": "scope-diff",
+    "severity": "medium",
+    "figs": [
+      3
+    ],
+    "claim": "切分模式",
+    "fig_pattern": "paragraph\\s*\\+\\s*section",
+    "real": "paragraph_section",
+    "real_src": "server manifest chunking.mode（= .env SPLIT_MODE + SECTION_CHUNKING）",
+    "fix": "Fig3(A)/图注：应写 paragraph + section（生效 paragraph_section）",
+    "fig_hits": {
+      "3": "Paragraph + section"
+    },
+    "fig_values": {
+      "3": "Paragraph + section"
+    },
+    "real_str": "paragraph_section",
+    "consistent": true
+  },
+  {
+    "id": "idx_model",
+    "kind": "scope-diff",
+    "severity": "medium",
+    "figs": [
+      3
+    ],
+    "claim": "嵌入模型未标注",
+    "fig_pattern": "Qwen3-Embedding-4B",
+    "real": "Qwen3-Embedding-4B",
+    "real_src": "server manifest embedding_model",
+    "fix": "Fig3(A): 补注嵌入模型 Qwen3-Embedding-4B",
+    "fig_hits": {
+      "3": "Qwen3-Embedding-4B"
+    },
+    "fig_values": {
+      "3": "Qwen3-Embedding-4B"
+    },
+    "real_str": "Qwen3-Embedding-4B",
+    "consistent": true
+  },
+  {
+    "id": "idx_updated",
+    "kind": "scope-diff",
+    "severity": "medium",
+    "figs": [
+      1,
+      3
+    ],
+    "claim": "索引更新时间未标注",
+    "fig_pattern": "updated_at|2026-09-10",
+    "real": "2026-09-10T00:18:42",
+    "real_src": "server manifest updated_at",
+    "fix": "Fig1/Fig3: 补注索引版本与更新时间",
+    "fig_hits": {
+      "1": "2026-09-10",
+      "3": "2026-09-10"
+    },
+    "fig_values": {
+      "1": "2026-09-10",
+      "3": "2026-09-10"
+    },
+    "real_str": "2026-09-10T00:18:42",
+    "consistent": true
+  },
+  {
+    "id": "env_device",
+    "kind": "env-only",
+    "severity": "info",
+    "figs": [],
+    "claim": "嵌入设备",
+    "fig_pattern": "$^",
+    "real": "local=cpu / server=cuda:0",
+    "real_src": "本机 cpu vs 服务器 cuda:0",
+    "fix": "属正常：图未主张设备，无需修改",
+    "fig_hits": {},
+    "fig_values": {},
+    "real_str": "local=cpu / server=cuda:0",
+    "consistent": false
+  },
+  {
+    "id": "env_local_index",
+    "kind": "env-only",
+    "severity": "info",
+    "figs": [],
+    "claim": "本机无 PubMedYes 大索引",
+    "fig_pattern": "$^",
+    "real": false,
+    "real_src": "本机目录不存在",
+    "fix": "属正常：63 GB 索引仅部署在服务器，图不应主张本机可复现",
+    "fig_hits": {},
+    "fig_values": {},
+    "real_str": "0",
+    "consistent": false
+  }
+]

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520">
+  <!-- Zebrafish Agent 全局背景剪影（浅蓝、低透明度，平铺用）
+       内容：斑马鱼剪影 ×3、DNA 双螺旋 ×1、水泡若干、海草 ×2
+       颜色：--agent-blue #1f5fa8 / #3f8fd0，靠 stroke/fill 透明度压到很淡 -->
+  <g fill="none" stroke="#2a72b8" stroke-opacity="0.20" stroke-width="2.2" stroke-linecap="round">
+
+    <!-- 斑马鱼剪影 A（右上） -->
+    <g transform="translate(470,96) scale(1.15)">
+      <path d="M0 0 C26 -20 70 -22 96 -2 C70 18 26 16 0 0 Z" />
+      <path d="M-2 -1 C-12 -14 -22 -22 -34 -26 C-28 -12 -28 10 -34 24 C-22 18 -12 10 -2 1 Z" />
+      <path d="M40 -18 C52 -30 66 -34 78 -32 C72 -22 70 -10 70 0" />
+      <circle cx="86" cy="-4" r="2.6" fill="#2a72b8" fill-opacity="0.25" stroke="none" />
+      <!-- 条纹 -->
+      <path d="M26 -16 L30 14 M40 -20 L44 18 M54 -20 L58 16 M68 -18 L71 12" stroke-opacity="0.13" />
+    </g>
+
+    <!-- 斑马鱼剪影 B（左下，镜像） -->
+    <g transform="translate(210,420) scale(1.0) scale(-1,1)">
+      <path d="M0 0 C26 -20 70 -22 96 -2 C70 18 26 16 0 0 Z" />
+      <path d="M-2 -1 C-12 -14 -22 -22 -34 -26 C-28 -12 -28 10 -34 24 C-22 18 -12 10 -2 1 Z" />
+      <circle cx="86" cy="-4" r="2.6" fill="#2a72b8" fill-opacity="0.25" stroke="none" />
+      <path d="M26 -16 L30 14 M40 -20 L44 18 M54 -20 L58 16" stroke-opacity="0.13" />
+    </g>
+
+    <!-- 斑马鱼剪影 C（右下角，小） -->
+    <g transform="translate(560,430) scale(0.72) scale(-1,1)">
+      <path d="M0 0 C26 -20 70 -22 96 -2 C70 18 26 16 0 0 Z" />
+      <path d="M-2 -1 C-12 -14 -22 -22 -34 -26 C-28 -12 -28 10 -34 24 C-22 18 -12 10 -2 1 Z" />
+      <circle cx="86" cy="-4" r="2.6" fill="#2a72b8" fill-opacity="0.25" stroke="none" />
+    </g>
+
+    <!-- DNA 双螺旋（左侧竖向） -->
+    <g transform="translate(78,150)" stroke="#3f8fd0" stroke-opacity="0.16">
+      <path d="M0 0 C40 26 40 78 0 104 C-40 130 -40 182 0 208" />
+      <path d="M44 0 C4 26 4 78 44 104 C84 130 84 182 44 208" />
+      <path d="M2 12 L42 12 M12 34 L52 34 M12 70 L52 70 M2 92 L42 92" stroke-opacity="0.12" />
+    </g>
+
+    <!-- 水泡 -->
+    <g stroke="#3f8fd0" stroke-opacity="0.14">
+      <circle cx="640" cy="200" r="9" />
+      <circle cx="668" cy="168" r="5" />
+      <circle cx="352" cy="120" r="7" />
+      <circle cx="386" cy="88" r="4" />
+      <circle cx="150" cy="470" r="6" />
+      <circle cx="330" cy="300" r="5" />
+    </g>
+
+    <!-- 海草（极简） -->
+    <g stroke="#2f9c8a" stroke-opacity="0.14">
+      <path d="M700 520 C690 470 712 440 700 396" />
+      <path d="M724 520 C716 462 736 430 726 380" />
+      <path d="M40 520 C32 470 54 444 42 404" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+{
+ "_note": "DeepSeek 平台用量（开发期 2026-07 ~ 2026-09），用于 METHODS 的 API usage and research costs。数值来自用户在平台用量页的截图（2026-09-30 提供），未做换算；用途归属由用户确认（2026-09-30）：仅 7-8 月用于向量化与全文解析，9 月主要是写代码。",
+ "provider": "DeepSeek",
+ "endpoint": "https://api.deepseek.com/v1",
+ "measured_at": "2026-09-30",
+ "source": "DeepSeek 控制台用量页截图 ×5（按模型 × 月聚合：API 请求次数 / Tokens）",
+ "model_mapping": {
+  "deepseek-v4-flash": "deepseek-chat（部署系统实际使用的生成模型）",
+  "deepseek-flash": "AI 编程环境（Cursor / Trae）驱动同一账号时的平台标签",
+  "deepseek-v4-pro": "AI 编程环境中的推理型调用"
+ },
+ "purpose_attribution": {
+  "knowledge_base_construction": "2026-07 + 2026-08（用户确认：仅这两个月用于向量化与全文解析）",
+  "ai_assisted_development": "2026-09（用户确认：主要是写代码；其中含本研究 180 次评测调用，占比 ≤1%）"
+ },
+ "measurements": [
+  { "month": "2026-07", "model_label": "deepseek-v4-flash", "requests": 273356, "tokens": 75898279,  "purpose": "knowledge_base_construction" },
+  { "month": "2026-08", "model_label": "deepseek-v4-flash", "requests": 2963,   "tokens": 627891392, "purpose": "knowledge_base_construction" },
+  { "month": "2026-09", "model_label": "deepseek-flash",   "requests": 1985,   "tokens": 433762479, "purpose": "ai_assisted_development" },
+  { "month": "2026-09", "model_label": "deepseek-v4-flash","requests": 302,    "tokens": 912580,    "purpose": "ai_assisted_development" },
+  { "month": "2026-09", "model_label": "deepseek-v4-pro",  "requests": 43,     "tokens": 1768737,   "purpose": "ai_assisted_development" }
+ ],
+ "totals": { "requests": 278649, "tokens": 1140233467 },
+ "by_purpose": {
+  "knowledge_base_construction": { "requests": 276319, "tokens": 703789671 },
+  "ai_assisted_development":    { "requests": 2330,   "tokens": 436443796 }
+ },
+ "by_month": {
+  "2026-07": { "requests": 273356, "tokens": 75898279,  "mean_tokens_per_request": 278 },
+  "2026-08": { "requests": 2963,   "tokens": 627891392, "mean_tokens_per_request": 211910 },
+  "2026-09": { "requests": 2330,   "tokens": 436443796, "mean_tokens_per_request": 187314 }
+ },
+ "evaluation_calls_upper_bound": {
+  "eval_calls": 180,
+  "basis": "60 次盲评作答 + 120 次评委调用；单次输入上限 = 上下文打包 48,000 字符（≈12,000 tokens）+ 评委提示含 6 份答案",
+  "upper_bound_tokens": 3600000,
+  "eval_share_percent_ceiling": 1
+ },
+ "known_non_llm_stages": {
+  "cleaning": "规则 + 位置门控，无 LLM 调用（rag/text_clean.py）",
+  "embedding": "本地 Qwen3-Embedding-4B（GPU），无 API 调用",
+  "reranking": "本地 bge-reranker-base，无 API 调用"
+ },
+ "open_questions": [
+  "是否需要升级为 stage 级记账（在 LLM 调用处记录 stage + prompt/completion tokens），把月度表升级为分阶段实测表",
+  "仓库地址（Gitee/GitHub）与基准数据存放 DOI 待作者提供"
+ ]
+}

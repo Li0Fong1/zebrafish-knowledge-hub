@@ -1,0 +1,102 @@
+{
+  "source": "yes_fulltext_gold/batch_*/papers/*.json",
+  "sampled": 999,
+  "seed": 42,
+  "sample_digest": "c58d66b87cc5c39f",
+  "sampled_at": "2026-09-28T09:51:38",
+  "corpus_is_live": true,
+  "raw_chars": {
+    "mean": 56121.9,
+    "median": 52750,
+    "min": 536,
+    "max": 120000
+  },
+  "clean_chars": {
+    "mean": 46904.1,
+    "median": 39370,
+    "min": 535,
+    "max": 120000
+  },
+  "artifact_chars": {
+    "mean": 46903.1,
+    "median": 39370,
+    "min": 535,
+    "max": 120000
+  },
+  "chars_removed_ratio": {
+    "mean": 17.35,
+    "median": 21.16
+  },
+  "artifact_removed_ratio": {
+    "mean": 0.003
+  },
+  "paras": {
+    "mean": 192.6,
+    "median": 159,
+    "min": 2,
+    "max": 535
+  },
+  "para_mean": {
+    "mean": 289.1,
+    "median": 288.8,
+    "min": 193,
+    "max": 607.7
+  },
+  "para_med": {
+    "mean": 288.8,
+    "median": 291,
+    "min": 161,
+    "max": 381
+  },
+  "rules": {
+    "refs_section_present": 35.1,
+    "refs_truncation_triggered": 34.1,
+    "ack_section_present": 48.5,
+    "ack_truncation_triggered": 47.8,
+    "author_lines_total": 130,
+    "panel_letters_total": 4,
+    "stage_tokens_total": 816,
+    "hpf_lines_total": 0
+  },
+  "corpus": {
+    "min_chars_filter": 500,
+    "body_cap_chars": 119000,
+    "cap_hits": 72,
+    "cap_hits_pct": 7.2
+  },
+  "sections": {
+    "title": 999,
+    "abstract": 999,
+    "keywords": 999,
+    "introduction": 999,
+    "methods": 999,
+    "results": 999,
+    "discussion": 999,
+    "conclusion": 999,
+    "references": 999,
+    "figure_captions": 999,
+    "other": 999
+  },
+  "split_params": {
+    "max_chars": 360,
+    "min_chars": 110,
+    "overlap": 48
+  },
+  "stability": [
+    {
+      "seed": 7,
+      "n": 995,
+      "raw_mean": 55661.0,
+      "clean_mean": 45638.9,
+      "paras_mean": 186.42
+    },
+    {
+      "seed": 2026,
+      "n": 996,
+      "raw_mean": 57583.4,
+      "clean_mean": 48042.5,
+      "paras_mean": 197.67
+    }
+  ],
+  "stability_spread_pct": 3.41
+}

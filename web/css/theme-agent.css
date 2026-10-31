@@ -1,0 +1,205 @@
+/* ==========================================================================
+   theme-agent.css —— 全站统一视觉（对齐 6.png）：浅蓝水下背景 + 白卡片语言
+   --------------------------------------------------------------------------
+   作用范围：**所有页面**（首页 / 问答 / 各工具页 / 欢迎弹窗），不是只有首页。
+     · 背景：浅蓝渐变 + 极淡水下剪影（assets/brand/agent-bg.svg 平铺）
+     · 卡片：白底 + 18px 圆角 + 细蓝边 + 柔和投影（同一套）
+     · 关掉旧的「照片轮播/波浪」动效背景（改为静态，符合“去掉动画”的要求）
+   加载顺序：本文件在最后加载，用于覆盖 style.css / simplify.css / chat-2026.css 的旧背景。
+   ========================================================================== */
+
+:root {
+  --ag-blue: #1f5fa8;
+  --ag-blue-dark: #1a5490;
+  --ag-ink: #14304c;
+  --ag-ink-2: #41637f;
+  --ag-ink-3: #7d97ad;
+  --ag-line: rgba(26, 86, 138, 0.12);
+  --ag-soft: #f2f7fc;
+  --ag-card: #ffffff;
+  --ag-radius: 18px;
+  --ag-shadow: 0 14px 34px rgba(20, 62, 104, 0.08);
+}
+
+/* ---------- 1. 全局背景（所有页面） ---------- */
+
+html, body {
+  background: #f6fbff !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(1100px 470px at 8% -8%, #e6f3ff 0%, rgba(230, 243, 255, 0) 62%),
+    radial-gradient(900px 420px at 94% 2%, #eaf8fc 0%, rgba(234, 248, 252, 0) 58%),
+    radial-gradient(760px 380px at 50% 112%, #dbeafa 0%, rgba(219, 234, 250, 0) 60%),
+    linear-gradient(180deg, #f9fcff 0%, #eff7fd 52%, #e7f1fa 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/static/assets/brand/agent-bg.svg?v=20261012a");
+  background-repeat: repeat;
+  background-size: 760px 520px;
+  opacity: 0.6;
+}
+
+/* 主题壳层原本的底色/画布背景让位给上面的统一背景 */
+body.theme-reef, body.theme-atelier, body.theme-reef .app, body.theme-atelier .app {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* ---------- 2. 关掉旧的动效/照片背景 ---------- */
+
+/* 问答页：原来是真实照片轮播（每 5.5s 换一张），按“去掉动画”改为静态背景 */
+.chat-atmosphere, .chat-reef-flow, .chat-reef-layer, .chat-reef-veil, .chat-reef-caustic {
+  display: none !important;
+}
+
+body.theme-atelier .feature-stage-media,
+body.theme-reef .feature-stage-media,
+.feature-stage-media, .feature-wave-strip, .wave-strip,
+.feature-stage-caustic, .feature-stage-veil { display: none !important; }
+
+/* 首页旧主视觉的媒体层（若仍存在） */
+.home-stage-media, .home-stage::before { display: none !important; }
+
+/* 更彻底：禁掉所有无限循环的装饰动画（保留 1~2 处一次性入场） */
+.zf-anim-off, .chat-empty-glow, .feature-empty-orb,
+.reef-tile img, .home-daily-card::before {
+  animation: none !important;
+}
+
+/* ---------- 3. 统一卡片语言（所有页面） ---------- */
+
+/* 注：simplify.css 里大量用 `body.theme-atelier ...` + !important，
+   所以这里必须抬到同等级权重，否则圆角/底色盖不过去。 */
+body.theme-atelier .feature-card,
+body.theme-reef .feature-card,
+body.theme-atelier .chat-panel,
+body.theme-reef .chat-panel,
+body.theme-atelier .history-panel,
+body.theme-reef .history-panel,
+body.theme-atelier .detail-panel,
+body.theme-reef .detail-panel,
+body.theme-atelier .toolbox,
+body.theme-reef .toolbox,
+body.theme-atelier .workflow-box,
+body.theme-reef .workflow-box,
+body.theme-atelier .auth-gate-card,
+body.theme-reef .auth-gate-card,
+body.theme-atelier .welcome-card,
+body.theme-reef .welcome-card {
+  background: var(--ag-card) !important;
+  border: 1px solid var(--ag-line) !important;
+  border-radius: var(--ag-radius) !important;
+  box-shadow: var(--ag-shadow) !important;
+}
+
+body.theme-atelier .feature-stage,
+body.theme-reef .feature-stage,
+body.theme-atelier .home-stage,
+body.theme-reef .home-stage {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+  padding: 18px 20px 0 !important;
+}
+
+.feature-stage-copy, .home-stage-copy { padding: 0 !important; }
+.feature-brand-line, .home-brand-hero {
+  color: var(--ag-ink-3) !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+}
+.feature-eyebrow { color: var(--ag-blue) !important; letter-spacing: 0.06em !important; }
+#featureTitle, .home-headline { color: var(--ag-ink) !important; letter-spacing: -0.01em !important; }
+.feature-lead, .home-lead { color: var(--ag-ink-2) !important; }
+.feature-pill {
+  background: var(--ag-soft) !important;
+  border: 1px solid var(--ag-line) !important;
+  color: var(--ag-ink-2) !important;
+  border-radius: 999px !important;
+}
+
+/* ---------- 4. 顶栏 / 侧栏在浅色背景上的适配 ---------- */
+
+.site-header {
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.logo-mark, .nav-brand-mark { filter: drop-shadow(0 4px 10px rgba(20, 62, 104, 0.18)); }
+
+body.theme-atelier .side-rail,
+body.theme-reef .side-rail {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid var(--ag-line) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(8px);
+}
+
+.rail-item { color: var(--ag-ink-2) !important; }
+.rail-item.active, .rail-item:hover { background: var(--ag-soft) !important; color: var(--ag-blue) !important; }
+
+/* 下拉菜单（导航“框”）统一成白色圆角卡片 */
+.nav-menu {
+  background: #fff !important;
+  border: 1px solid var(--ag-line) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 36px rgba(20, 62, 104, 0.14) !important;
+}
+
+/* ---------- 5. 主界面两栏的细节（与 6.png 对齐） ---------- */
+
+.agent-card { border-radius: var(--ag-radius); }
+.agent-card-main .home-upd-item { border-bottom-color: #eef4f9 !important; }
+.agent-lang-toggle {
+  background: var(--ag-soft) !important;
+  border-color: var(--ag-line) !important;
+}
+.agent-lang-toggle button { color: var(--ag-ink-2); }
+
+/* 日期从“胶囊标签”升级为下拉框（可切换查看前几天的每日论文） */
+.agent-day-select {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  margin: 18px 0 4px;
+  padding: 6px 30px 6px 12px;
+  border-radius: 10px;
+  background-color: var(--ag-soft);
+  border: 1px solid var(--ag-line);
+  color: var(--ag-ink-2);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, #7d97ad 50%),
+                    linear-gradient(135deg, #7d97ad 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.agent-day-select:hover { border-color: #cfe2f7; }
+.agent-day-select:focus { outline: none; border-color: var(--ag-blue); box-shadow: 0 0 0 3px rgba(31, 95, 168, 0.12); }
+
+/* ---------- 6. 窄屏 ---------- */
+
+@media (max-width: 720px) {
+  body::after { background-size: 520px 356px; opacity: 0.45; }
+  .feature-stage, .home-stage { padding: 12px 12px 0 !important; }
+}

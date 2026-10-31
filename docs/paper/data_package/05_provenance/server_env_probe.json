@@ -1,0 +1,26 @@
+{
+  "_note": "服务器 .env 实拿快照（供 METHODS 数字对账）；由 scripts/verify_methods_numbers.py 读取。重跑方式：SFTP 拉 <server>/zebrafish_gene_qa/.env 后按同一键集写入本文件。",
+  "probed_at": "2026-09-30T17:2x+08:00",
+  "host": "<lab-server>",
+  "base": "<server>/zebrafish_gene_qa",
+  "env": {
+    "WEB_RATE_LIMIT_CHAT": "60",
+    "WEB_RATE_LIMIT_TOOLS": "60",
+    "WEB_RATE_LIMIT_API": "180",
+    "WEB_RATE_LIMIT_UPLOAD": "5",
+    "EMBEDDING_DIM": "2048",
+    "PUBMED_YES_RERANK_TOP_N": "100",
+    "PUBMED_YES_PACK_CHARS": "48000",
+    "PUBMED_YES_RETRIEVE_CANDIDATES": "500",
+    "PUBMED_YES_SECTION_CHUNKING": "1"
+  },
+  "not_overridden_on_server_uses_code_defaults": {
+    "PUBMED_YES_PARA_MAX_CHARS": "360",
+    "PUBMED_YES_PARA_MIN_CHARS": "110",
+    "PUBMED_YES_CHUNK_OVERLAP": "48"
+  },
+  "_redaction": {
+    "redacted": true,
+    "note": "公开数据包隐去具体主机名/端口与账号路径（保留 OS/Python/工具版本等事实）；原始标识仅存于私有工作区"
+  }
+}

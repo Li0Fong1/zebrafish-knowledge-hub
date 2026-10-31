@@ -1,0 +1,510 @@
+/* ==========================================================================
+   design-system.css —— 统一视觉层（2026-10-24，全站最后加载）
+   --------------------------------------------------------------------------
+   用户反馈：「配色、字体是不是有点问题，看的抑郁，太零碎了」「界面不简洁」。
+
+   根因（不是审美偏好，是可定位的冲突）：
+     · 13 个功能页各自一个强调色（`--feat-accent`：genomes 青绿、blast 砖橙、
+       annotate 铁锈红、upload 灰褐…），同一套按钮在不同页换颜色；
+     · `style.css` 用 `.feature-atelier .feature-mount button`（0,2,1）压过
+       premium 的 `.feature-card button`（0,1,1），所以"近黑主按钮"被青色盖掉；
+     · `.feature-card::before` 是 3px 双色渐变条 —— 截图里每张卡顶部那道彩色线；
+     · 字体三套混用：`--font-display: Syne`（未加载，实际回落）、`Inter`、`Segoe UI`，
+       中英文各自回落，字号从 10.5px 到 14.5px 跳；
+     · `#view-feature` 背景同时叠了青色和砖橙色两团径向渐变（mint 洗色）。
+
+   本层只做三件事：**一套字、一套色、一套控件**。不动布局结构。
+   ========================================================================== */
+
+:root {
+  /* ---- 字体：一个族，中英文同一回落链 ---- */
+  --ds-font: "Figtree", "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI",
+             "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ds-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  /* ---- 灰阶：冷调中性，只用一个蓝高光 ---- */
+  --ds-bg: #f4f7fa;
+  --ds-surface: #ffffff;
+  --ds-sunken: #f7f9fc;
+  --ds-ink: #0d1520;
+  --ds-ink-2: #3a4757;
+  --ds-ink-3: #6a7688;
+  --ds-line: #e3e9f1;
+  --ds-line-2: #cfd8e4;
+  --ds-accent: #106a94;
+  --ds-accent-hover: #0d587c;
+  --ds-accent-soft: rgba(16, 106, 148, .09);
+
+  --ds-r: 12px;
+  --ds-r-sm: 8px;
+  --ds-shadow: 0 1px 2px rgba(13, 21, 32, .05);
+
+  /* ---- 覆盖旧层正在用的变量：不改它们的规则，只换取值 ---- */
+  --font-ui: var(--ds-font);
+  --font-display: var(--ds-font);
+
+  --p-bg: var(--ds-bg);
+  --p-surface: var(--ds-surface);
+  --p-sunken: var(--ds-sunken);
+  --p-ink: var(--ds-ink);
+  --p-ink-2: var(--ds-ink-2);
+  --p-ink-3: var(--ds-ink-3);
+  --p-line: var(--ds-line);
+  --p-line-2: var(--ds-line-2);
+  --p-accent: var(--ds-accent);
+  --p-accent-ink: var(--ds-accent-hover);
+  --p-accent-soft: var(--ds-accent-soft);
+  --p-r: var(--ds-r);
+  --p-r-sm: var(--ds-r-sm);
+  --p-sh-1: var(--ds-shadow);
+  --p-sh-2: 0 12px 30px rgba(13, 21, 32, .10);
+  --p-mono: var(--ds-mono);
+
+  --ink-900: var(--ds-ink);
+  --ink-700: var(--ds-ink-2);
+  --ink-500: var(--ds-ink-3);
+  --ink-400: var(--ds-ink-3);
+  --line-100: var(--ds-line);
+  --line-200: var(--ds-line-2);
+  --accent-blue: var(--ds-accent);
+  --accent-blue-ink: var(--ds-accent-hover);
+  --surface: var(--ds-surface);
+  --surface-sunken: var(--ds-sunken);
+  --sh-1: var(--ds-shadow);
+  --sh-2: 0 12px 30px rgba(13, 21, 32, .10);
+  --r-card: var(--ds-r);
+  --r-ctl: var(--ds-r-sm);
+  --r-pill: 6px;
+  --cl-ink: var(--ds-ink);
+  --cl-ink-strong: var(--ds-ink);
+  --cl-body: var(--ds-ink-2);
+  --cl-muted: var(--ds-ink-3);
+  --cl-primary: var(--ds-accent);
+  --cl-line: var(--ds-line);
+  --cl-line-soft: var(--ds-line);
+  --cl-card: var(--ds-surface);
+  --cl-card-bd: var(--ds-line);
+  --cl-glass: rgba(255, 255, 255, .9);
+  --cl-shadow-card: var(--ds-shadow);
+  --cl-shadow-bar: var(--ds-shadow);
+  --cl-r-card: var(--ds-r);
+  --cl-r-btn: var(--ds-r-sm);
+  --cl-r-ctl: var(--ds-r-sm);
+  --accent: var(--ds-accent);
+  --panel: var(--ds-surface);
+  --text: var(--ds-ink);
+  --muted: var(--ds-ink-3);
+
+  /* ---- 关键：把 13 个功能页的强调色收成同一个 ---- */
+  --feat-accent: var(--ds-accent);
+  --feat-accent-2: var(--ds-accent);
+  --feat-wash: var(--ds-accent-soft);
+}
+
+body.dark,
+body.theme-atelier.dark {
+  --ds-bg: #0b1017;
+  --ds-surface: #121924;
+  --ds-sunken: #161e2a;
+  --ds-ink: #eef2f7;
+  --ds-ink-2: #b3bece;
+  --ds-ink-3: #8592a5;
+  --ds-line: #222c3a;
+  --ds-line-2: #2e3a4b;
+  --ds-accent: #4aa8d8;
+  --ds-accent-hover: #6dbde6;
+  --ds-accent-soft: rgba(74, 168, 216, .14);
+  --ds-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+
+  /* premium.css 的 dark 块把 --p-* 硬编码过；这里重新指回 --ds-*，
+     否则深色下仍是旧的墨绿，白天黑夜两套色。 */
+  --p-bg: var(--ds-bg);
+  --p-surface: var(--ds-surface);
+  --p-sunken: var(--ds-sunken);
+  --p-ink: var(--ds-ink);
+  --p-ink-2: var(--ds-ink-2);
+  --p-ink-3: var(--ds-ink-3);
+  --p-line: var(--ds-line);
+  --p-line-2: var(--ds-line-2);
+  --p-accent: var(--ds-accent);
+  --p-accent-ink: var(--ds-accent-hover);
+  --p-accent-soft: var(--ds-accent-soft);
+  --ink-900: var(--ds-ink);
+  --ink-700: var(--ds-ink-2);
+  --ink-500: var(--ds-ink-3);
+  --ink-400: var(--ds-ink-3);
+  --line-100: var(--ds-line);
+  --line-200: var(--ds-line-2);
+  --accent-blue: var(--ds-accent);
+  --surface: var(--ds-surface);
+  --surface-sunken: var(--ds-sunken);
+  --text: var(--ds-ink);
+  --muted: var(--ds-ink-3);
+  --panel: var(--ds-surface);
+}
+
+/* style.css 在 `#view-feature[data-feature="…"]` 上逐个页设了强调色（特异性 1,0,1），
+   比 `:root` 高，必须在同等或更高特异性上打掉，否则"13 页 13 色"照旧。 */
+html body #view-feature[data-feature] {
+  --feat-accent: var(--ds-accent) !important;
+  --feat-accent-2: var(--ds-accent) !important;
+  --feat-wash: var(--ds-accent-soft) !important;
+}
+
+/* ---------------------------------------------------------------- 1. 字体 */
+html body,
+html body button,
+html body input,
+html body textarea,
+html body select,
+html body table,
+html body .feature-card-title,
+html body .feature-card-hint,
+html body .msg-body,
+html body .md-body {
+  font-family: var(--ds-font) !important;
+}
+
+html body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ds-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 字重收敛：只有标题用 600，其余 400/500，不再出现 620/650/700 混排 */
+html body h1, html body h2, html body h3, html body h4,
+html body #featureTitle, html body .agent-hero-title,
+html body .home-card-title, html body .feature-card-title,
+html body .feature-out-title {
+  font-weight: 600 !important;
+  letter-spacing: -.012em !important;
+}
+
+/* 微标题（卡片头 / 表头 / KPI 标签）统一到一个规格 */
+html body .feature-card-title,
+html body .feature-out-title,
+html body .fk-k,
+html body .detail-block > label,
+html body .history-top-title {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  color: var(--ds-ink-3) !important;
+}
+
+/* 正文/说明文字：13px 太小，统一 13.5，行高给足 */
+html body .tool-hint,
+html body label,
+html body .feature-card-hint,
+html body .feature-empty-sub,
+html body .feature-foot-note,
+html body .zf-muted,
+html body .zf-note {
+  font-size: 12.5px !important;
+  line-height: 1.7 !important;
+  color: var(--ds-ink-3) !important;
+}
+
+html body .msg-body,
+html body .md-body {
+  font-size: 14.5px !important;
+  line-height: 1.85 !important;
+  color: var(--ds-ink) !important;
+}
+
+html body .msg-body h1, html body .msg-body h2, html body .msg-body h3,
+html body .md-body h1, html body .md-body h2, html body .md-body h3 {
+  margin: 22px 0 10px !important;
+  line-height: 1.4 !important;
+}
+html body .msg-body p, html body .md-body p { margin: 0 0 12px !important; }
+html body .msg-body li, html body .md-body li { margin: 4px 0 !important; }
+
+html body code, html body pre, html body .mono,
+html body .fk-v, html body .zf-num {
+  font-family: var(--ds-mono) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------- 2. 底色：去掉彩色洗色 */
+html body.theme-atelier #view-feature,
+html body #view-feature {
+  background: var(--ds-bg) !important;
+}
+html body .feature-atelier .feature-card::before,
+html body .feature-card::before {
+  display: none !important;
+}
+
+html body .feature-card,
+html body .agent-card,
+html body .home-card,
+html body .module-card,
+html body .chat-panel,
+html body .detail-panel,
+html body .feature-atelier .feature-card {
+  background: var(--ds-surface) !important;
+  border: 1px solid var(--ds-line) !important;
+  border-radius: var(--ds-r) !important;
+  box-shadow: var(--ds-shadow) !important;
+}
+
+html body .feature-card-head,
+html body .feature-atelier .feature-card-head {
+  padding: 14px 18px !important;
+  border-bottom: 1px solid var(--ds-line) !important;
+  margin-bottom: 0 !important;
+}
+
+html body .feature-mount,
+html body .feature-result-mount { padding: 18px !important; }
+
+html body .feature-stage { border-bottom: 1px solid var(--ds-line) !important; }
+html body .feature-eyebrow { color: var(--ds-accent) !important; }
+html body #featureTitle { font-size: 30px !important; letter-spacing: -.02em !important; }
+html body .feature-lead { font-size: 14px !important; line-height: 1.75 !important; color: var(--ds-ink-2) !important; }
+
+/* --------------------------------------------- 3. 按钮：一种主色 + 描边次色 */
+html body .feature-atelier .feature-mount button,
+html body .feature-card button,
+html body .tool-panel button,
+html body .agent-btn,
+html body #sendBtn,
+html body #homeSearchBtn,
+html body .welcome-primary,
+html body #quickStartBtn,
+html body #welcomeSubmitBtn,
+html body .zf-run-btn {
+  height: 36px !important;
+  padding: 0 14px !important;
+  border-radius: var(--ds-r-sm) !important;
+  font-family: var(--ds-font) !important;
+  font-size: 13px !important;
+  font-weight: 550 !important;
+  letter-spacing: 0 !important;
+  background-image: none !important;
+  background: var(--ds-accent) !important;
+  color: #fff !important;
+  border: 1px solid var(--ds-accent) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+  transition: background-color .14s ease, border-color .14s ease, color .14s ease;
+}
+html body .feature-atelier .feature-mount button:hover,
+html body .feature-card button:hover,
+html body .tool-panel button:hover,
+html body .agent-btn:hover,
+html body #sendBtn:hover,
+html body #homeSearchBtn:hover,
+html body .welcome-primary:hover,
+html body #quickStartBtn:hover,
+html body #welcomeSubmitBtn:hover {
+  background: var(--ds-accent-hover) !important;
+  border-color: var(--ds-accent-hover) !important;
+  color: #fff !important;
+  transform: none !important;
+  filter: none !important;
+}
+html body button:disabled,
+html body button[disabled] { opacity: .55 !important; cursor: not-allowed !important; }
+
+/* 次按钮：白底描边（含所有 .tool-secondary-btn 与"复制/导出"这类工具按钮） */
+html body .feature-atelier .feature-mount .tool-secondary-btn,
+html body .feature-card .tool-secondary-btn,
+html body .tool-secondary-btn,
+html body .welcome-secondary,
+html body #showLoginBtn,
+html body #showRegisterBtn,
+html body .fp-copy,
+html body .fp-close,
+html body .chat-tools button,
+html body #newChatBtn,
+html body #newChatBtnTop {
+  background: var(--ds-surface) !important;
+  color: var(--ds-ink-2) !important;
+  border: 1px solid var(--ds-line-2) !important;
+}
+html body .feature-atelier .feature-mount .tool-secondary-btn:hover,
+html body .tool-secondary-btn:hover,
+html body .welcome-secondary:hover,
+html body #showLoginBtn:hover,
+html body #showRegisterBtn:hover,
+html body .fp-copy:hover,
+html body .fp-close:hover,
+html body .chat-tools button:hover,
+html body #newChatBtn:hover,
+html body #newChatBtnTop:hover {
+  background: var(--ds-sunken) !important;
+  color: var(--ds-ink) !important;
+  border-color: var(--ds-line-2) !important;
+}
+
+/* ----------------------------------------------- 4. 表单：一个高度、一条线 */
+html body input[type="text"],
+html body input[type="password"],
+html body input[type="search"],
+html body input[type="number"],
+html body textarea,
+html body select,
+html body .feature-atelier .feature-mount input[type="text"],
+html body .feature-atelier .feature-mount input[type="search"],
+html body .feature-atelier .feature-mount input[type="number"],
+html body .feature-atelier .feature-mount textarea,
+html body .feature-atelier .feature-mount select {
+  min-height: 36px !important;
+  padding: 0 11px !important;
+  border-radius: var(--ds-r-sm) !important;
+  border: 1px solid var(--ds-line-2) !important;
+  background: var(--ds-surface) !important;
+  color: var(--ds-ink) !important;
+  font-size: 13.5px !important;
+  box-shadow: none !important;
+}
+html body textarea { padding: 9px 11px !important; line-height: 1.7 !important; }
+html body input:focus,
+html body textarea:focus,
+html body select:focus,
+html body .feature-atelier .feature-mount input:focus,
+html body .feature-atelier .feature-mount textarea:focus {
+  border-color: var(--ds-accent) !important;
+  box-shadow: 0 0 0 3px var(--ds-accent-soft) !important;
+  outline: 0 !important;
+}
+
+/* ------------------------------------------------------- 5. 表格：只留线 */
+html body table { border-collapse: collapse !important; font-size: 13px !important; }
+html body thead th {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  color: var(--ds-ink-3) !important;
+  background: var(--ds-sunken) !important;
+  border-bottom: 1px solid var(--ds-line) !important;
+  padding: 9px 12px !important;
+  white-space: nowrap;
+}
+html body tbody td {
+  border-bottom: 1px solid var(--ds-line) !important;
+  padding: 9px 12px !important;
+  color: var(--ds-ink-2) !important;
+  vertical-align: top;
+}
+html body tbody tr:hover td { background: var(--ds-sunken) !important; }
+html body tbody tr:last-child td { border-bottom: 0 !important; }
+
+/* ------------------------------------------- 6. 小标签/胶囊：一律中性灰蓝 */
+html body .zf-pill,
+html body .home-chip,
+html body .quick-prompt,
+html body .feature-pill,
+html body .src-badge,
+html body .zf-chips > *,
+html body .alias-chip,
+html body .chat-quick-prompts > * {
+  background: var(--ds-sunken) !important;
+  border: 1px solid var(--ds-line) !important;
+  color: var(--ds-ink-2) !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+html body .zf-pill:hover,
+html body .home-chip:hover,
+html body .quick-prompt:hover,
+html body .alias-chip:hover {
+  background: var(--ds-accent-soft) !important;
+  border-color: var(--ds-accent-soft) !important;
+  color: var(--ds-accent-hover) !important;
+}
+
+/* 状态色只保留语义（成功/失败），其余不再上色 */
+html body .zf-kv-v strong, html body .zf-num strong { color: var(--ds-ink) !important; }
+
+/* ------------------------------------------------------ 7. 顶栏：一条线 */
+html body .site-header,
+html body header.site-header {
+  background: rgba(255, 255, 255, .92) !important;
+  border-bottom: 1px solid var(--ds-line) !important;
+  box-shadow: none !important;
+}
+body.dark .site-header { background: rgba(11, 16, 23, .9) !important; }
+html body .top-nav-link,
+html body .rail-item {
+  font-size: 13.5px !important;
+  color: var(--ds-ink-2) !important;
+  border-radius: 7px !important;
+}
+html body .top-nav-link:hover { background: var(--ds-sunken) !important; color: var(--ds-ink) !important; }
+html body .top-nav-link.active,
+html body .rail-item.active { color: var(--ds-accent) !important; background: var(--ds-accent-soft) !important; }
+
+/* ------------------------------------------------------ 8. 聊天页收口 */
+html body .chat-panel { border-radius: var(--ds-r) !important; }
+html body .history-panel {
+  background: var(--ds-surface) !important;
+  border: 1px solid var(--ds-line) !important;
+  border-radius: var(--ds-r) !important;
+}
+html body .input-area,
+html body #chatForm {
+  border: 1px solid var(--ds-line-2) !important;
+  border-radius: var(--ds-r) !important;
+  background: var(--ds-surface) !important;
+  box-shadow: none !important;
+}
+html body .input-area:focus-within,
+html body #chatForm:focus-within {
+  border-color: var(--ds-accent) !important;
+  box-shadow: 0 0 0 3px var(--ds-accent-soft) !important;
+}
+html body #questionInput,
+html body #chatForm textarea {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding-left: 4px !important;
+}
+
+/* 会话侧栏：搜索框做成"明显是搜索"的样子（用户反馈三个入口分不清哪个能提问） */
+html body .history-search-field {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 12px 6px !important;
+  padding: 0 10px !important;
+  height: 34px !important;
+  border: 1px solid var(--ds-line) !important;
+  border-radius: var(--ds-r-sm) !important;
+  background: var(--ds-sunken) !important;
+  cursor: text;
+}
+html body .history-search-field:focus-within {
+  border-color: var(--ds-accent) !important;
+  box-shadow: 0 0 0 3px var(--ds-accent-soft) !important;
+  background: var(--ds-surface) !important;
+}
+html body .history-search-icon { flex: 0 0 auto; color: var(--ds-ink-3) !important; }
+html body .history-search-field .history-search {
+  flex: 1 1 auto;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 13px !important;
+  color: var(--ds-ink) !important;
+}
+html body .history-search-field .history-search:focus { box-shadow: none !important; }
+
+/* ------------------------------------------------------- 9. 深色模式兜底 */
+body.dark .feature-card,
+body.dark .chat-panel,
+body.dark .detail-panel,
+body.dark .history-panel { background: var(--ds-surface) !important; }

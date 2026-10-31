@@ -1,0 +1,18 @@
+== state ==
+{"ts":"2026-09-30 21:17:01","hub_health":"200","hub_pids":"2412324,2412330,","hub_action":"none","cf_action":"none","public_url":"https://explains-laden-main-acres.trycloudflare.com"}
+
+== procs ==
+1735463 16-02:58:04 /tmp/cloudflared_run tunnel --no-autoupdate --protocol http2 --url http://127.0.0.1:8080
+2412324       02:28 bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh
+2412330       02:28 /data/zoujin/deng/miniconda3/envs/zebrafish/bin/python -m uvicorn api.api_server:app --host 127.0.0.1 --port 8080
+== health ==
+200
+== guard log ==
+[2026-09-30 21:15:00] hub health=000000 -> restart
+[2026-09-30 21:15:01] hub health=000000 -> restart
+[2026-09-30 21:15:00] hub restart done health=200 after 30s
+[2026-09-30 21:15:01] hub restart done health=200 after 30s
+== url ==
+https://explains-laden-main-acres.trycloudflare.com
+== load ==
+ 21:17:31 up 80 days, 22:42,  5 users,  load average: 19.05, 27.87, 23.82

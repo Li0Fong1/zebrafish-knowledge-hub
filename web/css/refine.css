@@ -1,0 +1,907 @@
+/* ==========================================================================
+   refine.css —— 统一令牌 + 全局精修层（最后加载，覆盖 style.css / simplify.css）
+   --------------------------------------------------------------------------
+   目标：简洁（少装饰、单一强调色、统一节奏）+ 高级（留白、hairline、克制动效）
+   约束：
+     1) 不改变任何布局尺寸与功能契约，只做"质感"层面的收敛；
+     2) 暗色主题优先级更高（body.dark / body.theme-*.dark），本层**不覆盖**暗色；
+     3) 本文件必须排在 simplify.css 之后，否则覆盖不生效。
+   背景：改造前仓库里并存两套令牌（style.css 的 --border/--text/--muted 与
+   simplify.css 的 --line/--ink/--accent），本层把两套合并为一套并保留旧名作为别名。
+   ========================================================================== */
+
+:root {
+  /* —— 中性色：白而不刺眼，线条用 hairline 而非重描边 —— */
+  --bg: #F9FAFB;
+  --panel: #FFFFFF;
+  --panel-2: #F4F6F8;
+  --line: #E7EAEE;
+  --line-strong: #D7DCE3;
+  --border: #E7EAEE;          /* 别名：兼容 style.css 旧名 */
+  --ink: #0B1220;
+  --text: #0B1220;            /* 别名 */
+  --ink-2: #4B5563;
+  --muted: #5C6570;           /* 别名；实测 #6B7280 在 #F4F6F8 上仅 4.46 */
+  --ink-3: #667085;           /* 三级文字；实测旧值 #8A93A0 在白底上仅 3.11 */
+
+  /* —— 单一强调色（深青）：全站只此一个饱和色 —— */
+  --accent: #0E7C6B;
+  --accent-ink: #0A5F52;
+  --accent-weak: #EAF4F1;
+
+  /* —— 圆角 / 阴影：高级感来自克制，阴影只留给浮层 —— */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow-1: 0 1px 2px rgba(11, 18, 32, .04);
+  --shadow-2: 0 6px 20px -6px rgba(11, 18, 32, .12);
+
+  /* —— 节奏：4px 基准网格 —— */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px;
+
+  /* —— 字号阶梯 —— */
+  --fs-xs: 11px;  --fs-sm: 12px;  --fs-base: 13px; --fs-md: 14px;
+  --fs-lg: 16px;  --fs-xl: 20px;  --fs-2xl: 26px;  --fs-3xl: 34px;
+
+  /* —— 动效：短、易出、只用一种缓动 —— */
+  --dur-1: 140ms;
+  --dur-2: 200ms;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+
+  /* —— 字族：全站只用 Figtree（去掉 Syne 混排，同时也省掉它的字体请求） —— */
+  --font-ui: "Figtree", "Segoe UI", system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+  --font-display: var(--font-ui);
+}
+
+/* ---------- 全局质感 ---------- */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--font-ui);
+}
+
+/* 文字色只在亮色主题下接管：暗色主题的 --text 与 body 上的 color 都是
+   (0,0,1) 同权重，后写的会赢，所以这里必须排除 .dark，否则暗色下文字变黑看不见。 */
+body:not(.dark) {
+  color: var(--ink);
+}
+
+/* 扁平化：去掉大面积渐变背景（暗色主题保持原样）
+   注：<body class="theme-reef theme-atelier"> 两个主题同时挂着，实际生效的是 atelier；
+   simplify.css:35 用 !important 锁死了渐变，所以这里必须同力度覆盖。 */
+body.theme-reef:not(.dark),
+body.theme-atelier:not(.dark) {
+  background: var(--bg) !important;
+  background-image: none !important;
+}
+
+/* ---------- 暗色主题令牌补齐（修 M1 遗留 bug） ----------
+   simplify.css 写了 `color: var(--ink)`，但暗色主题只重定义了 --text，
+   没有 --ink —— 结果暗色下文字仍是深色，黑底黑字不可读。这里把 ——
+   全站实际在用的一套令牌（--ink/--line/--accent）在暗色下补齐。 */
+body.dark,
+body.theme-atelier.dark {
+  --bg: #071618;
+  --panel: #0E2428;
+  --panel-2: #123036;
+  --line: #1F454B;
+  --line-strong: #2A5A61;
+  --border: #1F454B;
+  --ink: #E6F2F1;
+  --text: #E6F2F1;
+  --ink-2: #A8BEC1;
+  --muted: #8FB0B4;
+  --ink-3: #7E9599;
+  --accent: #2DBFA9;
+  --accent-ink: #7FE3D2;
+  --accent-weak: rgba(45, 191, 169, .14);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-2: 0 8px 24px -8px rgba(0, 0, 0, .5);
+}
+
+/* 等宽数字：统计/表格数字不再左右跳动 */
+.badge,
+.stat-chip,
+.home-metrics,
+.mode-btn,
+table,
+.data-table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 大字收紧字距，小字放开——最省力的"高级感" */
+h1, h2, h3, h4, .brand h1 { letter-spacing: -0.01em; }
+.brand p, .home-lead { letter-spacing: 0.01em; }
+
+/* 统一过渡：避免各组件时长/缓动不一致带来的"廉价抖动" */
+a, button, summary,
+.top-nav-link, .home-cta, .chip, .mode-btn, .stat-chip, .history-item {
+  transition:
+    background-color var(--dur-1) var(--ease),
+    color var(--dur-1) var(--ease),
+    border-color var(--dur-1) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
+    transform var(--dur-1) var(--ease);
+}
+
+/* ---------- 可访问性 ---------- */
+
+/* 键盘焦点环：统一强调色，鼠标点击不出现 */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: rgba(14, 124, 107, .18);
+}
+
+/* 细滚动条、低对比，不抢视觉 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+  background-clip: content-box;
+}
+
+/* 动效降级：尊重系统设置 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- hairline 收敛（替换重描边） ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.layout,
+.chat-panel,
+.detail-panel,
+.history-panel {
+  border-color: var(--line);
+}
+
+/* ==========================================================================
+   W2 外壳：顶栏 / 状态徽标 / 图标按钮
+   ========================================================================== */
+:root {
+  --header-h: 56px;
+  --ctl-h: 40px;          /* 控件统一高度 */
+}
+
+body.theme-atelier .site-header,
+body.theme-reef .site-header {
+  min-height: var(--header-h);
+  padding: 0 20px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+body.theme-atelier .brand h1 { font-size: 16px; font-weight: 600; }
+body.theme-atelier .brand p {
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+body.theme-atelier .logo { border: 1px solid var(--line); border-radius: 10px; }
+body.theme-atelier .logo-mark { width: 34px; height: 34px; border-radius: 8px; }
+
+/* 状态徽标：圆点 + 文字，复用现有 ok / warn / pending / loading 四个 class */
+.status-bar .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+.status-bar .badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  flex: 0 0 auto;
+}
+.status-bar .badge.ok::before { background: #0E9F8A; }
+.status-bar .badge.warn::before { background: #D97706; }
+.status-bar .badge.pending::before,
+.status-bar .badge.loading::before {
+  background: #3B82F6;
+  animation: zf-pulse 1.4s var(--ease) infinite;
+}
+@keyframes zf-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+
+/* 图标按钮：统一 32px 方形，hover 用弱底而非变色 */
+.icon-btn,
+.history-toggle-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 14px;
+  cursor: pointer;
+}
+.icon-btn:hover,
+.history-toggle-btn:hover {
+  background: var(--panel-2);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   W3 首页收敛：搜索条 / CTA / Live Atlas
+   ========================================================================== */
+
+/* 搜索条：三段合一，统一 40px 高、单层描边 */
+body.theme-atelier .home-search,
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px !important;
+  background: var(--panel) !important;
+  border: 1px solid var(--line-strong) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-1) !important;
+}
+body.theme-atelier .home-search select,
+body.theme-atelier .home-search input,
+.home-search select,
+.home-search input {
+  height: calc(var(--ctl-h) - 12px) !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  font-size: var(--fs-md);
+}
+body.theme-atelier .home-search select,
+.home-search select { padding: 0 8px !important; color: var(--ink-2) !important; }
+body.theme-atelier .home-search input,
+.home-search input { flex: 1 1 auto; min-width: 0; padding: 0 8px !important; }
+.home-search input:focus,
+.home-search select:focus { outline: none; }
+.home-search:focus-within { border-color: var(--accent) !important; box-shadow: 0 0 0 3px var(--accent-weak) !important; }
+body.theme-atelier .home-search button,
+.home-search button {
+  height: calc(var(--ctl-h) - 12px) !important;
+  padding: 0 18px !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--accent) !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: var(--fs-md);
+  cursor: pointer;
+}
+body.theme-atelier .home-search button:hover,
+.home-search button:hover { background: var(--accent-ink) !important; border-color: var(--accent-ink) !important; }
+
+/* CTA：只留一个实心主按钮，次级降为 ghost（去掉与主按钮抢视线） */
+.home-cta-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+/* 权重说明：style.css 用的是 .home-cta:not(.primary)（两个 class），
+   只写 .home-cta 会被它顶掉，所以这里必须写同样的形态。 */
+.home-cta,
+.home-cta:not(.primary) {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--ink-2) !important;
+  box-shadow: none !important;
+}
+.home-cta:hover,
+.home-cta:not(.primary):hover { background: var(--panel-2) !important; color: var(--ink) !important; border-color: var(--line) !important; }
+.home-cta.primary,
+.home-cta.primary:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+.home-cta.primary:hover { background: var(--accent-ink) !important; border-color: var(--accent-ink) !important; }
+
+/* Live Atlas：等宽数字、hairline 分隔、hover 提亮 */
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.home-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  border-right: 1px solid var(--line);
+}
+.home-stat:last-child { border-right: 0; }
+.home-stat strong {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.home-stat span {
+  font-size: var(--fs-sm);
+  color: var(--ink-3);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.home-stat:hover strong { color: var(--accent-ink); }
+
+/* ==========================================================================
+   W4 功能页（Tools）统一
+   ========================================================================== */
+.feature-atelier .feature-card,
+.feature-card {
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  background: var(--panel) !important;
+  box-shadow: none !important;
+}
+.feature-out-card {
+  border-color: var(--line-strong) !important;
+  box-shadow: var(--shadow-1) !important;
+}
+.feature-card-title,
+.feature-out-title { letter-spacing: .04em; }
+
+/* 输入控件：与首页搜索条同高度同圆角 */
+.feature-card input[type="text"],
+.feature-card input[type="search"],
+.feature-card input[type="number"],
+.feature-card select,
+.feature-card textarea,
+.tool-panel input,
+.tool-panel select,
+.tool-panel textarea {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: var(--fs-md);
+}
+.feature-card input:focus,
+.feature-card select:focus,
+.feature-card textarea:focus,
+.tool-panel input:focus,
+.tool-panel select:focus,
+.tool-panel textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-weak);
+}
+
+/* 主/次按钮统一 */
+.feature-card button,
+.tool-panel button {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: var(--fs-md);
+  cursor: pointer;
+}
+.feature-card button:hover,
+.tool-panel button:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+.feature-card button[type="submit"],
+.feature-card .primary-btn,
+.tool-panel button[type="submit"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.feature-card button[type="submit"]:hover,
+.tool-panel button[type="submit"]:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: #fff; }
+
+/* 表格：行高 40、表头大写字距、hover 高亮代替斑马纹 */
+.zf-modal table,
+.tool-result table,
+.feature-out-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.zf-modal th,
+.tool-result th,
+.feature-out-card th {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.zf-modal td,
+.tool-result td,
+.feature-out-card td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+}
+.zf-modal tbody tr:hover td,
+.tool-result tbody tr:hover td { background: var(--panel-2); }
+
+/* 空状态 / 加载：一句可操作指引，不用"加载中…"占位 */
+.tool-loading,
+.detail-empty {
+  color: var(--ink-3);
+  font-size: var(--fs-base);
+}
+
+/* ==========================================================================
+   W5 聊天页：分段控件 / 消息 / 输入区
+   ========================================================================== */
+
+/* 模式切换：分段控件（选中态用白底 + hairline，不用彩色块） */
+body.theme-atelier .mode-tabs {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px !important;
+  background: var(--panel-2) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+}
+body.theme-atelier .mode-btn {
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  padding: 5px 11px !important;
+  font-size: var(--fs-base) !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+body.theme-atelier .mode-btn:hover { color: var(--ink); background: rgba(255, 255, 255, .6); }
+.mode-tabs .mode-btn.active,
+body.theme-atelier .mode-btn.active {
+  background: var(--panel) !important;
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-1) !important;
+}
+
+/* 消息：去掉蓝/青撞色头像，收敛为中性 + 单一强调色 */
+body.theme-atelier .msg { gap: var(--s-3); }
+body.theme-atelier .msg .avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px !important;
+  font-size: 11px !important;
+  background: var(--panel-2) !important;
+  color: var(--ink-3) !important;
+  border: 1px solid var(--line) !important;
+}
+body.theme-atelier .msg.bot .avatar { background: var(--accent-weak); color: var(--accent-ink); border-color: transparent; }
+body.theme-atelier .msg.user .avatar { background: var(--panel-2); color: var(--ink-2); }
+body.theme-atelier .bubble {
+  max-width: 84% !important;
+  padding: 12px 14px !important;
+  border-radius: 12px !important;
+  font-size: var(--fs-md) !important;
+  line-height: 1.68;
+}
+body.theme-atelier .msg.bot .bubble {
+  background: var(--panel) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--ink) !important;
+}
+body.theme-atelier .msg.user .bubble {
+  background: var(--accent-weak) !important;
+  border: 1px solid transparent !important;
+  color: var(--ink) !important;
+}
+
+/* 消息动作：ghost 小按钮 */
+body.theme-atelier .msg-actions button {
+  border: 1px solid var(--line) !important;
+  background: transparent !important;
+  color: var(--ink-3) !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-size: var(--fs-sm) !important;
+  cursor: pointer;
+}
+body.theme-atelier .msg-actions button:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+
+/* 快捷提示：pill，hover 提亮 */
+body.theme-atelier .quick-prompt {
+  border: 1px solid var(--line-strong) !important;
+  background: var(--panel) !important;
+  color: var(--ink-2) !important;
+  border-radius: 999px !important;
+  padding: 6px 12px !important;
+  font-size: var(--fs-base) !important;
+  cursor: pointer;
+}
+body.theme-atelier .quick-prompt:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+
+/* 输入区：白底 + hairline，圆角收敛；发送键实心 */
+body.theme-atelier #view-chat .input-area {
+  gap: var(--s-2);
+  padding: 10px 14px 12px !important;
+  background: var(--panel) !important;
+  border-top: 1px solid var(--line) !important;
+}
+body.theme-atelier #view-chat .input-area textarea {
+  border: 1px solid var(--line-strong) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--panel) !important;
+  color: var(--ink) !important;
+  padding: 9px 12px !important;
+  font-size: var(--fs-md) !important;
+}
+body.theme-atelier #view-chat .input-area textarea:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-weak) !important;
+}
+body.theme-atelier #view-chat .input-area .input-plus {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--line-strong) !important;
+  background: var(--panel) !important;
+  color: var(--ink-2) !important;
+  font-size: 16px !important;
+  cursor: pointer;
+}
+body.theme-atelier #view-chat .input-area .input-plus:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+body.theme-atelier #view-chat .input-area button[type="submit"] {
+  height: 36px;
+  padding: 0 18px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+}
+body.theme-atelier #view-chat .input-area button[type="submit"]:hover { background: var(--accent-ink); border-color: var(--accent-ink); }
+
+/* 对话工具条（导出/复制）：ghost */
+body.theme-atelier #chatTools button {
+  border: 1px solid var(--line) !important;
+  background: transparent !important;
+  color: var(--ink-2) !important;
+  border-radius: 999px !important;
+  padding: 4px 11px !important;
+  font-size: var(--fs-sm) !important;
+  cursor: pointer;
+}
+body.theme-atelier #chatTools button:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-weak); }
+body.theme-atelier #chatTools .chat-tools-note { color: var(--ink-3); font-size: var(--fs-xs); }
+
+/* ==========================================================================   W2b 暗色模式对比度修复（M1 遗留：导航/顶栏在深底上缺对比）
+   ========================================================================== */
+body.theme-atelier.dark .site-header {
+  background: var(--panel) !important;
+  border-bottom-color: var(--line) !important;
+}
+body.theme-atelier.dark .top-nav-link { color: var(--ink-2); }
+body.theme-atelier.dark .top-nav-link:hover,
+body.theme-atelier.dark .top-nav-link.active {
+  background: var(--accent-weak);
+  color: var(--accent-ink);
+}
+body.theme-atelier.dark .nav-menu {
+  background: var(--panel);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-2);
+}
+body.theme-atelier.dark .nav-menu a { color: var(--ink-2); }
+body.theme-atelier.dark .nav-menu a:hover { background: var(--panel-2); color: var(--ink); }
+body.theme-atelier.dark .nav-menu a small { color: var(--ink-3); }
+body.theme-atelier.dark .home-search,
+body.theme-atelier.dark .feature-card,
+body.theme-atelier.dark .feature-out-card,
+body.theme-atelier.dark .msg.bot .bubble,
+body.dark #view-chat .input-area { background: var(--panel) !important; }
+body.theme-atelier.dark .home-stat strong { color: var(--ink); }
+body.theme-atelier.dark .home-stat span { color: var(--ink-3); }
+body.theme-atelier.dark .mode-tabs { background: var(--panel-2); border-color: var(--line); }
+body.theme-atelier.dark .mode-btn.active { background: var(--panel); color: var(--ink); }
+body.theme-atelier.dark .zf-modal { background: var(--panel); border-color: var(--line-strong); }
+body.theme-atelier.dark .zf-modal-mask { background: rgba(0, 0, 0, .55); }
+
+/* ==========================================================================
+   W2d 暗色模式：收敛 style.css 里的"亮底"写法
+   清查实测（对比度审计）：这些元素在暗色下仍是浅色底 + 浅色字，比例低到 1.08–1.71，
+   等于看不见。根因是 style.css 的 atelier 主题用了字面量 rgba(243,250,249,*) 而没有暗色覆盖。
+   ========================================================================== */
+body.theme-atelier.dark .feature-atelier .feature-mount input[type="text"],
+body.theme-atelier.dark .feature-atelier .feature-mount input[type="search"],
+body.theme-atelier.dark .feature-atelier .feature-mount input[type="number"],
+body.theme-atelier.dark .feature-atelier .feature-mount textarea,
+body.theme-atelier.dark .feature-atelier .feature-mount input[type="file"],
+body.theme-atelier.dark .feature-atelier .feature-mount .tool-secondary-btn,
+body.theme-atelier.dark .feature-atelier .feature-result-mount .tool-result,
+body.theme-atelier.dark .tool-result,
+body.theme-atelier.dark .feature-empty-state {
+  background: var(--panel) !important;
+  background-image: none !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}
+body.theme-atelier.dark .feature-empty-state { border-style: dashed !important; }
+
+/* 导航：暗色下强制深底 + 高对比文字（style.css:3099 的 #9fc3c7 在浅底上不可读） */
+body.theme-atelier.dark .top-nav-link {
+  background: transparent !important;
+  color: #C9DBDE !important;
+}
+body.theme-atelier.dark .nav-caret { color: #C9DBDE !important; }
+body.theme-atelier.dark .top-nav-link:hover,
+body.theme-atelier.dark .top-nav-link.active {
+  background: rgba(45, 191, 169, .18) !important;
+  color: #EAF6F4 !important;
+}
+
+/* 三级文字在深底上略提亮，过 AA（原 #7E9599 在 #123036 上只有 4.43） */
+body.dark,
+body.theme-atelier.dark { --ink-3: #9FB7BC; --muted: #9CB4B9; }
+
+/* 状态徽标文字：style.css 用的是偏深的青（#0E7490），深底上只有 2.54 */
+body.theme-atelier.dark .status-bar .badge { color: #C9DBDE !important; }
+body.theme-atelier.dark .status-bar .badge.ok { color: #6EE7D3 !important; }
+body.theme-atelier.dark .status-bar .badge.warn { color: #F5C77E !important; }
+body.theme-atelier.dark .status-bar .badge.pending,
+body.theme-atelier.dark .status-bar .badge.loading { color: #8FD0F5 !important; }
+
+/* 暗色下强调色被提亮成 #2DBFA9，白字压上去只有 2.3 —— 实心主按钮改用深墨色文字。
+   注意：simplify.css 用的是 **ID 选择器** (#homeSearchBtn{color:#fff!important})，
+   权重是 (1,0,0)，class 组合再多也压不过，必须同样用 ID。 */
+body.theme-atelier.dark #homeSearchBtn,
+body.theme-atelier.dark #view-chat #chatForm #sendBtn,
+body.theme-atelier.dark #annotateBtn,
+body.theme-atelier.dark .home-cta.primary,
+body.theme-atelier.dark .feature-card button[type="submit"],
+body.theme-atelier.dark .feature-card .primary-btn,
+body.theme-atelier.dark .tool-panel button[type="submit"] {
+  color: #06201C !important;
+}
+
+/* 影像角标：浅底图画上白字（实测仅 3.59），改为半透明黑底 */
+body.theme-atelier .reef-badge {
+  background: rgba(7, 22, 24, .62) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, .22) !important;
+}
+
+/* ==========================================================================
+   W2e 窄屏断点修复（响应式终检发现）
+   实测：375px 下工具页仍按 "260px + 1fr" 双列排 → 结果列被切到屏外；
+   首页 hero 文案框也超出视口。这里给真正的断点。
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* 工具页：输入/结果折成单列（否则结果列在手机上根本看不到） */
+  body.theme-atelier .feature-atelier .feature-layout,
+  body.theme-atelier .feature-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+  body.theme-atelier .feature-form-card,
+  body.theme-atelier .feature-out-card { min-height: 0 !important; }
+  body.theme-atelier .feature-stage { padding: 16px 16px 12px !important; }
+}
+
+@media (max-width: 560px) {
+  body.theme-atelier .home-stage { padding: 20px 16px 18px; min-height: 0; }
+  body.theme-atelier .home-stage-copy,
+  body.theme-atelier .home-brand-hero,
+  body.theme-atelier .home-headline,
+  body.theme-atelier .home-lead { width: 100% !important; max-width: 100% !important; }
+  body.theme-atelier .home-headline { font-size: 22px !important; }
+  body.theme-atelier .home-search { flex-wrap: wrap; }
+  body.theme-atelier .home-search input { flex: 1 1 100%; order: 2; }
+  body.theme-atelier .home-search select { order: 1; }
+  body.theme-atelier .home-search button { order: 3; width: 100%; }
+}
+
+/* 暗色下未加类的裸链接会回落到浏览器默认蓝（rgb(0,0,238) on #0E2428 = 1.72） */
+body.theme-atelier.dark .feature-card a,
+body.theme-atelier.dark .feature-lead a,
+body.theme-atelier.dark .tool-panel a,
+body.theme-atelier.dark .feature-foot-note a {
+  color: #7FE3D2 !important;
+}
+
+/* ==========================================================================
+   W3b 卡片影像回归
+   --------------------------------------------------------------------------
+   背景：app.js 的 paint() 会给每张卡片的 .wave-thumb 写入 --wave-img-a/b
+   （route → 图池，来源 /api/hub/bg-pools，失败则回落本地 zf-gallery 分桶），
+   但 M1 的 simplify.css 用 `.module-thumb { background: linear-gradient(...) !important }`
+   把影像整层盖掉了 —— 于是卡片副标题"卡片影像随研究图流同步轮播"名不副实。
+   这里把影像还回来，但**保持静态**（不动画），符合"简洁又高级"。
+   ========================================================================== */
+body.theme-atelier .module-card .module-thumb.wave-thumb,
+body.theme-atelier .module-thumb.wave-thumb {
+  background-image: var(--wave-img-a), linear-gradient(180deg, #EEF4F3, #E6F0EE) !important;
+  background-size: cover, cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border-bottom: 1px solid var(--line);
+}
+/* hover 轻微提亮，不位移、不放大（避免廉价感） */
+body.theme-atelier .module-card:hover .module-thumb.wave-thumb { filter: saturate(1.04) brightness(1.02); }
+
+/* ==========================================================================
+   W6 实时状态（live-update.js：SSE 推送 / 轮询 / 离线 / 演示快照）
+   ========================================================================== */
+body.theme-atelier .live-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  height: 24px !important;
+  padding: 0 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--line) !important;
+  background: var(--panel-2) !important;
+  color: var(--ink-2) !important;
+  font-size: var(--fs-sm) !important;
+  white-space: nowrap;
+}
+.live-pill[hidden] { display: none !important; }
+.live-pill .live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  flex: 0 0 auto;
+}
+.live-pill.is-fresh {
+  border-color: var(--accent) !important;
+  background: var(--accent-weak) !important;
+  color: var(--accent-ink) !important;
+}
+.live-pill.is-fresh .live-dot { background: var(--accent); animation: zf-pulse 1.4s var(--ease) 2; }
+.live-pill.is-live .live-dot { background: #0E9F8A; }
+.live-pill.is-offline {
+  border-color: #E7C48A !important;
+  background: #FFF8E8 !important;
+  color: #8A5A00 !important;
+}
+.live-pill.is-offline .live-dot { background: #D97706; }
+.live-pill.is-demo {
+  border-style: dashed !important;
+  border-color: var(--line-strong) !important;
+  background: var(--panel) !important;
+  color: var(--ink-2) !important;
+}
+.live-pill.is-demo .live-dot { background: #6366F1; }
+
+/* Live Atlas 标题旁的标注（独立元素，不会被统计刷新覆盖） */
+.live-note {
+  margin-left: 6px;
+  font-size: var(--fs-sm);
+  color: var(--ink-3);
+}
+.live-note[hidden] { display: none !important; }
+.live-note.is-offline { color: #B45309; }
+.live-note.is-demo { color: var(--ink-3); }
+
+/* 暗色下的状态色（琥珀/靛蓝在深底需提亮） */
+body.theme-atelier.dark .live-pill.is-offline {
+  border-color: #6B5330 !important;
+  background: rgba(217, 119, 6, .14) !important;
+  color: #F5C77E !important;
+}
+body.theme-atelier.dark .live-note.is-offline { color: #F5C77E; }
+body.theme-atelier.dark .live-pill.is-demo .live-dot { background: #8B8FF5; }
+
+/* ==========================================================================
+   W6b 统一操作反馈 toast（ui-feedback.js）
+   背景：清查发现"复制全文 / 导出 Markdown"点完没有任何可见反馈。
+   ========================================================================== */
+.zf-toast-host {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+.zf-toast {
+  max-width: min(360px, 80vw);
+  padding: 9px 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: var(--fs-md);
+  line-height: 1.4;
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
+}
+.zf-toast.is-in { opacity: 1; transform: translateY(0); }
+.zf-toast.is-ok { border-left: 3px solid #0E9F8A; }
+.zf-toast.is-err { border-left: 3px solid #D97706; }
+.zf-toast.is-info { border-left: 3px solid var(--line-strong); }
+body.theme-atelier.dark .zf-toast { background: #123036; border-color: #1F454B; color: #E6F2F1; }
+
+/* ==========================================================================
+   W2c 移动端头部收敛
+   实测（改前）：375px 视口下 .header-right 右边界到了 517px —— 控件被裁掉，
+   而 body 又隐藏了横向滚动，所以"看起来正常"。改成两行：品牌+控件 / 导航。
+   ========================================================================== */
+@media (max-width: 560px) {
+  body.theme-atelier .site-header {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    padding: 6px 12px;
+    min-height: 0;
+  }
+  body.theme-atelier .brand { order: 1; }
+  body.theme-atelier .header-right {
+    order: 2;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+  body.theme-atelier .header-right .status-bar,
+  body.theme-atelier .header-right .user-chip { display: none !important; }
+  body.theme-atelier .top-nav {
+    order: 3;
+    flex: 1 0 100%;          /* 独占一整行；否则会被压缩成 98px 的窄条 */
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.theme-atelier .top-nav::-webkit-scrollbar { display: none; }
+  body.theme-atelier .nav-caret { display: none; }
+  body.theme-atelier .top-nav-link { flex: 0 0 auto; }
+}

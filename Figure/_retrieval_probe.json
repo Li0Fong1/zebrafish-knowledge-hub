@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-09-27T22:08:41",
+  "index": {
+    "papers": 32532,
+    "chunks": 7651942,
+    "shards": 170,
+    "version": "qwen3_4b_v2_short_section",
+    "updated_at": "2026-09-10T00:18:42"
+  },
+  "probe_endpoint": "/api/retrieval/debug (same path as the Hub literature agent)",
+  "records": [
+    {
+      "pmid": "1465413",
+      "title": "Major histocompatibility complex class II genes of zebrafish.",
+      "elapsed_sec": 38.95,
+      "self_rank": 24,
+      "self_within_top": 100,
+      "rank1_pmid": "39452082",
+      "rank1_title": "大数据中捕捉大鱼：斑马鱼肾脏单细胞RNA测序数据集的荟萃分析揭示脊椎动物巨噬细胞和中性粒细胞的保守分子特征",
+      "pack_chars": 48000,
+      "config": {
+        "retrieve_candidates": 500,
+        "rerank_top_n": 100,
+        "rerank_enabled": true,
+        "final_k": 100,
+        "cand_k": 500,
+        "max_chars_budget": 48000
+      },
+      "shards_loaded": 170,
+      "rerank_method": "cross_encoder",
+      "candidates_before_rerank": 500,
+      "after_rerank_top_n": 100
+    },
+    {
+      "pmid": "7597068",
+      "title": "Efficient induction of point mutations allowing recovery of specific locus mutations in zebrafish.",
+      "elapsed_sec": 17.98,
+      "self_rank": 20,
+      "self_within_top": 100,
+      "rank1_pmid": "32338604",
+      "rank1_title": "Warburg效应和乳酸信号增强Fgf-MAPK促进耳囊感觉神经发育",
+      "pack_chars": 48000,
+      "config": {
+        "retrieve_candidates": 500,
+        "rerank_top_n": 100,
+        "rerank_enabled": true,
+        "final_k": 100,
+        "cand_k": 500,
+        "max_chars_budget": 48000
+      },
+      "shards_loaded": 170,
+      "rerank_method": "cross_encoder",
+      "candidates_before_rerank": 500,
+      "after_rerank_top_n": 100
+    },
+    {
+      "pmid": "7994634",
+      "title": "Derivation and characterization of a zebrafish liver cell line.",
+      "elapsed_sec": 16.84,
+      "self_rank": 56,
+      "self_within_top": 100,
+      "rank1_pmid": "eno:38467",
+      "rank1_title": "Zebra Fish Lacking Adaptive Immunity Acquire an Antiviral Al",
+      "pack_chars": 48000,
+      "config": {
+        "retrieve_candidates": 500,
+        "rerank_top_n": 100,
+        "rerank_enabled": true,
+        "final_k": 100,
+        "cand_k": 500,
+        "max_chars_budget": 48000
+      },
+      "shards_loaded": 170,
+      "rerank_method": "cross_encoder",
+      "candidates_before_rerank": 500,
+      "after_rerank_top_n": 100
+    },
+    {
+      "pmid": "8618902",
+      "title": "Genetic heterogeneity in isogenic homozygous clonal zebrafish.",
+      "elapsed_sec": 16.09,
+      "self_rank": 14,
+      "self_within_top": 100,
+      "rank1_pmid": "eno:33742",
+      "rank1_title": "Zebrafish patient avatars in cancer biology and precision ca",
+      "pack_chars": 48000,
+      "config": {
+        "retrieve_candidates": 500,
+        "rerank_top_n": 100,
+        "rerank_enabled": true,
+        "final_k": 100,
+        "cand_k": 500,
+        "max_chars_budget": 48000
+      },
+      "shards_loaded": 170,
+      "rerank_method": "cross_encoder",
+      "candidates_before_rerank": 500,
+      "after_rerank_top_n": 100
+    },
+    {
+      "pmid": "8893009",
+      "title": "Insertional mutagenesis and rapid cloning of essential genes in zebrafish.",
+      "elapsed_sec": 16.48,
+      "self_rank": 41,
+      "self_within_top": 100,
+      "rank1_pmid": "eno:27269",
+      "rank1_title": "Long Exposure to a Diet Supplemented with Antioxidant and An",
+      "pack_chars": 48000,
+      "config": {
+        "retrieve_candidates": 500,
+        "rerank_top_n": 100,
+        "rerank_enabled": true,
+        "final_k": 100,
+        "cand_k": 500,
+        "max_chars_budget": 48000
+      },
+      "shards_loaded": 170,
+      "rerank_method": "cross_encoder",
+      "candidates_before_rerank": 500,
+      "after_rerank_top_n": 100
+    }
+  ],
+  "self_ranks": [
+    24,
+    20,
+    56,
+    14,
+    41
+  ],
+  "elapsed_secs": [
+    38.95,
+    17.98,
+    16.84,
+    16.09,
+    16.48
+  ],
+  "config": {
+    "retrieve_candidates": 500,
+    "rerank_top_n": 100,
+    "rerank_enabled": true,
+    "final_k": 100,
+    "cand_k": 500,
+    "max_chars_budget": 48000
+  },
+  "all_within_top": true,
+  "best_rank": 14,
+  "worst_rank": 56
+}

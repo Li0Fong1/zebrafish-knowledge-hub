@@ -1,0 +1,222 @@
+{
+  "acceptance_20260927_211332.json": {
+    "generated_at": "20260927_211332",
+    "elapsed_sec": 351.1,
+    "total": 48,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "layers": [
+      "L3",
+      "L6"
+    ],
+    "per_layer": {
+      "L3": {
+        "n": 30,
+        "pass": 30,
+        "err": 0,
+        "warn": 0,
+        "sec": 80.7
+      },
+      "L6": {
+        "n": 18,
+        "pass": 18,
+        "err": 0,
+        "warn": 0,
+        "sec": 234.5
+      }
+    }
+  },
+  "acceptance_20260927_210314.json": {
+    "generated_at": "20260927_210314",
+    "elapsed_sec": 137.8,
+    "total": 101,
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "layers": [
+      "L0",
+      "L1",
+      "L2",
+      "L5",
+      "L7"
+    ],
+    "per_layer": {
+      "L0": {
+        "n": 33,
+        "pass": 33,
+        "err": 0,
+        "warn": 0,
+        "sec": 5.8
+      },
+      "L1": {
+        "n": 24,
+        "pass": 23,
+        "err": 1,
+        "warn": 0,
+        "sec": 14.5
+      },
+      "L2": {
+        "n": 20,
+        "pass": 20,
+        "err": 0,
+        "warn": 0,
+        "sec": 1.6
+      },
+      "L5": {
+        "n": 16,
+        "pass": 16,
+        "err": 0,
+        "warn": 0,
+        "sec": 1.9
+      },
+      "L7": {
+        "n": 8,
+        "pass": 8,
+        "err": 0,
+        "warn": 0,
+        "sec": 1.0
+      }
+    }
+  },
+  "acceptance_20260927_205451.json": {
+    "generated_at": "20260927_205451",
+    "elapsed_sec": 570.8,
+    "total": 48,
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "layers": [
+      "L4",
+      "L8"
+    ],
+    "per_layer": {
+      "L4": {
+        "n": 43,
+        "pass": 41,
+        "err": 2,
+        "warn": 0,
+        "sec": 321.6
+      },
+      "L8": {
+        "n": 5,
+        "pass": 5,
+        "err": 0,
+        "warn": 0,
+        "sec": 0.0
+      }
+    }
+  },
+  "acceptance_20260927_171218.json": {
+    "generated_at": "20260927_171218",
+    "elapsed_sec": 345.4,
+    "total": 48,
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "layers": [
+      "L3",
+      "L6"
+    ],
+    "per_layer": {
+      "L3": {
+        "n": 30,
+        "pass": 30,
+        "err": 0,
+        "warn": 0,
+        "sec": 101.8
+      },
+      "L6": {
+        "n": 18,
+        "pass": 17,
+        "err": 1,
+        "warn": 0,
+        "sec": 240.1
+      }
+    }
+  },
+  "acceptance_20260927_170622.json": {
+    "generated_at": "20260927_170622",
+    "elapsed_sec": 112.7,
+    "total": 43,
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "layers": [
+      "L2",
+      "L5",
+      "L7"
+    ],
+    "per_layer": {
+      "L2": {
+        "n": 19,
+        "pass": 18,
+        "err": 1,
+        "warn": 0,
+        "sec": 1.7
+      },
+      "L5": {
+        "n": 16,
+        "pass": 15,
+        "err": 1,
+        "warn": 0,
+        "sec": 0.2
+      },
+      "L7": {
+        "n": 8,
+        "pass": 8,
+        "err": 0,
+        "warn": 0,
+        "sec": 0.7
+      }
+    }
+  },
+  "acceptance_20260927_170421.json": {
+    "generated_at": "20260927_170421",
+    "elapsed_sec": 6.7,
+    "total": 24,
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "layers": [
+      "L1"
+    ],
+    "per_layer": {
+      "L1": {
+        "n": 24,
+        "pass": 23,
+        "err": 1,
+        "warn": 0,
+        "sec": 2.8
+      }
+    }
+  },
+  "acceptance_20260927_170334.json": {
+    "generated_at": "20260927_170334",
+    "elapsed_sec": 22.5,
+    "total": 53,
+    "errors": 0,
+    "warnings": 9,
+    "infos": 0,
+    "layers": [
+      "L0",
+      "L1"
+    ],
+    "per_layer": {
+      "L0": {
+        "n": 33,
+        "pass": 33,
+        "err": 0,
+        "warn": 0,
+        "sec": 10.1
+      },
+      "L1": {
+        "n": 20,
+        "pass": 11,
+        "err": 9,
+        "warn": 0,
+        "sec": 8.4
+      }
+    }
+  }
+}

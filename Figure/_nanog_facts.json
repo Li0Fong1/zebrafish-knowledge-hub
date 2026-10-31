@@ -1,0 +1,321 @@
+{
+  "gene_id": 5,
+  "question": "斑马鱼 nanog 基因的功能有哪些？",
+  "basic": {
+    "gene_id": "5",
+    "gene_symbol": "NULL",
+    "gene_name": "nanog",
+    "ensembl_id": "ENSDARG00000075113",
+    "zfin_id": "ZDB-GENE-050302-1",
+    "chromosome": "24",
+    "gene_function": "protein_coding · ensembl",
+    "interpro_domain": "IPR013275 Homeobox NANOG",
+    "uniprot_id": "Q8JFR5",
+    "expression_summary": "Ensembl GRCz11 release-116 · protein_coding"
+  },
+  "go": [
+    [
+      "BP",
+      "stem cell population maintenance"
+    ],
+    [
+      "MF",
+      "transcription factor activity"
+    ],
+    [
+      "MF",
+      "GO:0003677 DNA binding"
+    ],
+    [
+      "BP",
+      "GO:0006355 regulation of DNA-templated transcription"
+    ],
+    [
+      "CC",
+      "GO:0005634 nucleus"
+    ],
+    [
+      "MF",
+      "GO:0000978 RNA polymerase II cis-regulatory region sequence-specific DNA binding"
+    ],
+    [
+      "BP",
+      "GO:0006357 regulation of transcription by RNA polymerase II"
+    ],
+    [
+      "MF",
+      "GO:0000981 DNA-binding transcription factor activity, RNA polymerase II-specific"
+    ],
+    [
+      "MF",
+      "GO:0003682 chromatin binding"
+    ],
+    [
+      "BP",
+      "GO:0030154 cell differentiation"
+    ],
+    [
+      "MF",
+      "GO:0042802 identical protein binding"
+    ],
+    [
+      "BP",
+      "GO:0010468 regulation of gene expression"
+    ],
+    [
+      "BP",
+      "GO:0007369 gastrulation"
+    ],
+    [
+      "BP",
+      "GO:0045892 negative regulation of DNA-templated transcription"
+    ],
+    [
+      "BP",
+      "GO:0001706 endoderm formation"
+    ],
+    [
+      "MF",
+      "GO:0043565 sequence-specific DNA binding"
+    ],
+    [
+      "BP",
+      "GO:0090090 negative regulation of canonical Wnt signaling pathway"
+    ],
+    [
+      "MF",
+      "GO:0003700 DNA-binding transcription factor activity"
+    ],
+    [
+      "BP",
+      "GO:0030036 actin cytoskeleton organization"
+    ],
+    [
+      "BP",
+      "GO:0090504 epiboly"
+    ],
+    [
+      "BP",
+      "GO:0043622 cortical microtubule organization"
+    ],
+    [
+      "BP",
+      "GO:1905936 regulation of germ cell proliferation"
+    ],
+    [
+      "BP",
+      "GO:0034728 nucleosome organization"
+    ],
+    [
+      "",
+      "GO:0106336"
+    ],
+    [
+      "BP",
+      "GO:0006338 chromatin remodeling"
+    ],
+    [
+      "",
+      "GO:1904864"
+    ],
+    [
+      "BP",
+      "GO:0019827 stem cell population maintenance"
+    ]
+  ],
+  "kegg": [],
+  "expression": [
+    [
+      "囊胚",
+      "256-cell",
+      "210.5000"
+    ],
+    [
+      "原肠胚",
+      "50% epiboly",
+      "185.3000"
+    ],
+    [
+      "early embryo",
+      "Bgee gold quality",
+      "99.7500"
+    ],
+    [
+      "cleaving embryo",
+      "Bgee gold quality",
+      "99.6200"
+    ],
+    [
+      "mature ovarian follicle",
+      "Bgee gold quality",
+      "99.4200"
+    ],
+    [
+      "ovary",
+      "Bgee gold quality",
+      "98.9000"
+    ],
+    [
+      "bone element",
+      "Bgee gold quality",
+      "92.7800"
+    ],
+    [
+      "mesonephros",
+      "Bgee gold quality",
+      "87.3000"
+    ],
+    [
+      "swim bladder",
+      "Bgee gold quality",
+      "86.0000"
+    ],
+    [
+      "granulocyte",
+      "Bgee gold quality",
+      "84.8900"
+    ],
+    [
+      "head kidney",
+      "Bgee gold quality",
+      "84.4600"
+    ],
+    [
+      "testis",
+      "Bgee gold quality",
+      "71.9700"
+    ],
+    [
+      "oocyte stage III (Danio)",
+      "Bgee gold quality",
+      "71.4200"
+    ],
+    [
+      "spermatogonium",
+      "Bgee gold quality",
+      "66.6700"
+    ],
+    [
+      "blastodisc",
+      "Bgee gold quality",
+      "63.4300"
+    ],
+    [
+      "blastomere (Danio)",
+      "Bgee gold quality",
+      "61.8800"
+    ],
+    [
+      "tail",
+      "Bgee gold quality",
+      "60.0000"
+    ],
+    [
+      "oocyte stage II (Danio)",
+      "Bgee gold quality",
+      "57.1400"
+    ],
+    [
+      "oocyte stage I (Danio)",
+      "Bgee gold quality",
+      "57.1400"
+    ],
+    [
+      "primordial germ cell",
+      "Bgee gold quality",
+      "55.9600"
+    ]
+  ],
+  "reference": [
+    [
+      "WOS:001471074700047",
+      "2025",
+      "SCIENTIFIC REPORTS",
+      "Protective effects of Bifidobacterium longum subsp. longum BL21 against cyclophosphamide-induced reproductive dysfunction in zebrafish"
+    ],
+    [
+      "WOS:001471074700047",
+      "2025",
+      "SCIENTIFIC REPORTS",
+      "Protective effects of Bifidobacterium longum subsp. longum BL21 against cyclophosphamide-induced reproductive dysfunction in zebrafish"
+    ],
+    [
+      "WOS:001147958600001",
+      "2024",
+      "GENE",
+      "A83-01 and DMH1 effects in the zebrafish spermatogonial niche: Unraveling the roles of TGF-β and BMP signaling in the Fsh-mediated spermatogonial fate"
+    ],
+    [
+      "WOS:001261838200001",
+      "2024",
+      "AQUATIC TOXICOLOGY",
+      "Environmentally relevant estrogens impaired spermatogenesis and sexual behaviors in male and female zebrafish"
+    ],
+    [
+      "WOS:001147958600001",
+      "2024",
+      "GENE",
+      "A83-01 and DMH1 effects in the zebrafish spermatogonial niche: Unraveling the roles of TGF-β and BMP signaling in the Fsh-mediated spermatogonial fate"
+    ],
+    [
+      "WOS:001261838200001",
+      "2024",
+      "AQUATIC TOXICOLOGY",
+      "Environmentally relevant estrogens impaired spermatogenesis and sexual behaviors in male and female zebrafish"
+    ],
+    [
+      "WOS:000915207600001",
+      "2023",
+      "FISHES",
+      "Protein Arginine Methyltransferase 5 Is Necessary for Embryonic Development in Medaka Oryzias latipes"
+    ],
+    [
+      "WOS:000890081200003",
+      "2023",
+      "COMPARATIVE BIOCHEMISTRY AND PHYSIOLOGY B-BIOCHEMISTRY & MOLECULAR BIOLOGY",
+      "Nile tilapia (Oreochromis niloticus) Nanog co-expression with Pou5f3, transcriptional regulation and biological activity in embyonic development and e"
+    ],
+    [
+      "WOS:001069789700001",
+      "2023",
+      "NATURE COMMUNICATIONS",
+      "Activator-blocker model of transcriptional regulation by pioneer-like factors"
+    ],
+    [
+      "WOS:001069789700001",
+      "2023",
+      "NATURE COMMUNICATIONS",
+      "Activator-blocker model of transcriptional regulation by pioneer-like factors"
+    ],
+    [
+      "WOS:000890081200003",
+      "2023",
+      "COMPARATIVE BIOCHEMISTRY AND PHYSIOLOGY B-BIOCHEMISTRY & MOLECULAR BIOLOGY",
+      "Nile tilapia (Oreochromis niloticus) Nanog co-expression with Pou5f3, transcriptional regulation and biological activity in embyonic development and e"
+    ],
+    [
+      "WOS:000915207600001",
+      "2023",
+      "FISHES",
+      "Protein Arginine Methyltransferase 5 Is Necessary for Embryonic Development in Medaka Oryzias latipes"
+    ]
+  ],
+  "counts": {
+    "go": "27",
+    "kegg": "0",
+    "expression": "20",
+    "reference": "53"
+  },
+  "aliases": [
+    "nanog",
+    "fd20a07",
+    "hacp",
+    "wu:fd19e04",
+    "wu:fd20a07",
+    "zgc:193933",
+    "zdb-gene-030131-5486",
+    "homeobox protein nanog",
+    "ovary-expressed homeobox protein",
+    "nanog homeobox"
+  ]
+}

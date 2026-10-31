@@ -1,0 +1,29 @@
+﻿user_id,start_time_iso,end_time_iso,model,name,api_key_name,api_key,type,price,amount
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,input_cache_hit_tokens,0.00000002,7531648
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,output_tokens,0.000004,94363
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,request_count,,507
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,request_count,,124
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,input_cache_miss_tokens,0.000001,132594
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,output_tokens,0.000004,43394
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_miss_tokens,0.000001,1462645
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_hit_tokens,0.00000002,3534080
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_hit_tokens,0.00000002,3949056
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,input_cache_hit_tokens,0.00000002,37632
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_miss_tokens,0.000001,3914641
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,output_tokens,0.000004,610
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,request_count,,1267
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,output_tokens,0.000004,418090
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,request_count,,1
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,DeepSeek Harness (App-managed),,input_cache_miss_tokens,0.000001,579
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T12:00:00+08:00,2026-10-24T13:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_miss_tokens,0.000001,6357521
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T12:00:00+08:00,2026-10-24T13:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,output_tokens,0.000004,474684
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T12:00:00+08:00,2026-10-24T13:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_hit_tokens,0.00000002,3633408
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T12:00:00+08:00,2026-10-24T13:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,request_count,,1225
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T13:00:00+08:00,2026-10-24T14:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_hit_tokens,0.00000002,3560704
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T13:00:00+08:00,2026-10-24T14:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,request_count,,1203
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T13:00:00+08:00,2026-10-24T14:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_miss_tokens,0.000001,8289835
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T13:00:00+08:00,2026-10-24T14:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,output_tokens,0.000004,462872
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T14:00:00+08:00,2026-10-24T15:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_hit_tokens,0.00000002,2202368
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T14:00:00+08:00,2026-10-24T15:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,request_count,,730
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T14:00:00+08:00,2026-10-24T15:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,input_cache_miss_tokens,0.000001,6357971
+Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T14:00:00+08:00,2026-10-24T15:00:00+08:00,deepseek-flash,deepseek-flash,VS_Code,sk-31e75***********************1dce,output_tokens,0.000004,282858

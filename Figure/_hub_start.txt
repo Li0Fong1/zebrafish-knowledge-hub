@@ -1,0 +1,15 @@
+== ps ==
+2407187       01:04 bash -c cd /data/zoujin/deng/zebrafish_gene_qa && setsid nohup bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh >/dev/null 2>&1 & echo started
+2407188       01:04 bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh
+2407192       01:04 /data/zoujin/deng/miniconda3/envs/zebrafish/bin/python -m uvicorn api.api_server:app --host 127.0.0.1 --port 8080
+== listen ==
+LISTEN 0      2048       127.0.0.1:8080       0.0.0.0:*          
+== health ==
+{"status":"ok","mysql":true,"rag":true,"rag_index":true,"models_warming":false,"rag_warming":false,"heavy_warming":false,"pubmed_warming":true,"pubmed_ready":false,"pubmed_warmup_error":null,"pubmed_status":"warming","warmup_error":null,"chat_busy":false,"chat_busy_seconds":0,"chat_busy_preview":"",
+== sup log ==
+[2026-09-30 20:46:31] supervisor start pid=2407188
+[2026-09-30 20:46:31] launching uvicorn
+== hub log ==
+2026-09-30 20:47:10,480 - 信息 - [成功] 知识库已加载 36048 段，关键词检索立即可用
+2026-09-30 20:47:10,481 - 信息 - [成功] RAG 知识库预热完成
+INFO:     127.0.0.1:42308 - "GET /api/health HTTP/1.1" 200 OK

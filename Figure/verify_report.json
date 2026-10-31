@@ -1,0 +1,2499 @@
+{
+  "total": 268,
+  "errors": 0,
+  "warnings": 0,
+  "per_layer": {
+    "V0": {
+      "n": 61,
+      "ok": 61,
+      "err": 0,
+      "warn": 0
+    },
+    "V1": {
+      "n": 9,
+      "ok": 9,
+      "err": 0,
+      "warn": 0
+    },
+    "V2": {
+      "n": 3,
+      "ok": 3,
+      "err": 0,
+      "warn": 0
+    },
+    "V3": {
+      "n": 20,
+      "ok": 20,
+      "err": 0,
+      "warn": 0
+    },
+    "V4": {
+      "n": 70,
+      "ok": 70,
+      "err": 0,
+      "warn": 0
+    },
+    "V5": {
+      "n": 10,
+      "ok": 10,
+      "err": 0,
+      "warn": 0
+    },
+    "V6": {
+      "n": 2,
+      "ok": 2,
+      "err": 0,
+      "warn": 0
+    },
+    "V7": {
+      "n": 40,
+      "ok": 40,
+      "err": 0,
+      "warn": 0
+    },
+    "V8": {
+      "n": 30,
+      "ok": 30,
+      "err": 0,
+      "warn": 0
+    },
+    "V9": {
+      "n": 10,
+      "ok": 10,
+      "err": 0,
+      "warn": 0
+    },
+    "V10": {
+      "n": 10,
+      "ok": 10,
+      "err": 0,
+      "warn": 0
+    },
+    "V11": {
+      "n": 2,
+      "ok": 2,
+      "err": 0,
+      "warn": 0
+    },
+    "V12": {
+      "n": 1,
+      "ok": 1,
+      "err": 0,
+      "warn": 0
+    }
+  },
+  "records": [
+    {
+      "layer": "V0",
+      "id": "V0-0",
+      "name": "图注条目数与 PNG 文件数一致",
+      "ok": true,
+      "severity": "info",
+      "detail": "legends=10 png=10",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-1",
+      "name": "Fig1 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig1_Hub_Architecture.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-1-size",
+      "name": "Fig1 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3515x2011",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-1-dpi",
+      "name": "Fig1 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-1-ink",
+      "name": "Fig1 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.1448",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-1-color",
+      "name": "Fig1 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1999",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-1-texts",
+      "name": "Fig1 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=53",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-2",
+      "name": "Fig2 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig2_Corpus_QC.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-2-size",
+      "name": "Fig2 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3538x1814",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-2-dpi",
+      "name": "Fig2 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-2-ink",
+      "name": "Fig2 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.0878",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-2-color",
+      "name": "Fig2 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈2000",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-2-texts",
+      "name": "Fig2 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=31",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-3",
+      "name": "Fig3 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig3_RAG_Pipeline.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-3-size",
+      "name": "Fig3 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3571x1835",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-3-dpi",
+      "name": "Fig3 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-3-ink",
+      "name": "Fig3 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.0519",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-3-color",
+      "name": "Fig3 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1453",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-3-texts",
+      "name": "Fig3 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=20",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-4",
+      "name": "Fig4 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig4_Benchmark_Design.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-4-size",
+      "name": "Fig4 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "4761x1904",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-4-dpi",
+      "name": "Fig4 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-4-ink",
+      "name": "Fig4 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.1092",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-4-color",
+      "name": "Fig4 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1436",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-4-texts",
+      "name": "Fig4 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=68",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-5",
+      "name": "Fig5 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig5_Acceptance_Suite.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-5-size",
+      "name": "Fig5 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3948x1894",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-5-dpi",
+      "name": "Fig5 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-5-ink",
+      "name": "Fig5 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.1095",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-5-color",
+      "name": "Fig5 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈879",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-5-texts",
+      "name": "Fig5 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=62",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-6",
+      "name": "Fig6 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig6_Gene_Normalisation.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-6-size",
+      "name": "Fig6 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3535x1724",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-6-dpi",
+      "name": "Fig6 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-6-ink",
+      "name": "Fig6 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.0909",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-6-color",
+      "name": "Fig6 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1408",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-6-texts",
+      "name": "Fig6 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=40",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-7",
+      "name": "Fig7 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig7_Toolkit.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-7-size",
+      "name": "Fig7 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3744x1850",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-7-dpi",
+      "name": "Fig7 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-7-ink",
+      "name": "Fig7 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.1286",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-7-color",
+      "name": "Fig7 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1269",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-7-texts",
+      "name": "Fig7 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=31",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-8",
+      "name": "Fig8 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig8_Assembly_Lineage.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-8-size",
+      "name": "Fig8 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3494x1697",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-8-dpi",
+      "name": "Fig8 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-8-ink",
+      "name": "Fig8 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.0921",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-8-color",
+      "name": "Fig8 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1899",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-8-texts",
+      "name": "Fig8 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=15",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-9",
+      "name": "Fig9 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig9_Text_Cleaning.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-9-size",
+      "name": "Fig9 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3716x1915",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-9-dpi",
+      "name": "Fig9 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-9-ink",
+      "name": "Fig9 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.0950",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-9-color",
+      "name": "Fig9 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1892",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-9-texts",
+      "name": "Fig9 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=52",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-10",
+      "name": "Fig10 文件存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "Fig10_Example_Case.png",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-10-size",
+      "name": "Fig10 分辨率足够",
+      "ok": true,
+      "severity": "info",
+      "detail": "3581x1955",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-10-dpi",
+      "name": "Fig10 输出 300 dpi",
+      "ok": true,
+      "severity": "info",
+      "detail": "dpi=(299.9994, 299.9994)",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-10-ink",
+      "name": "Fig10 非空白且有内容",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink=0.1824",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-10-color",
+      "name": "Fig10 含图形元素（色彩丰富）",
+      "ok": true,
+      "severity": "info",
+      "detail": "unique_colors≈1554",
+      "evidence": ""
+    },
+    {
+      "layer": "V0",
+      "id": "V0-10-texts",
+      "name": "Fig10 已捕获画布文本",
+      "ok": true,
+      "severity": "info",
+      "detail": "canvas_texts=48",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-1",
+      "name": "PNG 集合与图注表一致",
+      "ok": true,
+      "severity": "info",
+      "detail": "png=10 legends=10",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-2",
+      "name": "图编号为连续 1..10",
+      "ok": true,
+      "severity": "info",
+      "detail": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-3",
+      "name": "Legend.md 存在",
+      "ok": true,
+      "severity": "info",
+      "detail": "13530 chars",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-4",
+      "name": "Legend.md 引用全部 8 张图",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-5",
+      "name": "Legend.md 含全部英文图注",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-6",
+      "name": "Legend.md 含全部中文图注",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-7",
+      "name": "PPTX 存在且可打开",
+      "ok": true,
+      "severity": "info",
+      "detail": "2 deck(s): ['斑马鱼知识中枢_图集与图注.pptx', '斑马鱼知识中枢_图集与图注_中文版.pptx']",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-8-en",
+      "name": "[en] 页数 = 封面+总览+图页+数据来源+图注附录",
+      "ok": true,
+      "severity": "info",
+      "detail": "斑马鱼知识中枢_图集与图注.pptx: 14 vs 14",
+      "evidence": ""
+    },
+    {
+      "layer": "V1",
+      "id": "V1-8-zh",
+      "name": "[zh] 页数 = 封面+总览+图页+数据来源+图注附录",
+      "ok": true,
+      "severity": "info",
+      "detail": "斑马鱼知识中枢_图集与图注_中文版.pptx: 14 vs 14",
+      "evidence": ""
+    },
+    {
+      "layer": "V2",
+      "id": "V2-1",
+      "name": "所有大数字均可溯源到真实数据",
+      "ok": true,
+      "severity": "info",
+      "detail": "scanned=538 unsourced=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V2",
+      "id": "V2-2",
+      "name": "所有百分比与数据源自洽",
+      "ok": true,
+      "severity": "info",
+      "detail": "checked, inconsistent=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V2",
+      "id": "V2-3",
+      "name": "关键指标字符串在图中真实出现",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-1",
+      "name": "Fig1 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C'] canvas=['A', 'B', 'C']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-1-extra",
+      "name": "Fig1 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-2",
+      "name": "Fig2 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C'] canvas=['A', 'B', 'C']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-2-extra",
+      "name": "Fig2 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-3",
+      "name": "Fig3 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B'] canvas=['A', 'B']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-3-extra",
+      "name": "Fig3 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-4",
+      "name": "Fig4 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C'] canvas=['A', 'B', 'C']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-4-extra",
+      "name": "Fig4 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-5",
+      "name": "Fig5 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B'] canvas=['A', 'B']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-5-extra",
+      "name": "Fig5 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-6",
+      "name": "Fig6 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C'] canvas=['A', 'B', 'C']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-6-extra",
+      "name": "Fig6 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-7",
+      "name": "Fig7 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C', 'D'] canvas=['A', 'B', 'C', 'D']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-7-extra",
+      "name": "Fig7 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C', 'D']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-8",
+      "name": "Fig8 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B'] canvas=['A', 'B']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-8-extra",
+      "name": "Fig8 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-9",
+      "name": "Fig9 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C'] canvas=['A', 'B', 'C']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-9-extra",
+      "name": "Fig9 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C']",
+      "evidence": ""
+    },
+    {
+      "layer": "V3",
+      "id": "V3-10",
+      "name": "Fig10 图注声明的面板均已绘制",
+      "ok": true,
+      "severity": "info",
+      "detail": "claimed=['A', 'B', 'C'] canvas=['A', 'B', 'C']",
+      "evidence": "missing=[]"
+    },
+    {
+      "layer": "V3",
+      "id": "V3-10-extra",
+      "name": "Fig10 面板集合与图注完全对应",
+      "ok": true,
+      "severity": "info",
+      "detail": "['A', 'B', 'C']",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-top",
+      "name": "Fig1 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-bottom",
+      "name": "Fig1 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-left",
+      "name": "Fig1 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-right",
+      "name": "Fig1 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-ratio",
+      "name": "Fig1 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "1.748",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-margin",
+      "name": "Fig1 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0264",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-1-overflow",
+      "name": "Fig1 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-top",
+      "name": "Fig2 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-bottom",
+      "name": "Fig2 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-left",
+      "name": "Fig2 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-right",
+      "name": "Fig2 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-ratio",
+      "name": "Fig2 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "1.950",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-margin",
+      "name": "Fig2 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0292",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-2-overflow",
+      "name": "Fig2 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-top",
+      "name": "Fig3 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-bottom",
+      "name": "Fig3 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-left",
+      "name": "Fig3 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-right",
+      "name": "Fig3 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-ratio",
+      "name": "Fig3 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "1.946",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-margin",
+      "name": "Fig3 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0289",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-3-overflow",
+      "name": "Fig3 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-top",
+      "name": "Fig4 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-bottom",
+      "name": "Fig4 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-left",
+      "name": "Fig4 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-right",
+      "name": "Fig4 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-ratio",
+      "name": "Fig4 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "2.501",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-margin",
+      "name": "Fig4 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0284",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-4-overflow",
+      "name": "Fig4 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-top",
+      "name": "Fig5 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-bottom",
+      "name": "Fig5 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-left",
+      "name": "Fig5 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-right",
+      "name": "Fig5 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-ratio",
+      "name": "Fig5 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "2.084",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-margin",
+      "name": "Fig5 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0280",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-5-overflow",
+      "name": "Fig5 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-top",
+      "name": "Fig6 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-bottom",
+      "name": "Fig6 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-left",
+      "name": "Fig6 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-right",
+      "name": "Fig6 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-ratio",
+      "name": "Fig6 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "2.050",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-margin",
+      "name": "Fig6 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0307",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-6-overflow",
+      "name": "Fig6 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-top",
+      "name": "Fig7 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-bottom",
+      "name": "Fig7 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-left",
+      "name": "Fig7 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-right",
+      "name": "Fig7 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-ratio",
+      "name": "Fig7 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "2.024",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-margin",
+      "name": "Fig7 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0281",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-7-overflow",
+      "name": "Fig7 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-top",
+      "name": "Fig8 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-bottom",
+      "name": "Fig8 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-left",
+      "name": "Fig8 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-right",
+      "name": "Fig8 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-ratio",
+      "name": "Fig8 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "2.059",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-margin",
+      "name": "Fig8 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0312",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-8-overflow",
+      "name": "Fig8 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-top",
+      "name": "Fig9 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-bottom",
+      "name": "Fig9 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-left",
+      "name": "Fig9 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-right",
+      "name": "Fig9 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-ratio",
+      "name": "Fig9 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "1.940",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-margin",
+      "name": "Fig9 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0277",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-9-overflow",
+      "name": "Fig9 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-top",
+      "name": "Fig10 top 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-bottom",
+      "name": "Fig10 bottom 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-left",
+      "name": "Fig10 left 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-right",
+      "name": "Fig10 right 边无内容被裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "ink_ratio=0.0000",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-ratio",
+      "name": "Fig10 长宽比在演示范围内",
+      "ok": true,
+      "severity": "info",
+      "detail": "1.832",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-margin",
+      "name": "Fig10 内容留白充分",
+      "ok": true,
+      "severity": "info",
+      "detail": "min_margin=0.0271",
+      "evidence": ""
+    },
+    {
+      "layer": "V4",
+      "id": "V4-10-overflow",
+      "name": "Fig10 无溢出裁切",
+      "ok": true,
+      "severity": "info",
+      "detail": "worst_edges=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-1-en",
+      "name": "[en] PPT 尺寸与参考 deck 一致（16:9）",
+      "ok": true,
+      "severity": "info",
+      "detail": "12192000x6858000",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-2-en",
+      "name": "[en] 图页均为“一页一图”",
+      "ok": true,
+      "severity": "info",
+      "detail": "10/10",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-3-en",
+      "name": "[en] PPT 内图片未变形（比例误差<3%）",
+      "ok": true,
+      "severity": "info",
+      "detail": "deformed=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-4-en",
+      "name": "[en] PPT 图注标题与 _legends.json 一致",
+      "ok": true,
+      "severity": "info",
+      "detail": "mismatch=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-5-en",
+      "name": "[en] 每幅图标题以 “Figure N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "参考 deck 图注句式",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-1-zh",
+      "name": "[zh] PPT 尺寸与参考 deck 一致（16:9）",
+      "ok": true,
+      "severity": "info",
+      "detail": "12192000x6858000",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-2-zh",
+      "name": "[zh] 图页均为“一页一图”",
+      "ok": true,
+      "severity": "info",
+      "detail": "10/10",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-3-zh",
+      "name": "[zh] PPT 内图片未变形（比例误差<3%）",
+      "ok": true,
+      "severity": "info",
+      "detail": "deformed=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-4-zh",
+      "name": "[zh] PPT 图注标题与 _legends.json 一致",
+      "ok": true,
+      "severity": "info",
+      "detail": "mismatch=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V5",
+      "id": "V5-5-zh",
+      "name": "[zh] 每幅图标题以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "参考 deck 图注句式",
+      "evidence": ""
+    },
+    {
+      "layer": "V6",
+      "id": "V6-1-en",
+      "name": "[en] PPTX 内嵌图片与本地 PNG 逐字节一致",
+      "ok": true,
+      "severity": "info",
+      "detail": "斑马鱼知识中枢_图集与图注.pptx: matched=10/10",
+      "evidence": ""
+    },
+    {
+      "layer": "V6",
+      "id": "V6-1-zh",
+      "name": "[zh] PPTX 内嵌图片与本地 PNG 逐字节一致",
+      "ok": true,
+      "severity": "info",
+      "detail": "斑马鱼知识中枢_图集与图注_中文版.pptx: matched=10/10",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-1-prefix",
+      "name": "Fig1 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 1. Overall architecture of the Zebrafis",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-1-zh",
+      "name": "Fig1 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 1. 斑马鱼知识中枢的总体架构与资源规模。(A) 三模块",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-1-panels",
+      "name": "Fig1 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=796",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-1-len",
+      "name": "Fig1 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=796",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-2-prefix",
+      "name": "Fig2 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 2. Construction of the full-text corpus",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-2-zh",
+      "name": "Fig2 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 2. 全文语料构建流程与金标质控。(A) 文献语料漏斗：",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-2-panels",
+      "name": "Fig2 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=734",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-2-len",
+      "name": "Fig2 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=734",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-3-prefix",
+      "name": "Fig3 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 3. Retrieval-augmented generation pipel",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-3-zh",
+      "name": "Fig3 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 3. 检索增强生成管线。(A) 离线建库：32,532 ",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-3-panels",
+      "name": "Fig3 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=771",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-3-len",
+      "name": "Fig3 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=771",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-4-prefix",
+      "name": "Fig4 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 4. Benchmark design, scoring rubric and",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-4-zh",
+      "name": "Fig4 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 4. 评测体系设计、评分量表与检索保真度。(A) 100",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-4-panels",
+      "name": "Fig4 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=699",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-4-len",
+      "name": "Fig4 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=699",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-5-prefix",
+      "name": "Fig5 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 5. End-to-end acceptance testing of the",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-5-zh",
+      "name": "Fig5 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 5. 已部署知识中枢的端到端验收测试。(A) 九层验收套",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-5-panels",
+      "name": "Fig5 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=543",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-5-len",
+      "name": "Fig5 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=543",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-6-prefix",
+      "name": "Fig6 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 6. Gene entity normalisation and cross-",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-6-zh",
+      "name": "Fig6 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 6. 基因实体归一化与跨组装映射。(A) 从文献中抽取的",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-6-panels",
+      "name": "Fig6 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=632",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-6-len",
+      "name": "Fig6 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=632",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-7-prefix",
+      "name": "Fig7 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 7. Integrated toolkit and its backing r",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-7-zh",
+      "name": "Fig7 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 7. 集成工具集及其底层资源。(A) 标识符转换：将历史",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-7-panels",
+      "name": "Fig7 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=404",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-7-len",
+      "name": "Fig7 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=404",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-8-prefix",
+      "name": "Fig8 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 8. Assembly lineage of the zebrafish re",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-8-zh",
+      "name": "Fig8 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 8. 斑马鱼参考基因组的组装沿革及其对标识符归一化的需求",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-8-panels",
+      "name": "Fig8 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=523",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-8-len",
+      "name": "Fig8 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=523",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-9-prefix",
+      "name": "Fig9 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 9. Text-cleaning and chunking pipeline ",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-9-zh",
+      "name": "Fig9 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 9. 知识库的文本清洗与切分流水线。(A) 六个与实现对",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-9-panels",
+      "name": "Fig9 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=1157",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-9-len",
+      "name": "Fig9 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=1157",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-10-prefix",
+      "name": "Fig10 英文图注以 Figure N. 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "Figure 10. Representative question-answering c",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-10-zh",
+      "name": "Fig10 中文图注以 “图 N.” 开头",
+      "ok": true,
+      "severity": "info",
+      "detail": "图 10. 代表性问答实例：本知识中枢与通用大模型的对比。问",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-10-panels",
+      "name": "Fig10 英文图注逐面板说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=1167",
+      "evidence": ""
+    },
+    {
+      "layer": "V7",
+      "id": "V7-10-len",
+      "name": "Fig10 图注长度符合期刊惯例",
+      "ok": true,
+      "severity": "info",
+      "detail": "len=1167",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-1-term",
+      "name": "Fig1 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-1-term-x",
+      "name": "Fig1 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-1-num",
+      "name": "Fig1 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=3 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-2-term",
+      "name": "Fig2 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-2-term-x",
+      "name": "Fig2 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-2-num",
+      "name": "Fig2 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=6 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-3-term",
+      "name": "Fig3 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-3-term-x",
+      "name": "Fig3 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-3-num",
+      "name": "Fig3 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=4 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-4-term",
+      "name": "Fig4 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-4-term-x",
+      "name": "Fig4 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-4-num",
+      "name": "Fig4 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=1 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-5-term",
+      "name": "Fig5 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-5-term-x",
+      "name": "Fig5 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-5-num",
+      "name": "Fig5 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=0 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-6-term",
+      "name": "Fig6 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-6-term-x",
+      "name": "Fig6 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-6-num",
+      "name": "Fig6 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=0 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-7-term",
+      "name": "Fig7 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-7-term-x",
+      "name": "Fig7 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-7-num",
+      "name": "Fig7 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=0 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-8-term",
+      "name": "Fig8 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-8-term-x",
+      "name": "Fig8 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-8-num",
+      "name": "Fig8 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=1 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-9-term",
+      "name": "Fig9 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-9-term-x",
+      "name": "Fig9 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-9-num",
+      "name": "Fig9 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=6 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-10-term",
+      "name": "Fig10 图注术语均已画在图上",
+      "ok": true,
+      "severity": "info",
+      "detail": "missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-10-term-x",
+      "name": "Fig10 图上术语均已在图注说明",
+      "ok": true,
+      "severity": "info",
+      "detail": "not_in_legend=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V8",
+      "id": "V8-10-num",
+      "name": "Fig10 图注中的大数字均在图上可见",
+      "ok": true,
+      "severity": "info",
+      "detail": "legend_big=2 missing=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-1",
+      "name": "Fig1 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-2",
+      "name": "Fig2 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-3",
+      "name": "Fig3 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-4",
+      "name": "Fig4 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-5",
+      "name": "Fig5 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-6",
+      "name": "Fig6 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-7",
+      "name": "Fig7 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-8",
+      "name": "Fig8 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-9",
+      "name": "Fig9 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V9",
+      "id": "V9-10",
+      "name": "Fig10 无文字相互遮挡",
+      "ok": true,
+      "severity": "info",
+      "detail": "overlaps=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-1",
+      "name": "Fig1 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-2",
+      "name": "Fig2 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-3",
+      "name": "Fig3 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-4",
+      "name": "Fig4 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-5",
+      "name": "Fig5 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-6",
+      "name": "Fig6 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-7",
+      "name": "Fig7 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-8",
+      "name": "Fig8 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-9",
+      "name": "Fig9 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V10",
+      "id": "V10-10",
+      "name": "Fig10 未残留过时数值",
+      "ok": true,
+      "severity": "info",
+      "detail": "stale=[]",
+      "evidence": ""
+    },
+    {
+      "layer": "V11",
+      "id": "V11-1-en",
+      "name": "[en] PPT 文本未溢出文本框（字体度量估算）",
+      "ok": true,
+      "severity": "info",
+      "detail": "斑马鱼知识中枢_图集与图注.pptx: overflow_risks=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V11",
+      "id": "V11-1-zh",
+      "name": "[zh] PPT 文本未溢出文本框（字体度量估算）",
+      "ok": true,
+      "severity": "info",
+      "detail": "斑马鱼知识中枢_图集与图注_中文版.pptx: overflow_risks=0",
+      "evidence": ""
+    },
+    {
+      "layer": "V12",
+      "id": "V12-1",
+      "name": "断言总数 ≥ FIG_VERIFY_MIN_ASSERTIONS（200）",
+      "ok": true,
+      "severity": "info",
+      "detail": "total=267 · dpi=300 · lang=both · dir=Figure",
+      "evidence": ""
+    }
+  ]
+}

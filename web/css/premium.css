@@ -1,0 +1,1057 @@
+/* ==========================================================================
+   premium.css —— 「Paper & Ink」极简学术风（2026-10-15，全局最后加载）
+   --------------------------------------------------------------------------
+   为什么要这一层：
+     此前界面叠了 12 层样式（style → simplify → refine → home-2026 → chat-2026
+     → enrich-view → home-agent → tools-agent → theme-agent → glass-agent →
+     clean-ui → polish），每层都在"加东西"（光斑、波浪、玻璃、彩色渐变、6 套阴影），
+     结果是配色不统一、层级夸张、页面很吵。
+     这一层的目标只有一个：**把界面收敛成一套克制的排版系统**。
+
+   设计语言：
+     · 纸白底 + 纯白卡 + 近黑字 + 唯一深青强调色
+     · 分隔用 1px 发丝线，不用大阴影；卡几乎不悬浮（0 1px 2px）
+     · 数字统一等宽（tabular-nums），数据像表格一样对齐
+     · 微标题 = 10.5~11px 大写 + 大字距；正文 = 13~14.5px / 1.7
+     · 动效只做背景色变化，不做位移/放大/发光
+
+   结构改动（配合 index.html 的删改）：
+     · 顶栏从"两行 + 超长数据行"压成一行：logo | 工具栏 | 状态/账号/语言/主题
+     · 删除左侧 side-rail（与工具栏重复，用户明确只保留工具栏与 logo）
+     · 删除 page-meta.js（它往输入卡里塞了第二套 KPI，重复）
+     · 功能页 hero：左"编辑式页头"（eyebrow/标题/导语/元信息），右"规格清单"
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- 设计令牌 */
+:root {
+  --p-bg: #fafaf9;
+  --p-surface: #ffffff;
+  --p-sunken: #f6f6f5;
+  --p-ink: #101418;
+  --p-ink-2: rgba(16, 20, 24, .74);
+  /* 文字对比度按 WCAG AA(4.5) 定：
+     .44 → ~3.0、.58 → ~4.46（均不达标）；.60 → ~4.9 ✅ */
+  --p-ink-3: rgba(16, 20, 24, .60);
+  --p-line: rgba(16, 20, 24, .09);
+  --p-line-2: rgba(16, 20, 24, .16);
+  --p-accent: #0e7f74;
+  --p-accent-ink: #0a5f57;
+  --p-accent-soft: rgba(14, 127, 116, .08);
+  --p-r: 12px;
+  --p-r-sm: 8px;
+  --p-sh-1: 0 1px 2px rgba(16, 20, 24, .04);
+  --p-sh-2: 0 10px 30px rgba(16, 20, 24, .10);
+  --p-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* 覆盖旧层正在使用的变量 —— 不改它们的老规则，只换掉它们的取值 */
+  --ink-900: #101418;
+  --ink-700: rgba(16, 20, 24, .78);
+  --ink-500: rgba(16, 20, 24, .62);
+  --ink-400: rgba(16, 20, 24, .44);
+  --line-100: rgba(16, 20, 24, .09);
+  --line-200: rgba(16, 20, 24, .16);
+  --accent-blue: #0e7f74;
+  --accent-blue-ink: #0a5f57;
+  --surface: #ffffff;
+  --surface-sunken: #f6f6f5;
+  --sh-1: 0 1px 2px rgba(16, 20, 24, .04);
+  --sh-2: 0 10px 30px rgba(16, 20, 24, .10);
+  --r-card: 12px;
+  --r-ctl: 8px;
+  --r-pill: 6px;
+  --cl-ink: #101418;
+  --cl-ink-strong: #101418;
+  --cl-body: rgba(16, 20, 24, .74);
+  --cl-muted: rgba(16, 20, 24, .44);
+  --cl-primary: #101418;
+  --cl-line: rgba(16, 20, 24, .09);
+  --cl-line-soft: rgba(16, 20, 24, .06);
+  --cl-card: #ffffff;
+  --cl-card-bd: rgba(16, 20, 24, .09);
+  --cl-glass: rgba(255, 255, 255, .86);
+  --cl-shadow-card: var(--p-sh-1);
+  --cl-shadow-bar: var(--p-sh-1);
+  --cl-shadow-btn: none;
+  --cl-shadow-sm: none;
+  --cl-r-card: 12px;
+  --cl-r-btn: 8px;
+  --cl-r-ctl: 8px;
+}
+
+/* 深色：同一套变量换值（旧层的 dark 规则继续生效，不会花） */
+body.theme-atelier.dark,
+body.dark {
+  --p-bg: #0b0f10;
+  --p-surface: #121719;
+  --p-sunken: #171d1f;
+  --p-ink: #eef2f2;
+  --p-ink-2: rgba(238, 242, 242, .70);
+  /* 深色底更黑，.46 只有 ~4.3；.62 → ~6 ✅ */
+  --p-ink-3: rgba(238, 242, 242, .62);
+  --p-line: rgba(238, 242, 242, .12);
+  --p-line-2: rgba(238, 242, 242, .20);
+  --p-accent: #4fd1c5;
+  --p-accent-ink: #7ee0d6;
+  --p-accent-soft: rgba(79, 209, 197, .12);
+  --p-sh-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --p-sh-2: 0 12px 34px rgba(0, 0, 0, .5);
+
+  --ink-900: #eef2f2;
+  --ink-700: rgba(238, 242, 242, .80);
+  --ink-500: rgba(238, 242, 242, .64);
+  --ink-400: rgba(238, 242, 242, .46);
+  --line-100: rgba(238, 242, 242, .12);
+  --line-200: rgba(238, 242, 242, .22);
+  --accent-blue: #4fd1c5;
+  --accent-blue-ink: #7ee0d6;
+  --surface: #121719;
+  --surface-sunken: #171d1f;
+  --cl-ink: #eef2f2;
+  --cl-ink-strong: #ffffff;
+  --cl-body: rgba(238, 242, 242, .78);
+  --cl-muted: rgba(238, 242, 242, .46);
+  --cl-line: rgba(238, 242, 242, .12);
+  --cl-line-soft: rgba(238, 242, 242, .08);
+  --cl-card: #121719;
+  --cl-card-bd: rgba(238, 242, 242, .12);
+  --cl-glass: rgba(18, 23, 25, .88);
+}
+
+/* ------------------------------------------------------------------ 画布 */
+html body.theme-atelier,
+html body.theme-atelier.dark {
+  background: var(--p-bg) !important;
+}
+html body.theme-atelier::before,
+body.theme-atelier::before { display: none !important; }   /* 去掉纹理叠加层 */
+body {
+  background: var(--p-bg) !important;
+  color: var(--p-ink-2);
+  font-family: Figtree, "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  font-feature-settings: "tnum" 1, "cv05" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--p-accent-soft); color: var(--p-ink); }
+:focus-visible { outline: 2px solid var(--p-accent); outline-offset: 2px; border-radius: 6px; }
+
+/* ==========================================================================
+   1. 顶栏：一行 = logo | 工具栏 | 右侧状态簇
+   ========================================================================== */
+header.site-header,
+.site-header {
+  position: sticky !important; top: 0; z-index: 40;
+  /* 关键：不许被压缩。顶栏是 .app（100vh flex 列）的子项，默认 flex-shrink:1，
+     内容高的页面上它会被挤矮（实测 768px 视口下只剩 27px），
+     里面的两行（logo 行 + 工具栏行）就溢出到页面上去了。 */
+  flex: 0 0 auto !important;
+  display: flex !important; align-items: center !important; flex-wrap: nowrap !important;
+  gap: 14px; padding: 0 20px !important; min-height: 56px !important;
+  background: color-mix(in srgb, var(--p-surface) 88%, transparent) !important;
+  backdrop-filter: saturate(1.4) blur(12px) !important;
+  border: 0 !important; border-bottom: 1px solid var(--p-line) !important;
+  box-shadow: none !important;
+}
+.header-left { flex: 0 0 auto; display: flex; align-items: center; }
+.header-right { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; margin-left: auto; }
+
+/* 汉堡：只留一个克制的图标 */
+.history-toggle-btn {
+  width: 30px !important; height: 30px !important; border-radius: 7px !important;
+  background: transparent !important; border: 1px solid transparent !important;
+  color: var(--p-ink-3) !important; font-size: 14px !important; line-height: 1 !important;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: none !important; cursor: pointer;
+}
+.history-toggle-btn:hover { background: var(--p-sunken) !important; color: var(--p-ink) !important; }
+.icon-btn {
+  width: 30px !important; height: 30px !important; border-radius: 7px !important;
+  background: transparent !important; border: 1px solid transparent !important;
+  color: var(--p-ink-3) !important; display: inline-flex; align-items: center;
+  justify-content: center; box-shadow: none !important; cursor: pointer;
+}
+.icon-btn:hover { background: var(--p-sunken) !important; color: var(--p-ink) !important; }
+
+/* 工具栏本体：一行不换行，超宽时横向滚动（不再折成两排） */
+.top-nav, .top-nav-pill {
+  flex: 1 1 auto; min-width: 0;
+  display: flex !important; align-items: center !important; flex-wrap: nowrap !important;
+  gap: 1px !important; row-gap: 0 !important;
+  padding: 0 !important; margin: 0 !important;
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  /* 2026-10-18 修复「下拉点了没反应」：这里原来是 overflow-x: auto（超宽横向滚动）。
+     而 .nav-menu 是 position: absolute 且位于导航盒子下方 —— 只要祖先是滚动容器，
+     绝对定位子元素就会被裁剪（overflow-x:auto 会把 overflow-y 也算成 auto）。
+     实测 1900px 窗口下菜单 display:block 但整块被裁掉，用户看到的就是「点了不出来」。
+     改成 visible：下拉不再被裁；窄屏换行由下面的 @media 兜底。 */
+  overflow: visible !important;
+  scrollbar-width: none;
+}
+.top-nav::-webkit-scrollbar { display: none; }
+
+/* logo + 字标：与工具栏之间用一条发丝线分隔 */
+.nav-brand-pill {
+  flex: 0 0 auto; display: inline-flex !important; align-items: center; gap: 9px;
+  height: 34px !important; padding: 0 14px 0 2px !important; margin-right: 10px !important;
+  border: 0 !important; border-right: 1px solid var(--p-line) !important;
+  border-radius: 0 !important; background: transparent !important; box-shadow: none !important;
+  font-size: 14.5px !important; font-weight: 700 !important; letter-spacing: -.015em !important;
+  color: var(--p-ink) !important; text-decoration: none !important; white-space: nowrap;
+}
+.nav-brand-pill:hover { color: var(--p-accent-ink) !important; }
+.nav-brand-mark {
+  width: 22px !important; height: 22px !important; border-radius: 6px !important;
+  object-fit: contain; filter: none !important;
+}
+
+/* ---- 顶栏复位：压掉两处旧层的"结构性"样式（不是配色，是布局） -------------
+   clean-ui.css  把顶栏做成漂浮玻璃卡 + 白胶囊导航 + 深色 logo 块（margin/radius/阴影）
+   glass-agent.css 在 @media (max-width:1400px) 里强行 flex-wrap:wrap，
+                  并用 order + flex-basis:100% 把导航挤到第二行
+   两者都在 body:not(.dark) 下；这里统一用 html body.theme-atelier 前缀
+   （特异性更高，且明暗两种主题都命中），把顶栏复位成"一行"。 */
+html body.theme-atelier .header.site-header {
+  display: flex !important; flex-wrap: nowrap !important;
+  align-items: center !important; row-gap: 0 !important;
+  margin: 0 !important; padding: 0 20px !important; min-height: 56px !important;
+  border: 0 !important; border-bottom: 1px solid var(--p-line) !important;
+  border-radius: 0 !important; box-shadow: none !important;
+  background: color-mix(in srgb, var(--p-surface) 90%, transparent) !important;
+}
+html body.theme-atelier .header-left,
+html body.theme-atelier .header-right { order: 0 !important; flex: 0 0 auto !important; }
+html body.theme-atelier .header-right { margin-left: auto !important; gap: 6px !important; }
+html body.theme-atelier .top-nav.top-nav-pill {
+  order: 0 !important; flex: 1 1 auto !important; flex-basis: auto !important;
+  max-width: none !important; min-width: 0 !important;
+  gap: 1px !important; padding: 0 !important; margin: 0 !important;
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  border-radius: 0 !important; flex-wrap: nowrap !important;
+}
+html body.theme-atelier .top-nav-link {
+  height: 34px !important; padding: 0 10px !important; font-size: 13px !important;
+  font-weight: 550 !important; color: var(--p-ink-2) !important;
+  background: transparent !important; border: 0 !important;
+  box-shadow: none !important; border-radius: 7px !important;
+}
+html body.theme-atelier .top-nav-link:hover {
+  background: var(--p-sunken) !important; color: var(--p-ink) !important; box-shadow: none !important;
+}
+html body.theme-atelier .nav-item.open > .top-nav-link,
+html body.theme-atelier .top-nav-link.active {
+  height: 34px !important; background: var(--p-accent-soft) !important;
+  color: var(--p-accent-ink) !important; border: 0 !important; box-shadow: none !important;
+}
+html body.theme-atelier .nav-brand-pill {
+  height: 34px !important; padding: 0 4px 0 2px !important; margin-right: 10px !important;
+  background: transparent !important; color: var(--p-ink) !important;
+  border: 0 !important;
+  border-radius: 0 !important; box-shadow: none !important;
+  font-size: 14.5px !important; font-weight: 700 !important; letter-spacing: -.015em !important;
+}
+html body.theme-atelier .nav-brand-pill:hover { background: transparent !important; color: var(--p-accent-ink) !important; }
+html body.theme-atelier .nav-brand-mark { width: 22px !important; height: 22px !important; filter: none !important; }
+
+/* 中等宽度：先把工具栏压紧凑（保持一行）；实在放不下才换两行（≤1200px） */
+@media (max-width: 1480px) {
+  html body.theme-atelier .header.site-header { gap: 10px !important; }
+  html body.theme-atelier .nav-brand-pill { font-size: 13.5px !important; margin-right: 6px !important; }
+  html body.theme-atelier .top-nav-link { height: 32px !important; padding: 0 7px !important; font-size: 12.5px !important; }
+}
+
+/* 导航整行铺开（视口不够宽时）：logo 行 + 工具栏行，两项都不折字、不横向滚动 */
+@media (max-width: 1420px) {
+  html body.theme-atelier .header.site-header {
+    flex-wrap: wrap !important; row-gap: 0 !important;
+    padding: 5px 20px 0 !important; min-height: auto !important;
+  }
+  html body.theme-atelier .header-left { order: 1 !important; height: 44px; }
+  html body.theme-atelier .header-right { order: 2 !important; margin-left: auto !important; height: 44px; }
+  html body.theme-atelier .top-nav.top-nav-pill {
+    order: 5 !important; flex: 1 0 100% !important; max-width: 100% !important;
+    border-top: 1px solid var(--p-line) !important; padding: 2px 0 3px !important;
+    overflow: visible !important; flex-wrap: wrap !important; row-gap: 2px !important;
+  }
+  html body.theme-atelier .top-nav-link { padding: 0 8px !important; font-size: 12.6px !important; }
+}
+
+.top-nav-link {
+  flex: 0 0 auto;
+  display: inline-flex !important; align-items: center; gap: 5px;
+  height: 34px !important; padding: 0 10px !important; border-radius: 7px !important;
+  font-size: 13px !important; font-weight: 550 !important; letter-spacing: 0 !important;
+  color: var(--p-ink-2) !important; background: transparent !important;
+  border: 0 !important; text-decoration: none !important; white-space: nowrap;
+  transition: background-color .14s ease, color .14s ease;
+}
+.top-nav-link:hover { background: var(--p-sunken) !important; color: var(--p-ink) !important; }
+.top-nav-link[aria-expanded="true"],
+.top-nav-link.is-active,
+.top-nav-link[data-active="1"] {
+  background: var(--p-accent-soft) !important; color: var(--p-accent-ink) !important;
+}
+.nav-caret { opacity: .45 !important; font-size: 9px !important; margin-left: 1px; }
+
+/* 下拉菜单 */
+.nav-menu {
+  padding: 6px !important; border-radius: var(--p-r) !important;
+  background: var(--p-surface) !important; border: 1px solid var(--p-line) !important;
+  box-shadow: var(--p-sh-2) !important;
+}
+.nav-menu a {
+  border-radius: 7px !important; padding: 8px 10px !important;
+  font-size: 13px !important; font-weight: 550 !important; color: var(--p-ink) !important;
+}
+.nav-menu a small { margin-top: 2px !important; font-size: 11.5px !important; font-weight: 450 !important; color: var(--p-ink-3) !important; }
+.nav-menu a:hover { background: var(--p-sunken) !important; }
+.nav-sep { margin: 5px 6px !important; height: 1px !important; background: var(--p-line) !important; }
+
+/* 导航下拉的"能不能打开"兜底（2026-10-18：用户反馈在某些浏览器点了没反应）。
+   原本展开态只由 simplify.css 的 `.nav-item.open > .nav-menu{display:block}` 决定，
+   任何一层被缓存/被覆盖/JS 没跑到，下拉就永远出不来。这里在最后加载的一层补齐：
+     · `.open`（JS 切换）—— 显式保证；
+     · `:focus-within` —— **点击按钮会给它焦点**，所以即使 JS 完全没执行也能展开，
+       这是不依赖脚本的保底路径；
+     · 提高 z-index，避免被内容层盖住。 */
+html body.theme-atelier .nav-menu { display: none !important; z-index: 90 !important; }
+html body.theme-atelier .nav-item.open > .nav-menu { display: block !important; }
+
+/* 脚本失效时的两条纯 CSS 兜底（点击给焦点 / 鼠标悬停），只在 html 上缺 .nav-ready 时生效。
+   2026-10-18 回滚点：这两条不加门控会出现「点了 Genomes 展开，鼠标移到 Genes 时
+   Genes 又靠 :hover 展开 → 两个下拉同时挂着」（用户实测截图）。
+   有了门控：正常浏览器 = 纯点击，永远只有一个；JS 挂了/被拦 = 纯悬停，仍然能打开。
+   ⚠️ 注意 :focus-within 也必须一起门控，否则上一步点击残留的焦点会把旧菜单留在展开态。 */
+html:not(.nav-ready) body.theme-atelier .nav-item:hover > .nav-menu,
+html:not(.nav-ready) body.theme-atelier .nav-item:focus-within > .nav-menu { display: block !important; }
+
+/* 鼠标要越过「按钮 → 菜单」之间约 6px 的空隙，中途会丢失 :hover 导致菜单瞬间收起。
+   用一块透明桥接片把这段空隙补上（纯 CSS，任何浏览器都生效）。 */
+html body.theme-atelier .nav-menu::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px;
+}
+
+/* 万一以后又有人在祖先上加回滚动/裁剪，这里兜最后一层：
+   下拉菜单改为 position: fixed，坐标由 nav-menu.js 在打开时按按钮位置算好（写在行内样式里）。 */
+html body.theme-atelier .nav-menu.nav-menu-fixed {
+  position: fixed !important; display: block !important; z-index: 9998 !important;
+}
+
+/* 状态：一个色点 + 小字，不再用胶囊 */
+#statusBar .badge, .badge {
+  display: inline-flex !important; align-items: center; gap: 6px;
+  height: auto !important; padding: 0 !important; border: 0 !important;
+  background: transparent !important; border-radius: 0 !important;
+  font-size: 11.5px !important; font-weight: 500 !important; letter-spacing: .01em;
+  color: var(--p-ink-3) !important;
+}
+.badge::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor; opacity: .8; flex: 0 0 auto;
+}
+.badge.ok { color: #157f5c !important; }
+.badge.loading, .badge.pending { color: var(--p-ink-3) !important; }
+.badge.warn { color: #a35a15 !important; }
+body.dark .badge.ok { color: #58d3a4 !important; }
+body.dark .badge.warn { color: #e0a463 !important; }
+
+/* 账号 chip 与语言开关：降噪 */
+/* 坑：旧层给 #userChip 写死了 width:160px，而"访客 · 快速入门 + 登录"比它宽，
+   内容就溢出容器、顶到右边的"中 / EN"按钮上（实测相交 18px）。
+   这里：① 右侧每个控件都不许被压缩、也不许有固定宽度；② 名字允许省略号，
+   永远不挤按钮。 */
+.header-right { flex: 0 0 auto !important; }
+.header-right > * { flex: 0 0 auto !important; min-width: 0 !important; }
+.user-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; color: var(--p-ink-2); white-space: nowrap;
+  width: auto !important; max-width: 260px !important; min-width: 0 !important;
+  flex: 0 0 auto !important; overflow: visible !important;
+}
+.user-chip span, #userChipName {
+  flex: 0 1 auto !important; min-width: 0 !important;
+  overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important;
+  max-width: none !important;
+}
+.user-chip-btn { flex: 0 0 auto !important; }
+.user-chip-btn {
+  height: 28px; padding: 0 10px; border-radius: 7px; cursor: pointer;
+  background: transparent; border: 1px solid var(--p-line-2); color: var(--p-ink-2);
+  font-size: 12.5px; font-weight: 550;
+}
+.user-chip-btn:hover { background: var(--p-sunken); color: var(--p-ink); }
+#langToggleBtn, .lang-toggle-btn, .icon-btn[data-role="lang"] {
+  height: 28px !important; padding: 0 9px !important; width: auto !important;
+  border-radius: 7px !important; font-size: 12px !important; font-weight: 600 !important;
+  color: var(--p-ink-2) !important;
+}
+
+/* 顶栏里的旧数据行已移入首页 */
+.top-dateline { display: none !important; }
+header .top-nav { flex-wrap: nowrap !important; }
+
+/* ==========================================================================
+   2. 左侧 side-rail：删除（HTML 已移除，这里兜底）
+   ========================================================================== */
+.side-rail { display: none !important; }
+.shell { display: block !important; }
+.shell-main { max-width: 1440px; margin: 0 auto; padding: 0 20px 56px; }
+
+/* ==========================================================================
+   3. 通用卡片与排版
+   ========================================================================== */
+.feature-card, .agent-card, .home-card, .module-card, .chat-panel, .detail-panel {
+  background: var(--p-surface) !important;
+  border: 1px solid var(--p-line) !important;
+  border-radius: var(--p-r) !important;
+  box-shadow: var(--p-sh-1) !important;
+}
+.feature-card:hover, .agent-card:hover, .home-card:hover { box-shadow: var(--p-sh-1) !important; }
+
+.feature-card-head {
+  display: flex !important; align-items: baseline !important; justify-content: space-between !important;
+  gap: 12px; padding: 13px 18px !important;
+  border-bottom: 1px solid var(--p-line) !important; background: transparent !important;
+}
+.feature-card-title, .feature-out-title {
+  font-size: 11px !important; font-weight: 700 !important; letter-spacing: .11em !important;
+  text-transform: uppercase; color: var(--p-ink-3) !important;
+}
+.feature-card-hint { font-size: 11.5px !important; font-weight: 450 !important; color: var(--p-ink-3) !important; margin: 0 !important; }
+.feature-mount, .feature-result-mount { padding: 18px !important; }
+.feature-foot-note { font-size: 11.5px !important; color: var(--p-ink-3) !important; margin-top: 18px !important; text-align: center; }
+
+/* ==========================================================================
+   4. 功能页页头：左编辑式标题 + 右规格清单
+   ========================================================================== */
+.feature-body { margin-top: 26px !important; }
+.feature-stage {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 330px);
+  gap: 40px; align-items: end;
+  padding: 0 0 22px !important; margin: 0 !important;
+  background: transparent !important; border: 0 !important; border-radius: 0 !important;
+  border-bottom: 1px solid var(--p-line) !important;
+  box-shadow: none !important;
+}
+.feature-stage-media, .feature-stage-caustic, .feature-stage-veil,
+.feature-wave-strip, .wave-strip { display: none !important; }
+
+.feature-stage-copy { padding: 0 !important; border: 0 !important; }
+.feature-brand-line { display: none !important; }
+.feature-eyebrow {
+  display: inline-flex !important; align-items: center; gap: 8px;
+  margin: 0 0 10px !important;
+  font-size: 11px !important; font-weight: 620 !important;
+  letter-spacing: .08em !important; text-transform: none !important;
+  color: var(--p-accent) !important;
+}
+.feature-eyebrow::before {
+  content: ""; width: 16px; height: 1px; background: currentColor; opacity: .7;
+}
+#featureTitle {
+  margin: 0 0 12px !important;
+  font-size: 33px !important; font-weight: 620 !important; line-height: 1.16 !important;
+  letter-spacing: -.024em !important; color: var(--p-ink) !important;
+}
+.feature-lead {
+  margin: 0 !important; max-width: 60ch !important;
+  font-size: 14.5px !important; line-height: 1.72 !important; color: var(--p-ink-2) !important;
+}
+/* 元信息不再做成小胶囊，改成一行顿号分隔的文本 */
+.feature-meta-row { display: flex !important; flex-wrap: wrap !important; align-items: center; gap: 0 !important; margin-top: 14px !important; }
+.feature-pill {
+  height: auto !important; padding: 0 !important; border: 0 !important; background: transparent !important;
+  border-radius: 0 !important; font-size: 11.5px !important; font-weight: 600 !important;
+  letter-spacing: .06em !important; text-transform: uppercase; color: var(--p-ink-3) !important;
+}
+.feature-pill + .feature-pill::before { content: "·"; margin: 0 9px; opacity: .6; }
+.feature-pill.soft { color: var(--p-ink-3) !important; }
+
+/* 右侧：规格清单（标签左、值右、发丝线分隔） */
+.feature-kpis {
+  display: grid !important; grid-template-columns: minmax(0, 1fr);
+  align-self: end; border-top: 0;
+}
+.feature-kpis[hidden] { display: none !important; }
+.fk-item {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline; gap: 14px;
+  padding: 7px 0 !important; border: 0 !important; border-bottom: 1px solid var(--p-line) !important;
+  border-radius: 0 !important; background: transparent !important;
+}
+.fk-item:first-child { border-top: 1px solid var(--p-line) !important; }
+.fk-k {
+  order: 1; font-size: 10.5px !important; font-weight: 650 !important;
+  letter-spacing: .11em !important; text-transform: uppercase; color: var(--p-ink-3) !important;
+}
+.fk-v {
+  order: 2; text-align: right;
+  font-size: 13px !important; font-weight: 620 !important; letter-spacing: -.005em !important;
+  color: var(--p-ink) !important; font-variant-numeric: tabular-nums;
+  word-break: break-word;
+}
+@media (max-width: 1060px) {
+  .feature-stage { grid-template-columns: minmax(0, 1fr) !important; gap: 24px; align-items: start; }
+  #featureTitle { font-size: 27px !important; }
+}
+
+/* ==========================================================================
+   5. 按钮与表单：近黑主按钮 + 发丝线控件
+   ========================================================================== */
+.agent-btn, .feature-card button, .tool-panel button, #welcomeSubmitBtn,
+#homeSearchBtn, #sendBtn, .welcome-primary, #quickStartBtn, #showLoginBtn, #showRegisterBtn {
+  height: 36px !important; padding: 0 14px !important; border-radius: var(--p-r-sm) !important;
+  font-size: 13px !important; font-weight: 600 !important; letter-spacing: 0 !important;
+  background-image: none !important; box-shadow: none !important;
+  transition: background-color .14s ease, border-color .14s ease, color .14s ease;
+}
+.agent-btn, .feature-card button, .tool-panel button:not(.tool-secondary-btn),
+#welcomeSubmitBtn, #homeSearchBtn, .welcome-primary, #quickStartBtn {
+  background: var(--p-ink) !important; color: #fff !important;
+  border: 1px solid var(--p-ink) !important;
+}
+.agent-btn:hover, .feature-card button:hover, .tool-panel button:not(.tool-secondary-btn):hover,
+#welcomeSubmitBtn:hover, #homeSearchBtn:hover, .welcome-primary:hover, #quickStartBtn:hover {
+  background: #2a3037 !important; border-color: #2a3037 !important;
+}
+body.dark .agent-btn, body.dark .feature-card button, body.dark #homeSearchBtn,
+body.dark .welcome-primary, body.dark #quickStartBtn {
+  background: #eef2f2 !important; color: #101418 !important; border-color: #eef2f2 !important;
+}
+.tool-secondary-btn, .feature-card .tool-secondary-btn, .welcome-secondary,
+#showLoginBtn, #showRegisterBtn, .fp-copy, .fp-close {
+  background: var(--p-surface) !important; color: var(--p-ink-2) !important;
+  border: 1px solid var(--p-line-2) !important;
+}
+.tool-secondary-btn:hover, .welcome-secondary:hover, #showLoginBtn:hover, #showRegisterBtn:hover,
+.fp-copy:hover, .fp-close:hover { background: var(--p-sunken) !important; color: var(--p-ink) !important; }
+
+input[type="text"], input[type="password"], input[type="search"], input[type="number"], textarea, select {
+  min-height: 36px !important; padding: 0 11px !important;
+  border-radius: var(--p-r-sm) !important; border: 1px solid var(--p-line-2) !important;
+  background: var(--p-surface) !important; color: var(--p-ink) !important;
+  font-size: 13px !important; box-shadow: none !important;
+}
+textarea { padding: 9px 11px !important; line-height: 1.68 !important; }
+input:focus, textarea:focus, select:focus {
+  border-color: var(--p-accent) !important;
+  box-shadow: 0 0 0 3px var(--p-accent-soft) !important;
+  outline: 0 !important;
+}
+label, .tool-hint, .metric-unit, .zf-muted, .feature-empty-sub {
+  font-size: 12px !important; line-height: 1.66 !important; color: var(--p-ink-3) !important;
+}
+
+/* ==========================================================================
+   6. 表格 / 数据块：去掉填充色，只留发丝线
+   ========================================================================== */
+.gene-table { font-size: 13px !important; }
+.gene-table thead th {
+  padding: 9px 12px !important; background: transparent !important;
+  border-bottom: 1px solid var(--p-line-2) !important;
+  font-size: 10.5px !important; font-weight: 650 !important;
+  letter-spacing: .1em !important; text-transform: uppercase; color: var(--p-ink-3) !important;
+}
+.gene-table tbody td {
+  padding: 9px 12px !important; border-bottom: 1px solid var(--p-line) !important;
+  color: var(--p-ink-2) !important; font-variant-numeric: tabular-nums;
+}
+.gene-table tbody tr:hover td { background: var(--p-sunken) !important; }
+.table-wrap { border: 1px solid var(--p-line) !important; border-radius: var(--p-r-sm) !important; }
+
+.zf-kv { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0 20px; }
+.zf-kv-item {
+  display: flex !important; align-items: baseline !important; justify-content: space-between !important;
+  gap: 10px; padding: 6px 0 !important; border-bottom: 1px solid var(--p-line) !important;
+}
+.zf-kv-k { font-size: 10.5px !important; font-weight: 650 !important; letter-spacing: .09em !important; text-transform: uppercase; color: var(--p-ink-3) !important; }
+.zf-kv-v { font-size: 13px !important; font-weight: 620 !important; color: var(--p-ink) !important; font-variant-numeric: tabular-nums; }
+
+/* 核型条：去掉彩色渐变，改单色深浅（数据密度） */
+.zf-karyo { gap: 2px !important; }
+.zf-karyo-bar { height: 16px !important; border-radius: 3px !important; }
+.zf-karyo-bar.is-low { background: #c8d6d4 !important; }
+.zf-karyo-bar.is-mid { background: #7aa9a3 !important; }
+.zf-karyo-bar.is-high { background: var(--p-accent) !important; }
+.zf-karyo-lab { font-size: 10px !important; font-weight: 650 !important; }
+/* 核型条上的染色体编号：按底色深浅选字色。
+   原来一律白字，压在浅色条(.is-low #c8d6d4)上对比度只有 ~1.6、
+   深色模式下条变浅青后更是 1.13 —— 基本读不清。 */
+.zf-karyo-bar.is-low .zf-karyo-lab { color: #14211f !important; }
+.zf-karyo-bar.is-mid .zf-karyo-lab { color: #0d1a18 !important; }
+.zf-karyo-bar.is-high .zf-karyo-lab { color: #ffffff !important; }
+html body.theme-atelier.dark .zf-karyo-bar .zf-karyo-lab { color: #08110f !important; }
+.zf-karyo-note { font-size: 11.5px !important; color: var(--p-ink-3) !important; }
+
+/* 空状态：去掉装饰光球 */
+.feature-empty-orb { display: none !important; }
+.feature-empty-state { padding: 32px 8px !important; text-align: center; }
+.feature-empty-title { font-size: 13px !important; font-weight: 620 !important; color: var(--p-ink-2) !important; }
+.feature-empty-sub { font-size: 12px !important; color: var(--p-ink-3) !important; }
+
+/* ==========================================================================
+   7. 页脚级组件：反馈入口 / 反馈面板 / 折叠块
+   ========================================================================== */
+.feedback-fab {
+  right: 20px !important; bottom: 20px !important;
+  height: 32px !important; padding: 0 13px !important; border-radius: 999px !important;
+  background: var(--p-surface) !important; color: var(--p-ink-2) !important;
+  border: 1px solid var(--p-line-2) !important;
+  font-size: 12.5px !important; font-weight: 550 !important;
+  box-shadow: var(--p-sh-1) !important;
+}
+.feedback-fab:hover { color: var(--p-ink) !important; border-color: var(--p-ink-3) !important; box-shadow: var(--p-sh-2) !important; }
+#feedbackPanel {
+  right: 20px !important; bottom: 62px !important; width: 330px !important;
+  padding: 15px 16px !important; border-radius: var(--p-r) !important;
+  background: var(--p-surface) !important; border: 1px solid var(--p-line) !important;
+  box-shadow: var(--p-sh-2) !important;
+}
+#feedbackPanel h4 { font-size: 13px !important; font-weight: 650 !important; color: var(--p-ink) !important; }
+.fp-actions button { height: 32px !important; border-radius: var(--p-r-sm) !important; font-size: 12.5px !important; font-weight: 600 !important; }
+.fp-send { background: var(--p-ink) !important; color: #fff !important; border: 1px solid var(--p-ink) !important; }
+.fp-send:hover { background: #2a3037 !important; }
+
+.agent-fold, details.agent-fold {
+  border: 1px solid var(--p-line) !important; border-radius: var(--p-r) !important;
+  background: var(--p-surface) !important;
+}
+.agent-fold summary { padding: 12px 16px !important; font-size: 13px !important; font-weight: 600 !important; color: var(--p-ink) !important; }
+.agent-fold[open] summary { border-bottom: 1px solid var(--p-line) !important; }
+
+/* ==========================================================================
+   8. 首页：编辑式标题 + 数据条 + 两栏
+   ========================================================================== */
+.agent-home { max-width: 1240px; margin: 0 auto; }
+html body.theme-atelier .agent-home { max-width: 1240px !important; padding: 0 0 40px !important; }
+.agent-hero {
+  padding: 44px 0 26px !important; background: transparent !important;
+  border-bottom: 1px solid var(--p-line); margin-bottom: 24px;
+}
+.agent-hero-title {
+  margin: 0 0 10px !important;
+  font-size: 38px !important; font-weight: 620 !important; line-height: 1.1 !important;
+  letter-spacing: -.028em !important; color: var(--p-ink) !important;
+}
+.agent-hero-sub { margin: 0 !important; max-width: 66ch !important; font-size: 14.5px !important; line-height: 1.7 !important; color: var(--p-ink-2) !important; }
+.home-dateline {
+  margin: 18px 0 0 !important; padding: 0 !important;
+  font-size: 12px !important; font-weight: 500 !important; letter-spacing: .01em !important;
+  color: var(--p-ink-3) !important; font-variant-numeric: tabular-nums;
+}
+.agent-cols { display: grid !important; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr) !important; gap: 18px !important; }
+@media (max-width: 1020px) { .agent-cols { grid-template-columns: minmax(0, 1fr) !important; } }
+
+.agent-card { padding: 18px !important; }
+/* 首页左栏（每日研究）比右栏（品牌/入口）长很多，右栏跟随滚动，避免下方大片留白 */
+.agent-card-brand { position: sticky !important; top: 84px !important; align-self: start !important; }
+.agent-card-head { display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 12px !important; }
+.agent-card-icon { display: none !important; }
+.agent-card-title { font-size: 12px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; color: var(--p-ink-3) !important; }
+.agent-paper { padding: 13px 0 !important; border: 0 !important; border-bottom: 1px solid var(--p-line) !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.agent-paper:last-child { border-bottom: 0 !important; }
+.agent-paper:hover { background: transparent !important; box-shadow: none !important; }
+.agent-paper-title { font-size: 14.5px !important; font-weight: 600 !important; line-height: 1.45 !important; color: var(--p-ink) !important; }
+.agent-paper-meta { font-size: 11px !important; font-weight: 600 !important; letter-spacing: .05em !important; color: var(--p-ink-3) !important; }
+.agent-paper-abs { font-size: 13px !important; line-height: 1.7 !important; color: var(--p-ink-2) !important; }
+/* 摘要 clamp 3 行：原来每篇 307px（摘要全展开），列表被压成内部滚动只能看见 1.5 篇；
+   截到 3 行后 3 篇完整可见，卡片高度也齐整了 */
+#homePapers { max-height: none !important; overflow: visible !important; }
+.agent-paper-abs {
+  display: -webkit-box !important; -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important; overflow: hidden !important;
+  max-height: 5.2em;
+}
+.agent-paper-title { display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important; overflow: hidden !important; }
+
+.agent-card-brand { text-align: left !important; }
+.agent-brand-mark { width: 150px !important; height: 150px !important; margin: 0 0 12px !important; filter: none !important; }
+.agent-brand-name { font-size: 11px !important; font-weight: 700 !important; letter-spacing: .18em !important; color: var(--p-ink-3) !important; }
+.agent-brand-tag { font-size: 12px !important; color: var(--p-ink-3) !important; }
+.agent-cta { display: flex !important; flex-direction: column !important; gap: 8px !important; margin: 14px 0 0 !important; }
+.agent-cta > button, #agentQuickStart, #agentSignIn, #agentRegister {
+  width: 100% !important; flex: 0 0 auto !important; justify-content: flex-start !important;
+  margin: 0 !important; gap: 8px !important;
+}
+.agent-btn-ico { opacity: .8 !important; font-size: 12px !important; }
+.agent-legal { font-size: 11px !important; color: var(--p-ink-3) !important; margin-top: 14px !important; }
+
+.home-search, .home-search-bar {
+  border-radius: var(--p-r-sm) !important; border: 1px solid var(--p-line-2) !important;
+  background: var(--p-surface) !important; box-shadow: none !important;
+}
+.home-chip, .quick-prompt {
+  height: 28px !important; padding: 0 11px !important; border-radius: 999px !important;
+  background: var(--p-surface) !important; border: 1px solid var(--p-line) !important;
+  color: var(--p-ink-2) !important; font-size: 12.5px !important; font-weight: 550 !important;
+}
+.home-chip:hover, .quick-prompt:hover { background: var(--p-sunken) !important; border-color: var(--p-line-2) !important; color: var(--p-ink) !important; }
+
+/* ==========================================================================
+   9. 欢迎门 / 认证 / 聊天
+   ========================================================================== */
+.auth-gate {
+  background: color-mix(in srgb, var(--p-bg) 82%, transparent) !important;
+  backdrop-filter: blur(14px) saturate(1.2) !important;
+}
+.auth-gate-card, .welcome-card {
+  padding: 30px 30px 26px !important; border-radius: 16px !important;
+  background: var(--p-surface) !important; border: 1px solid var(--p-line) !important;
+  box-shadow: var(--p-sh-2) !important; max-width: 420px;
+}
+.atelier-welcome-brand { font-size: 10.5px !important; font-weight: 700 !important; letter-spacing: .2em !important; text-transform: uppercase; color: var(--p-ink-3) !important; }
+.atelier-welcome-mark { width: 76px !important; height: 76px !important; margin: 14px 0 !important; filter: none !important; }
+.auth-gate-card h2, .welcome-card h2 { font-size: 22px !important; font-weight: 620 !important; letter-spacing: -.02em !important; color: var(--p-ink) !important; }
+.welcome-lead { font-size: 13.5px !important; line-height: 1.7 !important; color: var(--p-ink-2) !important; }
+.welcome-actions { display: flex !important; flex-direction: column !important; gap: 8px !important; margin-top: 18px !important; }
+.welcome-link { background: transparent !important; border: 0 !important; color: var(--p-ink-3) !important; font-size: 12.5px !important; height: 30px !important; }
+.welcome-link:hover { color: var(--p-ink) !important; }
+
+#chatLog .msg .md-body, .msg-body, .msg.bot .bubble {
+  border-radius: var(--p-r) !important; border: 1px solid var(--p-line) !important;
+  background: var(--p-surface) !important; color: var(--p-ink-2) !important;
+  font-size: 13.5px !important; line-height: 1.75 !important; padding: 13px 15px !important;
+  box-shadow: none !important;
+}
+#chatForm, .input-area {
+  border-radius: var(--p-r) !important; border: 1px solid var(--p-line-2) !important;
+  background: var(--p-surface) !important; box-shadow: var(--p-sh-1) !important;
+}
+#questionInput, .input-area textarea { border: 0 !important; background: transparent !important; font-size: 13.5px !important; }
+.chat-atmosphere, .chat-reef-flow { display: none !important; }   /* 聊天区装饰动画去掉 */
+
+/* ==========================================================================
+   10. 细节：滚动条 / 选择 / 减少动效
+   ========================================================================== */
+* { scrollbar-width: thin; scrollbar-color: var(--p-line-2) transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: var(--p-line-2); border-radius: 9px; border: 2px solid transparent; background-clip: content-box; }
+*::-webkit-scrollbar-thumb:hover { background: var(--p-ink-3); background-clip: content-box; }
+
+/* ==========================================================================
+   11. 深色模式复位
+   --------------------------------------------------------------------------
+   坑：refine.css / style.css / glass-agent.css 里有一批
+       `body.theme-atelier.dark .x { … !important }`，
+       它们的类计数比 `html body.theme-atelier .x` **多一个类**，特异性更高，
+       于是深色下会把我这套令牌盖回旧的墨绿/玻璃配色。
+   对策：同样带 `.dark`（外层选择器就变成 3 类 + 2 元素），再压回去。
+   ========================================================================== */
+html body.theme-atelier.dark .site-header {
+  background: color-mix(in srgb, var(--p-surface) 90%, transparent) !important;
+  border-bottom: 1px solid var(--p-line) !important;
+  box-shadow: none !important;
+}
+html body.theme-atelier.dark .top-nav-link { color: var(--p-ink-2) !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
+html body.theme-atelier.dark .top-nav-link:hover { color: var(--p-ink) !important; background: var(--p-sunken) !important; }
+html body.theme-atelier.dark .nav-item.open > .top-nav-link,
+html body.theme-atelier.dark .top-nav-link.active { color: var(--p-accent-ink) !important; background: var(--p-accent-soft) !important; }
+html body.theme-atelier.dark .nav-brand-pill { color: var(--p-ink) !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
+html body.theme-atelier.dark .nav-menu { background: var(--p-surface) !important; border: 1px solid var(--p-line) !important; box-shadow: var(--p-sh-2) !important; }
+html body.theme-atelier.dark .nav-menu a { color: var(--p-ink) !important; }
+html body.theme-atelier.dark .nav-menu a:hover { background: var(--p-sunken) !important; }
+html body.theme-atelier.dark .nav-menu a small { color: var(--p-ink-3) !important; }
+html body.theme-atelier.dark .nav-sep { background: var(--p-line) !important; }
+html body.theme-atelier.dark .icon-btn,
+html body.theme-atelier.dark .history-toggle-btn { background: transparent !important; border: 0 !important; color: var(--p-ink-3) !important; box-shadow: none !important; }
+html body.theme-atelier.dark .icon-btn:hover,
+html body.theme-atelier.dark .history-toggle-btn:hover { background: var(--p-sunken) !important; color: var(--p-ink) !important; }
+html body.theme-atelier.dark .badge { background: transparent !important; border: 0 !important; }
+
+html body.theme-atelier.dark .feature-card,
+html body.theme-atelier.dark .agent-card,
+html body.theme-atelier.dark .home-card,
+html body.theme-atelier.dark .module-card,
+html body.theme-atelier.dark .chat-panel,
+html body.theme-atelier.dark .detail-panel,
+html body.theme-atelier.dark .history-panel,
+html body.theme-atelier.dark .home-atelier,
+html body.theme-atelier.dark .home-metrics {
+  background: var(--p-surface) !important;
+  background-image: none !important;
+  border: 1px solid var(--p-line) !important;
+  box-shadow: var(--p-sh-1) !important;
+}
+html body.theme-atelier.dark .agent-fold,
+html body.theme-atelier.dark details.agent-fold { background: var(--p-surface) !important; border: 1px solid var(--p-line) !important; }
+html body.theme-atelier.dark .agent-paper { background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--p-line) !important; box-shadow: none !important; }
+
+html body.theme-atelier.dark input,
+html body.theme-atelier.dark textarea,
+html body.theme-atelier.dark select,
+html body.theme-atelier.dark .home-search,
+html body.theme-atelier.dark .home-cta,
+html body.theme-atelier.dark .quick-prompt,
+html body.theme-atelier.dark .home-chip,
+html body.theme-atelier.dark .reef-mode-btn {
+  background: var(--p-surface) !important; background-image: none !important;
+  color: var(--p-ink) !important; border: 1px solid var(--p-line-2) !important;
+  box-shadow: none !important;
+}
+html body.theme-atelier.dark .input-area textarea,
+html body.theme-atelier.dark #questionInput { background: transparent !important; border: 0 !important; color: var(--p-ink) !important; }
+html body.theme-atelier.dark .msg .bubble,
+html body.theme-atelier.dark .msg.bot .bubble,
+html body.theme-atelier.dark #chatLog .msg .md-body,
+html body.theme-atelier.dark .msg-body {
+  background: var(--p-surface) !important; background-image: none !important;
+  color: var(--p-ink-2) !important; border: 1px solid var(--p-line) !important; box-shadow: none !important;
+}
+html body.theme-atelier.dark #chatForm { background: var(--p-surface) !important; border: 1px solid var(--p-line-2) !important; box-shadow: var(--p-sh-1) !important; }
+
+html body.theme-atelier.dark .gene-table thead th { background: transparent !important; border-bottom: 1px solid var(--p-line-2) !important; color: var(--p-ink-3) !important; }
+html body.theme-atelier.dark .gene-table tbody td { border-bottom: 1px solid var(--p-line) !important; color: var(--p-ink-2) !important; }
+html body.theme-atelier.dark .gene-table tbody tr:hover td { background: var(--p-sunken) !important; }
+html body.theme-atelier.dark .table-wrap { border: 1px solid var(--p-line) !important; }
+html body.theme-atelier.dark .zf-kv-v { color: var(--p-ink) !important; }
+html body.theme-atelier.dark .zf-kv-k { color: var(--p-ink-3) !important; }
+html body.theme-atelier.dark .zf-karyo-note { color: var(--p-ink-3) !important; }
+html body.theme-atelier.dark .zkv-v { color: var(--p-ink) !important; }
+
+html body.theme-atelier.dark .feature-kpis .fk-item { background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--p-line) !important; }
+html body.theme-atelier.dark .fk-v { color: var(--p-ink) !important; }
+html body.theme-atelier.dark .fk-k { color: var(--p-ink-3) !important; }
+
+html body.theme-atelier.dark .feedback-fab,
+html body.theme-atelier.dark #feedbackPanel { background: var(--p-surface) !important; border: 1px solid var(--p-line-2) !important; color: var(--p-ink-2) !important; }
+html body.theme-atelier.dark .auth-gate-card,
+html body.theme-atelier.dark .welcome-card { background: var(--p-surface) !important; border: 1px solid var(--p-line) !important; border-radius: 16px !important; }
+
+/* 深色下：硬编码的"蓝链接"与状态文字对比度不够（实测链接 4.2 / 状态 2.94），
+   统一换成高对比的青色强调色。锚点排除导航类（它们有自己的配色）。 */
+html body.theme-atelier.dark a { color: var(--p-accent-ink) !important; }
+html body.theme-atelier.dark .top-nav-link,
+html body.theme-atelier.dark .nav-brand-pill { color: var(--p-ink-2) !important; }
+html body.theme-atelier.dark .nav-item.open > .top-nav-link,
+html body.theme-atelier.dark .top-nav-link.active { color: var(--p-accent-ink) !important; }
+html body.theme-atelier.dark .nav-menu a { color: var(--p-ink) !important; }
+html body.theme-atelier.dark .agent-paper-links a,
+html body.theme-atelier.dark .home-more { color: var(--p-accent-ink) !important; }
+html body.theme-atelier.dark .home-upd-status,
+html body.theme-atelier.dark .agent-status,
+html body.theme-atelier.dark #homeUpdStatus { color: var(--p-ink-2) !important; }
+html body.theme-atelier.dark #homeAgentStatusText,
+html body.theme-atelier.dark .agent-status.is-ok #homeAgentStatusText { color: #58d3a4 !important; }
+/* 深色下还有几处硬编码的暗灰小字（实测 .zf-block-sub / .zf-note 只有 2.99） */
+html body.theme-atelier.dark .zf-block-sub,
+html body.theme-atelier.dark .zf-note,
+html body.theme-atelier.dark .tool-hint,
+html body.theme-atelier.dark .zf-muted,
+html body.theme-atelier.dark .metric-unit,
+html body.theme-atelier.dark .agent-legal-link,
+html body.theme-atelier.dark .agent-legal { color: var(--p-ink-2) !important; }
+html body.theme-atelier.dark .zf-num,
+html body.theme-atelier.dark .zf-kv-v { color: var(--p-ink) !important; }
+
+/* 按钮文字不折行（中文长标签在窄容器里会被挤成竖排） */
+button, .agent-btn, .tool-nav-btn { white-space: nowrap !important; }
+/* 表单行允许换行：宁可换到下一行，也不要把按钮压成竖排文字 */
+.tool-row {
+  display: flex !important; flex-wrap: wrap !important;
+  align-items: center !important; gap: 8px !important;
+}
+.tool-row > * { flex: 0 1 auto; min-width: 0; }
+.feature-mount, .feature-result-mount { min-width: 0; }
+
+/* ==========================================================================
+   12. 去掉页内重复的导航块
+   --------------------------------------------------------------------------
+   聊天页顶部原来有一排 .mode-tabs（Hub 多Agent / 基因详情 / 数据库查询 /
+   知识库问答 / 多模型融合），与工具栏「Agent」下拉是**同一套入口**。
+   按“工具栏是唯一导航”的原则把它藏掉，只留一行“当前模式”说明；
+   DOM 不删（nav-menu.js 靠点 .mode-btn 切模式）。
+   ========================================================================== */
+.mode-tabs { display: none !important; }
+.chat-mode-indicator {
+  margin: 0 !important; padding: 0 !important;
+  font-size: 11.5px !important; font-weight: 600 !important;
+  letter-spacing: .05em; color: var(--p-ink-3) !important;
+  white-space: nowrap;
+}
+.chat-topbar {
+  display: flex !important; align-items: center !important;
+  justify-content: space-between !important; gap: 12px;
+  border-bottom: 1px solid var(--p-line); padding: 0 0 10px !important;
+}
+.new-chat-inline { flex: 0 0 auto; }
+
+/* ==========================================================================
+   13. 布局链修复 + 方块尺寸（2026-10-15）
+   --------------------------------------------------------------------------
+   ① `html` 上被旧层挂了 ocean-scene.svg 水印 + 双层渐变，纸张白底上会浮出
+      "鱼骨"水印 —— 压掉。
+   ② `.shell` 原本是 grid（单列）用来撑满高度；上一轮为了删 side-rail 写成
+      `display:block`，把纵向拉伸链打断了：`.shell-main` 只剩内容高（484px），
+      聊天面板只剩 398px、会话栏 253px，下方空出一大片（用户反馈"太矮"）。
+      这里恢复 grid 单列，链子重新拉通。
+   ③ 顺手统一各方块尺寸：阅读宽度、卡片内距、聊天输入区、空状态标识。
+   ========================================================================== */
+html { background: var(--p-bg) !important; background-image: none !important; }
+html body.theme-atelier { background: var(--p-bg) !important; background-image: none !important; }
+
+/* ==========================================================================
+   14. 主界面背景图（2026-10-17 用户指定，2026-10-24 换成 AI 实景）
+   --------------------------------------------------------------------------
+   图片来源：项目负责人用豆包生成的 `屏幕截图 2026-10-22 175207.png`（1969×1172），
+   先用 `scripts/remove_doubao_watermark.py` 擦掉右下角"豆包AI生成"水印，
+   再由 `scripts/apply_home_bg.py` 裁切调色成 2560×1584 →
+   部署为 `/static/assets/brand/zf-home-bg.jpeg`。
+
+   挂在 `.agent-home::before` 上，而不是 html/body：
+     · 这层原本就是"浅蓝水下氛围"的 fixed 铺满层（z-index:-1），语义正好是"背景"；
+     · 它只存在于 `#view-home` 内 → 聊天页/功能页切走后自然跟着隐藏，不会污染其他页面；
+     · 不碰 html/body，避免和上面"压掉旧层水印"的两条规则打架。
+
+   为什么用 `cover` + `center top`：图是"左右有水草岩石、中间留白色面板"的构图，
+   居中顶对齐能保证中间的磨砂面板始终落在内容区，两侧景物在窄屏被裁掉也不难看。
+   渐变垫在图片后面：图片还没下载完时先显示原来的浅蓝底，不会白闪。
+   ========================================================================== */
+html body.theme-atelier .agent-home::before {
+  background:
+    url("/static/assets/brand/zf-home-bg.jpeg?v=202610241051") center top / cover no-repeat,
+    radial-gradient(1100px 460px at 10% -6%, #e7f4ff 0%, rgba(231, 244, 255, 0) 62%),
+    linear-gradient(180deg, #f8fcff 0%, #eff7fd 52%, #e7f1fa 100%) !important;
+}
+
+/* 深色模式：把照片压暗一层再铺，否则纸白卡片会压在亮水面上"过曝"看不清边界 */
+html body.theme-atelier.dark .agent-home::before {
+  background:
+    linear-gradient(180deg, rgba(6, 10, 12, 0.72), rgba(6, 10, 12, 0.86)),
+    url("/static/assets/brand/zf-home-bg.jpeg?v=202610241051") center top / cover no-repeat,
+    var(--p-bg) !important;
+}
+
+/* 大白卡保持**完全不透明、不磨砂**（2026-10-17 用户明确要求：不要透明磨砂）。
+   另外还有一层 glass-agent.css 给 `.agent-card` / `.agent-hero` / `.home-search`
+   加了 backdrop-filter —— 其中 `.agent-hero` 是**透明背景**，那层会真的把背景图
+   实时模糊成一条 1240×135 的糊带，这是"背景有部分还是有点模糊"的第二个来源。
+   所以这里统一把首页内的 backdrop-filter 全部压掉。 */
+html body.theme-atelier #view-home .agent-card,
+html body.theme-atelier #view-home .agent-card-main,
+html body.theme-atelier #view-home .agent-card-brand,
+html body.theme-atelier #view-home .agent-hero,
+html body.theme-atelier #view-home .home-search {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html body.theme-atelier #view-home .agent-card {
+  background: var(--p-surface) !important;
+}
+
+.shell {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+.shell-main {
+  display: flex !important; flex-direction: column !important;
+  min-width: 0 !important; min-height: 0 !important;
+  max-width: none !important; margin: 0 !important;
+  padding: 0 20px 32px !important;
+  overflow: hidden !important;
+}
+.app-view { flex: 1 1 auto !important; min-height: 0 !important; }
+/* 注意：这里必须带 :not(.hidden) —— 否则 #view-chat 的 ID 特异性会压过
+   `.app-view.hidden { display:none }`，切到别的页面时聊天页还留在屏幕上 */
+#view-chat:not(.hidden) { display: flex !important; flex-direction: column !important; }
+#view-chat > main { flex: 1 1 auto !important; min-height: 0 !important; gap: 16px !important; align-items: stretch !important; }
+.history-panel, .chat-panel, .detail-panel { height: auto !important; align-self: stretch !important; }
+
+/* 阅读宽度：功能页收进 1180px，不要把 1300+ px 拉满 */
+.feature-page { max-width: 1180px !important; margin: 0 auto !important; width: 100%; }
+/* 输入卡 340px 太窄（表单内只有 303px，长说明挤成窄条）→ 放到 400px，输出卡占剩余 */
+.feature-layout {
+  grid-template-columns: minmax(340px, 400px) minmax(0, 1fr) !important;
+  gap: 18px !important; align-items: start !important;
+}
+.feature-form-card .feature-mount { padding: 18px 16px !important; }
+
+/* 聊天页内部三段：模式条 / 空状态（或消息）/ 输入区，铺满且留白均匀 */
+.chat-topbar { flex: 0 0 auto !important; }
+#chatEmptyState { flex: 1 1 auto !important; padding: 34px 24px !important; }
+.chat-hero-mark { width: 84px !important; height: 84px !important; border-radius: 20px !important; overflow: hidden !important; }
+.chat-hero-mark > img, .chat-hero-mark > svg, .chat-hero-mark > * { width: 100% !important; height: 100% !important; display: block; }
+.chat-empty-title { font-size: 19px !important; font-weight: 620 !important; letter-spacing: -.012em !important; }
+.chat-empty-sub { max-width: 58ch !important; font-size: 13px !important; line-height: 1.72 !important; }
+.chat-quick-prompts { gap: 8px !important; }
+.input-area, #chatForm {
+  flex: 0 0 auto !important; width: 100% !important;
+  border-radius: var(--p-r) !important; padding: 8px 10px !important;
+  min-height: 58px !important;
+}
+.input-area textarea, #questionInput { min-height: 42px !important; }
+
+/* 英文比中文长，标题类弹性容器容易溢出（实测 .prov-head 264>248）→ 允许换行 */
+.prov-head, .feature-card-head, .chat-topbar, .agent-card-head {
+  flex-wrap: wrap !important; min-width: 0 !important;
+}
+.prov-head > *, .feature-card-head > * { min-width: 0 !important; }
+/* 小徽章/胶囊：英文长文案会把容器顶出去（实测 .src-badge.is-local 256>247）→ 允许换行 */
+.src-badge, .zf-chips > *, .home-chip, .quick-prompt, .chat-quick-prompts > *, .feature-pill {
+  max-width: 100% !important;
+}
+.src-badge { white-space: normal !important; overflow-wrap: anywhere !important; }
+
+/* 弱化小字统一到一个达标的对比度。
+   坑：polish.css 用 `var(--ink-400)` 给 .tool-hint/.zf-muted/.metric-unit 上色；
+   glass-agent.css 还有 `.agent-fold > summary.agent-fold-sum .home-upd-status`（3 个类!）
+   把状态文字钉在 #64748b；旧层另有 .tool-source-note / .prov-kv 等硬编码暗灰。
+   实测只有 2.9~4.4，低于 WCAG AA 的 4.5。
+   对策：走 `html body.theme-atelier #appRoot …`（带一个 ID，稳压所有类选择器）。 */
+html body.theme-atelier #appRoot label,
+html body.theme-atelier #appRoot .tool-hint,
+html body.theme-atelier #appRoot .metric-unit,
+html body.theme-atelier #appRoot .zf-muted,
+html body.theme-atelier #appRoot .zf-note,
+html body.theme-atelier #appRoot .zf-block-sub,
+html body.theme-atelier #appRoot .zf-karyo-note,
+html body.theme-atelier #appRoot .tool-source-note,
+html body.theme-atelier #appRoot .prov-kv,
+html body.theme-atelier #appRoot .prov-block-title,
+html body.theme-atelier #appRoot .feature-foot-note,
+html body.theme-atelier #appRoot .feature-empty-sub,
+html body.theme-atelier #appRoot .fk-k,
+html body.theme-atelier #appRoot .home-dateline,
+html body.theme-atelier #appRoot .home-upd-status,
+html body.theme-atelier #appRoot .agent-brand-tag,
+html body.theme-atelier #appRoot .agent-legal-link,
+html body.theme-atelier #appRoot .agent-legal,
+html body.theme-atelier #appRoot .home-copy,
+html body.theme-atelier #appRoot .feature-pill,
+html body.theme-atelier #appRoot .feature-card-hint { color: var(--p-ink-3) !important; }
+html body.theme-atelier.dark #appRoot label,
+html body.theme-atelier.dark #appRoot .tool-hint,
+html body.theme-atelier.dark #appRoot .metric-unit,
+html body.theme-atelier.dark #appRoot .zf-muted,
+html body.theme-atelier.dark #appRoot .zf-note,
+html body.theme-atelier.dark #appRoot .zf-block-sub,
+html body.theme-atelier.dark #appRoot .zf-karyo-note,
+html body.theme-atelier.dark #appRoot .tool-source-note,
+html body.theme-atelier.dark #appRoot .prov-kv,
+html body.theme-atelier.dark #appRoot .prov-block-title,
+html body.theme-atelier.dark #appRoot .feature-foot-note,
+html body.theme-atelier.dark #appRoot .feature-empty-sub,
+html body.theme-atelier.dark #appRoot .fk-k,
+html body.theme-atelier.dark #appRoot .home-dateline,
+html body.theme-atelier.dark #appRoot .home-upd-status,
+html body.theme-atelier.dark #appRoot .agent-brand-tag,
+html body.theme-atelier.dark #appRoot .agent-legal-link,
+html body.theme-atelier.dark #appRoot .agent-legal,
+html body.theme-atelier.dark #appRoot .home-copy,
+html body.theme-atelier.dark #appRoot .feature-pill,
+html body.theme-atelier.dark #appRoot .feature-card-hint { color: var(--p-ink-2) !important; }
+html body.theme-atelier .feedback-fab,
+html body.theme-atelier .fp-sub,
+html body.theme-atelier .fp-state { color: var(--p-ink-2) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+@media (max-width: 860px) {
+  html body.theme-atelier .header.site-header { padding: 0 12px !important; gap: 10px; }
+  .shell-main { padding: 0 12px 44px; }
+  .nav-brand-pill span { display: none; }   /* 窄屏只留 logo 图形 */
+  .agent-hero-title { font-size: 30px !important; }
+}

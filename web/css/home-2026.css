@@ -1,0 +1,439 @@
+/* ==========================================================================
+   home-2026.css —— 首页视觉升级（替换 home-simple.css）
+   --------------------------------------------------------------------------
+   为什么重做：
+     · 上一版用了绿色 #1f9d55，与全站青绿主色 --accent(#0E7C6B) 打架，观感脏
+     · 层次只有「字号差」，卡片平、按钮弱、没有焦点态
+   本版约束：
+     · 全部走 refine.css 的设计令牌（--accent/--panel/--line/--ink-*/--radius*/--shadow*），
+       深浅色主题自动跟随，不再出现硬编码颜色
+     · 只改首页四块（hero / 今日研究 / 文献更新 / Cite Us），不动其它页面
+     · 交互态齐全：hover / focus-visible / disabled / 选中；尊重 prefers-reduced-motion
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- 布局骨架 */
+#view-home {
+  --home-max: 1000px;
+  --home-gap: 24px;
+}
+#view-home > section,
+#view-home > footer {
+  width: min(100%, var(--home-max));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ------------------------------------------------------------------- Hero */
+.home-stage {
+  /* 旧样式给的 599px min-height 把「今日研究」挤出首屏 —— 这里彻底覆盖 */
+  min-height: 0 !important;
+  padding: 26px 0 4px !important;
+  display: block !important;
+  position: relative;
+  isolation: isolate;
+}
+.home-stage::before {
+  /* 顶部一层极淡的青绿光斑，给页面一个视觉起点（不加动效，省资源） */
+  content: "";
+  position: absolute;
+  inset: -30px -20% auto -20%;
+  height: 260px;
+  background:
+    radial-gradient(60% 120% at 22% 0%, color-mix(in srgb, var(--accent) 13%, transparent) 0%, transparent 70%),
+    radial-gradient(50% 100% at 78% 10%, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 65%);
+  z-index: -1;
+  pointer-events: none;
+}
+.home-stage-media,
+.home-stage-veil,
+.home-stage-caustic,
+.wave-orb { display: none !important; }
+
+.home-stage-copy { display: block; }
+
+.home-brand-hero {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.home-headline {
+  margin: 0 0 10px;
+  max-width: 20ch;
+  /* 必须 !important：simplify.css 里是 `.home-headline{font-size:26px!important}`，
+     它在更早加载但靠 !important 赢过普通声明 —— 不加重就会被按回 26px（实测算过）*/
+  font-size: clamp(28px, 3.2vw, 40px) !important;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  font-weight: 700;
+  color: var(--ink) !important;
+}
+.home-lead {
+  margin: 0 0 18px;
+  max-width: 68ch !important;
+  /* 同理：style.css 里 `body.theme-atelier .home-stage-copy .home-lead` 特异性更高（0,3,1）*/
+  font-size: 13.5px !important;
+  line-height: 1.7;
+  color: var(--ink-3) !important;
+}
+
+/* 搜索条：整体一个胶囊，输入/下拉/按钮在同一视觉层 */
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 720px;
+  padding: 6px 6px 6px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line-strong, var(--line));
+  border-radius: 999px;
+  box-shadow: var(--shadow-1, 0 1px 2px rgba(11, 18, 32, .04));
+  transition: border-color .16s var(--ease, ease), box-shadow .16s var(--ease, ease);
+}
+.home-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.home-search-icon {
+  flex: 0 0 auto;
+  width: 18px; height: 18px;
+  color: var(--ink-3);
+  display: grid; place-items: center;
+}
+.home-search-icon svg { width: 18px; height: 18px; display: block; }
+#homeSearchInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: var(--ink);
+}
+#homeSearchInput::placeholder { color: var(--ink-3); }
+#homeSearchScope {
+  flex: 0 0 auto;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-2);
+  font-size: 13px;
+  cursor: pointer;
+}
+#homeSearchScope:hover { border-color: var(--line-strong, var(--line)); }
+#homeSearchBtn {
+  flex: 0 0 auto;
+  height: 38px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .16s var(--ease, ease), transform .06s var(--ease, ease);
+}
+#homeSearchBtn:hover { background: var(--accent-ink, var(--accent)); }
+#homeSearchBtn:active { transform: translateY(1px); }
+#homeSearchBtn:disabled { opacity: .6; cursor: default; }
+
+/* 快速示例 + Agent 入口合到同一行：少一行、多留白 */
+.home-chips {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 13px 0 0;
+}
+.home-chips .home-agent-line { margin: 0 0 0 auto; }
+.home-chip {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-2);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all .14s var(--ease, ease);
+}
+.home-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink, var(--accent));
+  background: var(--accent-weak, var(--panel-2));
+}
+
+.home-agent-line {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.home-agent-line a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.home-agent-line a:hover { text-decoration: underline; }
+
+/* ------------------------------------------------------- 区块标题（通用） */
+.home-daily,
+.home-updates { margin: var(--home-gap) 0; }
+
+.home-sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.home-sec-head h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: .01em;
+  color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.home-sec-head h3::before {
+  content: "";
+  width: 3px; height: 15px; border-radius: 2px;
+  background: var(--accent);
+}
+.home-sec-note { font-size: 12px; color: var(--ink-3); }
+
+/* ------------------------------------------------------------- 今日研究 */
+.home-daily-card {
+  position: relative;
+  padding: 18px 20px 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: var(--shadow-1, 0 1px 2px rgba(11, 18, 32, .04));
+  transition: box-shadow .18s var(--ease, ease), border-color .18s var(--ease, ease);
+}
+.home-daily-card:hover {
+  border-color: var(--line-strong, var(--line));
+  box-shadow: var(--shadow-2, 0 6px 20px -6px rgba(11, 18, 32, .12));
+}
+.home-daily-card::before {
+  content: "";
+  position: absolute; left: 0; top: 18px; bottom: 18px;
+  width: 3px; border-radius: 0 3px 3px 0;
+  background: var(--accent);
+  opacity: .85;
+}
+.home-daily-card h4 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 650;
+  color: var(--ink);
+}
+.home-daily-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 8px;
+  margin: 0 0 12px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.home-daily-meta .home-meta-chip {
+  display: inline-block;
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 46ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-daily-meta .home-meta-chip:first-child {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  background: var(--accent-weak, var(--panel-2));
+  color: var(--accent-ink, var(--accent));
+}
+.home-daily-abs {
+  margin: 0 0 14px;
+  max-width: 78ch;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.home-daily-link {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+  margin: 0; font-size: 13px;
+}
+/* 主链接做成实心药丸，次链接做描边药丸，一眼看出点哪个 */
+#homeDailyUrl, #homeDailyFree, .home-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all .14s var(--ease, ease);
+}
+#homeDailyUrl {
+  padding: 6px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+#homeDailyUrl:hover { background: var(--accent-ink, var(--accent)); }
+#homeDailyFree, .home-more {
+  padding: 5px 14px;
+  border: 1px solid var(--line-strong, var(--line));
+  color: var(--ink-2);
+  background: var(--panel);
+}
+#homeDailyFree:hover, .home-more:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink, var(--accent));
+  background: var(--accent-weak, var(--panel-2));
+}
+#homeDailyFree[hidden] { display: none; }
+
+/* ------------------------------------------------------------- 文献更新 */
+.home-upd-actions { display: flex; align-items: center; gap: 10px; }
+.home-upd-status {
+  font-size: 12px;
+  color: var(--ink-2);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.home-upd-btn {
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent-ink, var(--accent));
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .14s var(--ease, ease);
+}
+.home-upd-btn:hover:not(:disabled) {
+  background: var(--accent);
+  color: #fff;
+}
+.home-upd-btn:disabled { opacity: .55; cursor: default; }
+
+.home-upd-list {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius, 12px);
+  background: var(--panel);
+  overflow: hidden;
+}
+.home-upd-item {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  transition: background .14s var(--ease, ease);
+}
+.home-upd-item:last-child { border-bottom: 0; }
+.home-upd-item:hover { background: var(--panel-2); }
+.home-upd-date {
+  flex: 0 0 88px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: var(--ink-3);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.home-upd-date::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  opacity: .7;
+  flex: 0 0 auto;
+}
+.home-upd-body { flex: 1 1 auto; min-width: 0; display: block; }
+.home-upd-title {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.home-upd-detail {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+.home-upd-foot {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  margin-top: 12px;
+}
+.home-upd-empty { padding: 16px; font-size: 13px; color: var(--ink-3); }
+
+/* ------------------------------------------------------------- Cite Us */
+.home-cite {
+  margin: calc(var(--home-gap) + 2px) 0 20px;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+}
+.home-cite h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--ink);
+}
+.home-cite blockquote {
+  margin: 0 0 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm, 8px) var(--radius-sm, 8px) 0;
+  background: var(--accent-weak, var(--panel-2));
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.home-cite blockquote em { font-style: italic; color: var(--ink-2); }
+.home-copy {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* ------------------------------------------------------ 顶栏语言按钮 */
+/* .icon-btn 固定 32px 会把「中 / EN」挤成三行 */
+#langToggleBtn {
+  width: auto;
+  min-width: 58px;
+  padding: 0 10px;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 30px;
+  letter-spacing: .02em;
+}
+
+/* ------------------------------------------------------------- 响应式 */
+@media (max-width: 860px) {
+  .home-headline { max-width: none; font-size: 27px; }
+  .home-search { flex-wrap: wrap; border-radius: var(--radius, 12px); padding: 10px; }
+  #homeSearchBtn { width: 100%; }
+}
+@media (max-width: 720px) {
+  .home-upd-item { flex-direction: column; gap: 4px; }
+  .home-upd-date { flex-basis: auto; }
+  .home-daily-card { padding: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-search, .home-chip, .home-daily-card,
+  #homeSearchBtn, #homeDailyUrl, #homeDailyFree, .home-more, .home-upd-btn, .home-upd-item {
+    transition: none !important;
+  }
+}

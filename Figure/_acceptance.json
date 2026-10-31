@@ -1,0 +1,494 @@
+{
+  "generated_at": "20260927_211332",
+  "elapsed_sec": 351.1,
+  "total": 48,
+  "errors": 0,
+  "warnings": 0,
+  "infos": 0,
+  "layers": [
+    "L3",
+    "L6"
+  ],
+  "results": [
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-health",
+      "name": "GET /api/health",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (40ms)",
+      "evidence": "",
+      "ms": 39.8
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-hub-stats",
+      "name": "GET /api/hub/stats",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (3083ms)",
+      "evidence": "",
+      "ms": 3083.2
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-hub-bg-pools",
+      "name": "GET /api/hub/bg-pools",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (556ms)",
+      "evidence": "",
+      "ms": 556.3
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-hub-gallery-mode-mix-limit-5",
+      "name": "GET /api/hub/gallery",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (66ms)",
+      "evidence": "",
+      "ms": 65.9
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-stats",
+      "name": "GET /api/tools/stats",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (1261ms)",
+      "evidence": "",
+      "ms": 1260.6
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-gene-resolve-q-tp53",
+      "name": "GET /api/tools/gene-resolve",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (331ms)",
+      "evidence": "",
+      "ms": 331.0
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-genes-search-q-mapk-limit-5",
+      "name": "GET /api/genes/search",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (648ms)",
+      "evidence": "",
+      "ms": 648.0
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-gene-tp53",
+      "name": "GET /api/gene/tp53",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (612ms)",
+      "evidence": "",
+      "ms": 612.1
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-id-convert-id-30590",
+      "name": "GET /api/tools/id-convert",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422 (23ms)",
+      "evidence": "",
+      "ms": 23.2
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-enrichment-genes-tp53-myl7",
+      "name": "GET /api/tools/enrichment",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (6540ms)",
+      "evidence": "",
+      "ms": 6540.3
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-kegg-q-MAPK",
+      "name": "GET /api/tools/kegg",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (174ms)",
+      "evidence": "",
+      "ms": 173.8
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-sequence-gene-tp53-kind-cdna",
+      "name": "GET /api/tools/sequence",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (56442ms)",
+      "evidence": "",
+      "ms": 56442.5
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tools-annotate-gene-tp53",
+      "name": "GET /api/tools/annotate",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (5234ms)",
+      "evidence": "",
+      "ms": 5233.5
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-workflows-presets",
+      "name": "GET /api/workflows/presets",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (128ms)",
+      "evidence": "",
+      "ms": 127.7
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-workflows-runs",
+      "name": "GET /api/workflows/runs",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (41ms)",
+      "evidence": "",
+      "ms": 41.1
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-usage",
+      "name": "GET /api/usage",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (13ms)",
+      "evidence": "",
+      "ms": 12.7
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-auth-config",
+      "name": "GET /api/auth/config",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (14ms)",
+      "evidence": "",
+      "ms": 14.2
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-hub-me",
+      "name": "GET /api/hub/me",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (36ms)",
+      "evidence": "",
+      "ms": 35.7
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-hub-conversations",
+      "name": "GET /api/hub/conversations",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 401 (13ms)",
+      "evidence": "",
+      "ms": 12.9
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-tenants-current",
+      "name": "GET /api/tenants/current",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (10ms)",
+      "evidence": "",
+      "ms": 9.9
+    },
+    {
+      "layer": "L3",
+      "id": "L3-GET-api-knowledge-sources",
+      "name": "GET /api/knowledge/sources",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (38ms)",
+      "evidence": "",
+      "ms": 37.8
+    },
+    {
+      "layer": "L3",
+      "id": "L3-POST-api-tools-id-convert-text",
+      "name": "POST /api/tools/id-convert/text",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (1064ms)",
+      "evidence": "",
+      "ms": 1063.5
+    },
+    {
+      "layer": "L3",
+      "id": "L3-POST-api-tools-id-convert-batch",
+      "name": "POST /api/tools/id-convert/batch",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422 (11ms)",
+      "evidence": "",
+      "ms": 11.4
+    },
+    {
+      "layer": "L3",
+      "id": "L3-POST-api-tools-blast",
+      "name": "POST /api/tools/blast",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 (4322ms)",
+      "evidence": "",
+      "ms": 4322.5
+    },
+    {
+      "layer": "L3",
+      "id": "L3-POST-api-retrieval-debug",
+      "name": "POST /api/retrieval/debug",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422 (20ms)",
+      "evidence": "",
+      "ms": 19.6
+    },
+    {
+      "layer": "L3",
+      "id": "L3-POST-api-workflows-run",
+      "name": "POST /api/workflows/run",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422 (15ms)",
+      "evidence": "",
+      "ms": 14.6
+    },
+    {
+      "layer": "L3",
+      "id": "L3-auth-no-token",
+      "name": "无 token 访问受保护端点",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L3",
+      "id": "L3-auth-bad-token",
+      "name": "错误 token 被拒（或只读放行）",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L3",
+      "id": "L3-unknown-route",
+      "name": "未知路由返回 404",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 404",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L3",
+      "id": "L3-method-not-allowed",
+      "name": "GET /api/chat 返回 405",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 405",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-empty",
+      "name": "边缘输入 empty",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422 0.0s",
+      "evidence": "",
+      "ms": 9.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-spaces",
+      "name": "边缘输入 spaces",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 400 0.0s",
+      "evidence": "",
+      "ms": 14.7
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-too-long",
+      "name": "边缘输入 too-long",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422 0.0s",
+      "evidence": "",
+      "ms": 13.2
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-symbols",
+      "name": "边缘输入 symbols",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 28.8s",
+      "evidence": "",
+      "ms": 28764.2
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-emoji",
+      "name": "边缘输入 emoji",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 24.3s",
+      "evidence": "",
+      "ms": 24300.9
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-html",
+      "name": "边缘输入 html",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 55.2s",
+      "evidence": "",
+      "ms": 55174.8
+    },
+    {
+      "layer": "L6",
+      "id": "L6-inject-html",
+      "name": "注入输入无执行痕迹",
+      "ok": true,
+      "severity": "通过",
+      "detail": "",
+      "evidence": "**[tp53](#/gene/tp53)（[ZFIN](https://zfin.org/ZDB-GENE-990415-270) · [Ensembl](https://www.ensembl.org/Danio_rerio/Gene/",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-edge-sql",
+      "name": "边缘输入 sql",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 200 55.5s",
+      "evidence": "",
+      "ms": 55496.7
+    },
+    {
+      "layer": "L6",
+      "id": "L6-inject-sql",
+      "name": "注入输入无执行痕迹",
+      "ok": true,
+      "severity": "通过",
+      "detail": "",
+      "evidence": "**这是 SQL 注入尝试，不是斑马鱼基因问题，我不会执行任何数据库语句。** 若你本意是查斑马鱼 [tp53](#/gene/tp53)（[ZFIN](https://zfin.org/ZDB-GENE-990415-270) · [En",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-missing-field",
+      "name": "缺 question 返回 4xx",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-bad-type",
+      "name": "question 类型错误返回 4xx",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-traversal-static-env",
+      "name": "路径穿越防护 /static/../.env",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 400",
+      "evidence": "{\"detail\":\"非法请求路径\"}",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-traversal-static-api-api-server-py",
+      "name": "路径穿越防护 /static/../api/api_server.py",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 400",
+      "evidence": "{\"detail\":\"非法请求路径\"}",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-traversal-env",
+      "name": "路径穿越防护 /.env",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 400",
+      "evidence": "{\"detail\":\"非法请求路径\"}",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-traversal-api-env",
+      "name": "路径穿越防护 /api/../.env",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 400",
+      "evidence": "{\"detail\":\"非法请求路径\"}",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-upload-noauth",
+      "name": "未授权上传被拒",
+      "ok": true,
+      "severity": "通过",
+      "detail": "HTTP 422",
+      "evidence": "",
+      "ms": 0.0
+    },
+    {
+      "layer": "L6",
+      "id": "L6-concurrency-health",
+      "name": "10 并发 health 全部 200",
+      "ok": true,
+      "severity": "通过",
+      "detail": "codes=[200]",
+      "evidence": "",
+      "ms": 161.4
+    },
+    {
+      "layer": "L6",
+      "id": "L6-concurrency-chat",
+      "name": "2 并发问答无 5xx",
+      "ok": true,
+      "severity": "通过",
+      "detail": "codes=[429, 200]",
+      "evidence": "",
+      "ms": 70525.8
+    }
+  ]
+}

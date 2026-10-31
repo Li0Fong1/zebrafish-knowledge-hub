@@ -1,0 +1,313 @@
+/* ==========================================================================
+   guide.css —— 使用说明页 + 协议链接
+   设计取向：一屏能读完一节的密度，字号偏大、行高偏松，不做装饰性图形。
+   颜色全部走 ui-2026.css 里的 --ui-* 变量，深色主题自动跟随。
+   ========================================================================== */
+
+#view-guide {
+  display: block;
+  /* 真实环境里 .app-view 是 shell-main 的 flex 子项，高度由 flex 撑开（premium.css），
+     这里只补滚动与底色；不写死 height，避免和 header 高度算重后出现双滚动条。 */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--ui-bg);
+  scroll-behavior: smooth;
+}
+
+.gd-wrap {
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 34px 28px 96px;
+  align-items: start;
+}
+
+/* ---------------- 左侧目录 ---------------- */
+.gd-toc {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 6px;
+}
+.gd-toc-a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border-radius: var(--ui-r-sm);
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--ui-ink-3);
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease;
+}
+.gd-toc-a:hover { background: var(--ui-sunken); color: var(--ui-ink); }
+.gd-toc-a.active { background: var(--ui-accent-soft); color: var(--ui-accent); font-weight: 600; }
+.gd-toc-n {
+  flex: 0 0 auto;
+  width: 17px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  opacity: .6;
+}
+
+/* ---------------- 主体 ---------------- */
+.gd-body { min-width: 0; }
+
+.gd-hero { padding-bottom: 26px; border-bottom: 1px solid var(--ui-line); }
+.gd-kicker {
+  margin: 0 0 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ui-accent);
+}
+.gd-h {
+  margin: 0 0 10px;
+  font-size: 27px;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+  color: var(--ui-ink);
+}
+.gd-sub {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--ui-ink-2);
+}
+
+.gd-sec { padding-top: 40px; scroll-margin-top: 18px; }
+.gd-sec-h {
+  margin: 0 0 10px;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--ui-ink);
+}
+.gd-lead {
+  margin: 0 0 20px;
+  max-width: 64ch;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ui-ink-2);
+}
+
+/* 步骤 */
+.gd-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  counter-reset: none;
+}
+.gd-steps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-r);
+  box-shadow: var(--ui-sh);
+}
+.gd-num {
+  flex: 0 0 auto;
+  width: 22px; height: 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--ui-accent-soft);
+  color: var(--ui-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+.gd-step-t { font-size: 14px; line-height: 1.65; color: var(--ui-ink); }
+
+/* 入口表 */
+.gd-table { border: 1px solid var(--ui-line); border-radius: var(--ui-r); overflow: hidden; }
+.gd-row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 14px;
+  padding: 11px 16px;
+  background: var(--ui-surface);
+  border-top: 1px solid var(--ui-line);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.gd-row:first-child { border-top: 0; }
+.gd-row-k { color: var(--ui-accent); font-weight: 650; }
+.gd-row-v { color: var(--ui-ink-2); }
+
+/* 模块折叠 */
+.gd-mods { display: flex; flex-direction: column; gap: 6px; }
+.gd-mod {
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-r);
+  box-shadow: var(--ui-sh);
+  overflow: hidden;
+}
+.gd-mod[open] { border-color: var(--ui-accent-line); }
+.gd-mod-sum {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr) 16px;
+  gap: 14px;
+  align-items: baseline;
+  padding: 13px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.gd-mod-sum::-webkit-details-marker { display: none; }
+.gd-mod-sum:hover { background: var(--ui-sunken); }
+.gd-mod-name { font-size: 13.5px; font-weight: 650; color: var(--ui-ink); }
+.gd-mod-one { font-size: 13px; line-height: 1.6; color: var(--ui-ink-3); }
+.gd-caret {
+  justify-self: end;
+  font-size: 11px;
+  color: var(--ui-ink-3);
+  transition: transform .18s ease;
+}
+.gd-mod[open] .gd-caret { transform: rotate(180deg); }
+.gd-mod-body {
+  padding: 2px 16px 14px 198px;
+  border-top: 1px solid var(--ui-line);
+  margin-top: -1px;
+}
+.gd-mod-body p {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ui-ink-2);
+}
+
+/* 术语 */
+.gd-gloss { margin: 0; }
+.gd-gloss-item {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 14px;
+  padding: 11px 0;
+  border-top: 1px solid var(--ui-line);
+}
+.gd-gloss-item:first-child { border-top: 0; }
+.gd-gloss dt { font-size: 13.5px; font-weight: 650; color: var(--ui-ink); }
+.gd-gloss dd { margin: 0; font-size: 13px; line-height: 1.75; color: var(--ui-ink-2); }
+
+/* 列表 */
+.gd-list { margin: 0; padding-left: 18px; }
+.gd-list li {
+  margin: 8px 0;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--ui-ink-2);
+}
+
+.gd-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: var(--ui-accent-soft);
+  border-radius: var(--ui-r-sm);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ui-ink-2);
+}
+.gd-foot {
+  margin: 26px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--ui-line);
+  font-size: 12px;
+  color: var(--ui-ink-3);
+}
+/* 指路链接：说明页不再重复「关于」页里已经写全的表，只留一个跳转 */
+.gd-link {
+  color: var(--ui-accent);
+  text-decoration: none;
+  font-weight: 550;
+  border-bottom: 1px solid var(--ui-accent-line);
+  padding-bottom: 1px;
+}
+.gd-link:hover { color: var(--ui-accent-hover); border-bottom-color: currentColor; }
+.gd-sec .gd-foot:has(> .gd-link) { border-top: 0; padding-top: 10px; margin-top: 14px; }
+
+/* ---------------- 入口链接 ---------------- */
+.welcome-legal {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ui-ink-3);
+  text-align: center;
+}
+.welcome-legal-link {
+  color: var(--ui-ink-3);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color .15s ease, border-color .15s ease;
+}
+.welcome-legal-link:hover { color: var(--ui-accent); border-bottom-color: var(--ui-accent-line); }
+
+.feature-foot-link {
+  color: var(--ui-accent);
+  text-decoration: none;
+  font-size: 12.5px;
+  border-bottom: 1px solid transparent;
+}
+.feature-foot-link:hover { border-bottom-color: var(--ui-accent-line); }
+
+/* ---------------- 窄屏 ---------------- */
+@media (max-width: 900px) {
+  .gd-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 22px 18px 80px;
+  }
+  .gd-toc {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-direction: row;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 8px 0 10px;
+    background: var(--ui-bg);
+    border-bottom: 1px solid var(--ui-line);
+    scrollbar-width: none;
+    /* grid 子项默认 min-width:auto，会被行内 6 个 chip 撑破视口，
+       于是整页横向溢出、正文被右侧裁掉。这里显式压回 100%。 */
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .gd-toc::-webkit-scrollbar { display: none; }
+  .gd-toc-a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 6px 11px;
+    border: 1px solid var(--ui-line);
+    background: var(--ui-surface);
+    font-size: 12.5px;
+  }
+  .gd-toc-n { display: none; }
+  .gd-h { font-size: 22px; }
+  .gd-sec { padding-top: 30px; }
+  .gd-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .gd-row-k { font-size: 12px; letter-spacing: .04em; }
+  .gd-mod-sum { grid-template-columns: minmax(0, 1fr) 16px; gap: 6px 10px; }
+  .gd-mod-one { grid-column: 1 / 2; }
+  .gd-mod-body { padding: 2px 16px 14px; }
+  .gd-gloss-item { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+
+  /* 长句中英混排时，flex 子项同样需要 min-width:0 才不会顶出容器 */
+  .gd-steps li, .gd-step-t, .gd-mod-sum, .gd-mod-one { min-width: 0; }
+  .gd-step-t, .gd-mod-one, .gd-row-v { overflow-wrap: anywhere; }
+}

@@ -1,0 +1,10 @@
+== procs ==
+2409712       01:52 bash /data/zoujin/deng/zebrafish_runtime/hub_supervise.sh
+2409718       01:52 /data/zoujin/deng/miniconda3/envs/zebrafish/bin/python -m uvicorn api.api_server:app --host 127.0.0.1 --port 8080
+== health ==
+200
+== guard log ==
+== static ==
+prov=200 app=200
+== load ==
+ 21:07:16 up 80 days, 22:32,  5 users,  load average: 17.91, 19.72, 20.73
