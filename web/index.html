@@ -7,23 +7,23 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/static/assets/brand/favicon.png?v=20261012a" />
   <link rel="apple-touch-icon" href="/static/assets/brand/apple-touch-icon.png?v=20261012a" />
   <meta name="theme-color" content="#e9f3fc" />
-  <link rel="stylesheet" href="/static/css/style.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/simplify.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/refine.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/polish.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/premium.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/design-system.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261031zg" />
-  <link rel="stylesheet" href="/static/css/guide.css?v=20261031zg" />
-  <script src="/static/js/i18n.js?v=20261031zg"></script>
+  <link rel="stylesheet" href="/static/css/style.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/simplify.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/refine.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/polish.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/premium.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/design-system.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261031zk" />
+  <link rel="stylesheet" href="/static/css/guide.css?v=20261031zk" />
+  <script src="/static/js/i18n.js?v=20261031zk"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -136,6 +136,7 @@
             <div class="nav-sep"></div>
             <div class="nav-group-label" data-nav-label="gene" data-no-i18n="1">Gene</div>
             <a href="#/genes" data-route="genes" role="menuitem">别名 <small>给名称找基因 · 符号 ⇄ 别名 ⇄ 跨库 ID</small></a>
+            <a href="#/genemaster" data-route="genemaster" role="menuitem">基因主表 <small>GRCz12tu 非冗余功能基因 · 统一映射结果</small></a>
             <a href="#/gene" data-route="gene" role="menuitem">位置查找 <small>给基因看落点 · 坐标 · 链 · 基因体序列</small></a>
             <a href="#/expression" data-route="expression" role="menuitem">表达 <small>按基因 · 按组织 · 多基因对比</small></a>
             <div class="nav-sep"></div>
@@ -581,6 +582,22 @@
             <!-- 2026-10-31：删「要一次换一批 ID…批量 ID 互转 →」。
                  批量 ID 互转是 Liftover 页的功能，与本页（符号/别名/互查）重合，按“页面不串功能”原则去掉。 -->
           </div>
+          <!-- 基因主表：所有标识符统一映射到 GRCz12tu 后的非冗余结果。
+               与「别名」页区别：别名页答「这个名字是哪个基因」，本页答「这个基因在
+               最新参考基因组上的唯一落点是什么、依据哪条证据」。 -->
+          <div class="tool-panel hidden" id="toolGeneMaster">
+            <input type="text" id="gmSearchInput"
+                   placeholder="符号 / GRCz12tu Gene ID / Ensembl / ZFIN / UniProt，如 tp53"
+                   aria-label="基因主表检索" />
+            <div class="tool-row">
+              <button type="button" id="gmSearchBtn">搜索</button>
+              <button type="button" id="gmBrowseBtn" class="tool-secondary-btn">浏览功能基因</button>
+              <label class="gm-check">
+                <input type="checkbox" id="gmFuncOnly" checked /> 仅功能基因
+              </label>
+            </div>
+            <div id="gmStats" class="gm-stats"></div>
+          </div>
           <div class="tool-panel hidden" id="toolCrispr">
             <div class="crispr-tabs" role="tablist">
               <button type="button" class="crispr-tab active" data-crispr-tab="sgrna" role="tab">sgRNA 设计</button>
@@ -934,26 +951,27 @@
       <p class="tool-hint">当前为公开演示：无需访问令牌</p>
     </div>
   </div>
-  <script src="/static/js/source-badges.js?v=20261031zg"></script>
-  <script src="/static/js/nav-menu.js?v=20261031zg"></script>
-  <script src="/static/js/provenance.js?v=20261031zg"></script>
-  <script src="/static/js/payload-crypto.js?v=20261031zg"></script>
-  <script src="/static/js/app.js?v=20261031zg"></script>
-  <script src="/static/js/ui-feedback.js?v=20261031zg"></script>
-  <script src="/static/js/live-update.js?v=20261031zg"></script>
-  <script src="/static/js/select-ui.js?v=20261031zg" defer></script>
-  <script src="/static/js/composer-fit.js?v=20261031zg" defer></script>
-  <script src="/static/js/home-feed.js?v=20261031zg" defer></script>
-  <script src="/static/js/agent-home.js?v=20261031zg" defer></script>
-  <script src="/static/js/genes.js?v=20261031zg" defer></script>
-  <script src="/static/js/crispr.js?v=20261031zg" defer></script>
-  <script src="/static/js/genomes.js?v=20261031zg" defer></script>
-  <script src="/static/js/liftover.js?v=20261031zg" defer></script>
-  <script src="/static/js/expression.js?v=20261031zg" defer></script>
-  <script src="/static/js/phenotype.js?v=20261031zg" defer></script>
-  <script src="/static/js/about.js?v=20261031zg" defer></script>
-  <script src="/static/js/guide.js?v=20261031zg" defer></script>
-  <script src="/static/js/feedback.js?v=20261031zg" defer></script>
-  <script src="/static/js/chat-polish.js?v=20261031zg" defer></script>
+  <script src="/static/js/source-badges.js?v=20261031zk"></script>
+  <script src="/static/js/nav-menu.js?v=20261031zk"></script>
+  <script src="/static/js/provenance.js?v=20261031zk"></script>
+  <script src="/static/js/payload-crypto.js?v=20261031zk"></script>
+  <script src="/static/js/app.js?v=20261031zk"></script>
+  <script src="/static/js/ui-feedback.js?v=20261031zk"></script>
+  <script src="/static/js/live-update.js?v=20261031zk"></script>
+  <script src="/static/js/select-ui.js?v=20261031zk" defer></script>
+  <script src="/static/js/composer-fit.js?v=20261031zk" defer></script>
+  <script src="/static/js/home-feed.js?v=20261031zk" defer></script>
+  <script src="/static/js/agent-home.js?v=20261031zk" defer></script>
+  <script src="/static/js/genes.js?v=20261031zk" defer></script>
+  <script src="/static/js/crispr.js?v=20261031zk" defer></script>
+  <script src="/static/js/genomes.js?v=20261031zk" defer></script>
+  <script src="/static/js/liftover.js?v=20261031zk" defer></script>
+  <script src="/static/js/expression.js?v=20261031zk" defer></script>
+  <script src="/static/js/phenotype.js?v=20261031zk" defer></script>
+  <script src="/static/js/about.js?v=20261031zk" defer></script>
+  <script src="/static/js/guide.js?v=20261031zk" defer></script>
+  <script src="/static/js/genemaster.js?v=20261031zk" defer></script>
+  <script src="/static/js/feedback.js?v=20261031zk" defer></script>
+  <script src="/static/js/chat-polish.js?v=20261031zk" defer></script>
 </body>
 </html>

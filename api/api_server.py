@@ -2666,6 +2666,46 @@ def genome_liftover_routes():
     return {"ok": True, **list_supported_pairs()}
 
 
+@app.get("/api/gene/master/stats")
+def gene_master_stats():
+    """GRCz12tu 非冗余基因主表概览：总数、功能基因数、各映射方法命中数。"""
+    try:
+        from grcz12tu_master import master_stats
+
+        return master_stats()
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=str(e)) from e
+
+
+@app.get("/api/gene/master/search")
+def gene_master_search(q: str = "", functional_only: int = 1, biotype: str = "",
+                       chrom: str = "", limit: int = 50, offset: int = 0):
+    """按符号 / ID 检索 GRCz12tu 主表。"""
+    try:
+        from grcz12tu_master import master_search
+
+        return master_search(q=q, functional_only=bool(functional_only), biotype=biotype,
+                             chrom=chrom, limit=limit, offset=offset)
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=str(e)) from e
+
+
+@app.get("/api/gene/master/resolve")
+def gene_master_resolve(name: str = ""):
+    """任意本地标识符 → GRCz12tu 落点（含映射依据）。"""
+    try:
+        from grcz12tu_master import resolve_identifier
+
+        out = resolve_identifier(name)
+        if not out.get("ok"):
+            raise HTTPException(status_code=404, detail=out.get("error") or "未找到")
+        return out
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=str(e)) from e
+
+
 @app.get("/api/expression/gene")
 def expression_gene(name: str, top: int = 24):
     """基因表达谱：Bgee 组织分（0–100） + Expression Atlas 胚胎分期 TPM。"""

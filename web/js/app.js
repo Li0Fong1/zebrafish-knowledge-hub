@@ -5513,6 +5513,20 @@ const PAGE_META = {
       emptyTitle: "输入一个名称|Enter a name",
       emptySub: "试 p53、tp53，或粘一个 Ensembl / ZFIN ID|Try p53, tp53, or paste an Ensembl / ZFIN ID",
     },
+    genemaster: {
+      kind: "tool",
+      tool: "gene",
+      panel: "toolGeneMaster",
+      title: "基因主表|Gene master",
+      // 2026-10-31：本机 + 服务器所有标识符经共线性投影与 BLAST 序列比对，
+      // 统一收敛到 GRCz12tu 后的非冗余结果。本页只呈现「落点 + 依据」。
+      lead: "所有标识符统一映射到 GRCz12tu 后的非冗余功能基因；每条都带映射依据。|All identifiers mapped onto GRCz12tu and deduplicated, each with its mapping evidence.",
+      pillA: "GRCz12tu|GRCz12tu",
+      pillB: "非冗余 · 有依据|Deduplicated · Traceable",
+      formHint: "符号 / Gene ID / 跨库 ID|Symbol / Gene ID / cross-DB ID",
+      emptyTitle: "检索或浏览基因主表|Search or browse the master table",
+      emptySub: "试 tp53、sox9b，或点「浏览功能基因」|Try tp53, sox9b, or use Browse",
+    },
     sgrna: {
       kind: "tool",
       tool: "crispr",
