@@ -7,23 +7,23 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/static/assets/brand/favicon.png?v=20261012a" />
   <link rel="apple-touch-icon" href="/static/assets/brand/apple-touch-icon.png?v=20261012a" />
   <meta name="theme-color" content="#e9f3fc" />
-  <link rel="stylesheet" href="/static/css/style.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/simplify.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/refine.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/polish.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/premium.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/design-system.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261031z4" />
-  <link rel="stylesheet" href="/static/css/guide.css?v=20261031z4" />
-  <script src="/static/js/i18n.js?v=20261031z4"></script>
+  <link rel="stylesheet" href="/static/css/style.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/simplify.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/refine.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/polish.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/premium.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/design-system.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261031z7" />
+  <link rel="stylesheet" href="/static/css/guide.css?v=20261031z7" />
+  <script src="/static/js/i18n.js?v=20261031z7"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -165,17 +165,10 @@
              Chat 现在是唯一入口，内部就是融合模式，同时覆盖知识库问答与数据库查询，
              不再向用户暴露「模式」概念。运维看板（#/ops）同样从顶层移除。 -->
 
-        <div class="nav-item" data-nav-group="more">
-          <button type="button" class="top-nav-link" data-nav-toggle data-nav-primary="#/about" aria-expanded="false" aria-haspopup="true">About<span class="nav-caret">▾</span></button>
-          <div class="nav-menu" role="menu" aria-label="About">
-            <a href="#/about/scope" data-route="about" role="menuitem">关于本平台 <small>定位与范围 · 数据规模</small></a>
-            <a href="#/about/data" data-route="about" role="menuitem">数据来源与算法 <small>本库 / ZFIN / Ensembl / NCBI / Bgee</small></a>
-            <a href="#/about/cite" data-route="about" role="menuitem">引用方式 <small>Cite Us · 边界与免责</small></a>
-            <!-- 2026-10-28：首页右卡移除后，原先只挂在那里的三条链接（使用说明 / 使用协议 /
-                 数据来源）统一收进「关于」下拉，不再散落在首页。 -->
-            <a href="#/guide" data-guide-open role="menuitem">使用说明 · 使用协议 · 数据来源 <small>口径 · 条款 · 出处</small></a>
-          </div>
-        </div>
+        <!-- 2026-10-31：原来 About 下拉里的三条（关于本平台 / 数据来源与算法 / 引用方式）
+             本来就是同一页 #/about 的三个章节，摆成三条看着像三个功能。现合并为单一直达入口
+             「平台说明」，章节在页内用 tab 切换；「使用说明」仍由各页页脚进入，不再占菜单位。 -->
+        <a href="#/about" data-route="about" class="top-nav-link">平台说明</a>
       </nav>
       <div class="header-right">
         <div class="status-bar" id="statusBar">
@@ -931,26 +924,26 @@
       <p class="tool-hint">当前为公开演示：无需访问令牌</p>
     </div>
   </div>
-  <script src="/static/js/source-badges.js?v=20261031z4"></script>
-  <script src="/static/js/nav-menu.js?v=20261031z4"></script>
-  <script src="/static/js/provenance.js?v=20261031z4"></script>
-  <script src="/static/js/payload-crypto.js?v=20261031z4"></script>
-  <script src="/static/js/app.js?v=20261031z4"></script>
-  <script src="/static/js/ui-feedback.js?v=20261031z4"></script>
-  <script src="/static/js/live-update.js?v=20261031z4"></script>
-  <script src="/static/js/select-ui.js?v=20261031z4" defer></script>
-  <script src="/static/js/composer-fit.js?v=20261031z4" defer></script>
-  <script src="/static/js/home-feed.js?v=20261031z4" defer></script>
-  <script src="/static/js/agent-home.js?v=20261031z4" defer></script>
-  <script src="/static/js/genes.js?v=20261031z4" defer></script>
-  <script src="/static/js/crispr.js?v=20261031z4" defer></script>
-  <script src="/static/js/genomes.js?v=20261031z4" defer></script>
-  <script src="/static/js/liftover.js?v=20261031z4" defer></script>
-  <script src="/static/js/expression.js?v=20261031z4" defer></script>
-  <script src="/static/js/phenotype.js?v=20261031z4" defer></script>
-  <script src="/static/js/about.js?v=20261031z4" defer></script>
-  <script src="/static/js/guide.js?v=20261031z4" defer></script>
-  <script src="/static/js/feedback.js?v=20261031z4" defer></script>
-  <script src="/static/js/chat-polish.js?v=20261031z4" defer></script>
+  <script src="/static/js/source-badges.js?v=20261031z7"></script>
+  <script src="/static/js/nav-menu.js?v=20261031z7"></script>
+  <script src="/static/js/provenance.js?v=20261031z7"></script>
+  <script src="/static/js/payload-crypto.js?v=20261031z7"></script>
+  <script src="/static/js/app.js?v=20261031z7"></script>
+  <script src="/static/js/ui-feedback.js?v=20261031z7"></script>
+  <script src="/static/js/live-update.js?v=20261031z7"></script>
+  <script src="/static/js/select-ui.js?v=20261031z7" defer></script>
+  <script src="/static/js/composer-fit.js?v=20261031z7" defer></script>
+  <script src="/static/js/home-feed.js?v=20261031z7" defer></script>
+  <script src="/static/js/agent-home.js?v=20261031z7" defer></script>
+  <script src="/static/js/genes.js?v=20261031z7" defer></script>
+  <script src="/static/js/crispr.js?v=20261031z7" defer></script>
+  <script src="/static/js/genomes.js?v=20261031z7" defer></script>
+  <script src="/static/js/liftover.js?v=20261031z7" defer></script>
+  <script src="/static/js/expression.js?v=20261031z7" defer></script>
+  <script src="/static/js/phenotype.js?v=20261031z7" defer></script>
+  <script src="/static/js/about.js?v=20261031z7" defer></script>
+  <script src="/static/js/guide.js?v=20261031z7" defer></script>
+  <script src="/static/js/feedback.js?v=20261031z7" defer></script>
+  <script src="/static/js/chat-polish.js?v=20261031z7" defer></script>
 </body>
 </html>

@@ -113,7 +113,9 @@
   }
   function syncFromRoute() {
     var a = routeArg();
-    if (TABS[a]) tab = a;
+    // 2026-10-31：入口合并成单个「平台说明」后，从导航点进来（#/about 无章节参数）
+    // 一律从第一章看起；带章节的旧书签（#/about/data）仍然直达对应章节。
+    tab = TABS[a] ? a : 'scope';
   }
 
   function block(title, sub, body) {
@@ -161,7 +163,12 @@
           SCALE.map(function (s) { var p = pick(s); return [p[0], p[1], p[2]]; })) +
         '<p class="zf-note">' + esc(T('scopeNote')) + '</p>');
     }
-    host.innerHTML = html;
+    host.innerHTML = html +
+      // 2026-10-31：顶部 About 下拉合并为单一直达入口后，「使用说明 / 协议 / 数据来源」
+      // 在进站后就没有别的入口了（欢迎门上的三条链接关门即不可见），在这里补一条常驻链接。
+      '<p class="zf-note" style="margin-top:16px"><a href="#/guide" data-guide-open>' +
+      esc(curLang() === 'zh' ? '使用说明 · 使用协议 · 数据来源 →' : 'Guide · Terms · Data sources →') +
+      '</a></p>';
     host.classList.remove('hidden');
     syncTabs();
   }
@@ -179,6 +186,9 @@
     Array.prototype.forEach.call(document.querySelectorAll('.about-tab'), function (b) {
       b.addEventListener('click', function () {
         tab = b.getAttribute('data-about-tab') || 'scope';
+        // 章节写进 URL（#/about/data …）但不触发 hashchange：页面已渲染好，
+        // 再让 app.js 重进一次功能页只会闪一下。replaceState 只同步地址栏，供刷新和分享。
+        try { history.replaceState(null, '', '#/about/' + tab); } catch (e) { /* file:// 下忽略 */ }
         render();
       });
     });

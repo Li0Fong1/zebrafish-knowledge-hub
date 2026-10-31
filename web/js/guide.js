@@ -43,7 +43,7 @@
         [T("Omics → Phenotype", "Omics → Phenotype"), T("基因 → 表型、表型 → 基因", "Gene → phenotype, phenotype → genes")],
         [T("Tools", "Tools"), T("BLAST、GO、KEGG、sgRNA 设计、引物设计", "BLAST, GO, KEGG, sgRNA, primers")],
         [T("News", "News"), T("新进来的文献、检索排序过程", "New papers, ranking trace")],
-        [T("About", "About"), T("定位与范围、数据来源、引用方式", "Scope, data sources, citation")]
+        [T("平台说明", "About the platform"), T("定位与范围、数据来源、引用方式", "Scope, data sources, citation")]
       ]
     },
 

@@ -26,7 +26,7 @@
     { route: 'literature', zh: '文献检索台', en: 'Literature', href: '#/literature' },
     { route: 'upload', zh: '入库', en: 'Ingest', href: '#/upload' },
     { route: 'ops', zh: '运维看板', en: 'Operations', href: '#/ops' },
-    { route: 'about', zh: '关于本平台', en: 'About', href: '#/about' }
+    { route: 'about', zh: '平台说明', en: 'About', href: '#/about' }
   ];
 
   /* 按「用途」分两组，每组一行 —— 比 16 个 pill 平铺更看得出结构 */

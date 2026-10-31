@@ -188,6 +188,8 @@
     "选择日期（查看当天的每日论文）": "Pick a date to view that day's selection",
     "同候选池内按日期确定性选取": "Deterministic pick inside the same candidate pool",
     "关于本平台": "About this platform",
+    // 2026-10-31：顶部 About 下拉三合一，入口统一改叫「平台说明」
+    "平台说明": "About the platform",
     "数据来源与算法": "Data sources & algorithms",
     "引用方式": "How to cite",
     // 2026-10-28：关于下拉新增的第三条入口（原先是首页右卡底部那行链接）
