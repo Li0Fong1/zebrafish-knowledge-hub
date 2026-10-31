@@ -350,7 +350,7 @@ def paralog_block(gid) -> dict:
       可能发生亚功能化/新功能化（分工），需用文献证据判断。
     """
     out = {"self": [], "groups": [], "is_duplicated": False,
-           "note": "复制关系由 homology_gene 的“同一物种+同一同源基因名”推导；"
+           "note": "复制关系按“同一物种 + 同一同源基因名”推导；"
                    "功能分工（亚功能化/新功能化）需文献支持。"}
     try:
         res = _client().execute_sql(

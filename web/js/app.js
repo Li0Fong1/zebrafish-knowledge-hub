@@ -4747,14 +4747,28 @@ function mdInline(s) {
   t = t.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   // 斜体 *x*
   t = t.replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
-  // 链接 [text](url) — 支持 https 与本系统 #/ 深链
-  t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|#\/[^)\s]+)\)/g, (m, label, url) => {
-    const external = String(url).startsWith("http");
+
+  /* 链接：先把 markdown 语法 [文字](url) 与裸 URL 都抽成占位符，
+     最后统一还原成 <a>。这样裸 URL 也能点（用户反馈「参考文献的链接不能点」，
+     根因就是以前只认 [文字](url)，正文里直接写的 https://pubmed... 是死文本）。
+     占位符用 \u0000 包住，不会和正文冲突。 */
+  const links = [];
+  const stash = (label, url) => {
+    links.push({ label: label, url: url });
+    return "\u0000L" + (links.length - 1) + "\u0000";
+  };
+  t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|#\/[^)\s]+)\)/g, (m, label, url) => stash(label, url));
+  // 裸 URL：止于空白、引号、尖括号或中文标点，避免把句末的 。）吃进去
+  t = t.replace(/https?:\/\/[^\s<>"'\u3000-\u303f\uff00-\uffef]+/g, (m) => stash(m, m));
+  return t.replace(/\u0000L(\d+)\u0000/g, (m, i) => {
+    const it = links[Number(i)];
+    if (!it) return m;
+    const external = String(it.url).startsWith("http");
     const rel = external ? ' target="_blank" rel="noopener"' : "";
     const cls = external ? "md-a md-a-ext" : "md-a md-a-local";
-    return `<a class="${cls}" href="${mdEscape(url)}"${rel}>${label}</a>`;
+    // url 取自 mdEscape 之后的文本，已经是可放进属性的形态，不要再转义一次
+    return `<a class="${cls}" href="${it.url}"${rel}>${it.label}</a>`;
   });
-  return t;
 }
 
 function mdToHtml(text) {

@@ -223,7 +223,7 @@ class AgentScheduler:
             if is_academic_mode():
                 result["answer"] = finalize_academic_structured_answer(
                     draft,
-                    "本地库 MySQL gene_basic",
+                    "本地基因库",
                     f"Ensembl release {ENSEMBL_RELEASE}",
                 )
             else:
@@ -322,7 +322,7 @@ class AgentScheduler:
                 return result
             conv = id_convert(gene)
             result["answer"] = answer_from_id_resolve(question, conv) if conv.get("resolved") else (
-                f"[错误] 未解析到基因 ID：{gene}（请先运行 python -m scripts.build_gene_aliases）"
+                f"[错误] 没有解析到基因 {gene}：请确认符号拼写，或改用 Ensembl / ZFIN / NCBI 编号"
             )
             return result
 

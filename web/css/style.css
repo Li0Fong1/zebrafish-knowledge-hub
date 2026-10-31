@@ -1229,8 +1229,18 @@ body.dark .site-header { background: rgba(14,36,40,.9); }
   display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px;
   background: rgba(15,118,110,.1); color: var(--accent); text-decoration: none;
 }
-.md-a-local { color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px dashed rgba(15,118,110,.45); }
-.md-a-ext { color: var(--accent-2); }
+.md-a-local, .md-body .md-a-local { color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px dashed rgba(15,118,110,.45); }
+/* 外链以前只有颜色、没有下划线，看起来跟普通文字一样，用户根本不知道能点。
+   现在给虚线下划线 + hover 变实线，和站内深链保持同样的「可点」信号。
+   注意要带 .md-body 前缀：chat-2026.css 里的 `.md-body a`（特异性 0,1,1）
+   会把它压成 border-bottom: 1px solid transparent，虚线就看不见了。 */
+.md-a-ext, .md-body .md-a-ext {
+  color: var(--accent-2); text-decoration: none; font-weight: 500;
+  border-bottom: 1px dashed rgba(29,111,184,.45);
+  transition: border-color .12s, color .12s;
+}
+.md-a-ext:hover, .md-body .md-a-ext:hover { border-bottom-style: solid; border-bottom-color: var(--accent-2); }
+.md-a-ext::after { content: "\2197"; font-size: .82em; margin-left: 2px; opacity: .75; vertical-align: super; }
 .map-table { width: 100%; font-size: 12px; border-collapse: collapse; }
 .map-table th, .map-table td { border-bottom: 1px solid var(--border); padding: 6px 4px; text-align: left; }
 

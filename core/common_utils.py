@@ -292,7 +292,7 @@ def answer_with_reasoning(
     if is_academic_mode() and draft_hint and draft_hint.strip() and is_factual_template_question(question):
         return finalize_academic_structured_answer(
             draft_hint.strip(),
-            f"本地库 MySQL gene_basic（{REFERENCE_ASSEMBLY}）",
+            f"本地基因库（{REFERENCE_ASSEMBLY}）",
             f"Ensembl release {ENSEMBL_RELEASE}",
         )
 
@@ -440,7 +440,9 @@ go_term,go_category,species,homo_gene_name,homology_score,expression_stage,ensem
                             result["answer"] = answer_from_gene_detail(question, detail)
                     else:
                         result["answer"] = answer_from_gene_detail(question, detail)
-                    result["answer"] += f"\n\n（SQL 返回 {res['count']} 条，以上依据 gene_basic / gene_expression 等表）"
+                    # 2026-10-31 用户反馈：原来这里追加「（SQL 返回 N 条，以上依据 gene_basic /
+                    # gene_expression 等表）」—— SQL、表名都是后台实现，不该出现在回答里，
+                    # 溯源统一由文末「数据溯源 / 参考文献」承担，故删除。
                     return result
     except Exception as e:
         logger.warning(f"基因详情加载失败：{e}")

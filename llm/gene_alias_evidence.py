@@ -427,7 +427,7 @@ def format_paralog_prompt_block(paralogs: dict, lang: str = "zh",
               "literature gives no support — never invent a function split.\n"
         )
     return (
-        "【硬骨鱼全基因组复制 · 复制体/共直系同源证据，来自本地 homology_gene】\n"
+        "【硬骨鱼全基因组复制 · 复制体/共直系同源证据】\n"
         + "\n".join(lines) + "\n" + ev_block
         + ("这些是同一个人类/小鼠基因的共直系同源（硬骨鱼全基因组复制的典型结果）；"
            "功能分工（亚功能化/新功能化）只能依据**下面列出的文献**判断，证据不足就写证据不足。\n"

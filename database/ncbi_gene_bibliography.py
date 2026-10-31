@@ -555,17 +555,35 @@ def _answer_en(question: str = "") -> bool:
         return False
 
 
+def _paper_year(pubdate) -> str:
+    """从 PubMed 的 pubdate（'2022 Mar 18' / '2022 Aug' / '2022'）里取年份。"""
+    m = re.search(r"\b(1[89]\d{2}|20\d{2})\b", str(pubdate or ""))
+    return m.group(1) if m else ""
+
+
+def _paper_line(paper: dict) -> str:
+    """一条文献渲染成 markdown 列表项：标题本身是 PubMed 链接，年份跟在后面。
+
+    2026-10-31 用户反馈：原来写成「- PMID 35304872（2022 Mar 18） rrs=0.828 标题」，
+    PMID 号、内部打分 rrs 都是后台的东西，用户不该看到，而且整行不可点。
+    现在只留标题 + 年份，PMID 藏进链接地址。
+    """
+    title = str(paper.get("title") or "").strip().rstrip(".")
+    pmid = str(paper.get("pmid") or "").strip()
+    if not title:
+        return ""
+    # 方括号会破坏 markdown 链接语法，换成圆括号（标题里极少见，不影响阅读）
+    label = title.replace("[", "(").replace("]", ")")
+    year = _paper_year(paper.get("pubdate"))
+    suffix = f" · {year}" if year else ""
+    if not pmid.isdigit():
+        return f"- {label}{suffix}"
+    return f"- [{label}](https://pubmed.ncbi.nlm.nih.gov/{pmid}/){suffix}"
+
+
 def _block(found: dict, question: str = "") -> str:
     en = _answer_en(question)
-    if en:
-        lines = [
-            "NCBI Gene bibliography (gene_pubmed). These PMIDs are attached to the gene entity; "
-            "this is not a free-text search on old aliases."
-        ]
-    else:
-        lines = [
-            "NCBI Gene bibliography（gene_pubmed）。这些 PMID 挂在基因实体上，不是用旧称做纯文字搜索。"
-        ]
+    lines: list[str] = []
     for item in found.get("ambiguous") or []:
         names = (", ".join if en else "、".join)(item.get("symbols") or [])
         if en:
@@ -578,49 +596,30 @@ def _block(found: dict, question: str = "") -> str:
                 f"{item.get('alias')} 同时对到 {names}。没有改抓其中一个基因的 Bibliography。请指定其中一个符号。"
             )
     for gene in found.get("genes") or []:
-        if gene.get("source") == "gene_pubmed_rrs":
-            if en:
-                lines.append(
-                    f"{gene['symbol']} has NCBI Gene ID {gene['ncbi_gene_id']}; "
-                    f"gene_pubmed lists {gene['pmid_count']} papers. "
-                    f"The {len(gene['papers'])} papers below are selected only from those links, "
-                    "ordered by RRS (Reference Relevance Score)."
-                )
-            else:
-                lines.append(
-                    f"{gene['symbol']} 的 NCBI Gene ID 是 {gene['ncbi_gene_id']}，"
-                    f"gene_pubmed 共 {gene['pmid_count']} 篇。"
-                    f"下面 {len(gene['papers'])} 篇只从这些链接里选出，"
-                    f"顺序是 RRS（Reference Relevance Score，引用相关性分数）。"
-                )
-        else:
-            if en:
-                lines.append(
-                    f"{gene['symbol']} has NCBI Gene ID {gene['ncbi_gene_id']}; "
-                    f"gene_pubmed lists {gene['pmid_count']} papers. "
-                    "Below are a few older and a few newer entries."
-                )
-            else:
-                lines.append(
-                    f"{gene['symbol']} 的 NCBI Gene ID 是 {gene['ncbi_gene_id']}，"
-                    f"gene_pubmed 共 {gene['pmid_count']} 篇。下面列出较早和较新的各数篇。"
-                )
-        for paper in gene["papers"]:
-            if en:
-                date = f" ({paper['pubdate']})" if paper.get("pubdate") else ""
-            else:
-                date = f"（{paper['pubdate']}）" if paper.get("pubdate") else ""
-            score = ""
-            if paper.get("rel_n") is not None:
-                score += f" rel={float(paper['rel_n']):.3f}"
-            if paper.get("rrs") is not None:
-                score += f" rrs={float(paper['rrs']):.3f}"
-            lines.append(f"- PMID {paper['pmid']}{date}{score} {paper.get('title') or ''}".rstrip())
+        symbol = str(gene.get("symbol") or "").strip()
+        papers = gene.get("papers") or []
+        total = gene.get("pmid_count") or 0
+        body = [ln for ln in (_paper_line(p) for p in papers) if ln]
+        if not body:
+            continue
         if en:
-            lines.append(f"Gene page: https://www.ncbi.nlm.nih.gov/gene/{gene['ncbi_gene_id']}")
+            head = f"**{symbol} references**"
+            if total:
+                head += (f" — {total} papers linked to this gene in NCBI Gene, "
+                         f"{len(body)} shown below.")
         else:
-            lines.append(f"基因页：https://www.ncbi.nlm.nih.gov/gene/{gene['ncbi_gene_id']}")
-    return "\n".join(lines) if len(lines) > 1 else ""
+            head = f"**{symbol} 相关文献**"
+            if total:
+                head += f"（NCBI Gene 上关联 {total} 篇，以下列出 {len(body)} 篇）"
+        lines.append(head)
+        lines.extend(body)
+        gene_url = f"https://www.ncbi.nlm.nih.gov/gene/{gene.get('ncbi_gene_id')}"
+        if str(gene.get("ncbi_gene_id") or "").isdigit():
+            lines.append(
+                f"[{'All papers on the NCBI Gene page' if en else '在 NCBI Gene 页查看全部'}]"
+                f"({gene_url})"
+            )
+    return "\n".join(lines)
 
 
 def bibliography_for_question(question: str) -> dict:

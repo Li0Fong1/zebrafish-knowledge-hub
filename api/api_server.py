@@ -1858,7 +1858,7 @@ def gene_orthologs(name: str):
         block["query"] = normalized
         block["mode"] = "zebrafish_gene"
         if not block.get("groups"):
-            block["note"] = "本地 homology_gene 里没有该基因的人/鼠同源记录。"
+            block["note"] = "本地库里没有该基因的人/鼠同源记录。"
         return _attach_copy_roles(block)
 
     block = co_orthologs_by_human(safe_name)

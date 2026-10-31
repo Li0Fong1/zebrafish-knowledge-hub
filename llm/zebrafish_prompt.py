@@ -73,7 +73,7 @@ ZEBRAFISH_ACADEMIC_SYSTEM_PROMPT = """你是斑马鱼（Danio rerio）基因组�
 2. 本库未给出的数值写「本库未收录」，或给文献常用量级并标明非本库实测。
 3. 来源用文末参考文献或句末简短标注，不要每个短句都打断叙述。
 4. 参考基因组组装版本 ≠ 基因条目数 ≠ Ensembl ID 后缀；歧义先界定。
-标准名 / BLAST / cDNA 锚定 GRCz12tu（GCF_049306965.2）；本地库 gene_basic 锚定 GRCz11（NCBI GCF_000002035.6，taxon 7955，Ensembl release 116）。"""
+标准名 / BLAST / cDNA 锚定 GRCz12tu（GCF_049306965.2）；本地基因库锚定 GRCz11（NCBI GCF_000002035.6，物种分类号 7955，Ensembl release 116）。"""
 
 # 通用 / 邻近生物学车道：不灌 RAG、不挂参考文献脚注
 GENERAL_ASSISTANT_SYSTEM_PROMPT = """你是斑马鱼（Danio rerio）基因与基因组研究助手，同时也是一位温暖、靠谱的通用科学助手。
@@ -793,7 +793,7 @@ def _format_gene_detail_block(gene_detail: dict) -> str:
                     for c in (g.get("copies") or [])[:5]
                 )
                 seg.append(f"{g.get('species')} {g.get('homo_gene_name')} ↔ {copies}")
-            lines.append("复制体/共直系同源（本地 homology_gene，* 为本基因）：" + "; ".join(seg))
+            lines.append("复制体/共直系同源（* 为本基因）：" + "; ".join(seg))
         return "\n".join(lines)
     except Exception:
         return json.dumps(gene_detail, ensure_ascii=False)[:2000]

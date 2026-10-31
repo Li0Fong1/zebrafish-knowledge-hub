@@ -1265,7 +1265,7 @@ def run_retrieval_debug_only(question: str, *, depth: str = "full") -> dict:
             f"打包：{hub_pack.get('chunks_included', '?')} 块 / "
             f"{hub_pack.get('total_chars', '?')} 字符（未送 LLM）"
         )
-        lines.append(f"耗时：{dbg.get('elapsed_sec', '?')}s · shards={dbg.get('shards_loaded', '?')}")
+        lines.append(f"耗时：{dbg.get('elapsed_sec', '?')} 秒")
         lines.append("说明：本范围仅返回检索排序摘要，未调用大模型生成回答。")
         result["answer"] = "\n".join(lines) + _scope_footer("retrieval_debug", depth)
         packed_prev = hub_pack.get("context_preview_head") or ""
@@ -1523,12 +1523,14 @@ def run_hub_orchestration(
 
         bib_block = bibliography_for_question(question).get("answer_block") or ""
         _ans = result.get("answer") or ""
-        if (
-            bib_block
-            and "基因页：https://www.ncbi.nlm.nih.gov/gene/" not in _ans
-            and "基因頁：https://www.ncbi.nlm.nih.gov/gene/" not in _ans
-            and "Gene page: https://www.ncbi.nlm.nih.gov/gene/" not in _ans
-        ):
+        # 去重标记跟着 ncbi_gene_bibliography 的输出格式走：URL 片段最稳，
+        # 末尾那句「在 NCBI Gene 页查看全部 / All papers on the NCBI Gene page」做兜底。
+        already = (
+            "ncbi.nlm.nih.gov/gene/" in _ans
+            or "NCBI Gene 页查看全部" in _ans
+            or "All papers on the NCBI Gene page" in _ans
+        )
+        if bib_block and not already:
             result["answer"] += "\n\n" + bib_block
     except Exception as e:  # noqa: BLE001
         logger.warning(f"[Hub] NCBI Gene bibliography 附加失败：{e}")

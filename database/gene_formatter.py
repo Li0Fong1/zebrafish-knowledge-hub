@@ -703,16 +703,16 @@ def answer_gene_version_question(question: str) -> str:
         if asks_genome or (not asks_count and "版本" in q):
             direct.append(
                 f"NCBI 现行参考组装为 {std_asm}（{std_refseq}）；"
-                f"本库 gene_basic 锚定 {anchor}（NCBI {ncbi}，taxon {taxon}，Ensembl {release}）"
+                f"本地基因库锚定 {anchor}（NCBI {ncbi}，taxon {taxon}，Ensembl {release}）"
             )
         if asks_count or (not asks_genome and "版本" in q):
-            pc_line = f"，其中 protein_coding={pc_n}" if pc_n else ""
+            pc_line = f"，其中蛋白编码基因 {pc_n} 条" if pc_n else ""
             direct.append(
-                f"本库 gene_basic 共 {gene_n} 条基因注释{pc_line}（锚定 {anchor}）[本地库 gene_basic]"
+                f"本地基因库共 {gene_n} 条基因注释{pc_line}（锚定 {anchor}）[本地库]"
             )
         if not direct:
             direct.append(
-                f"标准名/BLAST/cDNA={std_asm}；gene_basic={gene_n} 条锚定 {anchor}"
+                f"标准名/BLAST/cDNA={std_asm}；基因注释 {gene_n} 条，锚定 {anchor}"
             )
 
         lines = [
@@ -721,16 +721,15 @@ def answer_gene_version_question(question: str) -> str:
             "【概念界定】「版本」在斑马鱼领域常指以下三类，不可混用：",
             "",
             f"1. 参考基因组组装版本 — NCBI 现行参考 {std_asm}（{std_refseq}）；"
-            f"本库 gene_basic 仍锚定 {anchor}（NCBI {ncbi}，taxon {taxon}，Ensembl release {release}）。"
+            f"本地基因库仍锚定 {anchor}（NCBI {ncbi}，taxon {taxon}，Ensembl release {release}）。"
             " 历史组装含 GRCz10（Zv10）、Zv9/Zv8 等 [Ensembl/NCBI 沿革]。",
             "",
             f"2. 基因注释条目数 — 非「组装有几个」，而是 {anchor} 注释下的基因记录数。",
-            f"  · gene_basic 总计：**{gene_n}** 条 [本地库 SELECT COUNT(*) FROM gene_basic]",
+            f"  · 本地基因库总计：**{gene_n}** 条 [本地库]",
         ]
         if pc_n:
             lines.append(
-                f"  · biotype=protein_coding：**{pc_n}** 条 "
-                f"（gene_function 含 Ensembl/HAVANA 注释标签）[本地库]"
+                f"  · 蛋白编码基因：**{pc_n}** 条（Ensembl/HAVANA 注释）[本地库]"
             )
         if lnc_n:
             lines.append(f"  · lncRNA 类：**{lnc_n}** 条 [本地库]")
@@ -738,14 +737,14 @@ def answer_gene_version_question(question: str) -> str:
             lines.append(f"  · miRNA 类：**{mir_n}** 条 [本地库]")
         if not pc_n:
             lines.append(
-                "  · protein_coding 细分计数：本库 gene_function 未完整标注 Ensembl biotype，"
-                "不得以文献「约 2.6 万」替代本库实测 gene_basic 总数 [本库未收录完整 biotype 标签]"
+                "  · 蛋白编码基因细分计数：本地库未完整标注基因类型，"
+                "不得以文献「约 2.6 万」替代本地库实测总数 [本地库] "
             )
         else:
             annotated = sum(biotypes.values())
             if annotated < gene_n:
                 lines.append(
-                    f"  · 注：gene_basic 共 {gene_n} 条，其中 {annotated} 条带 Ensembl/HAVANA biotype 标签；"
+                    f"  · 注：本地基因库共 {gene_n} 条，其中 {annotated} 条带 Ensembl/HAVANA 基因类型标签；"
                     f"其余为功能描述文本或混合注释 [本地库]"
                 )
         lines.extend([
@@ -754,7 +753,7 @@ def answer_gene_version_question(question: str) -> str:
             "不是斑马鱼物种或组装版本数；本库存 Ensembl r116 快照 ID（通常无 .后缀）[Ensembl 规范]。",
             "",
             "【Methods 引用示例】",
-            f"Gene annotations were queried from local MySQL (gene_basic, n={gene_n}, "
+            f"Gene annotations were queried from the local zebrafish annotation database (n={gene_n}, "
             f"assembly={anchor}, Ensembl release {release}).",
         ])
         return "\n".join(lines)
@@ -766,15 +765,15 @@ def answer_gene_version_question(question: str) -> str:
         "",
         f"① 参考基因组「组装」有几个版本？（{std_asm} / GRCz11 / GRCz10 等）",
         f"  · NCBI 现行参考：**{std_asm}**（{std_refseq}）— 本系统标准名、BLAST、cDNA 锚定于此。",
-        f"  · 本地库 gene_basic 仍锚定 **{anchor}**（Ensembl {release}，NCBI {ncbi}）的 ID/坐标/表达。",
+        f"  · 本地基因库仍锚定 **{anchor}**（Ensembl {release}，NCBI {ncbi}）的 ID/坐标/表达。",
         "  · 历史上还有 GRCz10（Zv10）、Zv9/Zv8；旧文献可能仍写 GRCz10。",
         "  · 另有个别品系组装（如 AB 品系 DrAB1），不等同于上述参考。",
         "",
         f"② 「有多少个基因」？（注释里的基因条目数，不是组装版本数）",
-        f"  · 本系统 gene_basic：**{gene_n}** 个基因（锚定 {anchor}，Ensembl release {release}）。",
+        f"  · 本地基因库：**{gene_n}** 个基因（锚定 {anchor}，Ensembl release {release}）。",
     ]
     if pc_n:
-        lines.append(f"  · 其中 protein_coding：**{pc_n}** 个（gene_function 字段统计）。")
+        lines.append(f"  · 其中蛋白编码基因：**{pc_n}** 个。")
     lines.extend([
         "  · 与教科书常说的「约 2.6 万蛋白编码基因」同量级；具体数目随注释版本略有增减。",
         "",
@@ -782,14 +781,14 @@ def answer_gene_version_question(question: str) -> str:
         "  · 表示同一 Ensembl 基因 ID 在后续注释中的修订次数，不是「有几种斑马鱼」。",
         "  · 本库存的是 r116 快照 ID（通常无 .后缀）；换组装或升级 Ensembl 后后缀会变。",
         "",
-        f"本系统口径：标准名/BLAST/cDNA={std_asm}；gene_basic={anchor}（NCBI {ncbi}，taxon {taxon}）。",
+        f"本系统口径：标准名/BLAST/cDNA={std_asm}；基因注释锚定 {anchor}（NCBI {ncbi}，物种分类号 {taxon}）。",
     ])
     if asks_count and "基因组" not in q and "组装" not in q and "grcz" not in q:
         pc_hint = f"（protein_coding {pc_n}）" if pc_n else ""
         lines.insert(
             2,
             "【直接回答】您问「基因有多少版本」时，多数情况下是在问②："
-            f"当前 {anchor} 注释下 gene_basic 共 **{gene_n}** 条{pc_hint}；"
+            f"当前 {anchor} 注释下本地基因库共 **{gene_n}** 条{pc_hint}；"
             f"若指基因组组装，NCBI 现行参考是 {std_asm}，本库坐标层仍是 {anchor}。",
         )
         lines.insert(3, "")
@@ -816,12 +815,12 @@ def answer_reference_genome_versions() -> str:
     return "\n".join([
         f"【直接结论】NCBI 现行参考组装为 **{std_asm}**（RefSeq {std_refseq}）。"
         "本系统对外标准名、BLAST 核酸库、cDNA 提取均锚定于此。"
-        f"本地 MySQL gene_basic（Ensembl ID、染色体坐标、表达、GO/KEGG）仍为 **{anchor}**"
+        f"本地基因库（Ensembl ID、染色体坐标、表达、GO/KEGG）仍为 **{anchor}**"
         f"（Ensembl release {release}，{ncbi}，taxon {taxon}，约 {gene_n} 条）。",
         "",
         "【组装沿革】",
         f"  1. {std_asm} — NCBI Datasets 现行参考（{std_refseq}）；本系统标准名 / BLAST / cDNA。",
-        f"  2. {anchor}（Zv11）— Ensembl 长期默认；本库 gene_basic 锚定 [本地库]。",
+        f"  2. {anchor}（Zv11）— Ensembl 长期默认；本地基因库锚定 [本地库]。",
         "  3. GRCz10（Zv10）— 上一代参考组装，部分旧文献仍引用。",
         "  4. Zv9 / Zv8 及更早 — 早期 Sanger 组装，新研究较少使用。",
         "",
@@ -1020,7 +1019,7 @@ def answer_gene_comparison(question: str) -> str:
 
     resolved_ok = [e for e in entries if e["canonical"].get("gene_id")]
     if len(resolved_ok) < 1:
-        return "[错误] 本地库未找到相关基因，请检查符号或运行 build_gene_aliases"
+        return "[错误] 本地库里没有找到匹配的基因，请确认基因符号是否正确（也支持 Ensembl / ZFIN / NCBI 编号）"
 
     gene_ids = {e["canonical"]["gene_id"] for e in resolved_ok}
     names = [e["canonical"].get("gene_name") or e["query"] for e in resolved_ok]

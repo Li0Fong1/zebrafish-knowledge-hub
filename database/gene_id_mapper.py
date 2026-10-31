@@ -920,7 +920,7 @@ def resolve_gene_identifier(query: str, use_ensembl_fallback: bool = True) -> di
         result["status"] = "not_found"
         result["notes"].append(
             f"未在本地库（{REFERENCE_ASSEMBLY}）找到匹配；"
-            "可运行 scripts/build_gene_aliases 与 scripts/build_name_resolve_layer"
+            "请确认符号拼写，或改用 Ensembl / ZFIN / NCBI 编号"
         )
         return result
 
