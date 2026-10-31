@@ -32,6 +32,9 @@
       kStrand: '链方向',
       kLen: '长度',
       kChain: '经过的链',
+      kTgtGene: '区间基因',
+      kTgtSeq: '参考序列',
+      geneMismatch: '两端区间基因不同：{s} → {t}。请确认这串坐标确实取自 {from}——不同品系装配的同一段数字常落在不同基因上。',
       takeSeq: '按这段坐标取序列',
       backNote: '路由：{from} → {to}（缺链／缺 MAF 时不给近似坐标）',
       codeMissing: '服务器上没有这条换算链，无法换算',
@@ -79,6 +82,9 @@
       kStrand: 'Strand',
       kLen: 'Length',
       kChain: 'Chain',
+      kTgtGene: 'Gene at target',
+      kTgtSeq: 'Reference sequence',
+      geneMismatch: 'The two ends hit different genes: {s} → {t}. Check that these coordinates really come from {from} — the same numbers often land on different genes across strain assemblies.',
       takeSeq: 'Fetch this sequence',
       backNote: 'Route: {from} → {to} (no approximate coords if chain/MAF missing)',
       codeMissing: 'The chain file for this conversion is missing on the server',
@@ -152,18 +158,51 @@
   }
 
   /* 只认有数的结果：ok 且 target_span 非空 */
+  function chainLabel(d) {
+    // 2026-10-31：不直接把 .over.chain 文件名丢给用户。
+    // UCSC 的目标端常写 danRer11（＝GRCz11 的旧名），和界面上选的「GRCz11」看着像两个版本，
+    // 用户会以为链配错了。这里显示路由本身（A → B [→ C]），文件名放 title 里备查。
+    var hops = Array.isArray(d.route_hops) ? d.route_hops.filter(Boolean) : [];
+    if (hops.length) return hops.join(' → ');
+    if (d.source_build && d.target_build) return d.source_build + ' → ' + d.target_build;
+    return d.chain || '—';
+  }
+
+  function geneSymbols(list) {
+    return (Array.isArray(list) ? list : [])
+      .map(function (g) { return g && g.symbol ? String(g.symbol) : ''; })
+      .filter(Boolean);
+  }
+
   function okCard(d) {
     var srcLen = (d.start != null && d.end != null) ? (Number(d.end) - Number(d.start) + 1) : null;
+    var tgtGenes = geneSymbols(d.target_genes);
     var rows = [
       [T('kSrc'), d.source_build + ' ' + (d.source_span || '')],
-      [T('kTgt'), d.target_build + ' ' + (d.target_span || '')],
-      [T('kStrand'), d.strand || '+'],
-      [T('kLen'), srcLen ? srcLen.toLocaleString('en-US') + ' bp' : '—'],
-      [T('kChain'), d.chain || '—']
+      [T('kTgt'), d.target_build + ' ' + (d.target_span || '')]
     ];
+    if (d.target_accession) rows.push([T('kTgtSeq'), d.target_accession]);
+    if (tgtGenes.length) rows.push([T('kTgtGene'), tgtGenes.join(' · ')]);
+    rows.push([T('kStrand'), d.strand || '+']);
+    rows.push([T('kLen'), srcLen ? srcLen.toLocaleString('en-US') + ' bp' : '—']);
+    rows.push([T('kChain'), chainLabel(d)]);
+
     var body = rows.map(function (r) {
-      return '<tr><th>' + esc(r[0]) + '</th><td class="prov-mono">' + esc(r[1]) + '</td></tr>';
+      var title = (r[0] === T('kChain') && d.chain) ? ' title="' + esc(d.chain) + '"' : '';
+      return '<tr><th>' + esc(r[0]) + '</th><td class="prov-mono"' + title + '>' + esc(r[1]) + '</td></tr>';
     }).join('');
+
+    // 两端都注释到了、却没有任何一个同名基因 → 这段坐标很可能不是这个装配的
+    // （不同品系装配之间常有片段级增删：同一串数字在两边落在不同基因上）。
+    var srcGenes = geneSymbols(d.source_genes);
+    var disjoint = srcGenes.length && tgtGenes.length &&
+      !srcGenes.some(function (s) { return tgtGenes.indexOf(s) >= 0; });
+    var warn = disjoint
+      ? '<p class="tool-hint warn">' + esc(fmt(T('geneMismatch'), {
+        s: srcGenes.join(' · '), t: tgtGenes.join(' · '), from: d.source_build || ''
+      })) + '</p>'
+      : '';
+
     var seqBtn = d.chromosome
       ? '<button type="button" class="tool-secondary-btn" data-lift-take-seq="1"' +
         ' data-chrom="' + esc(d.chromosome) + '" data-start="' + esc(d.start) + '" data-end="' + esc(d.end) + '"' +
@@ -173,6 +212,7 @@
     return '<div class="tool-summary">' + esc(T('okTitle')) + ' · ' +
       esc(d.source_build) + ' → ' + esc(d.target_build) + '</div>' +
       '<div class="table-wrap"><table class="gene-table"><tbody>' + body + '</tbody></table></div>' +
+      warn +
       (seqBtn ? '<div class="tool-row">' + seqBtn + '</div>' : '');
   }
 

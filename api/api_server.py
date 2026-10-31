@@ -2633,6 +2633,23 @@ def genome_liftover(
 
     code = out.get("code") or ""
     pair = f"{source_build} → {target}"
+    if code in ("liftover_ok", "already_on_target_build"):
+        # 2026-10-31：除了坐标，再给「两边各自落在哪个基因 / 哪条参考序列」。
+        # 不同品系装配之间常有片段级增删，同一段数字在两边对应的基因可以完全不同
+        # （实测 ASM1840007v1 chr5:24,086,227 是 si:dkey-90a24.1 区，而 GRCz11 同坐标是 tp53），
+        # 只给坐标用户会以为链算错了。注释缺失的装配返回空表，不猜。
+        try:
+            from region_genes import chrom_accession, genes_in_span
+
+            if out.get("chromosome") and out.get("start"):
+                out["target_accession"] = chrom_accession(target, out.get("chromosome") or "")
+                out["target_genes"] = genes_in_span(
+                    target, out.get("chromosome") or "", int(out["start"]), int(out["end"])
+                )
+            out["source_accession"] = chrom_accession(source_build, chrom)
+            out["source_genes"] = genes_in_span(source_build, chrom, start, end)
+        except Exception:
+            pass
     if code == "liftover_ok":
         out["message_zh"] = f"{source_build} {out.get('source_span')} → {target} {out.get('target_span')}（{out.get('strand')} 链）"
         out["message_en"] = f"{source_build} {out.get('source_span')} → {target} {out.get('target_span')} (strand {out.get('strand')})"
