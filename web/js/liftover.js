@@ -56,6 +56,7 @@
       idColEns: 'Ensembl',
       idColZfin: 'ZFIN',
       idColNcbi: 'NCBI Gene',
+      idColUni: 'UniProt',
       idColChrom: '染色体',
       stUnique: '唯一',
       stAmb: '多候选 {n}',
@@ -102,6 +103,7 @@
       idColEns: 'Ensembl',
       idColZfin: 'ZFIN',
       idColNcbi: 'NCBI Gene',
+      idColUni: 'UniProt',
       idColChrom: 'Chr',
       stUnique: 'unique',
       stAmb: 'ambiguous ({n})',
@@ -286,9 +288,15 @@
     GRCz10: 1, GRCz11: 1, GRCz12tu: 1, GRCz12ab: 1
   };
   // API 失败时侧挂仍可按已知直连边过滤
+  // 2026-10-31：NCBI 品系装配（contig N50 ≥ 1 Mb）。每条都只写到 GRCz11 或 GRCz12tu 的单跳链，
+  // 所以这里按「实际有链的目标」列，不写多跳可达项（多跳由后端 BFS 处理，界面上不铺开）。
   var FALLBACK_DIRECT = {
-    ASM1840007v1: { GRCz11: 1, GRCz10: 1 },
-    'fDanRer4.1': { GRCz12tu: 1 }
+    ASM1840007v1: { GRCz11: 1 },
+    ASM3317019v3: { GRCz12tu: 1 },
+    ASM2018471v1: { GRCz12tu: 1 },
+    'fDanRer4.1': { GRCz12tu: 1 },
+    'fDreABH1.1': { GRCz12tu: 1 },
+    'fDreTuH1.2': { GRCz12tu: 1 }
   };
 
   function unwrapRoutes(d) {
@@ -326,10 +334,14 @@
     if (!tgt) return true;
     if (src && tgt === src) return false;
     if (!src) return true;
-    // 侧挂：只显示单跳有链的目标（API 未就绪时用 FALLBACK）
+    // 侧挂（NCBI 品系装配）：路由表就绪后按真实可达列（可多跳，如 ASM1840007v1 → GRCz11 → GRCz12tu）；
+    // 路由表没回来之前只按已知单跳兜底，避免把整个目标列表都点亮。
     if (!isCoreBuild(src)) {
-      var dmap = routesReady ? directBySource : FALLBACK_DIRECT;
-      var dset = (dmap && dmap[src]) || FALLBACK_DIRECT[src] || {};
+      if (routesReady) {
+        var set0 = reachableBySource[src];
+        return !!(set0 && set0[tgt]);
+      }
+      var dset = FALLBACK_DIRECT[src] || {};
       return !!dset[tgt];
     }
     // 主线：API 未就绪时先全显（仅藏同版本）；就绪后按多跳可到达
@@ -519,6 +531,8 @@
       ens: c.ensembl_id || xrefOf(r, ['ensembl']),
       zfin: c.zfin_id || xrefOf(r, ['zfin']),
       ncbi: xrefOf(r, ['ncbi_gene', 'ncbi_gene_grcz12tu']),
+      // 2026-10-31：UniProt 进跨库 ID（库内 gene_xref 已回填 21k 条 UniProt accession）
+      uni: c.uniprot_id || xrefOf(r, ['uniprot']),
       chrom: c.chromosome || ''
     };
   }
@@ -566,7 +580,8 @@
       var ids = [
         ['Ensembl', r.ens],
         ['ZFIN', r.zfin],
-        ['NCBI', r.ncbi]
+        ['NCBI', r.ncbi],
+        ['UniProt', r.uni]
       ].map(function (pair) {
         return '<span class="id-map-idli"><em>' + pair[0] + '</em>' +
           (pair[1] ? esc(pair[1]) : '<span class="id-map-empty">—</span>') + '</span>';
@@ -625,12 +640,12 @@
   }
 
   function idMapMatrix() {
-    var head = ['idColQuery', 'idColStatus', 'idColStd', 'idColLocal', 'idColEns', 'idColZfin', 'idColNcbi', 'idColChrom']
+    var head = ['idColQuery', 'idColStatus', 'idColStd', 'idColLocal', 'idColEns', 'idColZfin', 'idColNcbi', 'idColUni', 'idColChrom']
       .map(function (k) { return T(k); });
     var rows = lastRows.map(function (r) {
       var st = r.status === 'unique' ? T('stUnique')
         : (r.status === 'ambiguous' ? fmt(T('stAmb'), { n: r.candCount }) + ' ' + r.candNames : T('stNone'));
-      return [r.query, st.trim(), r.std, r.local, r.ens, r.zfin, r.ncbi, r.chrom];
+      return [r.query, st.trim(), r.std, r.local, r.ens, r.zfin, r.ncbi, r.uni, r.chrom];
     });
     return [head].concat(rows);
   }

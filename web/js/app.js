@@ -3307,7 +3307,8 @@ function renderIdResolve(data) {
   xrefUl.innerHTML = (data.xrefs || []).slice(0, 12).map((x) => {
     const url = x.url || (x.db_name === "ncbi_gene" ? `https://www.ncbi.nlm.nih.gov/gene/${x.db_id}` :
       x.db_name === "ensembl" ? `https://www.ensembl.org/Danio_rerio/Gene/Summary?g=${String(x.db_id).split(".")[0]}` :
-      x.db_name === "zfin" ? `https://zfin.org/${x.db_id}` : null);
+      x.db_name === "zfin" ? `https://zfin.org/${x.db_id}` :
+      x.db_name === "uniprot" ? `https://www.uniprot.org/uniprotkb/${x.db_id}/entry` : null);
     const idPart = url ? extLink(url, x.db_id) : escapeHtml(x.db_id);
     return `<li>${escapeHtml(x.db_name)}: ${idPart}</li>`;
   }).join("") || "<li>无</li>";
@@ -3354,7 +3355,8 @@ function renderIdResolveSummaryHtml(data) {
   const xrefs = (data.xrefs || []).slice(0, 4).map((x) => {
     const url = x.url || (x.db_name === "ncbi_gene" ? `https://www.ncbi.nlm.nih.gov/gene/${x.db_id}` :
       x.db_name === "ensembl" ? `https://www.ensembl.org/Danio_rerio/Gene/Summary?g=${String(x.db_id).split(".")[0]}` :
-      x.db_name === "zfin" ? `https://zfin.org/${x.db_id}` : null);
+      x.db_name === "zfin" ? `https://zfin.org/${x.db_id}` :
+      x.db_name === "uniprot" ? `https://www.uniprot.org/uniprotkb/${x.db_id}/entry` : null);
     const idPart = url ? extLink(url, x.db_id) : escapeHtml(x.db_id);
     return `${escapeHtml(x.db_name)}: ${idPart}`;
   }).join(" · ");
@@ -4607,25 +4609,16 @@ function renderToolGeneSummary(detail) {
   const loc = detail.locus;
   const hasLoc = loc && loc.start != null && loc.end != null;
   const locLine = hasLoc
-    ? `<div class="meta">${T("位置", "Locus")} ${escapeHtml(loc.chromosome)}:${Number(loc.start).toLocaleString("en-US")}–${Number(loc.end).toLocaleString("en-US")} (${escapeHtml(loc.strand || "")}) · ${escapeHtml(loc.assembly)} <span class="muted">${T("换 GRCz12tu 需先 Liftover", "convert to GRCz12tu via Liftover")}</span></div>`
+    ? `<div class="meta">${T("位置", "Locus")} ${escapeHtml(loc.chromosome)}:${Number(loc.start).toLocaleString("en-US")}–${Number(loc.end).toLocaleString("en-US")} (${escapeHtml(loc.strand || "")}) · ${escapeHtml(loc.assembly)}</div>`
     : `<div class="meta muted">${T("位置：注释目录里没有该基因的坐标", "Locus: no coordinates for this gene in the catalog")}</div>`;
-  /* 2026-10-31 边界重划：本页（位置查找）主角是坐标与基因体。
-     GO 全量原来直接铺开，一屏里大半是 GO 词条，把坐标挤到看不见；
-     改成默认收起的折叠块 —— 想看的点开，条数写在标题上。 */
-  const go = (detail.go || []).filter((r) => (r.go_term || "").trim());
-  const goBlock = go.length
-    ? `<details class="tool-more tool-go-fold"><summary>${T(`GO 注释 ${go.length} 条`, `${go.length} GO terms`)}</summary>${goListHtml(go)}</details>`
-    : "";
+  /* 2026-10-31 用户要求：这一页只留「基因是谁、落在哪」。
+     功能描述行、GO 折叠、别名跳转、更多注释折叠、View JSON 一律去掉（截图红框整块）。
+     GO / 别名 / KEGG 等内容在各自的功能页里看，不在这里堆第二份。 */
   return `${aliasNote}
     <div class="tool-gene-summary">
       <div><strong>${escapeHtml(b.gene_name || "")}</strong>${b.gene_symbol && b.gene_symbol !== b.gene_name ? " " + escapeHtml(b.gene_symbol) : ""}</div>
       <div class="meta">Chr ${escapeHtml(b.chromosome || "-")} · ${escapeHtml(b.ensembl_id || "-")} · ${escapeHtml(b.zfin_id || "-")}</div>
       ${locLine}
-      <p><strong>${T("功能", "Function")}</strong> ${escapeHtml(functionSummary(detail))}</p>
-      ${goBlock}
-      <p class="tool-jump-line"><a class="zf-link" href="#/genes/${encodeURIComponent(b.gene_name || "")}">${T("查它的别名与跨库 ID →", "See its aliases and cross-DB IDs →")}</a></p>
-      ${geneMoreHtml(detail)}
-      <details class="tool-json-details"><summary>${T("查看 JSON", "View JSON")}</summary><pre>${escapeHtml(JSON.stringify(detail, null, 2))}</pre></details>
     </div>`;
 }
 

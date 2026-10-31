@@ -2360,3 +2360,70 @@ html body.theme-atelier #toolCrispr #crisprTopN {
   text-align: center !important;
   box-sizing: border-box !important;
 }
+
+/* ==========================================================================
+   2026-10-31 用户要求：界面里所有文字都用正体，不要斜体。
+   来源有两类：① 组件自带 font-style: italic（等待提示、加载中、首页引文）；
+   ② 聊天回答里 markdown 的 <em>/<i>（英文习惯把基因名排成斜体）。
+   统一压成 normal，样式表顺序上 ui-2026.css 在 style.css / chat-2026.css 之后。
+   ========================================================================== */
+em, i, cite, var, dfn,
+.tool-loading, .typing,
+.chat-msg em, .chat-msg i, .answer em, .answer i, .md-body em, .md-body i {
+  font-style: normal !important;
+}
+
+/* ==========================================================================
+   2026-10-31 修「字重叠」：结果区的键值块与宽表格在窄面板里会互相压字。
+   原因：.zf-kv 是 auto-fit 网格，单元格没有 min-width:0，长值（ENSDARG…/ZDB-GENE…）
+   直接溢出到右边那一格；表格里的 ZDB-PUB 编号同理被挤成一列竖字。
+   处理：值允许任意断行 + 单元格可收缩；编号类内容不换行，交给外层横向滚动。
+   ========================================================================== */
+html body.theme-atelier .zf-kv { grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)) !important; }
+html body.theme-atelier .zf-kv-item { min-width: 0 !important; }
+html body.theme-atelier .zf-kv-v,
+html body.theme-atelier .zf-kv-k,
+html body.theme-atelier .gene-table td,
+html body.theme-atelier .gene-table th { overflow-wrap: anywhere; }
+.zf-nowrap, .zf-nowrap * { white-space: nowrap !important; overflow-wrap: normal !important; word-break: normal !important; }
+
+/* ==========================================================================
+   2026-10-31 用户要求：基因查表型页「与表型相关的内容展示得不是很明显」。
+   原因：页面第一屏全是 ID / 计数（ensembl、ZFIN、分组数、行数），真正回答
+   「这个基因会造成什么表型」的 AO+PATO 组合被压在一张明细表里，读起来像数据 dump。
+   处理：在标题下方先给一排「表型标签」，主语是解剖部位、定语是表型质量，
+   计数放角标；明细表退为佐证。元数据 kv 挪到页面末尾做脚注。
+   ========================================================================== */
+.zf-pheno-strip { margin: 2px 0 14px; }
+.zf-pheno-strip-head {
+  font-size: 12px; letter-spacing: .04em; text-transform: uppercase;
+  color: #6b7a91; margin: 0 0 8px;
+}
+.zf-pheno-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.zf-pheno-tag {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  padding: 7px 12px; border-radius: 10px;
+  background: rgba(29, 111, 184, .08);
+  border: 1px solid rgba(29, 111, 184, .18);
+  font-size: 14px; line-height: 1.35; color: #16324f;
+  max-width: 100%;
+}
+.zf-pheno-tag .zf-pheno-part { font-weight: 600; }
+.zf-pheno-tag .zf-pheno-qual { color: #2f5d86; }
+.zf-pheno-tag .zf-pheno-num {
+  font-size: 11px; font-weight: 600; color: #1d6fb8;
+  background: rgba(29, 111, 184, .12); border-radius: 999px;
+  padding: 1px 7px; margin-left: 2px; white-space: nowrap;
+}
+.zf-pheno-more {
+  font-size: 12px; color: #6b7a91; align-self: center; padding: 0 4px;
+}
+.zf-pheno-foot { margin-top: 14px; }
+body.dark .zf-pheno-tag {
+  background: rgba(90, 150, 230, .14);
+  border-color: rgba(90, 150, 230, .26);
+  color: #e2ebf8;
+}
+body.dark .zf-pheno-tag .zf-pheno-qual { color: #a9c6e6; }
+body.dark .zf-pheno-tag .zf-pheno-num { color: #9fc8f0; background: rgba(90, 150, 230, .22); }
+body.dark .zf-pheno-strip-head, body.dark .zf-pheno-more { color: #8fa3bd; }

@@ -7,23 +7,23 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/static/assets/brand/favicon.png?v=20261012a" />
   <link rel="apple-touch-icon" href="/static/assets/brand/apple-touch-icon.png?v=20261012a" />
   <meta name="theme-color" content="#e9f3fc" />
-  <link rel="stylesheet" href="/static/css/style.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/simplify.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/refine.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/polish.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/premium.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/design-system.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261031z7" />
-  <link rel="stylesheet" href="/static/css/guide.css?v=20261031z7" />
-  <script src="/static/js/i18n.js?v=20261031z7"></script>
+  <link rel="stylesheet" href="/static/css/style.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/simplify.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/refine.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/polish.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/premium.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/design-system.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261031zd" />
+  <link rel="stylesheet" href="/static/css/guide.css?v=20261031zd" />
+  <script src="/static/js/i18n.js?v=20261031zd"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -575,7 +575,7 @@
                  所以保留模糊检索 + 候选列表；坐标与基因体交给「位置查找」页。 -->
             <input type="text" id="geneSearchInput" placeholder="符号 / 别名 / 旧名 / 跨库 ID，如 p53" aria-label="基因名称检索" />
             <div class="tool-row">
-              <button type="button" id="geneSearchBtn">查名称</button>
+              <button type="button" id="geneSearchBtn">搜索</button>
               <button type="button" id="geneBrowseBtn" class="tool-secondary-btn">浏览全部</button>
             </div>
             <!-- 2026-10-31：删「要一次换一批 ID…批量 ID 互转 →」。
@@ -658,9 +658,15 @@
                         <option value="Zv4">Zv4</option>
                         <option value="Zv3">Zv3</option>
                       </optgroup>
-                      <optgroup label="其他组装">
-                        <option value="ASM1840007v1">ASM1840007v1</option>
-                        <option value="fDanRer4.1">fDanRer4.1</option>
+                      <!-- 2026-10-31：NCBI 品系装配（contig N50 ≥ 1 Mb），清单取自 NCBI datasets
+                           genome（taxid 7955）；括号里是品系与 contig N50。 -->
+                      <optgroup label="NCBI 品系组装（contig N50 ≥ 1 Mb）">
+                        <option value="ASM1840007v1">ASM1840007v1 · T5D · 1.2 Mb</option>
+                        <option value="ASM3317019v3">ASM3317019v3 · Tubingen · 59.3 Mb</option>
+                        <option value="ASM2018471v1">ASM2018471v1 · AB · 21.1 Mb</option>
+                        <option value="fDanRer4.1">fDanRer4.1 · 6.9 Mb</option>
+                        <option value="fDreABH1.1">fDreABH1.1 · AB · 4.5 Mb</option>
+                        <option value="fDreTuH1.2">fDreTuH1.2 · Tu · 3.6 Mb</option>
                       </optgroup>
                     </select>
                   </label>
@@ -683,9 +689,15 @@
                         <option value="Zv4">Zv4</option>
                         <option value="Zv3">Zv3</option>
                       </optgroup>
-                      <optgroup label="其他组装">
-                        <option value="ASM1840007v1">ASM1840007v1</option>
-                        <option value="fDanRer4.1">fDanRer4.1</option>
+                      <!-- 2026-10-31：NCBI 品系装配（contig N50 ≥ 1 Mb），清单取自 NCBI datasets
+                           genome（taxid 7955）；括号里是品系与 contig N50。 -->
+                      <optgroup label="NCBI 品系组装（contig N50 ≥ 1 Mb）">
+                        <option value="ASM1840007v1">ASM1840007v1 · T5D · 1.2 Mb</option>
+                        <option value="ASM3317019v3">ASM3317019v3 · Tubingen · 59.3 Mb</option>
+                        <option value="ASM2018471v1">ASM2018471v1 · AB · 21.1 Mb</option>
+                        <option value="fDanRer4.1">fDanRer4.1 · 6.9 Mb</option>
+                        <option value="fDreABH1.1">fDreABH1.1 · AB · 4.5 Mb</option>
+                        <option value="fDreTuH1.2">fDreTuH1.2 · Tu · 3.6 Mb</option>
                       </optgroup>
                     </select>
                   </label>
@@ -750,7 +762,7 @@
                 <option value="compare">多基因对比</option>
               </select>
               <select id="exprTissue" aria-label="组织"><option value="">选择组织…</option></select>
-              <button type="button" id="exprRunBtn">查询</button>
+              <button type="button" id="exprRunBtn">搜索</button>
             </div>
           </div>
           <div class="tool-panel hidden" id="toolPhenotype">
@@ -765,7 +777,7 @@
                 <option value="term">按表型查基因</option>
                 <option value="gene">按基因查表型</option>
               </select>
-              <button type="button" id="phenoRunBtn">查询</button>
+              <button type="button" id="phenoRunBtn">搜索</button>
               <!-- 2026-10-31：删「构建 / 刷新 ZFIN 索引」。这是运维动作（重建库表），
                    不该出现在功能页让用户点；phenotype.js 里对它的引用都有空值判断，
                    结果区的空态链接（data-act="build"）仍可触发同一个重建逻辑。 -->
@@ -798,8 +810,6 @@
 
         <div class="workflow-box">
           <h3>工作流编排</h3>
-          <p class="tool-hint" id="answerSyncHint">已同步：整体回答 · Hub 全链路</p>
-          <p class="tool-hint" id="tenantHint">租户：默认实验室</p>
           <select id="workflowPreset" class="workflow-select" aria-label="工作流预设"></select>
           <textarea id="workflowInput" rows="3" placeholder="输入基因名或问题，如 tp53 的功能与相关文献" aria-label="输入基因名或问题，如 tp53 的功能与相关文献"></textarea>
           <button type="button" id="workflowRunBtn">运行工作流</button>
@@ -924,26 +934,26 @@
       <p class="tool-hint">当前为公开演示：无需访问令牌</p>
     </div>
   </div>
-  <script src="/static/js/source-badges.js?v=20261031z7"></script>
-  <script src="/static/js/nav-menu.js?v=20261031z7"></script>
-  <script src="/static/js/provenance.js?v=20261031z7"></script>
-  <script src="/static/js/payload-crypto.js?v=20261031z7"></script>
-  <script src="/static/js/app.js?v=20261031z7"></script>
-  <script src="/static/js/ui-feedback.js?v=20261031z7"></script>
-  <script src="/static/js/live-update.js?v=20261031z7"></script>
-  <script src="/static/js/select-ui.js?v=20261031z7" defer></script>
-  <script src="/static/js/composer-fit.js?v=20261031z7" defer></script>
-  <script src="/static/js/home-feed.js?v=20261031z7" defer></script>
-  <script src="/static/js/agent-home.js?v=20261031z7" defer></script>
-  <script src="/static/js/genes.js?v=20261031z7" defer></script>
-  <script src="/static/js/crispr.js?v=20261031z7" defer></script>
-  <script src="/static/js/genomes.js?v=20261031z7" defer></script>
-  <script src="/static/js/liftover.js?v=20261031z7" defer></script>
-  <script src="/static/js/expression.js?v=20261031z7" defer></script>
-  <script src="/static/js/phenotype.js?v=20261031z7" defer></script>
-  <script src="/static/js/about.js?v=20261031z7" defer></script>
-  <script src="/static/js/guide.js?v=20261031z7" defer></script>
-  <script src="/static/js/feedback.js?v=20261031z7" defer></script>
-  <script src="/static/js/chat-polish.js?v=20261031z7" defer></script>
+  <script src="/static/js/source-badges.js?v=20261031zd"></script>
+  <script src="/static/js/nav-menu.js?v=20261031zd"></script>
+  <script src="/static/js/provenance.js?v=20261031zd"></script>
+  <script src="/static/js/payload-crypto.js?v=20261031zd"></script>
+  <script src="/static/js/app.js?v=20261031zd"></script>
+  <script src="/static/js/ui-feedback.js?v=20261031zd"></script>
+  <script src="/static/js/live-update.js?v=20261031zd"></script>
+  <script src="/static/js/select-ui.js?v=20261031zd" defer></script>
+  <script src="/static/js/composer-fit.js?v=20261031zd" defer></script>
+  <script src="/static/js/home-feed.js?v=20261031zd" defer></script>
+  <script src="/static/js/agent-home.js?v=20261031zd" defer></script>
+  <script src="/static/js/genes.js?v=20261031zd" defer></script>
+  <script src="/static/js/crispr.js?v=20261031zd" defer></script>
+  <script src="/static/js/genomes.js?v=20261031zd" defer></script>
+  <script src="/static/js/liftover.js?v=20261031zd" defer></script>
+  <script src="/static/js/expression.js?v=20261031zd" defer></script>
+  <script src="/static/js/phenotype.js?v=20261031zd" defer></script>
+  <script src="/static/js/about.js?v=20261031zd" defer></script>
+  <script src="/static/js/guide.js?v=20261031zd" defer></script>
+  <script src="/static/js/feedback.js?v=20261031zd" defer></script>
+  <script src="/static/js/chat-polish.js?v=20261031zd" defer></script>
 </body>
 </html>

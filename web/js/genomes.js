@@ -28,11 +28,11 @@
       kAssembly: '装配版本', kSequences: '序列条数', kLength: '总长度', kGc: '平均 GC',
       kGenes: '已注释基因',
       asmTitle: '装配登记',
-      asmSub: '同一套系统里并存两版坐标：标准名 / BLAST / cDNA 用 GRCz12tu，基因注释与表达用 GRCz11',
+      asmSub: '',
       colAsm: '装配', colAsmAcc: 'RefSeq', colAsmStrain: '品系', colAsmRel: 'Ensembl', colAsmRole: '在本系统中的用途',
       roleAnchor: '本地注释锚点（坐标 / 表达 / GO）', roleRef: '标准名 / BLAST / cDNA',
       cmpTitle: '逐染色体对比',
-      cmpSub: 'GRCz12tu 为本地 FASTA 实测长度；GRCz11 为 Ensembl 记录长度。Δ 为正表示 GRCz12tu 更长',
+      cmpSub: 'Δ > 0 表示 GRCz12tu 更长',
       colChr: '染色体', col12: 'GRCz12tu', col11: 'GRCz11', colDelta: 'Δ Mb', colDeltaPct: 'Δ %',
       colGc: 'GC', colGenes: '基因数', colDensity: '密度',
       cmpFail: 'GRCz11 一侧读取失败（{msg}）：下表只显示 GRCz12tu 实测值',
@@ -60,11 +60,11 @@
       kAssembly: 'Assembly', kSequences: 'Sequences', kLength: 'Total length', kGc: 'Mean GC',
       kGenes: 'Annotated genes',
       asmTitle: 'Assembly registry',
-      asmSub: 'Two builds coexist: canonical symbols / BLAST / cDNA use GRCz12tu; gene annotation and expression use GRCz11',
+      asmSub: '',
       colAsm: 'Assembly', colAsmAcc: 'RefSeq', colAsmStrain: 'Strain', colAsmRel: 'Ensembl', colAsmRole: 'Role in this hub',
       roleAnchor: 'local annotation anchor (coordinates / expression / GO)', roleRef: 'canonical symbols / BLAST / cDNA',
       cmpTitle: 'Chromosome-by-chromosome comparison',
-      cmpSub: 'GRCz12tu = measured on the local FASTA; GRCz11 = recorded by Ensembl. Positive Δ means GRCz12tu is longer',
+      cmpSub: 'Δ > 0 means GRCz12tu is longer',
       colChr: 'Chr', col12: 'GRCz12tu', col11: 'GRCz11', colDelta: 'Δ Mb', colDeltaPct: 'Δ %',
       colGc: 'GC', colGenes: 'Genes', colDensity: 'Density',
       cmpFail: 'The GRCz11 side failed ({msg}); only GRCz12tu values are shown below',
@@ -220,8 +220,8 @@
         '<td><span class="zf-asm-tag' + cls + '">' + esc(which) + '</span></td>' +
         '<td class="zf-muted">' + esc(r[2]) + '</td></tr>';
     }).join('');
-    return block(T('polTitle'), T('polSub'),
-      table([T('colStep'), T('colWhich'), T('colWhy')], rows));
+    /* 2026-10-31：这块「哪一步用哪版装配」的解释性表格整块下线（用户要求结果区不要口径注释）。 */
+    return '';
   }
 
   /* ---------------- CSV 导出 ---------------- */

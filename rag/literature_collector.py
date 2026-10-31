@@ -36,6 +36,7 @@ from typing import List, Set, Optional
 
 from config import _BASE_DIR, KNOWLEDGE_EXTRA_DIR
 from common_utils import logger, safe_print
+from rag.ncbi_scope import PUBMED_ZEBRAFISH_SCOPE, scope_pubmed
 
 NCBI_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 PROGRESS_FILE = os.path.join(_BASE_DIR, "data", "ensembl", "literature_progress.json")
@@ -190,7 +191,8 @@ def _loads_ncbi_json(text: str) -> dict:
 
 
 def search_pubmed_page(query: str, retstart: int = 0, retmax: int = 200) -> List[str]:
-    """单页 PubMed 检索（含网络/JSON 异常重试）。"""
+    """单页 PubMed 检索（含网络/JSON 异常重试）。只返回斑马鱼范围内的命中。"""
+    query = scope_pubmed(query)
     last_err: Optional[Exception] = None
     for attempt in range(_MAX_RETRIES):
         try:
@@ -217,6 +219,7 @@ def search_pubmed_page(query: str, retstart: int = 0, retmax: int = 200) -> List
 
 
 def pubmed_total_count(query: str) -> int:
+    query = scope_pubmed(query)
     data = _api_get("/esearch.fcgi", {
         "db": "pubmed",
         "term": query,
@@ -228,13 +231,9 @@ def pubmed_total_count(query: str) -> int:
     return int(parsed.get("esearchresult", {}).get("count", 0) or 0)
 
 
-# 凡提到 zebrafish 或 Danio rerio 均采集
-PUBMED_ZEBRAFISH_BROAD = (
-    "zebrafish[Title/Abstract] OR "
-    "Danio rerio[Title/Abstract] OR "
-    "zebrafish[MeSH Terms] OR "
-    "Danio rerio[Organism]"
-)
+# 凡提到 zebrafish / Danio rerio 的均采集。
+# 2026-10-31：检索式统一下沉到 rag/ncbi_scope.py，避免多处各写一份、口径漂移。
+PUBMED_ZEBRAFISH_BROAD = PUBMED_ZEBRAFISH_SCOPE
 
 
 def _gene_queries_from_file(limit: int = 50) -> List[str]:

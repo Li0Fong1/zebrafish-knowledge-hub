@@ -14,6 +14,7 @@ from typing import Any, Optional
 
 from rag.europepmc_collector import REQUEST_INTERVAL as EPMC_INTERVAL
 from rag.literature_collector import CONTACT_EMAIL, _api_get, _sleep
+from rag.ncbi_scope import scope_epmc, scope_pubmed
 from rag.network_resilience import urlopen_with_retry
 from rag.pubmed_corpus_utils import epmc_is_open_access, parse_pubmed_xml
 
@@ -80,6 +81,8 @@ def ncbi_idconv(identifier: str) -> dict[str, str]:
 def esearch_pubmed(term: str, *, retmax: int = 5) -> list[str]:
     if not term:
         return []
+    # 只保留斑马鱼范围：自由文本检索自动 AND 物种限定，DOI/PMID 精确检索原样放行
+    term = scope_pubmed(term)
     try:
         xml = _api_get("/esearch.fcgi", {"db": "pubmed", "term": term, "retmax": retmax})
     except Exception:
@@ -88,6 +91,7 @@ def esearch_pubmed(term: str, *, retmax: int = 5) -> list[str]:
 
 
 def epmc_search(query: str, *, page_size: int = 5) -> list[dict[str, Any]]:
+    query = scope_epmc(query)
     q = urllib.parse.urlencode({
         "query": query,
         "format": "json",

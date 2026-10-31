@@ -25,17 +25,18 @@
       idxReady: '索引已就绪', idxRows: '注释条目', idxGenes: '覆盖基因', idxTerms: '表型术语', idxBuilt: '构建时间',
       commonTerms: '常用表型术语', commonTermsSub: '按覆盖基因数排序 · 点一下直接查',
       commonAo: '解剖实体（ZFA）', commonPato: '表型描述（PATO）',
-      termTitle: '命中表型条目', termSub: '每行 = 一个「解剖实体 + 表型描述」组合，按覆盖基因数排序',
-      termGenes: '候选基因', termGenesSub: '记录到该表型的基因（按注释条数降序）· 点符号看该基因的表型',
-      litTitle: '本地文献命中', litSub: '按题名匹配本地文献库（与上面的表型注释相互独立，供溯源）',
-      geneTitle: '{g} 的表型记录', geneSub: '按「解剖实体 + 表型描述」分组去重 · 来源：ZFIN phenoGeneCleanData_fish',
+      termTitle: '命中表型条目', termSub: '',
+      termGenes: '候选基因', termGenesSub: '',
+      litTitle: '本地文献命中', litSub: '',
+      geneTitle: '{g} 的表型记录', geneSub: '',
+      colEvid: '证据', evid: '{s} 分期 · {p} 文献',
       geneEmpty: '{g} 在本库没有 ZFIN 表型注释记录',
       colAo: '解剖实体', colAoId: 'ZFA 编号', colPato: '表型描述', colPatoId: 'PATO 编号',
       colQuality: '程度', colGenes: '基因数', colRows: '条目', colSym: '符号', colN: '条目', colTypes: '表型类型',
       colStages: '发育分期', colPubs: '文献', colCount: '条数',
       kvRows: '注释条目', kvGroups: '表型分组', kvPubs: '涉及文献', kvGeneId: '基因库 ID', kvZfin: 'ZFIN 基因',
-      kvMatched: '实际匹配符号', kvTried: '参与比较的候选（命中条数）：',
-      pubTitle: '该基因相关的 ZFIN 文献编号', pubHint: '编号为 ZDB-PUB，可在 zfin.org 逐条核对；本地文献命中见下方。',
+      kvMatched: '实际匹配符号', kvTried: '',
+      pubTitle: '该基因相关的 ZFIN 文献编号', pubHint: '',
       buildBtnRunning: '构建中…（可继续查询）', buildStarted: '构建任务已在后台启动（通常 1–2 分钟）；完成后本页自动刷新。',
       buildDone: '索引已就绪：{rows} 条注释 · {genes} 个基因', buildFail: '构建失败：{msg}',
       statusFail: '无法读取索引状态：{msg}',
@@ -48,17 +49,18 @@
       idxReady: 'Index ready', idxRows: 'Annotation rows', idxGenes: 'Genes', idxTerms: 'Phenotype terms', idxBuilt: 'Built at',
       commonTerms: 'Common phenotype terms', commonTermsSub: 'Ranked by number of genes · click to query',
       commonAo: 'Anatomical entities (ZFA)', commonPato: 'Phenotype qualities (PATO)',
-      termTitle: 'Matched phenotype entries', termSub: 'One row per anatomical-entity + quality pair, ranked by gene count',
-      termGenes: 'Candidate genes', termGenesSub: 'Genes annotated with this phenotype (by number of annotations) · click a symbol to open its phenotypes',
-      litTitle: 'Local literature hits', litSub: 'Title matches in the local paper library (independent of the annotations above, for provenance)',
-      geneTitle: 'Phenotypes recorded for {g}', geneSub: 'Grouped by anatomical entity + quality · source: ZFIN phenoGeneCleanData_fish',
+      termTitle: 'Matched phenotype entries', termSub: '',
+      termGenes: 'Candidate genes', termGenesSub: '',
+      litTitle: 'Local literature hits', litSub: '',
+      geneTitle: 'Phenotypes recorded for {g}', geneSub: '',
+      colEvid: 'Evidence', evid: '{s} stages · {p} pubs',
       geneEmpty: 'No ZFIN phenotype annotation for {g} in this library',
       colAo: 'Anatomical entity', colAoId: 'ZFA ID', colPato: 'Quality', colPatoId: 'PATO ID',
       colQuality: 'Degree', colGenes: 'Genes', colRows: 'Rows', colSym: 'Symbol', colN: 'Rows', colTypes: 'Phenotype types',
       colStages: 'Stages', colPubs: 'Publications', colCount: 'Count',
       kvRows: 'Annotation rows', kvGroups: 'Phenotype groups', kvPubs: 'Publications', kvGeneId: 'Library ID', kvZfin: 'ZFIN gene',
-      kvMatched: 'Matched symbol', kvTried: 'Compared candidates (rows):',
-      pubTitle: 'ZFIN publication IDs for this gene', pubHint: 'IDs are ZDB-PUB records and can be checked at zfin.org; local literature hits are listed below.',
+      kvMatched: 'Matched symbol', kvTried: '',
+      pubTitle: 'ZFIN publication IDs for this gene', pubHint: '',
       buildBtnRunning: 'Building… (you can keep querying)', buildStarted: 'Build started in the background (usually 1–2 minutes); this page refreshes automatically when done.',
       buildDone: 'Index ready: {rows} annotations · {genes} genes', buildFail: 'Build failed: {msg}',
       statusFail: 'Cannot read index status: {msg}',
@@ -216,7 +218,7 @@
   function literatureHtml(items) {
     items = items || [];
     if (!items.length) return '';
-    return block(T('litTitle'), T('litSub'), '<ul class="zf-lit">' + items.map(function (p) {
+    return block(T('litTitle'), '', '<ul class="zf-lit">' + items.map(function (p) {
       var t = p.title || '';
       return '<li>' + (p.url
         ? '<a class="zf-link" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(t) + '</a>'
@@ -230,7 +232,7 @@
     var tRows = terms.map(function (t) {
       return '<tr><td><strong>' + esc(t.ao_name || '—') + '</strong><br><span class="zf-muted">' + esc(t.ao_id || '') + '</span></td>' +
         '<td>' + esc(t.pato_name || '—') + '<br><span class="zf-muted">' + esc(t.pato_id || '') + '</span></td>' +
-        '<td>' + esc(t.quality || '—') + '</td>' +
+        '<td class="zf-nowrap">' + esc(t.quality || '—') + '</td>' +
         '<td class="zf-num">' + t.g + '</td>' +
         '<td class="zf-num">' + t.n + '</td></tr>';
     }).join('');
@@ -241,17 +243,19 @@
         '<td class="zf-num">' + g.p + '</td></tr>';
     }).join('');
 
+    /* 2026-10-31 用户要求：候选基因放到最上面 —— 查表型的人真正要的是「哪些基因」，
+       命中的表型条目退到第二块；两块都不再挂口径说明。 */
     showResult(
-      block(T('termTitle'), T('termSub') + ' · ' + (curLang() === 'zh' ? '关键词：' : 'keyword: ') + (d.query || ''),
+      (gRows ? block(T('termGenes'), '',
+        '<div class="table-wrap"><table class="gene-table"><thead><tr>' +
+        '<th>' + esc(T('colSym')) + '</th><th>ZFIN</th><th>' + esc(T('colN')) + '</th><th>' + esc(T('colTypes')) + '</th>' +
+        '</tr></thead><tbody>' + gRows + '</tbody></table></div>') : '') +
+      block(T('termTitle'), '',
         tRows
           ? '<div class="table-wrap"><table class="gene-table"><thead><tr>' +
             '<th>' + esc(T('colAo')) + '</th><th>' + esc(T('colPato')) + '</th><th>' + esc(T('colQuality')) + '</th>' +
             '<th>' + esc(T('colGenes')) + '</th><th>' + esc(T('colRows')) + '</th></tr></thead><tbody>' + tRows + '</tbody></table></div>'
           : '<p class="tool-hint">' + esc(curLang() === 'zh' ? '没有命中的表型条目' : 'No matching phenotype entries') + '</p>') +
-      (gRows ? block(T('termGenes'), T('termGenesSub'),
-        '<div class="table-wrap"><table class="gene-table"><thead><tr>' +
-        '<th>' + esc(T('colSym')) + '</th><th>ZFIN</th><th>' + esc(T('colN')) + '</th><th>' + esc(T('colTypes')) + '</th>' +
-        '</tr></thead><tbody>' + gRows + '</tbody></table></div>') : '') +
       literatureHtml(d.literature));
   }
 
@@ -265,47 +269,89 @@
       return;
     }
     var g = d.gene || {};
+    /* 2026-10-31：原来 6 列里塞进了「分期」「文献」两列长编号，窄面板下被压成一列竖字、
+       叠在一起（用户截图指的就是这里）。改成 5 列：证据列只给「N 分期 · N 文献」的计数，
+       具体分期名放进 title 悬浮提示，编号不再占列宽。 */
     var rows = (d.groups || []).map(function (x) {
-      var stages = (x.stages || []).slice(0, 4).join(', ');
-      var pubs = (x.pubs || []).slice(0, 3);
+      var stages = (x.stages || []);
+      var pubs = (x.pubs || []);
+      var evid = fmt(T('evid'), { s: stages.length, p: pubs.length });
+      var tip = stages.length ? stages.join(', ') : '';
       return '<tr><td><strong>' + esc(x.ao_name || '—') + '</strong><br><span class="zf-muted">' + esc(x.ao_id || '') + '</span></td>' +
         '<td>' + esc(x.pato_name || '—') + '<br><span class="zf-muted">' + esc(x.pato_id || '') + '</span></td>' +
-        '<td>' + esc(x.quality || '—') + '</td>' +
+        '<td class="zf-nowrap">' + esc(x.quality || '—') + '</td>' +
         '<td class="zf-num">' + x.count + '</td>' +
-        '<td class="zf-muted">' + esc(stages || '—') + '</td>' +
-        '<td class="zf-muted">' + pubs.map(function (p) { return esc(String(p)); }).join(', ') +
-        ((x.pubs || []).length > 3 ? ' …' : '') + '</td></tr>';
+        '<td class="zf-muted zf-nowrap" title="' + esc(tip) + '">' + esc(evid) + '</td></tr>';
     }).join('');
 
     var head = '<div class="zf-kv">' +
       kv(T('kvGeneId'), g.ensembl_id || g.gene_id || '—') +
       kv(T('kvZfin'), g.zfin_id || '—') +
-      kv(T('kvRows'), d.n_rows || 0) +
       kv(T('kvGroups'), (d.groups || []).length) +
-      kv(T('kvPubs'), (d.publications || []).length) +
-      (d.matched_symbol ? kv(T('kvMatched'), d.matched_symbol) : '') +
-      '</div>' +
-      (d.tried && d.tried.length > 1
-        ? '<p class="zf-note">' + esc(T('kvTried')) + ' ' + d.tried.map(function (x) {
-            return esc(x.term) + ' (' + x.rows + ')';
-          }).join(' · ') + '</p>'
-        : '');
+      kv(T('kvRows'), d.n_rows || 0) +
+      '</div>';
+
+    /* 2026-10-31：用户说这页「与表型相关的内容展示得不是很明显」。
+       根因是第一屏被 ID / 计数占满，回答「突变会造成什么表型」的 AO+PATO 组合
+       只存在于明细表里。现在把 AO+PATO 提到最前面做成标签墙（按记录数降序），
+       明细表退为佐证，元数据 kv 挪到页尾做脚注。 */
+    var strip = phenoTagStrip(d.groups || []);
 
     showResult(
-      block(fmt(T('geneTitle'), { g: g.gene_symbol || g.gene_name || '' }), T('geneSub') + ' · ' + (d.source || 'ZFIN'),
-        head + (rows
+      block(fmt(T('geneTitle'), { g: g.gene_symbol || g.gene_name || '' }), '',
+        strip + (rows
           ? '<div class="table-wrap"><table class="gene-table"><thead><tr>' +
             '<th>' + esc(T('colAo')) + '</th><th>' + esc(T('colPato')) + '</th><th>' + esc(T('colQuality')) + '</th>' +
-            '<th>' + esc(T('colCount')) + '</th><th>' + esc(T('colStages')) + '</th><th>' + esc(T('colPubs')) + '</th>' +
+            '<th>' + esc(T('colCount')) + '</th><th>' + esc(T('colEvid')) + '</th>' +
             '</tr></thead><tbody>' + rows + '</tbody></table></div>'
           : '<p class="tool-hint">' + esc(fmt(T('geneEmpty'), { g: g.gene_symbol || '' })) + '</p>')) +
       ((d.publications || []).length
-        ? block(T('pubTitle'), T('pubHint'), '<div class="zf-chips">' + d.publications.map(function (p) {
+        ? block(T('pubTitle'), '', '<div class="zf-chips">' + d.publications.map(function (p) {
             return '<a class="zf-pill" target="_blank" rel="noopener" href="https://zfin.org/' + esc(p.pub_id) + '">' +
               esc(p.pub_id) + ' <small>' + p.count + '</small></a>';
           }).join('') + '</div>')
         : '') +
-      literatureHtml(d.literature));
+      literatureHtml(d.literature) +
+      '<div class="zf-pheno-foot">' + head + '</div>');
+  }
+
+  /* 表型标签墙：主语＝解剖部位（AO），定语＝表型质量（PATO），角标＝记录数。
+     去重按 AO+PATO 组合，同一条目在多个分期里重复出现只算一个标签。 */
+  function phenoTagStrip(groups) {
+    if (!groups || !groups.length) return '';
+    var seen = {}, list = [];
+    groups.slice().sort(function (a, b) { return (b.count || 0) - (a.count || 0); })
+      .forEach(function (x) {
+        var part = (x.ao_name || '').trim();
+        var qual = (x.pato_name || '').trim();
+        if (!part && !qual) return;
+        var key = part + '|' + qual;
+        if (seen[key]) { seen[key].n += (x.count || 0); return; }
+        var item = { part: part || '—', qual: qual, n: (x.count || 0), ao: x.ao_id || '', pato: x.pato_id || '' };
+        seen[key] = item;
+        list.push(item);
+      });
+    if (!list.length) return '';
+    list.sort(function (a, b) { return b.n - a.n; });
+    var LIMIT = 16;
+    var top = list.slice(0, LIMIT);
+    var html = top.map(function (it) {
+      var tip = it.part + (it.qual ? ' · ' + it.qual : '') +
+        (it.ao ? '\n' + it.ao : '') + (it.pato ? ' · ' + it.pato : '') +
+        '\n' + (curLang() === 'zh' ? '记录数 ' : 'records ') + it.n;
+      return '<div class="zf-pheno-tag" title="' + esc(tip) + '">' +
+        '<span class="zf-pheno-part">' + esc(it.part) + '</span>' +
+        (it.qual ? '<span class="zf-pheno-qual">' + esc(it.qual) + '</span>' : '') +
+        '<span class="zf-pheno-num">' + it.n + '</span></div>';
+    }).join('');
+    if (list.length > LIMIT) {
+      html += '<span class="zf-pheno-more">+' + (list.length - LIMIT) +
+        (curLang() === 'zh' ? ' 项见下方明细' : ' more in the table below') + '</span>';
+    }
+    return '<div class="zf-pheno-strip">' +
+      '<p class="zf-pheno-strip-head">' +
+      esc(curLang() === 'zh' ? '关联表型（按记录数排序）' : 'Associated phenotypes (by record count)') +
+      '</p><div class="zf-pheno-tags">' + html + '</div></div>';
   }
 
   /* ---------------- 查询 ---------------- */

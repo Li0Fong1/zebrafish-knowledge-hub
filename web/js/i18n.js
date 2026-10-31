@@ -678,10 +678,11 @@
     "例如：GRCz11 chr5:24086227-24097805": "e.g. GRCz11 chr5:24086227-24097805",
     "GRCz 系列": "GRCz assemblies",
     "Zv 系列": "Zv assemblies",
+    "NCBI 品系组装（contig N50 ≥ 1 Mb）": "NCBI strain assemblies (contig N50 ≥ 1 Mb)",
     "其他组装": "Other assemblies",
 
     /* ── 2026-10-31 别名 / 位置查找 两页边界重划 ── */
-    "查名称": "Look up",
+    "查名称": "Search",
     "查位置": "Locate",
     "基因名称检索": "Gene name lookup",
     "基因名，如 tp53": "Gene name, e.g. tp53",
@@ -929,7 +930,7 @@
     "多基因对比": "Compare genes",
     "选择组织": "Choose a tissue",
     "选择组织…": "Pick a tissue…",
-    "查询": "Query",
+    "查询": "Search",
     "表型查询输入": "Phenotype query input",
     "按表型查基因": "Genes by phenotype",
     "按基因查表型": "Phenotypes by gene",

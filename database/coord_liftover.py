@@ -114,6 +114,65 @@ EDGE_CHAINS: dict[tuple[str, str], str] = {
 }
 
 
+# ---------------------------------------------------------------------------
+# 2026-10-31：NCBI 品系装配（Danio rerio, taxid 7955）接入 Liftover
+# 筛选口径（用户给定，两条同时满足）：
+#   ① 高质量：contig N50 ≥ 1 Mb（如 GRCz13ab / GRCz12tu 的 59 Mb 级，ASM1840007v1 的 1.2 Mb）
+#   ② 覆盖不同品系：Tubingen / AB / T5D / M-AB / SAT / Tu …
+# 清单取自 NCBI datasets genome dataset_report（2026-10-31 快照，全库 24 个装配，
+# contig N50 ≥ 1 Mb 且 status=current 的 10 个，去掉 GRCz11/GRCz12tu 本身与本机无链者）。
+# 每个装配的 assembly_report.txt 已放在 CHAIN_DIR，用来做「5」↔「CP068739.1」互转——
+# 品系装配的 FASTA 头是 CP_/CM_ accession，不映射就永远对不上链。
+STRAIN_ASSEMBLIES: dict[str, dict] = {
+    "ASM1840007v1": {
+        "accession": "GCA_018400075.1", "strain": "T5D", "contig_n50": 1203134,
+        "report": "GCA_018400075.1_ASM1840007v1_assembly_report.txt",
+        "edges": {
+            ("ASM1840007v1", "GRCz11"): "GCA_018400075.1ToDanRer11.over.chain.gz",
+            ("GRCz11", "ASM1840007v1"): "danRer11ToGCA_018400075.1.over.chain.gz",
+        },
+    },
+    "ASM3317019v3": {
+        "accession": "GCA_033170195.3", "strain": "Tubingen", "contig_n50": 59265136,
+        "report": "GCA_033170195.3_ASM3317019v3_assembly_report.txt",
+        "edges": {("ASM3317019v3", "GRCz12tu"): "GCA_033170195.3ToGCF_049306965.1.over.chain.gz"},
+    },
+    "ASM2018471v1": {
+        "accession": "GCA_020184715.1", "strain": "AB", "contig_n50": 21088021,
+        "report": "GCA_020184715.1_ASM2018471v1_assembly_report.txt",
+        "edges": {("ASM2018471v1", "GRCz12tu"): "GCA_020184715.1ToGCF_049306965.1.over.chain.gz"},
+    },
+    "fDanRer4.1": {
+        "accession": "GCA_944039275.1", "strain": "", "contig_n50": 6927137,
+        "report": "GCA_944039275.1_fDanRer4.1_assembly_report.txt",
+        "edges": {("fDanRer4.1", "GRCz12tu"): "GCA_944039275.1ToGCF_049306965.1.over.chain.gz"},
+    },
+    "fDreABH1.1": {
+        "accession": "GCA_903684865.1", "strain": "AB", "contig_n50": 4531818,
+        "report": "GCA_903684865.1_fDreABH1.1_assembly_report.txt",
+        "edges": {("fDreABH1.1", "GRCz12tu"): "GCA_903684865.1ToGCF_049306965.1.over.chain.gz"},
+    },
+    "fDreTuH1.2": {
+        "accession": "GCA_903684855.2", "strain": "Tu", "contig_n50": 3603372,
+        "report": "GCA_903684855.2_fDreTuH1.2_assembly_report.txt",
+        "edges": {("fDreTuH1.2", "GRCz12tu"): "GCA_903684855.2ToGCF_049306965.1.over.chain.gz"},
+    },
+}
+
+STRAIN_NAMES = tuple(STRAIN_ASSEMBLIES)
+STRAIN_BY_ACCESSION = {m["accession"]: (n, m) for n, m in STRAIN_ASSEMBLIES.items()}
+
+SELECTABLE_BUILDS = SELECTABLE_BUILDS + STRAIN_NAMES
+UI_SOURCE_BUILDS = UI_SOURCE_BUILDS + STRAIN_NAMES
+UI_TARGET_BUILDS = UI_TARGET_BUILDS + STRAIN_NAMES
+
+for _name, _meta in STRAIN_ASSEMBLIES.items():
+    BUILD_ALIASES[_name.lower()] = _name
+    BUILD_ALIASES[_meta["accession"].lower()] = _name
+    BUILD_ALIASES[_meta["accession"].replace(".", "").lower()] = _name
+    EDGE_CHAINS.update(_meta["edges"])
+
+
 def normalize_build(name: str) -> str:
     raw = (name or "").strip()
     if not raw:
@@ -348,14 +407,18 @@ def _load_assembly_report_maps(path: Path) -> tuple[dict[str, str], dict[str, st
         if not (chrom.isdigit() or chrom == "MT"):
             # 12ab 等可能用 scaffold 名；仍收 accession↔自身，方便原樣查詢
             chrom = mol or chrom
+        # 2026-10-31：只收 GenBank / RefSeq 兩欄的 accession。
+        # 舊版把 parts[0]（Sequence-Name，如 "chr1"）也塞进 accs，GenBank 報告（GCA_*）
+        # 沒有 NC_ 時 fallback 就取到了 "chr1" 本身，導致 "5" → "5" 的自映射，
+        # 品系裝配的 chain 查詢端永遠拿不到 CP068739.1 —— 正向換算全部 liftover_failed。
         accs = []
-        for acc in (parts[0], parts[4], parts[6]):
+        for acc in (parts[4], parts[6]):
             acc = (acc or "").strip()
             if acc and acc.lower() != "na":
                 acc_to_disp[acc] = chrom
                 accs.append(acc)
         if accs and chrom not in disp_to_acc:
-            # 優先 RefSeq（GCF 報告裡 parts[6] 常為 NC_／NW_）
+            # 優先 RefSeq（GCF 報告裡 parts[6] 常為 NC_／NW_），沒有則用 GenBank（GCA 報告是 CM_／CP_）
             prefer = next((a for a in accs if a.startswith(("NC_", "NW_", "NT_"))), accs[0])
             disp_to_acc[chrom] = prefer
             disp_to_acc[f"chr{chrom}" if chrom.isdigit() else chrom] = prefer
@@ -372,6 +435,15 @@ def _chrom_maps_12ab() -> tuple[dict[str, str], dict[str, str]]:
     return _load_assembly_report_maps(CHAIN_DIR / REPORT_12AB_NAME)
 
 
+@lru_cache(maxsize=16)
+def _chrom_maps_strain(accession: str) -> tuple[dict[str, str], dict[str, str]]:
+    """品系装配的 (accession→显示名, 显示名→accession)；找不到报告就返回空表。"""
+    meta = STRAIN_BY_ACCESSION.get(accession)
+    if not meta:
+        return {}, {}
+    return _load_assembly_report_maps(CHAIN_DIR / meta[1]["report"])
+
+
 @lru_cache(maxsize=1)
 def _chrom_map() -> dict[str, str]:
     """accession／chr* → 顯示用染色體名（數字或 MT）。"""
@@ -384,6 +456,11 @@ def _chrom_map() -> dict[str, str]:
     # 12ab 的 CM_ 等不覆蓋已有 12tu NC_ 映射
     for k, v in acc_ab.items():
         out.setdefault(k, v)
+    # 品系装配：CP_/CM_/NC_ → 数字染色体名（反向换算时目标端就是这些编号）
+    for _acc in STRAIN_BY_ACCESSION:
+        acc_to_disp, _ = _chrom_maps_strain(_acc)
+        for k, v in acc_to_disp.items():
+            out.setdefault(k, v)
     return out
 
 
@@ -403,6 +480,16 @@ def _query_chrom_for_chain(chain_name: str, chrom: str) -> str:
     """依 chain 查詢端命名習慣選 chrN 或 RefSeq／GenBank accession。"""
     name = chain_name or ""
     raw = chrom[3:] if chrom.lower().startswith("chr") else chrom
+    # 2026-10-31：链名形如 GCA_018400075.1ToDanRer11 / GCA_033170195.3ToGCF_049306965.1，
+    # 查询端就是该装配 —— 它用 CP_/CM_ accession 命名，必须按自己的 assembly_report 转。
+    m = re.match(r"^(GC[AF]_\d+\.\d+)To", name)
+    if m:
+        _, disp_to_acc = _chrom_maps_strain(m.group(1))
+        hit = disp_to_acc.get(raw) or disp_to_acc.get(chrom) or disp_to_acc.get(f"chr{raw}")
+        if hit:
+            return hit
+        if chrom.startswith(("NC_", "NW_", "NT_", "CM_", "CP_", "CA")):
+            return chrom
     # 反鏈：查詢端是 GCF／GCA 組裝的 accession
     if name.startswith("GCF_049306965"):
         _, disp_to_acc = _chrom_maps_12tu()
@@ -904,6 +991,12 @@ def list_supported_pairs() -> dict:
         "ui_target_builds": list(UI_TARGET_BUILDS),
         "blocked_builds": list(BLOCKED_BUILDS.keys()),
         "edges": edges,
+        "strain_assemblies": [
+            {"name": n, "accession": m["accession"], "strain": m["strain"],
+             "contig_n50": m["contig_n50"],
+             "edges": [{"source": a, "target": b, "chain": c} for (a, b), c in m["edges"].items()]}
+            for n, m in STRAIN_ASSEMBLIES.items()
+        ],
         "routable_pairs": pairs_ok,
         "notes": {
             "GRCz13ab": "hidden in UI (source+target); no over.chain/MAF",
