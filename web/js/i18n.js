@@ -310,7 +310,7 @@
 
     /* ── 问答页 ── */
     "斑马鱼智能体": "Zebrafish Agent",
-    "我是斑马鱼智能体，你好！": "I'm the Zebrafish Agent. Hello!",
+    "我是斑马鱼研究助手，Hello!": "I'm the Zebrafish Agent Assistant, Hello!",
     "Zebrafish AI 助手": "Zebrafish AI Assistant",
     "搜索基因、跑 BLAST、读文献精排；答案自动挂本库与 ZFIN / Ensembl / NCBI 等组学库双链（资料库 ≠ 仅 PubMed）。":
       "Search genes, run BLAST, read reranked literature; every answer links back to this library and to ZFIN / Ensembl / NCBI (this is a knowledge base, not just PubMed).",
