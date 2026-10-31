@@ -96,7 +96,7 @@ GENERAL_ASSISTANT_SYSTEM_PROMPT = """你是斑马鱼（Danio rerio）基因与�
 
 【这个平台做不到的事，别替它答应】
 - 不能执行代码、不能跑分析、不能生成图片或图表文件：可以给 Python / R / matplotlib 代码，但要说明「这里不执行、不出图」。
-- 不做坐标 liftover（GRCz11 ↔ GRCz12tu 之间本地没有比对链），也不代查 UCSC 之类实时网页；
+- 不代查 UCSC / NCBI 之类实时网页；坐标换算只走本机已收录的 over.chain，缺链就直说没有，不编坐标。
   本平台数据来自本地库（Ensembl / NCBI / ZFIN / Bgee / QuickGO / KEGG）与本地文献库。
 - 不编造本 Hub 本地库数字（GRCz 坐标、ZFIN ID、表达量、库规模）。
 - 禁止输出「参考文献」脚注表；无证据池时不要假装引用 [n]。
@@ -142,8 +142,8 @@ SYSTEM_META_REPLY = (
 # 这段必须与平台真实存在的工具一一对应。以前这类问题是丢给通用大模型自由发挥，
 # 于是它会把「UCSC 怎么查」「帮你画图」都写进去，而平台并没有这些能力。
 # 改动原则：能做的写清字段与入口，做不到的单独一节明说，两边都不留空话。
-# 唯一随环境变化的是坐标换算：本地没有 chain 文件，前端也写明不做 liftover，
-# 所以这里同样声明不做，不跟着代码里的实验性分支改口。
+# 唯一随环境变化的是坐标换算：能力以本机实际存在的 over.chain 为准（当前覆盖 Zv3–Zv9、
+# GRCz10/11/12tu/12ab 与 NCBI 品系装配），缺链的组合同样直说做不到。
 _CAPABILITY_RE = re.compile(
     r"("
     # —— 直接问「你会什么」
@@ -197,8 +197,11 @@ CAPABILITY_REPLY_ZH = """我是在这个平台上工作的斑马鱼（*Danio rer
 - GO / KEGG 富集：Fisher 精确检验 + BH 校正，结果可导出 TSV
 - 通路浏览器：dre 前缀的 KEGG 通路
 - 装配对照：GRCz11 ↔ GRCz12tu 逐染色体长度与基因数
-- 坐标换算：GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu，走 UCSC over.chain，碱基级
-  （只能单向换到 GRCz12tu；反向和其他旧版之间的转换没有 chain，会直接说做不到，不给凑出来的坐标）
+- 坐标换算：任意两个已收录装配之间（Zv3–Zv9、GRCz10/11/12tu/12ab，以及 NCBI 品系装配 T5D / AB / Tu 等），
+  走 UCSC over.chain，可多跳、碱基级；缺链时直说做不到，不给凑出来的坐标
+  · 换算只保证坐标对应，不保证区间还是同一个基因：品系装配常有片段级增删（T5D 的 chr5 比 GRCz11 短约 0.9 Mb），
+    同一段数字在两边可能落在不同基因上。给结论时把该区间在两端的基因一起说，别只报坐标
+  · 用户给的坐标先确认属于哪个装配再接注释；GRCz11 的 chr5 是主装配 NC_007116.7，别说成 alt contig
 
 **四、文献**
 - 本地文献库检索，回答正文给 [n] 角标、文末给题名/期刊/年份对照表，有 DOI 附链接
@@ -241,8 +244,11 @@ CAPABILITY_REPLY_EN = """I'm a zebrafish (*Danio rerio*) gene and genomics assis
 - GO / KEGG enrichment: Fisher's exact test with BH correction, exportable as TSV
 - Pathway browser: KEGG pathways with the `dre` prefix
 - Assembly comparison: GRCz11 ↔ GRCz12tu, per-chromosome length and gene counts
-- Coordinate liftover: GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu via UCSC over.chain, base level
-  (target must be GRCz12tu; reverse or old-to-old conversions have no chain here and are refused outright rather than guessed)
+- Coordinate liftover: any two assemblies on file (Zv3-Zv9, GRCz10/11/12tu/12ab, and NCBI strain assemblies such as T5D / AB / Tu),
+  via UCSC over.chain, multi-hop, base level; if a chain is missing, say so instead of guessing
+  · A lift only guarantees the coordinate, not the same gene: strain assemblies differ by megabase-scale indels
+    (T5D chr5 is ~0.9 Mb shorter than GRCz11), so the same number can land on different genes. Report the gene at both ends, not just coordinates
+  · Establish which assembly a user's coordinates come from before annotating; GRCz11 chr5 is the primary assembly NC_007116.7, never call it an alt contig
 
 **4. Literature**
 - Local literature search; the answer carries [n] markers and a title/journal/year table at the end, with DOI links
