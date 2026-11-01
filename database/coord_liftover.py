@@ -506,6 +506,10 @@ def _chain_query_family(chain_name: str) -> str:
     2026-11-01：同一批链的命名并不统一——Tubingen 的 .1 链 12tu 侧是 chr25，
     fDanRer4.1 的 .1 链 12tu 侧却是 NC_133182.1；12ab 链用 CM124807.1。
     所以必须按文件实际内容判定，不能靠链名猜。
+
+    2026-11-01 晚：实测确认 pyliftover 只以链头 **tName（第 3 列）** 为查询入口
+    （qName 侧查询一律返回空），且全部 34 条链都是 tName=源装配、qName=目标装配。
+    故命名族必须取 tName，取 qName 会把「目标端」的命名习惯误当成查询端。
     """
     path = CHAIN_DIR / (chain_name or "")
     if not path.is_file():
@@ -517,7 +521,7 @@ def _chain_query_family(chain_name: str) -> str:
                 if line.startswith("chain"):
                     parts = line.split()
                     if len(parts) >= 8:
-                        nm = parts[7]
+                        nm = parts[2]
                         key = "chr" if nm.lower().startswith("chr") else _acc_family(nm)
                         if key:
                             fams[key] = fams.get(key, 0) + 1
@@ -576,6 +580,47 @@ def _query_report_for_chain(chain_name: str) -> str:
     return ""
 
 
+@lru_cache(maxsize=64)
+def _chain_tnames(chain_name: str) -> tuple[str, ...]:
+    """链文件里实际出现的 tName（= pyliftover 的查询侧 = 源装配命名）。
+
+    2026-11-01：与其按链名猜命名族，不如直接用文件里真实存在的名字。
+    MT 这类小染色体尤其容易踩坑（.1 链用 CM_、.2 报告给 NC_，同一显示名对应
+    两个 accession 家族），用真实 tName 反查最稳。
+    """
+    path = CHAIN_DIR / (chain_name or "")
+    if not path.is_file():
+        return ()
+    names: list[str] = []
+    seen: set[str] = set()
+    try:
+        with gzip.open(path, "rt", encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if line.startswith("chain"):
+                    parts = line.split()
+                    if len(parts) >= 3:
+                        nm = parts[2]
+                        if nm and nm not in seen:
+                            seen.add(nm)
+                            names.append(nm)
+    except Exception:
+        return tuple(names)
+    return tuple(names)
+
+
+@lru_cache(maxsize=64)
+def _chain_tnames_by_display(chain_name: str) -> dict[str, tuple[str, ...]]:
+    """显示名（1..25／MT／contig 名）→ 该链文件里真实存在的 tName 元组。"""
+    out: dict[str, list[str]] = {}
+    for tn in _chain_tnames(chain_name):
+        try:
+            key = _display_chrom(tn)
+        except Exception:
+            continue
+        out.setdefault(key, []).append(tn)
+    return {k: tuple(v) for k, v in out.items()}
+
+
 def _query_chrom_candidates(chain_name: str, chrom: str) -> list[str]:
     """按可能性从高到低给出查询名候选（首个即旧接口的返回值）。"""
     name = chain_name or ""
@@ -586,6 +631,16 @@ def _query_chrom_candidates(chain_name: str, chrom: str) -> list[str]:
     def add(x: str) -> None:
         if x and x not in cands:
             cands.append(x)
+
+    # 0) 最权威：链文件里真实存在的 tName 中，显示名與用户输入一致的那些
+    want = _display_chrom(chrom)
+    real = _chain_tnames_by_display(name).get(want, [])
+    if fam and fam != "chr":
+        for tn in real:
+            if _acc_family(tn) == fam:
+                add(tn)
+    for tn in real:
+        add(tn)
 
     accs: list[str] = []
     report = _query_report_for_chain(name)
