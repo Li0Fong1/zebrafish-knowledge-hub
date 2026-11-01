@@ -10,6 +10,7 @@
 """
 from __future__ import annotations
 
+import gzip
 import re
 from collections import deque
 from functools import lru_cache
@@ -41,8 +42,12 @@ SELECTABLE_BUILDS = (
     "Zv3",
 )
 
-# 2026-10-29 UI：12tu／12ab 不作來源；13ab 來源與目標皆暫隱
-UI_SOURCE_BUILDS = ("GRCz11", "GRCz10", "Zv9", "Zv8", "Zv7", "Zv6", "Zv5", "Zv4", "Zv3")
+# 2026-10-29 UI：13ab 來源與目標皆暫隱
+# 2026-11-01：放开 12tu／12ab 作来源（反链已重建并实测，见 STRAIN_ASSEMBLIES 的 edges）
+UI_SOURCE_BUILDS = (
+    "GRCz12tu", "GRCz12ab", "GRCz11", "GRCz10",
+    "Zv9", "Zv8", "Zv7", "Zv6", "Zv5", "Zv4", "Zv3",
+)
 UI_TARGET_BUILDS = (
     "GRCz12ab", "GRCz12tu", "GRCz11", "GRCz10",
     "Zv9", "Zv8", "Zv7", "Zv6", "Zv5", "Zv4", "Zv3",
@@ -135,27 +140,43 @@ STRAIN_ASSEMBLIES: dict[str, dict] = {
     "ASM3317019v3": {
         "accession": "GCA_033170195.3", "strain": "Tubingen", "contig_n50": 59265136,
         "report": "GCA_033170195.3_ASM3317019v3_assembly_report.txt",
-        "edges": {("ASM3317019v3", "GRCz12tu"): "GCA_033170195.3ToGCF_049306965.1.over.chain.gz"},
+        "edges": {
+            ("ASM3317019v3", "GRCz12tu"): "GCA_033170195.3ToGCF_049306965.1.over.chain.gz",
+            # 2026-11-01 反链：由正向链逐 block 重建（原文件块尺寸损坏，pyliftover 拒载）
+            ("GRCz12tu", "ASM3317019v3"): "GCF_049306965.1ToGCA_033170195.3.over.chain.gz",
+        },
     },
     "ASM2018471v1": {
         "accession": "GCA_020184715.1", "strain": "AB", "contig_n50": 21088021,
         "report": "GCA_020184715.1_ASM2018471v1_assembly_report.txt",
-        "edges": {("ASM2018471v1", "GRCz12tu"): "GCA_020184715.1ToGCF_049306965.1.over.chain.gz"},
+        "edges": {
+            ("ASM2018471v1", "GRCz12tu"): "GCA_020184715.1ToGCF_049306965.1.over.chain.gz",
+            ("GRCz12tu", "ASM2018471v1"): "GCF_049306965.1ToGCA_020184715.1.over.chain.gz",
+        },
     },
     "fDanRer4.1": {
         "accession": "GCA_944039275.1", "strain": "", "contig_n50": 6927137,
         "report": "GCA_944039275.1_fDanRer4.1_assembly_report.txt",
-        "edges": {("fDanRer4.1", "GRCz12tu"): "GCA_944039275.1ToGCF_049306965.1.over.chain.gz"},
+        "edges": {
+            ("fDanRer4.1", "GRCz12tu"): "GCA_944039275.1ToGCF_049306965.1.over.chain.gz",
+            ("GRCz12tu", "fDanRer4.1"): "GCF_049306965.1ToGCA_944039275.1.over.chain.gz",
+        },
     },
     "fDreABH1.1": {
         "accession": "GCA_903684865.1", "strain": "AB", "contig_n50": 4531818,
         "report": "GCA_903684865.1_fDreABH1.1_assembly_report.txt",
-        "edges": {("fDreABH1.1", "GRCz12tu"): "GCA_903684865.1ToGCF_049306965.1.over.chain.gz"},
+        "edges": {
+            ("fDreABH1.1", "GRCz12tu"): "GCA_903684865.1ToGCF_049306965.1.over.chain.gz",
+            ("GRCz12tu", "fDreABH1.1"): "GCF_049306965.1ToGCA_903684865.1.over.chain.gz",
+        },
     },
     "fDreTuH1.2": {
         "accession": "GCA_903684855.2", "strain": "Tu", "contig_n50": 3603372,
         "report": "GCA_903684855.2_fDreTuH1.2_assembly_report.txt",
-        "edges": {("fDreTuH1.2", "GRCz12tu"): "GCA_903684855.2ToGCF_049306965.1.over.chain.gz"},
+        "edges": {
+            ("fDreTuH1.2", "GRCz12tu"): "GCA_903684855.2ToGCF_049306965.1.over.chain.gz",
+            ("GRCz12tu", "fDreTuH1.2"): "GCF_049306965.1ToGCA_903684855.2.over.chain.gz",
+        },
     },
 }
 
@@ -216,15 +237,8 @@ def resolve_route(source: str, target: str) -> dict:
             "detail": "GRCz13ab 暂不可选（本机仅有 chrom.sizes／assembly_report；无 over.chain／MAF）",
             "maf": "maf_unavailable",
         }
-    # GRCz12tu／12ab：不作来源（产品策略：只作目标）
-    if src in {"GRCz12tu", "GRCz12ab"}:
-        return {
-            "ok": False,
-            "code": "unsupported_build",
-            "chains": [],
-            "hops": [],
-            "detail": f"{src} 不可作为来源版本；请选 Zv3–Zv9／GRCz10／GRCz11，目标可选 {src}",
-        }
+    # 2026-11-01：放开 12tu／12ab 作来源——反链（GCF_049306965.[12]To…、
+    # GCA_052040795.1ToDanRer11）均已入库并逐链实测，BFS 可直接走。
     if tgt and tgt not in UI_TARGET_BUILDS and tgt not in SELECTABLE_BUILDS:
         return {"ok": False, "code": "unsupported_build", "chains": [], "hops": []}
     # BFS on present edges only
@@ -476,38 +490,126 @@ def _display_chrom(name: str) -> str:
     return name
 
 
-def _query_chrom_for_chain(chain_name: str, chrom: str) -> str:
-    """依 chain 查詢端命名習慣選 chrN 或 RefSeq／GenBank accession。"""
+_ACC_FAMILY_RE = re.compile(r"([A-Z]+)_?\d")
+
+
+def _acc_family(name: str) -> str:
+    """accession 的字母族：CM111179.1→CM，NC_133176.1→NC，CP068738.1→CP。"""
+    m = _ACC_FAMILY_RE.match(name or "")
+    return m.group(1).rstrip("_") if m else ""
+
+
+@lru_cache(maxsize=64)
+def _chain_query_family(chain_name: str) -> str:
+    """读 chain 头几条，判断查询端命名族：'chr' 或 accession 字母族（NC/CM/CP…）。
+
+    2026-11-01：同一批链的命名并不统一——Tubingen 的 .1 链 12tu 侧是 chr25，
+    fDanRer4.1 的 .1 链 12tu 侧却是 NC_133182.1；12ab 链用 CM124807.1。
+    所以必须按文件实际内容判定，不能靠链名猜。
+    """
+    path = CHAIN_DIR / (chain_name or "")
+    if not path.is_file():
+        return ""
+    fams: dict[str, int] = {}
+    try:
+        with gzip.open(path, "rt", encoding="utf-8", errors="replace") as fh:
+            for i, line in enumerate(fh):
+                if line.startswith("chain"):
+                    parts = line.split()
+                    if len(parts) >= 8:
+                        nm = parts[7]
+                        key = "chr" if nm.lower().startswith("chr") else _acc_family(nm)
+                        if key:
+                            fams[key] = fams.get(key, 0) + 1
+                if i >= 4000:
+                    break
+    except Exception:
+        return ""
+    if not fams:
+        return ""
+    return max(fams.items(), key=lambda kv: kv[1])[0]
+
+
+@lru_cache(maxsize=32)
+def _display_to_accessions(report_name: str) -> dict[str, list[str]]:
+    """显示名 → 该染色体的全部 accession（GenBank 与 RefSeq 都留，供按族挑选）。"""
+    path = CHAIN_DIR / (report_name or "")
+    out: dict[str, list[str]] = {}
+    if not path.is_file():
+        return out
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split("\t")
+        if len(parts) < 7 or parts[1] != "assembled-molecule":
+            continue
+        mol = parts[2].strip()
+        chrom = "MT" if mol.upper() in {"MT", "M"} else mol
+        if not (chrom.isdigit() or chrom == "MT"):
+            chrom = mol or chrom
+        accs = []
+        for acc in (parts[4], parts[6]):
+            acc = (acc or "").strip()
+            if acc and acc.lower() != "na" and acc not in accs:
+                accs.append(acc)
+        if not accs:
+            continue
+        for key in {chrom, f"chr{chrom}" if chrom.isdigit() else chrom}:
+            bucket = out.setdefault(key, [])
+            for a in accs:
+                if a not in bucket:
+                    bucket.append(a)
+    return out
+
+
+def _query_report_for_chain(chain_name: str) -> str:
+    """这条链「查询端」装配的 assembly_report（用于数字染色体↔accession）。"""
+    name = chain_name or ""
+    m = re.match(r"^(GC[AF]_\d+\.\d+)To", name)
+    if m and m.group(1) in STRAIN_BY_ACCESSION:
+        return STRAIN_BY_ACCESSION[m.group(1)][1]["report"]
+    if name.startswith("GCA_052040795") or name.startswith("GCF_052040795"):
+        return REPORT_12AB_NAME
+    if "GCF_049306965" in name:
+        # .1／.2 的 GRCz12tu：两版 report 的 accession 一致（CM111179.1／NC_133176.1）
+        return REPORT_NAME
+    return ""
+
+
+def _query_chrom_candidates(chain_name: str, chrom: str) -> list[str]:
+    """按可能性从高到低给出查询名候选（首个即旧接口的返回值）。"""
     name = chain_name or ""
     raw = chrom[3:] if chrom.lower().startswith("chr") else chrom
-    # 2026-10-31：链名形如 GCA_018400075.1ToDanRer11 / GCA_033170195.3ToGCF_049306965.1，
-    # 查询端就是该装配 —— 它用 CP_/CM_ accession 命名，必须按自己的 assembly_report 转。
-    m = re.match(r"^(GC[AF]_\d+\.\d+)To", name)
-    if m:
-        _, disp_to_acc = _chrom_maps_strain(m.group(1))
-        hit = disp_to_acc.get(raw) or disp_to_acc.get(chrom) or disp_to_acc.get(f"chr{raw}")
-        if hit:
-            return hit
-        if chrom.startswith(("NC_", "NW_", "NT_", "CM_", "CP_", "CA")):
-            return chrom
-    # 反鏈：查詢端是 GCF／GCA 組裝的 accession
-    if name.startswith("GCF_049306965"):
-        _, disp_to_acc = _chrom_maps_12tu()
-        hit = disp_to_acc.get(raw) or disp_to_acc.get(chrom) or disp_to_acc.get(f"chr{raw}")
-        if hit:
-            return hit
-        # 已是 NC_／NW_ 則原樣
-        if chrom.startswith(("NC_", "NW_", "NT_", "CM_")):
-            return chrom
-    if name.startswith("GCA_052040795") or name.startswith("GCF_052040795"):
-        _, disp_to_acc = _chrom_maps_12ab()
-        hit = disp_to_acc.get(raw) or disp_to_acc.get(chrom) or disp_to_acc.get(f"chr{raw}")
-        if hit:
-            return hit
-        if chrom.startswith(("NC_", "NW_", "NT_", "CM_", "CA")):
-            return chrom
-    # danRer* 正向：chrN
-    return _ucsc_chrom(chrom)
+    fam = _chain_query_family(name)
+    cands: list[str] = []
+
+    def add(x: str) -> None:
+        if x and x not in cands:
+            cands.append(x)
+
+    accs: list[str] = []
+    report = _query_report_for_chain(name)
+    if report:
+        table = _display_to_accessions(report)
+        accs = list(table.get(raw) or table.get(chrom) or [])
+    if fam == "chr":
+        add(_ucsc_chrom(chrom))
+    for a in accs:  # 与链头实际字母族一致的 accession 优先
+        if fam and fam != "chr" and _acc_family(a) == fam:
+            add(a)
+    for a in accs:
+        add(a)
+    if chrom.startswith(("NC_", "NW_", "NT_", "CM", "CP", "CA", "OX")):
+        add(chrom)
+    add(_ucsc_chrom(chrom))
+    add(chrom)
+    return cands
+
+
+def _query_chrom_for_chain(chain_name: str, chrom: str) -> str:
+    """依 chain 查詢端命名習慣選 chrN 或 accession（取最可能的候选）。"""
+    cands = _query_chrom_candidates(chain_name, chrom)
+    return cands[0] if cands else _ucsc_chrom(chrom)
 
 
 @lru_cache(maxsize=16)
@@ -596,16 +698,20 @@ def lift_region(
     cur_start, cur_end = start, end
     cur_strand = strand if strand in {"+", "-"} else "+"
     for chain_name in chains:
-        q_chrom = _query_chrom_for_chain(chain_name, cur_chrom)
-        left = _lift_point(chain_name, q_chrom, cur_start, cur_strand)
-        right = _lift_point(chain_name, q_chrom, cur_end, cur_strand)
-        # 反鏈偶發：用戶已貼 accession 但報告映射失敗時，再試原名字面
-        if (not left or not right) and q_chrom != cur_chrom:
-            left = left or _lift_point(chain_name, cur_chrom, cur_start, cur_strand)
-            right = right or _lift_point(chain_name, cur_chrom, cur_end, cur_strand)
-        if (not left or not right) and q_chrom != _ucsc_chrom(cur_chrom):
-            left = left or _lift_point(chain_name, _ucsc_chrom(cur_chrom), cur_start, cur_strand)
-            right = right or _lift_point(chain_name, _ucsc_chrom(cur_chrom), cur_end, cur_strand)
+        # 2026-11-01：链的查询端命名族因文件而异（chrN／NC_／CM／CP…），
+        # 按候选顺序逐个试，取第一个「两端同链」的结果。
+        left = right = None
+        partial = None
+        for q_chrom in _query_chrom_candidates(chain_name, cur_chrom):
+            cand_left = _lift_point(chain_name, q_chrom, cur_start, cur_strand)
+            cand_right = _lift_point(chain_name, q_chrom, cur_end, cur_strand)
+            if cand_left and cand_right and cand_left[0] == cand_right[0]:
+                left, right = cand_left, cand_right
+                break
+            if partial is None and (cand_left or cand_right):
+                partial = (cand_left, cand_right)
+        if left is None:
+            left, right = partial if partial else (None, None)
         if not left or not right or left[0] != right[0]:
             base["code"] = "liftover_split" if left and right else "liftover_failed"
             base["chain"] = chain_name
@@ -1000,8 +1106,8 @@ def list_supported_pairs() -> dict:
         "routable_pairs": pairs_ok,
         "notes": {
             "GRCz13ab": "hidden in UI (source+target); no over.chain/MAF",
-            "GRCz12tu": "target only in UI (not offered as source)",
-            "GRCz12ab": "target only in UI (not offered as source)",
-            "coverage": "UI sources Zv3–Zv9/GRCz10/GRCz11 → targets incl. 12tu/12ab; 13ab hidden; 12tu chain=.2",
+            "GRCz12tu": "source+target (2026-11-01 起可作来源；反链已重建并实测)",
+            "GRCz12ab": "source+target (2026-11-01 起可作来源)",
+            "coverage": "sources Zv3–Zv9/GRCz10/GRCz11/GRCz12tu/GRCz12ab → 全部目标；13ab hidden; 12tu chain=.2（12tu↔品系走 .1 链）",
         },
     }
