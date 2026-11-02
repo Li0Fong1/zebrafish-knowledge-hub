@@ -24,8 +24,10 @@
       loadingTip: '链文件较大，首次换算需要建索引；之后同样的查询约 1 秒。',
       fail: '换算失败：{msg}',
       needRegion: '请填染色体与起止坐标',
-      needSource: '请先选择来源组装版本（不设默认）',
-      needTarget: '请先选择目标组装版本（不设默认）',
+      needSource: '请先选择来源版本（不设默认）',
+      needTarget: '请先选择目标版本（不设默认）',
+      chromPlaceholder: '选择染色体',
+      chromNeedSource: '来源版本未选：这里先给 1–25 + MT 的通用清单，选好来源版本后会换成该装配的真实染色体。',
       okTitle: '换算结果',
       kSrc: '源区间',
       kTgt: '目标区间',
@@ -76,6 +78,8 @@
       needRegion: 'Chromosome, start and end are required',
       needSource: 'Select a source assembly first (no default)',
       needTarget: 'Select a target assembly first (no default)',
+      chromPlaceholder: 'Chromosome',
+      chromNeedSource: 'No source assembly selected yet. This list is the generic 1–25 + MT set; pick a source and it is replaced by the chromosomes that assembly actually has.',
       okTitle: 'Result',
       kSrc: 'Source region',
       kTgt: 'Target region',
@@ -136,6 +140,15 @@
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
+  /* 最近一次「本地校验」提示的 key：切语言后按新语言重画，
+     否则英文界面里会留着一条中文警告。 */
+  var lastHintKey = '';
+
+  function showHint(key) {
+    lastHintKey = key;
+    showResult('<p class="tool-hint warn">' + esc(T(key)) + '</p>');
+  }
+
   function showResult(html, mode) {
     var box = $('toolResult');
     if (!box) return;
@@ -276,15 +289,15 @@
     var target = (($('liftTargetBuild') && $('liftTargetBuild').value) || '').trim();
     var strand = ($('liftStrand') && $('liftStrand').value) || '+';
     if (!build) {
-      showResult('<p class="tool-hint warn">' + esc(T('needSource')) + '</p>');
+      showHint('needSource');
       return;
     }
     if (!target) {
-      showResult('<p class="tool-hint warn">' + esc(T('needTarget')) + '</p>');
+      showHint('needTarget');
       return;
     }
     if (!chrom || !start || !end) {
-      showResult('<p class="tool-hint warn">' + esc(T('needRegion')) + '</p>');
+      showHint('needRegion');
       return;
     }
     var url = API + '?build=' + encodeURIComponent(build) +
@@ -295,6 +308,7 @@
     // 冷启动实测可到 90s（第一次要建链索引），只写「换算中…」像卡死了。
     // 3 秒后开始报秒数并说明原因，用户知道该等而不是反复点。
     var t0 = Date.now();
+    lastHintKey = '';
     showResult('<span class="tool-loading">' + esc(T('loading')) + '</span>');
     var tick = setInterval(function () {
       var s = Math.round((Date.now() - t0) / 1000);
@@ -476,7 +490,9 @@
     sel.innerHTML = '';
     var ph = document.createElement('option');
     ph.value = '';
-    ph.textContent = '—';
+    /* 2026-11-02：原来占位是一个「—」，加上未选来源时整框禁用，用户以为控件坏了。
+       改成明确的动作提示，并且任何时候都不禁用。 */
+    ph.textContent = T('chromPlaceholder') || 'Select chromosome';
     sel.appendChild(ph);
     var hit = false;
     (list || []).forEach(function (c) {
@@ -517,18 +533,25 @@
     sel.value = val;
   }
 
+  function srcSelEl() { return $('liftSourceBuild'); }
+
   function loadChromosomes() {
     var sel = $('liftChrom');
     if (!sel) return Promise.resolve();
     var build = (($('liftSourceBuild') && $('liftSourceBuild').value) || '').trim();
     if (!build) {
-      /* 未选来源：染色体无从谈起。留一个空占位并置灰，提示先选版本，
-         比摆一份 1–25 的通用清单更不会误导（品系装配未必都有 25 条）。 */
-      fillChromSelect([], '');
-      sel.disabled = true;
+      /* 未选来源：仍然可用。给 1–25 + MT 的通用清单，让下拉点得开、选得动；
+         真正换算时 run() 会先拦「未选来源版本」，不会拿通用清单去算。
+         选好来源后立即换成该装配链里真实存在的染色体。 */
+      fillChromSelect(chromFallback());
+      sel.disabled = false;
+      sel.setAttribute('title', T('chromNeedSource'));
+      if (srcSelEl()) srcSelEl().classList.add('needs-pick');
       return Promise.resolve();
     }
     sel.disabled = false;
+    sel.removeAttribute('title');
+    if (srcSelEl()) srcSelEl().classList.remove('needs-pick');
     if (chromCache[build]) { fillChromSelect(chromCache[build]); return Promise.resolve(); }
     /* 链头解析（首次约 1–7 s）：先摆一份通用清单，别让下拉空着；
        真实清单回来再替换，选中项保持不变。 */
@@ -573,7 +596,12 @@
     loadChromosomes();
     // hero 重画（切 tab／切语言）后药丸会复位为全显，再滤一遍
     document.addEventListener('hub-lang-change', function () {
-      setTimeout(filterTargetBuilds, 0);
+      setTimeout(function () {
+        filterTargetBuilds();
+        // 占位项文案是 JS 生成的，切语言后不会自动跟着变，重填一次（走缓存）
+        loadChromosomes();
+        if (lastHintKey) showHint(lastHintKey);
+      }, 0);
     });
     var metaRow = $('featureMetaRow');
     if (metaRow && !metaRow.dataset.routeFilterObs) {

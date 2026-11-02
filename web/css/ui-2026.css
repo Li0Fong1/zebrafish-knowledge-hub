@@ -915,6 +915,13 @@ html body.theme-atelier .tool-panel .coord-l1-interval select {
   margin: 0 !important;
   box-sizing: border-box !important;
 }
+/* 2026-11-02：来源版本还没选时，给必选项一圈强调色——用户反馈染色体下拉
+   「用不了」，实际是先要选来源；把该选的那个控件指出来，比只把结果控件置灰清楚。 */
+html body.theme-atelier .tool-panel select.needs-pick,
+html body.theme-atelier .tool-panel .coord-l1-select.needs-pick {
+  border-color: var(--ui-accent) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-accent) 18%, transparent) !important;
+}
 html body.theme-atelier .tool-panel button,
 html body.theme-atelier .feature-card button:not(.tool-secondary-btn):not(.seq-tab):not(.crispr-tab):not(.export-tsv-btn) {
   height: 40px !important;

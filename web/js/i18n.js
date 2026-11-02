@@ -667,6 +667,7 @@
     "来源版本": "Source assembly",
     "目标版本": "Target assembly",
     "请选择来源版本": "Select a source assembly",
+    "选择染色体": "Select chromosome",
     "请选择目标版本": "Select a target assembly",
     /* 用 "Chr." 而不是 "Chromosome"：左栏只有 ~150px 一列，全拼会把「起点」挤到下一行 */
     "染色体": "Chr.",
