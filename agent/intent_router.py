@@ -44,15 +44,31 @@ _HARMFUL_RE = re.compile(
     r"制作.{0,8}(炸弹|炸药|毒气|毒药|毒品)|"
     r"(炸弹|炸药|制毒|冰毒|海洛因).{0,12}(怎么|如何|教程|配方)|"
     r"(杀人|谋杀|暗杀).{0,8}(方法|教程)|"
-    r"(自杀|自残).{0,10}(方法|怎么|如何|教程)|"
     r"(儿童|未成年).{0,20}(色情|性|裸)|"
     r"csam|child\s*porn|"
     r"(黑客入侵|盗取密码|绕过验证码).{0,12}(教程|怎么)|"
     r"(制造|合成).{0,8}(沙林|芥子气|蓖麻毒素)|"
     r"how\s+to\s+(make|build)\s+(a\s+)?(bomb|explosive|poison)|"
-    r"weaponize|bioweapon"
+    r"weaponize|bioweapon|"
+    # 2026-11-02 补：命令在前的中文说法此前漏检（「怎么自杀」「教我盗取别人的密码」）
+    r"(怎么|如何|怎样|教我|教我如何|告诉我如何|求).{0,8}"
+    r"(盗(取|用|走)?(别人|他人)?的?(密码|账号|帐号)|盗号|破解.{0,6}密码|"
+    r"入侵.{0,8}(系统|网站|服务器|内网))|"
+    r"(怎么|如何|怎样|最快|无痛).{0,6}(自杀|自残|轻生)|"
+    r"(自杀|自残|轻生).{0,8}(方法|方式|教程|步骤)"
     r")",
     re.I,
+)
+
+# 自伤类单独给「关怀 + 求助资源」，不用一句冷拒答。生物学语境里的「自杀基因」
+# （suicide gene / 胸苷激酶系统）是正经课题，不能误伤。
+_SELF_HARM_RE = re.compile(
+    r"(怎么|如何|怎样|最快|无痛).{0,6}(自杀|自残|轻生)|"
+    r"(自杀|自残|轻生).{0,8}(方法|方式|教程|步骤)",
+    re.I,
+)
+_SELF_HARM_SCI_CONTEXT_RE = re.compile(
+    r"(自杀基因|suicide\s*gene|胸苷激酶|HSV-?TK|基因治疗|细胞|载体|小鼠|斑马鱼)", re.I
 )
 
 _ZEBRAFISH_EXPLICIT_RE = re.compile(
@@ -134,7 +150,19 @@ _DEOCTIC_BIO_RE = re.compile(
 )
 
 
-def safety_refusal_reply() -> str:
+SELF_HARM_REPLY = (
+    "听得出来你现在很难受，这点我不敷衍。伤害自己的具体方式我不能提供，"
+    "也不想在这个方向上帮你。\n\n"
+    "请先找个人说说话：身边可信任的人、学校或单位的心理老师都可以；"
+    "也可以拨打全国心理援助热线 12356，紧急情况直接拨 120 或 110。\n\n"
+    "如果你愿意，我们可以先聊点别的，或者一起把眼下最难的那件事拆开看看。"
+)
+
+
+def safety_refusal_reply(kind: str = "") -> str:
+    """安全拒答文案；kind='self_harm' 时给关怀与求助资源，而不是冷拒。"""
+    if kind == "self_harm":
+        return SELF_HARM_REPLY
     return HARMFUL_REPLY
 
 
@@ -145,14 +173,47 @@ _COORD_INTENT_RE = re.compile(
     re.I,
 )
 _ID_INTENT_RE = re.compile(
-    r"(编号转换|編號轉換|跨库\s*ID|跨庫\s*ID|id[- ]convert|基因编号|基因編號)",
+    r"(编号转换|編號轉換|跨库\s*ID|跨庫\s*ID|id[- ]convert|基因编号|基因編號|"
+    # 2026-11-02 补：「转成 Ensembl ID」这类说法此前不被识别，会掉进文献链路
+    r"(转(成|为|到)|換成|换成|映射到|对应).{0,12}"
+    r"(ensembl|refseq|zfin|ncbi|基因\s*id|gene\s*id)|"
+    r"(ensembl|refseq|zfin|ncbi).{0,10}\bid\b.{0,6}(转|换|映射))",
+    re.I,
+)
+
+# 指令型但产出物不是科学结论的提问（写作文、翻译、画图、起名、推荐）。
+# 「斑马鱼」只是素材，不该触发整条文献检索链路——否则用户要一段英文翻译，
+# 系统会跑五分钟 RAG 再答一堆 tp53 表达数据。
+_NONSCI_INSTRUCTION_RE = re.compile(
+    r"(作文|写一?篇|写一?段|写个|帮我写|帮我做一份|翻译|翻譯|譯成|翻成|翻成英文|润色|改写|"
+    r"壁纸|图案|插画|图片|画一?张|画个|起名|取个名字|推荐一?[部个首]|"
+    r"讲个笑话|段子|文案|朋友圈)",
+    re.I,
+)
+
+# 出现这些词说明用户真要科学结论，指令型也要留在科学链路
+_SCI_HARD_RE = re.compile(
+    r"(基因|基因组|突变|敲除|敲入|敲低|敲降|过表达|表达量|转录|染色体|等位|"
+    r"引物|序列|同源|蛋白|通路|富集|测序|原位杂交|crispr|morpholino|"
+    r"文献|pmid|doi|组装|坐标|表型|抗体)",
     re.I,
 )
 
 
 def detect_tool_intent(question: str) -> Optional[str]:
-    """程序分流：坐标换算与编号转换分开。坐标题回 coord_liftover。"""
+    """程序分流：坐标换算与编号转换分开。坐标题回 coord_liftover。
+
+    「坐标换算怎么用」「lift over 是什么意思」是**问功能/问概念**，不是要换算；
+    这类必须放过去由对话回答，否则用户会收到一句「请写明组装版本和区间」。
+    """
     text = question or ""
+    if re.search(
+        r"(怎么用|如何使用|怎么操作|是什么意思|什么是|讲讲|介绍一下|"
+        r"支持哪些|能不能|有没有|原理)",
+        text,
+        re.I,
+    ):
+        return None
     if _COORD_INTENT_RE.search(text):
         return "coord_liftover"
     if _ID_INTENT_RE.search(text):
@@ -421,10 +482,17 @@ def classify_question_intent(
         return _done(q, TIER_D, 0.4, ["empty"])
 
     if _HARMFUL_RE.search(q):
+        if _SELF_HARM_RE.search(q) and not _SELF_HARM_SCI_CONTEXT_RE.search(q):
+            return _done(q, TIER_E, 0.95, ["self_harm"])
         return _done(q, TIER_E, 0.95, ["harmful_pattern"])
 
     if _meta_tier(q):
         return _done(q, TIER_B, 0.95, ["product_or_meta"])
+
+    # 指令型非科学产出（翻译 / 作文 / 画图 / 起名）：只把「斑马鱼」当素材，
+    # 不进文献链路；否则会答非所问且白等几分钟。
+    if _NONSCI_INSTRUCTION_RE.search(q) and not _SCI_HARD_RE.search(q):
+        return _done(q, TIER_D, 0.8, ["instruction_non_science"])
 
     zf_score, zf_reasons = _zebrafish_science_score(q)
     if zf_score >= 0.55:
@@ -478,6 +546,43 @@ def classify_question_intent(
 
 def is_hub_science_tier(tier: str) -> bool:
     return (tier or "").upper() == TIER_A
+
+
+def is_bare_deictic(question: str, history: Optional[list] = None) -> bool:
+    """「这个基因怎么了」这类只有指代、没有指代对象的提问。
+
+    这种问句必须反问基因名。以前它会被判成 A 档，跑满整条 RAG（实测检索 100 篇
+    PMID、39733 字符），最后答案正文是「请补充基因名」，下面却挂了 6 条与问题无关的
+    文献——既慢又误导。
+    """
+    q = (question or "").strip()
+    if not _DEOCTIC_BIO_RE.search(q):
+        return False
+    if _ID_RE.search(q) or _ZEBRAFISH_EXPLICIT_RE.search(q) or _has_zf_gene_marker(q):
+        return False
+    try:
+        if gene_tokens_in(q):
+            return False
+    except Exception:
+        pass
+    # 上一轮已经点过基因名的，是正常追问，交给 history 展开
+    if history:
+        last_user = ""
+        for item in reversed(history or []):
+            if not isinstance(item, dict):
+                continue
+            if str(item.get("role") or "").strip().lower() in ("user", "human"):
+                last_user = str(item.get("content") or item.get("text") or "").strip()
+                break
+        if last_user:
+            if _ID_RE.search(last_user) or _has_zf_gene_marker(last_user):
+                return False
+            try:
+                if gene_tokens_in(last_user):
+                    return False
+            except Exception:
+                pass
+    return True
 
 
 def is_general_lane_tier(tier: str) -> bool:

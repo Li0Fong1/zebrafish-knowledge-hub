@@ -1735,6 +1735,39 @@ def run_scoped_chat(
         logger.info("[Hub] 文献/库统计短路，直接查计数")
         return answer_corpus_stats(question, depth=depth)
 
+    from intent_router import is_bare_deictic
+
+    if is_bare_deictic(question, history):
+        logger.info("[Hub] 空指问题短路，反问基因名，不跑文献")
+        en = bool(re.search(r"[A-Za-z]{3,}", question)) and not re.search(r"[\u4e00-\u9fff]", question)
+        answer = (
+            "I don't have a gene name or ID to attach to “this gene”, and guessing one would "
+            "mislead you. Please give a gene symbol (e.g. tp53, sox9a), an Ensembl ID, or a "
+            "ZFIN ID. If it came up earlier in the conversation, paste that question too."
+            if en
+            else (
+                "你说的「这个基因」我这边没有对应的基因名或 ID，随便挑一个答会误导你。"
+                "请给出基因符号（如 tp53、sox9a）、Ensembl ID（ENSDARG…）或 ZFIN ID"
+                "（ZDB-GENE-…）中任意一个。\n\n"
+                "如果它出现在上一轮对话里，把那一轮的问题一并贴过来更稳妥。"
+            )
+        )
+        return {
+            **empty_result(),
+            "answer": answer,
+            "hub_mode": True,
+            "answer_scope": "clarify",
+            "answer_depth": depth,
+            "intent_tier": "A",
+            "skip_enrich": True,
+            "skip_reference_footer": True,
+            "task_type": "一般问答",
+            "agent_trace": [
+                _trace_step("router", "clarify", "bare_deictic_ask_for_gene", ms=0),
+            ],
+            "specialists": [],
+        }
+
     effective, hist, expanded = expand_question_with_history(question, history)
     if is_biology_mechanism_question(question):
         effective = question.strip()
@@ -1841,9 +1874,10 @@ def run_scoped_chat(
             **extra,
         }
     if tier == TIER_E:
+        _kind = "self_harm" if "self_harm" in (intent.get("reasons") or []) else ""
         return {
             **empty_result(),
-            "answer": safety_refusal_reply(),
+            "answer": safety_refusal_reply(_kind),
             "hub_mode": False,
             "answer_scope": "safety",
             "answer_depth": depth,
