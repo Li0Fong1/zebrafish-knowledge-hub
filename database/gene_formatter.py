@@ -93,7 +93,7 @@ def format_bgee_tissue_block(
         f"有表达调用的组织：{len(parsed)} 个",
         f"峰值组织：{peak_tis}，Score = {peak_score:g}/100",
         "",
-        "按表达强度从高到低（回复时每个数值后面必须带 \"/100\" 并注明是 Bgee 表达分）：",
+        "按表达强度从高到低（数值为 Bgee Expression Score，0–100）：",
     ]
     for i, (tis, score) in enumerate(parsed[:limit], 1):
         lines.append(f"  {i}. {tis} — {score:g}/100（Bgee score）")
@@ -134,7 +134,7 @@ def format_expression_block(gene_name: str, rows: list, limit: int = 18, prefer_
             f"记录数：{len(parsed)} 条样本（发育时期/组织）",
             f"峰值：{peak_stage}，{peak_tpm:g} TPM",
             "",
-            "按 TPM 从高到低（回复时每个数值后面必须带 \"TPM\"）：",
+            "按 TPM 从高到低：",
         ]
         for i, (stage, tpm, tissue) in enumerate(parsed[:limit], 1):
             extra = f" [{tissue}]" if tissue and tissue != "whole embryo" else ""

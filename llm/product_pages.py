@@ -68,14 +68,14 @@ PAGES = {
 - **入口**：Omics › Gene › 位置查找；也支持链接直达（`#/gene/tp53` 会自动查）。
 - **输入**：一个基因符号，例如 tp53、sox9b、ZDB-GENE-…
 - **输出**：染色体、起止坐标、链方向、基因体序列。
-- **口径**：坐标是 Ensembl GRCz11 r116；cDNA 与符号版本是 NCBI RefSeq GRCz12tu，两套不混用。
+- **口径**：起止坐标单位是 bp，坐标系为 Ensembl GRCz11 r116；cDNA 与符号版本是 NCBI RefSeq GRCz12tu，两套不混用。
 - **不在本页做**：「这个名字到底是哪个基因、还有哪些叫法」去「别名」页；表型去「基因查表型」页。""",
         "en": """**Gene locus (#/gene)** — give a gene name, see where it sits in the genome.
 
 - **Entry**: Omics › Gene › 位置查找; deep links work too (`#/gene/tp53` runs automatically).
 - **Input**: one gene symbol, e.g. tp53, sox9b, ZDB-GENE-…
 - **Output**: chromosome, start/end coordinates, strand, gene-body sequence.
-- **Assembly**: coordinates are Ensembl GRCz11 r116; cDNA and symbols are NCBI RefSeq GRCz12tu — the two are never mixed.
+- **Assembly**: start/end coordinates are in bp on Ensembl GRCz11 r116; cDNA and symbols are NCBI RefSeq GRCz12tu — the two are never mixed.
 - **Not here**: “which gene is this name, and what else is it called” belongs to the aliases page; phenotypes belong to gene → phenotype.""",
     },
     "genes": {
@@ -143,18 +143,18 @@ PAGES = {
         "title_zh": "表达",
         "title_en": "Expression",
         "route": "#/expression",
-        "aliases": r"(表达页|表达谱|表达查询|表达数据|bgee|expression\s*atlas|按组织)",
+        "aliases": r"(表达页|表达谱|表达查询|表达数据|表达值|表达单位|表达量单位|bgee|expression\s*atlas|按组织)",
         "zh": """**表达（#/expression）** —— 按基因看组织，或按组织看基因。
 
 - **三种模式**：按基因 / 按组织（给该组织的 Top 基因）/ 多基因对比；支持 `#/expression?mode=tissue&tp53` 这类深链。
 - **输入**：基因名、别名或 Ensembl ID，多个基因用逗号分隔；按组织模式从下拉里选组织。
-- **单位别混**：Bgee 给的是 0–100 的**表达存在性置信分**，不是 TPM；Expression Atlas（E-ERAD-475）给的是 TPM。
+- **单位别混**：Bgee 给的是 0–100 的**表达存在性置信分**，不是 TPM；Expression Atlas（E-ERAD-475）给的是 **TPM**。本页不提供 FPKM / RPKM / read count，也没有做跨样本归一化——换库的数据口径不能直接互比。
 - **数据量**：319,344 条表达记录、24,245 个基因、1,151 个组织 / 解剖实体。""",
         "en": """**Expression (#/expression)** — browse by gene, or by tissue.
 
 - **Three modes**: by gene, by tissue (top genes in that tissue), multi-gene comparison; deep links like `#/expression?mode=tissue&tp53` work.
 - **Input**: gene name, alias or Ensembl ID; separate multiple genes with commas. Tissue mode picks from a dropdown.
-- **Units**: Bgee reports a 0–100 **expression-existence confidence score**, not TPM; Expression Atlas (E-ERAD-475) reports TPM.
+- **Units**: Bgee reports a 0–100 **expression-existence confidence score**, not TPM; Expression Atlas (E-ERAD-475) reports **TPM**. No FPKM / RPKM / raw read counts here, and no cross-sample normalisation — values from the two sources are not directly comparable.
 - **Scale**: 319,344 expression rows, 24,245 genes, 1,151 tissues / anatomical entities.""",
     },
     "phenotype-gene": {

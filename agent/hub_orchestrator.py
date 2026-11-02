@@ -1678,6 +1678,33 @@ def run_scoped_chat(
             "task_type": "一般问答",
         }
 
+    from citation_verify import is_citation_verify_question, answer_citation_verify
+
+    if is_citation_verify_question(question):
+        # 有 DOI/PMID 实体且在问这篇论文本身：走核验车道，不让基因卡片抢走。
+        logger.info("[Hub] 文献标识符核验短路，不走基因卡片/文献检索")
+        _cv_answer, _cv_meta = answer_citation_verify(question)
+        return {
+            **empty_result(),
+            "answer": _cv_answer,
+            "hub_mode": True,
+            "answer_scope": "citation_verify",
+            "answer_depth": depth,
+            "intent_tier": "B",
+            "skip_enrich": True,
+            "agent_trace": [
+                _trace_step(
+                    "router",
+                    "ok",
+                    "citation_verify_short_circuit:%s:%s"
+                    % (_cv_meta.get("kind"), "hit" if _cv_meta.get("hit") else "miss"),
+                    ms=0,
+                ),
+            ],
+            "specialists": [],
+            "task_type": "一般问答",
+        }
+
     if is_complaint_followup(question):
         last_user = ""
         for item in reversed(history or []):

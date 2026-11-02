@@ -674,6 +674,16 @@ _PAGE_USAGE_RE = re.compile(
     re.I,
 )
 
+# 数据口径提问：问这个页面的数据是什么单位 / 怎么归一化 / 是 TPM 还是 FPKM。
+# 与 _PAGE_USAGE_RE 分开，因为「是 X 还是 Y」这类比较句式覆盖不到，
+# 而直接把 tpm/fpkm 塞进用法正则会让「TPM 和 FPKM 的区别」这类纯概念题误命中
+# （那种题没有页面别名，靠 page 命中做闸门才安全）。
+_DATA_SCOPE_RE = re.compile(
+    r"(tpm|fpkm|rpkm|\brpm\b|read\s*count|\bcounts?\b|归一化|标准化|normaliz|"
+    r"单位|阈值|cutoff|是\s*\w+\s*还是|还是\s*\w+)",
+    re.I,
+)
+
 
 def _page_registry():
     """惰性导入功能页事实表，避免 llm 包初始化期的循环依赖。"""
@@ -737,6 +747,10 @@ def is_hub_product_howto_question(question: str) -> bool:
 
     page = detect_product_page(q)
     if page and _PAGE_USAGE_RE.search(q):
+        return True
+
+    if page and _DATA_SCOPE_RE.search(q):
+        # 认出了具体页面 + 在问数据口径：这是产品问题（本页给的是 TPM 还是置信分）
         return True
 
     if not _PRODUCT_HOWTO_RE.search(q):

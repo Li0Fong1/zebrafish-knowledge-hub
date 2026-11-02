@@ -6,8 +6,10 @@ cDNA：NCBI RefSeq GRCz12tu CDS/RNA（与 BLAST 同库），识别 `[gene=tp53]`
 """
 import bootstrap  # noqa: F401
 
+import copy
 import os
 import re
+import time
 from typing import Any, Dict, List, Optional
 
 from common_utils import logger
@@ -17,10 +19,25 @@ _PROTEIN_ID_RE = re.compile(r"\[protein_id=([^\]]+)\]", re.I)
 _CDNA_CACHE: Dict[str, dict] = {}
 
 
+_LOOKUP_CACHE: Dict[str, tuple] = {}
+_LOOKUP_TTL = float(os.getenv("GENE_LOOKUP_TTL_SEC", "3600"))
+
+
 def _lookup_gene(gene: str) -> Optional[dict]:
+    """基因符号 → 坐标。带 TTL 缓存：同一基因反复提问不必每次重新解析。"""
+    key = str(gene or "").strip().lower()
+    item = _LOOKUP_CACHE.get(key)
+    if item and (time.time() - item[0]) <= _LOOKUP_TTL:
+        return copy.deepcopy(item[1])
     from gene_collector import resolve_lookup
 
-    return resolve_lookup(gene)
+    val = resolve_lookup(gene)
+    if val:
+        if len(_LOOKUP_CACHE) >= 512:
+            oldest = min(_LOOKUP_CACHE.items(), key=lambda kv: kv[1][0])[0]
+            _LOOKUP_CACHE.pop(oldest, None)
+        _LOOKUP_CACHE[key] = (time.time(), copy.deepcopy(val))
+    return val
 
 
 def _fasta_assembly(path: str) -> str:
@@ -297,7 +314,7 @@ def fetch_genomic_sequence(gene: str, flank: int = 0) -> dict:
         start = max(1, start - flank)
         end = end + flank
     region = f"{seq_name}:{start}-{end}:{strand}"
-    data = _api_get(f"/sequence/region/{SPECIES}/{region}", {})
+    data = _api_get(f"/sequence/region/{SPECIES}/{region}", {}, timeout=25, retries=1)
     seq = (data.get("seq") if isinstance(data, dict) else "") or ""
     if not seq:
         return {"success": False, "gene": name, "error": "Ensembl 未返回基因组序列"}
@@ -343,7 +360,10 @@ def fetch_promoter_sequence(
         p_start = max(1, tss - downstream)
         p_end = tss + upstream
     region = f"{seq_name}:{p_start}-{p_end}:{strand}"
-    data = _api_get(f"/sequence/region/{SPECIES}/{region}", {})
+    # 只重试一次：默认 25s x 3 次会把一次慢响应放大成 75s，直接撞满 45s 总预算，
+    # 用户拿到「超时」而不是「Ensembl 这次没答上来」。
+    # 单次仍留 25s——收到 12s 会让启动子在高延迟时段直接失败（实测过）。
+    data = _api_get(f"/sequence/region/{SPECIES}/{region}", {}, timeout=25, retries=1)
     seq = (data.get("seq") if isinstance(data, dict) else "") or ""
     if not seq:
         return {"success": False, "gene": name, "error": "启动子区序列获取失败"}
@@ -505,11 +525,41 @@ def _region_payload(chrom: str, start: int, end: int, rev: bool, assembly: str,
     }
 
 
+# 序列结果缓存：同一装配的同一基因不会变，重复提问不该再等一次 Ensembl。
+# TTL 默认 1 小时，最多 256 条（一条序列几十 KB，上限约 20 MB）。
+_SEQ_CACHE: Dict[tuple, tuple] = {}
+_SEQ_CACHE_MAX = int(os.getenv("SEQ_CACHE_MAX", "256"))
+_SEQ_CACHE_TTL = float(os.getenv("SEQ_CACHE_TTL_SEC", "3600"))
+
+
+def _seq_cache_get(key: tuple):
+    item = _SEQ_CACHE.get(key)
+    if not item:
+        return None
+    ts, val = item
+    if (time.time() - ts) > _SEQ_CACHE_TTL:
+        _SEQ_CACHE.pop(key, None)
+        return None
+    return copy.deepcopy(val)
+
+
+def _seq_cache_put(key: tuple, val: dict) -> None:
+    if len(_SEQ_CACHE) >= _SEQ_CACHE_MAX:
+        oldest = min(_SEQ_CACHE.items(), key=lambda kv: kv[1][0])[0]
+        _SEQ_CACHE.pop(oldest, None)
+    _SEQ_CACHE[key] = (time.time(), copy.deepcopy(val))
+
+
 def extract_sequences(gene: str, kinds: Optional[list] = None) -> Dict[str, Any]:
     """交互式提取；硬时限避免 Ensembl 慢请求拖死接口。"""
     import concurrent.futures
 
     kinds = kinds or ["cdna", "promoter"]
+    cache_key = (str(gene or "").strip().lower(), tuple(sorted(kinds)))
+    cached = _seq_cache_get(cache_key)
+    if cached is not None:
+        cached["cached"] = True
+        return cached
     out: Dict[str, Any] = {
         "gene": gene,
         "results": {},
@@ -551,6 +601,9 @@ def extract_sequences(gene: str, kinds: Optional[list] = None) -> Dict[str, Any]
     out["success"] = ok
     if not ok:
         out["error"] = "未能提取任何序列（本地 GRCz12tu FASTA 未命中且 Ensembl 可能超时）"
+    else:
+        # 只缓存成功结果：失败多为上游临时故障，缓存住会让用户一直看到旧的失败
+        _seq_cache_put(cache_key, out)
     return out
 
 
