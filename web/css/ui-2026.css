@@ -920,7 +920,8 @@ html body.theme-atelier .tool-panel .coord-l1-interval select {
 html body.theme-atelier .tool-panel select.needs-pick,
 html body.theme-atelier .tool-panel .coord-l1-select.needs-pick {
   border-color: var(--ui-accent) !important;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-accent) 18%, transparent) !important;
+  /* color-mix 在旧内核里不生效，直接用 rgba 保证看得见 */
+  box-shadow: 0 0 0 3px rgba(12, 107, 138, 0.16) !important;
 }
 html body.theme-atelier .tool-panel button,
 html body.theme-atelier .feature-card button:not(.tool-secondary-btn):not(.seq-tab):not(.crispr-tab):not(.export-tsv-btn) {

@@ -27,6 +27,7 @@
       needSource: '请先选择来源版本（不设默认）',
       needTarget: '请先选择目标版本（不设默认）',
       chromPlaceholder: '选择染色体',
+      chromPickSource: '先选来源版本',
       chromNeedSource: '来源版本未选：这里先给 1–25 + MT 的通用清单，选好来源版本后会换成该装配的真实染色体。',
       okTitle: '换算结果',
       kSrc: '源区间',
@@ -79,6 +80,7 @@
       needSource: 'Select a source assembly first (no default)',
       needTarget: 'Select a target assembly first (no default)',
       chromPlaceholder: 'Chromosome',
+      chromPickSource: 'Select source',
       chromNeedSource: 'No source assembly selected yet. This list is the generic 1–25 + MT set; pick a source and it is replaced by the chromosomes that assembly actually has.',
       okTitle: 'Result',
       kSrc: 'Source region',
@@ -540,11 +542,18 @@
     if (!sel) return Promise.resolve();
     var build = (($('liftSourceBuild') && $('liftSourceBuild').value) || '').trim();
     if (!build) {
-      /* 未选来源：仍然可用。给 1–25 + MT 的通用清单，让下拉点得开、选得动；
-         真正换算时 run() 会先拦「未选来源版本」，不会拿通用清单去算。
-         选好来源后立即换成该装配链里真实存在的染色体。 */
-      fillChromSelect(chromFallback());
-      sel.disabled = false;
+      /* 2026-11-02 修正（用户第二次反馈）：染色体必须由版本决定，没选版本就不能有值。
+         上一版为了「点得开」先塞了 1–25 通用清单，结果还没选版本框里就出现 chr2，
+         正好违背了这条规则。现在清空 + 禁用，占位直接写「先选来源版本」；
+         同时给来源下拉加强调色，指明该先点哪里。
+         另外浏览器会恢复表单控件上次的值（刷新后 select 仍显示 chr2），
+         所以这里强制 value 置空，bind() 末尾再补一次以防恢复晚于本次调用。 */
+      fillChromSelect([], '');
+      var ph = sel.options[0];
+      if (ph) ph.textContent = T('chromPickSource');
+      sel.value = '';
+      if (sel.selectedIndex !== 0) sel.selectedIndex = 0;
+      sel.disabled = true;
       sel.setAttribute('title', T('chromNeedSource'));
       if (srcSelEl()) srcSelEl().classList.add('needs-pick');
       return Promise.resolve();
@@ -552,6 +561,9 @@
     sel.disabled = false;
     sel.removeAttribute('title');
     if (srcSelEl()) srcSelEl().classList.remove('needs-pick');
+    /* 之前浏览器恢复进来的值不属于这个装配时，上面的 fillChromSelect 会把它
+       补成一个选项（粘贴场景用）。但「没选过版本就刷新页面」属于恢复残留，
+       来源下拉此时是空占位，直接丢弃这个值更符合规则。 */
     if (chromCache[build]) { fillChromSelect(chromCache[build]); return Promise.resolve(); }
     /* 链头解析（首次约 1–7 s）：先摆一份通用清单，别让下拉空着；
        真实清单回来再替换，选中项保持不变。 */
@@ -565,6 +577,18 @@
       if (!list.length) list = chromFallback();
       chromCache[build] = list;
       fillChromSelect(list);
+      /* 换装配后，原来选的那条染色体不一定还在新清单里（例如切到没有 MT 的
+         GRCz12ab）。fillChromSelect 为了粘贴场景会把它补成选项保留下来，
+         这里按「该装配真实清单」再校一次：不在就清空，避免框里挂着一个
+         这个版本根本没有的染色体。 */
+      var keep = String(sel.value || '');
+      if (keep) {
+        var ok = list.some(function (c) { return String(c.value) === keep; });
+        if (!ok) {
+          sel.value = '';
+          if (sel.selectedIndex !== 0) sel.selectedIndex = 0;
+        }
+      }
     }).catch(function () {
       if (seq !== chromSeq) return;
       fillChromSelect(chromFallback());
@@ -594,6 +618,13 @@
     }
     // 首次进入：按当前来源版本填一次染色体下拉
     loadChromosomes();
+    /* 浏览器的表单状态恢复会晚于脚本执行：刷新后 #liftChrom 可能被填回上次的
+       chr2，而来源下拉的占位是 disabled 的、恢复不了 → 出现「没选版本却有染色体」。
+       这里补几次重跑（来源为空就清空），再监听 bfcache 返回。 */
+    [0, 150, 500].forEach(function (ms) { setTimeout(loadChromosomes, ms); });
+    window.addEventListener('pageshow', function (e) {
+      if (e && e.persisted) loadChromosomes();
+    });
     // hero 重画（切 tab／切语言）后药丸会复位为全显，再滤一遍
     document.addEventListener('hub-lang-change', function () {
       setTimeout(function () {
