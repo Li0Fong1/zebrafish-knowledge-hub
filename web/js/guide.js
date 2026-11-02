@@ -35,10 +35,10 @@
       id: "where",
       nav: T("去哪找功能", "Find a tool"),
       title: T("入口按对象分：Omics 三区 + 工具 + 新闻", "Grouped by object: three Omics areas, tools, news"),
-      lead: T("不知道点哪个时，看这张表。", "Not sure where to click? This table settles it."),
+      lead: T("不知道点哪个时，看这张表。", "Not sure where to start? This table maps each task to a tool."),
       table: [
         [T("Chat", "Chat"), T("问问题：基因功能、表型、文献、实验设计", "Ask anything: function, phenotype, literature, design")],
-        [T("Omics → Genome", "Omics → Genome"), T("Liftover 坐标换算、按区间取序列", "Liftover, sequence by chromosome interval")],
+        [T("Omics → Genome", "Omics → Genome"), T("Liftover 坐标换算、按区间取序列", "Liftover, sequence by region")],
         [T("Omics → Gene", "Omics → Gene"), T("别名、按基因查位置、组织表达", "Aliases, gene locus, expression")],
         [T("Omics → Phenotype", "Omics → Phenotype"), T("基因 → 表型、表型 → 基因", "Gene → phenotype, phenotype → genes")],
         [T("Tools", "Tools"), T("BLAST、GO、KEGG、sgRNA 设计、引物设计", "BLAST, GO, KEGG, sgRNA, primers")],
@@ -55,15 +55,15 @@
       lead: T("平时不用看。对某个数字有疑问时，展开对应那一条。", "You can skip this. Open a row only when a number looks odd."),
       mods: [
         {
-          name: T("Liftover（坐标换算）", "Liftover (coordinate conversion)"),
-          one: T("把旧组装的一段区间换到 GRCz12tu；页内另有装配长度对比。", "Convert a span from an older build onto GRCz12tu; assembly length comparison sits in the same page."),
+          name: T("Liftover（坐标换算）", "Liftover"),
+          one: T("把旧组装的一段区间换到 GRCz12tu；页内另有装配长度对比。", "Lift an older-assembly region over to GRCz12tu; chromosome-length comparison sits on the same page."),
           body: [
             T("GRCz12tu 的长度取自本机 FASTA 实测；GRCz11 的长度取 Ensembl 记录值，取一次缓存 7 天。",
               "GRCz12tu lengths are measured on the local FASTA; GRCz11 lengths are Ensembl records cached for 7 days."),
             T("只列染色体级别的长度、GC、基因数与密度，不列基因名——两版的 SYMBOL 与 NAME 本来就一致，列出来没有信息量。",
-              "Only chromosome-level length, GC, gene count and density are listed. Gene names are omitted because SYMBOL and NAME are identical across both builds."),
+              "Only chromosome-level length, GC, gene count and density are listed. Gene names are omitted because SYMBOL and NAME are identical in both assemblies."),
             T("坐标换算走 UCSC over.chain，碱基级：GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu。链文件只备了指到 GRCz12tu 的方向，反向（GRCz12tu → 旧版）没有链，一律明确拒绝，不给近似坐标；跨链断裂点时同样不给数。",
-              "Conversion uses UCSC over.chain at base-pair level: GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu. Only chains pointing to GRCz12tu exist locally, so the reverse direction is refused outright with no approximate coordinates; spans crossing a chain break are also refused.")
+              "Liftover runs on UCSC over.chain files at base-pair resolution — GRCz11, GRCz10, Zv9 and Zv8 all convert into GRCz12tu. Only chains that point at GRCz12tu are installed, so the reverse direction is refused outright with no approximate coordinates; regions that cross a chain break are refused as well.")
           ]
         },
         {
@@ -71,9 +71,9 @@
           one: T("按符号、别名或跨库 ID 找基因，点开是基因卡。", "Find a gene by symbol, alias or cross-database ID."),
           body: [
             T("可检索 32,564 个基因：标准符号、ZFIN / NCBI / UniProt 别名、Entrez 与 Ensembl ID 都能命中。",
-              "32,564 genes are searchable by standard symbol, ZFIN / NCBI / UniProt alias, Entrez and Ensembl ID."),
+              "32,564 genes are searchable by canonical symbol, ZFIN / NCBI / UniProt alias, Entrez ID and Ensembl ID."),
             T("符号统一按 GRCz12tu 标准名解析；基因卡里的坐标、表达、GO 来自本地注释库（GRCz11 / Ensembl r116）。",
-              "Symbols are resolved against GRCz12tu standard names; coordinates, expression and GO on the card come from the local annotation library (GRCz11 / Ensembl r116).")
+              "Symbols are resolved against GRCz12tu canonical symbols; coordinates, expression and GO on the card come from the local annotation library (GRCz11 / Ensembl r116).")
           ]
         },
         {
@@ -108,7 +108,7 @@
         },
         {
           name: T("序列提取", "Sequence extraction"),
-          one: T("按基因名或按染色体区间取序列，可批量。", "Fetch sequence by gene name or by chromosome interval, in batch."),
+          one: T("按基因名或按染色体区间取序列，可批量。", "Retrieve sequences by gene name or genomic interval, in batches."),
           body: [
             T("序列一律从参考装配直接取出，不支持上传自定义基因组；每段结果都会标注装配版本、来源与登录号。",
               "All sequence is read straight from the reference assemblies; custom genomes cannot be uploaded. Each record is labelled with assembly, source and accession."),
@@ -134,10 +134,10 @@
         },
         {
           name: T("跨库 ID 映射", "Cross-database ID mapping"),
-          one: T("符号、ZFIN、Entrez、Ensembl 之间互转。", "Convert between symbol, ZFIN, Entrez and Ensembl IDs."),
+          one: T("符号、ZFIN、Entrez、Ensembl 之间互转。", "Map between symbol, ZFIN, Entrez and Ensembl IDs."),
           body: [
             T("结果分三态：unique（唯一命中）、ambiguous（一对多，候选单独列出）、not_found（未收录）。对照表是本地 GRCz11 与 NCBI RefSeq GRCz12tu 的标准名。",
-              "Results come in three states: unique, ambiguous (one-to-many, candidates listed) and not_found. The mapping table links local GRCz11 to NCBI RefSeq GRCz12tu standard names.")
+              "Results come in three states: unique, ambiguous (one-to-many, candidates listed) and not_found. The mapping table links local GRCz11 to NCBI RefSeq GRCz12tu canonical names.")
           ]
         },
         {
@@ -180,7 +180,7 @@
         },
         {
           name: T("运营看板", "Dashboard"),
-          one: T("定时任务跑了没、今天多少人用。", "Did the cron jobs run, how many visitors today."),
+          one: T("定时任务跑了没、今天多少人用。", "Whether the cron jobs ran, and how many visitors today."),
           body: [
             T("定时任务与访问统计都来自服务端只读接口；访问统计只返回计数，不含任何 IP 明细。",
               "Cron status and traffic come from read-only server endpoints. Traffic statistics are counts only — no IP details are stored.")
@@ -199,9 +199,9 @@
         [T("GRCz11 / GRCz12tu", "GRCz11 / GRCz12tu"), T("斑马鱼的两代参考装配。本地注释与坐标在 GRCz11；BLAST 与 cDNA 在 GRCz12tu。", "Two generations of the zebrafish reference assembly. Local annotation and coordinates sit on GRCz11; BLAST and cDNA on GRCz12tu.")],
         [T("Bgee 表达分", "Bgee score"), T("0–100 的相对表达分，同一基因在不同组织之间可以比。", "A 0–100 relative expression score, comparable across tissues within one gene.")],
         [T("TPM", "TPM"), T("每百万转录本数，Expression Atlas 用的单位；按胚胎分期给。", "Transcripts per million, the unit used by Expression Atlas, reported per developmental stage.")],
-        [T("ORA / FDR", "ORA / FDR"), T("过表达分析；FDR 是多重检验校正后的显著性，看这一列比看 p 值稳。", "Over-representation analysis; FDR is the multiple-testing-corrected significance — trust it over raw p.")],
+        [T("ORA / FDR", "ORA / FDR"), T("过表达分析；FDR 是多重检验校正后的显著性，看这一列比看 p 值稳。", "Over-representation analysis; FDR is the multiple-testing-corrected significance — trust it over raw p-values.")],
         [T("粗排 / 精排", "Coarse / rerank"), T("先用向量快速筛（粗排），再用交叉编码器逐篇细读（精排）。", "Vector search narrows the pool (coarse), then a cross-encoder reads each pair (rerank).")],
-        [T("cDNA / 启动子 / 基因体", "cDNA / promoter / gene body"), T("转录本序列 / 转录起点上游 2 kb / 基因在基因组上的整段。", "Transcript sequence / 2 kb upstream of the TSS / the full genomic span.")]
+        [T("cDNA / 启动子 / 基因体", "cDNA / promoter / gene body"), T("转录本序列 / 转录起点上游 2 kb / 基因在基因组上的整段。", "Transcript sequence / 2 kb upstream of the TSS / the full genomic region.")]
       ]
     },
 
@@ -225,7 +225,7 @@
       id: "terms-of-use",
       nav: T("使用协议", "Terms of use"),
       title: T("使用协议与隐私", "Terms of use and privacy"),
-      lead: T("一段话说清，不写废话。", "Said plainly, without padding."),
+      lead: T("一段话说清，不写废话。", "Plain language throughout."),
       list: [
         T("本平台是研究预览版，用于科研信息检索，不构成临床诊断或用药建议。", "This is a research preview for scientific information retrieval. It is not clinical diagnosis or medical advice."),
         T("回答由模型基于本地知识库与公开数据库生成，可能有错。关键结论请回到原文或原站核对。", "Answers are model-generated from the local knowledge base and public databases and may be wrong. Verify critical conclusions against the original source."),

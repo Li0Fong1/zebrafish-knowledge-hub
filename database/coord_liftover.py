@@ -806,26 +806,26 @@ def _answer_en(question: str = "") -> bool:
 def _error_message(code: str, source: str, target: str, en: bool) -> str:
     if code == "need_source_build":
         return (
-            "Which source assembly is this span on? (e.g. GRCz11 / GRCz10 / Zv9). No default."
+            "Which source assembly is this region on? (e.g. GRCz11, GRCz10, Zv9). No default."
             if en
             else "请先说明来源组装版本（例如 GRCz11／GRCz10／Zv9）。系统不设默认来源。"
         )
     if code == "need_target_build":
         return (
-            "Which target assembly should I convert to? (e.g. GRCz12tu / GRCz12ab / GRCz13ab). No default."
+            "Which target assembly should this be lifted over to? (e.g. GRCz12tu, GRCz12ab, GRCz13ab). No default."
             if en
             else "请先选择目标组装版本（例如 GRCz12tu／GRCz12ab／GRCz13ab）。系统不设默认目标。"
         )
     if code == "unsupported_build":
         return (
-            "This assembly is not supported for conversion."
+            "This assembly is not supported for liftover."
             if en
             else "该组装版本不支持换算。"
         )
     if code in {"chain_unavailable", "missing_chain"}:
         return (
-            f"No UCSC chain route for {source} → {target}; MAF fallback unavailable. "
-            "No coordinates were invented."
+            f"No UCSC chain route from {source} to {target}; no MAF fallback is available. "
+            "No approximate coordinates were returned."
             if en
             else f"没有 {source} → {target} 的 UCSC chain 路由；亦无 MAF 备援。系统没有伪造坐标。"
         )
@@ -837,12 +837,12 @@ def _error_message(code: str, source: str, target: str, en: bool) -> str:
         )
     if code == "liftover_split":
         return (
-            "Span crosses a chain break; split and retry."
+            "This region crosses a chain breakpoint; split it and try again."
             if en
             else "区间跨了链断裂点，请缩小范围分段换算。"
         )
     return (
-        "Interval could not be lifted with UCSC chain; no coordinates invented."
+        "No alignment block covers this region in the UCSC chain; no approximate coordinates were returned."
         if en
         else "无法用 UCSC chain 换算该区间。系统没有伪造坐标。"
     )
@@ -1160,9 +1160,92 @@ def list_supported_pairs() -> dict:
         ],
         "routable_pairs": pairs_ok,
         "notes": {
+            "chromosomes": "GET /api/genome/chromosomes?build=<build> 给前端染色体下拉；值取自链头 tName",
             "GRCz13ab": "hidden in UI (source+target); no over.chain/MAF",
             "GRCz12tu": "source+target (2026-11-01 起可作来源；反链已重建并实测)",
             "GRCz12ab": "source+target (2026-11-01 起可作来源)",
             "coverage": "sources Zv3–Zv9/GRCz10/GRCz11/GRCz12tu/GRCz12ab → 全部目标；13ab hidden; 12tu chain=.2（12tu↔品系走 .1 链）",
         },
+    }
+
+
+# ---------------------------------------------------------------------------
+# 2026-11-02：染色体下拉
+# ---------------------------------------------------------------------------
+# 需求（用户）：染色体号随所选基因组版本变化，不该让人手打。
+# 口径：只列「该装配作为来源时，链文件里真实存在 tName」的主染色体（1–25 / MT）。
+#   真名取自链头，选中就一定对得上链 —— 不按 1–25 硬编码，避免 fDanRer4.1 这类
+#   只覆盖部分染色体的装配给出选不通的选项。
+#   某装配没有出边链／链文件不在本机时，退回 1–25 + MT（前端仍可用，换算时才报缺链）。
+
+@lru_cache(maxsize=32)
+def _source_chains_for(build: str) -> tuple[str, ...]:
+    """該裝配作為來源（= 查詢側）時可用的鏈，排序固定以便結果穩定。"""
+    return tuple(sorted(c for (s, _t), c in EDGE_CHAINS.items() if s == build))
+
+
+@lru_cache(maxsize=32)
+def _chromosomes_of_build(build: str) -> tuple[tuple[str, tuple[str, ...]], ...]:
+    """(显示名, 链头真名元组) 序列，已按数值排序；MT 置末。"""
+    seen: dict[str, set[str]] = {}
+    for chain in _source_chains_for(build):
+        try:
+            table = _chain_tnames_by_display(chain)
+        except Exception:
+            continue
+        for disp, tnames in table.items():
+            key = _display_chrom(disp)
+            if key.upper() in {"M", "MT"}:
+                key = "MT"
+            elif not key.isdigit():
+                # chrUn_*、contig 等非主染色体不放进下拉
+                continue
+            bucket = seen.setdefault(key, set())
+            bucket.update(tnames)
+    keys = sorted((k for k in seen if k.isdigit()), key=int)
+    if "MT" in seen:
+        keys.append("MT")
+    return tuple((k, tuple(sorted(seen[k]))) for k in keys)
+
+
+def list_build_chromosomes(build: str = "") -> dict:
+    """某装配可作为来源的染色体清单（供前端下拉）。
+
+    返回 value（提交值，如 "5" / "MT"）与 label（显示名，如 "chr5" / "chrMT"）。
+    """
+    b = normalize_build(build)
+    if not b:
+        return {
+            "ok": False, "code": "need_source_build",
+            "message_zh": "请先选择来源版本，再取染色体列表。",
+            "message_en": "Select a source assembly first, then load its chromosomes.",
+            "chromosomes": [],
+        }
+    if b not in SELECTABLE_BUILDS or b == "GRCz13ab":
+        return {
+            "ok": False, "code": "unsupported_build", "build": b,
+            "message_zh": f"「{b}」未收录，无法列出染色体。",
+            "message_en": f"“{b}” is not a supported assembly.",
+            "chromosomes": [],
+        }
+
+    rows = list(_chromosomes_of_build(b))
+    source = "chain"
+    if not rows:
+        rows = [(str(i), ()) for i in range(1, 26)] + [("MT", ())]
+        source = "default"
+
+    return {
+        "ok": True,
+        "build": b,
+        "source": source,   # chain = 取自链头真名；default = 无链时退回 1–25 + MT
+        "total": len(rows),
+        "chromosomes": [
+            {
+                "value": name,
+                "label": "chrMT" if name == "MT" else f"chr{name}",
+                "names": list(tnames),   # 链头里对得上的写法（排查用）
+            }
+            for name, tnames in rows
+        ],
     }

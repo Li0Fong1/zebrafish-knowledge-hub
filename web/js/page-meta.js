@@ -41,9 +41,9 @@
       ['基因库', 'Genes', '32,564'],
       ['别名', 'Aliases', '145,439'],
       ['同源 / 复制体', 'Orthologs / paralogs', '31,630'],
-      ['坐标版本', 'Coordinate release', 'Ensembl GRCz11 r116'],
-      ['符号版本', 'Symbol release', 'NCBI RefSeq GRCz12tu'],
-      ['命中口径', 'Lookup keys', 'symbol / alias / cross-DB ID']
+      ['坐标版本', 'Coordinate assembly', 'Ensembl GRCz11 r116'],
+      ['符号版本', 'Symbol assembly', 'NCBI RefSeq GRCz12tu'],
+      ['命中口径', 'Match fields', 'symbol / alias / cross-DB ID']
     ],
     genes: [
       ['基因库', 'Genes', '32,564'],
@@ -62,7 +62,7 @@
       ['序列来源', 'Sequence source', 'GRCz12tu CDS'],
       ['坐标来源', 'Coordinate source', 'GRCz11（含链方向）'],
       ['支持类型', 'Region types', 'cDNA / promoter / genomic'],
-      ['版本标注', 'Version labelled', 'yes']
+      ['版本标注', 'Version tag', 'yes']
     ],
     enrich: [
       ['统计方法', 'Statistics', 'ORA · Fisher + Benjamini–Hochberg'],
@@ -165,7 +165,10 @@
           ['全文金标', 'Full-text gold', '29,221 篇'],
           ['粗排 → 精排', 'Coarse → rerank', '500 → 100']
         ];
-        if (st.pool != null) facts.push(['当日候选池', "Today's pool", String(st.pool) + ' 篇']);
+        if (st.pool != null) {
+          facts.push(['当日候选池', "Today's pool",
+            String(st.pool) + (lang() === 'zh' ? ' 篇' : ' papers')]);
+        }
         if (st.catalog_lines != null) facts.push(['题录行数', 'Catalog lines', String(st.catalog_lines)]);
         return facts;
       }

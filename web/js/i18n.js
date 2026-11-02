@@ -110,7 +110,7 @@
     "使用协议": "Terms of use",
     "数据来源": "Data sources",
     /* 功能页精简后仅剩的两条口径提示 */
-    "单条 ≤100 kb；默认 GRCz12tu，与 BLAST 同版。": "Single interval ≤100 kb; GRCz12tu by default, the same build as BLAST.",
+    "单条 ≤100 kb；默认 GRCz12tu，与 BLAST 同版。": "Single interval ≤100 kb; GRCz12tu by default, the same assembly as BLAST.",
     "Bgee 分与 Atlas TPM 不可横向比较。": "Bgee scores and Atlas TPM are not comparable.",
     /* 导航（index.html 里这些标签是英文原稿，这里补「中文 → 英文」，
        反向表 EN2ZH 会自动生成，中文模式下才能显示中文） */
@@ -145,8 +145,8 @@
     /* 2026-10-28 导航重组：Genomics → Omics（Genome / Gene / Phenotype 三区），
        文献台改名 News。菜单项标题是小字里唯一的短词，必须能整串命中，
        否则英文界面会出现「Omics 下拉里全是中文」。 */
-    "位置查序列": "Sequence by locus",
-    "位置查找序列": "Sequence lookup",
+    "位置查序列": "Sequence by region",
+    "位置查找序列": "Sequence by region",
     "位置查找": "Gene locus",
     "基因位置查找": "Gene locus",
     "基因别名": "Gene aliases",
@@ -177,7 +177,7 @@
     "表型相关文献检索": "Phenotype-related literature search",
     "基因功能注释": "Gene function annotation",
     "GO / 通路汇总": "GO / pathway summary",
-    "突变体表型库": "Mutant phenotype library",
+    "突变体表型库": "Mutant phenotype atlas",
     "组织 × 时期表达热图": "Tissue × stage expression heatmap",
     "脱靶范围：转录组（快，GRCz12tu CDS）": "Off-target scope: transcriptome (fast, GRCz12tu CDS)",
     "脱靶范围：全基因组（更全，较慢）": "Off-target scope: whole genome (broader, slower)",
@@ -262,7 +262,7 @@
       "Rule-based primer design: 18–25 nt, ΔTm ≤ 2 °C, GC 40–70%, no hairpin/dimer, stable 3′ end; optional T7/SP6 promoter tails for in-vitro transcription.",
 
     /* ── 实时库规模 ── */
-    "实时库规模": "Live Atlas",
+    "实时库规模": "Live library stats",
     "库规模实时来自 /api/hub/stats": "Live counts from /api/hub/stats",
     "本地基因": "Local genes",
     "本地文献": "Local papers",
@@ -278,7 +278,7 @@
     "功能主视觉": "Feature hero",
     "功能页": "Feature page",
     "一功能一界面 · 卡片影像随研究图流同步轮播":
-      "One page per tool · card imagery synced with the research stream",
+      "One page per tool · card imagery synced with the research feed",
     "Hub 多 Agent · 文献精排 · 实体双链": "Multi-agent hub · literature reranking · entity links",
     "卡片 · 表达 · GO · 同源": "Cards · expression · GO · orthologs",
     "GRCz12tu RefSeq CDS": "GRCz12tu RefSeq CDS",
@@ -294,7 +294,7 @@
     "一键注释": "One-click Annotation",
     "本地库整合视图": "Integrated local-library view",
     "文献检索台": "Literature Search",
-    "粗排 500 · 精排 100": "Coarse 500 · rerank 100",
+    "粗排 500 · 精排 100": "Retrieve 500 · rerank 100",
     "PDF / 文本进 RAG": "PDF / text into RAG",
 
     /* ── 影像流 ── */
@@ -318,13 +318,13 @@
     "tp53 转录机制": "tp53 transcription mechanism",
     "本地库规模": "Library size",
     "跨库映射": "Cross-DB mapping",
-    "组学库映射": "Omics mapping",
+    "组学库映射": "Omics database mapping",
     "请输入你的问题吧！": "Type your question here!",
     "发送": "Send",
     "工具": "Tools",
     "＋ 新对话": "＋ New chat",
     "新对话": "New chat",
-    "Hub 多Agent": "Hub Multi-Agent",
+    "Hub 多Agent": "Hub multi-agent",
     "基因详情": "Gene detail",
     "数据库查询": "Database query",
     "知识库问答": "Knowledge-base Q&A",
@@ -409,19 +409,19 @@
       "Sign in to upload (your library is private). Use Sign in / Sign up at the top right.",
 
     /* ── 工具页通用 ── */
-    "填写参数后运行": "Run after filling in the parameters",
+    "填写参数后运行": "Fill in the parameters, then run",
     "在左侧提交后，结果会呈现在这里。": "Results appear here after you submit on the left.",
     "发送问题后显示路由、SQL、检索片段与基因卡片。":
       "After you send a question, routing, SQL, retrieved snippets and gene cards appear here.",
     "基因名，如 tp53": "Gene name, e.g. tp53",
     "基因名，如 tp53、sox9b": "Gene names, e.g. tp53, sox9b",
-    "基因名/Ensembl/ZFIN / GRCz12tu 标准名": "Gene / Ensembl / ZFIN / GRCz12tu symbol",
+    "基因名/Ensembl/ZFIN / GRCz12tu 标准名": "Gene / Ensembl / ZFIN / GRCz12tu canonical symbol",
     "基因列表，逗号分隔，如 tp53,hsp70,myl7": "Gene list, comma-separated, e.g. tp53,hsp70,myl7",
     "单个：p53；多个用顿号/逗号分隔": "Single: p53; multiple separated by commas",
     "关键词搜索基因": "Search genes by keyword",
     "批量 ID 转换（每行一个）": "Batch ID conversion (one per line)",
-    "批量解析": "Batch resolve",
-    "批量解析失败": "Batch resolve failed",
+    "批量解析": "Resolve in batch",
+    "批量解析失败": "Batch resolution failed",
     "坐标（TSS 上游默认 2kb）": "Coordinates (default 2 kb upstream of TSS)",
     "启动子": "Promoter",
     "基因组区": "Genomic region",
@@ -429,7 +429,7 @@
     "库为 NCBI RefSeq": "Database: NCBI RefSeq",
     "原名 / 本地库（GRCz11 Ensembl）": "Original name / local library (GRCz11 Ensembl)",
     "多候选基因（点击切换）": "Multiple candidates (click to switch)",
-    "填入测试序列": "Insert test sequence",
+    "填入测试序列": "Fill in a test sequence",
     "从剪贴板粘贴": "Paste from clipboard",
     "强制刷新外网聚合": "Force refresh external aggregation",
     "工作流编排": "Workflow orchestration",
@@ -437,7 +437,7 @@
     "本地库无匹配": "No match in local library",
     "未解析": "Unresolved",
     "（无）": "(none)",
-    "未建立 ID 链": "No ID chain built",
+    "未建立 ID 链": "No ID mapping chain",
     "无匹配基因": "No matching gene",
     "无": "None",
     "无（查询即标准名）": "None (query already canonical)",
@@ -450,20 +450,20 @@
     "复制 TSV": "Copy TSV",
     "复制 TSV（发表用）": "Copy TSV (for publication)",
     "上传失败": "Upload failed",
-    "上传并重建索引中...": "Uploading and rebuilding index...",
-    "失败，请重试": "Failed, please retry",
+    "上传并重建索引中...": "Uploading and rebuilding the index…",
+    "失败，请重试": "Failed — please try again",
     "搜索中…": "Searching…",
     "比对中…": "Aligning…",
     "ORA 富集分析中…": "Running ORA enrichment…",
     "检索 KEGG 通路…": "Searching KEGG pathways…",
-    "按当前使用策略查询基因…": "Querying genes with the current policy…",
-    "按当前使用策略做 ID 映射…": "Mapping IDs with the current policy…",
+    "按当前使用策略查询基因…": "Querying genes with the active strategy…",
+    "按当前使用策略做 ID 映射…": "Mapping IDs with the active strategy…",
     "Ensembl 序列提取中…": "Extracting sequence from Ensembl…",
     "基因注释中…": "Annotating gene…",
-    "批量解析中…": "Batch resolving…",
-    "本次用到的组学库 / 跨库映射": "Omics libraries / cross-DB mappings used",
+    "批量解析中…": "Resolving in batch…",
+    "本次用到的组学库 / 跨库映射": "Omics databases and cross-DB mappings used",
     "在「富集」页输入基因列表可做 ORA 统计显著性":
-      "Enter a gene list on the Enrichment page for ORA statistical testing",
+      "Enter a gene list on the Enrichment page for ORA significance testing",
     "AI 字符预算": "AI character budget",
     "AI 打包顺序": "AI packing order",
     "Bgee 组织": "Bgee tissue",
@@ -477,19 +477,19 @@
     "完整原名/标准名对照请切到「ID解析」标签":
       "Switch to the ID parse tab for the full original/canonical name mapping",
     "提示：Web 服务版本较旧，已用逐条解析；重启 Web（启动.bat → 2）可启用完整批量 API。":
-      "Note: the web service is an older build; items were resolved one by one. Restart the web service to enable the full batch API.",
+      "Note: this web service is an older release, so items were resolved one at a time. Restart it to enable the full batch API.",
     "本次已自动联动": "Auto-linked this turn: ",
     "工具": "Tools",
     "功能": "Feature",
-    "ID解析": "ID Parse",
-    "Hub 全链路": "Hub full pipeline",
+    "ID解析": "ID parsing",
+    "Hub 全链路": "Full Hub pipeline",
     "Hub 多 Agent 编排": "Hub multi-agent orchestration",
     "仅 ID 映射": "ID mapping only",
     "仅基因/数据库": "Genes / database only",
     "仅文献 RAG": "Literature RAG only",
     "检索调试": "Retrieval debug",
     "检索调试（不调用大模型）": "Retrieval debug (no LLM call)",
-    "已同步：整体回答 · Hub 全链路": "Synced: full answer · Hub pipeline",
+    "已同步：整体回答 · Hub 全链路": "Synced: full answer · full Hub pipeline",
     "聊天": "Chat",
     "组学": "Omics",
     "新闻": "News",
@@ -512,7 +512,7 @@
     "生成 SQL": "Generated SQL",
     "查询结果": "Query result",
     "知识库检索（RAG Top-K）": "Knowledge-base retrieval (RAG Top-K)",
-    "查基因": "Query gene",
+    "查基因": "Gene search",
     "解析": "Resolve",
     "跨库 ID": "Cross-DB IDs",
     "提取序列": "Extract sequence",
@@ -534,7 +534,7 @@
     "验证并进入": "Verify and continue",
     "答案锚定本库与公开原站 · Zebrafish Hub": "Answers anchored to this library and public sources · Zebrafish Hub",
     "租户：默认实验室 (default)": "Tenant: default lab (default)",
-    "Hub 全链路 — ID + 基因 + 文献 + 富集并行编排": "Hub pipeline — ID + gene + literature + enrichment in parallel",
+    "Hub 全链路 — ID + 基因 + 文献 + 富集并行编排": "Full Hub pipeline — ID, gene, literature and enrichment in parallel",
     "仅文献 RAG — PubmedYes FAISS → 重排 → 文献合成（不跑基因/富集）": "Literature RAG only — PubmedYes FAISS → rerank → synthesis (no gene/enrichment)",
     "基因库 + 富集 — 基因详情与 GO/KEGG（不跑文献 FAISS）": "Gene DB + enrichment — gene details and GO/KEGG (no literature FAISS)",
     "仅 ID 映射 — 跨库 ID / 官方符号解析": "ID mapping only — cross-DB IDs / official symbol resolution",
@@ -588,9 +588,9 @@
       "Enter tp53, sox9b or ZDB-GENE-…; result cards appear on the right.",
     "符号锚定 GRCz12tu · 注释来自本地 GRCz11":
       "Symbols anchored to GRCz12tu · annotations from local GRCz11",
-    "粗排 500 → 精排 100": "Coarse 500 → rerank 100",
+    "粗排 500 → 精排 100": "Retrieve 500 → rerank 100",
     "粗排 500 → CrossEncoder 精排 100 → AI 打包":
-      "Coarse 500 → CrossEncoder rerank 100 → AI packing",
+      "Retrieve 500 → CrossEncoder rerank 100 → AI packing",
     "自然语言查询": "Natural-language query",
     "尚未检索文献": "No literature search yet",
     "提交查询后可查看精排表与 AI 打包顺序。":
@@ -612,7 +612,7 @@
     /* ── 各工具页（BLAST / 富集 / 通路 / ID 等） ── */
     "BLAST 序列比对": "BLAST Sequence Alignment",
     "粘贴 FASTA / 裸序列": "Paste FASTA / raw sequence",
-    "等待比对": "Waiting to align",
+    "等待比对": "No alignment run yet",
     "填入 ≥20 bp 核酸序列后运行；命中将按 e-value 排序。":
       "Fill in ≥20 bp of nucleotide sequence and run; hits are sorted by e-value.",
     "库：NCBI RefSeq GRCz12tu · GCF_049306965": "DB: NCBI RefSeq GRCz12tu · GCF_049306965",
@@ -634,7 +634,7 @@
     "符号 ⇄ Ensembl ⇄ ZFIN ⇄ NCBI · 可批量": "Symbol ⇄ Ensembl ⇄ ZFIN ⇄ NCBI · batch",
     "三态消歧": "Tri-state disambiguation",
     "单个或批量 ID": "Single or batch IDs",
-    "尚未解析 ID": "No ID resolved yet",
+    "尚未解析 ID": "No IDs resolved yet",
     "~核酸比对库为":
       "Nucleotide BLAST database is GRCz12tu CDS (GCF_049306965). FASTA or raw sequence is supported.",
     "~本地 GRCz11 与 NCBI RefSeq":
@@ -659,22 +659,22 @@
     "下载 CSV": "Download CSV",
 
     /* ── 2026-10-28 Liftover 双模式 / 批量 ID 互转 ── */
-    "坐标换算": "Coordinate conversion",
-    "显式来源／目标 · UCSC chain": "Source + target · UCSC chain",
-    "旧装配区间 → GRCz12tu": "Old-build span → GRCz12tu",
+    "坐标换算": "Coordinate liftover",
+    "显式来源／目标 · UCSC chain": "Explicit source and target · UCSC chain",
+    "旧装配区间 → GRCz12tu": "Old-assembly region → GRCz12tu",
     /* 2026-10-31：这组表单标签一直漏翻，英文界面下「来源版本 / 染色体 / 起点」还是中文；
        同轮给两个版本下拉加了 optgroup 分组，分组标题也走 label 属性翻译。 */
-    "来源版本": "Source build",
-    "目标版本": "Target build",
-    "请选择来源版本": "Select source build",
-    "请选择目标版本": "Select target build",
+    "来源版本": "Source assembly",
+    "目标版本": "Target assembly",
+    "请选择来源版本": "Select a source assembly",
+    "请选择目标版本": "Select a target assembly",
     /* 用 "Chr." 而不是 "Chromosome"：左栏只有 ~150px 一列，全拼会把「起点」挤到下一行 */
     "染色体": "Chr.",
     "起点": "Start",
     "终点": "End",
     "链": "Strand",
-    "换算": "Convert",
-    "粘贴区间": "Paste a span",
+    "换算": "Lift over",
+    "粘贴区间": "Paste a region",
     "例如：GRCz11 chr5:24086227-24097805": "e.g. GRCz11 chr5:24086227-24097805",
     "GRCz 系列": "GRCz assemblies",
     "Zv 系列": "Zv assemblies",
@@ -684,11 +684,11 @@
     /* ── 2026-10-31 别名 / 位置查找 两页边界重划 ── */
     "查名称": "Search",
     "查位置": "Locate",
-    "基因名称检索": "Gene name lookup",
+    "基因名称检索": "Gene name search",
     "基因名，如 tp53": "Gene name, e.g. tp53",
     "符号 / 别名 / 旧名 / 跨库 ID，如 p53": "Symbol / alias / former name / cross-DB ID, e.g. p53",
     "给名称找基因 · 符号 ⇄ 别名 ⇄ 跨库 ID": "Name → gene · symbol ⇄ alias ⇄ cross-DB ID",
-    "给基因看落点 · 坐标 · 链 · 基因体序列": "Gene → locus · coords · strand · gene-body sequence",
+    "给基因看落点 · 坐标 · 链 · 基因体序列": "Gene → locus · coordinates · strand · gene-body sequence",
     "批量 ID 互转": "Batch ID mapping",
     "符号 ⇄ Ensembl ⇄ ZFIN ⇄ NCBI": "Symbol ⇄ Ensembl ⇄ ZFIN ⇄ NCBI",
     "Liftover 模式": "Liftover mode",
@@ -702,18 +702,18 @@
       "Source: local gene_basic / gene_xref (GRCz11 Ensembl 116 · NCBI Gene · ZFIN); standard symbols follow RefSeq GCF_049306965.2 (GRCz12tu). ",
     "未匹配的留空，不做猜测。": "Unmatched IDs are left blank — never guessed.",
     "要一次换一批 ID（符号 ⇄ Ensembl ⇄ ZFIN ⇄ NCBI）？":
-      "Need to convert a batch of IDs (symbol ⇄ Ensembl ⇄ ZFIN ⇄ NCBI)?",
+      "Need to map a batch of IDs (symbol ⇄ Ensembl ⇄ ZFIN ⇄ NCBI)?",
     "批量 ID 互转 →": "Batch ID mapping →",
     "源版本与链在上方按钮组里切换（GRCz11 = Ensembl 注释坐标）。单向：本库只备了指向 GRCz12tu 的 UCSC over.chain（GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu，碱基级）。反方向没有链文件，不做，也不给近似值。":
       "Switch source build and strand with the buttons above (GRCz11 = Ensembl annotation coordinates). One-way only: the library ships UCSC over.chain files that point at GRCz12tu (GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu, base-pair level). There is no reverse chain, so no reverse conversion and no approximations.",
     "为什么不做坐标转换（liftover）": "Why no coordinate liftover",
-    "去按染色体区间取序列 →": "Extract a region by coordinates →",
+    "去按染色体区间取序列 →": "Retrieve sequence by region →",
     "只回答装配之间的问题：两条染色体长度差多少、基因密度差多少。GRCz12tu 长度为本机 FASTA 实测；GRCz11 长度为 Ensembl 记录值（取一次缓存 7 天）。不列基因名——两版的 SYMBOL 和 NAME 本来就相同，列出来没有信息量。":
       "Only assembly-vs-assembly questions: how much the two builds differ in chromosome length and gene density. GRCz12tu lengths are measured on the local FASTA; GRCz11 lengths are Ensembl records cached for 7 days. Gene names are not listed — SYMBOL and NAME are identical across both builds, so the list carries no information.",
-    "基因名（可批量）": "Gene name(s) (batch allowed)",
-    "按染色体区间": "By chromosome region",
+    "基因名（可批量）": "Gene name(s), batch supported",
+    "按染色体区间": "By genomic region",
     "按基因": "By gene",
-    "启动子 2 kb": "Promoter 2 kb",
+    "启动子 2 kb": "Promoter (2 kb)",
     "基因体": "Gene body",
     "区段": "Region",
     "参考装配": "Assembly",
@@ -734,10 +734,10 @@
     "运行 BLAST": "Run BLAST",
     "GRCz11 ↔ GRCz12tu · 逐染色体长度与基因密度": "GRCz11 ↔ GRCz12tu · length & gene density per chromosome",
     "看清两套参考装配差在哪里：25 条染色体的长度、GC、基因数与密度逐条对照，并说明本系统哪一步该用哪一版。坐标换算只做长度级比较，不做 liftover。":
-      "See how the two reference builds differ: chromosome-by-chromosome length, GC, gene count and density, plus which build each part of this hub uses. Coordinates are compared at length level only — no liftover.",
-    "两版装配": "Two builds",
+      "See how the two reference assemblies differ: chromosome-by-chromosome length, GC, gene count and density, plus which assembly each part of this hub uses. Coordinates are compared by length only — no liftover.",
+    "两版装配": "Two assemblies",
     "逐染色体对比": "Per-chromosome comparison",
-    "加载两版染色体的实测对照": "Load the measured comparison of both builds",
+    "加载两版染色体的实测对照": "Load the measured comparison of both assemblies",
     "点「加载对比表」：GRCz12tu 用本机实测值，GRCz11 从 Ensembl 取一次并缓存 7 天。":
       "Click “Load comparison”: GRCz12tu uses local measurements; GRCz11 is fetched once from Ensembl and cached for 7 days.",
     "GRCz12tu = 本机 FASTA 实测 · GRCz11 = Ensembl 记录值 · 不做坐标 liftover":
@@ -746,7 +746,7 @@
     "两条路：按基因名取 cDNA / 启动子 / 基因体（可一次多个基因）；或给 chr:start-end 取任意区间（可一次多行）。所有序列都从参考装配直接取出，每段结果都标注 assembly、来源与登录号。":
       "Two routes: by gene name for cDNA / promoter / gene body (multiple genes at once), or chr:start-end for any region (one per line). All sequences come from reference assemblies; every block is labelled with assembly, source and accession.",
     "GRCz12tu / GRCz11": "GRCz12tu / GRCz11",
-    "批量 ≤20": "Batch ≤20",
+    "批量 ≤20": "Up to 20 per batch",
     "基因名（可多个），或 染色体:起-止": "Gene name(s), or chromosome:start-end",
     "按基因：输入 tp53，勾 cDNA / 启动子；按坐标：填 8 / 起 / 止，或用「批量区间」每行一条。":
       "By gene: enter tp53 and check cDNA / promoter; by coordinates: fill chr / start / end, or use batch regions (one per line).",
@@ -757,13 +757,13 @@
     "一次最多 20 条查询序列，请分批提交": "At most 20 query sequences per run; please split into batches",
     "已识别 0 条序列 · 一次最多 20 条": "0 sequences detected · up to 20 per run",
     "引擎为 NCBI BLAST+ blastn，库是 NCBI RefSeq GRCz12tu（GCF_049306965，与 cDNA 提取同版）。批量时逐条提交、结果按查询分组，可一键复制整批 TSV。":
-      "Engine: NCBI BLAST+ blastn; database: NCBI RefSeq GRCz12tu (GCF_049306965, same build as cDNA extraction). Batch queries are submitted one by one, results grouped per query; the whole batch can be copied as TSV.",
+      "Engine: NCBI BLAST+ blastn; database: NCBI RefSeq GRCz12tu (GCF_049306965, the same assembly used for cDNA extraction). Batch queries are submitted one by one, results grouped per query; the whole batch can be copied as TSV.",
     /* 2026-10-27：这些是 EN 模式下仍显示中文的漏译项（下拉说明 / 选项 / 工具页提示） */
     "每条序列：前 5 条命中": "Top 5 hits per sequence",
     "每条序列：前 10 条命中": "Top 10 hits per sequence",
     "每条序列：前 20 条命中": "Top 20 hits per sequence",
     "启动子 / 基因体": "Promoter / gene body",
-    "GRCz12tu · 与 BLAST / cDNA 同版": "GRCz12tu · same build as BLAST / cDNA",
+    "GRCz12tu · 与 BLAST / cDNA 同版": "GRCz12tu · same assembly as BLAST / cDNA",
     "GRCz11 · 与本地注释坐标一致": "GRCz11 · matches local annotation coordinates",
     "单条最多 100 kb。默认 GRCz12tu：按本地登记的 RefSeq 登录号向 NCBI EFetch 取区间，与 BLAST 用的是同一版参考；选 GRCz11 则走 Ensembl REST，用于和本地注释坐标对齐。":
       "Up to 100 kb per region. Default GRCz12tu: the region comes from NCBI EFetch using the locally registered RefSeq accession — the same reference BLAST uses. Choosing GRCz11 goes through Ensembl REST so coordinates line up with the local annotation.",
@@ -797,7 +797,7 @@
     "每 3 天 04:10": "Every 3 days 04:10",
     "Hub 统计重算": "Hub stats recompute",
     "每小时第 5 分钟": "Hourly at minute 5",
-    "Hub / 隧道存活守护": "Hub / tunnel liveness guard",
+    "Hub / 隧道存活守护": "Hub and tunnel health check",
     "每分钟": "Every minute",
     "维护任务状态（服务端 · 已启用）": "Maintenance jobs (server · enabled)",
     "维护任务状态（服务端 · 已关闭）": "Maintenance jobs (server · disabled)",
@@ -815,13 +815,13 @@
     "尚未运行": "Never run",
     "文献周更": "Weekly literature update",
     "统计重算": "Stats recompute",
-    "全量": "All",
+    "全量": "Full",
     "文献与知识库规模": "Literature & knowledge-base scale",
     "knowledge.d 文件": "knowledge.d files",
-    "· 文献目录行": "· catalog lines",
-    "· 进度 PMID": "· progress PMIDs",
-    "文献目录行": "catalog lines",
-    "进度 PMID": "progress PMIDs",
+    "· 文献目录行": "· catalog rows",
+    "· 进度 PMID": "· PMIDs processed",
+    "文献目录行": "catalog rows",
+    "进度 PMID": "PMIDs processed",
     "访问统计（聚合，仅计数）": "Visit stats (aggregated, counts only)",
     "访问统计": "Visit stats",
     "维护状态": "Maintenance status",
@@ -846,17 +846,17 @@
     "GRCz12tu · 表达 · GO": "GRCz12tu · Expression · GO",
     "表达 · GO": "Expression · GO",
     "cDNA / 启动子": "cDNA / promoter",
-    "别名 · 同源": "Alias · Ortholog",
+    "别名 · 同源": "Aliases · Orthologs",
     "dre 通路": "dre pathways",
-    "前 100 条打包": "Top-100 pack",
-    "Fisher 精确检验": "Fisher exact",
-    "BH-FDR 校正": "BH-FDR",
+    "前 100 条打包": "Pack top 100",
+    "Fisher 精确检验": "Fisher's exact test",
+    "BH-FDR 校正": "BH-FDR correction",
     "多来源": "Multi-source",
-    "支持批量": "Batch ready",
+    "支持批量": "Batch supported",
     "唯一 / 歧义 / 未命中": "unique / ambiguous / not_found",
-    "FASTA 输出": "FASTA out",
-    "一键汇总": "One-shot",
-    "多层整合": "Multi-layer",
+    "FASTA 输出": "FASTA output",
+    "一键汇总": "One-click summary",
+    "多层整合": "Multi-layer integration",
     "RAG 入库": "RAG ingest",
     "租户：默认实验室": "Tenant: default lab",
     "文献通道：PDF/TXT/MD ≤5MB UTF-8 → uploads/ + knowledge.d → 重建 RAG。组学库（ZFIN/Ensembl 等）不经此上传。":
@@ -880,8 +880,8 @@
     "引用条目": "Citations",
     "检索统计": "Retrieval stats",
     "粗排": "Coarse",
-    "精排": "Reranked",
-    "打包字符": "Packed chars",
+    "精排": "Rerank",
+    "打包字符": "Packed characters",
     "上下文": "Context",
     "本条信息来自": "This answer draws on",
     "本地全文库": "Local full-text library",
@@ -904,8 +904,8 @@
     "组织表达谱": "Tissue expression profiles",
     "Bgee 表达分 · 按组织 / 分期": "Bgee score · by tissue / stage",
     "组织 Top 基因": "Top genes in a tissue",
-    "某组织里表达最高的基因": "Highest-scoring genes in a tissue",
-    "单基因卡（含表达）": "Single-gene card (incl. expression)",
+    "某组织里表达最高的基因": "Top-scoring genes in a tissue",
+    "单基因卡（含表达）": "Single-gene card with expression",
     "基因–表型查询": "Gene–phenotype search",
     "表型↔基因 双向 · 页内切换": "Phenotype ↔ gene · switch inside",
     /* 2026-10-27 导航二次收口 + 侧栏改版 */
@@ -952,9 +952,9 @@
       "GRCz11 ↔ GRCz12tu · per-chromosome lengths · no liftover",
     "只回答两个装配之间的问题：谁做了标准名 / BLAST，谁锚定本地注释，以及 25 条染色体两版长度差多少。基因名清单已移除 —— 那个列表里 SYMBOL 和 NAME 是同一个值，没有信息量。":
       "Answers only cross-assembly questions: which build carries canonical symbols / BLAST, which one anchors local annotation, and how the 25 chromosomes differ in length. The old gene-name list is gone — SYMBOL and NAME were the same value there.",
-    "两版装配": "Two builds",
-    "长度对比": "length comparison",
-    "点「加载对比表」": "Click Load comparison",
+    "两版装配": "Two assemblies",
+    "长度对比": "Length comparison",
+    "点「加载对比表」": "Click “Load comparison table”",
     "尚未加载对比": "Comparison not loaded yet",
     "不做坐标 liftover · 取区间序列请用「序列 → 按染色体区间」":
       "No coordinate liftover · pull a region via Sequence → by coordinates",
@@ -962,12 +962,12 @@
     "本页不做坐标转换（liftover）": "No coordinate liftover on this page",
     "逐染色体对比": "Chromosome-by-chromosome comparison",
     "装配登记": "Assembly registry",
-    "本地比对库": "Local search libraries",
-    "去按坐标取序列 →": "Extract a region by coordinates →",
+    "本地比对库": "Local BLAST databases",
+    "去按坐标取序列 →": "Retrieve sequence by coordinates →",
     "GRCz12tu 为本地 FASTA 实测长度；GRCz11 为 Ensembl 记录长度。Δ 为正表示 GRCz12tu 更长":
       "GRCz12tu is measured on the local FASTA; GRCz11 is recorded by Ensembl. Positive Δ means GRCz12tu is longer",
     "同一套系统里并存两版坐标：标准名 / BLAST / cDNA 用 GRCz12tu，基因注释与表达用 GRCz11":
-      "Two builds coexist: canonical symbols / BLAST / cDNA use GRCz12tu; annotation and expression use GRCz11",
+      "Two assemblies coexist: canonical symbols / BLAST / cDNA use GRCz12tu; annotation and expression use GRCz11",
     "本地注释锚点（坐标 / 表达 / GO）": "local annotation anchor (coordinates / expression / GO)",
     "标准名 / BLAST / cDNA": "canonical symbols / BLAST / cDNA",
     "在本系统中的用途": "Role in this hub",
@@ -989,7 +989,7 @@
     "输入表型关键词或基因名": "Enter a phenotype keyword or a gene name",
     "尚未查询表型": "No phenotype query yet",
     "例：表型「increased curvature」、或基因「sox9b」；首次使用请先点「构建 / 刷新 ZFIN 索引」。":
-      "Try the phenotype “increased curvature” or the gene “sox9b”; on first use click “Build / refresh ZFIN index”.",
+      "Try the phenotype “increased curvature” or the gene “sox9b”; on first use, run “Build / refresh ZFIN index”.",
     "表型 = ZFIN 官方注释本地索引 · 文献号 ZDB-PUB 可在 zfin.org 核对":
       "Phenotypes = official ZFIN annotations in a local index · ZDB-PUB IDs can be verified at zfin.org",
     /* 表达表 atlas 分期列里的少量中文标签（源数据即中文，英文模式下需要对照） */
@@ -1003,7 +1003,7 @@
     "Cite Us · 边界与免责": "Cite Us · limits",
     "数字均为本机库实测快照；列出的每个数据源都能在原站逐条核对。":
       "All figures are measured snapshots of the local libraries; every listed source can be checked line by line at its source site.",
-    "本地注释 · 组学库双链 · 可复核": "Local annotation · omics double-links · verifiable",
+    "本地注释 · 组学库双链 · 可复核": "Local annotation · omics cross-links · verifiable",
     "斑马鱼基因知识中枢：把本地注释库、表达表、ZFIN 表型注释与文献全文库放在同一入口；每条结论都能回到库里或原站核对。":
       "A zebrafish gene knowledge hub: local annotation, expression tables, ZFIN phenotype annotations and a full-text literature library behind one entry point — every conclusion can be traced back to the library or the source site.",
     "数据快照 2026-10-15": "Snapshot 2026-10-15",
@@ -1024,7 +1024,7 @@
      新增 UI 文案时，往这两处补即可；漏了会被 logs/_cdp_i18n_scan.py 抓出来。 */
   var EXTRA_20261028 = {
     "历史": "History",
-    "两版装配逐染色体长度对比": "Assembly length comparison (two builds)",
+    "两版装配逐染色体长度对比": "Compare chromosome lengths",
     "路由 Agent": "Router agent",
     "基因分析 Agent": "Gene analysis agent",
     "ID 映射 Agent": "ID mapping agent",
@@ -1033,7 +1033,7 @@
     "综合 Agent": "Synthesis agent",
     "意图与范围": "Intent & scope",
     "实体解析": "Entity resolution",
-    "通路检索": "Pathway lookup",
+    "通路检索": "Pathway search",
     "基因详情": "Gene detail",
     "一键注释": "One-click annotation",
     "文献检索": "Literature search",
@@ -1047,9 +1047,9 @@
     "GO 富集": "GO enrichment",
     "位置查找序列": "Sequence by region",
     "入库": "Library upload",
-    "在本页打开 →": "Open in this page →",
+    "在本页打开 →": "Open here →",
     "通用聊天": "General chat",
-    "Hub 全链路": "Hub full chain",
+    "Hub 全链路": "Full Hub pipeline",
     "整体回答": "Full answer",
     "部分回答": "Partial answer",
     "自动路由": "auto-routed",
@@ -1063,14 +1063,14 @@
     "基因功能注释": "Gene function annotation",
     "无匹配通路": "no matching pathway",
     "GO 显著": "GO significant",
-    "通路显著": "Pathways significant",
+    "通路显著": "Significant pathways",
     "这次富集看的是哪些方面": "What this enrichment covers",
     "GO 三个方面": "GO aspects",
     "通路来源库": "Pathway sources",
     "生物学过程": "Biological process",
     "细胞组分": "Cellular component",
     "分子功能": "Molecular function",
-    "方面未标注": "aspect not labelled",
+    "方面未标注": "aspect not annotated",
     "Fisher 精确检验 + BH 校正，q≤0.05": "Fisher's exact test + BH correction, q ≤ 0.05",
     "ORA（Fisher 精确检验）+ Benjamini–Hochberg 校正":
       "ORA (Fisher's exact test) + Benjamini–Hochberg correction",
@@ -1087,9 +1087,9 @@
     "KEGG 类目": "KEGG category",
     "类别": "Category",
     "基因（节选）": "Genes (excerpt)",
-    "名称未收录，可点 QuickGO 查看": "Name not indexed — open QuickGO",
-    "查看纯文本原始结果": "View the raw text result",
-    "命中的通路来自哪些库": "Which databases these pathways come from",
+    "名称未收录，可点 QuickGO 查看": "Term not indexed — open in QuickGO",
+    "查看纯文本原始结果": "View raw text output",
+    "命中的通路来自哪些库": "Source databases for these pathways",
     "KEGG 通路（REST 实时取回）": "KEGG pathways (live REST)",
     "WikiPathways 通路": "WikiPathways pathways",
     "(查询输入)": "(query input)",
@@ -1101,20 +1101,20 @@
     "胸腺": "thymus",
     "精巢": "testis",
     "胚胎": "embryo",
-    "两组数值": "Two sets of numbers",
+    "两组数值": "Two data sets",
     "单位与来源不同，不能直接比较": "Different units and sources — not directly comparable",
     "Bgee 组织 / 发育表达": "Bgee tissue / developmental expression",
     "Expression Atlas 表达量": "Expression Atlas levels",
-    "非丰度": "not abundance",
+    "非丰度": "presence, not abundance",
     "）· 按分数排序": ") · sorted by score",
     "单位：Expression Score（0–100，表达存在性置信分，":
       "Unit: Expression Score (0–100; confidence that expression is present, ",
     "单位：TPM（转录本每百万映射读段数）· 以整胚发育时间序列为主，含少量标注组织样本":
       "Unit: TPM (transcripts per million mapped reads) · mostly whole-embryo developmental time series, with a few annotated tissue samples",
     "在基因卡片中打开": "Open in gene card",
-    "原名/原版本：": "Original name / build:",
+    "原名/原版本：": "Original name / assembly:",
     "基因/库范围": "Gene / library scope",
-    "标准名/标准版本：": "Standard name / build:",
+    "标准名/标准版本：": "Canonical name / assembly:",
     /* ── sgRNA / 引物口径说明 ── */
     "评分为本地透明规则的加权结果（效率×0.72 + 特异性×0.28）；权威活性预测请用 CHOPCHOP / CRISPRScan 复核（可用下方跳转按钮）。":
       "Scores are transparent local rule weights (efficiency × 0.72 + specificity × 0.28); for authoritative activity prediction cross-check with CHOPCHOP / CRISPRScan (links below).",
@@ -1234,7 +1234,7 @@
      RULES 只做「正则 → 替换串」，够用的都放这里；需要嵌套翻译的（如
      「打开 <标签> →」「后端报告已调用：A、B」）在 rule() 里单独处理。 */
   [
-    [/^换算到 (.+)$/, "Convert to $1"],
+    [/^换算到 (.+)$/, "Lift over to $1"],
     [/^本次编排（(\d+) 步）$/, "This run ($1 steps)"],
     [/^本次查询（(\d+) 步）$/, "This run ($1 steps)"],
     [/^🔬 本次已自动联动 (\d+) 项$/, "🔬 $1 tool(s) auto-linked"],
@@ -1246,7 +1246,7 @@
     [/^粗排 ([\d,]+) → 精排 ([\d,]+)$/, "coarse $1 → rerank $2"],
     [/^背景基因 ([\d,]+)（GeneRatio = 命中\/前景）$/, "Background genes $1 (GeneRatio = hits / foreground)"],
     [/^标准名 RefSeq (.+?)（GRCz12tu）· 本地库 GRCz11 · (.+)$/,
-      "Standard name: RefSeq $1 (GRCz12tu) · local library GRCz11 · $2"],
+      "Canonical name: RefSeq $1 (GRCz12tu) · local library GRCz11 · $2"],
     [/^本条无 RefSeq (.+) 组装对照$/, "No RefSeq $1 assembly cross-reference for this record"],
     [/^基因 (.+) 未找到$/, "Gene $1 not found"],
     [/^解析 未命中：(.+)$/, "Resolved: no hit for $1"],
@@ -1261,8 +1261,8 @@
     [/^解析 成功：(.+)$/, "Resolved: $1"],
     [/^基因 (.+) 已加载$/, "Gene $1 loaded"],
     [/^共 ([\d,]+) 条$/, "$1 records"],
-    [/^RefSeq (.+?) 标准名 · (.+)$/, "RefSeq $1 standard name · $2"],
-    [/^RefSeq (.+?) 标准名$/, "RefSeq $1 standard name"],
+    [/^RefSeq (.+?) 标准名 · (.+)$/, "RefSeq $1 canonical name · $2"],
+    [/^RefSeq (.+?) 标准名$/, "RefSeq $1 canonical name"],
     [/^本地 (.+?) · (.+)$/, "Local $1 · $2"],
     [/^(\d+hpf)（整胚）$/, "$1 (whole embryo)"],
   ].forEach(function (r) { RULES.push(r); });
@@ -1539,7 +1539,11 @@
     var b = document.getElementById("langToggleBtn");
     if (!b) return;
     b.textContent = lang === "en" ? "中 / EN" : "EN / 中";
-    b.title = lang === "en" ? "中英互译：点击显示中文" : "中英互译：点击显示英文";
+    /* 2026-11-02：这行原来两边都写中文，英文界面下悬停仍是中文。
+       按钮本身是 data-no-i18n，走不到词典，必须按当前语言直接给串。 */
+    b.title = lang === "en"
+      ? "Switch to Chinese"
+      : "切换到英文";
   }
 
   function mountButton() {

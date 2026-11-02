@@ -5585,7 +5585,7 @@ const PAGE_META = {
         idmap: [],
       },
       formHint: "来源 + 目标 + 染色体 + 起止；或一批基因 ID|Source + target + chromosome + start/end; or a batch of gene IDs",
-      emptyTitle: "选自选版本与区间，或贴一批 ID|Pick builds and a span, or paste IDs",
+      emptyTitle: "选自选版本与区间，或贴一批 ID|Pick assemblies and a region, or paste IDs",
       emptySub: "例如 GRCz11 chr5:24086227-24097805 → GRCz12tu，或 tp53 / ENSDARG00000035559|e.g. GRCz11 chr5:24086227-24097805 → GRCz12tu, or tp53 / ENSDARG00000035559",
     },
     expression: {
@@ -5703,7 +5703,7 @@ const PAGE_META = {
       tool: "sequence",
       panel: "toolSequence",
       colorKey: "sequence",
-      title: "位置查序列|Sequence by locus",
+      title: "位置查序列|Sequence by region",
       lead: "给一段基因组区间，取出这段序列（含反向互补）。|Give a genomic interval, get the sequence (reverse complement included).",
       pillA: "cDNA · 启动子 · 基因体|cDNA · promoter · gene body",
       pillB: "批量 ≤50|Batch ≤50",

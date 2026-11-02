@@ -906,8 +906,10 @@ html body.theme-atelier .tool-panel .coord-l1-interval > label {
 /* 2026-10-31：三列基线对齐。
    第一列是 text 输入（#liftChrom），沿用了别处的 margin-bottom:8px，而起点/终点是
    number 输入没有这个边距 → 整列比另外两列高 8px，标签和输入框都往上错位一格。
-   这里把边距清零并锁高，三列从标签到输入框完全齐平。 */
-html body.theme-atelier .tool-panel .coord-l1-interval input {
+   这里把边距清零并锁高，三列从标签到输入框完全齐平。
+   2026-11-02：#liftChrom 改成 select（染色体随版本变化），选择器一并覆盖 select。 */
+html body.theme-atelier .tool-panel .coord-l1-interval input,
+html body.theme-atelier .tool-panel .coord-l1-interval select {
   width: 100% !important;
   height: 42px !important;
   margin: 0 !important;

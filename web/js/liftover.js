@@ -69,30 +69,30 @@
       csvEmpty: '还没有结果可导出'
     },
     en: {
-      loading: 'Converting…',
-      loadingSec: 'Converting… {s}s (first run builds the chain index — cold start can take 1–2 min)',
-      loadingTip: 'The chain file is large: the first conversion builds an index, later ones take about a second.',
-      fail: 'Conversion failed: {msg}',
-      needRegion: 'Chromosome and start/end are required',
-      needSource: 'Choose a source assembly first (no default)',
-      needTarget: 'Choose a target assembly first (no default)',
+      loading: 'Lifting over…',
+      loadingSec: 'Lifting over… {s}s (the first run builds the chain index — a cold start can take 1–2 min)',
+      loadingTip: 'Chain files are large, so the first lift-over builds an index; later queries take about a second.',
+      fail: 'Lift-over failed: {msg}',
+      needRegion: 'Chromosome, start and end are required',
+      needSource: 'Select a source assembly first (no default)',
+      needTarget: 'Select a target assembly first (no default)',
       okTitle: 'Result',
-      kSrc: 'Source span',
-      kTgt: 'Target span',
+      kSrc: 'Source region',
+      kTgt: 'Target region',
       kStrand: 'Strand',
       kLen: 'Length',
       kChain: 'Chain',
-      kTgtGene: 'Gene at target',
+      kTgtGene: 'Overlapping genes',
       kTgtSeq: 'Reference sequence',
       geneMismatch: 'The two ends hit different genes: {s} → {t}. Check that these coordinates really come from {from} — the same numbers often land on different genes across strain assemblies.',
-      takeSeq: 'Fetch this sequence',
-      backNote: 'Route: {from} → {to} (no approximate coords if chain/MAF missing)',
-      codeMissing: 'The chain file for this conversion is missing on the server',
-      codeUnavailable: 'No UCSC chain route for {from} → {to}; MAF fallback unavailable',
-      codeUnsupported: 'This assembly is not supported for conversion',
-      codeSplit: 'This span crosses a chain break — narrow it down and convert in pieces',
-      codeFail: 'No match for this span in the chain file',
-      codeReverse: 'Converting to {to} is not supported: no routable path',
+      takeSeq: 'Retrieve sequence for this region',
+      backNote: 'Route: {from} → {to} (no approximate coordinates when a chain is missing)',
+      codeMissing: 'The chain file for this lift-over is not available on the server',
+      codeUnavailable: 'No UCSC chain route from {from} to {to}; no MAF fallback is available',
+      codeUnsupported: 'This assembly is not supported for liftover',
+      codeSplit: 'This region crosses a chain breakpoint — narrow it and lift over in segments',
+      codeFail: 'No alignment block covers this region in the chain file',
+      codeReverse: 'Cannot lift over to {to}: no routable path',
       noApprox: 'No approximate coordinates were returned.',
 
       /* ── batch ID mapping ───────────────────────────────────────── */
@@ -255,7 +255,7 @@
     var r = s.match(/(?:chr)?\s*([0-9XYM]+)\s*[:\s]+\s*(\d+)\s*[-–—－−~～至到一]+\s*(\d+)/i);
     if (!r) r = s.match(/^\s*([0-9XYM]+)\s+(\d+)\s+(\d+)\s*$/i);
     if (!r) return false;
-    if ($('liftChrom')) $('liftChrom').value = r[1];
+    setChromValue(r[1]);
     if ($('liftStart')) $('liftStart').value = r[2];
     if ($('liftEnd')) $('liftEnd').value = r[3];
     return true;
@@ -449,6 +449,105 @@
     });
   }
 
+  /* ==========================================================================
+     染色体下拉（2026-11-02）
+     --------------------------------------------------------------------------
+     用户要求：染色体编号应随所选基因组版本变化，不该手打。
+     数据：GET /api/genome/chromosomes?build=<来源版本>
+       后端从链头 tName 取该装配真实存在的染色体（经 assembly report 归一到
+       1–25 / MT），所以下拉里能选到的，就是链文件里换算得了的。
+     每个版本只取一次（chromCache）；接口失败时退回 1–25 + MT，不影响换算本身。
+     ========================================================================== */
+  var CHROM_API = '/api/genome/chromosomes';
+  var chromCache = {};
+  var chromSeq = 0;
+
+  function chromFallback() {
+    var out = [];
+    for (var i = 1; i <= 25; i++) out.push({ value: String(i), label: 'chr' + i });
+    out.push({ value: 'MT', label: 'chrMT' });
+    return out;
+  }
+
+  function fillChromSelect(list, keep) {
+    var sel = $('liftChrom');
+    if (!sel) return;
+    var prev = keep != null ? keep : String(sel.value || '');
+    sel.innerHTML = '';
+    var ph = document.createElement('option');
+    ph.value = '';
+    ph.textContent = '—';
+    sel.appendChild(ph);
+    var hit = false;
+    (list || []).forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = String(c.value);
+      o.textContent = c.label || c.value;
+      sel.appendChild(o);
+      if (String(c.value) === prev) hit = true;
+    });
+    /* 粘贴进来的染色体号可能不在本版列表里（chrUn_* 等）：补一个选项保留用户输入，
+       换算时由后端按多候选解析；解析不到会明确失败，不会给出近似值。 */
+    if (prev && !hit) {
+      var extra = document.createElement('option');
+      extra.value = prev;
+      extra.textContent = /^\d+$/.test(prev) ? 'chr' + prev
+        : (prev === 'MT' ? 'chrMT' : prev);
+      sel.appendChild(extra);
+      hit = true;
+    }
+    sel.value = hit ? prev : '';
+  }
+
+  function setChromValue(v) {
+    var val = String(v == null ? '' : v).trim();
+    if (!val) return;
+    var sel = $('liftChrom');
+    if (!sel) return;
+    var exists = false;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === val) { exists = true; break; }
+    }
+    if (!exists) {
+      var o = document.createElement('option');
+      o.value = val;
+      o.textContent = /^\d+$/.test(val) ? 'chr' + val : (val === 'MT' ? 'chrMT' : val);
+      sel.appendChild(o);
+    }
+    sel.value = val;
+  }
+
+  function loadChromosomes() {
+    var sel = $('liftChrom');
+    if (!sel) return Promise.resolve();
+    var build = (($('liftSourceBuild') && $('liftSourceBuild').value) || '').trim();
+    if (!build) {
+      /* 未选来源：染色体无从谈起。留一个空占位并置灰，提示先选版本，
+         比摆一份 1–25 的通用清单更不会误导（品系装配未必都有 25 条）。 */
+      fillChromSelect([], '');
+      sel.disabled = true;
+      return Promise.resolve();
+    }
+    sel.disabled = false;
+    if (chromCache[build]) { fillChromSelect(chromCache[build]); return Promise.resolve(); }
+    /* 链头解析（首次约 1–7 s）：先摆一份通用清单，别让下拉空着；
+       真实清单回来再替换，选中项保持不变。 */
+    if (sel.options.length <= 1) fillChromSelect(chromFallback());
+    var seq = ++chromSeq;
+    return get(CHROM_API + '?build=' + encodeURIComponent(build)).then(function (d) {
+      if (seq !== chromSeq) return;   // 期间又切了版本，丢弃过期响应
+      var list = ((d && d.ok && d.chromosomes) || []).map(function (c) {
+        return { value: String(c.value), label: c.label || ('chr' + c.value) };
+      });
+      if (!list.length) list = chromFallback();
+      chromCache[build] = list;
+      fillChromSelect(list);
+    }).catch(function () {
+      if (seq !== chromSeq) return;
+      fillChromSelect(chromFallback());
+    });
+  }
+
   function bind() {
     var btn = $('liftRunBtn');
     if (btn) btn.addEventListener('click', run);
@@ -465,8 +564,13 @@
     var srcSel = $('liftSourceBuild');
     if (srcSel && !srcSel.dataset.routeFilterBound) {
       srcSel.dataset.routeFilterBound = '1';
-      srcSel.addEventListener('change', filterTargetBuilds);
+      srcSel.addEventListener('change', function () {
+        filterTargetBuilds();
+        loadChromosomes();
+      });
     }
+    // 首次进入：按当前来源版本填一次染色体下拉
+    loadChromosomes();
     // hero 重画（切 tab／切语言）后药丸会复位为全显，再滤一遍
     document.addEventListener('hub-lang-change', function () {
       setTimeout(filterTargetBuilds, 0);

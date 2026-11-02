@@ -2683,6 +2683,22 @@ def genome_liftover_routes():
     return {"ok": True, **list_supported_pairs()}
 
 
+@app.get("/api/genome/chromosomes")
+def genome_chromosomes(build: str = ""):
+    """某装配可选为来源的染色体清单，供 Liftover 页的染色体下拉。
+
+    2026-11-02（用户）：染色体号应随基因组版本变化，不该手打。
+    值取自链头真实 tName（经 assembly report 归一到 1–25 / MT），
+    所以「下拉里能选到的」＝「链文件里换算得了的」，不含 chrUn_* 与 contig。
+    """
+    from coord_liftover import list_build_chromosomes
+
+    try:
+        return list_build_chromosomes(build)
+    except Exception as e:  # 链文件缺失/损坏时不让整页 500
+        raise HTTPException(status_code=503, detail=str(e)) from e
+
+
 @app.get("/api/gene/master/stats")
 def gene_master_stats():
     """GRCz12tu 非冗余基因主表概览：总数、功能基因数、各映射方法命中数。"""

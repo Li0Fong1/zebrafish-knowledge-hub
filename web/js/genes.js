@@ -53,7 +53,7 @@
       copies: '{n} co-orthologs', scoreShort: 'identity {s}', selfCopy: 'this gene',
       orthoNote: 'Duplicates are derived from homology_gene (same species + same ortholog name); functional partitioning needs literature evidence.',
       geneId: 'Gene ID', ensembl: 'Ensembl', zfin: 'ZFIN', uniprot: 'UniProt',
-      locus: 'Locus', locusTake: 'Fetch this span →', locusNote: 'GRCz11 annotation; convert to GRCz12tu via Liftover',
+      locus: 'Locus', locusTake: 'Retrieve this region →', locusNote: 'GRCz11 annotation; convert to GRCz12tu via Liftover',
       locusNa: 'no coordinates in the annotation catalog',
       noData: '—'
     }
