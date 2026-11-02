@@ -476,6 +476,10 @@
      ========================================================================== */
   var CHROM_API = '/api/genome/chromosomes';
   var chromCache = {};
+  /* 每个装配的染色体命名方案（GenBank / RefSeq / UCSC）。
+     不同品系的染色体编号天然相同、序列完全不同，只有登录号能区分，
+     所以这份说明必须跟着装配走，不能只留一个 chrN。 */
+  var chromNaming = {};
   var chromSeq = 0;
 
   function chromFallback() {
@@ -501,6 +505,9 @@
       var o = document.createElement('option');
       o.value = String(c.value);
       o.textContent = c.label || c.value;
+      /* 悬停给出全称：官方序列名 + 登录号（如 chr5 · Chromosome5 · CM035059.1），
+         窄框里 label 可能被截断，title 不截断。 */
+      if (c.title) o.title = c.title;
       sel.appendChild(o);
       if (String(c.value) === prev) hit = true;
     });
@@ -537,6 +544,26 @@
 
   function srcSelEl() { return $('liftSourceBuild'); }
 
+  /* 染色体下拉下方的一行说明：把「这个版本用哪种 ID 命名」讲清楚。
+     没有它，GRCz11 / GRCz12ab / fDanRer4.1 的下拉都是 chr1..chr25，看起来像硬编码。 */
+  function renderChromNote(naming) {
+    var el = $('liftChromNote');
+    if (!el) return;
+    var txt = '';
+    if (naming) {
+      txt = lang() === 'en' ? (naming.note_en || '') : (naming.note_zh || '');
+    }
+    if (!txt) {
+      el.textContent = '';
+      el.hidden = true;
+      el.removeAttribute('title');
+      return;
+    }
+    el.textContent = txt;
+    el.title = txt;
+    el.hidden = false;
+  }
+
   function loadChromosomes() {
     var sel = $('liftChrom');
     if (!sel) return Promise.resolve();
@@ -555,6 +582,7 @@
       if (sel.selectedIndex !== 0) sel.selectedIndex = 0;
       sel.disabled = true;
       sel.setAttribute('title', T('chromNeedSource'));
+      renderChromNote(null);
       if (srcSelEl()) srcSelEl().classList.add('needs-pick');
       return Promise.resolve();
     }
@@ -564,7 +592,11 @@
     /* 之前浏览器恢复进来的值不属于这个装配时，上面的 fillChromSelect 会把它
        补成一个选项（粘贴场景用）。但「没选过版本就刷新页面」属于恢复残留，
        来源下拉此时是空占位，直接丢弃这个值更符合规则。 */
-    if (chromCache[build]) { fillChromSelect(chromCache[build]); return Promise.resolve(); }
+    if (chromCache[build]) {
+      fillChromSelect(chromCache[build]);
+      renderChromNote(chromNaming[build]);
+      return Promise.resolve();
+    }
     /* 链头解析（首次约 1–7 s）：先摆一份通用清单，别让下拉空着；
        真实清单回来再替换，选中项保持不变。 */
     if (sel.options.length <= 1) fillChromSelect(chromFallback());
@@ -572,11 +604,18 @@
     return get(CHROM_API + '?build=' + encodeURIComponent(build)).then(function (d) {
       if (seq !== chromSeq) return;   // 期间又切了版本，丢弃过期响应
       var list = ((d && d.ok && d.chromosomes) || []).map(function (c) {
-        return { value: String(c.value), label: c.label || ('chr' + c.value) };
+        return {
+          value: String(c.value),
+          label: c.label || ('chr' + c.value),
+          title: c.title || '',
+          accession: c.accession || ''
+        };
       });
       if (!list.length) list = chromFallback();
       chromCache[build] = list;
+      chromNaming[build] = (d && d.naming) || null;
       fillChromSelect(list);
+      renderChromNote(chromNaming[build]);
       /* 换装配后，原来选的那条染色体不一定还在新清单里（例如切到没有 MT 的
          GRCz12ab）。fillChromSelect 为了粘贴场景会把它补成选项保留下来，
          这里按「该装配真实清单」再校一次：不在就清空，避免框里挂着一个
@@ -592,6 +631,8 @@
     }).catch(function () {
       if (seq !== chromSeq) return;
       fillChromSelect(chromFallback());
+      chromNaming[build] = null;
+      renderChromNote(null);
     });
   }
 
@@ -631,6 +672,8 @@
         filterTargetBuilds();
         // 占位项文案是 JS 生成的，切语言后不会自动跟着变，重填一次（走缓存）
         loadChromosomes();
+        var nb = (($('liftSourceBuild') && $('liftSourceBuild').value) || '').trim();
+        renderChromNote(nb ? chromNaming[nb] : null);
         if (lastHintKey) showHint(lastHintKey);
       }, 0);
     });

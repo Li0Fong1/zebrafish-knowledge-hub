@@ -892,7 +892,9 @@ html body.theme-atelier .tool-panel .coord-l1-arrow {
 }
 html body.theme-atelier .tool-panel .coord-l1-interval {
   display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr !important;
+  /* 2026-11-02：染色体一列要放下 "chr5 · CM124811.1"（装配登录号），
+     均分三列会截成 "chr5 · CM12…"，所以第一列多给一点权重。 */
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) !important;
   gap: 8px !important;
   align-items: end !important;
 }
@@ -914,6 +916,19 @@ html body.theme-atelier .tool-panel .coord-l1-interval select {
   height: 42px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
+}
+/* 2026-11-02：染色体下拉下方的「本版怎么命名」说明。
+   装配之间的差别（CM124811.1 / OX063294.1 / SUPER_5）只在这里和 option 里看得见。 */
+html body.theme-atelier .tool-panel .coord-chrom-note {
+  margin: 6px 0 0 !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #64748b !important;
+  word-break: break-word !important;
+}
+html body.theme-atelier .tool-panel .coord-chrom-note[hidden] {
+  display: none !important;
 }
 /* 2026-11-02：来源版本还没选时，给必选项一圈强调色——用户反馈染色体下拉
    「用不了」，实际是先要选来源；把该选的那个控件指出来，比只把结果控件置灰清楚。 */

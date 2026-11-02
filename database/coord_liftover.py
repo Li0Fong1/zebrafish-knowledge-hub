@@ -574,8 +574,11 @@ def _query_report_for_chain(chain_name: str) -> str:
         return STRAIN_BY_ACCESSION[m.group(1)][1]["report"]
     if name.startswith("GCA_052040795") or name.startswith("GCF_052040795"):
         return REPORT_12AB_NAME
-    if "GCF_049306965" in name:
-        # .1／.2 的 GRCz12tu：两版 report 的 accession 一致（CM111179.1／NC_133176.1）
+    if name.startswith(("GCF_049306965", "GCA_049306965")):
+        # 只有 12tu 在查询端（链名以它开头）时，查询端才是 12tu 的序列命名。
+        # 2026-11-02：原写作 "GCF_049306965" in name，把 danRer11ToGCF_049306965.2
+        # 这类「12tu 在目标端」的链也算进来，导致 GRCz11 的 chr5 被贴上 12tu 的
+        # CM111183.1 —— 标错登录号比不标更糟（用户会拿它去 NCBI 搜到别的序列）。
         return REPORT_NAME
     return ""
 
@@ -1208,6 +1211,101 @@ def _chromosomes_of_build(build: str) -> tuple[tuple[str, tuple[str, ...]], ...]
     return tuple((k, tuple(sorted(seen[k]))) for k in keys)
 
 
+def _dedup(*items: str) -> list[str]:
+    """按顺序去重（保持原序），空串丢掉。"""
+    out: list[str] = []
+    for x in items:
+        x = (x or "").strip()
+        if x and x not in out:
+            out.append(x)
+    return out
+
+
+_CHROM_SCHEME_NOTES = {
+    "genbank": (
+        "本版按 GenBank 登录号命名染色体（如 {ex}）；同一编号在不同装配下是不同序列。",
+        "Named by GenBank accession (e.g. {ex}); the same number is a different "
+        "sequence in another assembly.",
+    ),
+    "refseq": (
+        "本版按 RefSeq 登录号命名染色体（如 {ex}）；同一编号在不同装配下是不同序列。",
+        "Named by RefSeq accession (e.g. {ex}); the same number is a different "
+        "sequence in another assembly.",
+    ),
+    "mixed": (
+        "本版多条链混用 UCSC chr* 与登录号（如 {ex}），下拉按链头实际写法列出。",
+        "Chains mix UCSC chr* names and accessions (e.g. {ex}); the list follows "
+        "the chain headers.",
+    ),
+    "ucsc": (
+        "本版沿用 UCSC 的 chr1–chr25 命名；链头本身就是染色体名，无额外登录号。",
+        "Uses the UCSC chr1–chr25 naming; the chain headers already carry these "
+        "names, so no accession is shown.",
+    ),
+    "unknown": (
+        "该装配暂无可用链或 assembly report，下面只是通用清单，换算仍需链。",
+        "No chain or assembly report yet, so this is a generic list; a liftover "
+        "still needs a chain.",
+    ),
+}
+
+
+@lru_cache(maxsize=32)
+def _chrom_details_of_build(build: str) -> dict[str, dict[str, str]]:
+    """显示名（1..25／MT）→ 该装配自己的序列命名。
+
+    取自 NCBI assembly report 的三列：
+      Sequence-Name      该装配的官方序列名（fDanRer4.1 是 SUPER_5、
+                         ASM2018471v1 是 Chromosome5、fDreABH1.1 就是 chr5）
+      Assigned-Molecule  同源染色体编号，用来归一到 1..25
+      GenBank/RefSeq     该装配真正唯一的序列标识（CM124811.1 / OX063294.1 …）
+
+    为什么要这层：所有斑马鱼装配的「5 号染色体」是同一段同源染色体的不同测序版本，
+    编号天然一样，序列完全不同。只给 chr5 看不出这是哪个装配的 chr5，
+    能把它们区分开的只有登录号。
+    """
+    out: dict[str, dict[str, str]] = {}
+    for chain in _source_chains_for(build):
+        report = _query_report_for_chain(chain)
+        if not report:
+            continue
+        path = CHAIN_DIR / report
+        if not path.is_file():
+            continue
+        fam = _chain_query_family(chain)
+        for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+            if not line or line.startswith("#"):
+                continue
+            parts = line.split("\t")
+            if len(parts) < 7 or parts[1] != "assembled-molecule":
+                continue
+            official = parts[0].strip()
+            mol = parts[2].strip()
+            key = "MT" if mol.upper() in {"MT", "M"} else mol
+            if not (key.isdigit() or key == "MT"):
+                continue
+            accs = [a.strip() for a in (parts[4], parts[6])
+                    if a and a.strip() and a.strip().lower() != "na"]
+            if not accs:
+                continue
+            # 报告里 GenBank 与 RefSeq 两栏常同时有值：按链头实际用的字母族挑，
+            # 免得链头写 CM124811.1 却标成 NC_ 号，对不上用户手里的坐标文件。
+            acc = accs[0]
+            for a in accs:
+                if fam and fam != "chr" and _acc_family(a) == fam:
+                    acc = a
+                    break
+            if acc.startswith(("NC_", "NW_", "NT_")):
+                scheme = "refseq"
+            elif acc.startswith(("CM", "CP", "OX", "LR", "CA", "AB", "FN")):
+                scheme = "genbank"
+            else:
+                scheme = "other"
+            out.setdefault(key, {"official": official, "accession": acc,
+                                 "scheme": scheme})
+    return out
+
+
 def list_build_chromosomes(build: str = "") -> dict:
     """某装配可作为来源的染色体清单（供前端下拉）。
 
@@ -1235,17 +1333,60 @@ def list_build_chromosomes(build: str = "") -> dict:
         rows = [(str(i), ()) for i in range(1, 26)] + [("MT", ())]
         source = "default"
 
+    details = _chrom_details_of_build(b)
+    items: list[dict] = []
+    for name, tnames in rows:
+        base = "chrMT" if name == "MT" else f"chr{name}"
+        d = details.get(name) or {}
+        acc = d.get("accession") or ""
+        official = d.get("official") or ""
+        # 链头本来就叫 chr5 的装配（GRCz11 / Zv 系列 / fDreABH1.1）不必再贴一遍名字；
+        # 链头是 CM124811.1 这类登录号的，必须贴出来，否则 25 个 chr5 长得一模一样。
+        show = bool(acc) and acc.lower() not in {base.lower(), name.lower()}
+        items.append({
+            "value": name,
+            "label": f"{base} · {acc}" if show else base,
+            "short": base,
+            "accession": acc,
+            "official": official,
+            "names": list(tnames),   # 链头里对得上的写法（排查用）
+            # official 常见两种冗余写法：与 base 相同（"chr5"）、或就是裸编号（"5"）。
+            # 两种都去掉，只留真正带信息的（Chromosome5 / SUPER_5）。
+            "title": " · ".join(_dedup(
+                base,
+                "" if official in {name, base} else official,
+                acc,
+            )),
+        })
+
+    counts: dict[str, int] = {}
+    for d in details.values():
+        sc = d.get("scheme") or ""
+        if sc:
+            counts[sc] = counts.get(sc, 0) + 1
+    total_d = sum(counts.values())
+    if source != "chain":
+        scheme = "unknown"
+    elif not counts:
+        scheme = "ucsc"
+    else:
+        top, n_top = max(counts.items(), key=lambda kv: kv[1])
+        # 主流命名占比够高就按主流说（12ab 是 25 条 CM 号 + MT 的 1 条 NC_ 号，
+        # 整体仍是 GenBank 登录号体系），否则才说混用。
+        scheme = top if n_top >= total_d * 0.8 else "mixed"
+    example = next((i["accession"] for i in items if i["accession"]), "")
+
+    note_zh, note_en = _CHROM_SCHEME_NOTES[scheme]
     return {
         "ok": True,
         "build": b,
         "source": source,   # chain = 取自链头真名；default = 无链时退回 1–25 + MT
-        "total": len(rows),
-        "chromosomes": [
-            {
-                "value": name,
-                "label": "chrMT" if name == "MT" else f"chr{name}",
-                "names": list(tnames),   # 链头里对得上的写法（排查用）
-            }
-            for name, tnames in rows
-        ],
+        "naming": {
+            "scheme": scheme,
+            "example": example,
+            "note_zh": note_zh.format(ex=example or "—"),
+            "note_en": note_en.format(ex=example or "n/a"),
+        },
+        "total": len(items),
+        "chromosomes": items,
     }
