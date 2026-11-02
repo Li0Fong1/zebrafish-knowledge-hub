@@ -149,6 +149,7 @@ _CAPABILITY_RE = re.compile(
     # —— 直接问「你会什么」
     r"你(都|又)?能(做|干|帮|回答|答|查)(些)?(什么|啥|哪些|多少)|"
     r"你(都|又)?会(些)?(什么|啥|哪些|干什么)|"
+    r"你(都|又)?会(做|干)(些)?(什么|啥|哪些)|"
     r"你(能|可以)帮(我)?(做|干|查|回答)(什么|啥|哪些)|"
     r"能力(范围|边界|清单|有哪些)|你的(能力|功能|专长|强项|本事|用处)|"
     r"(介绍|说说)(一下)?(你|你自己|你的功能)|"
@@ -182,21 +183,21 @@ CAPABILITY_REPLY_ZH = """我是在这个平台上工作的斑马鱼（*Danio rer
 **一、查基因（本地库：3.2 万个基因、14.5 万条别名与同义名）**
 - 符号、别名、历史名解析成官方基因（例如 p53 → tp53，cmlc2 → myl7）
 - 染色体位置、Ensembl ID、ZFIN ID、基因类型、功能描述
-- GO 条目（分 BP / MF / CC）、KEGG 与 Reactome 通路、同源基因及同源度
+- GO 条目（分 BP / MF / CC）、通路（KEGG / Reactome / WikiPathways，逐条标注来源）、同源基因及同源度
 - 表达谱：按基因查组织与胚胎时期、按组织反查基因、多个基因并排比较
 - 基因–表型：从基因查表型、从表型反查基因（ZFIN 表型索引；中文表型词会先换成英文再匹配，如「心脏畸形」→ heart + abnormal）
 - 基因相关文献：按符号与别名命中，给 PMID 可点
 
 **二、序列与设计**
-- BLAST：blastn，单条或批量 FASTA；cDNA 比对 GRCz12tu 转录组，基因组比对 GRCz12tu 基因组
+- BLAST：blastn，单条或批量 FASTA（≤20 条）；比对库是 GRCz12tu CDS，界面不提供选库开关
 - 序列提取：按基因名取 cDNA / 启动子 / 基因组区段，或按染色体区间取
-- sgRNA 与引物设计：给基因符号（自动取 CDS）或直接粘序列都行；PAM 枚举、规则打分、转录组脱靶筛查
+- sgRNA 与引物设计：给基因符号（自动取 CDS）或直接粘序列都行；PAM 枚举、规则打分、脱靶筛查（转录组或全基因组）
 - 跨库 ID 映射：Ensembl / NCBI Gene / ZFIN / 基因符号互转，有歧义时列出候选让你选
 
 **三、组学与通路**
 - GO / KEGG 富集：Fisher 精确检验 + BH 校正，结果可导出 TSV
-- 通路浏览器：dre 前缀的 KEGG 通路
-- 装配对照：GRCz11 ↔ GRCz12tu 逐染色体长度与基因数
+- 通路浏览器：按关键词查通路及通路内基因，结果逐行标注来源（Reactome / KEGG / WikiPathways），不是只有 KEGG
+- 装配对照：Liftover 页结果区给 GRCz11 ↔ GRCz12tu 逐染色体长度与基因数
 - 坐标换算：任意两个已收录装配之间（Zv3–Zv9、GRCz10/11/12tu/12ab，以及 NCBI 品系装配 T5D / AB / Tu 等），
   走 UCSC over.chain，可多跳、碱基级；缺链时直说做不到，不给凑出来的坐标
   · 换算只保证坐标对应，不保证区间还是同一个基因：品系装配常有片段级增删（T5D 的 chr5 比 GRCz11 短约 0.9 Mb），
@@ -229,21 +230,21 @@ CAPABILITY_REPLY_EN = """I'm a zebrafish (*Danio rerio*) gene and genomics assis
 **1. Gene lookups (local database: ~32k genes, ~145k alias entries)**
 - Resolve symbols, aliases and historical names to the official gene (p53 → tp53, cmlc2 → myl7)
 - Chromosome location, Ensembl ID, ZFIN ID, gene biotype, functional description
-- GO terms (BP / MF / CC), KEGG and Reactome pathways, orthologs with identity scores
+- GO terms (BP / MF / CC), pathways (KEGG / Reactome / WikiPathways, labelled per row), orthologs with identity scores
 - Expression: by gene (tissue + embryonic stage), by tissue (reverse lookup), multi-gene comparison
 - Gene–phenotype: gene → phenotypes and phenotype → genes (ZFIN index; Chinese phenotype terms are mapped to English first, e.g. 心脏畸形 → heart + abnormal)
 - Gene-linked literature by symbol and alias, with clickable PMIDs
 
 **2. Sequence and design**
-- BLAST: blastn, single or batch FASTA; cDNA against the GRCz12tu transcriptome, genomic against the GRCz12tu genome
+- BLAST: blastn, single or batch FASTA (≤20 sequences); always against the GRCz12tu CDS library — no library selector
 - Sequence retrieval: cDNA / promoter / genomic region by gene, or an arbitrary chromosome interval
-- sgRNA and primer design: pass a gene symbol (CDS is fetched for you) or paste a sequence; PAM scan, on-target scoring, transcriptome off-target scan
+- sgRNA and primer design: pass a gene symbol (CDS is fetched for you) or paste a sequence; PAM scan, on-target scoring, off-target scan against transcriptome or genome
 - Cross-database ID mapping: Ensembl / NCBI Gene / ZFIN / symbol, with candidates listed when ambiguous
 
 **3. Omics and pathways**
 - GO / KEGG enrichment: Fisher's exact test with BH correction, exportable as TSV
-- Pathway browser: KEGG pathways with the `dre` prefix
-- Assembly comparison: GRCz11 ↔ GRCz12tu, per-chromosome length and gene counts
+- Pathway browser: keyword search over pathways and their genes, each row labelled with its source (Reactome / KEGG / WikiPathways) — not KEGG-only
+- Assembly comparison: on the Liftover page results, GRCz11 ↔ GRCz12tu per-chromosome length and gene counts
 - Coordinate liftover: any two assemblies on file (Zv3-Zv9, GRCz10/11/12tu/12ab, and NCBI strain assemblies such as T5D / AB / Tu),
   via UCSC over.chain, multi-hop, base level; if a chain is missing, say so instead of guessing
   · A lift only guarantees the coordinate, not the same gene: strain assemblies differ by megabase-scale indels
@@ -655,18 +656,91 @@ def is_system_meta_question(question: str) -> bool:
     return bool(_SYSTEM_META_RE.search(q))
 
 
-def is_hub_product_howto_question(question: str) -> bool:
-    """问本 Hub 界面/工具怎么展示、怎么用，不是科学文献题。"""
+# ── 功能页定位：先认页面，再答「这页怎么用」 ────────────────────────────────
+# 2026-11-02 全站功能页核查的结论：原来只按「序列 / 其他」两套固定文案作答，
+# 问「GO 富集页怎么用」会回「中间输入框提问、右侧页签…」——答的是另一件事。
+# 现在按页面事实表（llm/product_pages.py）逐页作答，注册表驱动，加页只改那张表。
+
+# 「这句在问用法/能力吗」——必须与页面命中同时成立，避免把科学问题当成用法问题。
+# 只收真正指向界面与参数的问法；不收「怎么理解 / 怎么避免 / 有哪些」这类知识型问法。
+_PAGE_USAGE_RE = re.compile(
+    r"(怎么用|如何使用|如何用|怎么操作|怎样使用|怎么查|怎么提交|怎么填|"
+    r"在哪|哪里|入口|哪个页面|哪一页|哪页|"
+    r"最多|上限|多少条|几条|几种|几个|"
+    r"支持哪些|支持什么|有哪些选项|能做什么|可以做什么|能干什么|干什么|有什么用|"
+    r"输出什么|返回什么|给出什么|填什么|选什么|要不要|需要什么|"
+    r"什么版本|哪个版本|什么库|哪个库|什么格式|什么方法|什么算法|什么统计|用什么|"
+    r"是什么|是不是|吗|？|\?)",
+    re.I,
+)
+
+
+def _page_registry():
+    """惰性导入功能页事实表，避免 llm 包初始化期的循环依赖。"""
+    try:
+        import product_pages
+
+        return product_pages
+    except Exception:
+        try:
+            from llm import product_pages  # type: ignore
+
+            return product_pages
+        except Exception:
+            return None
+
+
+def detect_product_page(question: str) -> Optional[str]:
+    """从问句里判断它在问哪个功能页；判断不出返回 None。
+
+    按 ORDER 顺序（长名在前）逐条匹配，命中即返回，避免「位置查序列」
+    被更短的「位置查找」抢走。
+    """
+    reg = _page_registry()
+    if not reg:
+        return None
     q = (question or "").strip()
-    if len(q) < 4 or not _PRODUCT_HOWTO_RE.search(q):
+    if len(q) < 2:
+        return None
+    low = q.lower()
+    for key in reg.ORDER:
+        spec = reg.PAGES.get(key) or {}
+        pat = spec.get("aliases")
+        if not pat:
+            continue
+        try:
+            if re.search(pat, low, re.I):
+                return key
+        except re.error:
+            continue
+    return None
+
+
+def is_hub_product_howto_question(question: str) -> bool:
+    """问本 Hub 某个页面的用法/能力/参数，不是科学文献题。
+
+    两条命中路径：
+    1. 认出了具体功能页 + 有用法问法（新增，覆盖逐页提问）；
+    2. 旧路径：泛化的用法问法 + 泛化主题词（保留，兜住「这个网站的界面怎么看」）。
+    """
+    q = (question or "").strip()
+    if len(q) < 4:
         return False
     try:
         from gene_formatter import is_biology_mechanism_question, is_citation_display_question
 
+        # 机制/概念题即使提到工具名也不该走界面说明（如「CRISPR 敲除的原理」）
         if is_biology_mechanism_question(q) or is_citation_display_question(q):
             return False
     except Exception:
         pass
+
+    page = detect_product_page(q)
+    if page and _PAGE_USAGE_RE.search(q):
+        return True
+
+    if not _PRODUCT_HOWTO_RE.search(q):
+        return False
     topic = any(
         k in q.lower()
         for k in (
@@ -680,17 +754,19 @@ def is_hub_product_howto_question(question: str) -> bool:
 
 
 def answer_hub_product_howto(question: str) -> str:
-    q = (question or "").lower()
-    if any(k in q for k in ("序列", "sequence", "cdna", "fasta", "启动子", "blast", "比对")):
-        return SEQUENCE_DISPLAY_REPLY
-    return (
-        "这是本 Hub 的用法说明，不跑文献检索：\n\n"
-        "- **聊天**：中间输入框提问，Enter 发送；回答详情在右侧。\n"
-        "- **分析工具**：右侧页签可做基因卡片、BLAST、富集、KEGG、ID 解析、序列提取、注释。\n"
-        "- **序列**：见「序列 / BLAST」页；cDNA 与 BLAST 用 GRCz12tu，启动子/基因组区用 GRCz11。\n"
-        "- **文献**：机制类问题会检索文献库；问界面用法不需要文献。\n\n"
-        "若要某一基因的序列，在右侧「序列」输入基因名并提取即可。"
-    )
+    """按页面事实表作答；认不出页面时给功能地图，不再用两套通用文案糊过去。"""
+    reg = _page_registry()
+    lang = detect_question_language(question)
+    page = detect_product_page(question)
+    if reg and page:
+        spec = reg.PAGES.get(page) or {}
+        body = spec.get("en" if lang == "en" else "zh")
+        if body:
+            return body.strip()
+    if reg:
+        return (reg.OVERVIEW_EN if lang == "en" else reg.OVERVIEW_ZH).strip()
+    # 事实表缺失时的最小兜底（不应发生）
+    return SEQUENCE_DISPLAY_REPLY
 
 
 def answer_citation_display_question(question: str, history: list | None = None) -> str:
