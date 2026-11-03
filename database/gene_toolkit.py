@@ -31,6 +31,50 @@ def normalize_gene_name(name: str) -> str:
 _SAFE_IDENT = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
 
+def _locus_grcz12tu(gid) -> Optional[dict]:
+    """GRCz12tu 坐标：取自 gene_assembly_xref 的碱基级坐标。
+
+    来源只有两种，界面上照实标注，不混为一谈：
+      refseq_*    → RefSeq GCF_049306965.2 feature_table 的原始坐标
+      liftover_*  → GRCz11 注释坐标经 UCSC chain 碱基级投影而来
+    注释内容本身仍出自 Ensembl r116（GRCz11），所以额外带 annotation_build 供溯源。
+    """
+    res = _client().execute_sql(
+        "SELECT chromosome, start_pos, end_pos, strand, source "
+        "FROM gene_assembly_xref WHERE gene_id = :gid AND assembly_name = 'GRCz12tu' "
+        "AND start_pos IS NOT NULL AND end_pos IS NOT NULL LIMIT 1",
+        max_rows=1,
+        params={"gid": gid},
+    )
+    if not res.get("success") or not res.get("data"):
+        return None
+    row = res["data"][0]
+    start, end = int(row["start_pos"]), int(row["end_pos"])
+    src = str(row.get("source") or "").strip()
+    if src.startswith("liftover"):
+        source = "liftover：GRCz11 注释坐标 → GRCz12tu（UCSC chain，碱基级）"
+        note = "GRCz12tu 坐标，由 Ensembl r116（GRCz11）注释区间经碱基级 liftover 投影"
+        if src.endswith("_review"):
+            note += "；区间长度漂移超过 20%，待复核"
+    else:
+        source = "RefSeq GCF_049306965.2"
+        note = "GRCz12tu 坐标，取自 RefSeq GCF_049306965.2 feature_table"
+    return {
+        "assembly": "GRCz12tu",
+        "source": source,
+        "chromosome": str(row["chromosome"] or ""),
+        "start": start,
+        "end": end,
+        "length": end - start + 1,
+        "strand": row.get("strand") or "",
+        "biotype": "",
+        "ensembl_id": "",
+        "gene_symbol": "",
+        "assembly_note": note,
+        "annotation_build": "GRCz11",  # 注释内容仍出自 Ensembl r116（GRCz11）
+    }
+
+
 def _detail_from_gene_card(name: str) -> Optional[dict]:
     """gene_basic 没有时，仍用 gene_card.symbol 回答。数字开头的符号也走这里。"""
     key = (name or "").strip().lower()
@@ -146,20 +190,24 @@ def get_gene_detail(gene_name: str) -> Optional[dict]:
     )
     embryo_rows = embryo_expr["data"] if embryo_expr["success"] else []
 
-    # 坐标：gene_basic 只有 chromosome，起止在注释目录里（data/ensembl/gene_catalog.json）。
+    # 坐标：默认给 GRCz12tu（RefSeq GCF_049306965.2，或由 GRCz11 注释碱基级 liftover 得到）；
+    # 没有 GRCz12tu 坐标的基因才回落 gene_catalog.json 的 GRCz11 坐标，并如实标注版本。
     # 放在这里而不是 API 层，是为了让「聊天里的基因回答」也能用上同一份坐标，
     # 否则只有 /api/gene/ 这一个入口有位置，其它路径还是只给染色体号。
-    locus = None
+    locus_11 = None
     try:
         from gene_locus import get_locus
 
-        locus = get_locus(basic.get("gene_name") or name, basic.get("ensembl_id") or "")
+        locus_11 = get_locus(basic.get("gene_name") or name, basic.get("ensembl_id") or "")
     except Exception:
-        locus = None
+        locus_11 = None
+
+    locus = _locus_grcz12tu(gid) or (dict(locus_11) if locus_11 else None)
 
     return {
         "basic": basic,
         "locus": locus,
+        "locus_grcz11": locus_11,
         "expression": bgee_expr + embryo_rows,
         "go": q("gene_go", "go_term, go_category"),
         "homology": q("homology_gene", "species, homo_gene_name, homology_score"),
@@ -167,7 +215,7 @@ def get_gene_detail(gene_name: str) -> Optional[dict]:
         "references": q("gene_reference", "pubmed_id, title, journal, publish_year"),
         "aliases": alias_block(gid),
         "paralogs": paralog_block(gid),
-        "catalog_assembly": "GRCz11",
+        "catalog_assembly": (locus or {}).get("assembly") or "GRCz11",
         "standard": _gene_standard_block(gid, basic),
     }
 

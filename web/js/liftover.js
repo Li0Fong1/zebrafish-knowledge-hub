@@ -24,8 +24,8 @@
       loadingTip: '链文件较大，首次换算需要建索引；之后同样的查询约 1 秒。',
       fail: '换算失败：{msg}',
       needRegion: '请填染色体与起止坐标',
-      needSource: '请先选择来源版本（不设默认）',
-      needTarget: '请先选择目标版本（不设默认）',
+      needSource: '请先选择来源版本（默认 GRCz11）',
+      needTarget: '请先选择目标版本（默认 GRCz12tu）',
       chromPlaceholder: '选择染色体',
       chromPickSource: '先选来源版本',
       chromNeedSource: '来源版本未选：这里先给 1–25 + MT 的通用清单，选好来源版本后会换成该装配的真实染色体。',
@@ -77,8 +77,8 @@
       loadingTip: 'Chain files are large, so the first lift-over builds an index; later queries take about a second.',
       fail: 'Lift-over failed: {msg}',
       needRegion: 'Chromosome, start and end are required',
-      needSource: 'Select a source assembly first (no default)',
-      needTarget: 'Select a target assembly first (no default)',
+      needSource: 'Select a source assembly first (GRCz11 by default)',
+      needTarget: 'Select a target assembly first (GRCz12tu by default)',
       chromPlaceholder: 'Chromosome',
       chromPickSource: 'Select source',
       chromNeedSource: 'No source assembly selected yet. This list is the generic 1–25 + MT set; pick a source and it is replaced by the chromosomes that assembly actually has.',
@@ -657,11 +657,14 @@
         loadChromosomes();
       });
     }
+    // 默认 GRCz11 → GRCz12tu：注释坐标出自 Ensembl r116（GRCz11），而本平台展示与取序列
+    // 统一用 GRCz12tu，所以进页就摆好这一对；用户仍可改任意版本。这里先按来源把目标下拉滤一遍。
+    filterTargetBuilds();
     // 首次进入：按当前来源版本填一次染色体下拉
     loadChromosomes();
     /* 浏览器的表单状态恢复会晚于脚本执行：刷新后 #liftChrom 可能被填回上次的
-       chr2，而来源下拉的占位是 disabled 的、恢复不了 → 出现「没选版本却有染色体」。
-       这里补几次重跑（来源为空就清空），再监听 bfcache 返回。 */
+       chr2，而来源下拉默认已是 GRCz11 → 会出现「染色体属于别的版本」。这里补几次重跑
+       （来源为空就清空），再监听 bfcache 返回。 */
     [0, 150, 500].forEach(function (ms) { setTimeout(loadChromosomes, ms); });
     window.addEventListener('pageshow', function (e) {
       if (e && e.persisted) loadChromosomes();

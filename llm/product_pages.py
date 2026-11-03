@@ -68,14 +68,14 @@ PAGES = {
 - **入口**：Omics › Gene › 位置查找；也支持链接直达（`#/gene/tp53` 会自动查）。
 - **输入**：一个基因符号，例如 tp53、sox9b、ZDB-GENE-…
 - **输出**：染色体、起止坐标、链方向、基因体序列。
-- **口径**：起止坐标单位是 bp，坐标系为 Ensembl GRCz11 r116；cDNA 与符号版本是 NCBI RefSeq GRCz12tu，两套不混用。
+- **口径**：起止坐标单位是 bp，坐标系为 NCBI RefSeq GRCz12tu（GCF_049306965.2）；注释内容出自 Ensembl r116（GRCz11），其区间按碱基级 liftover 投影到 GRCz12tu；cDNA 与符号同属 GRCz12tu。
 - **不在本页做**：「这个名字到底是哪个基因、还有哪些叫法」去「别名」页；表型去「基因查表型」页。""",
         "en": """**Gene locus (#/gene)** — give a gene name, see where it sits in the genome.
 
 - **Entry**: Omics › Gene › 位置查找; deep links work too (`#/gene/tp53` runs automatically).
 - **Input**: one gene symbol, e.g. tp53, sox9b, ZDB-GENE-…
 - **Output**: chromosome, start/end coordinates, strand, gene-body sequence.
-- **Assembly**: start/end coordinates are in bp on Ensembl GRCz11 r116; cDNA and symbols are NCBI RefSeq GRCz12tu — the two are never mixed.
+- **Assembly**: start/end coordinates are in bp on NCBI RefSeq GRCz12tu (GCF_049306965.2); annotation content comes from Ensembl r116 (GRCz11) and its intervals are projected onto GRCz12tu by base-level liftover; cDNA and symbols are on GRCz12tu as well.
 - **Not here**: “which gene is this name, and what else is it called” belongs to the aliases page; phenotypes belong to gene → phenotype.""",
     },
     "genes": {
@@ -402,7 +402,7 @@ OVERVIEW_ZH = """这是本平台的功能地图（都从顶部导航进），说
 
 **Omics › Gene**
 - **别名**：给名称（符号 / 别名 / 旧名 / 跨库 ID）确认是哪个基因。
-- **位置查找**：给基因名，出坐标（GRCz11）、链与基因体。
+- **位置查找**：给基因名，出坐标（GRCz12tu，字段里标明是 RefSeq 原始坐标还是 liftover 投影）、链与基因体。
 - **表达**：按基因 / 按组织 / 多基因对比三种模式。
 
 **Omics › Phenotype**
@@ -426,7 +426,7 @@ OVERVIEW_EN = """Here is the platform map (all under the top navigation); this i
 
 **Omics › Gene**
 - **Aliases**: give a name (symbol / alias / former name / cross-DB ID) and confirm which gene it is.
-- **Gene locus**: gene name in, coordinates (GRCz11), strand and gene body out.
+- **Gene locus**: gene name in, coordinates (GRCz12tu — the field states whether they are native RefSeq positions or liftover projections), strand and gene body out.
 - **Expression**: by gene, by tissue, or multi-gene comparison.
 
 **Omics › Phenotype**

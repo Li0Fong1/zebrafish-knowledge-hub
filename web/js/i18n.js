@@ -699,14 +699,14 @@
     "批量互转": "Map IDs",
     "复制表格": "Copy table",
     "清空": "Clear",
-    "本地库 gene_basic / gene_xref（GRCz11 Ensembl 116 · NCBI Gene · ZFIN）；标准符号按 RefSeq GCF_049306965.2（GRCz12tu）。":
-      "Source: local gene_basic / gene_xref (GRCz11 Ensembl 116 · NCBI Gene · ZFIN); standard symbols follow RefSeq GCF_049306965.2 (GRCz12tu). ",
+    "本地库 gene_basic / gene_xref（NCBI Gene · ZFIN · Ensembl 116）；坐标统一按 GRCz12tu 呈现：RefSeq GCF_049306965.2 的原始坐标，或由 GRCz11 注释经碱基级 liftover 投影得到。":
+      "Source: local gene_basic / gene_xref (NCBI Gene · ZFIN · Ensembl 116); coordinates are reported on GRCz12tu — either native RefSeq GCF_049306965.2 positions or GRCz11 annotations projected with base-level liftover. ",
     "未匹配的留空，不做猜测。": "Unmatched IDs are left blank — never guessed.",
     "要一次换一批 ID（符号 ⇄ Ensembl ⇄ ZFIN ⇄ NCBI）？":
       "Need to map a batch of IDs (symbol ⇄ Ensembl ⇄ ZFIN ⇄ NCBI)?",
     "批量 ID 互转 →": "Batch ID mapping →",
-    "源版本与链在上方按钮组里切换（GRCz11 = Ensembl 注释坐标）。单向：本库只备了指向 GRCz12tu 的 UCSC over.chain（GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu，碱基级）。反方向没有链文件，不做，也不给近似值。":
-      "Switch source build and strand with the buttons above (GRCz11 = Ensembl annotation coordinates). One-way only: the library ships UCSC over.chain files that point at GRCz12tu (GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu, base-pair level). There is no reverse chain, so no reverse conversion and no approximations.",
+    "源版本与链在上方按钮组里切换，默认 GRCz11 → GRCz12tu。本库备有指向 GRCz12tu 的 UCSC over.chain（GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu，碱基级），以及 GRCz12tu 反查 GRCz11 的链；没有链的版本直接报缺链，不给近似坐标。":
+      "Switch source build and strand with the buttons above; the default pair is GRCz11 → GRCz12tu. The library ships UCSC over.chain files pointing at GRCz12tu (from GRCz11 / GRCz10 / Zv9 / Zv8, base-pair level) plus a GRCz12tu → GRCz11 reverse chain; builds without a chain report a missing chain instead of approximating.",
     "为什么不做坐标转换（liftover）": "Why no coordinate liftover",
     "去按染色体区间取序列 →": "Retrieve sequence by region →",
     "只回答装配之间的问题：两条染色体长度差多少、基因密度差多少。GRCz12tu 长度为本机 FASTA 实测；GRCz11 长度为 Ensembl 记录值（取一次缓存 7 天）。不列基因名——两版的 SYMBOL 和 NAME 本来就相同，列出来没有信息量。":

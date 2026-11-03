@@ -56,12 +56,12 @@
 
   /* 实测快照：与各页面显示口径一致 */
   var SCALE = [
-    { zh: ['基因注释库', '32,564 个基因', '坐标 = Ensembl GRCz11 r116；符号锚定 NCBI RefSeq GRCz12tu'],
-      en: ['Gene annotation', '32,564 genes', 'coordinates = Ensembl GRCz11 r116; symbols follow NCBI RefSeq GRCz12tu'] },
-    { zh: ['别名与同源表', '145,439 条别名 / 31,630 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
-      en: ['Aliases & homology', '145,439 aliases / 31,630 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
-    { zh: ['表达表', '319,344 行 / 24,245 个基因', 'Bgee 表达分（0–100）+ Expression Atlas TPM（E-ERAD-475，marker 子集）'],
-      en: ['Expression table', '319,344 rows / 24,245 genes', 'Bgee score (0–100) + Expression Atlas TPM (E-ERAD-475, marker subset)'] },
+    { zh: ['基因注释库', '32,139 个基因', '坐标 = GRCz12tu（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）；符号 = NCBI RefSeq GRCz12tu'],
+      en: ['Gene annotation', '32,139 genes', 'coordinates on GRCz12tu (native RefSeq positions plus GRCz11 annotations projected by base-level liftover); symbols = NCBI RefSeq GRCz12tu'] },
+    { zh: ['别名与同源表', '143,373 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
+      en: ['Aliases & homology', '143,373 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
+    { zh: ['表达表', '319,343 行 / 24,089 个基因', 'Bgee 表达分（0–100）+ Expression Atlas TPM（E-ERAD-475，marker 子集）'],
+      en: ['Expression table', '319,343 rows / 24,089 genes', 'Bgee score (0–100) + Expression Atlas TPM (E-ERAD-475, marker subset)'] },
     { zh: ['表型注释', '171,079 条 / 8,029 个基因', 'ZFIN phenoGeneCleanData_fish.txt 本地解析为 SQLite 索引；20,971 个「解剖实体+PATO」组合'],
       en: ['Phenotype annotations', '171,079 rows / 8,029 genes', 'ZFIN phenoGeneCleanData_fish.txt parsed into a local SQLite index; 20,971 entity+quality pairs'] },
     { zh: ['基因组与染色体', '25 条染色体 / 1,448,791,966 bp', '本机 GRCz12tu FASTA 实测长度与 GC（平均 37.11%）'],
@@ -73,7 +73,7 @@
   ];
 
   var SOURCES = [
-    { zh: ['Ensembl GRCz11 r116', '基因身份、坐标、GO / 通路注释'], en: ['Ensembl GRCz11 r116', 'gene identity, coordinates, GO / pathway annotation'] },
+    { zh: ['Ensembl GRCz11 r116', '基因身份与 GO / 通路注释；坐标经碱基级 liftover 呈现于 GRCz12tu'], en: ['Ensembl GRCz11 r116', 'gene identity with GO / pathway annotation; coordinates presented on GRCz12tu via base-level liftover'] },
     { zh: ['NCBI RefSeq GRCz12tu (GCF_049306965.2)', '标准符号、CDS / 基因组序列、染色体登录号'], en: ['NCBI RefSeq GRCz12tu (GCF_049306965.2)', 'standard symbols, CDS / genome sequences, chromosome accessions'] },
     { zh: ['ZFIN', '基因命名与原位、表型注释（ZDB-PUB 可核对）'], en: ['ZFIN', 'gene naming, in-situ and phenotype annotations (ZDB-PUB IDs are checkable)'] },
     { zh: ['Bgee / Expression Atlas', '组织表达分与胚胎分期 TPM'], en: ['Bgee / Expression Atlas', 'tissue expression scores and embryonic-stage TPM'] },

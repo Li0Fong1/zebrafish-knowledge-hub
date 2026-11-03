@@ -99,8 +99,8 @@ def _pack(g: dict) -> dict:
         "biotype": g.get("biotype") or g.get("gene_function") or "",
         "ensembl_id": g.get("ensembl_id") or "",
         "gene_symbol": g.get("gene_name") or "",
-        # 前端要照实提示，不能让人以为这是 GRCz12tu 的坐标
-        "assembly_note": "GRCz11 注释坐标（Ensembl r116）；GRCz12tu 需先做 Liftover",
+        # 这是「没有 GRCz12tu 坐标时的回落」，必须说明它是哪一套坐标系
+        "assembly_note": "该基因暂无 GRCz12tu 坐标，以下为 GRCz11 注释坐标（Ensembl r116），需 liftover 才能与 GRCz12tu 混用",
     }
 
 

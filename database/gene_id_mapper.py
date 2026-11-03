@@ -141,9 +141,10 @@ def reference_genome_info() -> dict:
         "ncbi_reference_refseq": NCBI_REFERENCE_REFSEQ,
         "ncbi_reference_genbank": NCBI_REFERENCE_GENBANK,
         "assembly_note": (
-            f"标准名 / BLAST / cDNA = RefSeq {NCBI_REFERENCE_REFSEQ}（{NCBI_REFERENCE_ASSEMBLY}）；"
-            f"本地库 ID / 坐标 / 表达 / GO·KEGG = {REFERENCE_ASSEMBLY} Ensembl {ENSEMBL_RELEASE}"
-            f"（{NCBI_ASSEMBLY_ACCESSION}）。跨版本不得混用坐标，对照表 gene_assembly_xref。"
+            f"标准名 / BLAST / cDNA / 坐标 = RefSeq {NCBI_REFERENCE_REFSEQ}（{NCBI_REFERENCE_ASSEMBLY}）；"
+            f"注释内容（ID / 表达 / GO·KEGG）出自 {REFERENCE_ASSEMBLY} Ensembl {ENSEMBL_RELEASE}"
+            f"（{NCBI_ASSEMBLY_ACCESSION}），其区间已用 UCSC chain 做碱基级 liftover 投影到 "
+            f"{NCBI_REFERENCE_ASSEMBLY} 坐标（对照表 gene_assembly_xref，字段 source 标明原始坐标或投影）。"
         ),
         "user_facing_reference": NCBI_REFERENCE_ASSEMBLY,
         "ncbi_url": NCBI_DATASETS_URL,

@@ -3515,7 +3515,7 @@ const TOOL_PANEL_OF = {
 };
 
 const TOOL_METHOD = {
-  gene: "身份/坐标 = Ensembl GRCz11 r116；符号 = NCBI RefSeq GRCz12tu；Bgee 为 0–100 表达存在性置信分，Expression Atlas 才是 TPM",
+  gene: "坐标 = GRCz12tu（RefSeq GCF_049306965.2 原始坐标，或 Ensembl r116 注释经碱基级 liftover 投影，字段内标明来源）；符号 = NCBI RefSeq GRCz12tu；Bgee 为 0–100 表达存在性置信分，Expression Atlas 才是 TPM",
   blast: "BLAST+ 2.17.0+，比对库 = GRCz12tu RefSeq CDS/基因组（不做 GRCz11 隐式回退）",
   enrich: "ORA：Fisher 精确检验 + Benjamini–Hochberg 校正，报告校正后 q 值；背景集 = 本地注释库",
   kegg: "通路编号直接采用 KEGG dre / WikiPathways 原始编号，便于与原站对照",
@@ -3524,13 +3524,13 @@ const TOOL_METHOD = {
   annotate: "汇总身份、表达、GO、通路、同源、文献；缺记录处写「无记录」，不填充推测值",
   retrieval: "粗排 500 篇 → cross-encoder 精排 100 篇 → 按 48,000 字符打包；分数为 adjusted_L2 = raw_L2 / 章节权重",
   upload: "统一清洗/切分后入库；需重建向量分片才能被检索命中，未索引文件会在结果中标注",
-  genomes: "染色体长度 / GC = 本机 GRCz12tu FASTA 实测（实时扫描一次后缓存）；基因数 = 本地注释库 GRCz11 r116 按 chromosome 字段统计，两套坐标系不同已在页面标明；文库大小 = 本地文件字节数",
+  genomes: "染色体长度 / GC = 本机 GRCz12tu FASTA 实测（实时扫描一次后缓存）；基因数 = 本地注释库按 chromosome 字段统计（Ensembl r116 注释，坐标经碱基级 liftover 统一到 GRCz12tu）；文库大小 = 本地文件字节数",
   expression: "Bgee 表达分（0–100，存在性置信分，按解剖实体）与 Expression Atlas TPM（按胚胎分期，仅 marker 基因子集）单位不同、分列呈现；表达谱按分值降序，不跨组比较",
   phenotype: "表型 = ZFIN 官方 phenoGeneCleanData_fish.txt 本地解析；一行一条「表型–基因–基因型–分期」注释，按表型/基因分组去重；文献号 = ZFIN ZDB-PUB；文献命中来自本地文献库题名",
 };
 
 const TOOL_METHOD_EN = {
-  gene: "Identity / coordinates = Ensembl GRCz11 r116; symbols = NCBI RefSeq GRCz12tu; Bgee is a 0–100 expression-existence confidence score — only Expression Atlas reports TPM",
+  gene: "Coordinates = GRCz12tu (native RefSeq GCF_049306965.2 positions, or Ensembl r116 annotations projected by base-level liftover — the field states which); symbols = NCBI RefSeq GRCz12tu; Bgee is a 0–100 expression-existence confidence score — only Expression Atlas reports TPM",
   blast: "BLAST+ 2.17.0+, search DB = GRCz12tu RefSeq CDS / genome (no implicit GRCz11 fallback)",
   enrich: "ORA: Fisher's exact test + Benjamini–Hochberg correction, adjusted q values reported; background = local annotation library",
   kegg: "Pathway IDs keep the original KEGG dre / WikiPathways numbering so they can be checked against the source sites",
@@ -3539,7 +3539,7 @@ const TOOL_METHOD_EN = {
   annotate: "Collects identity, expression, GO, pathways, orthologs and literature; missing entries say “no record” and are never filled with guesses",
   retrieval: "Coarse top 500 papers → cross-encoder rerank top 100 → packed to 48,000 characters; score = adjusted_L2 = raw_L2 / section weight",
   upload: "Unified cleaning / chunking before ingest; uploaded files are searchable only after the vector shards are rebuilt — unindexed files are marked",
-  genomes: "Chromosome length / GC = measured on the local GRCz12tu FASTA (one scan, then cached); gene counts = local annotation library GRCz11 r116 grouped by the chromosome field, and the two coordinate systems are labelled on the page; library sizes = local file bytes",
+  genomes: "Chromosome length / GC = measured on the local GRCz12tu FASTA (one scan, then cached); gene counts = local annotation library grouped by the chromosome field (Ensembl r116 annotations, coordinates unified onto GRCz12tu by base-level liftover); library sizes = local file bytes",
   expression: "Bgee expression scores (0–100 expression-existence confidence, by anatomical entity) and Expression Atlas TPM (by embryonic stage, marker-gene subset only) use different units and are shown in separate blocks — profiles are sorted by score, never compared across blocks",
   phenotype: "Phenotypes = the official ZFIN phenoGeneCleanData_fish.txt parsed locally; one row per phenotype–gene–genotype–stage annotation, grouped by phenotype / gene; publication IDs are ZFIN ZDB-PUB; literature hits come from local paper titles",
   about: "All figures on this page are measured snapshots of the local libraries; sources and algorithms are listed one by one and can be checked at the source sites; the citation template includes an access date",
