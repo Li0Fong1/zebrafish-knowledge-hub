@@ -1781,20 +1781,135 @@ def gene_detail(gene_name: str):
     return detail
 
 
+_GENE_TOKEN_RE = re.compile(r"^[A-Za-z0-9_.:\- ]{1,128}$")
+
+
+def _safe_gene_token(raw: str, label: str = "搜索词"):
+    """检索词校验：只允许基因名/别名/ID 里会出现的字符。
+
+    不能用 validate_path_param：那个按文件路径标准把 `:` 判非法，
+    于是 `wu:fp53a03`（EST 克隆号）、`si:ch211-121i18.1` 这类合法输入会被 400 掉。
+    """
+    t = (raw or "").strip()
+    if not t:
+        return "", None
+    if not _GENE_TOKEN_RE.match(t):
+        return None, "%s 含非法字符（只允许字母、数字、下划线、点、冒号、连字符）" % label
+    return t, None
+
+
+class BatchGeneSearchRequest(BaseModel):
+    """批量基因检索请求：queries 支持换行 / 逗号 / 分号 / 制表符分隔。"""
+    queries: str = Field(..., min_length=1, max_length=20000)
+    limit: int = Field(10, ge=1, le=60)
+    max_items: int = Field(200, ge=1, le=500)
+
+
+@app.get("/api/genes/region")
+def genes_region(assembly: str = "GRCz12tu", chrom: str = "",
+                 start: int = 0, end: int = 0, limit: int = 50):
+    """按位置查基因：给定装配 + 染色体 + 区间，返回与之重叠的基因。
+
+    数据来自 gene_region_annotation（GRCz12tu 的 GFF 原生坐标与投影坐标）
+    与 gene_assembly_xref 两路合并，去重后按起点排序。
+
+    与「按位置取序列」是两个动作：这里只回答「这段里有哪些基因」，
+    不出碱基。取序列仍走 /api/tools/sequence/region。
+    """
+    from file_security import validate_path_param
+    from region_genes import genes_in_span
+
+    asm, err = validate_path_param(assembly, label="装配版本", max_len=32)
+    if err:
+        raise HTTPException(status_code=400, detail=err)
+    chrom_s, err = validate_path_param(chrom, label="染色体", max_len=64)
+    if err:
+        raise HTTPException(status_code=400, detail=err)
+    if not chrom_s:
+        raise HTTPException(status_code=400, detail="缺少染色体参数")
+
+    start, end = int(start), int(end)
+    if start <= 0 or end <= 0:
+        raise HTTPException(status_code=400, detail="start / end 必须为正整数")
+    if end < start:
+        raise HTTPException(status_code=400, detail="end 不能小于 start")
+    if end - start > 10_000_000:
+        raise HTTPException(status_code=400, detail="区间超过 10 Mb，请缩小范围")
+
+    limit = max(1, min(int(limit), 500))
+    genes = genes_in_span(asm, chrom_s, start, end, limit)
+    return {
+        "assembly": asm,
+        "chromosome": chrom_s,
+        "start": start,
+        "end": end,
+        "count": len(genes),
+        "genes": genes,
+        "note": ("区间为 1-based 闭区间；基因坐标与该区间只要有重叠就返回。"
+                 if genes else "该区间内没有检出基因。"),
+    }
+
+
 @app.get("/api/genes/search")
 def gene_search(q: str = "", limit: int = 20, browse: int = 0):
-    """基因检索：q 支持符号 / 别名 / ZFIN / Ensembl / 功能词；browse=1 且 q 为空时列出全部。"""
-    from file_security import validate_path_param
-    from gene_toolkit import search_genes
+    """基因检索（**分级返回**）。
+
+    q 支持符号 / 别名 / ZFIN·Ensembl ID；browse=1 且 q 为空时列出全部。
+
+    返回结构（2026-11-03 整改）：
+      groups  按匹配层级分组，每组带 label/hint/same_gene/count/results
+              层级：exact_symbol / exact_alias / exact_id / conflict /
+                    prefix / contains / descriptive / function_text
+      results 仅「同义 + 名字相关」，**不含**描述提及与功能提及（向后兼容）
+      related 描述提及 + 功能提及（不是同名）
+      counts  各层级条数；same_gene_count 同义条数
+      note    一句话说明命中构成
+
+    之所以这样拆：旧实现把「功能描述里提到 p53」和「p53 的别名」拍平成一个
+    列表，前端写「N genes matched」，看上去像是 30 个 p53 别名。
+    """
+    from gene_match import search_classified
 
     safe_q = q
     if q.strip():
-        safe_q, err = validate_path_param(q, label="搜索词", max_len=128)
+        safe_q, err = _safe_gene_token(q, "搜索词")
         if err:
             raise HTTPException(status_code=400, detail=err)
     limit = max(1, min(int(limit), 60))
-    results = search_genes(safe_q, limit=limit, browse=bool(browse))
-    return {"results": results, "count": len(results), "browse": bool(browse)}
+    data = search_classified(safe_q, limit=limit, browse=bool(browse))
+    data["count"] = len(data.get("results") or [])
+    data["browse"] = bool(browse)
+    return data
+
+
+@app.post("/api/genes/search/batch")
+def gene_search_batch(req: BatchGeneSearchRequest):
+    """批量检索：多行 / 逗号 / 分号分隔，逐个走同一套分级规则。
+
+    每个输入项返回自己的分组结果；顶层再给一份汇总，便于前端一次渲染。
+    """
+    from gene_match import search_classified
+
+    raw = [x.strip() for x in re.split(r"[\n\r,;，；\t]+", req.queries or "") if x.strip()]
+    items = []
+    for token in raw[: int(req.max_items)]:
+        safe, err = _safe_gene_token(token, "基因名")
+        if err:
+            items.append({"query": token, "error": err, "total": 0,
+                          "same_gene_count": 0, "groups": [], "results": []})
+            continue
+        d = search_classified(safe, limit=int(req.limit), browse=False)
+        d["count"] = len(d.get("results") or [])
+        items.append(d)
+
+    found = sum(1 for x in items if x.get("same_gene_count"))
+    return {
+        "queries": items,
+        "total_queries": len(items),
+        "resolved": found,
+        "unresolved": [x["query"] for x in items if not x.get("same_gene_count")],
+        "truncated": len(raw) > int(req.max_items),
+    }
 
 
 def _attach_copy_roles(block: dict) -> dict:

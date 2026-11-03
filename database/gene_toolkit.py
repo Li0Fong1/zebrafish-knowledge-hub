@@ -530,64 +530,19 @@ def _sql_limit(limit: int, cap: int = 50) -> int:
 
 
 def search_genes(keyword: str, limit: int = 20, browse: bool = False) -> list:
-    """基因检索：符号 / 别名（含 ZFIN·NCBI·UniProt 历史名）/ ZFIN·Ensembl ID / 功能词。
+    """基因检索（**向后兼容的薄封装**）。
 
-    browse=True 且关键词为空时，按符号顺序列出前 N 个（基因库浏览入口）。
+    真正的实现在 `gene_match.search_classified()`：它把命中拆成
+    exact_symbol / exact_alias / exact_id / conflict / prefix / contains /
+    descriptive / function_text 八级，每条结果带 `matched_by` 与 `matched_value`。
+
+    这里只返回 `results`（同义 + 名字相关两类），
+    **不包含「描述别名提到」和「功能注释提到」**——否则调用方又会把
+    「提到 p53」当成「p53 的别名」。需要完整分级请直接调 gene_match。
     """
-    kw = keyword.strip()
-    lim = _sql_limit(limit, 60)
-    from config import NCBI_REFERENCE_ASSEMBLY
+    from gene_match import search_classified
 
-    if not kw:
-        if not browse:
-            return []
-        sql_browse = f"""
-        SELECT gb.gene_id, gb.gene_name, gb.gene_symbol, gb.chromosome, gb.ensembl_id, gb.zfin_id,
-               SUBSTRING(COALESCE(gb.gene_function, ''), 1, 160) AS gene_function,
-               n.standard_symbol AS standard_symbol
-        FROM gene_basic gb
-        LEFT JOIN gene_name_bundle n ON n.gene_id = gb.gene_id
-        ORDER BY COALESCE(NULLIF(n.standard_symbol, ''), gb.gene_name) ASC
-        LIMIT {lim}
-        """
-        res = _client().execute_sql(sql_browse, max_rows=lim)
-        return res["data"] if res["success"] else []
-
-    like = f"%{kw}%"
-    like_l = f"%{kw.lower()}%"
-    # JSON 别名数组用“带引号”的模式匹配，避免 p53 命中 tp53 之外的噪音
-    json_like = f'%"%{kw}%"%'
-    sql = f"""
-    SELECT DISTINCT gb.gene_id, gb.gene_name, gb.gene_symbol, gb.chromosome, gb.ensembl_id, gb.zfin_id,
-           SUBSTRING(COALESCE(gb.gene_function, ''), 1, 160) AS gene_function,
-           n.standard_symbol AS standard_symbol,
-           (SELECT GO.go_term FROM gene_go GO WHERE GO.gene_id = gb.gene_id LIMIT 1) AS go_preview
-    FROM gene_basic gb
-    LEFT JOIN gene_alias ga ON gb.gene_id = ga.gene_id
-    LEFT JOIN gene_name_bundle n ON n.gene_id = gb.gene_id
-    LEFT JOIN gene_assembly_xref ax ON gb.gene_id = ax.gene_id AND ax.assembly_name = :asm
-    WHERE gb.gene_name LIKE :like
-       OR gb.gene_symbol LIKE :like
-       OR gb.gene_function LIKE :like
-       OR gb.ensembl_id LIKE :like
-       OR gb.zfin_id LIKE :like
-       OR ga.alias LIKE :like_l
-       OR ax.gene_symbol LIKE :like
-       OR n.standard_symbol LIKE :like
-       OR n.aliases_zfin LIKE :json_like
-       OR n.aliases_ncbi LIKE :json_like
-       OR n.aliases_uniprot LIKE :json_like
-       OR n.aliases_ensembl LIKE :json_like
-       OR n.aliases_other LIKE :json_like
-    LIMIT {lim}
-    """
-    res = _client().execute_sql(
-        sql,
-        max_rows=lim,
-        params={"like": like, "like_l": like_l, "json_like": json_like,
-                "asm": NCBI_REFERENCE_ASSEMBLY},
-    )
-    return res["data"] if res["success"] else []
+    return search_classified(keyword, limit=limit, browse=browse).get("results") or []
 
 
 def id_convert(identifier: str) -> dict:

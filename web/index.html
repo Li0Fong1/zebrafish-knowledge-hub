@@ -7,23 +7,23 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/static/assets/brand/favicon.png?v=20261012a" />
   <link rel="apple-touch-icon" href="/static/assets/brand/apple-touch-icon.png?v=20261012a" />
   <meta name="theme-color" content="#e9f3fc" />
-  <link rel="stylesheet" href="/static/css/style.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/simplify.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/refine.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/polish.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/premium.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/design-system.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261103a" />
-  <link rel="stylesheet" href="/static/css/guide.css?v=20261103a" />
-  <script src="/static/js/i18n.js?v=20261103a"></script>
+  <link rel="stylesheet" href="/static/css/style.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/simplify.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/refine.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/home-2026.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/chat-2026.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/enrich-view.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/home-agent.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/tools-agent.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/theme-agent.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/glass-agent.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/clean-ui.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/polish.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/premium.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/design-system.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/ui-2026.css?v=20261103c" />
+  <link rel="stylesheet" href="/static/css/guide.css?v=20261103c" />
+  <script src="/static/js/i18n.js?v=20261103c"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -573,10 +573,47 @@
           <div class="tool-panel hidden" id="toolGenes">
             <!-- 2026-10-31 边界重划：本页（别名）只做「给一个名字 → 确认是哪个基因、它有哪些名字」，
                  所以保留模糊检索 + 候选列表；坐标与基因体交给「位置查找」页。 -->
-            <input type="text" id="geneSearchInput" placeholder="符号 / 别名 / 旧名 / 跨库 ID，如 p53" aria-label="基因名称检索" />
-            <div class="tool-row">
-              <button type="button" id="geneSearchBtn">搜索</button>
-              <button type="button" id="geneBrowseBtn" class="tool-secondary-btn">浏览全部</button>
+            <!-- 2026-11-03：命中不再拍平成「N genes matched」。检索结果按匹配层级分组
+                 （同义 / 名字含 / 仅提及），分组标题写明语义，避免把「功能描述里提到
+                 p53」误读成「p53 的别名」。同时补上「按位置」与「批量」两个入口。 -->
+            <div class="gene-tabs" role="tablist">
+              <button type="button" class="gene-tab active" data-gene-mode="name" role="tab">按名称</button>
+              <button type="button" class="gene-tab" data-gene-mode="region" role="tab">按位置</button>
+              <button type="button" class="gene-tab" data-gene-mode="batch" role="tab">批量</button>
+            </div>
+
+            <div class="gene-pane" data-gene-pane="name">
+              <input type="text" id="geneSearchInput" placeholder="符号 / 别名 / 旧名 / 跨库 ID，如 p53" aria-label="基因名称检索" />
+              <div class="tool-row">
+                <button type="button" id="geneSearchBtn">搜索</button>
+                <button type="button" id="geneBrowseBtn" class="tool-secondary-btn">浏览全部</button>
+              </div>
+            </div>
+
+            <div class="gene-pane hidden" data-gene-pane="region">
+              <div class="tool-row gene-region-row">
+                <select id="geneRegionAsm" aria-label="装配版本">
+                  <option value="GRCz12tu">GRCz12tu</option>
+                  <option value="GRCz11">GRCz11</option>
+                </select>
+                <input type="text" id="geneRegionChrom" placeholder="染色体，如 5 或 chr5" aria-label="染色体" />
+              </div>
+              <div class="tool-row gene-region-row">
+                <input type="number" id="geneRegionStart" placeholder="起点" min="1" aria-label="起点" />
+                <input type="number" id="geneRegionEnd" placeholder="终点" min="1" aria-label="终点" />
+                <button type="button" id="geneRegionBtn">查这段里的基因</button>
+              </div>
+              <p class="tool-hint">只列区间内重叠的基因，不出碱基；要取序列请去「序列」页。坐标 1-based 闭区间，跨度 ≤ 10 Mb。</p>
+            </div>
+
+            <div class="gene-pane hidden" data-gene-pane="batch">
+              <textarea id="geneBatchInput" rows="5" spellcheck="false"
+                placeholder="每行一个符号 / 别名 / ID，也可用逗号分隔"
+                aria-label="批量基因检索"></textarea>
+              <div class="tool-row">
+                <button type="button" id="geneBatchBtn">批量查</button>
+                <span class="tool-hint" id="geneBatchHint">最多 200 条；每条各自按同一套匹配层级判定，例如 tp53 / actb1 / ENSDARG00000078507。</span>
+              </div>
             </div>
             <!-- 2026-10-31：删「要一次换一批 ID…批量 ID 互转 →」。
                  批量 ID 互转是 Liftover 页的功能，与本页（符号/别名/互查）重合，按“页面不串功能”原则去掉。 -->
@@ -948,27 +985,27 @@
       <p class="tool-hint">当前为公开演示：无需访问令牌</p>
     </div>
   </div>
-  <script src="/static/js/source-badges.js?v=20261103a"></script>
-  <script src="/static/js/nav-menu.js?v=20261103a"></script>
-  <script src="/static/js/provenance.js?v=20261103a"></script>
-  <script src="/static/js/payload-crypto.js?v=20261103a"></script>
-  <script src="/static/js/app.js?v=20261103a"></script>
-  <script src="/static/js/ui-feedback.js?v=20261103a"></script>
-  <script src="/static/js/live-update.js?v=20261103a"></script>
-  <script src="/static/js/select-ui.js?v=20261103a" defer></script>
-  <script src="/static/js/composer-fit.js?v=20261103a" defer></script>
-  <script src="/static/js/home-feed.js?v=20261103a" defer></script>
-  <script src="/static/js/agent-home.js?v=20261103a" defer></script>
-  <script src="/static/js/genes.js?v=20261103a" defer></script>
-  <script src="/static/js/crispr.js?v=20261103a" defer></script>
-  <script src="/static/js/genomes.js?v=20261103a" defer></script>
-  <script src="/static/js/liftover.js?v=20261103a" defer></script>
-  <script src="/static/js/expression.js?v=20261103a" defer></script>
-  <script src="/static/js/phenotype.js?v=20261103a" defer></script>
-  <script src="/static/js/about.js?v=20261103a" defer></script>
-  <script src="/static/js/guide.js?v=20261103a" defer></script>
+  <script src="/static/js/source-badges.js?v=20261103c"></script>
+  <script src="/static/js/nav-menu.js?v=20261103c"></script>
+  <script src="/static/js/provenance.js?v=20261103c"></script>
+  <script src="/static/js/payload-crypto.js?v=20261103c"></script>
+  <script src="/static/js/app.js?v=20261103c"></script>
+  <script src="/static/js/ui-feedback.js?v=20261103c"></script>
+  <script src="/static/js/live-update.js?v=20261103c"></script>
+  <script src="/static/js/select-ui.js?v=20261103c" defer></script>
+  <script src="/static/js/composer-fit.js?v=20261103c" defer></script>
+  <script src="/static/js/home-feed.js?v=20261103c" defer></script>
+  <script src="/static/js/agent-home.js?v=20261103c" defer></script>
+  <script src="/static/js/genes.js?v=20261103c" defer></script>
+  <script src="/static/js/crispr.js?v=20261103c" defer></script>
+  <script src="/static/js/genomes.js?v=20261103c" defer></script>
+  <script src="/static/js/liftover.js?v=20261103c" defer></script>
+  <script src="/static/js/expression.js?v=20261103c" defer></script>
+  <script src="/static/js/phenotype.js?v=20261103c" defer></script>
+  <script src="/static/js/about.js?v=20261103c" defer></script>
+  <script src="/static/js/guide.js?v=20261103c" defer></script>
   <!-- 2026-10-31：基因主表页下架，genemaster.js 不再加载（路由与面板均已移除）。 -->
-  <script src="/static/js/feedback.js?v=20261103a" defer></script>
-  <script src="/static/js/chat-polish.js?v=20261103a" defer></script>
+  <script src="/static/js/feedback.js?v=20261103c" defer></script>
+  <script src="/static/js/chat-polish.js?v=20261103c" defer></script>
 </body>
 </html>

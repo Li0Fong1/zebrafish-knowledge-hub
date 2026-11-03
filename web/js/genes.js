@@ -2,7 +2,10 @@
    genes.js —— Genes 功能页（基因库搜索 / 浏览 / 基因卡）
    --------------------------------------------------------------------------
    数据来源：
-     GET /api/genes/search?q=&limit=&browse=1   → 32,564 基因的符号 / 别名 / ZFIN / Ensembl 检索
+     GET /api/genes/search?q=&limit=&browse=1   → 32,139 条基因记录的符号 / 别名 / ZFIN / Ensembl 检索
+                                                  （返回按 matched_by 分级：同义 / 名字相关 / 仅提及）
+     POST /api/genes/search/batch               → 多行批量，逐条按同一套分级判定
+     GET /api/genes/region?assembly=&chrom=&start=&end= → 按位置查基因（只列基因，不取序列）
      GET /api/gene/{name}                       → 基础信息 + 表达 + GO + KEGG + 文献
                                                   （含 aliases 别名块 / paralogs 复制体块）
      GET /api/genes/orthologs?name=             → 复制体与共直系同源（任务②，独立可查）
@@ -20,8 +23,21 @@
     zh: {
       searching: '检索中…', empty: '没有命中', emptyHint: '试试符号、别名或 ID，例如 p53 / tp53 / ZDB-GENE-990415-270',
       count: '命中 {n} 个基因', browse: '基因库前 {m} 个（按符号排序）',
-      loadCard: '基因卡读取中…', cardFail: '基因卡读取失败', searchFail: '检索失败：{msg}',
+      loadCard: '基因卡读取中…', cardFail: '基因卡读取失败',       searchFail: '检索失败：{msg}',
       colSymbol: '符号', colName: '名称', colChr: '染色体', colFn: '功能注释',
+      colWhy: '命中依据', colPos: '区间（1-based）',
+      sumSame: '{n} 个与输入同义', sumConflict: '{n} 条同名冲突待确认',
+      sumLower: '{n} 个是名字含该串的其他基因', sumDesc: '{n} 个仅在描述或注释里提到',
+      noneSame: '没有同义基因：下面列出的都不是同一个基因，只是名字里含该串或注释里提到它。',
+      regionNeed: '请填写染色体与起止坐标。',
+      regionEmpty: '该区间内没有检出基因。',
+      regionHead: '区间 {asm} {chrom}:{start}–{end} 内有 {n} 个基因',
+      regionFail: '位置查询失败：{msg}',
+      batchEmpty: '请先粘贴要查的名字，每行一个或用逗号分隔。',
+      batchHead: '{n} 条输入，其中 {ok} 条命中同义基因',
+      batchHit: '{n} 个同义基因', batchNoSame: '没有同义基因',
+      batchTrunc: '超过 200 条，只处理了前 200 条。',
+      batchFail: '批量检索失败：{msg}',
       colSymbolName: '符号 / 名称', sameAsSymbol: '与符号相同',
       nameMerged: '名称与符号相同，已合并为一列',
       basic: '基础信息', aliases: '别名（含历史名）', ortho: '同源与复制体', expression: '表达（Top）',
@@ -40,8 +56,21 @@
     en: {
       searching: 'Searching…', empty: 'No match', emptyHint: 'Try a symbol, alias or ID, e.g. p53 / tp53 / ZDB-GENE-990415-270',
       count: '{n} genes matched', browse: 'First {m} genes by symbol',
-      loadCard: 'Loading gene card…', cardFail: 'Failed to load gene card', searchFail: 'Search failed: {msg}',
+      loadCard: 'Loading gene card…', cardFail: 'Failed to load gene card',       searchFail: 'Search failed: {msg}',
       colSymbol: 'Symbol', colName: 'Name', colChr: 'Chr', colFn: 'Function',
+      colWhy: 'Matched on', colPos: 'Interval (1-based)',
+      sumSame: '{n} match the query itself', sumConflict: '{n} name conflict(s) to review',
+      sumLower: '{n} are other genes whose symbol contains it', sumDesc: '{n} only mention it in text',
+      noneSame: 'No gene actually matches: everything below is a different gene that merely contains the string or mentions it.',
+      regionNeed: 'Please provide a chromosome and start/end coordinates.',
+      regionEmpty: 'No genes overlap this interval.',
+      regionHead: '{n} genes in {asm} {chrom}:{start}–{end}',
+      regionFail: 'Region query failed: {msg}',
+      batchEmpty: 'Paste the names to look up, one per line or comma-separated.',
+      batchHead: '{n} queries, {ok} resolved to the same gene',
+      batchHit: '{n} matching gene(s)', batchNoSame: 'no exact gene',
+      batchTrunc: 'More than 200 items — only the first 200 were processed.',
+      batchFail: 'Batch search failed: {msg}',
       colSymbolName: 'Symbol / name', sameAsSymbol: 'same as symbol',
       nameMerged: 'name equals symbol — merged into one column',
       basic: 'Basic', aliases: 'Aliases (incl. historical)', ortho: 'Orthologs & duplicates', expression: 'Expression (top)',
@@ -86,51 +115,192 @@
     box.classList.remove('hidden');
   }
 
-  /* ---------------- 列表 ---------------- */
+  /* ---------------- 结果渲染（按匹配层级分组） ----------------
+     2026-11-03 整改：旧版把后端返回的扁平列表直接铺成「N genes matched」，
+     于是「功能注释里提到 p53」的 rpmb / crebbpb 看起来像 p53 的别名。
+     现在后端返回 groups（每级带 label / hint / same_gene），这里照分组渲染：
+       · 同义层级（符号 / 别名 / ID）默认展开
+       · 名称相关（前缀 / 包含）默认展开，但标题写明「不同基因」
+       · 仅提及（描述别名 / 功能注释）与同名冲突默认折叠
+     每个分组都把「命中依据」一列摆出来，用户能直接看到是哪条别名/描述命中的。 */
 
-  function renderList(data, browse) {
-    var rows = (data && data.results) || [];
-    if (!rows.length) {
+  var FOLDED_TIERS = { descriptive: true, function_text: true, conflict: true };
+
+  function tierText(g, key) {
+    var l = g[key] || {};
+    return l[curLang()] || l.zh || '';
+  }
+  function num(v) {
+    return v == null || v === '' ? '' : Number(v).toLocaleString('en-US');
+  }
+  function val(id) {
+    var el = $(id);
+    return el ? String(el.value || '').trim() : '';
+  }
+
+  function rowHtml(r, showWhy) {
+    var sym = String(r.standard_symbol || r.gene_symbol || r.gene_name || '').trim();
+    var name = String(r.gene_name || '').trim();
+    var differs = !!name && name !== sym;
+    var why = showWhy && r.matched_value ? String(r.matched_value) : '';
+    var cells = '<td class="gene-cell-sym"><strong>' + txt(sym) + '</strong>' +
+      (differs ? '<span class="gene-cell-name">' + esc(name) + '</span>' : '') + '</td>' +
+      '<td>' + txt(r.chromosome) + '</td>' +
+      '<td class="gene-cell-why">' + (why ? '<span class="gene-why">' + esc(why) + '</span>'
+        : '<span class="tool-hint">—</span>') + '</td>' +
+      '<td class="gene-cell-fn">' + (r.ensembl_id ? '<span class="tool-hint">' + esc(r.ensembl_id) + '</span>'
+        : '<span class="tool-hint">—</span>') + '</td>';
+    return '<tr class="gene-row" data-name="' + esc(r.gene_name || sym) + '" data-gid="' + esc(r.gene_id || '') + '">' + cells + '</tr>';
+  }
+
+  function groupHtml(g) {
+    var rows = g.results || [];
+    if (!rows.length) return '';
+    var folded = !!FOLDED_TIERS[g.tier];
+    var th = '<th>' + esc(T('colSymbol')) + '</th><th>' + esc(T('colChr')) + '</th>' +
+      '<th>' + esc(T('colWhy')) + '</th><th>Ensembl</th>';
+    var body = rows.map(function (r) { return rowHtml(r, true); }).join('');
+    var hint = tierText(g, 'hint');
+    var inner = '<div class="table-wrap"><table class="gene-table gene-table-compact">' +
+      '<thead><tr>' + th + '</tr></thead><tbody>' + body + '</tbody></table></div>' +
+      (hint ? '<p class="tool-hint gene-group-hint">' + esc(hint) + '</p>' : '');
+    var cls = 'gene-group' + (g.same_gene ? ' is-same' : ' is-lower') + (folded ? ' is-folded' : '');
+    return '<details class="' + cls + '" data-tier="' + esc(g.tier) + '"' + (folded ? '' : ' open') + '>' +
+      '<summary><span class="gene-group-title">' + esc(tierText(g, 'label')) + '</span>' +
+      '<span class="gene-group-count">' + rows.length + (g.capped ? '+' : '') + '</span></summary>' + inner + '</details>';
+  }
+
+  /* 汇总行按分组实际条数算；某层被 limit 截断时显示「N+」，
+     不把截断值当成真实总数（否则「20 个仅在描述里提到」会冒充全量）。 */
+  function summaryHtml(data, browse) {
+    if (browse) return fmt(T('browse'), { m: data.total || 0 });
+    var groups = (data && data.groups) || [];
+    function of(tiers) {
+      var n = 0, plus = false;
+      groups.forEach(function (g) {
+        if (tiers.indexOf(g.tier) >= 0) { n += g.count || 0; if (g.capped) plus = true; }
+      });
+      return { n: n, s: n + (plus ? '+' : '') };
+    }
+    var same = of(['exact_symbol', 'exact_alias', 'exact_id']);
+    var conf = of(['conflict']);
+    var lower = of(['prefix', 'contains']);
+    var desc = of(['descriptive', 'function_text']);
+    var bits = [];
+    if (same.n) bits.push(fmt(T('sumSame'), { n: same.s }));
+    if (conf.n) bits.push(fmt(T('sumConflict'), { n: conf.s }));
+    if (lower.n) bits.push(fmt(T('sumLower'), { n: lower.s }));
+    if (desc.n) bits.push(fmt(T('sumDesc'), { n: desc.s }));
+    return bits.join(' · ');
+  }
+
+  function renderGroups(data, browse) {
+    var groups = (data && data.groups) || [];
+    var has = groups.some(function (g) { return (g.results || []).length; });
+    if (!has) {
       showResult('<p class="tool-hint">' + esc(T('empty')) + ' · ' + esc(T('emptyHint')) + '</p>');
       return;
     }
-    var head = browse
-      ? fmt(T('browse'), { m: rows.length })
-      : fmt(T('count'), { n: rows.length });
-
-    /* 2026-10-27：SYMBOL 与 NAME 在本地库里大量同值（标准名就是符号本身）。
-       两点冗余都去掉：
-         ① 不再单独开「名称」列；
-         ② 不再写「与符号相同」——同值就不显示，只在确实不同时，
-            把名称作为符号下方的一行小字带出来。 */
-    var normalized = rows.map(function (r) {
-      var sym = String(r.standard_symbol || r.gene_symbol || r.gene_name || '').trim();
-      var name = String(r.gene_name || '').trim();
-      return { r: r, sym: sym, name: name, differs: !!name && name !== sym };
-    });
-
-    var body = normalized.map(function (x) {
-      var r = x.r;
-      var id = r.gene_id;
-      var cells = '<td class="gene-cell-sym"><strong>' + txt(x.sym) + '</strong>' +
-        (x.differs ? '<span class="gene-cell-name">' + esc(x.name) + '</span>' : '') + '</td>' +
-        '<td>' + txt(r.chromosome) + '</td>' +
-        '<td class="gene-cell-fn">' + txt((r.gene_function || '').slice(0, 120)) +
-        (r.ensembl_id ? '<br><span class="tool-hint">' + esc(r.ensembl_id) + '</span>' : '') +
-        '</td>';
-      return '<tr class="gene-row" data-name="' + esc(r.gene_name || x.sym) + '" data-gid="' + esc(id) + '">' + cells + '</tr>';
-    }).join('');
-
-    var cols = '<th>' + esc(T('colSymbol')) + '</th>' +
-      '<th>' + esc(T('colChr')) + '</th><th>' + esc(T('colFn')) + '</th>';
-
-    showResult(
-      '<div class="gene-list-head tool-hint">' + esc(head) + '</div>' +
-      '<div class="table-wrap"><table class="gene-table">' +
-      '<thead><tr>' + cols + '</tr></thead>' +
-      '<tbody>' + body + '</tbody></table></div>'
-    );
+    var head = '<div class="gene-list-head">' + esc(summaryHtml(data, browse)) + '</div>';
+    if (!browse && !data.same_gene_count) {
+      head += '<p class="tool-hint gene-warn">' + esc(T('noneSame')) + '</p>';
+    }
+    showResult(head + groups.map(groupHtml).join(''));
   }
+
+  /* ---------------- 按位置查基因 ---------------- */
+
+  function renderRegion(d) {
+    var genes = (d && d.genes) || [];
+    if (!genes.length) {
+      showResult('<p class="tool-hint">' + esc(T('regionEmpty')) + '</p>');
+      return;
+    }
+    var head = fmt(T('regionHead'), {
+      chrom: d.chromosome, start: num(d.start), end: num(d.end),
+      asm: d.assembly, n: genes.length
+    });
+    var body = genes.map(function (g) {
+      var span = num(g.start) + '–' + num(g.end) + (g.strand ? ' (' + esc(g.strand) + ')' : '');
+      return '<tr class="gene-row" data-name="' + esc(g.symbol) + '" data-gid="' + esc(g.gene_id || '') + '">' +
+        '<td class="gene-cell-sym"><strong>' + txt(g.symbol) + '</strong></td>' +
+        '<td>' + span + '</td>' +
+        '<td><span class="tool-hint">' + esc(g.gene_id || '—') + '</span></td></tr>';
+    }).join('');
+    showResult('<div class="gene-list-head">' + esc(head) + '</div>' +
+      '<div class="table-wrap"><table class="gene-table gene-table-compact"><thead><tr>' +
+      '<th>' + esc(T('colSymbol')) + '</th><th>' + esc(T('colPos')) + '</th><th>NCBI Gene</th>' +
+      '</tr></thead><tbody>' + body + '</tbody></table></div>');
+  }
+
+  function runRegion() {
+    var chrom = val('geneRegionChrom');
+    var asm = val('geneRegionAsm') || 'GRCz12tu';
+    var s = parseInt(val('geneRegionStart'), 10);
+    var e = parseInt(val('geneRegionEnd'), 10);
+    if (!chrom || !s || !e) {
+      showResult('<p class="tool-hint">' + esc(T('regionNeed')) + '</p>');
+      return;
+    }
+    showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>');
+    var url = '/api/genes/region?assembly=' + encodeURIComponent(asm) +
+      '&chrom=' + encodeURIComponent(chrom) + '&start=' + s + '&end=' + e + '&limit=200';
+    fetch(url, { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : r.json().then(function (x) { throw new Error((x && x.detail) || 'HTTP'); }); })
+      .then(renderRegion)
+      .catch(function (err) {
+        showResult('<p class="tool-hint">' + esc(fmt(T('regionFail'), { msg: String(err.message || err).slice(0, 90) })) + '</p>');
+      });
+  }
+
+  /* ---------------- 批量 ---------------- */
+
+  function renderBatch(d) {
+    var items = (d && d.queries) || [];
+    var head = fmt(T('batchHead'), { n: d.total_queries || 0, ok: d.resolved || 0 });
+    var blocks = items.map(function (it) {
+      var same = (it.groups || []).filter(function (g) { return g.same_gene; })
+        .reduce(function (acc, g) { return acc.concat(g.results || []); }, []);
+      var status = it.error ? esc(it.error)
+        : (same.length ? fmt(T('batchHit'), { n: same.length }) : esc(T('batchNoSame')));
+      var title = '<div class="gene-batch-head"><strong>' + esc(it.query) + '</strong>' +
+        '<span class="tool-hint">' + status + '</span></div>';
+      if (!same.length) return '<div class="gene-batch-item">' + title + '</div>';
+      var body = same.map(function (r) {
+        return '<tr class="gene-row" data-name="' + esc(r.gene_name || r.gene_symbol) + '">' +
+          '<td class="gene-cell-sym"><strong>' + txt(r.standard_symbol || r.gene_name) + '</strong></td>' +
+          '<td>' + txt(r.chromosome) + '</td>' +
+          '<td class="gene-cell-why"><span class="gene-why">' + esc(r.matched_value || '') + '</span></td></tr>';
+      }).join('');
+      return '<div class="gene-batch-item">' + title +
+        '<div class="table-wrap"><table class="gene-table gene-table-compact"><tbody>' + body +
+        '</tbody></table></div></div>';
+    }).join('');
+    var trunc = d.truncated ? '<p class="tool-hint">' + esc(T('batchTrunc')) + '</p>' : '';
+    showResult('<div class="gene-list-head">' + esc(head) + '</div>' + trunc + blocks);
+  }
+
+  function runBatch() {
+    var raw = val('geneBatchInput');
+    if (!raw) {
+      showResult('<p class="tool-hint">' + esc(T('batchEmpty')) + '</p>');
+      return;
+    }
+    showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>');
+    fetch('/api/genes/search/batch', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ queries: raw, limit: 10, max_items: 200 })
+    })
+      .then(function (r) { return r.ok ? r.json() : r.json().then(function (x) { throw new Error((x && x.detail) || 'HTTP'); }); })
+      .then(renderBatch)
+      .catch(function (err) {
+        showResult('<p class="tool-hint">' + esc(fmt(T('batchFail'), { msg: String(err.message || err).slice(0, 90) })) + '</p>');
+      });
+  }
+
+  /* ---------------- 按名称检索 ---------------- */
 
   function runSearch(browse) {
     var inp = $('geneSearchInput');
@@ -143,7 +313,7 @@
       .then(function (r) { return r.json().catch(function () { return null; }); })
       .then(function (d) {
         if (!d) { showResult('<p class="tool-hint">' + esc(fmt(T('searchFail'), { msg: 'HTTP' })) + '</p>'); return; }
-        renderList(d, browse);
+        renderGroups(d, browse);
       })
       .catch(function (e) {
         showResult('<p class="tool-hint">' + esc(fmt(T('searchFail'), { msg: String(e).slice(0, 80) })) + '</p>');
@@ -323,6 +493,32 @@
     if (s) s.addEventListener('click', function () { runSearch(false); });
     var b = $('geneBrowseBtn');
     if (b) b.addEventListener('click', function () { runSearch(true); });
+
+    var rb = $('geneRegionBtn');
+    if (rb) rb.addEventListener('click', runRegion);
+    var bb = $('geneBatchBtn');
+    if (bb) bb.addEventListener('click', runBatch);
+
+    /* 三个模式：按名称 / 按位置 / 批量。切换只动面板显隐，不清结果区，
+       这样用户可以在几个模式之间来回看同一批结果。 */
+    Array.prototype.forEach.call(document.querySelectorAll('.gene-tab'), function (tab) {
+      tab.addEventListener('click', function () {
+        var mode = tab.getAttribute('data-gene-mode');
+        Array.prototype.forEach.call(document.querySelectorAll('.gene-tab'), function (t) {
+          t.classList.toggle('active', t === tab);
+        });
+        Array.prototype.forEach.call(document.querySelectorAll('[data-gene-pane]'), function (p) {
+          p.classList.toggle('hidden', p.getAttribute('data-gene-pane') !== mode);
+        });
+      });
+    });
+
+    ['geneRegionChrom', 'geneRegionStart', 'geneRegionEnd'].forEach(function (id) {
+      var el = $(id);
+      if (el) el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); runRegion(); }
+      });
+    });
 
     var inp = $('geneSearchInput');
     if (inp) {

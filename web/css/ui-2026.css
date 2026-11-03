@@ -2488,3 +2488,95 @@ body.dark .gm-method {
   background: rgba(90, 150, 230, .16); border-color: rgba(90, 150, 230, .24); color: #a9c6e6;
 }
 body.dark .gm-method b { color: #e2ebf8; }
+
+/* ==========================================================================
+   Genes 页：匹配分层结果 + 三个查询模式（2026-11-03 整改）
+   --------------------------------------------------------------------------
+   起因：检索 p53 时「功能注释里提到 p53」的基因与「p53 的别名」被拍平成
+   一个列表，统一写「N genes matched」，看上去像 30 个 p53 别名。
+   现在结果按层级分组，标题写明语义；结果区也加高并支持拖拽。
+   ========================================================================== */
+
+.gene-tabs { display: flex; gap: 6px; margin: 0 0 10px; flex-wrap: wrap; }
+.gene-tab {
+  appearance: none; border: 1px solid var(--ui-line); background: transparent;
+  border-radius: 8px; padding: 5px 12px; font-size: 13px; color: inherit; cursor: pointer;
+}
+.gene-tab:hover { background: var(--ui-sunken); }
+.gene-tab.active { background: var(--ui-sunken); border-color: #1d6fb8; font-weight: 600; }
+body.dark .gene-tab.active { border-color: #5a96e6; }
+
+.gene-pane { display: block; }
+.gene-pane.hidden { display: none; }
+.gene-region-row { align-items: center; }
+.gene-region-row input[type="text"],
+.gene-region-row input[type="number"] { min-width: 0; flex: 1 1 120px; }
+.gene-region-row select { flex: 0 0 132px; }
+#geneBatchInput { width: 100%; box-sizing: border-box; }
+
+/* 结果区：加高 + 右下角可拖拽（原 62vh/640px 且不可调，用户反馈太矮）。
+   必须压过上面的 theme-atelier 规则，所以带 !important 并把选择器列全。 */
+html body .feature-result-mount .tool-result,
+html body.theme-atelier .feature-result-mount .tool-result {
+  max-height: min(76vh, 780px) !important;
+  min-height: 300px;
+  resize: vertical;
+}
+html body .feature-result-mount .tool-result:has(.tool-more[open]),
+html body.theme-atelier .feature-result-mount .tool-result:has(.tool-more[open]) {
+  max-height: none !important;
+}
+
+/* 分组卡 */
+.gene-group {
+  border: 1px solid var(--ui-line); border-radius: 10px; margin: 0 0 10px;
+  background: var(--ui-sunken); overflow: hidden;
+}
+.gene-group > summary {
+  cursor: pointer; padding: 8px 12px; display: flex; align-items: center;
+  gap: 8px; font-size: 13px; list-style: none;
+}
+.gene-group > summary::-webkit-details-marker { display: none; }
+.gene-group > summary::before {
+  content: "▸"; font-size: 10px; opacity: .6; transition: transform .15s ease;
+}
+.gene-group[open] > summary::before { transform: rotate(90deg); }
+.gene-group-title { font-weight: 600; }
+.gene-group-count {
+  font-size: 12px; padding: 1px 8px; border-radius: 999px;
+  background: rgba(29, 111, 184, .12); color: #1d6fb8;
+}
+.gene-group.is-lower > summary { color: #8a6d1f; }
+.gene-group.is-lower .gene-group-count { background: rgba(180, 140, 30, .16); color: #8a6d1f; }
+.gene-group.is-folded > summary { color: #74797f; }
+.gene-group .table-wrap { border: 0 !important; border-top: 1px solid var(--ui-line) !important; border-radius: 0 !important; }
+.gene-group-hint { padding: 6px 12px 10px; margin: 0; }
+
+body.dark .gene-group-count { background: rgba(90, 150, 230, .18); color: #a9c6e6; }
+body.dark .gene-group.is-lower > summary { color: #d5b06a; }
+body.dark .gene-group.is-lower .gene-group-count { background: rgba(213, 176, 106, .16); color: #d5b06a; }
+body.dark .gene-group.is-folded > summary { color: #8fa3bd; }
+
+.gene-warn { color: #a33c3c; margin: 0 0 8px; }
+body.dark .gene-warn { color: #f09595; }
+
+/* 命中依据：把「是哪条别名/哪句描述命中的」摆出来 */
+.gene-cell-why { max-width: 300px; }
+.gene-why {
+  display: inline-block; max-width: 290px; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; vertical-align: bottom; font-size: 12px; color: #40566d;
+  background: rgba(29, 111, 184, .08); border-radius: 6px; padding: 1px 6px;
+}
+body.dark .gene-why { color: #b9c8da; background: rgba(90, 150, 230, .16); }
+
+.gene-table-compact tbody td { padding: 7px 10px !important; }
+
+/* 批量结果 */
+.gene-batch-item {
+  border: 1px solid var(--ui-line); border-radius: 10px; margin: 0 0 10px; overflow: hidden;
+}
+.gene-batch-head {
+  display: flex; align-items: baseline; gap: 10px; padding: 7px 12px;
+  background: var(--ui-sunken);
+}
+.gene-batch-item .table-wrap { border: 0 !important; border-top: 1px solid var(--ui-line) !important; border-radius: 0 !important; }

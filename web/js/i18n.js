@@ -245,6 +245,23 @@
       "Search 32,564 genes by standard symbol, ZFIN/NCBI/UniProt alias or Entrez/Ensembl ID; click a row for the gene card (aliases, orthologs and duplicates included).",
     "符号 / 别名 / ZFIN / Ensembl，如 p53、ZDB-GENE-990415-270": "Symbol / alias / ZFIN / Ensembl, e.g. p53, ZDB-GENE-990415-270",
     "浏览全部": "Browse all",
+    /* 2026-11-03：Genes 页改为「按名称 / 按位置 / 批量」三模式，并给结果分组 */
+    "按名称": "By name",
+    "按位置": "By position",
+    "批量": "Batch",
+    "装配版本": "Assembly",
+    "染色体，如 5 或 chr5": "Chromosome, e.g. 5 or chr5",
+    "起点": "Start",
+    "终点": "End",
+    "查这段里的基因": "List genes in this span",
+    "只列区间内重叠的基因，不出碱基；要取序列请去「序列」页。坐标 1-based 闭区间，跨度 ≤ 10 Mb。":
+      "Lists only the genes overlapping the interval — no bases returned; use the Sequence page to fetch sequence. 1-based closed interval, span ≤ 10 Mb.",
+    "每行一个符号 / 别名 / ID，也可用逗号分隔":
+      "One symbol / alias / ID per line, or comma-separated",
+    "批量基因检索": "Batch gene lookup",
+    "批量查": "Search all",
+    "最多 200 条；每条各自按同一套匹配层级判定，例如 tp53 / actb1 / ENSDARG00000078507。":
+      "Up to 200 items; each is classified with the same match tiers, e.g. tp53 / actb1 / ENSDARG00000078507.",
     "sgRNA 设计": "sgRNA design",
     "引物设计": "Primer design",
     "扫 PAM 并打分": "Scan PAM & score",
