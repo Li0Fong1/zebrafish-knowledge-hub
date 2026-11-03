@@ -80,7 +80,8 @@ abbreviations and implicit intents were expanded. The rewritten query was embedd
 the same model and parameters, and a two-stage retrieval was performed: coarse scoring
 retrieved **{{N:cand}} candidate papers**, and a cross-encoder reranker
 (**bge-reranker-base**, with a hybrid vector/keyword scorer as fallback) re-scored them to
-keep the **top {{N:topn}}** most relevant passages per paper. The selected passages, the
+keep the **top {{N:topn}}** highest-ranked passages; the final order also blends publication
+year and journal weight. The selected passages, the
 user question, and the fixed answer contract (a direct first-sentence answer, factor-wise
 organisation, inline `[n]` citations, and a trailing numbered reference list without
 dangling citations) were finally packed into a **{{N:pack_chars}}-character context budget**
@@ -98,9 +99,23 @@ resolve inconsistent gene nomenclature across genome versions, a relational sche
 ingestion and registration scripts that populate them idempotently. Because user queries
 and historical papers use different identifiers, a resolution layer was implemented that
 maps any incoming symbol, alias, or cross-database identifier onto the **NCBI RefSeq
-assembly GRCz12tu (GCF_049306965.1) canonical symbol** by three-state logic —
+assembly GRCz12tu (GCF_049306965.2) canonical symbol** by three-state logic —
 `unique` / `ambiguous` / `not_found` — while the annotation content shown in the cards is
-read from the local **Ensembl GRCz11 release 116** tables. Ambiguous cases return all
+read from the local **Ensembl GRCz11 release 116** tables. GRCz12tu is therefore the
+default assembly of the system: every coordinate-bearing result is reported on it. Gene
+intervals that are natively annotated on GRCz12tu are taken directly from the RefSeq
+annotation; the remaining gene-level intervals, which exist only in the GRCz11 annotation,
+are projected onto GRCz12tu by **base-level liftover** using the UCSC chain files
+(danRer11 → GCF_049306965.2 and its reverse), not by identifier crosswalk alone
+(1,747 intervals projected, 160 genes without chain coverage reported as unplaced, and 40
+projections whose length drifted by more than 20% flagged for review). Each coordinate
+recorded in `gene_assembly_xref` therefore carries the field that produced it — RefSeq
+native or liftover-projected — and the interface exposes that provenance with every
+position it displays. Annotation values that exist only in Ensembl release 116 (GO terms,
+Bgee/Expression Atlas values, KEGG pathways) are retained exactly as read from that
+release, but every genomic interval attached to them is projected onto GRCz12tu by the
+same liftover procedure, so no GRCz11 coordinate is presented as a GRCz12tu coordinate.
+Ambiguous cases return all
 candidate mappings instead of silently choosing one, so no identifier is overwritten or
 guessed.
 
@@ -121,20 +136,35 @@ route, invokes the structured database, the vector store, or external tools, and
 synthesises the final answer from the retrieved context.
 
 The agent is implemented as a multi-agent pipeline rather than a single prompt chain. A
-lightweight intent router first classifies each turn into one of the supported routes
-(database query, gene detail, knowledge-base QA, literature retrieval, and tool use); a
-hub orchestrator then executes the route, and an answer-enrichment stage attaches
+five-tier intent gate (`agent/intent_router.py`) first classifies each turn: zebrafish
+science (A) enters the full pipeline, product/meta questions (B) get a short explanatory
+answer, adjacent biology (C) and ordinary conversation (D) are answered by a lightweight
+general assistant that never queries the local database, and harmful requests (E) are
+refused. A science turn is then executed by a hub orchestrator
+(`agent/hub_orchestrator.py`) that selects one of the answer scopes — literature only,
+gene DB only, ID mapping only, or the full Hub chain — and one of two depths: `partial`
+(main path plus at most one specialist, enrichment skipped) or `full` (additional
+specialists, longer context, query expansion). An answer-enrichment stage attaches
 cross-database links (Ensembl, ZFIN, NCBI, UniProt, Bgee, Expression Atlas, QuickGO, KEGG
 and PubMed) to the entities mentioned in the answer, so that each statement can be traced
 back to either a local table or a public resource. Each answer carries bookkeeping metadata
-(route, generated SQL, retrieved passages, and gene cards) that is exposed through an API
-field and a detail panel in the interface. The scheduler additionally enforces resource
-guards (single-flight heavy jobs, memory guard, auto-throttle) and a watchdog that
-restarts stalled pipelines, so that long-running literature and vectorisation jobs coexist
-with interactive traffic.
+(task type, generated SQL, retrieved context, gene card, tool invocations and their
+structured results) that is exposed through the API response and the interface evidence
+panel.
+
+Concurrency is governed by a chat gate (`agent/chat_gate.py`) rather than a global lock:
+at most `CHAT_MAX_CONCURRENCY` answers run at once (default 3), further requests wait in a
+FIFO queue (64 positions, 900 s maximum wait, with the estimated wait returned to the
+client), and the turns of one session stay strictly serial. Heavy models are loaded lazily
+behind a lock, and MySQL plus the vector index are preloaded in the background at start-up,
+so that health checks answer while the service is still warming. At deployment level a
+watchdog (`deploy/hub_watchdog.sh`) probes the service every five minutes, restarts it when
+the health check fails, and reclaims memory when the host is short of it and no session has
+been active.
 
 The Hub was developed as a **FastAPI** application (v0.137.2, https://fastapi.tiangolo.com/)
-served by Uvicorn (v0.49.0) behind Nginx. Python was used for the
+served by Uvicorn (v0.49.0); the public endpoint is published through a Cloudflare tunnel,
+and an Nginx reverse-proxy profile is provided for institutional deployment. Python was used for the
 backend logic (routing, retrieval, database access, agent orchestration, tool endpoints),
 while HTML, CSS and vanilla JavaScript (hash-based routing, bilingual zh/en interface,
 source badges, evidence panel) were used for the web-based user interface. The same
@@ -170,8 +200,8 @@ study (60 blinded answer generations and 120 judge calls, each bounded by the co
 limit below) account for **at most {{N:eval_share}}%** of that month and are included there.
 
 At run time, a per-request budget was enforced by the context packing limit
-({{N:pack_chars}} characters) and a request rate limit ({{N:rate_limit}} requests per minute
-per client) on the public service. Model labels are reported exactly as shown on the provider
+({{N:pack_chars}} characters) and per-client rate limits on the public service: 30 chat
+requests, 120 API calls and 5 uploads per minute (`api/web_security.py`). Model labels are reported exactly as shown on the provider
 dashboard; the model configured for generation in the deployed system corresponds to the
 `deepseek-v4-flash` label.
 
@@ -202,7 +232,7 @@ are executed locally or by deterministic rules; no generative AI tool is listed 
 
 ## 2.7 Tools development
 
-The Toolkit integrated in the Hub contains ten tools, all developed in this work:
+The Toolkit integrated in the Hub contains eleven tools, all developed in this work:
 (i) **Gene Workbench**, which resolves a symbol or identifier through the resolution layer
 and renders coordinates, expression, GO and cross-database identifiers; (ii) **BLAST**,
 built on the NCBI BLAST+ toolkit (v2.17.0+, conda build, invoked through the
@@ -210,13 +240,19 @@ built on the NCBI BLAST+ toolkit (v2.17.0+, conda build, invoked through the
 (`blast/cdna_db`, built by `_build_blast_db.py`); (iii) **GO/KEGG enrichment**, an over-representation
 analysis with Fisher’s exact test and Benjamini–Hochberg correction computed against the
 local background; (iv) **Pathway browser**; (v) **cross-database ID mapping** with the
-three-state logic described above; (vi) **sequence extraction** (cDNA from the RefSeq
-assembly; promoters and genomic intervals from Ensembl GRCz11 coordinates); (vii)
+three-state logic described above; (vi) **sequence extraction** (cDNA and genomic intervals
+on the default GRCz12tu assembly; promoter windows from the annotated transcription start
+site on GRCz11, with the assembly recorded in every record); (vii)
 **one-click annotation**; (viii) **literature search workbench** with the two-stage
 retrieval described in 2.2; (ix) **retrieval debugger**, which exposes the
-coarse/reranked candidate list for reproducibility; and (x) **document ingestion**, which
+coarse/reranked candidate list for reproducibility; (x) **document ingestion**, which
 parses uploaded PDF/plain text, applies the cleaning pipeline and registers the resulting
-chunks into the index. Tool responses return structured objects (never free text) so that
+chunks into the index; and (xi) **sgRNA and primer design** (`/api/tools/crispr/design`,
+`/api/tools/primer/design`), which enumerates candidate sgRNAs under SpCas9 NGG/NAG,
+Cas12a TTTV and SaCas9 NNGRRT PAMs, optionally appends T7 or SP6 transcription tails, and
+reports off-target hits from a transcriptome scan by default (genome-wide scan optional),
+with an explicit flag when a scan cannot be completed.
+Tool responses return structured objects (never free text) so that
 the frontend can label each field with its source resource and link. A visitor-statistics
 view (`GET /api/hub/visit-stats`) aggregates the web-server access log into request counts,
 distinct clients, the status-class distribution and the most frequently requested routes,
