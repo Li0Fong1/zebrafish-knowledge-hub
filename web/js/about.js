@@ -14,7 +14,7 @@
       scopeTitle: '这个平台是做什么的',
       scopeLead: '斑马鱼基因知识中枢：把「本地注释库 + 表达数据 + 表型注释 + 文献全文库」放在同一入口。' +
         '先给出可复核的结论与数字，再把每条结论指回库里或原站——不做只有标题的搜索结果。',
-      scopeH3: '数据规模（本机实测快照 2026-10-15）',
+      scopeH3: '数据规模（本机实测快照 2026-11-04）',
       scopeNote: '这些数字都可以在对应页面看到同样口径的数值：基因库 → 基因组总览页；表达 → 表达谱页；' +
         '表型 → 基因–表型页；文献 → News。',
       dataTitle: '数据来源与算法',
@@ -36,7 +36,7 @@
       scopeTitle: 'What this platform does',
       scopeLead: 'A zebrafish gene knowledge hub: local annotation, expression, phenotype and full-text literature behind one entry point. ' +
         'Every answer carries checkable numbers and links back to the library or the source site — no title-only search results.',
-      scopeH3: 'Data scale (measured on this machine, snapshot 2026-10-15)',
+      scopeH3: 'Data scale (measured on this machine, snapshot 2026-11-04)',
       scopeNote: 'The same figures use the same definitions on their pages: genes → Genome overview; expression → Expression; ' +
         'phenotypes → Gene–phenotype; literature → Literature console.',
       dataTitle: 'Data & methods',
@@ -56,8 +56,12 @@
 
   /* 实测快照：与各页面显示口径一致 */
   var SCALE = [
-    { zh: ['基因注释库', '32,139 个基因', '坐标 = GRCz12tu（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）；符号 = NCBI RefSeq GRCz12tu'],
-      en: ['Gene annotation', '32,139 genes', 'coordinates on GRCz12tu (native RefSeq positions plus GRCz11 annotations projected by base-level liftover); symbols = NCBI RefSeq GRCz12tu'] },
+    /* 2026-11-04：原来写「32,139 个基因」，读者会理解成「斑马鱼有 32,139 个基因」，不准确。
+       32,139 是记录数，其中 7,493 条是 ZFIN 的克隆 / EST 旧名（si: wu: zgc: im:）；
+       收敛到 GRCz12tu 后是 24,963 个基因，23,991 个蛋白编码；23,950 条记录带坐标。
+       三个数分别标清楚，避免再把记录数当成基因数。 */
+    { zh: ['基因注释库', '32,139 条记录 · 24,963 个基因', '记录含 7,493 条克隆 / EST 旧名；基因层面 23,991 个蛋白编码；23,950 条带 GRCz12tu 坐标（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）；符号 = NCBI RefSeq GRCz12tu'],
+      en: ['Gene annotation', '32,139 records · 24,963 genes', 'the records include 7,493 legacy clone / EST entries; at gene level 23,991 are protein-coding; 23,950 records carry GRCz12tu coordinates (native RefSeq positions plus GRCz11 annotations projected by base-level liftover); symbols = NCBI RefSeq GRCz12tu'] },
     { zh: ['别名与同源表', '143,373 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
       en: ['Aliases & homology', '143,373 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
     { zh: ['表达表', '319,343 行 / 24,089 个基因', 'Bgee 表达分（0–100）+ Expression Atlas TPM（E-ERAD-475，marker 子集）'],

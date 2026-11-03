@@ -62,18 +62,21 @@
               "GRCz12tu lengths are measured on the local FASTA; GRCz11 lengths are Ensembl records cached for 7 days."),
             T("只列染色体级别的长度、GC、基因数与密度，不列基因名——两版的 SYMBOL 与 NAME 本来就一致，列出来没有信息量。",
               "Only chromosome-level length, GC, gene count and density are listed. Gene names are omitted because SYMBOL and NAME are identical in both assemblies."),
-            T("坐标换算走 UCSC over.chain，碱基级：GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu。链文件只备了指到 GRCz12tu 的方向，反向（GRCz12tu → 旧版）没有链，一律明确拒绝，不给近似坐标；跨链断裂点时同样不给数。",
-              "Liftover runs on UCSC over.chain files at base-pair resolution — GRCz11, GRCz10, Zv9 and Zv8 all convert into GRCz12tu. Only chains that point at GRCz12tu are installed, so the reverse direction is refused outright with no approximate coordinates; regions that cross a chain break are refused as well.")
+            /* 2026-11-04：原写「链文件只备了指到 GRCz12tu 的方向，反向没有链」，
+               与实测不符——服务器上 danRer11→GCF_049306965.2 与 GCF_049306965.2→danRer11
+               两条链都在，反向可以精确回投。改成照实描述。 */
+            T("坐标换算走 UCSC over.chain，碱基级：GRCz11 / GRCz10 / Zv9 / Zv8 → GRCz12tu 是主方向；GRCz11 与 GRCz12tu 之间装了双向链，也能把 GRCz12tu 的区间精确回投到 GRCz11。缺链的方向明确拒绝，不给近似坐标；跨链断裂点时同样不给数。",
+              "Liftover runs on UCSC over.chain files at base-pair resolution. GRCz11, GRCz10, Zv9 and Zv8 all convert into GRCz12tu, and the GRCz11 ↔ GRCz12tu pair is installed in both directions, so a GRCz12tu interval can also be mapped back to GRCz11 exactly. Directions without a chain are refused outright with no approximate coordinates; regions that cross a chain break are refused as well.")
           ]
         },
         {
           name: T("基因别名 / 基因位置", "Gene aliases / locus"),
           one: T("按符号、别名或跨库 ID 找基因，点开是基因卡。", "Find a gene by symbol, alias or cross-database ID."),
           body: [
-            T("可检索 32,564 个基因：标准符号、ZFIN / NCBI / UniProt 别名、Entrez 与 Ensembl ID 都能命中。",
-              "32,564 genes are searchable by canonical symbol, ZFIN / NCBI / UniProt alias, Entrez ID and Ensembl ID."),
-            T("符号统一按 GRCz12tu 标准名解析；基因卡里的坐标、表达、GO 来自本地注释库（GRCz11 / Ensembl r116）。",
-              "Symbols are resolved against GRCz12tu canonical symbols; coordinates, expression and GO on the card come from the local annotation library (GRCz11 / Ensembl r116).")
+            T("可检索 32,139 条基因记录（含 7,493 条 ZFIN 克隆 / EST 旧名，它们仍可按旧名查到）：标准符号、ZFIN / NCBI / UniProt 别名、Entrez 与 Ensembl ID 都能命中。",
+              "32,139 gene records are searchable (including 7,493 legacy ZFIN clone / EST entries, still reachable by their old names) by canonical symbol, ZFIN / NCBI / UniProt alias, Entrez ID and Ensembl ID."),
+            T("符号统一按 GRCz12tu 标准名解析；基因卡上的坐标一律给 GRCz12tu（RefSeq 原始坐标，或 GRCz11 注释经碱基级 liftover 投影），表达与 GO 注释出自 Ensembl r116。",
+              "Symbols are resolved against GRCz12tu canonical symbols; every coordinate on the card is given on GRCz12tu (native RefSeq positions, or GRCz11 annotations projected by base-level liftover), while expression and GO annotations come from Ensembl release 116.")
           ]
         },
         {
