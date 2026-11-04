@@ -1028,6 +1028,13 @@
     "本页数字为本机库实测快照 · 与各功能页同一口径":
       "All figures here are measured snapshots of the local libraries · same definitions as the feature pages",
     "服务在线": "Online",
+    /* 2026-11-04：页面拆分后新增的文案 */
+    "基因位置": "Gene locus",
+    "区间查基因": "Genes in a region",
+    "单个名称": "Single name",
+    "批量": "Batch",
+    "回答两件事：这个名字是哪个基因、它还有哪些叫法。找坐标去「基因位置」，按区间找基因去「区间查基因」。": "Two questions: which gene is this name, and what else is that gene called. For coordinates use “Gene locus”; to list genes in an interval use “Genes in a region”.",
+    "给一段基因组区间，列出落在里面的基因。要取这段的碱基序列请去「位置查序列」。": "Give a genomic interval and list the genes inside it. To extract the sequence of this interval, use “Sequence by region”.",
 
     /* ── 2026-11-04：按页面文案审计补齐（英文界面里这 37 条还是中文）──
        做法：把 index.html 里所有中文文本节点 / placeholder / aria-label / title

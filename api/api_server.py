@@ -1824,6 +1824,8 @@ class BatchGeneSearchRequest(BaseModel):
     queries: str = Field(..., min_length=1, max_length=20000)
     limit: int = Field(10, ge=1, le=60)
     max_items: int = Field(200, ge=1, le=500)
+    # same = 只回同一基因（别名页用）；all = 含模糊层
+    scope: str = Field("all", pattern="^(all|same)$")
 
 
 @app.get("/api/genes/region")
@@ -1872,10 +1874,12 @@ def genes_region(assembly: str = "GRCz12tu", chrom: str = "",
 
 
 @app.get("/api/genes/search")
-def gene_search(q: str = "", limit: int = 20, browse: int = 0):
+def gene_search(q: str = "", limit: int = 20, browse: int = 0, scope: str = "all"):
     """基因检索（**分级返回**）。
 
     q 支持符号 / 别名 / ZFIN·Ensembl ID；browse=1 且 q 为空时列出全部。
+    scope=same 时只返回「同一个基因」的命中（符号 / 别名 / 标识符 + 同名冲突），
+    不返回前缀、包含、描述、功能四层 —— 「基因别名」页用这个口径。
 
     返回结构（2026-11-03 整改）：
       groups  按匹配层级分组，每组带 label/hint/same_gene/count/results
@@ -1897,7 +1901,8 @@ def gene_search(q: str = "", limit: int = 20, browse: int = 0):
         if err:
             raise HTTPException(status_code=400, detail=err)
     limit = max(1, min(int(limit), 60))
-    data = search_classified(safe_q, limit=limit, browse=bool(browse))
+    data = search_classified(safe_q, limit=limit, browse=bool(browse),
+                             scope="same" if scope == "same" else "all")
     data["count"] = len(data.get("results") or [])
     data["browse"] = bool(browse)
     return data
@@ -1919,7 +1924,8 @@ def gene_search_batch(req: BatchGeneSearchRequest):
             items.append({"query": token, "error": err, "total": 0,
                           "same_gene_count": 0, "groups": [], "results": []})
             continue
-        d = search_classified(safe, limit=int(req.limit), browse=False)
+        d = search_classified(safe, limit=int(req.limit), browse=False,
+                              scope="same" if req.scope == "same" else "all")
         d["count"] = len(d.get("results") or [])
         items.append(d)
 

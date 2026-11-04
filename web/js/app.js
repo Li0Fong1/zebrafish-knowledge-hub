@@ -5506,14 +5506,27 @@ const PAGE_META = {
       tool: "genes",
       panel: "toolGenes",
       title: "基因别名|Gene aliases",
-      // 2026-10-31 边界重划：本页答「这个名字是哪个基因 / 它还有哪些名字」，
-      // 所以是模糊检索 + 候选列表；坐标与基因体在「位置查找」。
-      lead: "给一个名称（符号、别名、旧名或跨库 ID），确认它是哪个基因、还有哪些叫法。|Give a name (symbol, alias, former name or cross-DB ID) and see which gene it is and what else it is called.",
-      pillA: "GRCz12tu 符号|GRCz12tu symbols",
-      pillB: "Alias · Ortholog|Alias · Ortholog",
+      // 2026-11-04 职责再收窄：只答「这个名字是哪个基因 / 它还有哪些叫法」。
+      // 结果只回**同一个基因**，不再附带「名字含该串的其他基因」「描述里提到」。
+      // 按区间找基因已独立成 genes-region 页。
+      lead: "给一个名称（符号、别名、旧名或跨库 ID），回答两件事：它是哪个基因、这个基因还有哪些叫法。|Give a name (symbol, alias, former name or cross-DB ID): which gene it is, and what else that gene is called.",
+      pillA: "只回同一基因|Same gene only",
+      pillB: "别名可展开|Aliases expandable",
       formHint: "符号 / 别名 / 旧名 / 跨库 ID|Symbol / alias / former name / cross-DB ID",
       emptyTitle: "输入一个名称|Enter a name",
       emptySub: "试 p53、tp53，或粘一个 Ensembl / ZFIN ID|Try p53, tp53, or paste an Ensembl / ZFIN ID",
+    },
+    "genes-region": {
+      kind: "tool",
+      tool: "genes",
+      panel: "toolGeneRegion",
+      title: "区间查基因|Genes in a region",
+      lead: "给一段基因组区间（染色体 + 起止），列出落在里面的基因。|Give a genomic interval (chromosome + start/end) and list the genes inside it.",
+      pillA: "GRCz12tu / GRCz11|GRCz12tu / GRCz11",
+      pillB: "跨度 ≤ 10 Mb|span ≤ 10 Mb",
+      formHint: "染色体 + 起止坐标|Chromosome + start/end",
+      emptyTitle: "给一段区间|Give an interval",
+      emptySub: "例：chr5 30,000,000–30,200,000|e.g. chr5 30,000,000–30,200,000",
     },
     sgrna: {
       kind: "tool",

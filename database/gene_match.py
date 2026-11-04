@@ -179,7 +179,8 @@ LIMIT :lim
 """, max_rows, {"kw": kw, "lim": max_rows})
 
 
-def search_classified(keyword: str, limit: int = 20, browse: bool = False) -> dict:
+def search_classified(keyword: str, limit: int = 20, browse: bool = False,
+                      scope: str = "all") -> dict:
     """分级检索。返回 dict，见模块文档。
 
     参数
@@ -187,6 +188,12 @@ def search_classified(keyword: str, limit: int = 20, browse: bool = False) -> di
     keyword : 用户输入（符号 / 别名 / 标识符 / 功能词）
     limit   : 每个层级最多取多少条
     browse  : True 且关键词为空时，按符号列出前 N 个（基因库浏览）
+    scope   : "all"   —— 全部分层（聊天、内部调用用）
+              "same"  —— 只要「同一个基因」的命中：符号 / 别名 / 标识符，
+                         外加同名冲突。**不跑**前缀、包含、描述、功能四层。
+              工具页「基因别名」用 "same"：这一页的问题是「这个名字是哪个基因、
+              它还有哪些叫法」，把「名字里含该串的其他基因」摆进来属于答非所问
+              （用户 2026-11-04 反馈）。
     """
     kw = (keyword or "").strip()
     lim = max(1, min(int(limit), 60))
@@ -307,7 +314,9 @@ LIMIT :lim
     if alias_desc:
         add("descriptive", alias_desc)
 
-    if not id_query:
+    # scope="same" 时只回答「是不是同一个基因」，不跑下面这四层模糊匹配。
+    # 少四次查询，结果区也不会再出现「名字里含该串的其他基因」这种答非所问的条目。
+    if not id_query and scope != "same":
         # 4) 符号前缀（不同基因）
         add("prefix", _rows(
             _SELECT + """
@@ -372,6 +381,12 @@ LIMIT :lim
             _seen.setdefault(mk, r)
             kept.append(r)
         buckets[t] = kept
+
+    # 给每条结果挂上「这个基因还有哪些名字」。「基因别名」页要的就是这份清单：
+    # 输入 p53 应该看到 tp53 带着 p53 / brp53 / zgc:111919 这些叫法，而不是
+    # 一排名字里含 p53 的别的基因。
+    _attach_aliases([r for t in TIERS for r in buckets[t]])
+
     counts = {t: len(buckets[t]) for t in TIERS}
     # 这几层是按 limit 截断取的，条数达到 limit 时真实总数可能更多，
     # 必须标 capped，前端显示「N+」，不能把截断值当成总数。
@@ -394,6 +409,7 @@ LIMIT :lim
     return {
         "query": kw,
         "is_id_query": id_query,
+        "scope": scope,
         "counts": counts,
         "total": sum(counts.values()),
         "same_gene_count": sum(counts[t] for t in SAME_GENE_TIERS),
@@ -463,6 +479,48 @@ def _merge_dupes(rows: list[dict]) -> list[dict]:
             if not keep.get(f) and r.get(f):
                 keep[f] = r[f]
     return out
+
+
+def _attach_aliases(rows: list[dict], per_gene: int = 40) -> None:
+    """给结果行挂 `aliases`：该基因登记过的全部名称（去掉自指、'-'、去重）。
+
+    一次 IN 查询批量取，按 gene_id 归堆。类型统一成 5 类，前端据此分组显示：
+      symbol / synonym / former / full_name / id / other
+    """
+    ids = [int(r["gene_id"]) for r in rows if r.get("gene_id") is not None]
+    if not ids:
+        return
+    params = {"g%d" % i: v for i, v in enumerate(ids)}
+    ph = ",".join(":g%d" % i for i in range(len(ids)))
+    sql = ("SELECT gene_id, alias, COALESCE(alias_type,'other') AS alias_type "
+           "FROM gene_alias WHERE gene_id IN (%s)" % ph)
+    res = _client().execute_sql(sql, max_rows=len(ids) * 60, params=params)
+    if not res.get("success"):
+        return
+
+    kind = {"synonym": "synonym", "symbol": "symbol", "full_name": "full_name",
+            "former": "former", "nomenclature": "former",
+            "refseq_symbol": "symbol", "grcz12tu_symbol": "symbol",
+            "zfin_id": "id", "other": "other"}
+    bucket: dict[int, list[dict]] = {}
+    for r in res.get("data") or []:
+        val = (r.get("alias") or "").strip()
+        if not val or val == "-":
+            continue
+        bucket.setdefault(r["gene_id"], []).append(
+            {"v": val, "t": kind.get((r.get("alias_type") or "other").lower(), "other")})
+
+    prio = {"symbol": 0, "synonym": 1, "former": 2, "full_name": 3, "other": 4, "id": 5}
+    for r in rows:
+        raw = sorted(bucket.get(r.get("gene_id")) or [], key=lambda a: prio.get(a["t"], 9))
+        seen, uniq = set(), []
+        for a in raw:
+            k = a["v"].lower()
+            if k in seen:
+                continue
+            seen.add(k)
+            uniq.append(a)
+        r["aliases"] = uniq[:per_gene]
 
 
 def _confidence(tier: str) -> float:

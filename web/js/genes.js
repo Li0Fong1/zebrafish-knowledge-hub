@@ -29,6 +29,12 @@
       sumSame: '{n} 个与输入同义', sumConflict: '{n} 条同名冲突待确认',
       sumLower: '{n} 个是名字含该串的其他基因', sumDesc: '{n} 个仅在描述或注释里提到',
       noneSame: '没有同义基因：下面列出的都不是同一个基因，只是名字里含该串或注释里提到它。',
+      aliasNoSame: '库里没有叫「{q}」的基因或别名。这个页面只回答「这个名字是哪个基因」。',
+      aliasIntro: '「{q}」指向 {n} 个基因；点行尾的「N 个名称」可展开该基因的全部叫法。',
+      aliasKindSyn: '别名', aliasKindFormer: '旧名', aliasKindFull: '全称',
+      aliasKindId: '跨库 ID', aliasKindOther: '其他', aliasKindSym: '符号',
+      aliasToggle: '{n} 个名称', aliasOf: '这些名字都指向同一个基因',
+      aliasGotoLocus: '在「基因位置」里看坐标',
       regionNeed: '请填写染色体与起止坐标。',
       regionEmpty: '该区间内没有检出基因。',
       regionHead: '区间 {asm} {chrom}:{start}–{end} 内有 {n} 个基因',
@@ -62,6 +68,12 @@
       sumSame: '{n} match the query itself', sumConflict: '{n} name conflict(s) to review',
       sumLower: '{n} are other genes whose symbol contains it', sumDesc: '{n} only mention it in text',
       noneSame: 'No gene actually matches: everything below is a different gene that merely contains the string or mentions it.',
+      aliasNoSame: 'No gene or alias named “{q}” in the library. This page only answers “which gene is this name”.',
+      aliasIntro: '“{q}” points to {n} gene(s); click “N names” at the end of a row to see every name it goes by.',
+      aliasKindSyn: 'Synonyms', aliasKindFormer: 'Former names', aliasKindFull: 'Full name',
+      aliasKindId: 'Cross-DB IDs', aliasKindOther: 'Other', aliasKindSym: 'Symbol',
+      aliasToggle: '{n} names', aliasOf: 'all these names point to the same gene',
+      aliasGotoLocus: 'See coordinates in “Gene locus”',
       regionNeed: 'Please provide a chromosome and start/end coordinates.',
       regionEmpty: 'No genes overlap this interval.',
       regionHead: '{n} genes in {asm} {chrom}:{start}–{end}',
@@ -110,8 +122,9 @@
   function cardHost() { return $('featureGeneCardHost'); }
   /* 结果一律写进"本页"的桶（见 tool-result.js）：即使请求回来得晚，
      也不会把基因列表画到 Liftover 之类别的页面上去。 */
-  function showResult(html) {
-    if (window.ZFResult) { window.ZFResult.write(html, 'genes'); return; }
+  function showResult(html, route) {
+    var r = route || 'genes';
+    if (window.ZFResult) { window.ZFResult.write(html, r); return; }
     var box = resultBox();
     if (!box) return;
     box.innerHTML = html;
@@ -127,7 +140,7 @@
        · 仅提及（描述别名 / 功能注释）与同名冲突默认折叠
      每个分组都把「命中依据」一列摆出来，用户能直接看到是哪条别名/描述命中的。 */
 
-  var FOLDED_TIERS = { descriptive: true, function_text: true, conflict: true };
+  var FOLDED_TIERS = { descriptive: true, function_text: true };
 
   function tierText(g, key) {
     var l = g[key] || {};
@@ -141,21 +154,58 @@
     return el ? String(el.value || '').trim() : '';
   }
 
+  /* 该基因登记过的全部名称，按类型分组。别名面板只在用户点开时才看得到，
+     平时不占版面；但「有几个名称」这个数字一直显示，避免用户以为它只有符号。 */
+  function aliasPanel(r) {
+    var name = String(r.gene_name || '').toLowerCase();
+    var list = (r.aliases || []).filter(function (a) {
+      return a && a.v && a.v.toLowerCase() !== name;
+    });
+    if (!list.length) return '';
+    var order = [
+      ['synonym', 'aliasKindSyn'], ['former', 'aliasKindFormer'],
+      ['full_name', 'aliasKindFull'], ['id', 'aliasKindId'], ['other', 'aliasKindOther']
+    ];
+    var lines = order.map(function (o) {
+      var items = list.filter(function (a) { return a.t === o[0]; })
+        .map(function (a) { return a.v; });
+      if (!items.length) return '';
+      return '<div class="gene-alias-line"><span class="gene-alias-kind">' + esc(T(o[1])) + '</span>' +
+        items.map(function (v) { return '<span class="gene-alias-tag">' + esc(v) + '</span>'; }).join('') +
+        '</div>';
+    }).join('');
+    if (!lines) return '';
+    return '<div class="gene-alias-panel">' + lines +
+      '<div class="gene-alias-more"><a class="zf-link" href="#/gene/' +
+      encodeURIComponent(r.gene_name || r.gene_symbol || '') + '">' + esc(T('aliasGotoLocus')) + ' →</a></div>' +
+      '</div>';
+  }
+
   function rowHtml(r, showWhy) {
     var sym = String(r.standard_symbol || r.gene_symbol || r.gene_name || '').trim();
     var name = String(r.gene_name || '').trim();
     var differs = !!name && name !== sym;
     var why = showWhy && r.matched_value ? String(r.matched_value) : '';
-    var cells = '<td class="gene-cell-sym"><strong>' + txt(sym) + '</strong>' +
-      (differs ? '<span class="gene-cell-name">' + esc(name) + '</span>' : '') + '</td>' +
-      '<td>' + txt(r.chromosome) + '</td>';
-    if (showWhy) {
-      cells += '<td class="gene-cell-why">' + (why ? '<span class="gene-why">' + esc(why) + '</span>'
-        : '<span class="tool-hint">—</span>') + '</td>';
-    }
-    cells += '<td class="gene-cell-fn">' + (r.ensembl_id ? '<span class="tool-hint">' + esc(r.ensembl_id) + '</span>'
-      : '<span class="tool-hint">—</span>') + '</td>';
-    return '<tr class="gene-row" data-name="' + esc(r.gene_name || sym) + '" data-gid="' + esc(r.gene_id || '') + '">' + cells + '</tr>';
+    var panel = aliasPanel(r);
+    var nNames = (r.aliases || []).length;
+    var toggle = panel ? '<button type="button" class="gene-alias-toggle" data-alias-toggle="1"' +
+      ' aria-expanded="false">' + esc(fmt(T('aliasToggle'), { n: nNames })) + '</button>' : '';
+    var meta = [];
+    if (r.chromosome) meta.push('chr' + esc(r.chromosome));
+    if (r.ensembl_id) meta.push('<span class="gene-res-ens">' + esc(r.ensembl_id) + '</span>');
+    /* 2026-11-04：结果从 <table><tr> 换成卡片。原因：结果容器上还挂着别处绑的
+       click 监听器（只认 tr），点行会被它们截走、把页面跳到「基因位置」。
+       卡片不在 tr 里，冒泡链干净，行为可预期。 */
+    return '<div class="gene-res" data-gid="' + esc(r.gene_id || '') + '" data-name="' + esc(r.gene_name || sym) + '">' +
+      '<div class="gene-res-head">' +
+      '<span class="gene-res-sym">' + txt(sym) + '</span>' +
+      (differs ? '<span class="gene-res-name">' + esc(name) + '</span>' : '') +
+      (meta.length ? '<span class="gene-res-meta">' + meta.join(' · ') + '</span>' : '') +
+      (why ? '<span class="gene-why">' + esc(why) + '</span>' : '') +
+      toggle +
+      '</div>' +
+      (panel ? '<div class="gene-alias-row hidden">' + panel + '</div>' : '') +
+      '</div>';
   }
 
   /* 「命中依据」只在真正有依据可讲的时候出现：别名 / 标识符 / 冲突 / 描述命中。
@@ -168,13 +218,8 @@
     if (!rows.length) return '';
     var folded = !!FOLDED_TIERS[g.tier];
     var showWhy = !!WHY_TIERS[g.tier];
-    var th = '<th>' + esc(T('colSymbol')) + '</th><th>' + esc(T('colChr')) + '</th>' +
-      (showWhy ? '<th>' + esc(T('colWhy')) + '</th>' : '') + '<th>Ensembl</th>';
     var body = rows.map(function (r) { return rowHtml(r, showWhy); }).join('');
-    /* 2026-11-04：分组下方那行解释性小字全部撤掉（分组标题已经说明这是什么、
-       条数也在标题右侧）。结果区只放结果，口径放在「平台说明」。 */
-    var inner = '<div class="table-wrap"><table class="gene-table gene-table-compact">' +
-      '<thead><tr>' + th + '</tr></thead><tbody>' + body + '</tbody></table></div>';
+    var inner = '<div class="gene-res-list">' + body + '</div>';
     var cls = 'gene-group' + (g.same_gene ? ' is-same' : ' is-lower') + (folded ? ' is-folded' : '');
     return '<details class="' + cls + '" data-tier="' + esc(g.tier) + '"' + (folded ? '' : ' open') + '>' +
       '<summary><span class="gene-group-title">' + esc(tierText(g, 'label')) + '</span>' +
@@ -185,6 +230,13 @@
      不把截断值当成真实总数（否则「20 个仅在描述里提到」会冒充全量）。 */
   function summaryHtml(data, browse) {
     if (browse) return fmt(T('browse'), { m: data.total || 0 });
+    /* scope=same：本页只回同一个基因，汇总只需说「指向几个基因」。
+       旧口径的「N 个名字含该串」「N 个仅在描述里提到」在这里没有意义。 */
+    if (data && data.scope === 'same') {
+      var hit = 0;
+      (data.groups || []).forEach(function (g) { hit += g.count || 0; });
+      return fmt(T('aliasIntro'), { q: data.query || '', n: hit });
+    }
     var groups = (data && data.groups) || [];
     function of(tiers) {
       var n = 0, plus = false;
@@ -216,6 +268,10 @@
     var groups = (data && data.groups) || [];
     var has = groups.some(function (g) { return (g.results || []).length; });
     if (!has) {
+      if (data && data.scope === 'same') {
+        showResult('<p class="tool-hint">' + esc(fmt(T('aliasNoSame'), { q: data.query || '' })) + '</p>');
+        return;
+      }
       showResult('<p class="tool-hint">' + esc(T('empty')) + ' · ' + esc(T('emptyHint')) + '</p>');
       return;
     }
@@ -229,7 +285,7 @@
     lastPaint = function () { renderRegion(d); };
     var genes = (d && d.genes) || [];
     if (!genes.length) {
-      showResult('<p class="tool-hint">' + esc(T('regionEmpty')) + '</p>');
+      showResult('<p class="tool-hint">' + esc(T('regionEmpty')) + '</p>', 'genes-region');
       return;
     }
     var head = fmt(T('regionHead'), {
@@ -246,7 +302,7 @@
     showResult('<div class="gene-list-head">' + esc(head) + '</div>' +
       '<div class="table-wrap"><table class="gene-table gene-table-compact"><thead><tr>' +
       '<th>' + esc(T('colSymbol')) + '</th><th>' + esc(T('colPos')) + '</th><th>NCBI Gene</th>' +
-      '</tr></thead><tbody>' + body + '</tbody></table></div>');
+      '</tr></thead><tbody>' + body + '</tbody></table></div>', 'genes-region');
   }
 
   function runRegion() {
@@ -255,17 +311,17 @@
     var s = parseInt(val('geneRegionStart'), 10);
     var e = parseInt(val('geneRegionEnd'), 10);
     if (!chrom || !s || !e) {
-      showResult('<p class="tool-hint">' + esc(T('regionNeed')) + '</p>');
+      showResult('<p class="tool-hint">' + esc(T('regionNeed')) + '</p>', 'genes-region');
       return;
     }
-    showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>');
+    showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>', 'genes-region');
     var url = '/api/genes/region?assembly=' + encodeURIComponent(asm) +
       '&chrom=' + encodeURIComponent(chrom) + '&start=' + s + '&end=' + e + '&limit=200';
     fetch(url, { credentials: 'same-origin' })
       .then(function (r) { return r.ok ? r.json() : r.json().then(function (x) { throw new Error((x && x.detail) || 'HTTP'); }); })
       .then(renderRegion)
       .catch(function (err) {
-        showResult('<p class="tool-hint">' + esc(fmt(T('regionFail'), { msg: String(err.message || err).slice(0, 90) })) + '</p>');
+        showResult('<p class="tool-hint">' + esc(fmt(T('regionFail'), { msg: String(err.message || err).slice(0, 90) })) + '</p>', 'genes-region');
       });
   }
 
@@ -311,7 +367,7 @@
       method: 'POST',
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ queries: raw, limit: 10, max_items: 200 })
+      body: JSON.stringify({ queries: raw, limit: 10, max_items: 200, scope: 'same' })
     })
       .then(function (r) { return r.ok ? r.json() : r.json().then(function (x) { throw new Error((x && x.detail) || 'HTTP'); }); })
       .then(renderBatch)
@@ -327,7 +383,8 @@
     var q = inp ? inp.value.trim() : '';
     if (!q && !browse) { if (inp) inp.focus(); return; }
     showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>');
-    var url = SEARCH_URL + '?limit=' + PAGE + '&browse=' + (browse ? 1 : 0) +
+    // scope=same：本页只回答「这个名字是哪个基因」，不列名字含该串的其他基因。
+    var url = SEARCH_URL + '?scope=same&limit=' + PAGE + '&browse=' + (browse ? 1 : 0) +
       (q ? '&q=' + encodeURIComponent(q) : '');
     fetch(url, { credentials: 'same-origin' })
       .then(function (r) { return r.json().catch(function () { return null; }); })
@@ -550,14 +607,17 @@
     var box = resultBox();
     if (box) {
       box.addEventListener('click', function (e) {
-        var tr = e.target.closest ? e.target.closest('tr.gene-row') : null;
-        if (!tr) return;
-        var name = tr.getAttribute('data-name');
-        if (!name) return;
-        Array.prototype.forEach.call(box.querySelectorAll('tr.gene-row.is-active'),
-          function (x) { x.classList.remove('is-active'); });
-        tr.classList.add('is-active');
-        openGene(name);
+        var card = e.target.closest ? e.target.closest('.gene-res') : null;
+        if (!card) return;
+        /* 点卡片 = 展开/收起这个基因的名称清单。不跳页：这一页只回答「哪个基因、
+           还有哪些叫法」，要坐标请点面板里的「看位置」。 */
+        var pr = card.querySelector('.gene-alias-row');
+        if (!pr) return;
+        var open = !pr.classList.contains('hidden');
+        pr.classList.toggle('hidden', open);
+        card.classList.toggle('is-open', !open);
+        var tb = card.querySelector('.gene-alias-toggle');
+        if (tb) tb.setAttribute('aria-expanded', open ? 'false' : 'true');
       });
     }
 
@@ -580,8 +640,9 @@
          已经指定了基因就不该再铺一遍全库前 30 个 —— 那会变成「先列 30 个无关基因，
          再在下面挂你要的那张卡」。 */
       if (/^#\/genes\/.+/.test(location.hash || '')) return;
-      var box = resultBox();
-      if (box && !box.textContent.trim()) runSearch(true);
+      // 2026-11-04：不再自动列「基因库前 30 个」。本页是「输名字 → 看是哪个基因」，
+      // 一进来就铺一屏无关基因，正好是用户说的「货不对板」。
+      return;
     });
   }
 
