@@ -153,7 +153,7 @@ def _client():
 
 _SELECT = """
 SELECT gb.gene_id, gb.gene_name, gb.gene_symbol, gb.chromosome,
-       gb.ensembl_id, gb.zfin_id, gb.uniprot_id,
+       gb.ensembl_id, gb.zfin_id, gb.uniprot_id, gb.merged_into,
        SUBSTRING(COALESCE(gb.gene_function, ''), 1, 160) AS gene_function,
        n.standard_symbol AS standard_symbol
 FROM gene_basic gb
@@ -352,6 +352,26 @@ LIMIT :lim
     for t in TIERS:
         if buckets[t]:
             buckets[t] = _merge_dupes(buckets[t])
+
+    # 跨层去重：同一基因的副记录可能落在不同层级（搜 cxcr7 时 cxcr7 在
+    # exact_symbol、ackr3b 在 conflict，看上去像两个基因在打架）。这里按层级
+    # 优先级扫一遍，已经被更高层展示过的基因不再重复出现，缺的字段补过去。
+    _seen: dict[str, dict] = {}
+    for t in TIERS:
+        kept = []
+        for r in buckets[t]:
+            gid = str(r.get("gene_id") or "")
+            mk = str(r.get("merged_into") or gid)
+            host = _seen.get(mk)
+            if host is not None and str(host.get("gene_id") or "") != gid:
+                host.setdefault("merged_gene_ids", []).append(r.get("gene_id"))
+                for f in ("ensembl_id", "zfin_id", "uniprot_id", "chromosome"):
+                    if not host.get(f) and r.get(f):
+                        host[f] = r[f]
+                continue
+            _seen.setdefault(mk, r)
+            kept.append(r)
+        buckets[t] = kept
     counts = {t: len(buckets[t]) for t in TIERS}
     # 这几层是按 limit 截断取的，条数达到 limit 时真实总数可能更多，
     # 必须标 capped，前端显示「N+」，不能把截断值当成总数。
@@ -396,6 +416,13 @@ def _ident_key(r: dict) -> tuple:
     z = str(r.get("zfin_id") or "").strip().lower()
     e = str(r.get("ensembl_id") or "").strip().lower()
     c = str(r.get("chromosome") or "").strip().lower()
+    # 2026-11-04：清理 ZFIN 一号多挂后，副记录的 zfin_id 被置空（它本来就该属于
+    # 主记录），原先靠「同 ZFIN ID」判重就失效了。merged_into 是清理时写下的
+    # 归属关系（只对同染色体/无坐标冲突的记录设），这里优先使用，保证
+    # her6 / hes1 这类同一基因的两条记录仍然只显示一行。
+    m = r.get("merged_into")
+    if m:
+        return ("m", str(m))
     if z:
         return ("z", z, c)
     if e:
@@ -404,11 +431,28 @@ def _ident_key(r: dict) -> tuple:
 
 
 def _merge_dupes(rows: list[dict]) -> list[dict]:
-    """同一条基因的多份记录合并成一行，缺的字段互相补。"""
+    """同一条基因的多份记录合并成一行，缺的字段互相补。
+
+    2026-11-04：清理 ZFIN 一号多挂后，副记录的 zfin_id 被置空，原来靠「同 ZFIN ID」
+    判重的写法失效（her6 会重新拆成两行）。现在改用 merged_into：
+    副记录指向主记录的 gene_id，主记录虽然自己没有 merged_into，但它的 gene_id
+    出现在「被指向集合」里，也归到同一个键，两边才合得上。
+    """
+    targets = {str(r.get("merged_into")) for r in rows if r.get("merged_into")}
+
+    def key(r: dict) -> tuple:
+        m = r.get("merged_into")
+        if m:
+            return ("m", str(m))
+        gid = str(r.get("gene_id") or "")
+        if gid and gid in targets:
+            return ("m", gid)
+        return _ident_key(r)
+
     out: list[dict] = []
     seen: dict[tuple, dict] = {}
     for r in rows:
-        k = _ident_key(r)
+        k = key(r)
         keep = seen.get(k)
         if keep is None:
             seen[k] = r
