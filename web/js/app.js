@@ -5397,9 +5397,9 @@ const PAGE_KPIS = {
     ["术语组合|Term pairs", "20,971"], ["索引|Index", "SQLite · ready"], ["数据源|Source", "ZFIN"]],
   /* 2026-11-04：这组 KPI 目前整站下线（见下方 KEEP 白名单），但数值已按去重后的实测同步，
      避免以后恢复某页时又把 32,564 这类旧数放出来。坐标一项原写 GRCz11 r116 亦已过期。 */
-  gene: [["基因记录|Records", "32,139"], ["有蛋白编号|With protein ID", "21,161"], ["别名|Aliases", "143,373"],
+  gene: [["基因记录|Records", "32,139"], ["有蛋白编号|With protein ID", "22,370"], ["别名|Aliases", "143,373"],
     ["同源|Orthologs", "31,456"], ["坐标|Coordinates", "GRCz12tu"]],
-  genes: [["基因记录|Records", "32,139"], ["有蛋白编号|With protein ID", "21,161"],
+  genes: [["基因记录|Records", "32,139"], ["有蛋白编号|With protein ID", "22,370"],
     ["可检索 ID|Searchable IDs", "ZFIN / NCBI / UniProt"], ["染色体|Chromosomes", "1–25 + scaffolds"]],
   blast: [["引擎|Engine", "BLAST+ blastn"], ["批量|Batch", "≤20 条|≤20 queries"],
     ["数据库|Database", "GRCz12tu RefSeq"], ["跨装配回退|Cross-assembly", "关闭|Off"]],

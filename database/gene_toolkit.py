@@ -204,8 +204,32 @@ def get_gene_detail(gene_name: str) -> Optional[dict]:
 
     locus = _locus_grcz12tu(gid) or (dict(locus_11) if locus_11 else None)
 
+    # UniProt 蛋白级注释（uniprot_protein，2026-11-04 建立）。
+    # gene_basic.uniprot_id 只存 accession；长度/质量/功能/亚细胞定位在这里取。
+    uniprot_block = None
+    acc = (basic.get("uniprot_id") or "").strip().upper()
+    if acc:
+        try:
+            r = _client().execute_sql(
+                "SELECT accession, entry_name, protein_name, gene_primary, length, mass, "
+                "reviewed, function_cc, subcell_cc, keywords, go_ids, refseq_prot "
+                "FROM uniprot_protein WHERE accession = :acc LIMIT 1",
+                params={"acc": acc},
+            )
+            if r.get("success") and r.get("data"):
+                row = dict(r["data"][0])
+                fc = re.sub(r"^FUNCTION:\s*", "", row.get("function_cc") or "")
+                row["function_cc"] = fc[:1200] or None
+                sc = re.sub(r"^SUBCELLULAR LOCATION:\s*", "", row.get("subcell_cc") or "")
+                row["subcell_cc"] = sc[:600] or None
+                row["reviewed"] = bool(row.get("reviewed"))
+                uniprot_block = row
+        except Exception:
+            uniprot_block = None
+
     return {
         "basic": basic,
+        "uniprot": uniprot_block,
         "locus": locus,
         "locus_grcz11": locus_11,
         "expression": bgee_expr + embryo_rows,

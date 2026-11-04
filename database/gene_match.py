@@ -159,7 +159,7 @@ def _client():
 
 _SELECT = """
 SELECT gb.gene_id, gb.gene_name, gb.gene_symbol, gb.chromosome,
-       gb.ensembl_id, gb.zfin_id,
+       gb.ensembl_id, gb.zfin_id, gb.uniprot_id,
        SUBSTRING(COALESCE(gb.gene_function, ''), 1, 160) AS gene_function,
        n.standard_symbol AS standard_symbol
 FROM gene_basic gb

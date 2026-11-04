@@ -56,13 +56,14 @@
 
   /* 实测快照：与各页面显示口径一致 */
   var SCALE = [
-    /* 2026-11-04：基因数按「有蛋白编号的记录」给，而不是映射目标层。
+    /* 2026-11-04 二次核对：基因数按「有蛋白编号的记录」给，而不是映射目标层。
        理由：23,991 是「映射到的 GRCz12tu 蛋白编码基因」，其中 2,125 个只由
        共线性 / BLAST 推定（没有直接 ID 证据），拿它当「本库有多少基因」会高估。
-       21,161 = gene_basic.uniprot_id 非空，对应 21,128 个不同蛋白编号，这才是
-       有蛋白产物证据的基因；23,950 条记录带 GRCz12tu 坐标。 */
-    { zh: ['基因注释库', '32,139 条记录 · 21,161 条有蛋白编号', '记录含 7,493 条克隆 / EST 旧名（仍可按旧名检索）；21,161 条带 UniProt 蛋白编号，23,950 条带 GRCz12tu 坐标（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）；符号 = NCBI RefSeq GRCz12tu'],
-      en: ['Gene annotation', '32,139 records · 21,161 with a protein accession', 'the records include 7,493 legacy clone / EST entries (still searchable by their old names); 21,161 records carry a UniProt protein accession and 23,950 carry GRCz12tu coordinates (native RefSeq positions plus GRCz11 annotations projected by base-level liftover); symbols = NCBI RefSeq GRCz12tu'] },
+       22,370 = gene_basic.uniprot_id 非空，且每个记录对应唯一蛋白编号
+       （当天以 UniProt 斑马鱼全量 78,189 条重建，剔除跨物种与错挂）；
+       其中 2,779 条为 Swiss-Prot 人工审阅。23,950 条记录带 GRCz12tu 坐标。 */
+    { zh: ['基因注释库', '32,139 条记录 · 22,370 条有蛋白编号', '记录含 7,493 条克隆 / EST 旧名（仍可按旧名检索）；22,370 条带 UniProt 蛋白编号（其中 2,779 条经 Swiss-Prot 审阅），23,950 条带 GRCz12tu 坐标（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）；符号 = NCBI RefSeq GRCz12tu'],
+      en: ['Gene annotation', '32,139 records · 22,370 with a protein accession', 'the records include 7,493 legacy clone / EST entries (still searchable by their old names); 22,370 records carry a UniProt protein accession (2,779 of them Swiss-Prot reviewed) and 23,950 carry GRCz12tu coordinates (native RefSeq positions plus GRCz11 annotations projected by base-level liftover); symbols = NCBI RefSeq GRCz12tu'] },
     { zh: ['别名与同源表', '143,373 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
       en: ['Aliases & homology', '143,373 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
     { zh: ['表达表', '319,343 行 / 24,089 个基因', 'Bgee 表达分（0–100）+ Expression Atlas TPM（E-ERAD-475，marker 子集）'],
