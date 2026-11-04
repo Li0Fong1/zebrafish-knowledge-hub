@@ -2,7 +2,7 @@
    genes.js —— Genes 功能页（基因库搜索 / 浏览 / 基因卡）
    --------------------------------------------------------------------------
    数据来源：
-     GET /api/genes/search?q=&limit=&browse=1   → 32,139 条基因记录的符号 / 别名 / ZFIN / Ensembl 检索
+     GET /api/genes/search?q=&limit=&browse=1   → 21,088 个基因（32,139 条记录）的符号 / 别名 / ZFIN / Ensembl 检索
                                                   （返回按 matched_by 分级：同义 / 名字相关 / 仅提及）
      POST /api/genes/search/batch               → 多行批量，逐条按同一套分级判定
      GET /api/genes/region?assembly=&chrom=&start=&end= → 按位置查基因（只列基因，不取序列）

@@ -73,8 +73,8 @@
           name: T("基因别名 / 基因位置", "Gene aliases / locus"),
           one: T("按符号、别名或跨库 ID 找基因，点开是基因卡。", "Find a gene by symbol, alias or cross-database ID."),
           body: [
-            T("可检索 32,139 条基因记录（含 7,493 条 ZFIN 克隆 / EST 旧名，仍可按旧名查到；其中 22,370 条带 UniProt 蛋白编号，2,779 条经 Swiss-Prot 审阅）：标准符号、ZFIN / NCBI / UniProt 别名、Entrez 与 Ensembl ID 都能命中。",
-              "32,139 gene records are searchable (including 7,493 legacy ZFIN clone / EST entries, still reachable by their old names; 22,370 of them carry a UniProt protein accession, 2,779 Swiss-Prot reviewed) by canonical symbol, ZFIN / NCBI / UniProt alias, Entrez ID and Ensembl ID."),
+            T("可检索 21,088 个基因（另有 7,493 条 ZFIN 克隆 / EST 旧名与 3,466 条以编号代名的记录，合计 32,139 条，都能按旧名或编号查到；22,370 条带 UniProt 蛋白编号，2,779 条经 Swiss-Prot 审阅）：标准符号、ZFIN / NCBI / UniProt 别名、Entrez 与 Ensembl ID 都能命中。",
+              "21,088 genes are searchable, plus 7,493 legacy ZFIN clone / EST entries and 3,466 records named only by an identifier (32,139 in total, all reachable by old name or ID); 22,370 carry a UniProt protein accession, 2,779 Swiss-Prot reviewed. Search by canonical symbol, ZFIN / NCBI / UniProt alias, Entrez ID or Ensembl ID."),
             T("符号统一按 GRCz12tu 标准名解析；基因卡上的坐标一律给 GRCz12tu（RefSeq 原始坐标，或 GRCz11 注释经碱基级 liftover 投影），表达与 GO 注释出自 Ensembl r116。",
               "Symbols are resolved against GRCz12tu canonical symbols; every coordinate on the card is given on GRCz12tu (native RefSeq positions, or GRCz11 annotations projected by base-level liftover), while expression and GO annotations come from Ensembl release 116.")
           ]

@@ -56,16 +56,16 @@
 
   /* 实测快照：与各页面显示口径一致 */
   var SCALE = [
-    /* 2026-11-04 二次核对：基因数按「有蛋白编号的记录」给，而不是映射目标层。
-       理由：23,991 是「映射到的 GRCz12tu 蛋白编码基因」，其中 2,125 个只由
-       共线性 / BLAST 推定（没有直接 ID 证据），拿它当「本库有多少基因」会高估。
-       22,370 = gene_basic.uniprot_id 非空，且每个记录对应唯一蛋白编号
-       （当天以 UniProt 斑马鱼全量 78,189 条重建，剔除跨物种与错挂）；
-       其中 2,779 条为 Swiss-Prot 人工审阅。23,950 条记录带 GRCz12tu 坐标。 */
-    { zh: ['基因注释库', '32,139 条记录 · 22,370 条有蛋白编号', '记录含 7,493 条克隆 / EST 旧名（仍可按旧名检索）；22,370 条带 UniProt 蛋白编号（其中 2,779 条经 Swiss-Prot 审阅），23,950 条带 GRCz12tu 坐标（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）；符号 = NCBI RefSeq GRCz12tu'],
-      en: ['Gene annotation', '32,139 records · 22,370 with a protein accession', 'the records include 7,493 legacy clone / EST entries (still searchable by their old names); 22,370 records carry a UniProt protein accession (2,779 of them Swiss-Prot reviewed) and 23,950 carry GRCz12tu coordinates (native RefSeq positions plus GRCz11 annotations projected by base-level liftover); symbols = NCBI RefSeq GRCz12tu'] },
-    { zh: ['别名与同源表', '143,373 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
-      en: ['Aliases & homology', '143,373 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
+    /* 2026-11-04 三次核对：基因数改用「有正式符号」口径。
+       21,088 = gene_basic.name_kind='symbol'，可与 NCBI Gene / ZFIN 的命名基因数直接对照。
+       32,139 是记录数：另有 7,493 条克隆 / EST 号、92 条 LOC 占位名、1,839 条
+       Ensembl 编号代名、1,627 条 ZFIN 编号代名 —— 都是真实位点，但不是命名基因，
+       报「基因总数」时不能算进去。22,370 条带唯一 UniProt 蛋白编号（2,779 条
+       Swiss-Prot 审阅），30,159 条有 ZFIN 官方编号，23,950 条带 GRCz12tu 坐标。 */
+    { zh: ['基因注释库', '21,088 个基因 · 32,139 条记录', '21,088 条有正式基因符号，可与 NCBI / ZFIN 直接对照；另有 7,493 条克隆 / EST 旧名、3,466 条以编号代名的记录（仍可按旧名或编号检索）。22,370 条带 UniProt 蛋白编号（2,779 条经 Swiss-Prot 审阅），30,159 条有 ZFIN 官方编号，23,950 条带 GRCz12tu 坐标（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）'],
+      en: ['Gene annotation', '21,088 genes · 32,139 records', '21,088 carry a formal gene symbol and can be matched directly against NCBI / ZFIN; a further 7,493 are legacy clone / EST entries and 3,466 are named only by an identifier (still searchable by old name or ID). 22,370 carry a UniProt protein accession (2,779 Swiss-Prot reviewed), 30,159 carry an official ZFIN ID and 23,950 carry GRCz12tu coordinates (native RefSeq positions plus GRCz11 annotations projected by base-level liftover)'] },
+    { zh: ['别名与同源表', '142,614 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
+      en: ['Aliases & homology', '142,614 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
     { zh: ['表达表', '319,343 行 / 24,089 个基因', 'Bgee 表达分（0–100）+ Expression Atlas TPM（E-ERAD-475，marker 子集）'],
       en: ['Expression table', '319,343 rows / 24,089 genes', 'Bgee score (0–100) + Expression Atlas TPM (E-ERAD-475, marker subset)'] },
     { zh: ['表型注释', '171,079 条 / 8,029 个基因', 'ZFIN phenoGeneCleanData_fish.txt 本地解析为 SQLite 索引；20,971 个「解剖实体+PATO」组合'],
