@@ -68,21 +68,10 @@ TIER_LABELS = {
     "function_text": {"zh": "功能注释里提到（非同名）", "en": "mentioned in the function text (not a synonym)"},
 }
 
-TIER_HINTS = {
-    "exact_symbol": {"zh": "输入串就是这个基因的正式符号。", "en": "The query is this gene's official symbol."},
-    "exact_alias": {"zh": "输入串是本地库登记过的别名，指向同一个基因。", "en": "The query is a registered alias of this same gene."},
-    "exact_id": {"zh": "输入串是 Ensembl / ZFIN / NCBI 标识符。", "en": "The query is an Ensembl / ZFIN / NCBI identifier."},
-    "conflict": {"zh": "该名字同时是另一个基因的正式符号，别名表存在错挂可能；不能当作同一个基因，需人工确认。",
-                 "en": "This name is also the official symbol of another gene; the alias table may be mis-attached. Not the same gene until reviewed."},
-    "prefix": {"zh": "这些基因的符号以输入串开头，是另外的基因，不是别名。",
-               "en": "These symbols begin with the query. They are separate genes, not aliases."},
-    "contains": {"zh": "这些基因的符号里含输入串，是另外的基因，不是别名。",
-                 "en": "These symbols contain the query. They are separate genes, not aliases."},
-    "descriptive": {"zh": "这些是基因全称描述、蛋白名或克隆编号，只是文字里出现了输入串，与输入基因无关。",
-                    "en": "Full-name descriptions, protein names or clone IDs that merely contain the query."},
-    "function_text": {"zh": "这些基因的功能注释文字里提到了输入基因，属于语义相关，不是同名。",
-                      "en": "The function text mentions the query gene; semantically related, not a synonym."},
-}
+# 2026-11-04：分组下方那行解释性小字（TIER_HINTS）整段删除。
+# 用户反馈：结果区只放结果，分组标题已经说明「这是什么」，再跟一句
+# 「这些基因的符号里含输入串，是另外的基因，不是别名」属于噪音；口径说明
+# 统一放「平台说明」。这里保留注释，避免以后有人再把同类文案加回来。
 
 # ---- R1：ID 型串 ----------------------------------------------------------
 _ID_PREFIXES = (
@@ -142,10 +131,15 @@ def is_descriptive(s: str) -> bool:
 
 
 def alias_role(alias: str) -> str:
-    """给一条别名归类：id / descriptive / synonym。"""
-    if is_id_like(alias):
+    """给一条别名归类：junk / id / descriptive / synonym。"""
+    t = (alias or "").strip()
+    # 2026-11-04：库里有 1,756 行别名就是一个「-」。这类串既不是标识符也不是
+    # 同义词，按 synonym 处理会让搜「-」时返回上千个基因。统一按 junk 丢弃。
+    if len(t) < 2 or not re.search(r"[0-9a-zA-Z]", t):
+        return "junk"
+    if is_id_like(t):
         return "id"
-    if is_descriptive(alias):
+    if is_descriptive(t):
         return "descriptive"
     return "synonym"
 
@@ -247,20 +241,43 @@ LIMIT :lim
 
     # 1b) 命中 gb.gene_symbol 不等于命中正式符号：该列在本地库里是「常用别名」，
     #     所以只按别名层级计（tp53 的 gene_symbol 就是 p53）。
-    add("exact_alias", _rows(
+    #     同一个「常用别名」被多条记录占用时（库里确有 3 组），同样不能当成
+    #     同一个基因，进冲突层。
+    gsym_rows = _rows(
         _SELECT + """
 WHERE LOWER(COALESCE(gb.gene_symbol, '')) = LOWER(:kw)
 LIMIT :lim
-""", lim, {**params_base, "lim": lim}))
+""", lim, {**params_base, "lim": lim})
+    if len({r.get("gene_id") for r in gsym_rows}) > 1:
+        add("conflict", gsym_rows)
+    else:
+        add("exact_alias", gsym_rows)
 
     # 2) 别名完全匹配。先按 R1/R2 归类，再分别入桶：
     #    synonym    → exact_alias（这就是同一个基因）
     #    id 型      → exact_id（用户输入的就是标识符，属于精确查找）
     #    descriptive→ descriptive（全称描述，照实标「描述」）
     alias_rows = _alias_rows(kw, lim * 4)
-    alias_syn, alias_id, alias_desc = [], [], []
+    # 2026-11-04：同一条别名串如果挂在**不同 gene_id** 上，这条别名本身就是歧义的
+    # （`actb1` 同时挂在 actb1 与 actb2 上、`taa` 挂在 29 个基因上）。这种绝不能说成
+    # 「不同名字指的是同一个基因/同一个 ID」—— 一律进 conflict，由人确认。
+    alias_owner: dict[str, set] = {}
     for r in alias_rows:
-        role = alias_role(r.get("matched_value") or "")
+        key = str(r.get("matched_value") or "").strip().lower()
+        alias_owner.setdefault(key, set()).add(r.get("gene_id"))
+    ambiguous = {k for k, v in alias_owner.items() if len(v) > 1}
+
+    alias_syn, alias_id, alias_desc, alias_amb = [], [], [], []
+    for r in alias_rows:
+        val = str(r.get("matched_value") or "")
+        role = alias_role(val)
+        if role == "junk":
+            continue
+        if role == "synonym" and val.strip().lower() in ambiguous:
+            # 歧义别名：这条名字确实登记在某些基因下，但不止一个基因在用，
+            # 不能判定「指的是同一个基因」→ 单列冲突层，由人确认
+            alias_amb.append(r)
+            continue
         if role == "synonym":
             alias_syn.append(r)
         elif role == "id":
@@ -277,6 +294,7 @@ LIMIT :lim
             alias_syn_ok.append(r)
     add("exact_alias", alias_syn_ok)
     add("conflict", conflict_rows)
+    add("conflict", alias_amb)
 
     # 3) 标识符完全匹配（本地字段 + 上面的 ID 型别名）
     add("exact_id", _rows(
@@ -329,6 +347,11 @@ LIMIT :lim
 """, lim, {**params_base, "lim": lim}), value_key="gene_function")
 
     # 同一个基因如果既有同义词完全匹配、又出现在描述里，保留在 exact_alias
+    # 同一基因的多份记录（不同来源各导入一条）在结果里合并成一行，
+    # 免得同一个符号出现两行、还各自带着不同的 ID。
+    for t in TIERS:
+        if buckets[t]:
+            buckets[t] = _merge_dupes(buckets[t])
     counts = {t: len(buckets[t]) for t in TIERS}
     # 这几层是按 limit 截断取的，条数达到 limit 时真实总数可能更多，
     # 必须标 capped，前端显示「N+」，不能把截断值当成总数。
@@ -337,7 +360,6 @@ LIMIT :lim
         {
             "tier": t,
             "label": TIER_LABELS[t],
-            "hint": TIER_HINTS[t],
             "same_gene": t in SAME_GENE_TIERS,
             "count": counts[t],
             "capped": t in CAPPABLE and counts[t] >= lim,
@@ -360,6 +382,43 @@ LIMIT :lim
         "related": related,
         "note": _note(kw, counts, id_query),
     }
+
+
+def _ident_key(r: dict) -> tuple:
+    """判断两条结果是不是「同一个基因」的键。
+
+    2026-11-04：库里有同一基因被导入成两条记录的情况（`her6` 一条来自 ZFIN/Ensembl、
+    一条来自 RefSeq，两条 ZFIN ID 相同）。检索时两行并排显示，用户看到的就是
+    「不同的名字 / 不同的 ID，凭什么说是同一个」。这里按「权威 ID + 染色体」判定：
+    染色体不同的绝不合并 —— `ntla`（chr9）与 `tbxta`（chr19）共用一个 ZFIN ID，
+    那是 ID 本身有问题，属于冲突，不是同一条记录。
+    """
+    z = str(r.get("zfin_id") or "").strip().lower()
+    e = str(r.get("ensembl_id") or "").strip().lower()
+    c = str(r.get("chromosome") or "").strip().lower()
+    if z:
+        return ("z", z, c)
+    if e:
+        return ("e", e, c)
+    return ("s", str(r.get("standard_symbol") or r.get("gene_name") or "").lower(), c)
+
+
+def _merge_dupes(rows: list[dict]) -> list[dict]:
+    """同一条基因的多份记录合并成一行，缺的字段互相补。"""
+    out: list[dict] = []
+    seen: dict[tuple, dict] = {}
+    for r in rows:
+        k = _ident_key(r)
+        keep = seen.get(k)
+        if keep is None:
+            seen[k] = r
+            out.append(r)
+            continue
+        keep.setdefault("merged_gene_ids", []).append(r.get("gene_id"))
+        for f in ("ensembl_id", "zfin_id", "uniprot_id", "chromosome"):
+            if not keep.get(f) and r.get(f):
+                keep[f] = r[f]
+    return out
 
 
 def _confidence(tier: str) -> float:
@@ -412,7 +471,6 @@ LIMIT :lim
         "counts": {t: 0 for t in TIERS}, "total": len(rows),
         "same_gene_count": 0,
         "groups": [{"tier": "browse", "label": {"zh": "基因库浏览", "en": "browse"},
-                    "hint": {"zh": "按符号顺序列出", "en": "listed by symbol"},
                     "same_gene": False, "count": len(rows), "results": rows}],
         "results": rows, "related": [], "note": "", "browse": True,
     }

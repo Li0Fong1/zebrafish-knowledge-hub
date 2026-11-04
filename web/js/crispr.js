@@ -163,8 +163,7 @@
       '<div class="table-wrap"><table class="sgrna-table"><thead><tr>' +
       ['colRank', 'colSpacer', 'colPam', 'colStrand', 'colPos', 'colGc', 'colEff', 'colSpec', 'colFinal', 'colOff', 'colT7']
         .map(function (k) { return '<th>' + esc(T(k)) + '</th>'; }).join('') +
-      '</tr></thead><tbody>' + rows + '</tbody></table></div>' +
-      '<p class="tool-hint">' + esc(d.judge_note || '') + '</p>');
+      '</tr></thead><tbody>' + rows + '</tbody></table></div>');
   }
 
   function runSgrna() {
@@ -236,8 +235,7 @@
       '<div class="table-wrap"><table class="sgrna-table"><thead><tr>' +
       ['colPair', 'colFwd', 'colRev', 'colAmp', 'colTm', 'colGcP', 'colRisk', 'colScore']
         .map(function (k) { return '<th>' + esc(T(k)) + '</th>'; }).join('') +
-      '</tr></thead><tbody>' + rows + '</tbody></table></div>' +
-      '<p class="tool-hint">' + esc(d.judge_note || '') + '</p>');
+      '</tr></thead><tbody>' + rows + '</tbody></table></div>');
   }
 
   function runPrimer() {

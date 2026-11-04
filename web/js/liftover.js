@@ -145,6 +145,8 @@
   /* 最近一次「本地校验」提示的 key：切语言后按新语言重画，
      否则英文界面里会留着一条中文警告。 */
   var lastHintKey = '';
+  /* 最近一份坐标换算结果：切语言后要按新语言重画（否则英文界面上留着中文标签） */
+  var lastCoord = null;
 
   function showHint(key) {
     lastHintKey = key;
@@ -154,8 +156,11 @@
   function showResult(html, mode) {
     var box = $('toolResult');
     if (!box) return;
-    box.innerHTML = html;
-    box.classList.remove('hidden');
+    /* 结果只写进 Liftover 自己的桶：别的页面上即使有请求回来，
+       也不会把坐标结果画到别人的结果区（见 tool-result.js）。 */
+    if (window.ZFResult) window.ZFResult.write(html, 'liftover');
+    else { box.innerHTML = html; box.classList.remove('hidden'); }
+    if (window.ZFResult && window.ZFResult.route() !== 'liftover') return;
     // 记下这份结果属于哪个模式：切模式时据此决定要不要清掉（见 setMode）
     box.setAttribute('data-lift-result', mode === 'idmap' ? 'idmap' : 'coord');
   }
@@ -315,13 +320,12 @@
     var tick = setInterval(function () {
       var s = Math.round((Date.now() - t0) / 1000);
       if (s < 3) return;
-      var box = $('toolResult');
-      if (!box) return;
-      box.innerHTML = '<p class="tool-hint">' + esc(fmt(T('loadingSec'), { s: s })) + '</p>' +
-        '<p class="tool-hint">' + esc(T('loadingTip')) + '</p>';
+      showResult('<p class="tool-hint">' + esc(fmt(T('loadingSec'), { s: s })) + '</p>' +
+        '<p class="tool-hint">' + esc(T('loadingTip')) + '</p>');
     }, 1000);
     get(url).then(function (d) {
       clearInterval(tick);
+      lastCoord = d || {};
       if (d && d.ok && d.target_span) showResult(okCard(d));
       else showResult(failCard(d || {}));
     }).catch(function (e) {
@@ -544,24 +548,15 @@
 
   function srcSelEl() { return $('liftSourceBuild'); }
 
-  /* 染色体下拉下方的一行说明：把「这个版本用哪种 ID 命名」讲清楚。
-     没有它，GRCz11 / GRCz12ab / fDanRer4.1 的下拉都是 chr1..chr25，看起来像硬编码。 */
-  function renderChromNote(naming) {
+  /* 染色体下拉下方那行「本版沿用 UCSC 的 chr1–chr25 命名……」说明已撤（2026-11-04）。
+     用户的原话是：这类与结果无关的小注释不要出现在结果区/输入区；染色体怎么命名
+     属于使用说明的范围，不占功能页的版面。函数保留成空实现，调用点不用改。 */
+  function renderChromNote() {
     var el = $('liftChromNote');
     if (!el) return;
-    var txt = '';
-    if (naming) {
-      txt = lang() === 'en' ? (naming.note_en || '') : (naming.note_zh || '');
-    }
-    if (!txt) {
-      el.textContent = '';
-      el.hidden = true;
-      el.removeAttribute('title');
-      return;
-    }
-    el.textContent = txt;
-    el.title = txt;
-    el.hidden = false;
+    el.textContent = '';
+    el.hidden = true;
+    el.removeAttribute('title');
   }
 
   function loadChromosomes() {
@@ -678,6 +673,10 @@
         var nb = (($('liftSourceBuild') && $('liftSourceBuild').value) || '').trim();
         renderChromNote(nb ? chromNaming[nb] : null);
         if (lastHintKey) showHint(lastHintKey);
+        if (lastCoord) {
+          if (lastCoord.ok && lastCoord.target_span) showResult(okCard(lastCoord));
+          else if (Object.keys(lastCoord).length) showResult(failCard(lastCoord));
+        }
       }, 0);
     });
     var metaRow = $('featureMetaRow');
@@ -964,8 +963,8 @@
     // 右栏里如果还留着另一种模式的结果，清掉（否则会看着坐标结果去贴 ID）
     var tr = $('toolResult');
     if (tr && tr.getAttribute('data-lift-result') && tr.getAttribute('data-lift-result') !== mode) {
-      tr.innerHTML = '';
-      tr.classList.add('hidden');
+      if (window.ZFResult) window.ZFResult.clear('liftover');
+      else { tr.innerHTML = ''; tr.classList.add('hidden'); }
       tr.removeAttribute('data-lift-result');
     }
     // hero 那排按钮组跟着换：坐标模式给「源版本 / 链」，ID 模式没有可选项 → 不画
@@ -1006,7 +1005,9 @@
       lastInputs = 0;
       lastCapped = false;
       var tr = $('toolResult');
-      if (tr) { tr.innerHTML = ''; tr.classList.add('hidden'); tr.removeAttribute('data-lift-result'); }
+      if (window.ZFResult) window.ZFResult.clear('liftover');
+      else if (tr) { tr.innerHTML = ''; tr.classList.add('hidden'); }
+      if (tr) tr.removeAttribute('data-lift-result');
       hint('');
       var c = $('idMapCount');
       if (c) c.textContent = '';

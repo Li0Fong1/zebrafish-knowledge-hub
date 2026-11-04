@@ -506,8 +506,6 @@ def design_sgrna(target: str, *, enzyme: str = "NGG", top_n: int = 20,
         "offtarget_note": offtarget_note,
         "offtarget_scope": "genome" if (offtarget_scope or "").lower().startswith("genome") else "transcriptome",
         "genome_db": {"ready": bool(gdb.get("ready")), "size_mb": gdb.get("size_mb")},
-        "judge_note": "评分为本地透明规则的加权结果（效率×0.72 + 特异性×0.28）；"
-                      "权威活性预测请用 CHOPCHOP / CRISPRScan 复核（可用下方跳转按钮）。",
     }
 
 
@@ -752,6 +750,4 @@ def design_primers(template: str, *, amplicon_min: int = 80, amplicon_max: int =
         "pairs": picked,
         "pair_total": len(pairs),
         "note": note,
-        "judge_note": "Tm 用 SantaLucia 1998 最近邻热力学估算（50 mM Na+、0.5 µM 引物）；"
-                      "引物按规则打分（Tm 差、产物长度、二聚体、发夹），未做完整 NN 二聚体搜索。",
     }

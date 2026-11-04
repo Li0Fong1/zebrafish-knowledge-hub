@@ -5642,7 +5642,7 @@ const PAGE_META = {
       panel: "toolAbout",
       title: "平台说明|About",
       lead: "这个平台是做什么的、数据从哪来、该怎么引用。|What this platform does, where the data comes from, and how to cite it.",
-      pillA: "数据快照 2026-10-15|Snapshot 2026-10-15",
+      pillA: "数据快照 2026-11-04|Snapshot 2026-11-04",
       pillB: "本库 / ZFIN / Ensembl / NCBI|Local / ZFIN / Ensembl / NCBI",
       formHint: "选择下方章节|Pick a section",
       emptyTitle: "选择下方章节|Pick a section",
@@ -6069,11 +6069,17 @@ const PAGE_META = {
       panel.classList.remove("hidden");
       m.appendChild(panel);
     }
+    /* 2026-11-04：结果区按路由分桶（见 tool-result.js）。
+       之前这里无条件清空 #toolResult，看着是"清干净了"，但只要上一页还有
+       在飞的 fetch，它回来时照样往新页面的结果位里画 —— 用户就看到了
+       "Liftover 页里冒出基因检索结果"。现在写入方必须声明自己属于哪个路由，
+       页面切换只恢复本页自己的那份。 */
     const tr = document.getElementById("toolResult");
     if (tr && rm) {
       rm.appendChild(tr);
-      tr.classList.add("hidden");
-      tr.innerHTML = "";
+      const key = routeName || meta.tool || feat;
+      if (window.ZFResult) window.ZFResult.swap(key);
+      else { tr.classList.add("hidden"); tr.innerHTML = ""; }
     }
     const geneHost = document.getElementById("featureGeneCardHost");
     if (geneHost) {

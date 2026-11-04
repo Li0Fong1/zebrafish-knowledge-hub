@@ -220,11 +220,8 @@
     "sgRNA / 引物设计": "sgRNA / primer design",
     "PAM 扫描 · 打分 · 脱靶": "PAM scan · scoring · off-target",
     "PAM 扫描 · 双链打分 · 转录组特异性": "PAM scan · dual-strand scoring · transcriptome specificity",
-    "本地注释 32,564 基因 · 表达 319,344 行 / 24,245 基因 · ZFIN 表型 171,079 条 · 文献 32,549 篇 · 染色体 25 条 / 1.45 Gb":
-      "32,564 annotated genes · 319,344 expression rows / 24,245 genes · 171,079 ZFIN phenotype annotations · 32,549 papers · 25 chromosomes / 1.45 Gb",
-    "本地注释 26,321 基因 · 表达 319,344 行 / 24,245 基因 · ZFIN 表型 171,079 条 · 文献 32,863 篇 · 染色体 25 条 / 1.45 Gb":
-      "32,564 annotated genes · 319,344 expression rows / 24,245 genes · 171,079 ZFIN phenotype annotations · 32,549 papers · 25 chromosomes / 1.45 Gb",
-    "32,564 genes · 符号 / 别名 / 跨库 ID": "32,564 genes · symbol / alias / cross-DB ID",
+    /* 2026-11-04：三条 32,564 的死映射删除 —— 页面早已换成 32,139（有蛋白编号 22,370），
+       留着只会在将来恢复那几行文案时把旧数字放回去。 */
     "GRCz12tu 符号": "GRCz12tu symbol",
     "覆盖本地基因库全部基因：标准符号、ZFIN/NCBI/UniProt 别名、Entrez / Ensembl ID 均可检索，点条目查看基因卡。":
       "Covers every gene in the local library: standard symbol, ZFIN/NCBI/UniProt aliases and Entrez/Ensembl IDs are searchable; click a row for the gene card.",
@@ -1024,13 +1021,54 @@
     "本地注释 · 组学库双链 · 可复核": "Local annotation · omics cross-links · verifiable",
     "斑马鱼基因知识中枢：把本地注释库、表达表、ZFIN 表型注释与文献全文库放在同一入口；每条结论都能回到库里或原站核对。":
       "A zebrafish gene knowledge hub: local annotation, expression tables, ZFIN phenotype annotations and a full-text literature library behind one entry point — every conclusion can be traced back to the library or the source site.",
-    "数据快照 2026-10-15": "Snapshot 2026-10-15",
+    "数据快照 2026-11-04": "Snapshot 2026-11-04",
     "选择左侧章节": "Pick a section on the left",
     "定位与范围 / 数据来源与算法 / 引用方式 —— 三章都是实测数字与可复核来源。":
       "Scope / Data & methods / How to cite — all three chapters use measured figures and checkable sources.",
     "本页数字为本机库实测快照 · 与各功能页同一口径":
       "All figures here are measured snapshots of the local libraries · same definitions as the feature pages",
     "服务在线": "Online",
+
+    /* ── 2026-11-04：按页面文案审计补齐（英文界面里这 37 条还是中文）──
+       做法：把 index.html 里所有中文文本节点 / placeholder / aria-label / title
+       抽出来，与 ZH2EN 的键做差集，只补真正缺的，不改已有条目。 */
+    "ID 转换模式": "ID conversion mode",
+    "tp53\nsox9b, myl7（逗号或换行分隔，最多 20 个）": "tp53\nsox9b, myl7 (comma or newline separated, up to 20)",
+    "关闭": "Close",
+    "区间分栏": "Interval split",
+    "单条：直接粘 ATGC…\n批量：每条以 > 开头，例如\n>seq1\nATGGCG…\n>seq2\nATGGCG…": "Single: paste ATGC…\nBatch: one record per line starting with >, e.g.\n>seq1\nATGGCG…\n>seq2\nATGGCG…",
+    "原名 / 符号": "Original name / symbol",
+    "参考组装": "Reference build",
+    "反馈与问题报告": "Feedback & issues",
+    "基因 ID 列表，每行一个": "Gene ID list, one per line",
+    "基因名": "Gene name",
+    "基因名，可批量": "Gene names, batch allowed",
+    "复制诊断信息": "Copy diagnostics",
+    "完整区间字符串": "Full interval string",
+    "开启新对话 (Ctrl+Shift+L)": "New chat (Ctrl+Shift+L)",
+    "批量区间": "Batch intervals",
+    "描述你遇到的问题或建议（至少 4 个字）…": "Describe the issue or suggestion (at least 4 characters)…",
+    "提交": "Submit",
+    "文献更新": "Literature updates",
+    "来源组装": "Source build",
+    "来源组装（可选）": "Source build (optional)",
+    "查看首条详情": "View the first record",
+    "标准名": "Canonical name",
+    "每行一个，例如：\ntp53\n30590\nZDB-GENE-990415-270\nENSDARG00000035559": "One per line, e.g.\ntp53\n30590\nZDB-GENE-990415-270\nENSDARG00000035559",
+    "用得不顺手、数据有疑问、或想加功能，都可写在这里。": "Tell us where it feels awkward, which data looks wrong, or what to add.",
+    "目录": "Contents",
+    "目标库": "Target database",
+    "目标组装": "Target build",
+    "符号（GRCz11）": "Symbol (GRCz11)",
+    "符号（GRCz12tu）": "Symbol (GRCz12tu)",
+    "粘贴基因 ID 列表（每行一个）": "Paste a gene ID list (one per line)",
+    "粘贴核酸序列": "Paste a nucleotide sequence",
+    "联系方式（可选，便于回访）": "Contact (optional, for follow-up)",
+    "自动识别": "Auto-detect",
+    "跨库": "Cross-DB",
+    "跨组装": "Cross-assembly",
+    "转换 ID": "Convert IDs",
+    "链方向": "Strand",
   };
 
   /* ── 2026-10-28：英文界面里混中文的收口（溯源面板 / 编排步骤 / 自动工具卡）──
@@ -1283,6 +1321,9 @@
     [/^RefSeq (.+?) 标准名$/, "RefSeq $1 canonical name"],
     [/^本地 (.+?) · (.+)$/, "Local $1 · $2"],
     [/^(\d+hpf)（整胚）$/, "$1 (whole embryo)"],
+    /* 2026-11-04 补：带数字的状态串，直接查表匹配不到 */
+    [/^已带入上文 (\d+) 轮$/, "$1 previous turns carried over"],
+    [/^染色体 (\d+)$/, "Chr $1"],
   ].forEach(function (r) { RULES.push(r); });
 
   /* 不翻译的区域：聊天答案正文、Markdown 正文、代码、序列（保护用户数据与答案）。

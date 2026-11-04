@@ -108,7 +108,10 @@
 
   function resultBox() { return $('toolResult'); }
   function cardHost() { return $('featureGeneCardHost'); }
+  /* 结果一律写进"本页"的桶（见 tool-result.js）：即使请求回来得晚，
+     也不会把基因列表画到 Liftover 之类别的页面上去。 */
   function showResult(html) {
+    if (window.ZFResult) { window.ZFResult.write(html, 'genes'); return; }
     var box = resultBox();
     if (!box) return;
     box.innerHTML = html;
@@ -145,25 +148,33 @@
     var why = showWhy && r.matched_value ? String(r.matched_value) : '';
     var cells = '<td class="gene-cell-sym"><strong>' + txt(sym) + '</strong>' +
       (differs ? '<span class="gene-cell-name">' + esc(name) + '</span>' : '') + '</td>' +
-      '<td>' + txt(r.chromosome) + '</td>' +
-      '<td class="gene-cell-why">' + (why ? '<span class="gene-why">' + esc(why) + '</span>'
-        : '<span class="tool-hint">—</span>') + '</td>' +
-      '<td class="gene-cell-fn">' + (r.ensembl_id ? '<span class="tool-hint">' + esc(r.ensembl_id) + '</span>'
+      '<td>' + txt(r.chromosome) + '</td>';
+    if (showWhy) {
+      cells += '<td class="gene-cell-why">' + (why ? '<span class="gene-why">' + esc(why) + '</span>'
         : '<span class="tool-hint">—</span>') + '</td>';
+    }
+    cells += '<td class="gene-cell-fn">' + (r.ensembl_id ? '<span class="tool-hint">' + esc(r.ensembl_id) + '</span>'
+      : '<span class="tool-hint">—</span>') + '</td>';
     return '<tr class="gene-row" data-name="' + esc(r.gene_name || sym) + '" data-gid="' + esc(r.gene_id || '') + '">' + cells + '</tr>';
   }
+
+  /* 「命中依据」只在真正有依据可讲的时候出现：别名 / 标识符 / 冲突 / 描述命中。
+     前缀、包含这两层命中的就是符号本身，再摆一列「命中依据 = 符号」等于把
+     同一个词印两遍（用户 2026-11-04 反馈）；符号层同理，左边第一列已经是它。 */
+  var WHY_TIERS = { exact_alias: true, exact_id: true, conflict: true, descriptive: true, function_text: true };
 
   function groupHtml(g) {
     var rows = g.results || [];
     if (!rows.length) return '';
     var folded = !!FOLDED_TIERS[g.tier];
+    var showWhy = !!WHY_TIERS[g.tier];
     var th = '<th>' + esc(T('colSymbol')) + '</th><th>' + esc(T('colChr')) + '</th>' +
-      '<th>' + esc(T('colWhy')) + '</th><th>Ensembl</th>';
-    var body = rows.map(function (r) { return rowHtml(r, true); }).join('');
-    var hint = tierText(g, 'hint');
+      (showWhy ? '<th>' + esc(T('colWhy')) + '</th>' : '') + '<th>Ensembl</th>';
+    var body = rows.map(function (r) { return rowHtml(r, showWhy); }).join('');
+    /* 2026-11-04：分组下方那行解释性小字全部撤掉（分组标题已经说明这是什么、
+       条数也在标题右侧）。结果区只放结果，口径放在「平台说明」。 */
     var inner = '<div class="table-wrap"><table class="gene-table gene-table-compact">' +
-      '<thead><tr>' + th + '</tr></thead><tbody>' + body + '</tbody></table></div>' +
-      (hint ? '<p class="tool-hint gene-group-hint">' + esc(hint) + '</p>' : '');
+      '<thead><tr>' + th + '</tr></thead><tbody>' + body + '</tbody></table></div>';
     var cls = 'gene-group' + (g.same_gene ? ' is-same' : ' is-lower') + (folded ? ' is-folded' : '');
     return '<details class="' + cls + '" data-tier="' + esc(g.tier) + '"' + (folded ? '' : ' open') + '>' +
       '<summary><span class="gene-group-title">' + esc(tierText(g, 'label')) + '</span>' +
@@ -194,7 +205,14 @@
     return bits.join(' · ');
   }
 
+  /* 语言切换后要把已经画出来的结果按新语言重画一遍。
+     这里记住「最后一份结果 + 它的画法」，切语言时原样再画一次；否则切到英文
+     后表头、分组标题、命中依据还是中文（2026-11-04 用户反馈「中英文未同步」）。 */
+  var lastPaint = null;
+  var lastCard = null;
+
   function renderGroups(data, browse) {
+    lastPaint = function () { renderGroups(data, browse); };
     var groups = (data && data.groups) || [];
     var has = groups.some(function (g) { return (g.results || []).length; });
     if (!has) {
@@ -202,15 +220,13 @@
       return;
     }
     var head = '<div class="gene-list-head">' + esc(summaryHtml(data, browse)) + '</div>';
-    if (!browse && !data.same_gene_count) {
-      head += '<p class="tool-hint gene-warn">' + esc(T('noneSame')) + '</p>';
-    }
     showResult(head + groups.map(groupHtml).join(''));
   }
 
   /* ---------------- 按位置查基因 ---------------- */
 
   function renderRegion(d) {
+    lastPaint = function () { renderRegion(d); };
     var genes = (d && d.genes) || [];
     if (!genes.length) {
       showResult('<p class="tool-hint">' + esc(T('regionEmpty')) + '</p>');
@@ -256,6 +272,7 @@
   /* ---------------- 批量 ---------------- */
 
   function renderBatch(d) {
+    lastPaint = function () { renderBatch(d); };
     var items = (d && d.queries) || [];
     var head = fmt(T('batchHead'), { n: d.total_queries || 0, ok: d.resolved || 0 });
     var blocks = items.map(function (it) {
@@ -267,10 +284,13 @@
         '<span class="tool-hint">' + status + '</span></div>';
       if (!same.length) return '<div class="gene-batch-item">' + title + '</div>';
       var body = same.map(function (r) {
+        var why = (r.matched_by === 'exact_alias' || r.matched_by === 'exact_id')
+          ? (r.matched_value || '') : '';
         return '<tr class="gene-row" data-name="' + esc(r.gene_name || r.gene_symbol) + '">' +
           '<td class="gene-cell-sym"><strong>' + txt(r.standard_symbol || r.gene_name) + '</strong></td>' +
           '<td>' + txt(r.chromosome) + '</td>' +
-          '<td class="gene-cell-why"><span class="gene-why">' + esc(r.matched_value || '') + '</span></td></tr>';
+          '<td class="gene-cell-why">' + (why ? '<span class="gene-why">' + esc(why) + '</span>'
+            : '<span class="tool-hint">—</span>') + '</td></tr>';
       }).join('');
       return '<div class="gene-batch-item">' + title +
         '<div class="table-wrap"><table class="gene-table gene-table-compact"><tbody>' + body +
@@ -378,9 +398,8 @@
       ' data-chrom="' + esc(loc.chromosome) + '"' +
       ' data-start="' + esc(String(loc.start)) + '"' +
       ' data-end="' + esc(String(loc.end)) + '"' +
-      ' data-asm="' + esc(loc.assembly || 'GRCz11') + '">' +
-      esc(T('locusTake')) + '</a>' +
-      '<br><span class="tool-hint">' + esc(T('locusNote')) + '</span></li>';
+      ' data-asm="' + esc(loc.assembly || 'GRCz12tu') + '">' +
+      esc(T('locusTake')) + '</a></li>';
   }
 
   /* 2026-10-31 边界重划：本页（别名）只答「这是哪个基因、它还有哪些名字」。
@@ -390,6 +409,7 @@
      坐标行（locusLi）整段移走 —— 那是「位置查找」页的职责，
      卡片右上角的「看位置」链接跳过去即可。 */
   function renderCard(d, orthoExtra) {
+    lastCard = function () { renderCard(d, orthoExtra); };
     var host = cardHost();
     if (!host) return;
     var b = d.basic || {};
@@ -542,7 +562,10 @@
     }
 
     document.addEventListener('hub-lang-change', function () {
-      // 语言切换后：列表里的表头/提示重绘成本高，留在下次检索；卡片重开一次即可
+      // 语言切换：本页已经画出来的结果与卡片按新语言重画（只在本页时做）
+      if (window.ZFResult && window.ZFResult.route() !== 'genes') return;
+      if (lastPaint) lastPaint();
+      if (lastCard) lastCard();
     });
   }
 
