@@ -1,7 +1,7 @@
 /* ==========================================================================
    expression.js —— Expression 功能页（组织表达谱）
    --------------------------------------------------------------------------
-   数据来源（本地表达表 gene_expression，315k+ 行 / 24,245 个基因）：
+   数据来源（本地表达表 gene_expression，319,343 行 / 24,089 个基因）：
      GET /api/expression/tissues            → 组织索引（1,151 个解剖实体 + 覆盖基因数）
      GET /api/expression/gene?name=&top=    → 单基因：Bgee 组织分（0–100）+ Atlas 分期 TPM
      GET /api/expression/top?tissue=&n=     → 某组织里表达最高的基因

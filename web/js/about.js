@@ -64,8 +64,8 @@
        Swiss-Prot 审阅），30,159 条有 ZFIN 官方编号，23,950 条带 GRCz12tu 坐标。 */
     { zh: ['基因注释库', '21,088 个基因 · 32,139 条记录', '21,088 条有正式基因符号，可与 NCBI / ZFIN 直接对照；另有 7,493 条克隆 / EST 旧名、3,466 条以编号代名的记录（仍可按旧名或编号检索）。22,370 条带 UniProt 蛋白编号（2,779 条经 Swiss-Prot 审阅），30,159 条有 ZFIN 官方编号，23,950 条带 GRCz12tu 坐标（RefSeq 原始坐标 + GRCz11 注释经碱基级 liftover）'],
       en: ['Gene annotation', '21,088 genes · 32,139 records', '21,088 carry a formal gene symbol and can be matched directly against NCBI / ZFIN; a further 7,493 are legacy clone / EST entries and 3,466 are named only by an identifier (still searchable by old name or ID). 22,370 carry a UniProt protein accession (2,779 Swiss-Prot reviewed), 30,159 carry an official ZFIN ID and 23,950 carry GRCz12tu coordinates (native RefSeq positions plus GRCz11 annotations projected by base-level liftover)'] },
-    { zh: ['别名与同源表', '142,614 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号）'],
-      en: ['Aliases & homology', '142,614 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs'] },
+    { zh: ['别名与同源表', '118,174 条别名 / 31,456 条同源', 'gene_alias / homology_gene（用于把旧名、别名、复制体解析到标准符号；已剔除 1,756 条垃圾串与 22,684 条自指）'],
+      en: ['Aliases & homology', '118,174 aliases / 31,456 homology rows', 'gene_alias / homology_gene — resolves old names, aliases and paralogs (1,756 junk strings and 22,684 self-references removed)'] },
     { zh: ['表达表', '319,343 行 / 24,089 个基因', 'Bgee 表达分（0–100）+ Expression Atlas TPM（E-ERAD-475，marker 子集）'],
       en: ['Expression table', '319,343 rows / 24,089 genes', 'Bgee score (0–100) + Expression Atlas TPM (E-ERAD-475, marker subset)'] },
     { zh: ['表型注释', '171,079 条 / 8,029 个基因', 'ZFIN phenoGeneCleanData_fish.txt 本地解析为 SQLite 索引；20,971 个「解剖实体+PATO」组合'],

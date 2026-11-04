@@ -20,12 +20,12 @@
       ['序列数', 'Sequences', '25（1–25 号染色体）'],
       ['总长度', 'Total length', '1.45 Gb'],
       ['平均 GC', 'Mean GC', '37.11%'],
-      ['已注释基因', 'Annotated genes', '32,564'],
+      ['已注释基因', 'Annotated genes', '53,513'],
       ['本地 BLAST 库', 'BLAST libraries', 'cdna 51.9 MB / genome 345.5 MB']
     ],
     expression: [
-      ['表达记录', 'Expression rows', '319,344'],
-      ['基因数', 'Genes', '24,245'],
+      ['表达记录', 'Expression rows', '319,343'],
+      ['基因数', 'Genes', '24,089'],
       ['组织 / 解剖实体', 'Tissues (Bgee)', '1,151'],
       ['Bgee 单位', 'Bgee unit', 'score 0–100'],
       ['Atlas 单位', 'Atlas unit', 'TPM (E-ERAD-475)']
@@ -38,16 +38,16 @@
       ['数据源', 'Source', 'ZFIN phenoGeneCleanData_fish']
     ],
     gene: [
-      ['基因库', 'Genes', '32,564'],
-      ['别名', 'Aliases', '145,439'],
-      ['同源 / 复制体', 'Orthologs / paralogs', '31,630'],
-      ['坐标版本', 'Coordinate assembly', 'Ensembl GRCz11 r116'],
+      ['基因库', 'Genes', '21,088'],
+      ['别名', 'Aliases', '118,174'],
+      ['同源 / 复制体', 'Orthologs / paralogs', '31,456'],
+      ['坐标版本', 'Coordinate assembly', 'NCBI RefSeq GRCz12tu'],
       ['符号版本', 'Symbol assembly', 'NCBI RefSeq GRCz12tu'],
       ['命中口径', 'Match fields', 'symbol / alias / cross-DB ID']
     ],
     genes: [
-      ['基因库', 'Genes', '32,564'],
-      ['别名索引', 'Alias index', '145,439'],
+      ['基因库', 'Genes', '21,088'],
+      ['别名索引', 'Alias index', '118,174'],
       ['可检索 ID', 'Searchable IDs', 'ZFIN / NCBI / UniProt / Ensembl'],
       ['染色体编号', 'Chromosomes', '1–25 + scaffolds']
     ],
@@ -68,17 +68,17 @@
       ['统计方法', 'Statistics', 'ORA · Fisher + Benjamini–Hochberg'],
       ['背景集', 'Background set', '本地有注释的基因'],
       ['注释来源', 'Annotation', 'GO + KEGG / WikiPathways'],
-      ['通路条目', 'Gene–pathway rows', '36,425']
+      ['通路条目', 'Gene–pathway rows', '36,793']
     ],
     kegg: [
       ['通路编号', 'Pathway IDs', 'KEGG dre / WikiPathways'],
-      ['基因–通路条目', 'Gene–pathway rows', '36,425'],
-      ['GO 注释条目', 'GO annotations', '113,410']
+      ['基因–通路条目', 'Gene–pathway rows', '36,793'],
+      ['GO 注释条目', 'GO annotations', '110,632']
     ],
     idresolve: [
       ['覆盖库', 'Databases', 'Ensembl / ZFIN / NCBI / UniProt'],
       ['消歧口径', 'Resolution', '唯一命中 / 一对多 / 未命中'],
-      ['装配映射表', 'Assembly xref', '22,721 条']
+      ['装配映射表', 'Assembly xref', '30,525 条']
     ],
     annotate: [
       ['汇总内容', 'Aggregates', '身份 · 表达 · GO · 通路 · 同源 · 文献'],
@@ -135,8 +135,8 @@
       url: '/api/expression/tissues',
       map: function (d) {
         return [
-          ['表达记录', 'Expression rows', '319,344'],
-          ['基因数', 'Genes', '24,245'],
+          ['表达记录', 'Expression rows', '319,343'],
+          ['基因数', 'Genes', '24,089'],
           ['组织 / 解剖实体', 'Tissues (Bgee)', String((d && d.count) || '1,151')],
           ['Bgee 单位', 'Bgee unit', 'score 0–100'],
           ['Atlas 单位', 'Atlas unit', 'TPM (E-ERAD-475)']
@@ -219,7 +219,7 @@
     '见「引用方式」章节': 'see the Citation section',
     'GRCz11（含链方向）': 'GRCz11 (strand included)',
     'off（需显式开启）': 'off (explicit opt-in)',
-    '22,721 条': '22,721',
+    '30,525 条': '30,525',
     '25 条 / 1.45 Gb': '25 / 1.45 Gb'
   };
 

@@ -238,8 +238,8 @@
       "sgRNA: enter a gene name or sequence → scan PAMs and score; primers: provide a template sequence or a gene name.",
     "打分为本地透明规则实现 · 权威评分请跳 CHOPCHOP / CRISPRScan 复核":
       "Scores come from transparent local rules · cross-check with CHOPCHOP / CRISPRScan",
-    "覆盖 32,564 个基因：标准符号、ZFIN/NCBI/UniProt 别名、Entrez / Ensembl ID 均可命中；点结果行看基因卡（含别名、同源与复制对）。":
-      "Search 32,564 genes by standard symbol, ZFIN/NCBI/UniProt alias or Entrez/Ensembl ID; click a row for the gene card (aliases, orthologs and duplicates included).",
+    "覆盖 21,088 个基因：标准符号、ZFIN/NCBI/UniProt 别名、Entrez / Ensembl ID 均可命中；点结果行看基因卡（含别名、同源与复制对）。":
+      "Search 21,088 genes by standard symbol, ZFIN/NCBI/UniProt alias or Entrez/Ensembl ID; click a row for the gene card (aliases, orthologs and duplicates included).",
     "符号 / 别名 / ZFIN / Ensembl，如 p53、ZDB-GENE-990415-270": "Symbol / alias / ZFIN / Ensembl, e.g. p53, ZDB-GENE-990415-270",
     "浏览全部": "Browse all",
     /* 2026-11-03：Genes 页改为「按名称 / 按位置 / 批量」三模式，并给结果分组 */
@@ -986,7 +986,7 @@
     "本地注释锚点（坐标 / 表达 / GO）": "local annotation anchor (coordinates / expression / GO)",
     "标准名 / BLAST / cDNA": "canonical symbols / BLAST / cDNA",
     "在本系统中的用途": "Role in this hub",
-    "本地表达表 · 315k 条记录 · 24,245 个基因": "Local expression table · 315k rows · 24,245 genes",
+    "本地表达表 · 319,343 条记录 · 24,089 个基因": "Local expression table · 319,343 rows · 24,089 genes",
     "按基因看组织表达谱（Bgee 表达分按解剖实体降序），或按组织看表达最高的基因，也可以多基因并排对比共同覆盖的组织。":
       "View a tissue profile per gene (Bgee scores sorted by anatomical entity), list the highest-scoring genes for one tissue, or compare several genes across their commonly covered tissues.",
     "Bgee 表达分": "Bgee expression score",
