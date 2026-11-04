@@ -568,6 +568,27 @@ def _blast_health_fields() -> dict:
         }
 
 
+def _resolve_public_url() -> str:
+    """当前对外访问地址。
+
+    2026-11-04：原来直接读 HUB_PUBLIC_URL 环境变量，但 cloudflared 每次重启都会
+    换域名，写死在 .env 里必然过期——实测 health 返回的地址已 502，而真正可用的
+    新域名只在 zebrafish_runtime/tunnel_url.txt 里。页面「复制分享链接」用的就是
+    这个字段，所以改成运行时优先读文件，环境变量只作兜底。
+    """
+    runtime = os.environ.get("ZF_RUNTIME_DIR") or os.path.join(
+        os.path.dirname(_BASE_DIR), "zebrafish_runtime")
+    for name in ("tunnel_url.txt", "public_url.txt"):
+        try:
+            with open(os.path.join(runtime, name), "r", encoding="utf-8") as fh:
+                url = (fh.readline() or "").strip()
+        except Exception:
+            continue
+        if url.startswith("http"):
+            return url.rstrip("/")
+    return os.getenv("HUB_PUBLIC_URL", "").strip().rstrip("/")
+
+
 def _get_system_status() -> dict:
     from llm_loader import get_model_status
     from config import KNOWLEDGE_PATH, FAISS_INDEX_DIR, ANSWER_MODE
@@ -629,7 +650,7 @@ def _get_system_status() -> dict:
         "api_model": model.get("api_model"),
         "reasoning_remote": model.get("reasoning_remote", False),
         "answer_mode": ANSWER_MODE,
-        "public_url": os.getenv("HUB_PUBLIC_URL", "").strip(),
+        "public_url": _resolve_public_url(),
         "auth_open": os.getenv("WEB_AUTH_REQUIRED", "0").strip().lower()
         in ("0", "false", "off", "no"),
         **_blast_health_fields(),
