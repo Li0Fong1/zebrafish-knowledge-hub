@@ -137,7 +137,7 @@ class AgentScheduler:
         try:
             self._reasoning_llm = get_reasoning_llm()
             self.is_heavy_degraded = False
-            logger.info(f"   深度推理：云端 API（{os.getenv('LLM_API_MODEL', 'deepseek-chat')}）")
+            logger.info(f"   深度推理：云端 API（{os.getenv('LLM_API_MODEL', 'deepseek-flash')}）")
         except Exception as e:
             logger.warning(f"[警告] 云端 API 初始化失败，回退本地轻量模型：{e}")
             self._heavy_llm = self.light_llm
@@ -182,6 +182,7 @@ class AgentScheduler:
             is_id_mapping_question, is_gene_comparison_question,
             is_reference_genome_question, is_gene_version_question,
             is_biology_mechanism_question, is_citation_display_question,
+            is_factual_template_question,
             finalize_academic_structured_answer,
         )
         from gene_id_mapper import reference_genome_info, resolve_gene_identifier
@@ -341,6 +342,12 @@ class AgentScheduler:
         resolved = resolve_gene_identifier(detail["basic"]["gene_name"])
         detail["id_mapping"] = resolved
         result["gene_detail"] = detail
+        # 坐标/位置/提取类查询：有确定性数据库答案（locus），直接返回模板，秒回。
+        # 之前一律走 answer_with_reasoning 调远程 DeepSeek，一次几十秒到上百秒，
+        # 且大模型还可能把坐标数字抄错。这里短路，只对需要叙述性回答的问题才润色。
+        if is_factual_template_question(question):
+            result["answer"] = answer_from_gene_detail(question, detail, reference=ref)
+            return result
         # 深度回答：有 DeepSeek 时，把结构化基因数据 + 模板骨架喂给大模型，
         # 生成流畅、完整、直击问题的叙述（而非机械列表），并对缺失数据如实说明
         if uses_remote_reasoning():
@@ -389,18 +396,30 @@ class AgentScheduler:
 
     def _enrichment_answer(self, question: str) -> dict:
         from common_utils import empty_result
-        from enrichment_toolkit import go_enrichment, kegg_enrichment, format_enrichment_answer
+        from enrichment_toolkit import (
+            go_lookup, kegg_lookup, format_enrichment_answer, format_annotation_answer,
+        )
         from gene_toolkit import extract_genes_from_question
 
         result = empty_result()
         genes = extract_genes_from_question(question, limit=12)
         want_kegg = any(k in question.lower() for k in ["kegg", "通路", "pathway"])
-        go_res = go_enrichment(genes if genes else None)
-        kegg_res = kegg_enrichment(genes) if genes and want_kegg else None
+        # 2026-11-07：与工具页统一口径 —— 单个基因给注释，多个基因给富集
+        go_res = go_lookup(genes if genes else None)
+        kegg_res = kegg_lookup(genes) if genes and want_kegg else None
         if not want_kegg and genes:
-            kegg_res = kegg_enrichment(genes)
+            kegg_res = kegg_lookup(genes)
         result["enrichment"] = {"go": go_res, "kegg": kegg_res}
-        result["answer"] = format_enrichment_answer(go_res, kegg_res)
+
+        ann_blocks = [
+            format_annotation_answer(r)
+            for r in (go_res, kegg_res)
+            if isinstance(r, dict) and r.get("success") and r.get("mode") == "annotation"
+        ]
+        if ann_blocks:
+            result["answer"] = "\n\n".join(ann_blocks)
+        else:
+            result["answer"] = format_enrichment_answer(go_res, kegg_res)
         if result["answer"].startswith("[结果]") and not genes:
             result["answer"] = (
                 "[提示] 功能富集分析已运行（全库 GO 背景）。"
@@ -643,6 +662,15 @@ def route_task(question: str) -> str:
         return TASK_TYPES["GENE_DETAIL"]
     if re.search(r"[a-zA-Z][a-zA-Z0-9]{1,12}", question) and any(
         k in question_lower for k in ["详情", "信息", "注释", "同源", "文献", "表达数据"]
+    ):
+        return TASK_TYPES["GENE_DETAIL"]
+
+    # 坐标/位置查询（如「提取 mstn 的坐标」「mstn 在哪个染色体」「tp53 的位置」）
+    # 之前不含「grcz/坐标换算」关键词时会被当成通用聊天，既不查库也不给坐标。
+    # 这里只要带基因符号且问坐标/位置/染色体定位，一律走基因详情（本地库秒回，含 GRCz12tu 坐标）。
+    if re.search(r"[a-zA-Z][a-zA-Z0-9]{1,12}", question) and any(
+        k in question_lower for k in
+        ("坐标", "位置", "在哪", "哪个染色体", "哪条染色体", "染色体上", "定位", "提取坐标", "提取位置")
     ):
         return TASK_TYPES["GENE_DETAIL"]
 

@@ -1,0 +1,43 @@
+{
+  "comment": "FigS2 基因ID对照表——各装配染色体登录号快照。列顺序=tp53(chr5),tbxta(chr19),shha(chr7),fgf8a(chr13),cyp19a1a(chr18),mstnb(chr9)。来源：NCBI Gene esummary(locationhist) + 各装配 NCBI assembly_report；NM_ 经 nuccore 核对。生成 2026-11-05。",
+  "genes": ["tp53", "tbxta", "shha", "fgf8a", "cyp19a1a", "mstnb"],
+  "groups": [
+    {
+      "title": "GRCz reference assemblies (RefSeq)",
+      "rows": [
+        {"label": "GRCz11\u00b7GCF_000002035.6", "vals": ["NC_007116.7", "NC_007130.7", "NC_007118.7", "NC_007124.7", "NC_007129.7", "NC_007120.7"]},
+        {"label": "GRCz12tu\u00b7GCF_049306965.2", "vals": ["NC_133180.1", "NC_133194.1", "NC_133182.1", "NC_133188.1", "NC_133193.1", "NC_133184.1"]},
+        {"label": "GRCz13ab\u00b7GCF_052040795.2", "vals": ["NC_141025.1", "NC_141039.2", "NC_141027.1", "NC_141033.1", "NC_141038.1", "NC_141029.1"]}
+      ]
+    },
+    {
+      "title": "Zv assemblies (Ensembl)",
+      "rows": [
+        {"label": "Zv9\u00b7GCF_000002035.4", "vals": ["NC_007116.5", "NC_007130.5", "NC_007118.5", "NC_007124.5", "NC_007129.5", "NC_007120.5"]},
+        {"label": "Zv8\u00b7GCF_000002035.2", "vals": ["NC_007116.4", "NC_007130.4", "NC_007118.4", "NC_007124.4", "NC_007129.4", "NC_007120.4"]},
+        {"label": "Zv7\u00b7GCF_000002035.1", "vals": ["NC_007116.3", "NC_007130.3", "NC_007118.3", "NC_007124.3", "NC_007129.3", "NC_007120.3"]}
+      ]
+    },
+    {
+      "title": "ASM strain assemblies (GenBank)",
+      "rows": [
+        {"label": "ASM1840007v1 (T5D)\u00b7GCA_018400075.1", "vals": ["CP068739.1", "CP068753.1", "CP068741.1", "CP068747.1", "CP068752.1", "CP068743.1"]},
+        {"label": "ASM3317019v3 (T\u00fcbingen)\u00b7GCA_033170195.3", "vals": ["CP137042.1", "CP137032.3", "CP137044.2", "CP137026.2", "CP137031.2", "CP137046.2"]},
+        {"label": "ASM2018471v1 (AB)\u00b7GCA_020184715.1", "vals": ["CM035059.1", "CM035073.1", "CM035061.1", "CM035067.1", "CM035072.1", "CM035063.1"]}
+      ]
+    },
+    {
+      "title": "fDan / fDre strain assemblies (GenBank)",
+      "rows": [
+        {"label": "fDanRer4.1\u00b7GCA_944039275.1", "vals": ["OX063294.1", "OX063308.1", "OX063296.1", "OX063302.1", "OX063307.1", "OX063298.1"]},
+        {"label": "fDreABH1.1 (AB)\u00b7GCA_903684865.1", "vals": ["LR812042.1", "LR812056.1", "LR812044.1", "LR812050.1", "LR812055.1", "LR812046.1"]},
+        {"label": "fDreTuH1.2 (Tu)\u00b7GCA_903684855.2", "vals": ["LR812067.1", "LR812081.1", "LR812069.1", "LR812075.1", "LR812080.1", "LR812071.1"]}
+      ]
+    }
+  ],
+  "nm_rows": {
+    "GRCz11\u00b7GCF_000002035.6": ["NM_131327", "NM_131162", "NM_131063", "NM_131281", "NM_131154", "NM_131019"],
+    "GRCz12tu\u00b7GCF_049306965.2": ["NM_131327", "NM_131162", "NM_131063", "NM_131281", "NM_131154", "NM_131019"],
+    "GRCz13ab\u00b7GCF_052040795.2": ["NM_131327", "NM_131162", "NM_131063", "NM_131281", "NM_131154", "NM_131019"]
+  }
+}

@@ -8,7 +8,7 @@
    口径：
      · 来源与目标都必须由用户选择；缺一 → need_source_build／need_target_build；
      · 已收录版本均可选自选；缺链 → chain_unavailable；
-     · GRCz13ab 尚无公开／本机 chain，亦无 MAF → chain_unavailable + maf_unavailable；
+     · GRCz13ab 2026-11-05 起可作来源与目标（复用 GRCz12ab 链 + GCA_052040795.2 报告）；
      · 跨断裂点（split）或对不上 → 不给近似坐标。
    后端 coord_liftover.lift_region 决定成败；前端只翻译 code。
    ========================================================================== */
@@ -64,12 +64,28 @@
       idColNcbi: 'NCBI Gene',
       idColUni: 'UniProt',
       idColChrom: '染色体',
+      idColTgtCoord: '目标坐标(chain)',
       stUnique: '唯一',
       stAmb: '多候选 {n}',
       stNone: '未匹配',
+      stNotInRelease: '该 release 未收录',
       copyOk: '已复制表格（制表符分隔，可直接粘进 Excel）',
       copyFail: '复制失败，请手动选中表格',
-      csvEmpty: '还没有结果可导出'
+      csvEmpty: '还没有结果可导出',
+      /* 2026-11-12：18 个装配全开。非 GRCz11/GRCz12tu 的版本没有独立基因
+         注释表，必须把「稳定标识符 + chain 坐标」的口径讲清楚，不能让用户
+         误以为手里拿的是该版本专属 ID。 */
+      idVersionNote: '所选装配没有独立基因注释表：符号 / Ensembl / ZFIN / NCBI / UniProt 是跨版本稳定标识；坐标由 UCSC chain 换算到该版本，未伪造「版本专属 ID」。',
+      idEnsReleaseNote: 'Ensembl 版本口径：ENSDARG 是跨 release 稳定标识，这里给出目标 release 基因集中该基因所用的 ID；本地收录 4 个历史基因集 + r116 当前集，不含官方 ID History（退役/合并/拆分），查不到即标为未收录，不伪造 ID。',
+      idCoordCaveat: '跨版本坐标是 UCSC chain 换算得到的对应基因组区间，不是该版本的官方基因注释坐标；与各数据库注释边界实测存在几十 bp ~ 几 kb 的差异，换算失败一律留空，不给近似坐标。',
+      coordLiftoverFailed: '链换算失败',
+      coordSplit: '跨链断裂点',
+      coordNotPrecomputed: '未预计算',
+      coordNoHub: '无源坐标',
+      coordNotResolved: '未解析',
+      idCoordStat: '目标版本坐标：{ok}/{n} 条经换算链得到',
+      idColSrcCoord: '来源坐标',
+      idColCoordStatus: '坐标状态'
     },
     en: {
       loading: 'Lifting over…',
@@ -81,7 +97,7 @@
       needTarget: 'Select a target assembly first (GRCz12tu by default)',
       chromPlaceholder: 'Chromosome',
       chromPickSource: 'Select source',
-      chromNeedSource: 'No source assembly selected yet. This list is the generic 1–25 + MT set; pick a source and it is replaced by the chromosomes that assembly actually has.',
+      chromNeedSource: 'No source assembly has been selected. The generic set of chromosomes 1–25 plus MT is shown; selecting an assembly replaces it with the chromosomes present in that assembly.',
       okTitle: 'Result',
       kSrc: 'Source region',
       kTgt: 'Target region',
@@ -90,9 +106,9 @@
       kChain: 'Chain',
       kTgtGene: 'Overlapping genes',
       kTgtSeq: 'Reference sequence',
-      geneMismatch: 'The two ends hit different genes: {s} → {t}. Check that these coordinates really come from {from} — the same numbers often land on different genes across strain assemblies.',
+      geneMismatch: 'The two ends hit different genes: {s} → {t}. Verify that these coordinates originate from {from} — identical coordinates frequently correspond to different genes across strain assemblies.',
       takeSeq: 'Retrieve sequence for this region',
-      backNote: 'Route: {from} → {to} (no approximate coordinates when a chain is missing)',
+      backNote: 'Route: {from} → {to} (approximate coordinates are never returned when a chain is unavailable)',
       codeMissing: 'The chain file for this lift-over is not available on the server',
       codeUnavailable: 'No UCSC chain route from {from} to {to}; no MAF fallback is available',
       codeUnsupported: 'This assembly is not supported for liftover',
@@ -101,28 +117,41 @@
       codeReverse: 'Cannot lift over to {to}: no routable path',
       noApprox: 'No approximate coordinates were returned.',
 
-      /* ── batch ID mapping ───────────────────────────────────────── */
+      /* ── batch ID convert ───────────────────────────────────────── */
       idNeed: 'Paste IDs first: one per line, or comma-separated',
       idTooMany: 'Up to 200 per run — using the first 200',
-      idRunning: 'Mapping… (up to 200, one lookup each)',
-      idFail: 'Mapping failed: {msg}',
+      idRunning: 'Converting… (up to 200, one lookup each)',
+      idFail: 'Conversion failed: {msg}',
       idSummary: '{n} inputs: {u} unique · {a} ambiguous · {m} not found',
       idColQuery: 'Input',
       idColStatus: 'Match',
       idColStd: 'Symbol',
       idColLocal: 'Local symbol',
-      idColIds: 'Cross-DB IDs',
+      idColIds: 'Cross-database identifiers',
       idColEns: 'Ensembl',
       idColZfin: 'ZFIN',
       idColNcbi: 'NCBI Gene',
       idColUni: 'UniProt',
       idColChrom: 'Chr',
+      idColTgtCoord: 'Target coords (chain)',
       stUnique: 'unique',
       stAmb: 'ambiguous ({n})',
       stNone: 'not found',
-      copyOk: 'Table copied (tab-separated — paste straight into Excel)',
+      stNotInRelease: 'not in release',
+      copyOk: 'Table copied in tab-separated format',
       copyFail: 'Copy failed — select the table manually',
-      csvEmpty: 'No results to export yet'
+      csvEmpty: 'No results to export yet',
+      idVersionNote: 'This assembly has no independent gene annotation table: symbol / Ensembl / ZFIN / NCBI / UniProt are version-stable identifiers; coordinates are lifted by UCSC chain. No assembly-specific IDs were invented.',
+      idEnsReleaseNote: 'Ensembl release scope: ENSDARG IDs are stable across releases; shown here is the ID used for this gene in the target release gene set. Four historical sets plus current r116 are available locally; official ID History (retired/merged/split) is not included, and missing entries are reported rather than invented.',
+      idCoordCaveat: 'Cross-build coordinates are genomic intervals lifted by UCSC chain, NOT official gene annotation coordinates for that assembly. Differences of tens of bp to a few kb versus database annotations were measured; failed conversions are left blank and never approximated.',
+      coordLiftoverFailed: 'chain failed',
+      coordSplit: 'chain breakpoint',
+      coordNotPrecomputed: 'not precomputed',
+      coordNoHub: 'no source coords',
+      coordNotResolved: 'unresolved',
+      idCoordStat: 'Target coordinates: {ok}/{n} resolved through the chain route',
+      idColSrcCoord: 'Source coordinates',
+      idColCoordStatus: 'Coordinate status'
     }
   };
 
@@ -320,8 +349,7 @@
     var tick = setInterval(function () {
       var s = Math.round((Date.now() - t0) / 1000);
       if (s < 3) return;
-      showResult('<p class="tool-hint">' + esc(fmt(T('loadingSec'), { s: s })) + '</p>' +
-        '<p class="tool-hint">' + esc(T('loadingTip')) + '</p>');
+      showResult('<p class="tool-hint">' + esc(fmt(T('loadingSec'), { s: s })) + '</p>');
     }, 1000);
     get(url).then(function (d) {
       clearInterval(tick);
@@ -345,7 +373,7 @@
   var directBySource = {};    // 单跳 present edge
   var CORE_BUILDS = {
     Zv3: 1, Zv4: 1, Zv5: 1, Zv6: 1, Zv7: 1, Zv8: 1, Zv9: 1,
-    GRCz10: 1, GRCz11: 1, GRCz12tu: 1, GRCz12ab: 1
+    GRCz10: 1, GRCz11: 1, GRCz12tu: 1, GRCz12ab: 1, GRCz13ab: 1
   };
   // API 失败时侧挂仍可按已知直连边过滤
   // 2026-10-31：NCBI 品系装配（contig N50 ≥ 1 Mb）。每条都只写到 GRCz11 或 GRCz12tu 的单跳链，
@@ -652,6 +680,20 @@
         loadChromosomes();
       });
     }
+    /* 2026-11-07：链方向从 hero 药丸改成面板内 #liftStrand 下拉。改链会让上一次
+       换算结果（含 strand 字段）失效，必须清掉，否则切语言重绘时会把 + 链的结果
+       重新画到 - 链的选择下面，看起来像"改了没生效"。 */
+    var strandSel = $('liftStrand');
+    if (strandSel) {
+      strandSel.addEventListener('change', function () {
+        lastCoord = null;
+        var box = $('toolResult');
+        if (window.ZFResult) window.ZFResult.clear('liftover');
+        else if (box) { box.innerHTML = ''; box.classList.add('hidden'); }
+        if (box) box.removeAttribute('data-lift-result');
+        hint('');
+      });
+    }
     // 默认 GRCz11 → GRCz12tu：注释坐标出自 Ensembl r116（GRCz11），而本平台展示与取序列
     // 统一用 GRCz12tu，所以进页就摆好这一对；用户仍可改任意版本。这里先按来源把目标下拉滤一遍。
     filterTargetBuilds();
@@ -726,6 +768,19 @@
   var lastRows = [];     // 最近一次结果，供切语言重画 / 导出 / 复制
   var lastInputs = 0;
   var lastCapped = false;
+  var lastBuilds = null; // {source,target,converted} —— 版本转换时用于表头/汇总
+
+  /* 版本选择：原版本 / 目标版本，2026-11-12 起与坐标换算一样是全部 18 个装配。
+     GRCz11 ⇄ GRCz12tu 走本地 ID 对照表；其余组合后端给稳定标识符 + chain 坐标。
+     两端都选同一版本时，仍等价于原来的同库互查（GRCz11/GRCz12tu 行为不变）。 */
+  function currentBuilds() {
+    var s = $('idMapSourceBuild');
+    var t = $('idMapTargetBuild');
+    return {
+      source: (s && s.value) || 'GRCz11',
+      target: (t && t.value) || 'GRCz11'
+    };
+  }
 
   function postJson(url, body) {
     return fetch(url, {
@@ -781,12 +836,36 @@
       ncbi: xrefOf(r, ['ncbi_gene', 'ncbi_gene_grcz12tu']),
       // 2026-10-31：UniProt 进跨库 ID（库内 gene_xref 已回填 21k 条 UniProt accession）
       uni: c.uniprot_id || xrefOf(r, ['uniprot']),
-      chrom: c.chromosome || ''
+      // 2026-11-06：跨版本时后端会给目标版本坐标（target_coords），
+      // 比只显示染色体号有用得多；同版本时仍显示染色体。
+      // 2026-11-12：18 版全开后后端另给来源坐标与坐标换算状态，供导出/清查。
+      chrom: r.target_coords || c.chromosome || '',
+      srcCoords: r.source_coords || '',
+      coordStatus: r.coord_status || '',
+      stableOnly: r.identity_basis === 'stable_ids_with_chain_coords'
     };
   }
 
   function cell(v) {
     return '<td>' + (v ? esc(v) : '<span class="id-map-empty">—</span>') + '</td>';
+  }
+
+  /* 2026-11-13 独立核验：约 28.6% 的跨版本坐标无法由 UCSC chain 换算。
+     空坐标不能只画一个「—」让人以为是没查到，要写明是链失败 / 断裂点 /
+     无源坐标；坐标本身也要说清是换算区间而非官方注释坐标。 */
+  var COORD_KEYS = {
+    liftover_failed: 'coordLiftoverFailed',
+    liftover_split: 'coordSplit',
+    not_precomputed: 'coordNotPrecomputed',
+    no_hub_coords: 'coordNoHub',
+    not_resolved: 'coordNotResolved'
+  };
+  function coordCell(r) {
+    if (r.chrom) return '<td>' + esc(r.chrom) + '</td>';
+    var code = r.coordStatus || '';
+    var txt = COORD_KEYS[code] ? T(COORD_KEYS[code]) : (code || '—');
+    return '<td><span class="id-map-empty" title="' + esc(code) + '">' +
+      esc(txt) + '</span></td>';
   }
 
   /* 瞬时提示（缺输入 / 正在跑 / 报错 / 复制成功）写在左栏按钮下面；
@@ -809,8 +888,19 @@
     // 五列：输入 / 匹配 / 符号 / 跨库 ID（三行叠放）/ 染色体。
     // 早先拆成 8 列（Ensembl、ZFIN、NCBI 各占一列），在 626px 的结果栏里必然横向溢出，
     // 三个 ID 挤成一列反而更好扫；导出 CSV 仍是分开的字段，不影响表格软件。
+    var crossBuild = !!(lastBuilds && (lastBuilds.identity_basis === 'stable_ids_with_chain_coords' ||
+                                       lastBuilds.identity_basis === 'ensembl_release_gene_set'));
     var head = ['idColQuery', 'idColStatus', 'idColStd', 'idColIds', 'idColChrom']
-      .map(function (k) { return '<th>' + esc(T(k)) + '</th>'; }).join('');
+      .map(function (k) {
+        // 跨版本时这一列是 chain 换算区间，不是官方染色体/注释坐标，表头要写明
+        var t = T((k === 'idColChrom' && crossBuild) ? 'idColTgtCoord' : k);
+        // 跨版本时在「标准名」列标出目标装配，避免把 GRCz12tu 符号当成 GRCz11 的看；
+        // Ensembl release 用友好标签（Ensembl r54），而不是 ens:54 这种内部值。
+        if (k === 'idColStd' && lastBuilds && lastBuilds.converted) {
+          t += ' · ' + (lastBuilds.target_label || lastBuilds.target);
+        }
+        return '<th>' + esc(t) + '</th>';
+      }).join('');
     var body = lastRows.map(function (r) {
       var st;
       if (r.status === 'ambiguous') {
@@ -818,6 +908,10 @@
           (r.candNames ? '<span class="id-map-cands">' + esc(r.candNames) + '</span>' : '');
       } else if (r.status === 'unique') {
         st = '<span class="id-map-badge is-ok">' + esc(T('stUnique')) + '</span>';
+      } else if (r.status === 'not_in_release') {
+        /* 基因存在，但目标 Ensembl release 基因集里没有它 —— 不是「查不到」，
+           更不能冒充成未命中。 */
+        st = '<span class="id-map-badge is-amb">' + esc(T('stNotInRelease')) + '</span>';
       } else {
         st = '<span class="id-map-badge is-none">' + esc(T('stNone')) + '</span>';
       }
@@ -825,8 +919,12 @@
       if (r.local && r.local !== r.std) {
         stdCell += '<span class="id-map-local">' + esc(r.local) + '</span>';
       }
+      // 目标是 Ensembl release 时，第一行标出具体 release，让「Ensembl 版本」
+      // 这个选择维度在结果里看得见，而不是仍旧笼统写 Ensembl。
+      var ensLabel = (lastBuilds && lastBuilds.target_ensembl_release)
+        ? 'Ensembl r' + lastBuilds.target_ensembl_release : 'Ensembl';
       var ids = [
-        ['Ensembl', r.ens],
+        [ensLabel, r.ens],
         ['ZFIN', r.zfin],
         ['NCBI', r.ncbi],
         ['UniProt', r.uni]
@@ -839,13 +937,34 @@
         '<td>' + st + '</td>' +
         '<td class="prov-mono">' + stdCell + '</td>' +
         '<td class="id-map-ids prov-mono">' + ids + '</td>' +
-        cell(r.chrom) +
+        coordCell(r) +
         '</tr>';
     }).join('');
     var summary = '<p class="tool-hint' + (lastCapped ? ' warn' : '') + '" id="idMapSummary">' +
       esc(fmt(T('idSummary'), { n: lastInputs, u: u, a: a, m: m }) +
+        (lastBuilds && lastBuilds.converted ? ' · ' +
+          (lastBuilds.source_label || lastBuilds.source) + ' → ' +
+          (lastBuilds.target_label || lastBuilds.target) : '') +
         (lastCapped ? ' · ' + T('idTooMany') : '')) + '</p>';
-    showResult('<div class="id-map-result">' + summary +
+    /* 18 版全开后的口径说明：只要有一端没有本地注释表，就讲清楚
+       「稳定 ID + chain 坐标」，并报出坐标换算命中数（不给近似坐标）。 */
+    var notesHtml = '';
+    if (lastBuilds && lastBuilds.identity_basis === 'stable_ids_with_chain_coords') {
+      notesHtml += '<p class="tool-hint" id="idMapVersionNote">' + esc(T('idVersionNote')) + '</p>';
+    }
+    if (lastBuilds && lastBuilds.identity_basis === 'ensembl_release_gene_set') {
+      notesHtml += '<p class="tool-hint" id="idMapEnsNote">' + esc(T('idEnsReleaseNote')) + '</p>';
+    }
+    if (lastBuilds && (lastBuilds.identity_basis === 'stable_ids_with_chain_coords' ||
+                       lastBuilds.identity_basis === 'ensembl_release_gene_set')) {
+      notesHtml += '<p class="tool-hint" id="idMapCoordCaveat">' + esc(T('idCoordCaveat')) + '</p>';
+    }
+    var cs = lastBuilds && lastBuilds.coord_summary;
+    if (cs && cs.total) {
+      notesHtml += '<p class="tool-hint" id="idMapCoordStat">' +
+        esc(fmt(T('idCoordStat'), { ok: cs.ok, n: cs.total })) + '</p>';
+    }
+    showResult('<div class="id-map-result">' + summary + notesHtml +
       '<div class="table-wrap" id="idMapWrap"><table class="gene-table id-map-table" id="idMapTable">' +
       '<thead><tr>' + head + '</tr></thead><tbody>' + body + '</tbody></table></div></div>', 'idmap');
     var has = lastRows.length > 0;
@@ -870,13 +989,19 @@
     hint(T('idRunning'));
     var btn = $('idMapRunBtn');
     if (btn) btn.disabled = true;
-    postJson(BATCH_API, { identifiers: ids }).then(function (res) {
+    var builds = currentBuilds();
+    postJson(BATCH_API, {
+      identifiers: ids,
+      source_build: builds.source,
+      target_build: builds.target
+    }).then(function (res) {
       var d = res.data || {};
       if (!res.ok || !d.results) {
         var msg = (d && (d.detail || d.message)) || ('HTTP ' + res.status);
         hint(fmt(T('idFail'), { msg: String(msg).slice(0, 200) }), true);
         return;
       }
+      lastBuilds = d.builds || null;
       lastRows = d.results.map(flatten);
       hint('');
       renderIdMap();
@@ -888,12 +1013,14 @@
   }
 
   function idMapMatrix() {
-    var head = ['idColQuery', 'idColStatus', 'idColStd', 'idColLocal', 'idColEns', 'idColZfin', 'idColNcbi', 'idColUni', 'idColChrom']
+    var head = ['idColQuery', 'idColStatus', 'idColStd', 'idColLocal', 'idColEns', 'idColZfin', 'idColNcbi', 'idColUni', 'idColChrom', 'idColSrcCoord', 'idColCoordStatus']
       .map(function (k) { return T(k); });
     var rows = lastRows.map(function (r) {
       var st = r.status === 'unique' ? T('stUnique')
-        : (r.status === 'ambiguous' ? fmt(T('stAmb'), { n: r.candCount }) + ' ' + r.candNames : T('stNone'));
-      return [r.query, st.trim(), r.std, r.local, r.ens, r.zfin, r.ncbi, r.uni, r.chrom];
+        : (r.status === 'ambiguous' ? fmt(T('stAmb'), { n: r.candCount }) + ' ' + r.candNames
+          : (r.status === 'not_in_release' ? T('stNotInRelease') : T('stNone')));
+      return [r.query, st.trim(), r.std, r.local, r.ens, r.zfin, r.ncbi, r.uni, r.chrom,
+        r.srcCoords || '', r.coordStatus || ''];
     });
     return [head].concat(rows);
   }
@@ -1004,6 +1131,7 @@
       lastRows = [];
       lastInputs = 0;
       lastCapped = false;
+      lastBuilds = null;
       var tr = $('toolResult');
       if (window.ZFResult) window.ZFResult.clear('liftover');
       else if (tr) { tr.innerHTML = ''; tr.classList.add('hidden'); }
@@ -1012,6 +1140,21 @@
       var c = $('idMapCount');
       if (c) c.textContent = '';
       ['idMapCsvBtn', 'idMapCopyBtn'].forEach(function (id) { var b = $(id); if (b) b.disabled = true; });
+    });
+    // 版本一改，旧结果立刻作废（否则会把 GRCz11 的结果当 GRCz12tu 的读）
+    ['idMapSourceBuild', 'idMapTargetBuild'].forEach(function (id) {
+      var sel = $(id);
+      if (!sel) return;
+      sel.addEventListener('change', function () {
+        if (!lastRows.length) return;
+        lastRows = [];
+        lastBuilds = null;
+        var host = $('toolResult');
+        if (window.ZFResult) window.ZFResult.clear('liftover');
+        else if (host) { host.innerHTML = ''; host.classList.add('hidden'); }
+        if (host) host.removeAttribute('data-lift-result');
+        hint('');
+      });
     });
     var ta = $('idMapInput');
     if (ta) {

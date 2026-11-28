@@ -42,21 +42,59 @@ def _client():
 
 # ---------------------------------------------------------------- 染色体长度
 
-_INFO = {"mtime": 0.0, "data": None}
+_INFO = {"mtime": 0.0, "data": None, "path": None}
+
+
+def _genome_info_candidates() -> list:
+    """genome_info.json 的候选位置（按优先级，去重保序）。
+
+    为什么要有候选：``_runtime_dir()`` 是 ``dirname(BLAST_DIR)``，而 ``BLAST_DIR``
+    来自环境变量 ``BLAST_DB_DIR``。线上 uvicorn 由 hub_supervise.sh 起，**没有**
+    注入该变量，于是退回 ``~/ZebrafishGeneQA/blast``——这个目录在服务器上并不存在，
+    genome_info.json 永远读不到，所有「按染色体登录号取序列」的功能（GRCz12tu
+    启动子 / 基因体）都会误报「本地没有该染色体的 RefSeq 登录号」。
+    这里按已知部署形态兜底查找，找到第一个存在的即可。
+    """
+    cands = [os.path.join(_runtime_dir(), "genome_info.json")]
+    bd = (os.getenv("BLAST_DB_DIR") or "").strip()
+    if bd:
+        cands.append(os.path.join(os.path.dirname(bd), "genome_info.json"))
+    rt = (os.getenv("ZEBRA_RUNTIME") or "").strip()
+    if rt:
+        cands.append(os.path.join(rt, "genome_info.json"))
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    cands.append(os.path.join(os.path.dirname(here), "zebrafish_runtime", "genome_info.json"))
+    cands.append(os.path.join(here, "data", "genome_info.json"))
+    cands.append(os.path.expanduser("~/zebrafish_runtime/genome_info.json"))
+    seen, out = set(), []
+    for p in cands:
+        p = os.path.abspath(p)
+        if p not in seen:
+            seen.add(p)
+            out.append(p)
+    return out
+
+
+def _genome_info_path() -> str:
+    for p in _genome_info_candidates():
+        if os.path.isfile(p):
+            return p
+    return _genome_info_candidates()[0]
 
 
 def genome_info() -> dict:
     """染色体长度/GC（读缓存文件；文件更新自动重载）。"""
-    path = os.path.join(_runtime_dir(), "genome_info.json")
+    path = _genome_info_path()
     if not os.path.isfile(path):
         return {"ready": False, "error": "缺少染色体长度缓存：%s（跑 build_chrom_lengths.py 生成）" % path,
                 "chromosomes": []}
     try:
         mtime = os.path.getmtime(path)
-        if _INFO["data"] is None or _INFO["mtime"] != mtime:
+        if _INFO["data"] is None or _INFO["mtime"] != mtime or _INFO.get("path") != path:
             with open(path, encoding="utf-8") as fh:
                 _INFO["data"] = json.load(fh)
             _INFO["mtime"] = mtime
+            _INFO["path"] = path
     except Exception as exc:  # noqa: BLE001
         logger.error("读取 genome_info.json 失败：%s", exc)
         return {"ready": False, "error": str(exc), "chromosomes": []}

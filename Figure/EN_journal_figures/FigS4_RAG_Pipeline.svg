@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="147.6pt" viewBox="0 0 518.4 147.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-05T12:25:21.732756</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 147.6 
+L 518.4 147.6 
+L 518.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="5.184" y="12.834783" transform="rotate(-0 5.184 12.834783)">A</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 6.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="29.0304" y="12.834783" transform="rotate(-0 29.0304 12.834783)">Offline: cleaning and indexing</text>
+   </g>
+   <g id="line2d_1">
+    <path d="M 7.776 21.391304 
+L 97.9776 21.391304 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="7.776" y="32.356213" transform="rotate(-0 7.776 32.356213)">Plain text</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="7.776" y="43.427933" transform="rotate(-0 7.776 43.427933)">32,532 papers</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="7.776" y="49.845268" transform="rotate(-0 7.776 49.845268)">paragraph order</text>
+   </g>
+   <g id="patch_2">
+    <path d="M 100.5696 30.803478 
+Q 103.1616 30.803478 105.138681 30.803478 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 103.778681 30.123478 
+L 105.138681 30.803478 
+L 103.778681 31.483478 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 107.8272 21.391304 
+L 198.0288 21.391304 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="107.8272" y="32.356154" transform="rotate(-0 107.8272 32.356154)">Position-gated cleaning</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="107.8272" y="43.427933" transform="rotate(-0 107.8272 43.427933)">headers and references</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="107.8272" y="49.845268" transform="rotate(-0 107.8272 49.845268)">acknowledgments</text>
+   </g>
+   <g id="patch_3">
+    <path d="M 200.6208 30.803478 
+Q 203.2128 30.803478 205.189881 30.803478 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 203.829881 30.123478 
+L 205.189881 30.803478 
+L 203.829881 31.483478 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 207.8784 21.391304 
+L 298.08 21.391304 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="207.8784" y="32.356154" transform="rotate(-0 207.8784 32.356154)">Section-aware chunking</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="207.8784" y="43.427933" transform="rotate(-0 207.8784 43.427933)">≤360 characters</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="207.8784" y="49.845324" transform="rotate(-0 207.8784 49.845324)">48-character overlap</text>
+   </g>
+   <g id="patch_4">
+    <path d="M 300.672 30.803478 
+Q 303.264 30.803478 305.241081 30.803478 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 303.881081 30.123478 
+L 305.241081 30.803478 
+L 303.881081 31.483478 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 307.9296 21.391304 
+L 398.1312 21.391304 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="307.9296" y="32.356154" transform="rotate(-0 307.9296 32.356154)">Embedding</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="307.9296" y="43.429519" transform="rotate(-0 307.9296 43.429519)">Qwen3-Embedding-4B</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="307.9296" y="49.845324" transform="rotate(-0 307.9296 49.845324)">2,048 dimensions</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 400.7232 30.803478 
+Q 403.3152 30.803478 405.292281 30.803478 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 403.932281 30.123478 
+L 405.292281 30.803478 
+L 403.932281 31.483478 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 407.9808 21.391304 
+L 498.1824 21.391304 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="407.9808" y="32.356213" transform="rotate(-0 407.9808 32.356213)">FAISS index</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="407.9808" y="43.427933" transform="rotate(-0 407.9808 43.427933)">170 shards</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="407.9808" y="49.845324" transform="rotate(-0 407.9808 49.845324)">7,651,942 chunks</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="5.184" y="89.843478" transform="rotate(-0 5.184 89.843478)">B</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 6.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="29.0304" y="89.843478" transform="rotate(-0 29.0304 89.843478)">Online: query to answer</text>
+   </g>
+   <g id="line2d_6">
+    <path d="M 7.776 98.4 
+L 97.9776 98.4 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="7.776" y="109.36485" transform="rotate(-0 7.776 109.36485)">Query</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="7.776" y="120.436572" transform="rotate(-0 7.776 120.436572)">natural language,</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="7.776" y="126.853963" transform="rotate(-0 7.776 126.853963)">bilingual zh / en</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 100.5696 107.812174 
+Q 103.1616 107.812174 105.138681 107.812174 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 103.778681 107.132174 
+L 105.138681 107.812174 
+L 103.778681 108.492174 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 107.8272 98.4 
+L 198.0288 98.4 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="107.8272" y="109.36485" transform="rotate(-0 107.8272 109.36485)">Query rewriting</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="107.8272" y="120.436629" transform="rotate(-0 107.8272 120.436629)">context-aware expansion</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="107.8272" y="126.85402" transform="rotate(-0 107.8272 126.85402)">of the user question</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 200.6208 107.812174 
+Q 203.2128 107.812174 205.189881 107.812174 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 203.829881 107.132174 
+L 205.189881 107.812174 
+L 203.829881 108.492174 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 207.8784 98.4 
+L 298.08 98.4 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="207.8784" y="109.364908" transform="rotate(-0 207.8784 109.364908)">Coarse retrieval</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="207.8784" y="120.436629" transform="rotate(-0 207.8784 120.436629)">500 candidate papers</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="207.8784" y="126.853963" transform="rotate(-0 207.8784 126.853963)">section-weighted L2</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 300.672 107.812174 
+Q 303.264 107.812174 305.241081 107.812174 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 303.881081 107.132174 
+L 305.241081 107.812174 
+L 303.881081 108.492174 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 307.9296 98.4 
+L 398.1312 98.4 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="307.9296" y="109.36485" transform="rotate(-0 307.9296 109.36485)">Cross-encoder reranking</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="307.9296" y="120.436572" transform="rotate(-0 307.9296 120.436572)">top 100 passages</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="307.9296" y="126.853963" transform="rotate(-0 307.9296 126.853963)">bge-reranker-base</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 400.7232 107.812174 
+Q 403.3152 107.812174 405.292281 107.812174 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+    <path d="M 403.932281 107.132174 
+L 405.292281 107.812174 
+L 403.932281 108.492174 
+z
+" clip-path="url(#p9ea4781674)" style="fill: #6a7688; stroke: #6a7688; stroke-width: 0.55; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 407.9808 98.4 
+L 498.1824 98.4 
+" clip-path="url(#p9ea4781674)" style="fill: none; stroke: #0d1520; stroke-width: 0.6"/>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial'; text-anchor: start; fill: #0d1520" x="407.9808" y="109.364908" transform="rotate(-0 407.9808 109.364908)">Answer</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="407.9808" y="120.436629" transform="rotate(-0 407.9808 120.436629)">48,000-character context</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #3a4757" x="407.9808" y="126.85402" transform="rotate(-0 407.9808 126.85402)">inline [n] citations</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9ea4781674">
+   <rect x="0" y="0" width="518.4" height="147.6"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -171,7 +171,33 @@ def check_figures() -> None:
     record("figures-s4s5", rc == 0, tail[0][:130])
 
 
-SECRET_PAT = re.compile(r"REDACTED_HOST|REDACTED_SSH_PASS", re.I)
+def _secret_terms() -> list[str]:
+    """从 .env 读取真实敏感值作为扫描词，源码里不落任何口令或主机名。
+
+    .env 不在仓库内（见 .gitignore），因此本函数在干净检出时返回空，
+    检查会跳过而不是误报；本地开发时才能做真实的凭据扫描。
+    """
+    keys = {"ZF_HOST", "ZF_USER", "ZF_PASS", "MYSQL_PASSWORD", "MYSQL_RO_PASSWORD",
+            "LLM_API_KEY", "WOS_API_KEY", "NCBI_API_KEY", "API_GATE_KEY"}
+    terms: list[str] = []
+    envp = ROOT / ".env"
+    if not envp.exists():
+        return terms
+    for line in envp.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        v = v.strip().strip('"').strip("'")
+        if k.strip() in keys and len(v) >= 6:
+            terms.append(v)
+    return terms
+
+
+_SECRET_TERMS = _secret_terms()
+# 没有任何敏感词时用永不匹配的模式，避免空正则命中所有文件
+SECRET_PAT = re.compile("|".join(re.escape(t) for t in _SECRET_TERMS), re.I) \
+    if _SECRET_TERMS else re.compile(r"(?!x)x")
 # 本文件自身含待搜索的模式串，必须自排除，否则永远误报
 SELF_PATH = Path(__file__).resolve()
 
@@ -187,6 +213,9 @@ def check_secrets() -> None:
             continue
         if SECRET_PAT.search(t):
             hits.append(str(p.relative_to(ROOT)))
+    if not _SECRET_TERMS:
+        record("secrets", True, "未找到 .env，无可比对凭据，跳过扫描")
+        return
     record("secrets", not hits, f"源码区命中 {len(hits)} 个文件"
            + ("：" + ", ".join(hits[:5]) if hits else "（无服务器主机名/密码）"))
 

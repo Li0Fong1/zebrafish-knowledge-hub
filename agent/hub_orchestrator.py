@@ -114,6 +114,11 @@ def is_corpus_stats_question(question: str) -> bool:
         pass
     if any(k in q for k in (
         "文献统计", "论文统计", "多少篇", "多少文献", "文献有多少", "文献数量",
+        # 2026-11-06：用户实测「现在你数据库有多少基因」以前落到大模型，答成
+        # 各物种基因数科普长文。这类"本平台规模"问句必须直接查库给准数。
+        "多少基因", "多少条基因", "几个基因", "基因数量", "基因总数", "收录多少",
+        "多少别名", "多少表型", "多少表达", "多少注释", "库里有多少", "数据库有多少",
+        "本库有多少", "有多少数据", "数据规模", "库有多大",
     )):
         return True
     return "统计" in q and any(k in q for k in ("文献", "论文", "数据库", "基因库", "全库", "收录"))
@@ -140,6 +145,15 @@ def _looks_like_followup(question: str) -> bool:
         return False
     # 只有指代才算追问。「再 / 还有 / 引用 / 几篇」会出现在全新问题里，不能单独触发。
     if any(m in q for m in _ANAPHORA):
+        return True
+    # 2026-11-09：英文代词同样是追问信号。此前只认中文指代，
+    # 「What about its expression in adult tissues?」被判成全新话题，代词又被当基因，
+    # 最终取到 sycp2（见 output/全链路十题实测_20261109.md F3）。
+    if re.search(
+        r"\b(its|it|they|them|their|theirs|he|she|his|her|hers|these|those)\b",
+        q,
+        re.I,
+    ):
         return True
     if len(q) <= 8 and not re.search(r"[A-Za-z]{2,}|ZDB-GENE|ENS[A-Z]|\d{5,}", q):
         if any(k in q for k in ("怎么", "哪些", "什么", "为何", "为什么", "讲讲", "介绍")):
@@ -172,16 +186,34 @@ def expand_question_with_history(
     strong_followup = _looks_like_followup(q)
 
     # 2) 只认上一句用户问里的基因。更早的 p53 不能跨过后来的新话题再粘回来。
-    cur_genes = [g for g in extract_genes_from_question(q, limit=6)]
-    last_user = next((m["content"] for m in reversed(hist) if m["role"] == "user"), "")
-    hist_genes: List[str] = []
-    seen = set()
     _noise = {
         "user", "assistant", "pmid", "http", "https", "danio", "rerio", "zebrafish",
         "gene", "genes", "stress", "mitochondrial", "expression", "tissue", "the",
         "and", "for", "with", "from", "this", "that", "in", "on", "of", "to", "is",
         "are", "was", "were", "related", "literature", "paper", "abstract",
+        # 2026-11-09：代词/疑问词不是基因符号。q10 实测 "its" 被当基因，
+        # 最终模糊匹配到 sycp2，答案与基因卡片不一致（见 output/全链路十题实测_20261109.md F3）。
+        "its", "it", "they", "them", "their", "theirs", "his", "her", "hers",
+        "he", "she", "these", "those", "what", "which", "who", "whom", "whose",
+        "how", "why", "when", "where", "does", "do", "did", "can", "could",
+        "should", "would", "about", "adult", "adults", "same", "other", "another",
+        # 工具名 / 通用生物学词：同样不是基因符号（与 chat_tool_dispatch._NOT_GENE 对齐）
+        "design", "primer", "primers", "pcr", "sequence", "sequences", "fasta",
+        "cdna", "mrna", "liftover", "blast", "kegg", "sgrna", "grna", "crispr",
+        "region", "chromosome", "chr", "assembly", "refseq", "ensembl", "ncbi",
+        "zfin", "bgee", "atlas", "tpm", "fpkm", "function", "functions", "role",
+        "roles", "mechanism", "pathway", "pathways", "expressed", "localization",
+        "disease", "mutant", "morpholino", "human", "mouse", "rat", "cell", "cells",
+        "protein", "dna", "rna", "data", "result", "results", "analysis", "method",
+        "methods", "study", "list", "find", "show", "give", "help", "convert",
+        "go", "terms", "term", "annotation", "annotations", "ontology", "explain",
+        "you", "your", "yours", "we", "our", "us", "me", "my", "i", "please",
+        "tell", "know", "want", "need", "like", "think", "mean", "means",
     }
+    cur_genes = [g for g in extract_genes_from_question(q, limit=6) if g.lower() not in _noise]
+    last_user = next((m["content"] for m in reversed(hist) if m["role"] == "user"), "")
+    hist_genes: List[str] = []
+    seen = set()
     for g in extract_genes_from_question(last_user, limit=4):
         gl = g.lower()
         if gl in seen or gl in _noise or len(gl) < 2:
@@ -207,13 +239,15 @@ def expand_question_with_history(
         related = True
     elif standalone:
         related = False
+    elif cur_genes and hist_genes and not same_gene:
+        # 当前问句自带**另一个**基因 → 新话题，独立回答。
+        # 必须排在 strong_followup 之前：否则「Is it true that tp53 …?」这种
+        # 带 it 的新基因问句会被错误挂到上一轮的 myl7 上。
+        related = False
     elif strong_followup:
         related = True
     elif same_gene:
         related = True
-    elif cur_genes and hist_genes and not same_gene:
-        # 当前提出全新基因的完整问句 → 新话题，独立回答
-        related = False
     else:
         # 默认：完整问句视为新话题，不强行关联
         related = False
@@ -388,17 +422,29 @@ def _plan_specialists(question: str, task_type: str, *, depth: str = "full") -> 
             pass
         return agents
 
-    agents = ["id_mapper", "gene_analyst", "literature"]
+    # 纯数据库/基因详情题（如「提取 mstn 在 GRCz12 里的坐标」「tp53 的功能」）
+    # 不该默认跑文献检索——那是最慢的一环（RAG + 向量分片）。默认只有基因分析，
+    # 仅在机制题 / 性状题 / 明确要文献时才补 literature。
+    if task_type in ("基因详情", "数据库查询"):
+        agents = ["id_mapper", "gene_analyst"]
+    else:
+        agents = ["id_mapper", "gene_analyst", "literature"]
     try:
         from gene_toolkit import extract_genes_from_question
         genes = extract_genes_from_question(question, limit=3)
     except Exception:
         genes = []
-    if genes or any(k in q for k in ("富集", "kegg", "go富集", "通路")):
+    # 富集只在明确要富集/通路时加。之前 `or genes` 会让任何带基因的问题都跑 GO/KEGG ORA，
+    # 对「提取 mstn 坐标」这类纯查询是多余的重计算。
+    if any(k in q for k in ("富集", "kegg", "go富集", "通路", "pathway", "enrichment")):
         agents.append("enrichment")
     if task_type in ("数据库查询",):
         agents.append("database")
+    # 性状/品系题必须走文献（AB/TU 会被误当成基因符号）；机制题也要文献。
+    # 这里在删掉 literature 之后，若确属性状/品系/机制，再补回来。
     if _looks_trait_or_strain(question) and "literature" not in agents:
+        agents.append("literature")
+    if mech and "literature" not in agents:
         agents.append("literature")
     seen = set()
     out: List[str] = []
@@ -522,6 +568,7 @@ def _run_literature(
     bib_block = ""
     gene_hits: list[dict] = []
     gene_pool = False
+    cold_main_index = False
     try:
         from ncbi_gene_bibliography import bibliography_for_question
 
@@ -535,15 +582,17 @@ def _run_literature(
 
     try:
         from rag.pubmed_yes_retriever import (
-            get_pubmed_yes_retriever,
+            ensure_pubmed_yes_retriever_async,
             peek_pubmed_yes_retriever,
-            pubmed_yes_loading,
         )
 
-        # 预热/首载进行中时不在对话锁内阻塞等 35 shard，回退 Hub 小库
+        # 首问绝不同步加载 170 个分片：线上实测冷载 139.8s，直接让 /api/chat
+        # 超时；且基因类问题随后走 gene_pubmed 候选、根本不做全库召回，白等。
+        # 未就绪时只触发「后台单飞预热」，本轮立即用 gene_pubmed / Hub 小库出答。
         yes = peek_pubmed_yes_retriever()
-        if yes is None and not pubmed_yes_loading():
-            yes = get_pubmed_yes_retriever()
+        cold_main_index = yes is None
+        if cold_main_index:
+            ensure_pubmed_yes_retriever_async()
         if gene_hits and yes is not None and yes.ready:
             # 候选已是 gene_pubmed。沿用精排后的 blend 顺序打包，不再做全库语义召回。
             ctx = yes.get_context(question, top_k=None, max_chars=budget, hits=gene_hits)
@@ -605,14 +654,18 @@ def _run_literature(
             excerpt = truncate_context(ctx, max_chars=budget)
             if excerpt and len(excerpt.strip()) > 40:
                 source = "pubmed_yes"
-        elif pubmed_yes_loading() or yes is None:
-            logger.info("[Hub] PubmedYes 仍在预热，本问回退 Hub 小库（不占用对话锁等 FAISS）")
+        elif cold_main_index:
+            logger.info("[Hub] 文献主索引未就绪，本问走 gene_pubmed 快答（后台预热不阻塞对话）")
     except Exception as e:
         pubmed_error = str(e)
         logger.warning(f"[Hub] PubmedYesRetriever 失败，不改用小库编答案: {e}")
 
-    # 主库失败时不回退 Hub 小库。那是另一套索引，会把离题文章写成正式回答。
-    if source not in {"pubmed_yes", "gene_pubmed_blend"} and not pubmed_error and not gene_pool:
+    # 主库「失败」时不回退 Hub 小库（另一套索引会把离题文章写成正式回答）；
+    # 但「尚未预热」不是失败：冷启动这一问允许补一段有上限的小库上下文，
+    # 让机制/综述类问题仍有正文依据，而不是只剩一串标题。
+    if (source not in {"pubmed_yes", "gene_pubmed_blend"}
+            and not pubmed_error
+            and (cold_main_index or not gene_pool)):
         try:
             from rag_builder import get_rag
 
@@ -627,6 +680,48 @@ def _run_literature(
         excerpt = (bib_block + "\n\n" + (excerpt or "")).strip()
         if source in {"none", ""}:
             source = "ncbi_gene_pubmed"
+
+    # 主题式文献题的外部证据通道（2026-11-08）
+    # 本地 FAISS 只覆盖"基因关联文献"，问「CRISPR 研究斑马鱼形态发生的文献」这类
+    # 主题题时 pmids=[]，模型手里一篇可引文献都没有：题面要 inline citations 时
+    # 只能空口作答，甚至直接拒答。这里在本地零召回时改走 PubMed 官方索引实时检索，
+    # 结果按证据池编号格式打包，正文可正常引用 [n]，文末照常成表。
+    if (source in {"none", "", "hub_faiss"} and not pubmed_error and not gene_pool):
+        try:
+            from rag.pubmed_live_refs import render_pack, search_topic_refs
+
+            items = search_topic_refs(question, limit=5)
+            pack = render_pack(items) if items else ""
+            # 只有拿到 ≥2 篇才替换：1 篇撑不起"文献综述"，不如保留本地上下文
+            if len(items) >= 2 and len(pack.strip()) > 40:
+                excerpt = pack
+                source = "pubmed_live"
+                pmids = [str(it.get("pmid")) for it in items if it.get("pmid")]
+                logger.info(
+                    f"[Hub] 本地文献零命中/小库降级，改用 PubMed 实时主题检索 {len(items)} 篇"
+                )
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[Hub] PubMed 实时主题检索失败（不影响回答）：{e}")
+
+    # 证据池「太薄」时的二次补救（2026-11-08）
+    # 实测「Which key publications address sex determination in zebrafish?」：
+    # 本地只召回 2 条，其中 1 条是与斑马鱼无关的「课稿类性报告统计」论文，
+    # 模型只能一边引用它一边声明「这条不相关」——评审看到的是凑数引用。
+    # 池子 ≤2 条时再问一次 PubMed 官方索引，拿到 ≥2 篇对口文献就整池替换。
+    elif (not pubmed_error and not gene_pool and pmids and len(pmids) <= 2
+          and source in {"pubmed_yes", "gene_pubmed_blend", ""}):
+        try:
+            from rag.pubmed_live_refs import render_pack, search_topic_refs
+
+            items = search_topic_refs(question, limit=5)
+            pack = render_pack(items) if items else ""
+            if len(items) >= 2 and len(pack.strip()) > 40:
+                excerpt = pack
+                source = "pubmed_live"
+                pmids = [str(it.get("pmid")) for it in items if it.get("pmid")]
+                logger.info(f"[Hub] 本地证据池仅 {len(pmids)} 条，改用 PubMed 实时主题检索补足")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[Hub] PubMed 实时主题检索（薄池补救）失败（不影响回答）：{e}")
 
     return {
         "chars": len(excerpt or ""),
@@ -643,12 +738,13 @@ def _run_literature(
 
 def _run_enrichment(question: str) -> dict:
     from gene_toolkit import extract_genes_from_question
-    from enrichment_toolkit import go_enrichment, kegg_enrichment
+    from enrichment_toolkit import go_lookup, kegg_lookup
 
     genes = extract_genes_from_question(_question_for_gene_extract(question), limit=8)
     if not genes:
         return {"skipped": True}
-    return {"genes": genes, "go": go_enrichment(genes), "kegg": kegg_enrichment(genes)}
+    # 2026-11-07：与工具页统一口径 —— 单个基因给注释，多个基因给富集
+    return {"genes": genes, "go": go_lookup(genes), "kegg": kegg_lookup(genes)}
 
 
 def _run_database(question: str) -> dict:
@@ -688,8 +784,9 @@ def _dispatch_specialist(agent_id: str, question: str, task_type: str) -> tuple:
             payload = _run_enrichment(question)
             if payload.get("skipped"):
                 return agent_id, _trace_step(agent_id, "skip", "无基因列表，跳过富集", ms=_ms(t0)), payload
-            ngo = len((payload.get("go") or {}).get("significant") or [])
-            summary = f"ORA 显著 GO 项 {ngo}"
+            ngo = len((payload.get("go") or {}).get("terms") or [])
+            summary = f"GO 条目 {ngo} 条（单基因注释）" if (payload.get("go") or {}).get("mode") == "annotation" \
+                else f"ORA 显著 GO 项 {(payload.get('go') or {}).get('significant_count', 0)}"
             return agent_id, _trace_step(agent_id, "ok", summary, ms=_ms(t0)), payload
         if agent_id == "database":
             payload = _run_database(question)
@@ -776,6 +873,22 @@ def _strip_trailing_reference_block(answer: str) -> str:
     if not re.search(r"(\[\d+\]|PMID|DOI|20\d\d)", tail, re.I):
         return text
     return text[: last.start()].rstrip()
+
+
+def _no_dangling_cites(answer: str) -> str:
+    """正文有 [n] 但全文没有任何「[n] 标题」行 → 引用无处可查，删掉标记。
+
+    实测 Q07/Q06/S5_K1：模型按证据池编号写了 [1–5]，但最终文末挂的是
+    NCBI Gene 的**无编号**文献列表（`shha references — 854 papers…` 加一行行
+    `- 题名 · 年份`），读者按 [1] 去下面找根本找不到。与其留一堆悬空编号，
+    不如把标记去掉，列表作为延伸阅读保留。
+    """
+    text = answer or ""
+    if not re.search(r"\[\d{1,3}(?:\s*[–-]\s*\d{1,3})?\]", text):
+        return text
+    if re.search(r"(?m)^\s*\[\d{1,3}\]\s+\S", text):
+        return text
+    return re.sub(r"[ \t]*\[\d{1,3}(?:\s*[–-]\s*\d{1,3})?\]", "", text)
 
 
 def run_general_assistant(
@@ -1148,7 +1261,7 @@ def run_id_map_only(question: str, *, depth: str = "full") -> dict:
         )
     )
 
-    answer = format_id_mapping_block(idm)
+    answer = format_id_mapping_block(idm, question=question)
     gene_detail = None
     specialists = ["id_mapper"]
     # 整体回答：附带基因卡片（仍不跑文献）
@@ -1217,14 +1330,15 @@ def run_retrieval_debug_only(question: str, *, depth: str = "full") -> dict:
     t0 = time.time()
     try:
         from rag.pubmed_yes_retriever import (
-            get_pubmed_yes_retriever,
+            ensure_pubmed_yes_retriever_async,
             peek_pubmed_yes_retriever,
-            pubmed_yes_loading,
         )
 
+        # 检索调试也不该让一个页面请求等 140s 的分片冷载：未就绪就直接提示并
+        # 触发后台预热，等下一轮再调试。
         yes = peek_pubmed_yes_retriever()
-        if yes is None and not pubmed_yes_loading():
-            yes = get_pubmed_yes_retriever()
+        if yes is None:
+            ensure_pubmed_yes_retriever_async()
         if yes is None or not yes.ready:
             msg = "PubmedYes FAISS 未就绪（预热中或尚未加载），请稍候再试检索调试。"
             result["answer"] = msg + _scope_footer("retrieval_debug", depth)
@@ -1520,8 +1634,14 @@ def run_hub_orchestration(
     result["answer"] = (result.get("answer") or "").rstrip()
     try:
         from ncbi_gene_bibliography import bibliography_for_question
+        from gene_formatter import is_factual_template_question
 
-        bib_block = bibliography_for_question(question).get("answer_block") or ""
+        # 坐标/位置/参考基因组等纯数据库查询不需要 NCBI 文献列表 —— 之前这里无条件
+        # 抓 NCBI elink/esummary（外网，未命中缓存时单次可达 25s），是这类问题慢的最终根源。
+        if is_factual_template_question(question):
+            bib_block = ""
+        else:
+            bib_block = bibliography_for_question(question).get("answer_block") or ""
         _ans = result.get("answer") or ""
         # 去重标记跟着 ncbi_gene_bibliography 的输出格式走：URL 片段最稳，
         # 末尾那句「在 NCBI Gene 页查看全部 / All papers on the NCBI Gene page」做兜底。
@@ -1534,6 +1654,7 @@ def run_hub_orchestration(
             result["answer"] += "\n\n" + bib_block
     except Exception as e:  # noqa: BLE001
         logger.warning(f"[Hub] NCBI Gene bibliography 附加失败：{e}")
+    result["answer"] = _no_dangling_cites(result.get("answer") or "")
     result["answer"] += _scope_footer("hub", depth)
     result["agent_trace"] = trace
     result["hub_mode"] = True
@@ -1627,6 +1748,19 @@ def run_scoped_chat(
 
     scope = normalize_answer_scope(answer_scope)
     depth = normalize_answer_depth(answer_depth)
+
+    # Chat 直连工具栏（第一道）：必须放在所有元问题/产品用法短路之前，否则
+    # 「ENSDARG… 对应哪个基因、别名是什么」这类带 ID 的查询会被产品说明抢走。
+    # 只有意图明确时才命中，其余问题原样放行给下面的链路。
+    try:
+        from chat_tool_dispatch import answer_with_tool
+
+        _tool_result = answer_with_tool(question, depth=depth, history=history)
+        if _tool_result is not None:
+            logger.info("[Hub] Chat 直连工具栏：%s", _tool_result.get("chat_tool"))
+            return _tool_result
+    except Exception as e:  # noqa: BLE001
+        logger.warning("[Hub] Chat 工具调度异常，回退原链路：%s", e)
 
     if is_citation_display_question(question):
         logger.info("[Hub] 引用展示元问题短路，不跑检索")
@@ -1846,6 +1980,22 @@ def run_scoped_chat(
             result["followup_expanded"] = True
             result["effective_question"] = effective
         return result
+
+    # Chat 直连工具栏：用户点名要某个工具的结果时，直接调用与网页工具栏相同的底层
+    # 工具并把真实数据写进正文。此类问题是确定性查库/计算，不跑文献检索也不调大模型，
+    # 既能秒回，也避免模型把数字抄错。意图不明确时返回 None，原链路完全不受影响。
+    try:
+        from chat_tool_dispatch import answer_with_tool
+
+        tool_result = answer_with_tool(effective, depth=depth, history=history)
+        if tool_result is not None:
+            logger.info("[Hub] Chat 直连工具栏：%s", tool_result.get("chat_tool"))
+            if expanded:
+                tool_result["followup_expanded"] = True
+                tool_result["effective_question"] = effective
+            return tool_result
+    except Exception as e:  # noqa: BLE001
+        logger.warning("[Hub] Chat 工具调度异常，回退原链路：%s", e)
 
     # 意图分层：C/D 不进 RAG；E 安全拒答；A 走原 Hub
     intent = classify_question_intent(effective, history=history)

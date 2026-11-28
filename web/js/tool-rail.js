@@ -18,9 +18,9 @@
     { route: 'phenotype', zh: '基因–表型', en: 'Phenotype', href: '#/phenotype' },
     { route: 'blast', zh: 'BLAST 比对', en: 'BLAST', href: '#/blast' },
     { route: 'sequence', zh: '序列提取', en: 'Sequence', href: '#/sequence' },
-    { route: 'id', zh: '跨库 ID 映射', en: 'ID mapping', href: '#/id' },
-    { route: 'enrich', zh: 'GO / KEGG 富集', en: 'Enrichment', href: '#/enrich' },
-    { route: 'kegg', zh: '通路浏览器', en: 'Pathways', href: '#/kegg' },
+    { route: 'id', zh: '跨库 ID 转换', en: 'Batch ID convert', href: '#/id' },
+    { route: 'enrich', zh: 'GO', en: 'GO', href: '#/enrich' },
+    { route: 'kegg', zh: '通路富集', en: 'Pathway enrichment', href: '#/kegg' },
     { route: 'crispr', zh: 'sgRNA / 引物', en: 'sgRNA / primers', href: '#/crispr' },
     { route: 'annotate', zh: '一键注释', en: 'Annotate', href: '#/annotate' },
     { route: 'literature', zh: '文献检索台', en: 'Literature', href: '#/literature' },
@@ -72,7 +72,7 @@
     host.innerHTML = rows +
       '<span class="tool-rail-count">' + (zh
         ? ITEMS.length + ' 个工具 · 点击直达'
-        : ITEMS.length + ' tools · click to open') + '</span>';
+        : ITEMS.length + ' tools · select to open') + '</span>';
 
     // 顺带驱动「本页数据」卡：tool-rail 的 render 已验证在各种时序下都会跑，
     // 比 page-meta 自己监听事件更可靠（首次直接开 URL 时事件早于 defer 脚本）。

@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -218,3 +219,210 @@ def search_refs(term: str, limit: int = 3, required: tuple = ()) -> List[Dict[st
     cache[key] = {"ts": time.time(), "items": items}
     _save()
     return items
+
+
+# ---------------------------------------------------------------------------
+# 通用主题检索（2026-11-08 新增）
+#
+# 上面的 search_refs_for_question 只覆盖「组装/数据库/注释/测序」四类领域元数据，
+# 检索式写死且有题名锚点过滤。实测代价：问「CRISPR-based studies of zebrafish
+# morphogenesis」，本地 FAISS 返回 pmids=[]，主题表也匹配不上，于是模型手里
+# 一篇可引文献都没有 —— 题面却要求 Provide inline citations，只能靠内部知识空口作答
+# （同题另一次甚至直接拒答「本文献集合不含该主题」）。
+#
+# 这里补一条**不依赖主题表**的通道：把问句里的实词拼成 PubMed 检索式，
+# 加斑马鱼约束，按相关度取回真实条目。仍只返回题名/期刊/年份/PMID，不冒充本地库证据。
+# ---------------------------------------------------------------------------
+
+# 与 ref_relevance 的实体停用词保持独立：这里只关心"检索式别被虚词污染"
+_TOPIC_STOP = {
+    "the", "and", "for", "with", "from", "that", "this", "what", "which", "how", "why",
+    "when", "where", "does", "did", "are", "is", "was", "were", "has", "have", "had",
+    "can", "could", "would", "should", "about", "into", "than", "then", "them", "they",
+    "you", "your", "our", "its", "his", "her", "not", "also", "more", "most", "any",
+    "all", "list", "show", "give", "tell", "explain", "introduce", "find", "search",
+    "please", "zebrafish", "danio", "rerio", "fish", "there", "their", "these", "those",
+    "some", "such", "other", "many", "much", "between", "across", "during", "after",
+    "before", "using", "use", "used", "based", "study", "studies", "paper", "papers",
+    "literature", "report", "reports", "reported", "provide", "answer", "briefly",
+    "brief", "english", "citation", "citations", "inline", "please",
+    # 投稿/出版类词：会命中「Annual Report on Sex in Preclinical Studies … Publications」
+    # 这种与主题无关的统计报告（实测污染「sex determination 有哪些关键文献」）
+    "publication", "publications", "journal", "journals", "editorial", "commentary",
+    # 泛词：进了检索式只会把主题稀释成"随便什么文献"
+    "relationship", "related", "relate", "relates", "exists", "exist", "article",
+    "articles", "focus", "focused", "discuss", "discusses", "address", "addresses",
+    "key", "main", "common", "commonly", "determine", "determines", "determined",
+    "factor", "factors", "role", "roles", "function", "functions", "type", "types",
+    "level", "levels", "form", "forms", "model", "models", "approach", "approaches",
+    "method", "methods", "evidence", "current", "recent", "new", "novel", "specific",
+}
+
+
+def _topic_keywords(question: str, limit: int = 6) -> List[str]:
+    """问句 → 检索关键词（保序去重，去掉虚词与斑马鱼本身）。"""
+    q = (question or "").lower()
+    q = re.sub(r"\[[^\]]*\]|\([^)]*\)", " ", q)          # 去掉括号补注
+    q = re.sub(r"[^a-z0-9\-\s]", " ", q)                  # 标点转空格
+    out: List[str] = []
+    for tok in q.split():
+        tok = tok.strip("-")
+        # 连字符复合词（crispr-based / rna-seq）按部件分别入式：
+        # PubMed 里极少有 "crispr-based"[tiab] 这种写法，整体当检索词会 0 命中
+        parts = [x for x in tok.split("-") if x] or [tok]
+        for part in parts:
+            if len(part) < 3 or part in _TOPIC_STOP:
+                continue
+            if part.isdigit():
+                continue
+            if part not in out:
+                out.append(part)
+            if len(out) >= limit:
+                return out
+    return out
+
+
+def build_topic_query(question: str, max_terms: int = 5) -> str:
+    """通用检索式：斑马鱼约束 + 实词 OR 组（宽松版，strict 无结果时兜底）。"""
+    kws = _topic_keywords(question, limit=max_terms)
+    if not kws:
+        return ""
+    ors = " OR ".join('{}[tiab]'.format(k) for k in kws)
+    return '("Danio rerio"[tiab] OR zebrafish[tiab]) AND ({})'.format(ors)
+
+
+def build_topic_query_strict(question: str, max_terms: int = 2) -> str:
+    """精确版：实词 AND 组。
+
+    OR 版实测会把泛词（relationship / scales）放大成主题，召回一堆无关论文；
+    先 AND 求精确，命中不足再退回 OR。
+    """
+    kws = _topic_keywords(question, limit=max_terms)
+    if len(kws) < 2:
+        return ""
+    ands = " AND ".join('{}[tiab]'.format(k) for k in kws)
+    return '("Danio rerio"[tiab] OR zebrafish[tiab]) AND ({})'.format(ands)
+
+
+def build_topic_query_title(question: str, max_terms: int = 3) -> str:
+    """最严版：实词全部限定在**题名**里。
+
+    实测（2026-11-08）：问「CRISPR-based studies of zebrafish morphogenesis」，
+    用 [tiab] 的 AND 会把「摘要里提过 CRISPR」的普通形态发生论文排到前面，
+    题名根本看不出关联；改成题名约束后剩下的正是 CRISPR 方法/应用论文。
+    """
+    kws = _topic_keywords(question, limit=max_terms)
+    if len(kws) < 2:
+        return ""
+    ands = " AND ".join('{}[ti]'.format(k) for k in kws)
+    return '("Danio rerio"[tiab] OR zebrafish[tiab]) AND ({})'.format(ands)
+
+
+def search_topic_refs(question: str, limit: int = 6) -> List[Dict[str, str]]:
+    """通用主题检索：返回 [{pmid,title,journal,year}]；无关键词/失败返回 []。
+
+    三级降级，宁少勿滥：
+      1) 全部实词限定题名（最准，通常 0~3 篇）
+      2) 实词 AND（题名/摘要共现），题名至少命中 1 个
+      3) 实词 OR，题名至少命中 2 个
+    任何一级够 2 篇就停。
+    """
+    kws = _topic_keywords(question)
+    if not kws or limit <= 0:
+        return []
+    for term, min_hits in (
+        (build_topic_query_title(question), 2),
+        (build_topic_query_strict(question), 1),
+        (build_topic_query(question), 2 if len(kws) >= 2 else 1),
+    ):
+        if not term:
+            continue
+        items = _topic_search(term, kws, limit, min_hits=min_hits)
+        if len(items) >= min(2, limit):
+            return items
+    return []
+
+
+def _topic_search(term: str, kws: List[str], limit: int, min_hits: int = 1) -> List[Dict[str, str]]:
+    cache = _load()
+    # 前缀 v2：过滤/排序口径变了，旧缓存（含泛词召回）不能复用
+    key = "topic2#{}#{}#{}".format(term, limit, min_hits)
+    hit = cache.get(key)
+    if isinstance(hit, dict) and time.time() - float(hit.get("ts") or 0) < CACHE_TTL:
+        return list(hit.get("items") or [])
+    try:
+        q1 = urllib.parse.urlencode(
+            {"db": "pubmed", "term": term, "retmax": max(limit * 6, 24),
+             "sort": "relevance", "retmode": "json"}
+        )
+        sr = _get_json("{}/esearch.fcgi?{}".format(EUTILS, q1))
+        ids = [str(i) for i in ((sr.get("esearchresult") or {}).get("idlist") or [])
+               if str(i).isdigit()]
+        if not ids:
+            raise RuntimeError("esearch empty")
+        q2 = urllib.parse.urlencode({"db": "pubmed", "id": ",".join(ids), "retmode": "json"})
+        sm = _get_json("{}/esummary.fcgi?{}".format(EUTILS, q2))
+        res = sm.get("result") or {}
+        rows: List[tuple] = []
+        for pid in ids:
+            r = res.get(pid)
+            if not isinstance(r, dict):
+                continue
+            title = str(r.get("title") or "").strip().rstrip(".")
+            if not title:
+                continue
+            # 题名必须命中足够多的实词，否则就是"凑数"老路
+            low = title.lower()
+            overlap = sum(1 for k in kws if k in low)
+            if overlap < max(1, int(min_hits)):
+                continue
+            rows.append((overlap, len(rows), {
+                "pmid": pid,
+                "title": title,
+                "journal": str(r.get("fulljournalname") or r.get("source") or "").strip(),
+                "year": str(r.get("pubdate") or "")[:4].strip(),
+            }))
+        # 按「题名命中实词个数」从多到少排，同分保持 PubMed relevance 次序。
+        # 不排序的后果（实测 Q30 温度题）：PubMed 相关度把一篇《斑马鱼下丘脑发育》
+        # 排在第一位（它只命中 development 一个词），模型只能拿它当温度证据引用。
+        rows.sort(key=lambda t: (-t[0], t[1]))
+        if len(kws) >= 3 and rows and rows[0][0] >= 2:
+            rows = [r for r in rows if r[0] >= 2]
+        items = [r[2] for r in rows[:limit]]
+    except Exception:
+        return []
+    cache[key] = {"ts": time.time(), "items": items}
+    _save()
+    return items
+
+
+def render_pack(items: List[Dict[str, str]]) -> str:
+    """把在线检索结果渲染成证据池编号行，供 LLM 正文引用 [n] 与文末成表。
+
+    格式与 `rag/pubmed_yes_retriever.py::_paper_block` 对齐：
+        [1] 2024 | PMID:12345678 | pubmed_live
+        题名：Title
+        期刊：Journal · 年份：2024 · DOI: 无 · https://pubmed.ncbi.nlm.nih.gov/12345678/
+    """
+    lines: List[str] = []
+    for n, it in enumerate(items, start=1):
+        pmid = str(it.get("pmid") or "")
+        year = str(it.get("year") or "")
+        title = str(it.get("title") or "").strip()
+        journal = str(it.get("journal") or "").strip()
+        if not title or not pmid:
+            continue
+        lines.append("[{}] {} | PMID:{} | pubmed_live".format(n, year, pmid))
+        lines.append("题名：{}".format(title))
+        # 期刊/DOI 缺失时不要写「无」：下游脚注解析会把占位词当成刊名，
+        # 最终渲染成 "Title. 无 · https://pubmed…"（英文答案里出现中文，机制检查直接判错）
+        bits = []
+        if journal:
+            bits.append("期刊：{}".format(journal))
+        if year:
+            bits.append("年份：{}".format(year))
+        bits.append("PMID：{}".format(pmid))
+        bits.append("https://pubmed.ncbi.nlm.nih.gov/{}/".format(pmid))
+        lines.append(" · ".join(bits))
+        lines.append("")
+    return "\n".join(lines).strip()

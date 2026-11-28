@@ -22,14 +22,13 @@
       sgrnaHead: '{enzyme} · PAM {pam} · 共 {n} 个候选，按综合分排序',
       colRank: '#', colSpacer: 'guide（5′→3′）', colPam: 'PAM', colStrand: '链',
       colPos: '位置', colGc: 'GC%', colEff: '效率分', colSpec: '特异性', colFinal: '综合分',
-      colOff: '近同源', colT7: 'T7 模板',
+      colOff: '近同源',
       scopeGenome: '全基因组',
       scopeTx: '转录组',
       genomeReady: '脱靶范围：全基因组（已就绪，库 {n} MB）',
       genomeNotReady: '脱靶范围：全基因组（库未就绪）',
       loci: '位点',
       offPartial: '（全基因组模式只扫前 12 个候选，其余标未测）',
-      t7Title: 'T7 体外转录模板（复制用）',
       offNone: '无 ≤{m} 错配近同源命中',
       offHits: '{n} 处 ≤{m} 错配命中（前 {k} 条见下）',
       offtargetSkipped: '脱靶筛查未执行：{why}',
@@ -39,30 +38,29 @@
       colPair: '#', colFwd: '正向引物 (5′→3′)', colRev: '反向引物 (5′→3′)', colAmp: '产物',
       colTm: 'Tm（F/R）', colGcP: 'GC%（F/R）', colRisk: '风险', colScore: '规则分',
       riskHairpin: '发夹', riskDimer: '二聚体', riskNone: '—',
-      tailed: '带 T7 尾：{seq}',
       jumpHead: '一键跳转权威工具对标',
       jumpCopy: '复制序列并打开',
       copied: '序列已复制：可直接在目标站点粘贴',
       copyFail: '复制失败，请手动复制模板序列',
       primerNote: '产物长度 {lo}–{hi} bp 为软约束；如需定量 PCR 请按仪器要求收窄。',
       noPair: '未找到满足条件的引物对',
-      noCand: '未找到该 PAM 的候选'
+      noCand: '未找到该 PAM 的候选',
+      sugHint: '是不是想查：'
     },
     en: {
       running: 'Running the local engine (includes a BLAST specificity scan; a few seconds)…',
       fail: 'Failed: {msg}',
-      needInput: 'Enter a gene name or a sequence first',
+      needInput: 'Enter a gene symbol or a sequence first',
       sgrnaHead: '{enzyme} · PAM {pam} · {n} candidates ranked by combined score',
       colRank: '#', colSpacer: 'guide (5′→3′)', colPam: 'PAM', colStrand: 'Strand',
       colPos: 'Pos', colGc: 'GC%', colEff: 'On-target', colSpec: 'Specificity', colFinal: 'Combined',
-      colOff: 'Near-cognate', colT7: 'T7 template',
+      colOff: 'Near-cognate',
       scopeGenome: 'whole genome',
       scopeTx: 'transcriptome',
-      genomeReady: 'Off-target scope: whole genome (ready, {n} MB db)',
-      genomeNotReady: 'Off-target scope: whole genome (db not ready)',
+      genomeReady: 'Off-target scope: whole genome (ready, {n} MB database)',
+      genomeNotReady: 'Off-target scope: whole genome (database not ready)',
       loci: 'loci',
-      offPartial: '(genome mode scans the top 12 candidates only; the rest are marked n/a)',
-      t7Title: 'T7 in-vitro transcription template (click to copy)',
+      offPartial: '(genome mode evaluates the top 12 candidates only; the remainder are marked not applicable)',
       offNone: 'no near-cognate hits within {m} mismatches',
       offHits: '{n} hits within {m} mismatches (top {k} below)',
       offtargetSkipped: 'Off-target scan skipped: {why}',
@@ -72,14 +70,14 @@
       colPair: '#', colFwd: 'Forward (5′→3′)', colRev: 'Reverse (5′→3′)', colAmp: 'Product',
       colTm: 'Tm (F/R)', colGcP: 'GC% (F/R)', colRisk: 'Risk', colScore: 'Score',
       riskHairpin: 'hairpin', riskDimer: 'dimer', riskNone: '—',
-      tailed: 'T7-tailed: {seq}',
       jumpHead: 'Open the authoritative tools to cross-check',
       jumpCopy: 'Copy sequence & open',
-      copied: 'Sequence copied — paste it on the target site',
+      copied: 'Sequence copied to the clipboard',
       copyFail: 'Copy failed, please copy the template manually',
       primerNote: 'Product-size range {lo}–{hi} bp is a soft constraint.',
       noPair: 'No primer pair satisfied the constraints',
-      noCand: 'No candidate found for this PAM'
+      noCand: 'No candidate found for this PAM',
+      sugHint: 'Did you mean:'
     }
   };
 
@@ -106,6 +104,22 @@
     b.innerHTML = html;
     b.classList.remove('hidden');
   }
+  function sugHtml(list) {
+    var arr = (list || []).slice(0, 6);
+    if (!arr.length) return '';
+    return '<div class="sug-row"><span class="sug-lead">' + esc(T('sugHint')) + '</span>' +
+      arr.map(function (x) {
+        var g = typeof x === 'string' ? x : ((x && x.symbol) || '');
+        if (!g) return '';
+        return '<button type="button" class="sug-chip" data-gene="' + esc(g) + '">' + esc(g) + '</button>';
+      }).join('') + '</div>';
+  }
+
+  function renderFail(d, msg) {
+    show('<p class="tool-hint">' + esc(fmt(T('fail'), { msg: String(msg || 'error').slice(0, 240) })) +
+      '</p>' + sugHtml(d && d.suggestions));
+  }
+
   function scorePill(v) {
     if (v == null) return '<span class="pam-flag">—</span>';
     var cls = v >= 70 ? 'score-hi' : (v >= 50 ? 'score-mid' : 'score-lo');
@@ -141,9 +155,6 @@
         offTxt = '<span class="pam-flag">' + esc(fmt(T('offHits'), { n: off.near_mismatch_hits, m: 3, k: 2 })) +
           (genes ? '：' + genes : '') + (loci ? '<br><small class="pam-flag">' + esc(T('loci')) + ': ' + loci + '</small>' : '') + '</span>';
       }
-      var t7 = c.t7_template
-        ? '<button type="button" class="t7-copy" data-seq="' + esc(c.t7_template) + '" title="' + esc(T('t7Title')) + '">复制</button>'
-        : '<span class="pam-flag">—</span>';
       return '<tr>' +
         '<td>' + (i + 1) + '</td>' +
         '<td class="mono">' + esc(c.spacer) + '</td>' +
@@ -155,13 +166,12 @@
         '<td>' + scorePill(c.specificity_score == null ? null : c.specificity_score * 100) + '</td>' +
         '<td>' + scorePill(c.final_score) + '</td>' +
         '<td>' + offTxt + '</td>' +
-        '<td>' + t7 + '</td>' +
         '</tr>';
     }).join('');
 
     show(head +
       '<div class="table-wrap"><table class="sgrna-table"><thead><tr>' +
-      ['colRank', 'colSpacer', 'colPam', 'colStrand', 'colPos', 'colGc', 'colEff', 'colSpec', 'colFinal', 'colOff', 'colT7']
+      ['colRank', 'colSpacer', 'colPam', 'colStrand', 'colPos', 'colGc', 'colEff', 'colSpec', 'colFinal', 'colOff']
         .map(function (k) { return '<th>' + esc(T(k)) + '</th>'; }).join('') +
       '</tr></thead><tbody>' + rows + '</tbody></table></div>');
   }
@@ -177,7 +187,7 @@
       top_n: Number(($('crisprTopN') || {}).value || 20),
       max_mismatch: 3,
       off_target: true,
-      add_t7: true,
+      add_t7: false,
       offtarget_scope: ($('crisprScope') || {}).value || 'transcriptome'
     };
     fetch(SGRNA_URL, {
@@ -188,7 +198,7 @@
       .then(function (r) { return r.json().catch(function () { return null; }); })
       .then(function (d) {
         if (!d) throw new Error('HTTP');
-        if (d.success === false) throw new Error(d.error || 'error');
+        if (d.success === false) { renderFail(d, d.error); return; }
         renderSgrna(d);
       })
       .catch(function (e) {
@@ -214,12 +224,9 @@
       var oloci = (p.off_target_loci || []).slice(0, 3).map(function (l) {
         return '<span class="off-gene">' + esc(String(l.chrom || '')) + ':' + esc(l.start) + '-' + esc(l.end) + '</span>';
       }).join(' ');
-      var tail = p.forward_tailed
-        ? '<br><small class="pam-flag">' + esc(fmt(T('tailed'), { seq: p.forward_tailed.slice(0, 26) + '…' })) + '</small>'
-        : '';
       return '<tr>' +
         '<td>' + (i + 1) + '</td>' +
-        '<td class="mono">' + esc(p.forward) + '<br><small class="pam-flag">' + esc(p.forward_pos) + '</small>' + tail + '</td>' +
+        '<td class="mono">' + esc(p.forward) + '<br><small class="pam-flag">' + esc(p.forward_pos) + '</small></td>' +
         '<td class="mono">' + esc(p.reverse) + '<br><small class="pam-flag">' + esc(p.reverse_pos) + '</small></td>' +
         '<td>' + esc(p.product_size) + ' bp</td>' +
         '<td>' + esc(p.forward_tm) + ' / ' + esc(p.reverse_tm) + '<br><small class="pam-flag">Δ' + esc(p.tm_diff) + ' ℃</small></td>' +
@@ -231,7 +238,7 @@
     }).join('');
 
     show('<p class="tool-hint">' + esc(fmt(T('template'), { label: tpl.label || tpl.source || '', n: tpl.length || 0 })) +
-      '<br>' + esc(T('primerTitle')) + (d.note ? ' · ' + esc(d.note) : '') + '</p>' +
+      '<br>' + esc(T('primerTitle')) + '</p>' +
       '<div class="table-wrap"><table class="sgrna-table"><thead><tr>' +
       ['colPair', 'colFwd', 'colRev', 'colAmp', 'colTm', 'colGcP', 'colRisk', 'colScore']
         .map(function (k) { return '<th>' + esc(T(k)) + '</th>'; }).join('') +
@@ -248,9 +255,10 @@
       amplicon_min: Number(($('primerAmpliconMin') || {}).value || 80),
       amplicon_max: Number(($('primerAmpliconMax') || {}).value || 300),
       max_pairs: 8,
-      add_t7: true,
+      add_t7: false,
       off_target: true,
-      offtarget_scope: ($('primerScope') || {}).value || 'transcriptome'
+      /* 脱靶范围跟随输入区下拉（转录组 / 全基因组）；库未就绪时 applyCapabilities 会禁用该项 */
+      offtarget_scope: (($('primerScope') || {}).value || 'transcriptome')
     };
     fetch(PRIMER_URL, {
       method: 'POST', credentials: 'same-origin',
@@ -260,7 +268,7 @@
       .then(function (r) { return r.json().catch(function () { return null; }); })
       .then(function (d) {
         if (!d) throw new Error('HTTP');
-        if (d.success === false) throw new Error(d.error || 'error');
+        if (d.success === false) { renderFail(d, d.error); return; }
         renderPrimer(d);
       })
       .catch(function (e) {
@@ -339,13 +347,26 @@
     var p = $('primerRunBtn');
     if (p) p.addEventListener('click', runPrimer);
 
-    // T7 模板一键复制
+    // 结果区交互（T7 模板已下线，不再提供一键复制入口）
     var box = $('toolResult');
     if (box) {
       box.addEventListener('click', function (e) {
-        var b = e.target.closest ? e.target.closest('button.t7-copy') : null;
-        if (!b) return;
-        copySeqToThen(b.getAttribute('data-seq') || '', '');
+        var chip = e.target.closest ? e.target.closest('button.sug-chip') : null;
+        if (chip) {
+          var g = chip.getAttribute('data-gene') || '';
+          var pane = document.querySelector('.crispr-pane:not(.hidden)');
+          var key = pane ? pane.getAttribute('data-crispr-pane') : '';
+          if (key === 'primer') {
+            var pi = $('primerInput');
+            if (pi) pi.value = g;
+            runPrimer();
+          } else {
+            var ti = $('crisprTargetInput');
+            if (ti) ti.value = g;
+            runSgrna();
+          }
+          return;
+        }
       });
     }
 

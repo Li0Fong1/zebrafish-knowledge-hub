@@ -6,6 +6,8 @@
                                                   （返回按 matched_by 分级：同义 / 名字相关 / 仅提及）
      POST /api/genes/search/batch               → 多行批量，逐条按同一套分级判定
      GET /api/genes/region?assembly=&chrom=&start=&end= → 按位置查基因（只列基因，不取序列）
+     2026-11-05：独立的第四页已按用户要求整页下架，下面这段按位置查询的
+     实现与后端接口保留，但界面上没有任何入口；若日后指定并入某个现有页再接回。
      GET /api/gene/{name}                       → 基础信息 + 表达 + GO + KEGG + 文献
                                                   （含 aliases 别名块 / paralogs 复制体块）
      GET /api/genes/orthologs?name=             → 复制体与共直系同源（任务②，独立可查）
@@ -29,7 +31,7 @@
       sumSame: '{n} 个与输入同义', sumConflict: '{n} 条同名冲突待确认',
       sumLower: '{n} 个是名字含该串的其他基因', sumDesc: '{n} 个仅在描述或注释里提到',
       noneSame: '没有同义基因：下面列出的都不是同一个基因，只是名字里含该串或注释里提到它。',
-      aliasNoSame: '库里没有叫「{q}」的基因或别名。这个页面只回答「这个名字是哪个基因」。',
+      aliasNoSame: '库里没有叫「{q}」的基因或别名。',
       aliasIntro: '「{q}」指向 {n} 个基因；点行尾的「N 个名称」可展开该基因的全部叫法。',
       aliasKindSyn: '别名', aliasKindFormer: '旧名', aliasKindFull: '全称',
       aliasKindId: '跨库 ID', aliasKindOther: '其他', aliasKindSym: '符号',
@@ -49,7 +51,7 @@
       basic: '基础信息', aliases: '别名（含历史名）', ortho: '同源与复制体', expression: '表达（Top）',
       go: 'GO 注释', kegg: 'KEGG 通路', refs: '关联文献', openWorkbench: '看位置',
       moreNotes: '更多注释',
-      moreHint: '表达 / GO / KEGG / 文献各有专页；这里按需展开，不默认铺满整张卡。',
+      moreHint: '',
       aliasNone: '本地库暂无别名记录', aliasCount: '{n} 个别名 · 来源：{src}',
       dupYes: '存在复制体（硬骨鱼全基因组复制）', dupNo: '未见一对多复制关系',
       copies: '{n} 个共直系同源', scoreShort: '相似度 {s}', selfCopy: '当前基因',
@@ -68,10 +70,10 @@
       sumSame: '{n} match the query itself', sumConflict: '{n} name conflict(s) to review',
       sumLower: '{n} are other genes whose symbol contains it', sumDesc: '{n} only mention it in text',
       noneSame: 'No gene actually matches: everything below is a different gene that merely contains the string or mentions it.',
-      aliasNoSame: 'No gene or alias named “{q}” in the library. This page only answers “which gene is this name”.',
-      aliasIntro: '“{q}” points to {n} gene(s); click “N names” at the end of a row to see every name it goes by.',
+      aliasNoSame: 'No gene or alias named “{q}” in the library.',
+      aliasIntro: '“{q}” points to {n} gene(s); select “N names” at the end of a row to view all recorded names.',
       aliasKindSyn: 'Synonyms', aliasKindFormer: 'Former names', aliasKindFull: 'Full name',
-      aliasKindId: 'Cross-DB IDs', aliasKindOther: 'Other', aliasKindSym: 'Symbol',
+      aliasKindId: 'Cross-database identifiers', aliasKindOther: 'Other', aliasKindSym: 'Symbol',
       aliasToggle: '{n} names', aliasOf: 'all these names point to the same gene',
       aliasGotoLocus: 'See coordinates in “Gene locus”',
       regionNeed: 'Please provide a chromosome and start/end coordinates.',
@@ -84,13 +86,13 @@
       batchTrunc: 'More than 200 items — only the first 200 were processed.',
       batchFail: 'Batch search failed: {msg}',
       colSymbolName: 'Symbol / name', sameAsSymbol: 'same as symbol',
-      nameMerged: 'name equals symbol — merged into one column',
-      basic: 'Basic', aliases: 'Aliases (incl. historical)', ortho: 'Orthologs & duplicates', expression: 'Expression (top)',
+      nameMerged: 'Name is identical to the symbol; both are merged into one column',
+      basic: 'Basic', aliases: 'Aliases (including historical names)', ortho: 'Orthologs & duplicates', expression: 'Expression (top)',
       go: 'GO', kegg: 'KEGG pathways', refs: 'Linked papers', openWorkbench: 'Locus',
       moreNotes: 'More annotations',
-      moreHint: 'Expression, GO, KEGG and papers each have a dedicated page; expand only if needed.',
+      moreHint: '',
       aliasNone: 'No alias records in the local library', aliasCount: '{n} aliases · sources: {src}',
-      dupYes: 'Duplicates present (teleost whole-genome duplication)', dupNo: 'No one-to-many duplication found',
+      dupYes: 'Duplicate genes present (teleost whole-genome duplication)', dupNo: 'No one-to-many duplication found',
       copies: '{n} co-orthologs', scoreShort: 'identity {s}', selfCopy: 'this gene',
       orthoNote: 'Duplicates are derived from homology_gene (same species + same ortholog name); functional partitioning needs literature evidence.',
       geneId: 'Gene ID', ensembl: 'Ensembl', zfin: 'ZFIN', uniprot: 'UniProt',
@@ -272,20 +274,22 @@
         showResult('<p class="tool-hint">' + esc(fmt(T('aliasNoSame'), { q: data.query || '' })) + '</p>');
         return;
       }
-      showResult('<p class="tool-hint">' + esc(T('empty')) + ' · ' + esc(T('emptyHint')) + '</p>');
+      showResult('<p class="tool-hint">' + esc(T('empty')) + '</p>');
       return;
     }
     var head = '<div class="gene-list-head">' + esc(summaryHtml(data, browse)) + '</div>';
     showResult(head + groups.map(groupHtml).join(''));
   }
 
-  /* ---------------- 按位置查基因 ---------------- */
+  /* ---------------- 按位置查基因 ----------------
+     2026-11-05：独立页下架，此处不再绑定任何入口（面板已移除，$() 均为 null）。
+     保留实现是为了将来并入既有功能页时不用重写；当前界面不可达。 */
 
   function renderRegion(d) {
     lastPaint = function () { renderRegion(d); };
     var genes = (d && d.genes) || [];
     if (!genes.length) {
-      showResult('<p class="tool-hint">' + esc(T('regionEmpty')) + '</p>', 'genes-region');
+      showResult('<p class="tool-hint">' + esc(T('regionEmpty')) + '</p>', 'genes');
       return;
     }
     var head = fmt(T('regionHead'), {
@@ -302,7 +306,7 @@
     showResult('<div class="gene-list-head">' + esc(head) + '</div>' +
       '<div class="table-wrap"><table class="gene-table gene-table-compact"><thead><tr>' +
       '<th>' + esc(T('colSymbol')) + '</th><th>' + esc(T('colPos')) + '</th><th>NCBI Gene</th>' +
-      '</tr></thead><tbody>' + body + '</tbody></table></div>', 'genes-region');
+      '</tr></thead><tbody>' + body + '</tbody></table></div>', 'genes');
   }
 
   function runRegion() {
@@ -311,17 +315,17 @@
     var s = parseInt(val('geneRegionStart'), 10);
     var e = parseInt(val('geneRegionEnd'), 10);
     if (!chrom || !s || !e) {
-      showResult('<p class="tool-hint">' + esc(T('regionNeed')) + '</p>', 'genes-region');
+      showResult('<p class="tool-hint">' + esc(T('regionNeed')) + '</p>', 'genes');
       return;
     }
-    showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>', 'genes-region');
+    showResult('<span class="tool-loading">' + esc(T('searching')) + '</span>', 'genes');
     var url = '/api/genes/region?assembly=' + encodeURIComponent(asm) +
       '&chrom=' + encodeURIComponent(chrom) + '&start=' + s + '&end=' + e + '&limit=200';
     fetch(url, { credentials: 'same-origin' })
       .then(function (r) { return r.ok ? r.json() : r.json().then(function (x) { throw new Error((x && x.detail) || 'HTTP'); }); })
       .then(renderRegion)
       .catch(function (err) {
-        showResult('<p class="tool-hint">' + esc(fmt(T('regionFail'), { msg: String(err.message || err).slice(0, 90) })) + '</p>', 'genes-region');
+        showResult('<p class="tool-hint">' + esc(fmt(T('regionFail'), { msg: String(err.message || err).slice(0, 90) })) + '</p>', 'genes');
       });
   }
 
@@ -435,7 +439,7 @@
         esc(fmt(T('copies'), { n: g.n_copies })) + '</small></p>' +
         '<div class="ortho-copies">' + copies + '</div></div>';
     }).join('');
-    return badge + blocks + '<p class="tool-hint">' + esc(T('orthoNote')) + '</p>';
+    return badge + blocks;
   }
 
   /* 坐标行（2026-10-28）
@@ -520,8 +524,7 @@
     var moreHtml = moreBody
       ? '<details class="gene-card-more"><summary>' + esc(T('moreNotes')) +
         (counts.length ? ' <small>' + esc(counts.join(' · ')) + '</small>' : '') +
-        '</summary>' + moreBody +
-        '<p class="tool-hint">' + esc(T('moreHint')) + '</p></details>'
+        '</summary>' + moreBody + '</details>'
       : '';
 
     host.innerHTML =
@@ -576,8 +579,8 @@
     var bb = $('geneBatchBtn');
     if (bb) bb.addEventListener('click', runBatch);
 
-    /* 三个模式：按名称 / 按位置 / 批量。切换只动面板显隐，不清结果区，
-       这样用户可以在几个模式之间来回看同一批结果。 */
+    /* 两个模式：按名称 / 批量（「按位置」随独立页一并下架）。切换只动面板显隐，
+       不清结果区，这样用户可以在几个模式之间来回看同一批结果。 */
     Array.prototype.forEach.call(document.querySelectorAll('.gene-tab'), function (tab) {
       tab.addEventListener('click', function () {
         var mode = tab.getAttribute('data-gene-mode');

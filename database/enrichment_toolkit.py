@@ -39,7 +39,12 @@ def _load_go_annotations() -> List[dict]:
 
 
 def _resolve_gene_ids(gene_names: List[str]) -> Tuple[List[int], List[str], List[str]]:
-    """解析基因名 → gene_id，返回 (ids, resolved_names, not_found)。"""
+    """解析基因名 → gene_id，返回 (ids, resolved_names, not_found)。
+
+    2026-11-07：用户可能直接贴 ID 而不是符号（「一个 gene id 直接输出该基因的注释」），
+    所以除符号外还直配 gene_basic.ensembl_id / zfin_id，并容忍 Ensembl 的版本后缀
+    （ENSDARG00000035559.5 → ENSDARG00000035559）。
+    """
     from gene_toolkit import normalize_gene_name
     from config import NCBI_REFERENCE_ASSEMBLY
     from sqlalchemy import text
@@ -51,13 +56,24 @@ def _resolve_gene_ids(gene_names: List[str]) -> Tuple[List[int], List[str], List
     db = next(client.get_db())
     try:
         for raw in gene_names:
-            name = normalize_gene_name(raw.strip())
+            token = (raw or "").strip()
+            if not token:
+                continue
+            name = normalize_gene_name(token)
             if not name:
                 continue
             esc = name.replace("'", "''")
+            # ID 直配：原样 token，外加去掉 Ensembl 版本后缀的形态
+            id_forms = [token]
+            if "." in token:
+                id_forms.append(token.split(".")[0])
+            id_clause = " OR ".join(
+                "ensembl_id='%s' OR zfin_id='%s'" % (f.replace("'", "''"), f.replace("'", "''"))
+                for f in id_forms
+            )
             row = db.execute(text(
                 f"SELECT gene_id, gene_name FROM gene_basic "
-                f"WHERE gene_name='{esc}' OR gene_symbol='{esc}' LIMIT 1"
+                f"WHERE gene_name='{esc}' OR gene_symbol='{esc}' OR {id_clause} LIMIT 1"
             )).mappings().first()
             if not row:
                 asm = str(NCBI_REFERENCE_ASSEMBLY).replace("'", "''")
@@ -70,7 +86,7 @@ def _resolve_gene_ids(gene_names: List[str]) -> Tuple[List[int], List[str], List
                 ids.append(row["gene_id"])
                 resolved.append(row["gene_name"])
             else:
-                not_found.append(raw.strip())
+                not_found.append(token)
     finally:
         db.close()
     return ids, resolved, not_found
@@ -323,6 +339,108 @@ def go_enrichment(
         return {"success": False, "error": str(e), "terms": []}
 
 
+# ---------------------------------------------------------------------------
+# 单基因注释（2026-11-07）
+#   用户反馈 GO 页与 KEGG 页「逻辑不统一」：GO 收基因列表做富集，KEGG 收通路关键词。
+#   统一后的口径（GO 与 KEGG 完全一致）：
+#     · 输入 1 个基因  → 该基因的注释明细（这里），不做任何统计
+#     · 输入 ≥2 个基因 → ORA 富集（go_enrichment / kegg_enrichment）
+#   单基因做 Fisher 检验没有统计意义（前景 n=1，每个条目 GeneRatio 都是 1/n），
+#   所以宁可给注释清单，也不给一堆 p=1 的伪显著结果。
+# ---------------------------------------------------------------------------
+_ASPECT_ORDER = {"BP": 0, "CC": 1, "MF": 2}
+
+
+def _split_genes(gene_names) -> List[str]:
+    """统一清洗入参：接受 list 或逗号/分号/空白分隔的字符串。"""
+    if gene_names is None:
+        return []
+    if isinstance(gene_names, str):
+        raw = re.split(r"[,，;；\s]+", gene_names)
+    else:
+        raw = []
+        for g in gene_names:
+            raw.extend(re.split(r"[,，;；\s]+", str(g)))
+    return [g.strip() for g in raw if g and g.strip()]
+
+
+def _go_rows_for_genes(gene_names: List[str]) -> Tuple[List[dict], List[str], List[str]]:
+    """定向取若干基因的 GO 注释行，返回 (rows, resolved, not_found)。"""
+    ids, resolved, not_found = _resolve_gene_ids(gene_names)
+    if not ids:
+        return [], resolved, not_found
+    from sqlalchemy import text
+    id_list = ",".join(str(int(i)) for i in ids)  # int 强转，无注入面
+    client = _client()
+    db = next(client.get_db())
+    try:
+        rows = db.execute(text(
+            "SELECT g.gene_id, g.gene_name, go.go_term, go.go_category "
+            "FROM gene_go go JOIN gene_basic g ON go.gene_id = g.gene_id "
+            f"WHERE go.gene_id IN ({id_list})"
+        )).mappings().all()
+        return [dict(r) for r in rows], resolved, not_found
+    finally:
+        db.close()
+
+
+def go_annotation(gene_names) -> dict:
+    """单个基因的 GO 注释明细（不做富集统计）。"""
+    names = _split_genes(gene_names)
+    if not names:
+        return {"success": False, "mode": "annotation", "type": "GO",
+                "error": "请提供基因名", "terms": []}
+    try:
+        rows, resolved, not_found = _go_rows_for_genes(names)
+        if not resolved:
+            return {"success": False, "mode": "annotation", "type": "GO",
+                    "error": "未找到指定基因：%s" % "、".join(not_found or names),
+                    "terms": [], "not_found": not_found}
+
+        terms: List[dict] = []
+        seen: Set[str] = set()
+        for r in rows:
+            term = r.get("go_term") or ""
+            if not term or term in seen:
+                continue
+            seen.add(term)
+            go_id, go_name = _go_id_and_name(term)
+            code, label, full = _go_aspect(r.get("go_category") or "")
+            terms.append({
+                "go_id": go_id,
+                "go_term": term,
+                "term_name": go_name or term,
+                "aspect": code,
+                "aspect_label": label,
+                "aspect_full": full,
+                "url": _go_url(go_id),
+                "name_missing": (not go_name) and bool(go_id),
+            })
+        terms.sort(key=lambda t: (_ASPECT_ORDER.get(t["aspect"], 3), t["term_name"]))
+
+        counts: Dict[str, int] = {}
+        for t in terms:
+            counts[t["aspect_label"]] = counts.get(t["aspect_label"], 0) + 1
+        return {
+            "success": True,
+            "mode": "annotation",
+            "type": "GO",
+            "gene": "、".join(resolved),
+            "input_genes": resolved,
+            "not_found": not_found,
+            "total": len(terms),
+            "terms": terms,
+            "aspect_summary": [
+                {"label": k, "count": v}
+                for k, v in sorted(counts.items(), key=lambda kv: -kv[1])
+            ],
+        }
+    except Exception as e:  # noqa: BLE001
+        logger.error(f"[注释] GO 单基因注释失败: {e}")
+        return {"success": False, "mode": "annotation", "type": "GO",
+                "error": str(e), "terms": []}
+
+
 _KEGG_GLOBAL = {
     "dre01100", "dre01110", "dre01120",
     "dre01200", "dre01210", "dre01212", "dre01230", "dre01232", "dre01250",
@@ -486,6 +604,7 @@ def kegg_enrichment(
             "category": p.get("category", ""),
             "source": (p.get("source") or "").strip(),
             "gene_count": k,
+            "pathway_gene_count": len(pgenes),
             "gene_ratio": gene_ratio,
             "bg_ratio": bg_ratio,
             "fold_enrichment": fold,
@@ -544,6 +663,171 @@ def kegg_enrichment(
         "total_tested": len(raw),
         "source_summary": source_summary,
     }
+
+
+def kegg_annotation(gene_names) -> dict:
+    """单个基因的通路注释明细（不做富集统计）。"""
+    try:
+        return _kegg_annotation(gene_names)
+    except Exception as e:  # noqa: BLE001
+        logger.error(f"[注释] KEGG 单基因注释失败: {e}")
+        return {"success": False, "mode": "annotation", "type": "KEGG",
+                "error": str(e), "pathways": []}
+
+
+def _kegg_annotation(gene_names) -> dict:
+    names = _split_genes(gene_names)
+    if not names:
+        return {"success": False, "mode": "annotation", "type": "KEGG",
+                "error": "请提供基因名", "pathways": []}
+
+    pathways = _load_kegg_pathways()
+    if not pathways:
+        return {"success": False, "mode": "annotation", "type": "KEGG",
+                "error": "通路注释缺失", "pathways": []}
+
+    _, resolved, not_found = _resolve_gene_ids(names)
+    if not resolved:
+        return {"success": False, "mode": "annotation", "type": "KEGG",
+                "error": "未找到指定基因：%s" % "、".join(not_found or names),
+                "pathways": [], "not_found": not_found}
+
+    want = {g.lower() for g in resolved}
+    hits: List[dict] = []
+    for p in pathways:
+        pgenes = [g.lower() for g in p.get("genes", [])]
+        overlap = [g for g in want if g in pgenes]
+        if not overlap:
+            continue
+        code, label, full = _pathway_source_of(p.get("source", ""), p.get("id", ""))
+        hits.append({
+            "pathway_id": p.get("id"),
+            "pathway_name": p.get("name"),
+            "category": p.get("category", ""),
+            "source": (p.get("source") or "").strip(),
+            "source_code": code,
+            "source_label": label,
+            "source_full": full,
+            "url": _pathway_url(p.get("id", ""), code),
+            "pathway_gene_count": len(pgenes),
+            "matched_genes": sorted(overlap),
+        })
+    # 排序：KEGG 官方在前，其余按通路编号，便于对照原站
+    _src_rank = {"KEGG": 0, "WikiPathways": 1, "Reactome": 2}
+    hits.sort(key=lambda x: (_src_rank.get(x["source_code"], 3), str(x["pathway_id"])))
+
+    counts: Dict[str, int] = {}
+    for h in hits:
+        k = h.get("source_label") or "来源未标注"
+        counts[k] = counts.get(k, 0) + 1
+    return {
+        "success": True,
+        "mode": "annotation",
+        "type": "KEGG",
+        "gene": "、".join(resolved),
+        "input_genes": resolved,
+        "not_found": not_found,
+        "total": len(hits),
+        "pathways": hits,
+        "source_summary": [
+            {"label": k, "count": v}
+            for k, v in sorted(counts.items(), key=lambda kv: -kv[1])
+        ],
+    }
+
+
+def go_lookup(gene_names=None, **kwargs) -> dict:
+    """统一入口：1 个基因 → GO 注释；0 或 ≥2 个基因 → GO 富集。"""
+    names = _split_genes(gene_names)
+    if len(names) == 1:
+        return go_annotation(names)
+    res = go_enrichment(names or None, **kwargs)
+    res["mode"] = "enrichment"
+    return res
+
+
+def kegg_lookup(gene_names=None, **kwargs) -> dict:
+    """统一入口：1 个基因 → 通路注释；≥2 个基因 → 通路富集。"""
+    names = _split_genes(gene_names)
+    if len(names) == 1:
+        return kegg_annotation(names)
+    res = kegg_enrichment(names, **kwargs)
+    res["mode"] = "enrichment"
+    return res
+
+
+def format_annotation_answer(res: dict, lang: str = "zh") -> str:
+    """单基因注释的文本版（聊天用）。"""
+    if not res:
+        return ""
+    en = str(lang or "zh").lower().startswith("en")
+    if not res.get("success"):
+        msg = res.get("error") or ("annotation failed" if en else "注释查询失败")
+        return "[Annotation] %s" % msg if en else "【注释】%s" % msg
+
+    gene = res.get("gene") or "-"
+    is_go = (res.get("type") or "").upper() == "GO"
+    items = res.get("terms") if is_go else res.get("pathways")
+    items = items or []
+    lines: List[str] = []
+
+    if not items:
+        return (
+            "[Annotation] %s has no %s record in the local library." % (gene, "GO" if is_go else "pathway")
+            if en else
+            "【注释】%s 在本库没有%s注释记录。" % (gene, " GO " if is_go else "通路")
+        )
+
+    if en:
+        lines.append(
+            "[Annotation] %s — %d %s records (single-gene annotation, no enrichment statistics)."
+            % (gene, len(items), "GO" if is_go else "pathway")
+        )
+        # 英文分布直接从条目字段统计 —— res 里的 aspect_summary/source_summary
+        # 带的是中文标签（生物学过程 / Reactome 反应通路），混进英文回答会很怪。
+        buckets: Dict[str, int] = {}
+        for it in items:
+            k = (it.get("aspect_full") or it.get("aspect")) if is_go else (it.get("source_code") or it.get("source"))
+            k = k or "unannotated"
+            buckets[k] = buckets.get(k, 0) + 1
+        if buckets:
+            lines.append("[Breakdown] " + " | ".join("%s: %d" % (k, v) for k, v in buckets.items()))
+        for i, it in enumerate(items[:30], 1):
+            if is_go:
+                # 英文回答不能用 aspect_label（那是中文标签），退回方面缩写/全称
+                lines.append("%d. [%s] %s (%s)" % (
+                    i, it.get("aspect_full") or it.get("aspect") or it.get("aspect_label") or "-",
+                    it.get("term_name") or it.get("go_term") or "-", it.get("go_id") or "-"))
+            else:
+                lines.append("%d. [%s] %s %s" % (
+                    i, it.get("source_full") or it.get("source_code") or it.get("source_label") or "-",
+                    it.get("pathway_id") or "-", it.get("pathway_name") or "-"))
+        if len(items) > 30:
+            lines.append("... %d more (see the tool page for the full list)" % (len(items) - 30))
+    else:
+        lines.append(
+            "【注释】%s —— 共 %d 条%s注释（单基因注释，不做富集统计）。"
+            % (gene, len(items), " GO " if is_go else "通路")
+        )
+        summ = res.get("aspect_summary") if is_go else res.get("source_summary")
+        if summ:
+            lines.append("【分布】" + " · ".join("%s %d 项" % (s["label"], s["count"]) for s in summ))
+        for i, it in enumerate(items[:30], 1):
+            if is_go:
+                lines.append("%d. [%s] %s（%s）" % (
+                    i, it.get("aspect_label") or "-",
+                    it.get("term_name") or it.get("go_term") or "-", it.get("go_id") or "-"))
+            else:
+                lines.append("%d. [%s] %s %s" % (
+                    i, it.get("source_label") or "-",
+                    it.get("pathway_id") or "-", it.get("pathway_name") or "-"))
+        if len(items) > 30:
+            lines.append("…… 其余 %d 条见工具页" % (len(items) - 30))
+
+    nf = res.get("not_found") or []
+    if nf:
+        lines.append("(Not found: %s)" % ", ".join(nf) if en else "（未收录：%s）" % "、".join(nf))
+    return "\n".join(lines)
 
 
 def format_enrichment_answer(go_result: dict = None, kegg_result: dict = None) -> str:

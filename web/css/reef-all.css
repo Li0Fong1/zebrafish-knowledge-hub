@@ -1,0 +1,187 @@
+/* ==========================================================================
+   reef-all.css —— 全站统一水下实景背景（最后加载）
+   --------------------------------------------------------------------------
+   以前只有 News 页有浅蓝水下实景（.agent-home::before 挂在首页容器内），
+   Chat 和所有功能页都是纯白/浅灰，用户反馈"太单调"。这一层把同一张图铺到
+   整个视口：所有页面共用一张底图，卡片保持纸白但留一点通透感，保证正文可读。
+
+   为什么不直接改 html/body 的 background：
+     · 旧层在 html / body / body::before / body::after / .agent-home::before 上
+       叠了 5 套底色与 !important，改哪一层都会被别的层盖回去；
+     · 用独立 DOM 层 + z-index 0，语义干净，且深色模式可以单独压暗，
+       不会把白卡片一起染黑。
+   ========================================================================== */
+
+#globalReefBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #eaf4fb;
+  background-image:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, .38) 0%,
+      rgba(255, 255, 255, .50) 32%,
+      rgba(247, 251, 253, .76) 66%,
+      rgba(244, 249, 252, .90) 100%),
+    url("/static/assets/brand/zf-home-bg.jpeg?v=202610241051");
+  background-size: 100% 100%, cover;
+  background-position: center top, center top;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+}
+
+/* 深色模式：压暗水面，卡片仍是深色不透明，不受影响 */
+html body.dark #globalReefBackdrop {
+  background-image:
+    linear-gradient(180deg, rgba(9, 17, 24, .82) 0%, rgba(9, 17, 24, .92) 100%),
+    url("/static/assets/brand/zf-home-bg.jpeg?v=202610241051");
+}
+
+/* 主体壳层不能自己再刷一层白，否则底图被盖住 */
+html body.theme-atelier .app,
+html body.theme-atelier .shell,
+html body.theme-atelier .shell-main,
+html body.theme-atelier .app-view {
+  background: transparent !important;
+}
+
+/* News 首页原本自带一张固定底图；改成只留一层柔白雾，避免和全局底图重影 */
+html body.theme-atelier:not(.dark) .agent-home::before {
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, .12) 0%,
+    rgba(255, 255, 255, .22) 40%,
+    rgba(248, 251, 253, .52) 72%,
+    rgba(246, 248, 250, .72) 100%) !important;
+  opacity: 1 !important;
+}
+html body.theme-atelier.dark .agent-home::before {
+  background: linear-gradient(180deg, rgba(9, 17, 24, .10), rgba(9, 17, 24, .40)) !important;
+}
+
+/* 功能页旧的主题渐变让位给统一底图 */
+html body.theme-atelier:not(.dark) #view-feature {
+  background: transparent !important;
+}
+
+/* 主内容卡片：纸白但留一点通透，隐约透出水下的浅蓝，正文对比度不降 */
+html body.theme-atelier:not(.dark) .chat-panel,
+html body.theme-atelier:not(.dark) .history-panel,
+html body.theme-atelier:not(.dark) .detail-panel,
+html body.theme-atelier:not(.dark) .feature-card,
+html body.theme-atelier:not(.dark) .agent-card,
+html body.theme-atelier:not(.dark) .toolbox,
+html body.theme-atelier:not(.dark) .welcome-card,
+html body.theme-atelier:not(.dark) .auth-gate-card,
+html body.theme-atelier:not(.dark) .workflow-box {
+  background: rgba(255, 255, 255, .91) !important;
+  -webkit-backdrop-filter: blur(9px) saturate(1.04);
+  backdrop-filter: blur(9px) saturate(1.04);
+}
+
+/* 顶栏：改回实色纸白（2026-11-06 用户反馈「顶部一块灰」）。
+   半透明白叠在全站水下底图上 + 10px 模糊，透出的其实是底图的冷灰调，
+   整条顶栏看起来就是一块灰带。这里恢复成与内容卡片一致的实色，
+   不再做模糊；其余卡片仍保留轻微通透，不影响整体水感。 */
+html body.theme-atelier:not(.dark) .header.site-header {
+  background: var(--p-surface, #fff) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* 引用/溯源、工具结果等内嵌小块保持实白，叠在半透明卡片上才不糊 */
+html body.theme-atelier:not(.dark) .prov-panel,
+html body.theme-atelier:not(.dark) .auto-tool-pre,
+html body.theme-atelier:not(.dark) .msg.bot .bubble,
+html body.theme-atelier:not(.dark) .chat-composer {
+  background: #fff !important;
+}
+
+/* 切换日期时给列表一个短暂的读取态，用户能立刻看到"点了有反应" */
+html body.theme-atelier #homePapers.is-refreshing {
+  opacity: .45;
+  transition: opacity .15s ease;
+}
+html body.theme-atelier .agent-day-row #homeAgentDateNote {
+  color: #106a94;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.theme-atelier:not(.dark) .chat-panel,
+  html body.theme-atelier:not(.dark) .history-panel,
+  html body.theme-atelier:not(.dark) .detail-panel,
+  html body.theme-atelier:not(.dark) .feature-card,
+  html body.theme-atelier:not(.dark) .agent-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, .96) !important;
+  }
+}
+
+/* ==========================================================================
+   输入条：收窄 + 居中（2026-11-06 用户反馈「太靠边」）
+   --------------------------------------------------------------------------
+   现状溯源：.input-area 在 style.css 里是 max-width:840 / margin:0 auto 的居中卡，
+   但 simplify.css 用 `#view-chat .input-area { margin: 0 }` 把居中复位掉了，
+   premium.css 又补了 `width: 100% !important`；ui-2026.css 再把它改成
+   `width:auto + padding:0 + flex-wrap:wrap`。结果输入框几乎贴着面板两侧。
+
+   两次调整的教训：只改 form 的 padding，会让"输入框"和"绿色发送键"变成两个
+   独立参照物 —— 看着像输入框居中了、按钮还挂在右边。所以这次在 HTML 里把
+   两者包进 `.composer-row`，由这一行整体居中，宽度只作用在这一行上。
+   ========================================================================== */
+html body.theme-atelier #view-chat .input-area,
+html body.theme-atelier #view-chat #chatForm {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 12px 16px !important;
+  flex-wrap: nowrap !important;
+}
+
+html body.theme-atelier #view-chat .input-area .composer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+html body.theme-atelier #view-chat .input-area .composer-row textarea {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* 发送键固定在行尾，不再被 flex-wrap 挤到下一行 */
+html body.theme-atelier #view-chat .input-area .composer-row #sendBtn {
+  flex: 0 0 auto;
+  align-self: center !important;
+}
+
+/* ==========================================================================
+   2026-11-07 用户要求：「这类小字全部去掉，不准再出现」
+   --------------------------------------------------------------------------
+   指功能页里控件旁的解释性长句、字段括号说明、以及下拉选项里挂的
+   「· 12994 基因」「无 ID 对照表」「无序列数据」这类说明/统计尾巴。
+   这些节点已从 index.html / 各 JS 源头删除，下面这条是**兜底**：即使以后
+   有人把手写说明加回 HTML，也不会渲染出来。要写口径说明，请写进「使用说明」页。
+
+   注意：不要用 .tool-hint 做全局隐藏 —— 结果区的错误/空结果/加载反馈也用
+   这个 class，全隐藏会让用户点完按钮看不到任何失败原因。这里只列具体节点。
+   ========================================================================== */
+html body.theme-atelier #seqRegionBuildNote,
+html body.theme-atelier #idMapBuildNote,
+html body.theme-atelier #blastCount,
+html body.theme-atelier #liftChromNote,
+html body.theme-atelier #idMapCount,
+html body.theme-atelier #feedbackSub,
+html body.theme-atelier .lift-field-label,
+html body.theme-atelier .coord-chrom-note,
+html body.theme-atelier .blast-count,
+html body.theme-atelier .fp-sub,
+html body.theme-atelier .auto-tool-banner {
+  display: none !important;
+}

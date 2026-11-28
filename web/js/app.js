@@ -61,7 +61,7 @@ const DEPTH_KEY = "zfqa_answer_depth";
 const SCOPE_LABELS = {
   literature: "仅文献 RAG",
   gene_db: "仅基因/数据库",
-  id_map: "仅 ID 映射",
+  id_map: "仅 ID 转换",
   hub: "Hub 全链路",
   retrieval_debug: "检索调试摘要",
 };
@@ -175,6 +175,33 @@ function sessionId() {
   }
 }
 
+/* API 密码锁自动恢复：补一张通行证 cookie 再重试一次，正常访客不会看到
+ * 「需要密钥」报错。仅对「api_key_*」类 401 生效；访问令牌类 401 不走这里。
+ *
+ * 2026-11-12 改：原来这里重新 GET 首页，靠首页响应里的 Set-Cookie 下发通行证。
+ * 首页接入 CDN 缓存后，HIT 的响应会被边缘剥离 Set-Cookie —— 补票等于没补，
+ * 重试必然还是 401，用户会看到「接口通行证已过期，请刷新页面」且刷新无效。
+ * 现在改调专门的 /api/gate/pass：no-store、永远回源、只负责发票。
+ */
+let _zfGateRecovering = false;
+async function recoverApiPassAndRetry(doRequest) {
+  if (_zfGateRecovering) return null;
+  _zfGateRecovering = true;
+  try {
+    const res = await fetch("/api/gate/pass", {
+      method: "GET",
+      credentials: "same-origin",
+      cache: "no-store",
+    });
+    if (!res.ok) return null;
+    return await doRequest();
+  } catch {
+    return null;
+  } finally {
+    _zfGateRecovering = false;
+  }
+}
+
 async function apiFetch(url, options = {}) {
   const token = sessionStorage.getItem(ACCESS_TOKEN_KEY) || "";
   const opts = {
@@ -203,12 +230,39 @@ async function apiFetch(url, options = {}) {
     }
   }
 
-  const res = await fetch(url, opts);
+  // 超时保护（2026-11-12 加，同日二次修订）。
+  // 此前 apiFetch 直接 await fetch()，没有任何上限：隧道一卡，Promise 就永远
+  // pending，界面表现是「按钮点了没反应 / 一直转圈 / 不报错」。
+  //
+  // 第一版默认 45 s 太激进：本项目非流式 /api/chat 实测 48~76 s，BLAST /
+  // 富集 / 序列提取等重工具也可能超过 45 s，会被正常请求误杀，反而制造
+  // 「回答无响应」。默认放宽到 120 s；聊天类在调用点单独给 300 s；
+  // 需要完全不限时传 options.timeout = 0。
+  const timeoutMs = Number.isFinite(options.timeout) ? options.timeout : 120000;
+  const ctrl = new AbortController();
+  const timer = timeoutMs > 0 ? setTimeout(() => ctrl.abort(), timeoutMs) : null;
+  const finalOpts = { ...opts };
+  if (!finalOpts.signal) finalOpts.signal = ctrl.signal;
+
+  let res;
+  try {
+    res = await fetch(url, finalOpts);
+  } catch (err) {
+    const name = err && err.name;
+    if (name === "AbortError" || name === "TimeoutError") {
+      throw new Error("请求超时：国际链路此刻不稳定，请稍后重试");
+    }
+    throw new Error("网络连接失败：请检查网络后重试");
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
   if (res.status === 401) {
     // API 密码锁拒绝（无通行证 / 密钥不对）：不是用户令牌问题，不能弹「输令牌」框，
-    // 否则会把正常访客挡在门外。提示刷新即可，刷新后首页会重新下发通行证。
+    // 否则会把正常访客挡在门外。先自动补一张通行证并重试；仍失败才提示刷新。
     const data = await res.json().catch(() => ({}));
     if (data.code === "api_key_required" || data.code === "api_key_invalid") {
+      const retry = await recoverApiPassAndRetry(() => fetch(url, finalOpts));
+      if (retry && retry.status !== 401) return retry;
       throw new Error(data.detail || "接口通行证已过期，请刷新页面后重试");
     }
     showAuthGate("访问令牌无效或缺失，请输入管理员提供的令牌");
@@ -748,7 +802,7 @@ function chatWaitHint(mode, scope, depth) {
     if (scope === "gene_db") return `${p}querying the local gene database…`;
     if (scope === "id_map") return `${p}resolving IDs across databases…`;
     if (scope === "retrieval_debug") return `${p}retrieval debug (no LLM)…`;
-    return `${p}searching the local DB & literature…`;
+    return `${p}searching the local database and literature…`;
   }
   const dlab = DEPTH_LABELS[depth] || "";
   const p = dlab ? dlab + " · " : "";
@@ -957,75 +1011,115 @@ async function runScopedChatRequest(question, prefs) {
  * @returns {Promise<object>} 最终完整 result（done 事件），用于详情渲染
  */
 async function streamScopedChatRequest(payload, { onDelta, onQueued }) {
-  const res = await fetch("/api/chat/stream", {
+  /* 2026-11-12 修「回答无响应」的核心一处。
+   * 原实现没有任何超时和空闲检测：隧道 / CF 边缘一旦静默断流，
+   * `await reader.read()` 会永远 pending —— 界面无限转圈、不报错、不降级。
+   * 后端每 1 s 发一次 `: keep-alive` 心跳，所以 90 s 收不到任何字节即真断。
+   * 总上限 15 min 与后端 CHAT_QUEUE_WAIT_SEC=900 对齐。
+   * 超时用 AbortController 主动 abort，让 read() reject 并走上层 catch。
+   */
+  const ctrl = new AbortController();
+  const IDLE_MS = 90000;
+  const TOTAL_MS = 15 * 60 * 1000;
+  let idleTimer = null;
+  const touch = () => {
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => ctrl.abort(), IDLE_MS);
+  };
+  const totalTimer = setTimeout(() => ctrl.abort(), TOTAL_MS);
+  touch();
+
+  const streamOpts = {
     method: "POST",
     headers: apiHeaders({ "Content-Type": "application/json" }),
     body: JSON.stringify(payload),
-  });
-  if (res.status === 401) {
-    const d = await res.json().catch(() => ({}));
-    if (d.code === "api_key_required" || d.code === "api_key_invalid") {
-      throw new Error(d.detail || "接口通行证已过期，请刷新页面后重试");
-    }
-    showAuthGate("访问令牌无效或缺失，请输入管理员提供的令牌");
-    throw new Error("需要访问令牌");
-  }
-  if (res.status === 403) {
-    const d = await res.json().catch(() => ({}));
-    throw new Error(d.detail || "无权限访问此功能");
-  }
-  if (res.status === 429) {
-    const d = await res.json().catch(() => ({}));
-    throw new Error(d.detail || "请求过于频繁，请稍后再试");
-  }
-  if (res.status === 503) {
-    const d = await res.json().catch(() => ({}));
-    throw new Error(d.detail || "服务暂时繁忙，请稍候再试");
-  }
-  if (!res.ok) {
-    const d = await res.json().catch(() => ({}));
-    throw new Error(d.detail || "请求失败");
-  }
-  if (!res.body) {
-    // 无流式支持时退化为普通 /api/chat
-    return null;
-  }
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder("utf-8");
-  let buf = "";
-  let finalData = null;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buf += decoder.decode(value, { stream: true });
-    let idx;
-    while ((idx = buf.indexOf("\n\n")) >= 0) {
-      const rawEvent = buf.slice(0, idx).trim();
-      buf = buf.slice(idx + 2);
-      if (!rawEvent) continue;
-      const lines = rawEvent.split("\n");
-      for (const line of lines) {
-        const t = line.trim();
-        if (!t.startsWith("data:")) continue;
-        let obj;
-        try {
-          obj = JSON.parse(t.slice(5).trim());
-        } catch {
-          continue;
+    signal: ctrl.signal,
+  };
+
+  try {
+    let res = await fetch("/api/chat/stream", streamOpts);
+    if (res.status === 401) {
+      const d = await res.json().catch(() => ({}));
+      if (d.code === "api_key_required" || d.code === "api_key_invalid") {
+        const retry = await recoverApiPassAndRetry(
+          () => fetch("/api/chat/stream", streamOpts)
+        );
+        if (retry && retry.status !== 401) {
+          res = retry;
+        } else {
+          throw new Error(d.detail || "接口通行证已过期，请刷新页面后重试");
         }
-        if (obj.type === "delta" && onDelta && obj.text) {
-          onDelta(obj.text);
-        } else if (obj.type === "queued" && onQueued) {
-          onQueued(obj);
-        } else if (obj.type === "done") {
-          finalData = obj.result;
-        } else if (obj.type === "error") {
-          throw new Error(obj.detail || "处理出错");
+      } else {
+        showAuthGate("访问令牌无效或缺失，请输入管理员提供的令牌");
+        throw new Error("需要访问令牌");
+      }
+    }
+    if (res.status === 403) {
+      const d = await res.json().catch(() => ({}));
+      throw new Error(d.detail || "无权限访问此功能");
+    }
+    if (res.status === 429) {
+      const d = await res.json().catch(() => ({}));
+      throw new Error(d.detail || "请求过于频繁，请稍后再试");
+    }
+    if (res.status === 503) {
+      const d = await res.json().catch(() => ({}));
+      throw new Error(d.detail || "服务暂时繁忙，请稍候再试");
+    }
+    if (!res.ok) {
+      const d = await res.json().catch(() => ({}));
+      throw new Error(d.detail || "请求失败");
+    }
+    if (!res.body) {
+      // 无流式支持时退化为普通 /api/chat
+      return null;
+    }
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+    let buf = "";
+    let finalData = null;
+    for (;;) {
+      const { done, value } = await reader.read();
+      touch(); // 收到任意字节（含 keep-alive 注释行）就重置空闲计时
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      let idx;
+      while ((idx = buf.indexOf("\n\n")) >= 0) {
+        const rawEvent = buf.slice(0, idx).trim();
+        buf = buf.slice(idx + 2);
+        if (!rawEvent) continue;
+        const lines = rawEvent.split("\n");
+        for (const line of lines) {
+          const t = line.trim();
+          if (!t.startsWith("data:")) continue;
+          let obj;
+          try {
+            obj = JSON.parse(t.slice(5).trim());
+          } catch {
+            continue;
+          }
+          if (obj.type === "delta" && onDelta && obj.text) {
+            onDelta(obj.text);
+          } else if (obj.type === "queued" && onQueued) {
+            onQueued(obj);
+          } else if (obj.type === "done") {
+            finalData = obj.result;
+          } else if (obj.type === "error") {
+            throw new Error(obj.detail || "处理出错");
+          }
         }
       }
     }
+    return finalData;
+  } catch (err) {
+    if (err && (err.name === "AbortError" || err.name === "TimeoutError")) {
+      throw new Error("连接中断：已超过 90 秒没有收到数据（或总耗时超过 15 分钟），已停止等待。请点「重新生成」重试");
+    }
+    throw err;
+  } finally {
+    if (idleTimer) clearTimeout(idleTimer);
+    clearTimeout(totalTimer);
   }
-  return finalData;
 }
 
 /* 不该进入上文的内容：失败/占位提示、极短回答（多半是空壳）。
@@ -2069,6 +2163,7 @@ async function sendQuestion(question) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
+          timeout: 300000,   // 非流式问答实测 48~76 s，别用 45 s 默认把它掐掉
         });
         data = await parseJsonResponse(res, "/api/chat");
         if (!res.ok) throw new Error(data.detail || "请求失败");
@@ -2079,6 +2174,7 @@ async function sendQuestion(question) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        timeout: 300000,   // 同上：聊天类单独放宽
       });
       data = await parseJsonResponse(res, "/api/chat");
       if (!res.ok) throw new Error(data.detail || "请求失败");
@@ -2117,13 +2213,14 @@ async function sendQuestion(question) {
     loadHealth();
   } catch (err) {
     if (reqId !== chatRequestSeq) return;
-    typingEl.remove();
     const msg = String(err && err.message ? err.message : err);
     let failText;
     if (/Failed to fetch|NetworkError|fetch/i.test(msg)) {
       failText = systemWarming
         ? "预热中请稍候：服务正在加载文献 FAISS，暂时无法连接。请等状态栏预热结束后再问。"
         : "请求失败：无法连接服务（可能仍在加载或刚重启）。请稍后重试。";
+    } else if (/^连接中断/.test(msg)) {
+      failText = msg;   // 看门狗已经写清楚了原因，别再套一层「请求失败：」
     } else if (/^请求失败/.test(msg)) {
       // 服务端未给 detail 时，msg 本身就是"请求失败" —— 直接拼会造成"请求失败：请求失败"。
       // 这里给出可操作信息，而不是重复一遍。
@@ -2131,10 +2228,29 @@ async function sendQuestion(question) {
     } else {
       failText = `请求失败：${msg}`;
     }
-    // 失败提示也是 UI 文案（不是答案），英文模式下必须跟着切
-    appendMessage("bot", failText).setAttribute("data-i18n-live", "1");
+    // 2026-11-12：SSE 中途断流时，用户已经看到一部分正文。旧逻辑直接
+    // typingEl.remove() 把它们全抹掉，看起来更像「无响应」，而且降级重跑
+    // 又要再等一整轮。现在保留已生成内容，只在末尾追加一条中断说明。
+    if (streamedAnswer.trim() && typingEl.isConnected) {
+      streamFinalized = true;
+      typingEl.classList.remove("typing");
+      bubbleEl.classList.add("md-body");
+      bubbleEl.innerHTML = mdToHtml(streamedAnswer);
+      const note = document.createElement("div");
+      note.className = "chat-partial-note";
+      note.textContent = failText;   // textContent 防服务端 detail 带 HTML
+      bubbleEl.appendChild(note);
+      attachMsgActions(typingEl, streamedAnswer);
+      pushChatHistory("user", question);
+      pushChatHistory("assistant", streamedAnswer);
+      finishConversationTurn(streamedAnswer, null);
+    } else {
+      typingEl.remove();
+      // 失败提示也是 UI 文案（不是答案），英文模式下必须跟着切
+      appendMessage("bot", failText).setAttribute("data-i18n-live", "1");
+      finishConversationTurn(failText, null);
+    }
     if (window.HubI18n && window.HubI18n.refresh) window.HubI18n.refresh();
-    finishConversationTurn(failText, null);
   } finally {
     clearInterval(heartbeat);
     // 兜底：不论本轮走到哪条分支（正常 / 空答案 / 异常），占位消息都不该再挂 typing，
@@ -2401,7 +2517,6 @@ function renderBlastRuns(runs) {
       <p class="tool-hint">${head}</p>`;
     if (run.data) {
       html += renderBlastTable(r);
-      if (r.note) html += `<p class="tool-hint">${escapeHtml(r.note)}</p>`;
       if (run.data.tsv) tsvAll.push(run.data.tsv);
     }
     html += "</section>";
@@ -2416,26 +2531,43 @@ function renderBlastResult(data) {
   return renderBlastRuns([{ label: "序列 1", seq: "", data }]);
 }
 
+/* 基因列表解析：逗号 / 分号（中英文）/ 空白都当分隔符，去重但保序。 */
+function splitGeneList(raw) {
+  const seen = new Set();
+  const out = [];
+  String(raw || "")
+    .split(/[,，;；\s]+/)
+    .map((g) => g.trim())
+    .filter(Boolean)
+    .forEach((g) => {
+      const key = g.toLowerCase();
+      if (seen.has(key)) return;
+      seen.add(key);
+      out.push(g);
+    });
+  return out;
+}
+
 enrichBtn.addEventListener("click", async () => {
   const raw = enrichInput.value.trim();
   if (!raw) {
     toolResult.classList.remove("hidden");
-    toolResult.innerHTML = "<p class='tool-hint warn'>请输入至少一个基因，如 tp53,hsp70,myl7</p>";
+    toolResult.innerHTML = "<p class='tool-hint warn'>请输入至少一个基因，如 tp53，或多个：tp53,hsp70,myl7</p>";
     return;
   }
-  const geneList = raw.split(/[,，;；\s]+/).filter(Boolean);
+  const geneList = splitGeneList(raw);
   toolResult.classList.remove("hidden");
-  toolResult.innerHTML = "<span class='tool-loading'>ORA 富集分析中…</span>";
+  toolResult.innerHTML =
+    `<span class='tool-loading'>${geneList.length === 1 ? "查询 GO 注释中…" : "GO 富集中…"}</span>`;
   enrichBtn.disabled = true;
   try {
-    /* 2026-10-31：本页只做 GO。原来 type=both，结果里还带一整块 KEGG 通路，
-       等于在 GO 主题页里塞了「通路」页的功能，用户要求只在各自主题里做各自的事。
-       通路请走「通路」页（/api/tools/kegg）。 */
+    /* 2026-11-07：本页与「通路」页统一口径 —— 1 个基因查注释，≥2 个基因做富集。
+       判断在后端 go_lookup 里做（结果带 mode 字段），前端只按 mode 选渲染器。 */
     const res = await apiFetch(
       `/api/tools/enrichment?genes=${encodeURIComponent(geneList.join(","))}&type=go&padj=0.05&top_n=15`
     );
     const data = await parseJsonResponse(res, res.url || "");
-    if (!res.ok) throw new Error(data.detail || "富集失败");
+    if (!res.ok) throw new Error(data.detail || "查询失败");
     toolResult.innerHTML = renderEnrichResult(data);
   } catch (err) {
     toolResult.textContent = String(err.message);
@@ -2576,7 +2708,88 @@ function ezPathCard(p, i) {
   </li>`;
 }
 
+/* 2026-11-07：单基因注释渲染。
+ * 用户反馈 GO 页与 KEGG 页「逻辑不统一」——GO 收基因列表做富集，KEGG 收通路关键词。
+ * 统一后：1 个基因 → 注释明细（这里），≥2 个基因 → ORA 富集（ezGoCard / ezPathCard）。
+ * 单基因不做统计：前景 n=1 时每个条目 GeneRatio 恒为 1/n，p 值没有判别力。 */
+function renderAnnotationResult(r) {
+  if (!r || !r.success) {
+    return `<p class="tool-hint warn">${escapeHtml((r && r.error) || "查询失败")}</p>`;
+  }
+  const isGo = String(r.type || "").toUpperCase() === "GO";
+  const items = (isGo ? r.terms : r.pathways) || [];
+  const gene = r.gene || (r.input_genes || []).join(", ");
+  const nf = (r.not_found || []).length
+    ? `<p class="tool-hint warn">未收录：${escapeHtml(r.not_found.join("、"))}</p>`
+    : "";
+
+  if (!items.length) {
+    return `${nf}<p class="tool-hint">${escapeHtml(gene)} 在本库暂无${isGo ? " GO 注释" : "通路注释"}。</p>`;
+  }
+
+  const chips = (isGo ? r.aspect_summary : r.source_summary) || [];
+  const chipHtml = chips
+    .map((s) => `<span class="ez-scope-chip ez-${isGo ? "go" : "pw"}">${escapeHtml(s.label)}<b>${s.count}</b></span>`)
+    .join("");
+
+  let html = `<div class="ez-head">
+    <span class="ez-method">单基因注释 · 不做富集统计</span>
+    <span class="ez-count">${escapeHtml(gene)}</span>
+    <span class="ez-count">${isGo ? "GO 条目" : "通路"} <b>${items.length}</b></span>
+  </div>`;
+
+  if (chipHtml) {
+    html += `<section class="ez-scope"><h5>${isGo ? "GO 三个方面" : "通路来源库"}</h5>
+      <div class="ez-scope-row">${chipHtml}</div></section>`;
+  }
+
+  html += "<ol class=\"ez-list\">";
+  if (isGo) {
+    html += items
+      .map((t, i) => {
+        const link = t.url
+          ? `<a class="ez-link" href="${escapeHtml(t.url)}" target="_blank" rel="noopener">QuickGO ↗</a>`
+          : "";
+        return `<li class="ez-item">
+          <div class="ez-line1"><span class="ez-idx">${i + 1}</span>${ezAspectBadge(t)}
+            <span class="ez-name">${escapeHtml(t.term_name || t.go_term || "(无名称)")}</span>
+            ${t.go_id ? `<span class="ez-gid">${escapeHtml(t.go_id)}</span>` : ""}${link}</div>
+        </li>`;
+      })
+      .join("");
+  } else {
+    html += items
+      .map((p, i) => {
+        const link = p.url
+          ? `<a class="ez-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${escapeHtml(p.source_code || "查看")} ↗</a>`
+          : "";
+        const cat = p.category
+          ? `<div class="ez-line2">${ezMetric("通路类目", escapeHtml(String(p.category)))}</div>`
+          : "";
+        return `<li class="ez-item">
+          <div class="ez-line1"><span class="ez-idx">${i + 1}</span>${ezSourceBadge(p)}
+            <span class="ez-name">${escapeHtml(p.pathway_name || "（未命名通路）")}</span>
+            <span class="ez-gid">${escapeHtml(p.pathway_id || "")}</span>${link}</div>
+          ${cat}
+        </li>`;
+      })
+      .join("");
+  }
+  html += "</ol>";
+  return html + nf;
+}
+
 function renderEnrichResult(data) {
+  // 单基因走注释渲染；多基因才走富集卡片
+  const ann = [data.go, data.kegg].find((x) => x && x.mode === "annotation");
+  if (ann) {
+    let out = renderAnnotationResult(ann);
+    if (data.summary) {
+      out += `<details class="ez-raw"><summary>查看纯文本原始结果</summary>
+        <pre class="enrich-summary">${escapeHtml(data.summary)}</pre></details>`;
+    }
+    return out;
+  }
   const errs = [];
   if (data.go && data.go.success === false && data.go.error) errs.push(`GO: ${data.go.error}`);
   if (data.kegg && data.kegg.success === false && data.kegg.error) errs.push(`KEGG: ${data.kegg.error}`);
@@ -2591,12 +2804,14 @@ function renderEnrichResult(data) {
   const pwSig = data.kegg?.significant_count ?? kegg.length;
   const pwTot = data.kegg?.total_tested ?? "?";
   /* 2026-10-31：结果头里的「通路显著 x/y」只在返回了 KEGG 时显示。
-     GO 页现在只请求 type=go，不该再出现一个永远 0/? 的通路计数。 */
+     2026-11-07：反过来也要成立 —— 只查通路时不能再冒出「GO 显著 0/?」。 */
   const hasKegg = !!data.kegg;
+  const hasGo = !!data.go;
 
   let html = `<div class="ez-head">
-    <span class="ez-method">ORA（Fisher 精确检验）+ Benjamini–Hochberg 校正</span>
-    <span class="ez-count">GO 显著 <b>${goSig}</b>/${goTot}</span>${hasKegg
+    <span class="ez-method">ORA（Fisher 精确检验）+ Benjamini–Hochberg 校正</span>${hasGo
+      ? `\n    <span class="ez-count">GO 显著 <b>${goSig}</b>/${goTot}</span>`
+      : ""}${hasKegg
       ? `\n    <span class="ez-count">通路显著 <b>${pwSig}</b>/${pwTot}</span>`
       : ""}
   </div>`;
@@ -2606,14 +2821,14 @@ function renderEnrichResult(data) {
     html += `<h4 class="pub-h4">GO 富集 · 每条已标注方面（BP/CC/MF）</h4>
       <ol class="ez-list">${go.map((t, i) => ezGoCard(t, i + 1)).join("")}</ol>`;
   } else if (data.go && data.go.success) {
-    html += `<p class="tool-hint">GO：无显著条目（q≤${data.go.padj_cutoff ?? 0.05}）。可放宽阈值或扩充 GO 注释。</p>`;
+    html += `<p class="tool-hint">GO：无显著条目（q≤${data.go.padj_cutoff ?? 0.05}）</p>`;
   }
 
   if (kegg.length) {
     html += `<h4 class="pub-h4">通路富集 · 每条已标注来源库</h4>
       <ol class="ez-list">${kegg.map((p, i) => ezPathCard(p, i + 1)).join("")}</ol>`;
   } else if (data.kegg && data.kegg.success) {
-    html += `<p class="tool-hint">通路：无显著条目（q≤${data.kegg.padj_cutoff ?? 0.05}）。可到「通路」页按关键词检索。</p>`;
+    html += `<p class="tool-hint">通路：无显著条目（q≤${data.kegg.padj_cutoff ?? 0.05}）</p>`;
   }
 
   if (data.summary) {
@@ -2664,15 +2879,25 @@ document.addEventListener("click", (e) => {
 });
 
 keggBtn.addEventListener("click", async () => {
-  const q = keggInput.value.trim();
-  if (!q) return;
+  const raw = keggInput.value.trim();
+  if (!raw) {
+    toolResult.classList.remove("hidden");
+    toolResult.innerHTML = "<p class='tool-hint warn'>请输入至少一个基因，如 tp53，或多个：tp53,hsp70,myl7</p>";
+    return;
+  }
+  const geneList = splitGeneList(raw);
   toolResult.classList.remove("hidden");
-  toolResult.innerHTML = "<span class='tool-loading'>检索 KEGG 通路…</span>";
+  toolResult.innerHTML =
+    `<span class='tool-loading'>${geneList.length === 1 ? "查询通路注释中…" : "通路富集中…"}</span>`;
   keggBtn.disabled = true;
   try {
-    const res = await apiFetch(`/api/tools/kegg?q=${encodeURIComponent(q)}`);
+    /* 2026-11-07：输入口径与 GO 页对齐 —— 1 个基因查它所在的通路，≥2 个基因做通路富集。
+       不再用「通路关键词」做检索：那个输入框的示例写的是 MAPK、p53，一个像通路名
+       一个像基因名，正是用户说的「逻辑不统一」。关键词检索能力保留在后端
+       /api/tools/kegg?q=… 里，供聊天侧使用。 */
+    const res = await apiFetch(`/api/tools/kegg?genes=${encodeURIComponent(geneList.join(","))}`);
     const data = await parseJsonResponse(res, res.url || "");
-    if (!res.ok) throw new Error(data.detail || "检索失败");
+    if (!res.ok) throw new Error(data.detail || "查询失败");
     toolResult.innerHTML = renderKeggResult(data);
   } catch (err) {
     toolResult.textContent = String(err.message);
@@ -2685,9 +2910,14 @@ function renderKeggResult(data) {
   if (!data.success) {
     return `<p class="tool-hint warn">${escapeHtml(data.error || "KEGG 数据不可用")}</p>`;
   }
+  // 单基因 → 注释明细；≥2 个基因 → 富集卡片（复用 GO 那套 padj / GeneRatio 展示）
+  if (data.mode === "annotation") return renderAnnotationResult(data);
+  if (data.mode === "enrichment") {
+    return renderEnrichResult({ kegg: data, summary: data.summary || "" });
+  }
   const paths = data.pathways || [];
   if (!paths.length) {
-    return "<p class=\"tool-hint\">未找到相关通路，可试：p53、Wnt、cell cycle</p>";
+    return "<p class=\"tool-hint\">未找到相关通路</p>";
   }
   const EZ_SRC = { KEGG: "kegg", WikiPathways: "wiki", Reactome: "reactome" };
   const srcChips = (data.source_summary || [])
@@ -3092,9 +3322,6 @@ function renderBatchIdTable(data, targetKey) {
   html += `</tbody></table>`;
   const tsv = buildIdConvertTsv(data, target);
   html += `<div class="id-conv-actions"><button type="button" class="export-tsv-btn" data-tsv="${encodeURIComponent(tsv)}">复制 TSV</button>`;
-  if (data._fallback) {
-    html += `<span class="tool-hint">提示：Web 服务版本较旧，已用逐条解析。</span>`;
-  }
   html += `</div></div>`;
   return html;
 }
@@ -3182,7 +3409,7 @@ async function resolveGeneId() {
   if (prefs.scope === "id_map" || prefs.scope === "hub") {
     toolResult.classList.remove("hidden");
     idResolvePanel.classList.add("hidden");
-    toolResult.innerHTML = "<span class='tool-loading'>按当前使用策略做 ID 映射…</span>";
+    toolResult.innerHTML = "<span class='tool-loading'>按当前使用策略做 ID 转换…</span>";
     try {
       const data = await runScopedChatRequest(tokens[0] || q, {
         ...prefs,
@@ -3517,7 +3744,7 @@ const TOOL_PANEL_OF = {
 const TOOL_METHOD = {
   gene: "坐标 = GRCz12tu（RefSeq GCF_049306965.2 原始坐标，或 Ensembl r116 注释经碱基级 liftover 投影，字段内标明来源）；符号 = NCBI RefSeq GRCz12tu；Bgee 为 0–100 表达存在性置信分，Expression Atlas 才是 TPM",
   blast: "BLAST+ 2.17.0+，比对库 = GRCz12tu RefSeq CDS/基因组（不做 GRCz11 隐式回退）",
-  enrich: "ORA：Fisher 精确检验 + Benjamini–Hochberg 校正，报告校正后 q 值；背景集 = 本地注释库",
+  enrich: "ORA：Fisher 精确检验 + Benjamini–Hochberg 校正，报告校正后 q 值；注释与背景集 = Ensembl 与 ZFIN gene-to-GO 合并去重的本地 GO 集",
   kegg: "通路编号直接采用 KEGG dre / WikiPathways 原始编号，便于与原站对照",
   idresolve: "三层解析：唯一命中 / 一对多（列出候选）/ 未命中（不猜测）",
   sequence: "cDNA = GRCz12tu CDS；启动子/基因组区 = GRCz11 坐标（含链方向），已标注所用装配版本",
@@ -3525,22 +3752,22 @@ const TOOL_METHOD = {
   retrieval: "粗排 500 篇 → cross-encoder 精排 100 篇 → 按 48,000 字符打包；分数为 adjusted_L2 = raw_L2 / 章节权重",
   upload: "统一清洗/切分后入库；需重建向量分片才能被检索命中，未索引文件会在结果中标注",
   genomes: "染色体长度 / GC = 本机 GRCz12tu FASTA 实测（实时扫描一次后缓存）；基因数 = 本地注释库按 chromosome 字段统计（Ensembl r116 注释，坐标经碱基级 liftover 统一到 GRCz12tu）；文库大小 = 本地文件字节数",
-  expression: "Bgee 表达分（0–100，存在性置信分，按解剖实体）与 Expression Atlas TPM（按胚胎分期，仅 marker 基因子集）单位不同、分列呈现；表达谱按分值降序，不跨组比较",
+  expression: "Bgee 表达分（0–100，存在性置信分，按解剖实体）、Expression Atlas TPM（按胚胎分期，仅 marker 基因子集）与 ZFIN 定性组织时期记录单位不同、分三组呈现；表达谱按分值降序，不跨组比较",
   phenotype: "表型 = ZFIN 官方 phenoGeneCleanData_fish.txt 本地解析；一行一条「表型–基因–基因型–分期」注释，按表型/基因分组去重；文献号 = ZFIN ZDB-PUB；文献命中来自本地文献库题名",
 };
 
 const TOOL_METHOD_EN = {
   gene: "Coordinates = GRCz12tu (native RefSeq GCF_049306965.2 positions, or Ensembl r116 annotations projected by base-level liftover — the field states which); symbols = NCBI RefSeq GRCz12tu; Bgee is a 0–100 expression-existence confidence score — only Expression Atlas reports TPM",
-  blast: "BLAST+ 2.17.0+, search DB = GRCz12tu RefSeq CDS / genome (no implicit GRCz11 fallback)",
-  enrich: "ORA: Fisher's exact test + Benjamini–Hochberg correction, adjusted q values reported; background = local annotation library",
+  blast: "BLAST+ 2.17.0+; search database = GRCz12tu RefSeq CDS / genome (no implicit fallback to GRCz11)",
+  enrich: "ORA: Fisher's exact test + Benjamini–Hochberg correction, adjusted q values reported; annotations and background = the local GO union of Ensembl and ZFIN gene-to-GO after deduplication",
   kegg: "Pathway IDs keep the original KEGG dre / WikiPathways numbering so they can be checked against the source sites",
   idresolve: "Three-level resolution: unique hit / one-to-many (candidates listed) / not found (never guessed)",
   sequence: "cDNA = GRCz12tu CDS; promoter / genomic region = GRCz11 coordinates (strand included), and the assembly used is labelled",
-  annotate: "Collects identity, expression, GO, pathways, orthologs and literature; missing entries say “no record” and are never filled with guesses",
-  retrieval: "Coarse top 500 papers → cross-encoder rerank top 100 → packed to 48,000 characters; score = adjusted_L2 = raw_L2 / section weight",
+  annotate: "Collects identity, expression, GO, pathways, orthologs and literature; missing entries say “No record” and are never filled with guesses",
+  retrieval: "Coarse retrieval of 500 papers → cross-encoder reranking to 100 → context assembly up to 48,000 characters; score = adjusted_L2 = raw_L2 / section weight",
   upload: "Unified cleaning / chunking before ingest; uploaded files are searchable only after the vector shards are rebuilt — unindexed files are marked",
   genomes: "Chromosome length / GC = measured on the local GRCz12tu FASTA (one scan, then cached); gene counts = local annotation library grouped by the chromosome field (Ensembl r116 annotations, coordinates unified onto GRCz12tu by base-level liftover); library sizes = local file bytes",
-  expression: "Bgee expression scores (0–100 expression-existence confidence, by anatomical entity) and Expression Atlas TPM (by embryonic stage, marker-gene subset only) use different units and are shown in separate blocks — profiles are sorted by score, never compared across blocks",
+  expression: "Three data sets with different units are shown in separate blocks: Bgee expression scores (0–100 expression-existence confidence, by anatomical entity), Expression Atlas TPM (by embryonic stage, marker-gene subset only) and qualitative ZFIN anatomy / stage records — profiles are sorted by score, never compared across blocks",
   phenotype: "Phenotypes = the official ZFIN phenoGeneCleanData_fish.txt parsed locally; one row per phenotype–gene–genotype–stage annotation, grouped by phenotype / gene; publication IDs are ZFIN ZDB-PUB; literature hits come from local paper titles",
   about: "All figures on this page are measured snapshots of the local libraries; sources and algorithms are listed one by one and can be checked at the source sites; the citation template includes an access date",
 };
@@ -3614,8 +3841,7 @@ function scheduleBadgeSweep() {
 }
 
 /* ── 引用与溯源面板（M3-3） ────────────────────────────────────────────
-   回答末尾的可折叠面板：本次编排步骤 + 来源徽章 + 引用条目 + 检索统计。
-   与 CSS 里被隐藏的旧版「回答详情」不同，这个是聊天页可见的。 */
+   回答末尾的可折叠面板：来源徽章 + 引用条目。 */
 function parseCitations(text) {
   const out = [];
   for (const line of String(text || "").split("\n")) {
@@ -3659,28 +3885,16 @@ function citationsHtml(list) {
   return `<div class="prov-block"><p class="prov-block-title">引用条目（${list.length}）</p><ol class="cit-list">${items}</ol></div>`;
 }
 
-function retrievalStatsHtml(data) {
-  const rd = data && data.retrieval_debug;
-  if (!rd || !Object.keys(rd).length) return "";
-  const kv = [];
-  if (rd.candidates || rd.coarse_top_k) kv.push(["粗排", rd.candidates || rd.coarse_top_k]);
-  if (rd.rerank_top_k || rd.top_k) kv.push(["精排", rd.rerank_top_k || rd.top_k]);
-  if (rd.pack_chars) kv.push(["打包字符", rd.pack_chars]);
-  if (rd.context_chars) kv.push(["上下文", rd.context_chars]);
-  if (!kv.length) return "";
-  return `<div class="prov-block"><p class="prov-block-title">检索统计</p><p class="prov-kv">${kv.map(([k, v]) => `${escapeHtml(k)} <b>${escapeHtml(String(v))}</b>`).join(" · ")}</p></div>`;
-}
-
-/** 面板：任何路径下的定稿回答都能挂（流式 / 普通 / 恢复） */
+/** 面板：任何路径下的定稿回答都能挂（流式 / 普通 / 恢复）。
+    只保留「来源徽章 + 引用条目」两样对读者有用的溯源信息。 */
 function appendProvenancePanel(bubbleEl, text, data) {
   if (!bubbleEl) return;
   const old = bubbleEl.querySelector(".prov-panel");
   if (old) old.remove();
   const raw = String(text || "");
   const cites = parseCitations(raw);
-  const stepsHtml = data ? renderAutoStepsHtml(autoToolSteps(data), data.tools_invoked || []) : "";
   const badgeRow = answerSourceBadges(raw + " " + (bubbleEl.innerHTML || ""));
-  const inner = [stepsHtml, badgeRow ? `<div class="prov-block">${badgeRow.replace('class="src-row prov-answer-badges"', 'class="src-row"')}</div>` : "", citationsHtml(cites), retrievalStatsHtml(data)].join("");
+  const inner = [badgeRow ? `<div class="prov-block">${badgeRow.replace('class="src-row prov-answer-badges"', 'class="src-row"')}</div>` : "", citationsHtml(cites)].join("");
   if (!inner.trim()) return;
   bubbleEl.insertAdjacentHTML("beforeend",
     `<details class="prov-panel" data-i18n-live="1"><summary>引用与溯源</summary>${inner}</details>`);
@@ -3919,9 +4133,21 @@ function appendMessage(role, text, isTyping = false) {
   return wrap;
 }
 
+/* 查不到基因时给出可点的相近符号（后端 sequence_toolkit.suggest_gene_symbols） */
+function renderSugChips(list) {
+  const arr = (list || []).filter(x => x && (x.symbol || typeof x === "string")).slice(0, 6);
+  if (!arr.length) return "";
+  return `<div class="sug-row"><span class="sug-lead">是不是想查：</span>` +
+    arr.map(x => {
+      const g = typeof x === "string" ? x : x.symbol;
+      return `<button type="button" class="sug-chip sug-chip-seq" data-gene="${escapeHtml(g)}">${escapeHtml(g)}</button>`;
+    }).join("") + `</div>`;
+}
+
 function renderSequenceResult(data) {
   if (!data.success) {
-    return `<p class="tool-hint warn">${escapeHtml(data.error || "序列提取失败")}</p>`;
+    return `<p class="tool-hint warn">${escapeHtml(data.error || "序列提取失败")}</p>` +
+      renderSugChips(data.suggestions);
   }
   // 状态行自己拼（后端 summary 是中文，英文界面下会中英混排）
   const blocks = Object.entries(data.results || {}).filter(([, b]) => b && b.success);
@@ -3951,10 +4177,16 @@ function renderRegionResult(d) {
   if (!d || !d.success) {
     return `<p class="tool-hint warn">${escapeHtml((d && d.error) || "区间提取失败")}</p>`;
   }
-  const meta = [d.assembly, d.source, d.accession, d.region].filter(Boolean).join(" · ");
-  return `<div class="tool-summary">chr${escapeHtml(d.chromosome)}:${d.start}-${d.end}（${escapeHtml(d.strand)}）· ${d.length} bp</div>
-    <p class="tool-hint">${escapeHtml(meta)}</p>
-    <pre class="seq-fasta">${escapeHtml(d.fasta || d.sequence || "")}</pre>`;
+  /* 2026-11-07：用户要求功能页不再出现解释性小字。来源、坐标换算链路等
+     元信息不再单独占一行灰色小字，全部并进结果标题行（仍是数据，不是注释）。 */
+  const bits = [d.assembly, d.source, d.accession, d.region].filter(Boolean);
+  if (d.converted) {
+    bits.push(`${d.source_build || ""} ${d.source_span || ""} → ${d.target_build || d.assembly || ""} ${d.target_span || ""}`);
+  }
+  const meta = bits.join(" · ");
+  let html = `<div class="tool-summary">chr${escapeHtml(d.chromosome)}:${d.start}-${d.end}（${escapeHtml(d.strand)}）· ${d.length} bp${meta ? " · " + escapeHtml(meta) : ""}</div>`;
+  html += `<pre class="seq-fasta">${escapeHtml(d.fasta || d.sequence || "")}</pre>`;
+  return html;
 }
 
 document.querySelectorAll(".seq-tab").forEach((tab) => {
@@ -4025,8 +4257,31 @@ function applyLiftRegionToSeq() {
   set("seqRegionChrom", payload.chrom);
   set("seqRegionStart", payload.start);
   set("seqRegionEnd", payload.end);
-  if (payload.assembly) set("seqRegionAsm", payload.assembly);
+  /* 2026-11-07：面板改成「来源版本 → 目标版本」一对。基因卡片来源页给的是
+     该卡片自身坐标所属的装配，两侧都设成同一版，避免深链进来莫名其妙触发换算。 */
+  if (payload.assembly) {
+    set("seqRegionTargetBuild", payload.assembly);
+    set("seqRegionSourceBuild", payload.assembly);
+  }
   setTimeout(() => document.getElementById("seqRegionBtn")?.click(), 80);
+}
+
+/* 按染色体区间取序列的版本口径：来源 = 输入坐标所属装配，目标 = 取序列所用装配。
+   两者不同时后端先做 UCSC chain 换算坐标，再按目标版本取序列。 */
+function currentSeqRegionBuilds() {
+  return {
+    source: document.getElementById("seqRegionSourceBuild")?.value || "GRCz12tu",
+    target: document.getElementById("seqRegionTargetBuild")?.value || "GRCz12tu",
+  };
+}
+
+function seqRegionQuery(p) {
+  const builds = currentSeqRegionBuilds();
+  return `/api/tools/sequence/region?chrom=${encodeURIComponent(p.chrom)}` +
+    `&start=${encodeURIComponent(p.start)}&end=${encodeURIComponent(p.end)}` +
+    `&strand=${encodeURIComponent(p.strand)}` +
+    `&assembly=${encodeURIComponent(builds.target)}` +
+    `&source_build=${encodeURIComponent(builds.source)}`;
 }
 
 document.getElementById("seqRegionBtn")?.addEventListener("click", async () => {
@@ -4034,18 +4289,15 @@ document.getElementById("seqRegionBtn")?.addEventListener("click", async () => {
   const start = document.getElementById("seqRegionStart")?.value;
   const end = document.getElementById("seqRegionEnd")?.value;
   const strand = document.getElementById("seqRegionStrand")?.value || "+";
-  const assembly = document.getElementById("seqRegionAsm")?.value || "GRCz12tu";
   toolResult.classList.remove("hidden");
   if (!chrom || !start || !end) {
     toolResult.innerHTML = "<p class='tool-hint warn'>请填写染色体、起点、终点</p>";
     return;
   }
-  toolResult.innerHTML = "<span class='tool-loading'>按坐标取序列中…</span>";
+  const builds = currentSeqRegionBuilds();
+  toolResult.innerHTML = `<span class='tool-loading'>${builds.source === builds.target ? "按坐标取序列中…" : "坐标换算并取序列中…"}</span>`;
   try {
-    const res = await apiFetch(
-      `/api/tools/sequence/region?chrom=${encodeURIComponent(chrom)}&start=${encodeURIComponent(start)}` +
-      `&end=${encodeURIComponent(end)}&strand=${encodeURIComponent(strand)}&assembly=${encodeURIComponent(assembly)}`
-    );
+    const res = await apiFetch(seqRegionQuery({ chrom, start, end, strand }));
     const data = await parseJsonResponse(res, res.url || "");
     toolResult.innerHTML = renderRegionResult(data);
   } catch (err) {
@@ -4089,6 +4341,9 @@ seqExtractBtn?.addEventListener("click", async () => {
   toolResult.innerHTML = "<span class='tool-loading'>序列提取中…</span>";
   seqExtractBtn.disabled = true;
 
+  // 2026-11-06：参考版本显式可选（auto = 旧行为：cDNA 取 GRCz12tu、启动子/基因体取 GRCz11）
+  const seqAssembly = document.getElementById("seqGeneAsm")?.value || "auto";
+
   const runs = [];
   try {
     for (let i = 0; i < genes.length; i += 1) {
@@ -4098,7 +4353,8 @@ seqExtractBtn?.addEventListener("click", async () => {
       }
       try {
         const res = await apiFetch(
-          `/api/tools/sequence?gene=${encodeURIComponent(gene)}&types=${encodeURIComponent(types.join(","))}`
+          `/api/tools/sequence?gene=${encodeURIComponent(gene)}&types=${encodeURIComponent(types.join(","))}` +
+          `&assembly=${encodeURIComponent(seqAssembly)}`
         );
         const data = await parseJsonResponse(res, res.url || "");
         if (!res.ok) throw new Error(data.detail || "提取失败");
@@ -4110,7 +4366,8 @@ seqExtractBtn?.addEventListener("click", async () => {
     if (runs.length === 1) {
       toolResult.innerHTML = renderSequenceResult(runs[0].data || { success: false, error: runs[0].error });
     } else {
-      let html = `<div class="tool-summary">批量提取：${runs.length} 个基因 · 区段 ${types.join(" / ")}</div>`;
+      const asmNote = seqAssembly === "auto" ? "auto" : seqAssembly;
+      let html = `<div class="tool-summary">批量提取：${runs.length} 个基因 · 区段 ${types.join(" / ")} · 版本 ${escapeHtml(asmNote)}</div>`;
       runs.forEach((run, idx) => {
         html += `<section class="blast-run"><h4 class="blast-run-title">${idx + 1}. ${escapeHtml(run.gene)}</h4>`;
         html += run.data
@@ -4123,6 +4380,16 @@ seqExtractBtn?.addEventListener("click", async () => {
   } finally {
     seqExtractBtn.disabled = false;
   }
+});
+
+/* 点「是不是想查」候选：回填基因名并重新提交，避免用户手打 */
+document.getElementById("toolResult")?.addEventListener("click", (ev) => {
+  const chip = ev.target.closest?.("button.sug-chip-seq");
+  if (!chip) return;
+  const g = chip.getAttribute("data-gene") || "";
+  if (!g) return;
+  if (seqGeneInput) seqGeneInput.value = g;
+  seqExtractBtn?.click();
 });
 
 /* 批量区间：每行 chr:start-end（也接受 chr start end），逐条取回 */
@@ -4139,7 +4406,7 @@ document.getElementById("seqRegionBatchBtn")?.addEventListener("click", async ()
     return;
   }
   const strand = document.getElementById("seqRegionStrand")?.value || "+";
-  const assembly = document.getElementById("seqRegionAsm")?.value || "GRCz12tu";
+  const builds = currentSeqRegionBuilds();
   const parsed = [];
   for (const line of lines) {
     const m = line.match(/^(?:chr)?([0-9]+|[XYM]+)\s*[:\-,\s]\s*([\d,]+)\s*[-–~,\s]\s*([\d,]+)$/i);
@@ -4150,19 +4417,19 @@ document.getElementById("seqRegionBatchBtn")?.addEventListener("click", async ()
   for (let i = 0; i < parsed.length; i += 1) {
     const p = parsed[i];
     if (p.error) { runs.push(p); continue; }
-    toolResult.innerHTML = `<span class='tool-loading'>按坐标取序列… ${i + 1}/${parsed.length}</span>`;
+    toolResult.innerHTML = `<span class='tool-loading'>${builds.source === builds.target ? "按坐标取序列" : "坐标换算并取序列"}… ${i + 1}/${parsed.length}</span>`;
     try {
-      const res = await apiFetch(
-        `/api/tools/sequence/region?chrom=${encodeURIComponent(p.chrom)}&start=${encodeURIComponent(p.start)}` +
-        `&end=${encodeURIComponent(p.end)}&strand=${encodeURIComponent(strand)}&assembly=${encodeURIComponent(assembly)}`
-      );
+      const res = await apiFetch(seqRegionQuery({ chrom: p.chrom, start: p.start, end: p.end, strand }));
       const data = await parseJsonResponse(res, res.url || "");
       runs.push({ line: p.line, data });
     } catch (err) {
       runs.push({ line: p.line, error: String(err.message || err) });
     }
   }
-  let html = `<div class="tool-summary">批量区间：${runs.length} 条 · ${assembly} · ${strand} 链</div>`;
+  const buildNote = builds.source === builds.target
+    ? builds.target
+    : `${builds.source} → ${builds.target}`;
+  let html = `<div class="tool-summary">批量区间：${runs.length} 条 · ${escapeHtml(buildNote)} · ${strand} 链</div>`;
   runs.forEach((run, idx) => {
     html += `<section class="blast-run"><h4 class="blast-run-title">${idx + 1}. ${escapeHtml(run.line)}</h4>`;
     html += run.data
@@ -4197,86 +4464,13 @@ const TOOL_TAB_ROUTE = {
   upload: "upload",
 };
 const TOOL_TAB_LABEL = {
-  gene: "基因位置", blast: "BLAST", enrich: "GO 富集", kegg: "KEGG 通路",
-  idresolve: "ID 映射", sequence: "位置查找序列", annotate: "基因位置",
+  gene: "基因位置", blast: "BLAST", enrich: "GO 注释", kegg: "通路富集",
+  idresolve: "ID 转换", sequence: "序列提取", annotate: "基因位置",
   retrieval: "News", upload: "入库",
 };
 
-/** 从各工具返回里抽取"命中摘要"，抽不到就不显示，绝不编数字 */
-function autoToolSteps(data) {
-  const tr = data.tool_results || {};
-  const steps = [];
-  steps.push({
-    label: "意图与范围",
-    meta: [data.task_type, data.answer_scope, data.answer_depth].filter(Boolean).join(" · ") || "自动路由",
-    tab: null,
-  });
-  const idr = tr.id_resolve;
-  if (idr) {
-    const canon = idr.canonical || {};
-    const status = idr.status || idr.match_kind || "";
-    const cand = (idr.candidates || idr.ambiguous || []).length;
-    steps.push({
-      label: "实体解析",
-      meta: canon.gene_name
-        ? `→ ${canon.gene_name}${status ? `（${status}）` : ""}`
-        : (cand ? `一对多候选 ${cand} 个` : (status || "已解析")),
-      tab: "idresolve",
-    });
-  }
-  if (tr.gene?.detail) {
-    const b = tr.gene.detail.basic || {};
-    steps.push({ label: "基因详情", meta: b.gene_name ? `${b.gene_name}｜Chr ${b.chromosome || "-"}` : "已取基因卡片", tab: "gene" });
-  }
-  if (tr.annotator?.success) {
-    const n = (tr.annotator.go_annotations || []).length;
-    steps.push({ label: "一键注释", meta: n ? `GO ${n} 条` : "已汇总", tab: "annotate" });
-  }
-  if (tr.enrichment) {
-    const go = (tr.enrichment.go?.terms || []).length;
-    const kg = (tr.enrichment.kegg?.pathways || []).length;
-    steps.push({ label: "GO/KEGG 富集", meta: `GO ${go} 项 · KEGG ${kg} 条（padj≤0.05）`, tab: "enrich" });
-  }
-  if (tr.kegg) {
-    const n = (tr.kegg.pathways || []).length;
-    steps.push({ label: "通路检索", meta: n ? `命中 ${n} 条通路` : "无匹配通路", tab: "kegg" });
-  }
-  if (tr.blast?.summary || tr.blast?.result) {
-    const hits = (tr.blast.hits || tr.blast.results || []).length;
-    steps.push({ label: "BLAST 比对", meta: hits ? `命中 ${hits} 条` : "已比对", tab: "blast" });
-  }
-  if (tr.sequence?.results) {
-    const keys = Object.keys(tr.sequence.results || {});
-    steps.push({ label: "序列提取", meta: keys.length ? keys.join(" / ") : "已提取", tab: "sequence" });
-  }
-  const rd = data.retrieval_debug;
-  if (rd) {
-    const parts = [];
-    if (rd.candidates || rd.coarse_top_k) parts.push(`粗排 ${rd.candidates || rd.coarse_top_k}`);
-    if (rd.rerank_top_k || rd.top_k) parts.push(`精排 ${rd.rerank_top_k || rd.top_k}`);
-    if (rd.pack_chars) parts.push(`打包 ${rd.pack_chars} 字符`);
-    steps.push({ label: "文献检索", meta: parts.join(" → ") || "已检索", tab: "retrieval" });
-  }
-  return steps;
-}
-
-function renderAutoStepsHtml(steps, invoked) {
-  if (!steps.length) return "";
-  const rows = steps.map((s, i) => {
-    const open = s.tab && TOOL_TAB_ROUTE[s.tab]
-      ? ` <a class="orch-open" href="#/${TOOL_TAB_ROUTE[s.tab]}">打开${TOOL_TAB_LABEL[s.tab] || ""} →</a>`
-      : "";
-    return `<li class="orch-step"><span class="orch-idx">${i + 1}</span>
-      <span class="orch-label">${escapeHtml(s.label)}</span>
-      <span class="orch-meta">${escapeHtml(s.meta || "")}${open}</span></li>`;
-  }).join("");
-  const says = invoked.length ? `<p class="orch-say">后端报告已调用：${escapeHtml(invoked.join("、"))}</p>` : "";
-  return `<div class="orch-steps"><p class="orch-title">本次编排（${steps.length} 步）</p><ol class="orch-list">${rows}</ol>${says}</div>`;
-}
-
 function applyAutoTools(data) {
   const tr = data.tool_results;
-  const invoked = data.tools_invoked || [];
   if (!tr || !Object.keys(tr).length) return;
 
   const sections = [];
@@ -4330,13 +4524,20 @@ function applyAutoTools(data) {
     addSection("📋 基因注释", "annotate", renderAnnotatorResult(tr.annotator));
   }
 
+  /* Chat 直连工具栏的结果：底层工具没有专用渲染器时，用一张通用结果卡原样展示。 */
+  const card = data.chat_tool_card;
+  if (card && card.body) {
+    addSection(card.title || "工具结果", null,
+      `<pre class="auto-tool-pre">${escapeHtml(String(card.body))}</pre>`);
+  }
+
   if (!sections.length) return;
 
   document.querySelectorAll(".tool-tab").forEach((b) => {
     b.classList.toggle("auto-linked", linkedTabs.includes(b.dataset.tool));
   });
 
-  const html = `<p class="tool-hint auto-tool-banner">🔬 本次已自动联动 ${linkedTabs.length} 项</p>${renderAutoStepsHtml(autoToolSteps(data), invoked)}${sections.join("")}`;
+  const html = sections.join("");
 
   switchToolTab(linkedTabs[0] || "gene", { keepResults: true, fromSync: true });
   const chatHost = document.getElementById("chatToolResultHost");
@@ -4650,7 +4851,7 @@ function renderGeneCard(detail) {
   const stdSame = std.gene_symbol && std.gene_symbol === b.gene_name;
   const stdLine = std.gene_symbol
     ? (stdSame
-      ? ` · ${T("标准名版本", "standard build")} ${escapeHtml(std.assembly || "GRCz12tu")}`
+      ? ` · ${T("标准名版本", "reference assembly")} ${escapeHtml(std.assembly || "GRCz12tu")}`
       : ` · ${T("标准名", "standard")} ${escapeHtml(std.gene_symbol)}（${escapeHtml(std.assembly || "GRCz12tu")}）`)
     : "";
 
@@ -5285,7 +5486,7 @@ function renderWorkflowSteps(steps) {
 
 workflowPreset?.addEventListener("change", () => {
   if (_syncingAnswerPrefs) return;
-  // 只改工作流运行预置，绝不改聊天 answer_scope（否则会把 Hub 多Agent 绑成仅 ID 映射）
+  // 只改工作流运行预置，绝不改聊天 answer_scope（否则会把 Hub 多Agent 绑成仅 ID 转换）
   updateSyncHint();
 });
 
@@ -5391,8 +5592,8 @@ const PAGE_KPIS = {
   genomes: [["对比装配|Builds compared", "GRCz11 / GRCz12tu"], ["序列数|Sequences", "25 / 25"],
     ["总长度|Total length", "1.45 Gb"], ["平均 GC|Mean GC", "37.11%"],
     ["对照级别|Comparison", "长度级|Length only"]],
-  expression: [["表达记录|Rows", "319,343"], ["基因数|Genes", "24,089"], ["组织|Tissues", "1,151"],
-    ["Bgee 单位|Bgee unit", "score 0–100"], ["Atlas 单位|Atlas unit", "TPM"]],
+  expression: [["表达记录|Rows", "541,347"], ["基因数|Genes", "25,247"], ["组织|Tissues", "1,151"],
+    ["ZFIN 记录|ZFIN rows", "222,004"], ["Bgee 单位|Bgee unit", "score 0–100"], ["Atlas 单位|Atlas unit", "TPM"]],
   phenotype: [["注释条目|Annotations", "171,079"], ["覆盖基因|Genes", "8,029"],
     ["术语组合|Term pairs", "20,971"], ["索引|Index", "SQLite · ready"], ["数据源|Source", "ZFIN"]],
   /* 2026-11-04：这组 KPI 目前整站下线（见下方 KEEP 白名单），但数值已按去重后的实测同步，
@@ -5407,21 +5608,21 @@ const PAGE_KPIS = {
   blast: [["引擎|Engine", "BLAST+ blastn"], ["批量|Batch", "≤20 条|≤20 queries"],
     ["数据库|Database", "GRCz12tu RefSeq"], ["跨装配回退|Cross-assembly", "关闭|Off"]],
   crispr: [["引擎|Engine", "local rules"], ["PAM", "NGG / NAG / TTTV / NNGRRT"],
-    ["脱靶库|Off-target DBs", "cdna / genome"], ["打分维度|Scoring", "GC · poly-T · structure"]],
-  enrich: [["统计|Statistics", "Fisher + BH"], ["背景集|Background", "annotated genes"],
+    ["脱靶库|Off-target databases", "cdna / genome"], ["打分维度|Scoring", "GC · poly-T · structure"]],
+  enrich: [["统计|Statistics", "Fisher's exact test + Benjamini–Hochberg"], ["背景集|Background", "annotated genes"],
     ["通路条目|Pathway rows", "36,793"]],
   kegg: [["通路编号|Pathway IDs", "KEGG dre / WikiPathways"], ["基因–通路|Gene–pathway", "36,793"],
-    ["GO 条目|GO annotations", "110,632"]],
+    ["GO 条目|GO annotations", "248,885"]],
   idresolve: [["覆盖库|Databases", "Ensembl / ZFIN / NCBI / UniProt"],
     ["消歧|Resolution", "unique / 1-to-many / none"], ["映射表|xref rows", "30,525"]],
-  annotate: [["汇总|Aggregates", "identity · expression · GO · pathways"], ["缺失值|Missing", "“no record”"]],
+  annotate: [["汇总|Aggregates", "identity · expression · GO · pathways"], ["缺失值|Missing", "“No record”"]],
   sequence: [["序列来源|Source", "GRCz12tu (RefSeq)"], ["按坐标|By coordinates", "chr:start-end"],
     ["支持区段|Regions", "cDNA / promoter / genomic / region"]],
-  retrieval: [["文献库|Library", "32,549 records"], ["全文金标|Full-text", "29,221"],
+  retrieval: [["文献库|Library", "32,964 records"], ["全文金标|Full-text", "32,549"],
     ["粗排→精排|Coarse→rerank", "500 → 100"], ["打包|Pack", "48,000 chars"], ["分片|Shards", "170"]],
   upload: [["格式|Types", "PDF / TXT / MD"], ["上限|Limit", "5 MB"],
     ["切分|Chunking", "360 / 110 · overlap 48"]],
-  ops: [["定时任务|Cron jobs", "literature · gallery · stats · guard"], ["隐私|Privacy", "无 IP 明细|no IP details"]],
+  ops: [["定时任务|Scheduled jobs", "literature · gallery · stats · guard"], ["隐私|Privacy", "无 IP 明细|no IP details"]],
   about: [["快照|Snapshot", "2026-10-15"], ["数据源|Sources", "Ensembl / NCBI / ZFIN / Bgee / KEGG"]]
 };
 PAGE_KPIS.literature = PAGE_KPIS.retrieval;
@@ -5497,12 +5698,12 @@ const PAGE_META = {
       title: "基因位置查找|Gene locus",
       // 2026-10-31 边界重划：本页只答「它在哪」——坐标、链、基因体序列。
       // 「这个名称是哪个基因」属于别名页，故不再提关键词检索。
-      lead: "给一个基因名，看它在基因组上的落点：坐标、链、基因体序列。|Give a gene name and see where it sits: coordinates, strand and gene-body sequence.",
+      lead: "给一个基因名，看它在基因组上的落点：坐标、链、基因体序列。|Enter a gene symbol to retrieve its genomic coordinates, strand and gene-body sequence.",
       pillA: "GRCz11 坐标|GRCz11 coords",
       pillB: "GRCz12tu cDNA|GRCz12tu cDNA",
-      formHint: "基因名，如 tp53|Gene name, e.g. tp53",
-      emptyTitle: "输入一个基因名|Enter a gene name",
-      emptySub: "试 tp53、sox9b，或 ZDB-GENE-…|Try tp53, sox9b or ZDB-GENE-…",
+      formHint: "基因名，如 tp53|Gene symbol, e.g. tp53",
+      emptyTitle: "输入一个基因名|Enter a gene symbol",
+      emptySub: "试 tp53、sox9b，或 ZDB-GENE-…|Try tp53, sox9b or a ZDB-GENE identifier",
     },
     genes: {
       kind: "tool",
@@ -5511,73 +5712,54 @@ const PAGE_META = {
       title: "基因别名|Gene aliases",
       // 2026-11-04 职责再收窄：只答「这个名字是哪个基因 / 它还有哪些叫法」。
       // 结果只回**同一个基因**，不再附带「名字含该串的其他基因」「描述里提到」。
-      // 按区间找基因已独立成 genes-region 页。
-      lead: "给一个名称（符号、别名、旧名或跨库 ID），回答两件事：它是哪个基因、这个基因还有哪些叫法。|Give a name (symbol, alias, former name or cross-DB ID): which gene it is, and what else that gene is called.",
+      // 2026-11-05：独立的第四页整页下架，本页不再往别的页指路。
+      lead: "给一个名称（符号、别名、旧名或跨库 ID），查出它是哪个基因，以及这个基因还有哪些叫法。|Enter a symbol, alias, former name or cross-database identifier to identify the corresponding gene and list its known names.",
       pillA: "只回同一基因|Same gene only",
       pillB: "别名可展开|Aliases expandable",
-      formHint: "符号 / 别名 / 旧名 / 跨库 ID|Symbol / alias / former name / cross-DB ID",
-      emptyTitle: "输入一个名称|Enter a name",
-      emptySub: "试 p53、tp53，或粘一个 Ensembl / ZFIN ID|Try p53, tp53, or paste an Ensembl / ZFIN ID",
-    },
-    "genes-region": {
-      kind: "tool",
-      tool: "genes",
-      panel: "toolGeneRegion",
-      title: "区间查基因|Genes in a region",
-      lead: "给一段基因组区间（染色体 + 起止），列出落在里面的基因。|Give a genomic interval (chromosome + start/end) and list the genes inside it.",
-      pillA: "GRCz12tu / GRCz11|GRCz12tu / GRCz11",
-      pillB: "跨度 ≤ 10 Mb|span ≤ 10 Mb",
-      formHint: "染色体 + 起止坐标|Chromosome + start/end",
-      emptyTitle: "给一段区间|Give an interval",
-      emptySub: "例：chr5 30,000,000–30,200,000|e.g. chr5 30,000,000–30,200,000",
+      formHint: "符号 / 别名 / 旧名 / 跨库 ID|Symbol / alias / former name / cross-database identifier",
+      emptyTitle: "输入一个名称|Enter a name or identifier",
+      emptySub: "试 p53、tp53，或粘一个 Ensembl / ZFIN ID|Try p53 or tp53, or enter an Ensembl or ZFIN identifier",
     },
     sgrna: {
       kind: "tool",
       tool: "crispr",
       panel: "toolCrispr",
       title: "sgRNA 设计|sgRNA design",
-      lead: "给基因或靶序列，扫 PAM、打分、查脱靶。|Give a gene or target sequence: scan PAMs, score, check off-targets.",
+      lead: "给基因或靶序列，扫 PAM、打分、查脱靶。|Provide a gene symbol or target sequence to scan PAM sites, score candidate guides and evaluate off-target effects.",
       pillA: "本地引擎|Local engine",
       pillB: "可跳 CHOPCHOP|Jump to CHOPCHOP",
       // 2026-10-31：PAM 与「脱靶范围」原来在这里各挂一排药丸，和下面的下拉重复；
       // 现在 PAM 只留下拉（自绘、可滚轮），脱靶范围下拉整颗删掉 → hero 不画任何按钮。
+      // 2026-11-13：primer 那颗「特异性 / 转录组 / ✓ 全基因组」药丸也整组撤掉，
+      // 避免 sgRNA 页串出引物页的控件（用户点名不该出现）。
       paneChips: {
         sgrna: [],
-        primer: [
-          { label: "特异性|Specificity", target: "primerScope",
-            items: [
-              { value: "transcriptome", label: "转录组|Transcriptome" },
-              { value: "genome", label: "全基因组|Genome" },
-            ] },
-        ],
+        primer: [],
       },
       formHint: "基因名或粘贴序列|Gene name or pasted sequence",
       emptyTitle: "等待设计|Ready to design",
-      emptySub: "填基因名；有靶序列时直接粘序列更准|Fill a gene name; pasting the target sequence is more accurate",
+      emptySub: "填基因名；有靶序列时直接粘序列更准|Enter a gene symbol; providing a target sequence gives more accurate results",
     },
     primer: {
       kind: "tool",
       tool: "crispr",
       panel: "toolCrispr",
       title: "引物设计|Primer design",
-      lead: "给模板（基因或序列），按产物长度与特异性出引物对。|Give a template, get primer pairs by amplicon size and specificity.",
+      lead: "给模板（基因或序列），按产物长度与特异性出引物对。|Provide a template to design primer pairs with the specified amplicon size and specificity.",
       pillA: "本地引擎|Local engine",
-      pillB: "Tm · GC · 二聚体|Tm · GC · dimers",
+      pillB: "Tm · GC · 二聚体|Tm · GC · primer-dimers",
+      // 2026-11-13：「特异性 / 转录组 / ✓ 全基因组」这排药丸从引物设计页撤掉。
+      // 引物设计只做转录组特异性筛查，不应出现「全基因组」这个被勾选的按钮；
+      // 输入区里仍保留转录组下拉（可见但不可误选为全基因组）。
       paneChips: {
-        primer: [
-          { label: "特异性|Specificity", target: "primerScope", focus: "primerInput",
-            items: [
-              { value: "transcriptome", label: "转录组|Transcriptome" },
-              { value: "genome", label: "全基因组|Genome" },
-            ] },
-        ],
+        primer: [],
         sgrna: [
           // 2026-10-31：本页（引物设计）不该出现 sgRNA 的 PAM／脱靶范围按钮（串味），已整组撤掉。
         ],
       },
-      formHint: "基因名或粘贴模板序列|Gene name or pasted template",
+      formHint: "基因名或粘贴模板序列|Gene symbol or template sequence",
       emptyTitle: "等待设计|Ready to design",
-      emptySub: "填基因名；模板 ≥120 bp 更准|Fill a gene name; templates ≥120 bp work better",
+      emptySub: "填基因名；模板 ≥120 bp 更准|Enter a gene symbol; templates of ≥120 bp are recommended",
     },
     liftover: {
       kind: "tool",
@@ -5585,25 +5767,16 @@ const PAGE_META = {
       panel: "toolLiftover",
       colorKey: "genomes",
       title: "Liftover|Liftover",
-      lead: "支持基于UCSC chain的liftover转换和把一批基因 ID 在符号 ⇄ Ensembl ⇄ ZFIN ⇄ NCBI 之间互相转换|Supports UCSC-chain liftover and batch gene-ID conversion across symbol ⇄ Ensembl ⇄ ZFIN ⇄ NCBI.",
-      // 两种模式的可选项完全不同：按当前 tab 换一组（paneChips，2026-10-28）
-      // ID 互转模式不需要选项 → 空数组，hero 那行就不画按钮（不会再出现"像按钮却点不动"）
+      lead: "支持基于UCSC chain的liftover转换和把一批基因 ID 在符号 ⇄ Ensembl ⇄ ZFIN ⇄ NCBI 之间互相转换|Coordinate liftover based on UCSC chain files, and batch conversion among gene symbols, Ensembl, ZFIN and NCBI identifiers.",
+      // 2026-11-07：hero 药丸组全部撤掉。链方向已改成坐标输入行下面的 #liftStrand
+      // 下拉；ID 互转模式的原/目标版本也都在左栏下拉里（只列真有 ID 对照表的两版）。
+      // 这里两个模式都留空数组，renderFeatureChips 就不画任何按钮。
       paneChips: {
-        coord: [
-          // 2026-10-31：源／目标版本原本在这里排了 11 + 13 个药丸，和左栏下拉完全重复，
-          // 页头被撑成三四行、看着很乱。药丸整组撤掉，版本只在左栏下拉里选（该下拉已换成
-          // 分组可滚动的自定义下拉，见 js/liftpick.js）。这里只留「链」——liftStrand 是
-          // hidden input，没有这两个药丸就没有任何界面能改它。
-          { label: "链|Strand", target: "liftStrand",
-            items: [
-              { value: "+", label: "正链 +|Plus +" },
-              { value: "-", label: "负链 −|Minus −" },
-            ] },
-        ],
+        coord: [],
         idmap: [],
       },
       formHint: "来源 + 目标 + 染色体 + 起止；或一批基因 ID|Source + target + chromosome + start/end; or a batch of gene IDs",
-      emptyTitle: "选自选版本与区间，或贴一批 ID|Pick assemblies and a region, or paste IDs",
+      emptyTitle: "选自选版本与区间，或贴一批 ID|Select assemblies and a region, or paste identifiers",
       emptySub: "例如 GRCz11 chr5:24086227-24097805 → GRCz12tu，或 tp53 / ENSDARG00000035559|e.g. GRCz11 chr5:24086227-24097805 → GRCz12tu, or tp53 / ENSDARG00000035559",
     },
     expression: {
@@ -5611,18 +5784,13 @@ const PAGE_META = {
       tool: "expression",
       panel: "toolExpression",
       title: "表达|Expression",
-      lead: "按基因看组织，或按组织看基因。|Browse by gene, or by tissue.",
+      lead: "按基因看组织，或按组织看基因。|Query expression profiles by gene or by tissue.",
       pillA: "Bgee 表达分|Bgee score",
       pillB: "Atlas TPM（分期）|Atlas TPM (stages)",
-      chips: [
-        { label: "模式|Mode", target: "exprMode", focus: "exprQueryInput",
-          items: [
-            { value: "gene", label: "按基因|By gene" },
-            { value: "tissue", label: "按组织|By tissue" },
-            { value: "compare", label: "多基因对比|Compare" },
-          ] },
-      ],
-      formHint: "基因名，或选一个组织|Gene name, or pick a tissue",
+      // 2026-11-07：hero 的「模式 / 按基因 / 按组织 / 多基因对比」药丸组撤掉，
+      // 面板里的 #exprMode 下拉恢复可见，成为唯一入口。
+      chips: [],
+      formHint: "基因名，或选一个组织|Enter a gene symbol or select a tissue",
       emptyTitle: "等待查询|Ready",
       emptySub: "输入 tp53；多个基因用逗号隔开|Enter tp53; separate genes with commas",
     },
@@ -5631,126 +5799,119 @@ const PAGE_META = {
       tool: "phenotype",
       panel: "toolPhenotype",
       title: "基因查表型|Gene → phenotype",
-      lead: "给一个基因，看 ZFIN 里记录的相关表型。|Give a gene, see the phenotypes recorded in ZFIN.",
+      lead: "给一个基因，看 ZFIN 里记录的相关表型。|Enter a gene symbol to retrieve its phenotypes recorded in ZFIN.",
       pillA: "ZFIN|ZFIN",
       // 2026-10-28：本页方向是固定的（导航里另有「表型查基因 / 基因表型查询」一项），
       // hero 再放正反两组按钮属于重复入口，用户点名去掉。方向仍由面板里 #phenoMode 决定。
-      formHint: "基因名，如 sox9b|Gene name, e.g. sox9b",
+      formHint: "基因名，如 sox9b|Gene symbol, e.g. sox9b",
       emptyTitle: "输入一个基因|Enter a gene",
-      emptySub: "试 sox9b、tbx5a|Try sox9b, tbx5a",
+      emptySub: "试 sox9b、tbx5a|Try sox9b or tbx5a",
     },
     "phenotype-term": {
       kind: "tool",
       tool: "phenotype",
       panel: "toolPhenotype",
       title: "表型查基因|Phenotype → gene",
-      lead: "给一个表型描述，找有该表型的基因。|Give a phenotype description, find genes with that phenotype.",
+      lead: "给一个表型描述，找有该表型的基因。|Describe a phenotype to find the genes annotated with it.",
       pillA: "ZFIN|ZFIN",
       // 2026-10-28：本页方向是固定的（导航里另有「表型查基因 / 基因表型查询」一项），
       // hero 再放正反两组按钮属于重复入口，用户点名去掉。方向仍由面板里 #phenoMode 决定。
-      formHint: "表型关键词，中英文都可|Phenotype keywords, zh or en",
+      formHint: "表型关键词，中英文都可|Phenotype keywords (Chinese or English)",
       emptyTitle: "输入表型|Enter a phenotype",
-      emptySub: "试「心脏畸形」或 increased curvature|Try “心脏畸形” or increased curvature",
+      emptySub: "试「心脏畸形」或 increased curvature|Try “heart malformation” or “increased curvature”",
     },
     about: {
       kind: "tool",
       tool: "about",
       panel: "toolAbout",
       title: "平台说明|About",
-      lead: "这个平台是做什么的、数据从哪来、该怎么引用。|What this platform does, where the data comes from, and how to cite it.",
+      lead: "这个平台是做什么的、数据从哪来、该怎么引用。|An overview of the platform, its data sources and guidance on citation.",
       pillA: "数据快照 2026-11-04|Snapshot 2026-11-04",
-      pillB: "本库 / ZFIN / Ensembl / NCBI|Local / ZFIN / Ensembl / NCBI",
-      formHint: "选择下方章节|Pick a section",
-      emptyTitle: "选择下方章节|Pick a section",
-      emptySub: "三章：定位与范围 / 数据来源 / 引用方式|Three sections: scope / sources / citation",
+      pillB: "本库 / ZFIN / Ensembl / NCBI|Local library / ZFIN / Ensembl / NCBI",
+      formHint: "选择下方章节|Select a section",
+      emptyTitle: "选择下方章节|Select a section",
+      emptySub: "三章：定位与范围 / 数据来源 / 引用方式|Three sections: scope, data sources and citation",
     },
     blast: {
       kind: "tool",
       tool: "blast",
       panel: "toolBlast",
       title: "BLAST|BLAST",
-      lead: "把你的序列比对到斑马鱼核酸库。|Align your sequence against the zebrafish nucleotide library.",
+      lead: "把你的序列比对到斑马鱼核酸库。|Align query sequences against the zebrafish nucleotide database.",
       pillA: "blastn|blastn",
       pillB: "批量 ≤20 条|Batch ≤20",
       // 2026-10-31：删「每条保留（前 5/10/20 条）」这组按钮，配套的下拉也已从页面上撤掉，
       // 命中条数固定走后端默认值 10。
       chips: [],
-      formHint: "一条裸序列，或 FASTA 多条|One raw sequence, or multi-FASTA",
+      formHint: "一条裸序列，或 FASTA 多条|A single raw sequence or multi-record FASTA",
       emptyTitle: "等待运行|Ready",
-      emptySub: "粘贴 ≥20 bp 的序列，多条用 FASTA|Paste ≥20 bp; use FASTA for multiple",
+      emptySub: "粘贴 ≥20 bp 的序列，多条用 FASTA|Enter ≥20 bp; use FASTA for multiple sequences",
     },
     go: {
       kind: "tool",
       tool: "enrich",
       panel: "toolEnrich",
       colorKey: "enrich",
-      title: "GO 富集|GO enrichment",
-      lead: "一串基因，看哪些 GO 条目显著富集。|A gene list in, enriched GO terms out.",
-      pillA: "Fisher 精确检验|Fisher exact",
-      pillB: "BH-FDR 校正|BH-FDR",
-      formHint: "逗号分隔的基因列表|Comma-separated gene list",
+      title: "GO|GO",
+      lead: "一个基因查它的 GO 注释；多个基因做 GO 富集。|A single gene returns its GO annotations; a gene list returns enrichment results.",
+      pillA: "单基因 → 注释|Single gene → annotation",
+      pillB: "多基因 → Fisher's exact test + Benjamini–Hochberg-FDR|Multiple genes → Fisher's exact test + BH–FDR",
+      formHint: "基因名，1 个或多个|One or more gene names",
       emptyTitle: "等待运行|Ready",
-      emptySub: "例如 tp53,hsp70,myl7|e.g. tp53,hsp70,myl7",
+      emptySub: "单基因试 tp53；多基因试 tp53,hsp70,myl7|Try tp53, or tp53, hsp70, myl7",
     },
     kegg: {
       kind: "tool",
       tool: "kegg",
       panel: "toolKegg",
-      title: "通路浏览器|Pathway browser",
-      lead: "查斑马鱼通路里有哪些基因。|See which genes sit in a zebrafish pathway.",
-      pillA: "dre pathways|dre pathways",
-      pillB: "多来源|Multi-source",
-      formHint: "通路关键词|Pathway keyword",
-      emptyTitle: "等待检索|Ready",
-      emptySub: "试 MAPK、p53、apoptosis|Try MAPK, p53, apoptosis",
+      title: "通路富集|Pathway enrichment",
+      lead: "一个基因查它所在的通路；多个基因做通路富集。|A single gene returns its pathways; a gene list returns enrichment results.",
+      pillA: "单基因 → 通路注释|Single gene → pathways",
+      pillB: "多基因 → Fisher's exact test + Benjamini–Hochberg-FDR|Multiple genes → Fisher's exact test + BH–FDR",
+      formHint: "基因名，1 个或多个|One or more gene names",
+      emptyTitle: "等待查询|Ready",
+      emptySub: "单基因试 tp53；多基因试 tp53,hsp70,myl7|Try tp53, or tp53, hsp70, myl7",
     },
     id: {
       kind: "tool",
       tool: "idresolve",
       panel: "toolIdResolve",
-      title: "跨库 ID 映射|ID mapping",
-      lead: "符号、ZFIN、Entrez、Ensembl 之间互转。|Convert between symbol, ZFIN, Entrez and Ensembl.",
-      pillA: "三态消歧|Three states",
+      title: "跨库 ID 转换|Batch ID convert",
+      lead: "符号、ZFIN、Entrez、Ensembl 之间互转。|Convert between gene symbols, ZFIN, Entrez and Ensembl identifiers.",
+      pillA: "三态消歧|Three-state disambiguation",
       pillB: "支持批量|Batch",
-      formHint: "单个或批量 ID|Single or batch IDs",
+      formHint: "单个或批量 ID|Single or multiple identifiers",
       emptyTitle: "等待解析|Ready",
-      emptySub: "可批量：每行一个 ID|Batch: one ID per line",
+      emptySub: "可批量：每行一个 ID|Batch: one identifier per line",
     },
     "sequence-region": {
       kind: "tool",
       tool: "sequence",
       panel: "toolSequence",
       colorKey: "sequence",
-      title: "位置查序列|Sequence by region",
-      lead: "给一段基因组区间，取出这段序列（含反向互补）。|Give a genomic interval, get the sequence (reverse complement included).",
+      title: "序列提取|Sequence extraction",
+      lead: "按基因名或染色体区间取序列：cDNA / 启动子 / 基因体，可选 GRCz11 或 GRCz12tu。|Extract cDNA, promoter or gene-body sequences by gene symbol or genomic interval, for either the GRCz11 or GRCz12tu assembly.",
       pillA: "cDNA · 启动子 · 基因体|cDNA · promoter · gene body",
       pillB: "批量 ≤50|Batch ≤50",
-      // 区间面板的装配版本是可选项：按钮组直连下拉框（2026-10-28）
-      // 2026-10-31：删掉「链 / 正链 − 负链」这组 —— 它与面板里的 #seqRegionStrand 重复，
-      // 且负链只是“取出反向互补”的一个勾选项，摆在 hero 上像必选，用户点名去掉。
-      // 链方向仍在面板下拉里可改，功能没有减少。
-      chips: [
-        { label: "装配|Assembly", target: "seqRegionAsm", focus: "seqRegionChrom",
-          items: ["GRCz12tu", "GRCz11"] },
-      ],
-      // 「按基因」面板没有装配下拉（cDNA 固定 GRCz12tu、启动子/基因体 GRCz11），
-      // 所以切到这一栏就退回说明文字，不摆一排点不动的按钮。
-      paneChips: { gene: null },
-      formHint: "染色体 + 起止|Chromosome + start/end",
-      emptyTitle: "填一段坐标|Enter an interval",
-      emptySub: "例如 8 / 1000 / 2000，或 8:1000-2000 批量|e.g. 8 / 1000 / 2000, or batch 8:1000-2000",
+      // 2026-11-07：hero 上那组「装配 / GRCz12tu / GRCz11」药丸撤掉（用户点名）。
+      // 版本现在全部在面板里选：按基因是「参考版本」下拉，按染色体区间是
+      // 「来源版本 → 目标版本」一对，选项都由 assembly-versions.js 从坐标换算克隆。
+      chips: [],
+      formHint: "基因名，或 染色体 + 起止|Gene symbol, or chromosome + start/end",
+      emptyTitle: "输入基因或坐标|Enter a gene symbol or a genomic interval",
+      emptySub: "基因：tp53（可批量，最多 20）；坐标：8 / 1000 / 2000|Gene: tp53 (up to 20 genes); interval: 8 / 1000 / 2000",
     },
     annotate: {
       kind: "tool",
       tool: "annotate",
       panel: "toolAnnotate",
       title: "一键注释|One-click annotation",
-      lead: "一个基因，GO、表达、同源、文献汇总成一页。|One gene, every layer on one page.",
-      pillA: "一键汇总|One click",
-      pillB: "多层整合|Multi-layer",
+      lead: "一个基因，GO、表达、同源、文献汇总成一页。|All data layers for a single gene on one page.",
+      pillA: "一键汇总|Single query",
+      pillB: "多层整合|Multi-layer integration",
       formHint: "基因符号|Gene symbol",
       emptyTitle: "等待生成|Ready",
-      emptySub: "输入基因符号即可|Just enter a gene symbol",
+      emptySub: "输入基因符号即可|Enter a gene symbol",
     },
     /* 2026-10-28：News 不再有独立功能页。原来这一页是「Library updates + 调试检索」
        （粗排/精排/AI 打包顺序的表），属于开发者工具，用户要求「点击 News 就是首页界面」。
@@ -5761,24 +5922,24 @@ const PAGE_META = {
       tool: "upload",
       panel: "toolUpload",
       title: "文献入库|Upload literature",
-      lead: "上传自己的文献，进入本地知识库。|Add your own papers to the local library.",
-      pillA: "RAG 入库|Into RAG",
+      lead: "上传自己的文献，进入本地知识库。|Import publications into the local knowledge base.",
+      pillA: "RAG 入库|Add to RAG",
       pillB: "≤5 MB|≤5 MB",
-      formHint: "选择本地文件|Choose a local file",
+      formHint: "选择本地文件|Select a local file",
       emptyTitle: "等待上传|Ready",
-      emptySub: "单文件 ≤5 MB，UTF-8|One file ≤5 MB, UTF-8",
+      emptySub: "单文件 ≤5 MB，UTF-8|One file, ≤5 MB, UTF-8 encoded",
     },
     ops: {
       kind: "tool",
       tool: "ops",
       panel: "toolOps",
       title: "运营看板|Dashboard",
-      lead: "定时任务状态与访问量。|Cron status and traffic.",
-      pillA: "cron 任务|Cron jobs",
+      lead: "定时任务状态与访问量。|Status of scheduled jobs and visit counts.",
+      pillA: "cron 任务|Scheduled jobs",
       pillB: "仅聚合统计|Aggregates only",
-      formHint: "点右侧刷新|Click refresh",
+      formHint: "点右侧刷新|Select Refresh",
       emptyTitle: "等待加载|Loading",
-      emptySub: "点「刷新」拉取最新状态|Click “Refresh” for the latest state",
+      emptySub: "点「刷新」拉取最新状态|Select Refresh to load the latest status",
     },
   };
 
@@ -6125,7 +6286,7 @@ const PAGE_META = {
   }
   /* 2026-10-31：别名页的卡片挂在 #featureGeneCardHost 上，和 #toolResult 是两个容器。
      只盯 toolResult 的话，`#/genes/<name>` 深链直接开卡片时空态不会让位，
-     页面上就是「先一个大大的 Enter a name，下面再挂一张卡」。 */
+     页面上就是「先一个大大的 Enter a name or identifier，下面再挂一张卡」。 */
   const geneCardHostEl = document.getElementById("featureGeneCardHost");
   if (geneCardHostEl) {
     new MutationObserver(() => syncFeatureEmpty())
@@ -6146,6 +6307,8 @@ const PAGE_META = {
     crispr: "sgrna",
     phenotype: "phenotype-term",
     literature: "news",
+    // 2026-11-05：已下架页的旧书签落到「基因别名」页，不要弹回首页。
+    "genes-region": "genes",
   };
 
   function applyRoute() {
@@ -6205,7 +6368,7 @@ const PAGE_META = {
         if (window.ZFGenes && window.ZFGenes.open) window.ZFGenes.open(q);
       }, 80);
     }
-    /* 跨库 ID 映射（#/id）已从 Tools 菜单移除，但路由保留：旧书签仍可带参直达 */
+    /* 跨库 ID 转换（#/id）已从 Tools 菜单移除，但路由保留：旧书签仍可带参直达 */
     if (route === "id" && arg) {
       const input = document.getElementById("idResolveInput");
       if (input) input.value = decodeURIComponent(arg);
@@ -6235,11 +6398,16 @@ const PAGE_META = {
         applyLiftRegionToSeq();   // 从 Liftover 结果卡「按这段坐标取序列」带过来的区间
       }
     }
-    /* ── Tools / GO 富集：支持 #/go/tp53,hsp70 直接跑 ─────────────────── */
+    /* ── Tools / GO 注释 + 通路注释：支持 #/go/tp53,hsp70、#/kegg/tp53 直接跑 ── */
     if (route === "go" && arg) {
       const input = document.getElementById("enrichInput");
       if (input) input.value = decodeURIComponent(arg);
       setTimeout(() => document.getElementById("enrichBtn")?.click(), 80);
+    }
+    if (route === "kegg" && arg) {
+      const input = document.getElementById("keggInput");
+      if (input) input.value = decodeURIComponent(arg);
+      setTimeout(() => document.getElementById("keggBtn")?.click(), 80);
     }
     /* ── Tools / sgRNA 与引物：同一页两个面板，路由决定默认落在哪个 ───── */
     if (route === "sgrna" || route === "primer") {
@@ -6334,8 +6502,7 @@ const PAGE_META = {
     const scope = document.getElementById("homeSearchScope")?.value || "chat";
     if (!q) return;
     if (scope === "gene") location.hash = "#/gene/" + encodeURIComponent(q);
-    // 2026-10-28：文献范围原本跳 #/news/<查询>（调试检索页，已删）。改为直接问助手，
-    // 助手内部就是「粗排 500 → 精排 100 → 打包」那条链路，结果比调试表更好读。
+    // 文献范围统一转给助手回答，与 Chat 内其它问题走同一条入口。
     else location.hash = "#/chat/q=" + encodeURIComponent(q);
   });
   document.getElementById("homeSearchInput")?.addEventListener("keydown", (e) => {

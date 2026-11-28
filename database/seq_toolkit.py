@@ -602,18 +602,21 @@ def run_local_blast(query: str, top_k: int = 10, evalue: float = 10.0) -> dict:
     return _json_safe_result(result)
 
 
-def format_blast_answer(result: dict) -> str:
+def format_blast_answer(result: dict, lang: str = "zh") -> str:
+    en = (lang or "zh").lower().startswith("en")
     if not result.get("success"):
-        err = result.get("error", "未知错误")
+        err = result.get("error", "unknown error" if en else "未知错误")
         if result.get("need_blast_plus"):
-            err += "\n  → 运行 python -m scripts.setup_blast 安装 NCBI BLAST+"
-        return f"[错误] 序列比对失败：{err}"
+            err += ("\n  → run python -m scripts.setup_blast to install NCBI BLAST+" if en
+                    else "\n  → 运行 python -m scripts.setup_blast 安装 NCBI BLAST+")
+        return f"[Error] BLAST failed: {err}" if en else f"[错误] 序列比对失败：{err}"
     if not result.get("hits"):
-        return "[结果] 未找到显著匹配（E-value 阈值内无 hit）。"
+        return ("[Result] No significant match found within the E-value threshold." if en
+                else "[结果] 未找到显著匹配（E-value 阈值内无 hit）。")
 
     lines = [
-        f"[成功] {result.get('engine', 'BLAST')} | 查询 {result['query_length']} bp | "
-        f"{result.get('assembly') or ''} | 库 {os.path.basename(result.get('database', ''))}",
+        f"[OK] {result.get('engine', 'BLAST')} | query {result['query_length']} bp | "
+        f"{result.get('assembly') or ''} | db {os.path.basename(result.get('database', ''))}",
         "Columns: Subject | Identity | AlnLen | E-value | BitScore | Qcov",
     ]
     for i, h in enumerate(result["hits"], 1):
@@ -626,7 +629,7 @@ def format_blast_answer(result: dict) -> str:
             f"   q[{h.get('qstart','?')}-{h.get('qend','?')}] s[{h.get('sstart','?')}-{h.get('send','?')}]"
         )
     if result.get("note"):
-        lines.append(f"[说明] {result['note']}")
+        lines.append(("[Note] " if en else "[说明] ") + str(result["note"]))
     return "\n".join(lines)
 
 

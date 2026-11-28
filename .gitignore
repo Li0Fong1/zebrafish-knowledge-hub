@@ -11,8 +11,18 @@
 .env
 .env.bak*
 .env.*.local
+.env.*
+!.env.example
 *.pem
 *.key
+*.p12
+*.pfx
+*.cnf
+# 本地数据库 / 运行日志一律不进仓库（线上数据只在服务器）
+*.sqlite3
+*.sqlite
+*.db
+*.log
 密码箱/
 **/公网密码*
 .vscode/
@@ -103,3 +113,54 @@ _tmp_*.py
 *.pma
 # 页面/CSS 的历史副本（.bak_fish2 / .bak_glow / .bak-zficon2 等）
 *.bak*
+
+# ---- ⑦ 2026-11-15 根目录整理：待清理隔离区 ----
+# 清理候选先隔离、不删除；确认无误后再走回收站。规则仅针对这一处，不影响 output/ 其余产物。
+output/_待清理_20261115/
+
+# ---- ⑧ 2026-11-28 发布收敛：运维/凭据类文档与一次性产物不入库 ----
+# 判定标准：① 含主机、账号、内网地址或口令痕迹 ② 一次性运维报告，对复现无作用。
+docs/凭据清理报告.md
+docs/凭据清理误伤修复报告.md
+docs/服务器凭据清理报告.md
+docs/服务器连接测试.md
+docs/运行时体检数据.md
+docs/运维_*.md
+docs/域名接入_*.md
+docs/网络稳定性与安全加固方案_*.md
+docs/全站体检与深度修复报告_*.md
+docs/项目全面体检报告.md
+docs/表型页修复部署验证.md
+docs/文件夹整理建议.md
+docs/文件夹整理执行报告.md
+docs/批量ID*报告*.md
+docs/数据分布与体积清单.html
+docs/报告/
+docs/图件/
+# 含公网 IP / 服务器路径的一次性收尾报告
+docs/三项收尾_*.md
+# DeepSeek 账单用量导出（账号额度信息）
+dstokwn/
+
+# 根目录一次性批处理、临时目录与草稿
+/*.bat
+_*/
+patches/
+output/
+论文学习/
+人工筛选为是/
+人工筛选为是.zip
+*_manuscript_*.docx
+马铃薯AI智能体_完整.pdf
+processed_image_*.png
+
+# 构建产物与一次性探针（由 build_bundle.py / 脚本重新生成）
+web/dist/
+web/_probe_*.html
+scripts/_*
+scripts/purge_credentials*.py
+scripts/clean_server_credentials.py
+
+# 图件旧版本（已被正式版取代）
+Figure/EN_journal_figures/_superseded/
+Figure/EN_journal_figures/_v1_before_20261106/

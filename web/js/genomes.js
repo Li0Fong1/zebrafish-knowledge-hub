@@ -51,7 +51,7 @@
         ['cDNA 提取', 'GRCz12tu', '与 BLAST 同一份序列，避免“比对用的 A、提取给 B”'],
         ['基因坐标 / 启动子 / 基因体', 'GRCz11', '本地注释锚定在 Ensembl r116（坐标系不同）'],
         ['表达量 / GO / KEGG / 表型', 'GRCz11', '本地注释表全部以 GRCz11 基因为主键'],
-        ['跨库 ID 映射', '两版对照', '本地 GRCz11 与 RefSeq GRCz12tu 标准名互查'],
+        ['跨库 ID 转换', '两版对照', '本地 GRCz11 与 RefSeq GRCz12tu 标准名互查'],
       ]
     },
     en: {
@@ -67,7 +67,7 @@
       cmpSub: 'Δ > 0 means GRCz12tu is longer',
       colChr: 'Chr', col12: 'GRCz12tu', col11: 'GRCz11', colDelta: 'Δ Mb', colDeltaPct: 'Δ %',
       colGc: 'GC', colGenes: 'Genes', colDensity: 'Density',
-      cmpFail: 'The GRCz11 side failed ({msg}); only GRCz12tu values are shown below',
+      cmpFail: 'GRCz11 data could not be retrieved ({msg}); only GRCz12tu values are shown below',
       libTitle: 'Local BLAST databases',
       colLib: 'Library', colLibSize: 'Size', colLibNote: 'Purpose',
       noLiftover: 'Length comparison only',
@@ -79,11 +79,11 @@
       colStep: 'Step', colWhich: 'Assembly', colWhy: 'Why',
       polRows: [
         ['Gene symbols / canonical names', 'GRCz12tu', 'Canonical names follow the NCBI RefSeq reference (GCF_049306965)'],
-        ['BLAST (nucleotide)', 'GRCz12tu', 'The search DB is this assembly’s CDS / genome FASTA'],
+        ['BLAST (nucleotide)', 'GRCz12tu', 'The search database is the CDS / genome FASTA of this assembly'],
         ['cDNA extraction', 'GRCz12tu', 'Same sequences BLAST uses, so results stay consistent'],
         ['Gene coordinates / promoter / gene body', 'GRCz11', 'Local annotation is anchored to Ensembl r116 (different coordinate system)'],
         ['Expression / GO / KEGG / phenotype', 'GRCz11', 'All local annotation tables are keyed by GRCz11 genes'],
-        ['Cross-database ID mapping', 'Both assemblies', 'Local GRCz11 ↔ RefSeq GRCz12tu canonical names'],
+        ['Cross-database ID convert', 'Both assemblies', 'Local GRCz11 ↔ RefSeq GRCz12tu canonical names'],
       ]
     }
   };
@@ -231,7 +231,7 @@
     if (!cmp || !cmp.rows || !cmp.rows.length) {
       showResult('<p class="tool-hint warn">' + esc(curLang() === 'zh'
         ? '还没有可导出的对比数据，请先点「加载对比表」。'
-        : 'Nothing to export yet — click “Load comparison” first.') + '</p>');
+        : 'No data to export. Select Load comparison first.') + '</p>');
       return;
     }
     var head = ['chromosome', 'grcz12tu_mb', 'grcz11_mb', 'delta_mb', 'delta_pct', 'gc_percent', 'gene_count', 'gene_per_mb'];

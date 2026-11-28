@@ -6,6 +6,7 @@
 """
 import bootstrap  # noqa: F401
 
+import copy
 import json
 import re
 import urllib.error
@@ -355,7 +356,31 @@ def should_try_ensembl_fallback(query: str) -> bool:
 
 
 def _ensembl_resolve(query: str) -> list:
-    """Ensembl REST 兜底：符号或 Ensembl ID。"""
+    """Ensembl REST 兜底：符号或 Ensembl ID。
+
+    2026-11-12：加进程内结果缓存。本地库没收录的 ID（例如新版本才有的
+    ENSDARG）必须联网问 Ensembl，单次 5 s 超时 + 一次往返 ≈ 6 s，之前**每次**
+    都重跑一遍：同一个 ID 连查两次还是两个 6 s，工具页像卡死。
+    兜底结果短时间内不会变，缓存后第二次起是毫秒级。
+    """
+    key = (query or "").strip().lower()
+    hit = _ENS_RESOLVE_CACHE.get(key)
+    if hit is not None:
+        return copy.deepcopy(hit)
+    out = _ensembl_resolve_uncached(query)
+    if len(_ENS_RESOLVE_CACHE) >= _ENS_RESOLVE_MAX:
+        # 简单 FIFO 淘汰：这里访问频率低，不值得为它引入 LRU 结构
+        _ENS_RESOLVE_CACHE.pop(next(iter(_ENS_RESOLVE_CACHE)), None)
+    _ENS_RESOLVE_CACHE[key] = copy.deepcopy(out)
+    return out
+
+
+_ENS_RESOLVE_CACHE: dict = {}
+_ENS_RESOLVE_MAX = 512
+
+
+def _ensembl_resolve_uncached(query: str) -> list:
+    """真正的 Ensembl REST 兜底调用（慢路径）。"""
     q = query.strip()
     headers = {"Content-Type": "application/json", "User-Agent": "ZebrafishGeneQA/1.0"}
     out = []

@@ -38,7 +38,7 @@ PAM_TABLE: Dict[str, dict] = {
     "NAG": {"motif": "NAG", "side": "3", "spacer": 20, "enzyme": "SpCas9",
             "note": "非经典 PAM，效率较低，作为备选"},
     "TTTV": {"motif": "TTTV", "side": "5", "spacer": 23, "enzyme": "Cas12a(Cpf1)",
-             "note": "5' 端 PAM，适合 T7 体外转录与多靶点"},
+             "note": "5' 端 PAM，适合多靶点设计"},
     "NNGRRT": {"motif": "NNGRRT", "side": "3", "spacer": 21, "enzyme": "SaCas9",
                "note": "小尺寸 Cas9，便于 AAV 递送"},
 }
@@ -162,42 +162,38 @@ def score_candidate(cand: dict, *, cds_len: int, add_t7: bool = False) -> dict:
     gc = float(cand["gc"])
     parts: Dict[str, float] = {}
 
-    # 1) GC 含量：40%~60% 满分，越偏离越低（权重 0.30）
+    # 1) GC 含量：以 50% 为最优、40%~60% 为高区，平滑连续（权重 0.30）
+    #    区内按偏离 50% 线性递减；区外继续按偏离惩罚，保证好 spacer 之间也有梯度
+    #    （原实现 40%~60% 整段记满分，导致优质候选并列 100、排序无区分度）。
     if 40.0 <= gc <= 60.0:
-        parts["gc"] = 1.0
+        parts["gc"] = 1.0 - abs(gc - 50.0) / 50.0            # 50%→1.0，40/60%→0.8
     elif gc < 40.0:
-        parts["gc"] = max(0.0, (gc - 25.0) / 15.0)
+        parts["gc"] = max(0.0, 0.8 - (40.0 - gc) / 25.0)      # 30%→0.4，更低→0
     else:
-        parts["gc"] = max(0.0, (75.0 - gc) / 15.0)
+        parts["gc"] = max(0.0, 0.8 - (gc - 60.0) / 25.0)      # 70%→0.4，更高→0
 
-    # 2) U6 终止子：连续 TTTT 会提前终止转录（权重 0.18）
+    # 2) U6 终止子：连续 TTTT 会提前终止转录（权重 0.18，命中即重罚）
     parts["polyT"] = 0.15 if re.search(r"TTTT", spacer) else 1.0
 
-    # 3) 同聚物与极端碱基组成（权重 0.10）
+    # 3) 同聚物与极端碱基组成（权重 0.10，命中即重罚）
     parts["homopolymer"] = 0.2 if _flag_homopolymer(spacer, 5) else 1.0
 
-    # 4) 发夹 / 二级结构倾向（权重 0.10）
+    # 4) 发夹 / 二级结构倾向（权重 0.10，命中即重罚）
     parts["hairpin"] = 0.35 if _flag_hairpin(spacer, 4) else 1.0
 
-    # 5) 位置偏好：敲除希望落在 CDS 前 1/3 且尽量靠 5'（权重 0.22）
+    # 5) 位置偏好：敲除希望落在 CDS 5' 端、越早越好（权重 0.22）
+    #    改为随位置连续递减，避免“前半段全满分、无区分度”。
     if cds_len and cds_len > 0:
         frac = max(0.0, min(1.0, (cand["start"] - 1) / float(cds_len)))
-        if frac <= 0.10:
-            pos = 1.0
-        elif frac <= 0.33:
-            pos = 0.9
-        elif frac <= 0.66:
-            pos = 0.7
-        else:
-            pos = 0.5
     else:
-        frac, pos = 0.0, 0.75
-    parts["position"] = pos
+        frac = 0.0
+    parts["position"] = max(0.4, 1.0 - 0.6 * frac)           # 0%→1.0，100%→0.4
 
     # 6) 种子区 GC（PAM 近端 8 nt，过高易脱靶、过低活性差）（权重 0.10）
+    #    同样平滑处理：以 50% 最优，偏离线性递减（原实现 30%~70% 整段记满分）。
     seed = spacer[-8:]
     seed_gc = gc_percent(seed)
-    parts["seed_gc"] = 1.0 if 30.0 <= seed_gc <= 70.0 else 0.6
+    parts["seed_gc"] = max(0.0, 1.0 - abs(seed_gc - 50.0) / 80.0)   # 30/70%→0.75
 
     weights = {"gc": 0.30, "polyT": 0.18, "homopolymer": 0.10,
                "hairpin": 0.10, "position": 0.22, "seed_gc": 0.10}
@@ -215,12 +211,10 @@ def score_candidate(cand: dict, *, cds_len: int, add_t7: bool = False) -> dict:
         "efficiency_score": round(efficiency * pam_factor, 1),
     })
 
-    # 8) T7 / SP6 体外转录模板（CRISPRScan 场景）
-    if add_t7:
-        lead = "" if spacer.upper().startswith("G") else "G"
-        out["t7_template"] = "TAATACGACTCACTATAG" + lead + spacer
-        out["t7_note"] = "T7 启动子 + 引导序列（缺 G 时自动补 1 个 G）"
-        out["sp6_template"] = "ATTTAGGTGACACTATAG" + lead + spacer
+    # 8) T7 / SP6 体外转录模板：2026-11-13 下线。
+    # sgRNA 与引物设计都是「PCR / 规则打分」用途，界面与答案里不应出现
+    # T7 启动子尾、T7 模板或相关说明小字。参数保留只为兼容旧调用，
+    # 但一律不再生成，避免任何调用路径把 T7 带回结果。
     return out
 
 
@@ -449,7 +443,8 @@ def resolve_template(target: str) -> dict:
             "length": len(normalize_dna(block["sequence"])),
             "cdna_length": block.get("length") or 0,
         }
-    return {"success": False, "error": block.get("error") or "无法解析为基因或序列"}
+    return {"success": False, "error": block.get("error") or "无法解析为基因或序列",
+            "suggestions": block.get("suggestions") or []}
 
 
 def design_sgrna(target: str, *, enzyme: str = "NGG", top_n: int = 20,
@@ -458,11 +453,19 @@ def design_sgrna(target: str, *, enzyme: str = "NGG", top_n: int = 20,
     """sgRNA 设计主流程：解析模板 → PAM 枚举 → 打分 → 特异性筛查 → 排序。"""
     tpl = resolve_template(target)
     if not tpl.get("success"):
-        return {"success": False, "error": tpl.get("error")}
+        return {"success": False, "error": tpl.get("error"),
+                "suggestions": tpl.get("suggestions") or []}
     seq = tpl["sequence"]
-    conf = PAM_TABLE.get((enzyme or "NGG").upper()) or PAM_TABLE["NGG"]
+    # 旧版把未知 enzyme 静默换成 NGG 的 conf，却仍拿原始字符串去枚举 PAM，
+    # 结果 BOGUS 会假报「没有 NGG 候选」——明明 tp53 有几十个 NGG 位点。
+    enz_key = (enzyme or "NGG").upper().strip()
+    conf = PAM_TABLE.get(enz_key)
+    if not conf:
+        return {"success": False,
+                "error": "不支持的 PAM/酶「%s」（可选：%s）" % (enzyme, "、".join(PAM_TABLE)),
+                "valid_enzymes": list(PAM_TABLE), "template": tpl}
 
-    cands = enumerate_candidates(seq, enzyme)
+    cands = enumerate_candidates(seq, enz_key)
     if not cands:
         return {"success": False, "error": "在该序列中未找到 %s PAM 候选" % conf["motif"],
                 "template": tpl}
@@ -635,58 +638,92 @@ def design_primers(template: str, *, amplicon_min: int = 80, amplicon_max: int =
     """规则式引物设计：长度/GC/Tm/同聚物/3' 端/二聚体 + 产物长度约束。"""
     tpl = resolve_template(template)
     if not tpl.get("success"):
-        return {"success": False, "error": tpl.get("error")}
+        return {"success": False, "error": tpl.get("error"),
+                "suggestions": tpl.get("suggestions") or []}
     seq = tpl["sequence"]
     n = len(seq)
     if n < max(120, amplicon_min):
         return {"success": False, "error": "模板过短（%d bp），无法设计 %d bp 以上产物" % (n, amplicon_min),
                 "template": tpl}
 
-    fwd: List[dict] = []
-    for i in range(0, min(n - 18, 900)):                 # 只在模板 5' 区取前向引物
-        cand = _best_primer_at(seq, i, forward=True)
-        if cand:
-            fwd.append(cand)
-    rev: List[dict] = []
-    for j in range(n, max(19, n - 900), -1):             # 3' 端逆序取反向引物
-        cand = _best_primer_at(seq, j, forward=False)
-        if cand:
-            rev.append(cand)
+    # 候选枚举：旧版只在 5' 前 900 nt 取正向、3' 末 900 nt 取反向，两端相距
+    # 几乎是模板全长，于是产物长度只能落在全长附近——cDNA 长于约 1.2 kb 的基因
+    # （kdrl、myh7 一类）永远凑不出 80–300 bp 的产物，表现为「同样的操作，
+    # 换个基因就查不到」。改为同一区段内双向扫描，再按产物长度滑窗配对。
+    import bisect as _bisect
 
+    def _scan_region(region_end: int):
+        fw: List[dict] = []
+        for i in range(0, max(1, region_end - 18)):
+            c = _best_primer_at(seq, i, forward=True)
+            if c:
+                fw.append(c)
+        rv: List[dict] = []
+        for j in range(19, region_end + 1):
+            c = _best_primer_at(seq, j, forward=False)
+            if c:
+                rv.append(c)
+        return fw, rv
+
+    def _pair_up(fw: List[dict], rv: List[dict]) -> List[dict]:
+        out: List[dict] = []
+        if not fw or not rv:
+            return out
+        rv.sort(key=lambda c: c["end"])
+        ends = [c["end"] for c in rv]
+        target_amp = (amplicon_min + amplicon_max) / 2.0
+        for f in fw:
+            a = _bisect.bisect_left(ends, f["start"] + amplicon_min - 1)
+            b = _bisect.bisect_right(ends, f["start"] + amplicon_max - 1)
+            for idx in range(a, b):
+                r = rv[idx]
+                amp = r["end"] - f["start"] + 1
+                dtm = abs(f["tm"] - r["tm"])
+                if dtm > 3.0:
+                    continue
+                penalty = 0.0
+                if _dimer_risk(f["seq"], r["seq"]):
+                    penalty += 6.0
+                if _flag_hairpin(f["seq"]) or _flag_hairpin(r["seq"]):
+                    penalty += 4.0
+                # 产物越接近区间中值越稳，越靠模板 5' 越省事
+                penalty += min(6.0, abs(amp - target_amp) / 60.0)
+                # Tm 偏离 60 ℃ 扣分
+                penalty += min(6.0, (abs(f["tm"] - 60.0) + abs(r["tm"] - 60.0)) / 5.0)
+                score = 100.0 - dtm * 6.0 - penalty
+                out.append({
+                    "forward": f["seq"], "reverse": r["seq"],
+                    "forward_pos": "%d-%d" % (f["start"], f["end"]),
+                    "reverse_pos": "%d-%d" % (r["start"], r["end"]),
+                    "forward_tm": f["tm"], "reverse_tm": r["tm"], "tm_diff": round(dtm, 1),
+                    "forward_gc": f["gc"], "reverse_gc": r["gc"],
+                    "product_size": amp,
+                    "score": round(score, 1),
+                    "hairpin_risk": bool(_flag_hairpin(f["seq"]) or _flag_hairpin(r["seq"])),
+                    "dimer_risk": bool(_dimer_risk(f["seq"], r["seq"])),
+                })
+                if len(out) >= 40000:                 # 防止超长模板把内存吃满
+                    return out
+        return out
+
+    # 先在 5' 侧 1.5 kb 内找（常规做法，测序/表达检测都够用），
+    # 找不到再放开到全模板；两次都空才认定「确实没有合规引物对」。
     pairs: List[dict] = []
-    for f in fwd:
-        for r in rev:
-            amp = r["end"] - f["start"] + 1
-            if amp < amplicon_min or amp > amplicon_max:
-                continue
-            dtm = abs(f["tm"] - r["tm"])
-            if dtm > 3.0:
-                continue
-            penalty = 0.0
-            if _dimer_risk(f["seq"], r["seq"]):
-                penalty += 6.0
-            if _flag_hairpin(f["seq"]) or _flag_hairpin(r["seq"]):
-                penalty += 4.0
-            # 产物越接近 150~250 bp 越稳，越靠模板 5' 越省事
-            target_amp = (amplicon_min + amplicon_max) / 2.0
-            penalty += min(6.0, abs(amp - target_amp) / 60.0)
-            # Tm 偏离 60 ℃ 扣分（45~70 ℃ 区间内线性）
-            penalty += min(6.0, (abs(f["tm"] - 60.0) + abs(r["tm"] - 60.0)) / 5.0)
-            score = 100.0 - dtm * 6.0 - penalty
-            pairs.append({
-                "forward": f["seq"], "reverse": r["seq"],
-                "forward_pos": "%d-%d" % (f["start"], f["end"]),
-                "reverse_pos": "%d-%d" % (r["start"], r["end"]),
-                "forward_tm": f["tm"], "reverse_tm": r["tm"], "tm_diff": round(dtm, 1),
-                "forward_gc": f["gc"], "reverse_gc": r["gc"],
-                "product_size": amp,
-                "score": round(score, 1),
-                "hairpin_risk": bool(_flag_hairpin(f["seq"]) or _flag_hairpin(r["seq"])),
-                "dimer_risk": bool(_dimer_risk(f["seq"], r["seq"])),
-            })
+    scan_note = "5' 端 %d bp" % min(n, 1500)
+    for region_end in (min(n, 1500), n):
+        fw, rv = _scan_region(region_end)
+        pairs = _pair_up(fw, rv)
+        if pairs:
+            scan_note = "模板前 %d bp" % region_end
+            break
     if not pairs:
-        return {"success": False, "error": "未找到满足约束的引物对（可放宽产物长度或 TM 差）",
-                "template": tpl, "forward_candidates": len(fwd), "reverse_candidates": len(rev)}
+        return {"success": False,
+                "error": ("未找到满足约束的引物对：模板 %d bp（已扫%s），产物 %d–%d bp、"
+                          "Tm 差 ≤3 ℃、GC 40–70%% 同时满足的候选为 0。"
+                          "可放宽产物长度区间或换一段模板。"
+                          % (n, scan_note, amplicon_min, amplicon_max)),
+                "template": tpl, "forward_candidates": len(fw),
+                "reverse_candidates": len(rv)}
 
     pairs.sort(key=lambda p: -p["score"])
     # 去重：同一产物长度区间只留最高分，避免一堆相似引物
@@ -701,12 +738,9 @@ def design_primers(template: str, *, amplicon_min: int = 80, amplicon_max: int =
         if len(picked) >= max(1, min(int(max_pairs), 20)):
             break
 
+    # 2026-11-13：T7 启动子尾与对应的标题说明小字已下线（见 score_candidate）。
+    # 参数保留兼容，但不再拼接 tailed 序列，也不再返回含 T7 的 note。
     note = ""
-    if add_t7:
-        for p in picked:
-            p["forward_tailed"] = "TAATACGACTCACTATAG" + p["forward"]
-            p["reverse_tailed"] = p["reverse"]
-        note = "已附 T7 启动子尾（TAATACGACTCACTATAG…）用于体外转录模板扩增"
     if off_target and picked:
         use_genome = (offtarget_scope or "").lower().startswith("genome")
         qs = {}

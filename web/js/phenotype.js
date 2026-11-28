@@ -44,10 +44,10 @@
     },
     en: {
       loading: 'Querying phenotypes…', fail: 'Query failed: {msg}',
-      notReady: 'The ZFIN phenotype index has not been built yet', notReadyHint: 'Click “Build / refresh ZFIN index” (runs in the background, about 1–2 minutes); literature queries keep working meanwhile.',
-      needQ: 'Enter a phenotype keyword or a gene name',
+      notReady: 'The ZFIN phenotype index has not been built yet', notReadyHint: 'Click “Build / refresh ZFIN index” (runs in the background, about 1–2 minutes); literature queries remain available in the meantime.',
+      needQ: 'Enter a phenotype keyword or a gene symbol',
       idxReady: 'Index ready', idxRows: 'Annotation rows', idxGenes: 'Genes', idxTerms: 'Phenotype terms', idxBuilt: 'Built at',
-      commonTerms: 'Common phenotype terms', commonTermsSub: 'Ranked by number of genes · click to query',
+      commonTerms: 'Common phenotype terms', commonTermsSub: 'Ranked by the number of associated genes · select to query',
       commonAo: 'Anatomical entities (ZFA)', commonPato: 'Phenotype qualities (PATO)',
       termTitle: 'Matched phenotype entries', termSub: '',
       termGenes: 'Candidate genes', termGenesSub: '',
@@ -61,10 +61,10 @@
       kvRows: 'Annotation rows', kvGroups: 'Phenotype groups', kvPubs: 'Publications', kvGeneId: 'Library ID', kvZfin: 'ZFIN gene',
       kvMatched: 'Matched symbol', kvTried: '',
       pubTitle: 'ZFIN publication IDs for this gene', pubHint: '',
-      buildBtnRunning: 'Building… (you can keep querying)', buildStarted: 'Build started in the background (usually 1–2 minutes); this page refreshes automatically when done.',
+      buildBtnRunning: 'Building the index… (queries remain available)', buildStarted: 'Build started in the background (usually 1–2 minutes); this page refreshes automatically when done.',
       buildDone: 'Index ready: {rows} annotations · {genes} genes', buildFail: 'Build failed: {msg}',
       statusFail: 'Cannot read index status: {msg}',
-      checkAgain: 'Refresh status', note: 'Note', noRecord: 'no record'
+      checkAgain: 'Refresh status', note: 'Note', noRecord: 'No record'
     }
   };
 
@@ -157,7 +157,7 @@
     function chips(items) {
       return '<div class="zf-chips">' + items.map(function (x) {
         return '<button type="button" class="zf-pill" data-term="' + esc(x.name) + '">' +
-          esc(x.name) + ' <small>' + x.genes + (curLang() === 'zh' ? ' 基因' : ' genes') + '</small></button>';
+          esc(x.name) + '</button>';
       }).join('') + '</div>';
     }
     var termsHtml = (pato.length || ao.length)

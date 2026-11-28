@@ -163,8 +163,10 @@ def _run_node(
                     "elapsed_ms": _ms(t0),
                 }
                 return step, payload
-            ngo = len((payload.get("go") or {}).get("significant") or [])
-            summary = f"ORA 显著 GO 项 {ngo}"
+            _go = payload.get("go") or {}
+            ngo = len(_go.get("terms") or [])
+            summary = (f"GO 注释条目 {ngo} 条（单基因）" if _go.get("mode") == "annotation"
+                       else f"ORA 显著 GO 项 {_go.get('significant_count', 0)}")
             step = {
                 "node_id": node_id,
                 "node_type": ntype,

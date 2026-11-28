@@ -5,7 +5,7 @@ set PYTHONIOENCODING=utf-8
 call "%~dp0_mysql_path.bat"
 
 set MYSQL_USER=root
-set MYSQL_PASSWORD=123456
+set MYSQL_PASSWORD=%MYSQL_PASSWORD%
 set MYSQL_DATABASE=zebrafish_db
 set SKIP_PAUSE=0
 if /i "%~1"=="nopause" set SKIP_PAUSE=1

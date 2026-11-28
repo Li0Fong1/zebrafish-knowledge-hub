@@ -5,7 +5,7 @@ set PYTHONIOENCODING=utf-8
 call "%~dp0_mysql_path.bat"
 
 set MYSQL_USER=root
-set MYSQL_PASSWORD=123456
+set MYSQL_PASSWORD=%MYSQL_PASSWORD%
 set SQL=release\zebrafish_db_full.sql
 
 if exist ".env" (

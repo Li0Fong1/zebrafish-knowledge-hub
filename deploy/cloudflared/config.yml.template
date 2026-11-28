@@ -33,5 +33,6 @@ ingress:
       keepAliveTimeout: 90s
       # SSE 流式回答（/api/chat/stream）必须关闭分块编码缓冲，否则前端会“卡住不吐字”
       disableChunkedEncoding: false
+REPLACE_WITH_WWW_INGRESS
   # 兜底：没匹配到的域名一律 404，不要漏到别处去
   - service: http_status:404

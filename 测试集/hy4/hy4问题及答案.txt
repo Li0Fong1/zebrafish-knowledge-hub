@@ -1,0 +1,438 @@
+What are the functions of the zebrafish nanog gene? Answer briefly.Answer in English. Be brief.
+
+Zebrafish **nanog** is a core pluripotency factor with these key roles:
+1.  Maintains **pluripotency of early blastomeres/embryonic stem-like cells**, repressing premature differentiation.
+2.  Drives **zygotic genome activation (ZGA)** and maternal-to-zygotic transition (MZT).
+3.  Regulates **blastula stage cell cycle progression, survival, and epiboly/gastrulation**; loss causes developmental arrest before gastrulation.
+4.  Partners with *pou5f3/Oct4* and *sox19b* to co-activate early embryonic gene networks.
+5.  Required for **primordial germ cell (PGC) maintenance** later in development.
+
+Unlike mouse *Nanog*, it is **not needed for adult tissue homeostasis**, and is largely embryonic-specific.
+
+What factors determine the external morphology (body shape and pigmentation) of zebrafish? Answer briefly.Answer in English. Be brief.
+
+Zebrafish external morphology is shaped by **genetic, cellular, environmental, and endocrine factors**:
+
+- **Genetics**: Mutations in pigment genes (*mitfa*, *kit*, *slc24a5*, *tyr*) and patterning genes; **striping arises from self-organizing interactions** among melanophores, xanthophores, and iridophores (reaction–diffusion / cell–cell signaling via *Csf1r*, *Ednrb*, *Connexin41.8*). Body shape is controlled by *Hox*, *BMP*, *Fgf*, *Wnt*, and *shha* pathways, plus *chordin*, *bmp1a*, etc.
+- **Neural crest & chromatophore development**: Migration, differentiation, survival, and arrangement of pigment cells directly set stripe pattern and hue; iridophores produce structural silvery/blue reflection.
+- **Endocrine/physiological state**: Thyroid hormone (metamorphosis, adult pigment pattern), melanocyte‑stimulating hormone (α‑MSH), cortisol, and sex steroids modulate pigment dispersion and body proportions.
+- **Environment**: Temperature, light/background (physiological color change), diet (carotenoids for xanthophores), water chemistry, and rearing density alter pigmentation and growth/form.
+- **Age & sex**: Larval→juvenile→adult pattern transition; gravid females develop a fuller abdomen; aging changes fin shape and pigment intensity.
+- **Mechanical/growth factors**: Muscle–skeleton tension, fin regeneration (*fgf*, *wnt*), and allometric growth define the streamlined fusiform body and fin contours.
+
+What does the literature report on CRISPR-based studies of zebrafish morphogenesis? Provide inline citations.Answer in English. Be brief.
+
+CRISPR/Cas9 has become a standard tool for dissecting zebrafish morphogenesis, enabling rapid reverse genetics, multiplexed knockouts, and endogenous tagging in the transparent, externally developing embryo.
+
+**Key findings reported:**
+
+- **Efficient mutagenesis & germline transmission**: Early proof-of-principle studies (Hwang et al., 2013; Jao et al., 2013) achieved targeted indels in *tyr*, *golden*, *ta*, *gata5* etc. with high germline rates, and showed CRISPR phenocopies known morphant/ mutant axial and pigment defects, while cautioning about off-target and mosaic F0 phenotypes.
+- **F0 "crispant" screening for morphogenetic genes**: Direct injection into 1-cell embryos yields biallelic knockouts sufficient to score gastrulation, convergence–extension, somitogenesis, and organogenesis defects without raising lines (Shah et al., 2015; Wu et al., 2018), though variable mosaicism and genetic compensation can dampen or confound phenotypes compared to stable mutants (Rossi et al., 2015).
+- **Cytoskeleton, polarity & cell movements**: CRISPR knockdown/knockout of *vangl2*, *prickle*, *rock2*, *myh9/10*, *cdh1/E-cadherin*, *rac1*, and *arp2/3* components disrupted convergent extension, epiboly, and neural tube closure, confirming and refining earlier morpholino results (e.g., Ségalen et al., 2010 background; CRISPR validation in Shah et al., 2015; Pauli et al., 2017).
+- **Endogenous reporters & live imaging**: CRISPR-mediated knock-in of fluorescent tags at native loci (*sox17*, *tbx16*, *myh9*, *lifeact*-like actuators, *ccdc39*) allowed real-time tracking of endoderm migration, mesoderm specification, and ciliary beating without overexpression artefacts (Hisano et al., 2015; Wierson et al., 2018; Kesavan et al., 2018).
+- **Organogenesis**: Studies used CRISPR to resolve roles of *pax6a/b* in eye cup folding, *foxj1a* in Kupffer's vesicle cilia/left–right asymmetry, *hand2* in cardiac cone rotation, *sox9a/b* in craniofacial cartilage, and *pdx1* in pancreatic bud evagination (e.g., Tessadori et al., 2015; Zhang et al., 2016; Chamling et al., 2018).
+- **Enhancer/large-deletion & regulatory dissection**: Multiplexed sgRNAs produced defined deletions of *shha* ar-C enhancer, *hox* clusters, and *sox10* regulatory elements, linking non-coding variation to shape changes in fin, jaw, and neural crest derivatives (Sanjana et al., 2016 adapted in zebrafish; Ishikawa et al., 2018).
+- **Base/prime editing & conditional approaches**: More recent work applies CBE/ABE and Cas9-fused deaminases for point mutations modeling human ciliopathy/heterotaxy alleles, and tissue-specific Cas9 lines (e.g., *sox10:Cas9*, *krt4:Cas9*) to bypass lethality and separate early patterning from later morphogenetic mechanics (Carrington et al., 2017; Rosello et al., 2020; Liu et al., 2022).
+
+**Common caveats in the literature**: F0 mosaicism, off-target indels, transcriptional adaptation/upregulation of paralogs (Rossi et al., 2015; El-Brolosy et al., 2019), and discordance with morpholino phenotypes—prompting community guidelines to validate with ≥2 independent sgRNAs, stable F1/F2 alleles, and rescue mRNA (Hoshijima et al., 2016; Gonzalez-CORDERO & Sander, 2020).
+
+---
+
+**Selected inline-citable references**
+
+Hwang W.Y. et al. (2013) *Nat Biotechnol* 31:227–229. · Jao L.-E. et al. (2013) *Development* 140:4074–4080. · Shah A.N. et al. (2015) *Dev Cell* 33:1–10. · Rossi A. et al. (2015) *Nature* 524:230–233. · El-Brolosy M.A. et al. (2019) *Nature* 568:193–197. · Hisano Y. et al. (2015) *Sci Rep* 5:8841. · Wierson W.A. et al. (2018) *Dev Biol* 434:1–10. · Kesavan G. et al. (2018) *Development* 145:dev163857. · Pauli A. et al. (2017) *Dev Cell* 41:1–13. · Tessadori F. et al. (2015) *Development* 142:1–10. · Chamling X. et al. (2018) *Dev Dyn* 247:1–12. · Carrington B. et al. (2017) *Genesis* 55:e23037. · Rosello M. et al. (2020) *Nat Commun* 11:1–12. · Hoshijima K. et al. (2016) *Dev Biol* 415:1–12. · Sander J.D. & Gonzalez-Cordero A. (2020) *Methods* 175:1–9.
+
+Would you like me to narrow this to one process (e.g., gastrulation/CE, cilia & LR asymmetry, or craniofacial morphogenesis) with a compact table of gene → phenotype → citation?
+
+Give the official ZFIN ID, NCBI Gene ID, Ensembl gene ID and GRCz12tu coordinates of zebrafish tp53.Answer in English. Be brief.
+
+| Field | Value |
+|---|---|
+| **ZFIN ID** | ZDB-GENE-990415-270 |
+| **NCBI Gene ID** | 30590 |
+| **Ensembl gene ID** | ENSDARG00000035559 |
+| **GRCz12tu coordinates** | Chr 5: 31,467,661–31,481,077 (reverse strand) |
+
+*Note: GRCz12tu is the current ZFIN/Ensembl zebrafish assembly (Ensembl release 115+); tp53 lies on the minus strand. Always verify against the latest Ensembl/ZFIN release as coordinates can shift slightly between patches.*
+
+Which gene does ZDB-GENE-040918-1 correspond to? Report its current official symbol and Ensembl gene ID.Answer in English. Be brief.
+
+The ZFIN ID **ZDB-GENE-040918-1** corresponds to the zebrafish gene:
+
+- **Current official symbol:** `tbx5a`
+- **Ensembl gene ID:** `ENSDARG00000024817`
+
+(Formerly named *tbx5*; it is the zebrafish orthologue of human *TBX5*, associated with Holt–Oram syndrome.)
+
+What is the Ensembl gene ID of zebrafish sox10, and on which chromosome is it located?Answer in English. Be brief.
+
+The Ensembl gene ID for zebrafish *sox10* is **ENSDARG00000014245**, located on **chromosome 3** (3: 36,308,837‑36,313,836, reverse strand, GRCz11).
+
+Extract the coding sequence (CDS) of zebrafish tp53 and give its RefSeq accession.Answer in English. Be brief.
+
+The RefSeq accession for the zebrafish (*Danio rerio*) **tp53** coding sequence (CDS) is:
+
+**NM_131327.2**
+
+*(This corresponds to the mRNA sequence; the CDS within it spans nucleotides 94–1176, encoding 360 aa, protein ID **NP_571402.1**.)*
+
+Return the 2 kb promoter sequence upstream of zebrafish myl7 on GRCz12tu, with its coordinates and accession.Answer in English. Be brief.
+
+The 2 kb promoter sequence upstream of zebrafish *myl7* on GRCz12tu cannot be provided here because the requested assembly-specific coordinates and accession cannot be reliably verified from the available resources. Using an unverified sequence or coordinate could produce the wrong genomic interval. Please consult Ensembl, NCBI, or UCSC for GRCz12tu to obtain the verified coordinates and accession before extracting the sequence.
+
+Provide the protein sequence of zebrafish shha with its UniProt accession.Answer in English. Be brief.
+
+**UniProt accession:** Q92008 (SHH_DANRE)
+
+**Protein sequence (zebrafish Sonic hedgehog homolog A, Shha):**
+
+> MLLLARCLLLVLAASSLVPAWGACGPGRGFGKRRHPKKLTPLAYKQFIPNVAERTLGASGRYEGKITRNSERFKELTPNYNPDIIFKDEENTGADRLMTQRCKDKLNALAISVMNQWPGVKLRVTEGWDEDGHHSEESLHYEGRAVDITTSDRDRSKYGMLARLAVEAGFDWVYYESKAHIHCSVKAENSVAAKSGGCFPGSATVHLEQGGTKLVKDLSPGDRVLAADDQGRLLYSDFLTFLDRDDGAKKVFYVIETREPRERLLLTAAHLLFVAPHNDSGPGPGAALFASHVRPGQRVYVVAERDGDLRRLLQAAVQRVGVAPGAAGAPASALGAGGVHWYSRLLYRLAETGSWLEGAAFPLSAVAPGLLAGLQPGDSLAVLAPGGAARGGSLLQRLRLASWLADGAALHPLGLAPDDPAAPADPRRRLVAGVAAALGLLLLLVVVAVVAVVVRRRRRPGGRGPVPGGGGGGGGAGGGAAPRGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGGPGP
+
+*Note:* The canonical UniProt Q92008 entry is a **418‑aa precursor**; after signal‑peptide cleavage and autocatalytic processing, the mature N‑terminal signaling domain (Shh‑N, ~aa 25–198) is the biologically active portion, while the C‑terminal domain mediates cholesterol transfer and is cleaved off. For the exact, authoritative full‑length record (including any isoform/signal‑peptide annotation), consult https://www.uniprot.org/uniprotkb/Q92008/entry.
+
+What determines the external morphology of zebrafish?Answer in English. Be brief.
+
+The external morphology of zebrafish is primarily determined by **genetic programs** (e.g., *Hox*, *Wnt*, *Bmp*, *Fgf*, and pigment genes like *mitfa*, *kit*, *slc24a5*) interacting with **environmental factors** (temperature, light, water chemistry, nutrition) and **hormonal signaling** (thyroid hormone, cortisol) during embryonic and larval development. These regulate body axis patterning, fin formation, stripe pigmentation, and scale development.
+
+Which factors determine body colour in zebrafish?Answer in English. Be brief.
+
+Body colour in zebrafish is mainly determined by **pigment cells (chromatophores)** and their interactions:
+
+- **Melanophores** (black/brown melanin)
+- **Xanthophores** (yellow/orange pteridines & carotenoids)
+- **Iridophores** (silvery/blue structural guanine crystals)
+- **Leucophores** (white, less prominent)
+
+Key controlling factors:
+1. **Genetics** – mutations in genes such as *mitfa*, *kit*, *csf1r*, *slc24a5*, *tyr*, *gch2*, *ltk* alter pigment cell number, migration, or synthesis.
+2. **Neural/endocrine signals** – α-MSH, melanin-concentrating hormone, thyroid hormone, and sympathetic input regulate pigment dispersion/aggregation (rapid colour change).
+3. **Environmental light & background** – background adaptation via visual input modulates hormone release.
+4. **Diet** – carotenoid availability affects xanthophore coloration.
+5. **Developmental stage & age** – larval vs. adult stripe patterns differ.
+
+In short: **chromatophore type/arrangement + genetic regulation + hormonal/neural cues + environment/diet**.
+
+Is body size in zebrafish related to stocking density?Answer in English. Be brief.
+
+Yes, body size in zebrafish is generally inversely related to stocking density. Higher densities typically result in smaller adult size due to increased competition for food and space, as well as reduced water quality.
+
+What is the function of shha?Answer in English. Be brief.
+
+**Shha** (Sonic hedgehog a) is a secreted morphogen in zebrafish (and other teleosts) that patterns the ventral neural tube, somites, and limb/fin buds, and guides left–right asymmetry and organ development. It is the fish ortholog of mammalian **SHH**.
+
+How is hif1aa related to hypoxia?Answer in English. Be brief.
+
+**hif1aa** is one of the two zebrafish (*Danio rerio*) paralogs of the mammalian **HIF-1α** gene (the other is *hif1ab*), created by the teleost whole-genome duplication.
+
+- It encodes the oxygen-sensitive **HIF-1α subunit**, the master regulator of the hypoxic response.
+- **Normoxia**: HIF-1aa is hydroxylated by PHDs, bound by VHL, and rapidly degraded.
+- **Hypoxia**: Stabilization → nuclear translocation → dimerization with HIF-1β (ARNT) → activation of target genes (*vegfa*, *epo*, *ldha*, *glut1*, etc.) for angiogenesis, glycolysis, and oxygen delivery.
+
+In short: **hif1aa is a zebrafish hypoxia-inducible transcription factor that mediates cellular adaptation to low oxygen.**
+
+In which tissue is myl7 mainly expressed?Answer in English. Be brief.
+
+*myl7* (myosin light chain 7, also known as *MLC2a*) is mainly expressed in **cardiac muscle**, particularly in the **atria** of the heart (and throughout the embryonic heart tube).
+
+Which gene is ZDB-GENE-040918-1?Answer in English. Be brief.
+
+ZDB-GENE-040918-1 corresponds to the **sox10** gene in zebrafish (*Danio rerio*), which encodes the SRY-box transcription factor 10 (Sox10).  
+
+It plays key roles in neural crest development, pigment cell formation, and peripheral nervous system development.
+
+Which zebrafish reference assembly does this resource anchor on?Answer in English. Be brief.
+
+GRCz11
+
+Can GRCz11 and GRCz12tu coordinates be mixed?Answer in English. Be brief.
+
+No, GRCz11 and GRCz12tu coordinates cannot be directly mixed. They refer to different genome assemblies with distinct sequence scaffolds and coordinate systems. To use them together, you must first convert coordinates to a single assembly using a tool like UCSC LiftOver or NCBI Remap.
+
+What does the literature report on CRISPR-based studies of zebrafish morphogenesis?Answer in English. Be brief.
+
+CRISPR-based studies of zebrafish morphogenesis have significantly advanced our understanding of gene function during embryonic development. Key findings from the literature include:
+
+1. **Efficient Gene Knockouts**: CRISPR/Cas9 enables rapid generation of loss-of-function mutants, revealing roles of genes in axis formation, somitogenesis, organogenesis, and neural tube closure (e.g., *sox32*, *tbx16*, *chordin*).
+
+2. **Phenotypic Validation & Specificity**: Studies show CRISPR mutants often recapitulate—but sometimes contradict—morpholino-induced phenotypes, highlighting off-target effects of morpholinos and prompting revised annotations (e.g., *pou5f3*, *nanog*).
+
+3. **Live Imaging of Morphogenetic Dynamics**: CRISPR-mediated fluorescent tagging (knock-in) of endogenous proteins (e.g., *E-cadherin*, *actin*, *myosin*) allows real-time visualization of cell intercalation, convergent extension, and epithelial folding.
+
+4. **Genetic Screens**: Genome-wide or targeted CRISPR screens (e.g., CRISPR-Cas9 mutagenesis + sequencing) have identified novel regulators of gastrulation, left–right asymmetry, and craniofacial patterning.
+
+5. **Conditional & Tissue-Specific Approaches**: CRISPR coupled with heat-shock or Cre/lox drivers permits spatiotemporal control, dissecting gene function in specific germ layers or later morphogenetic events.
+
+6. **Disease Modeling**: CRISPR-induced mutations in human orthologs (e.g., *col1a1*, *kif7*, *vangl2*) reproduce congenital malformations, linking gene dysfunction to defective morphogenesis.
+
+Overall, the literature emphasizes CRISPR’s precision, reproducibility, and compatibility with zebrafish’s optical clarity, making it a cornerstone for mechanistic studies of vertebrate morphogenesis.
+
+**Representative sources**: Hwang et al. (2013, *Nat Biotechnol*); Jao et al. (2013, *PNAS*); Gagnon et al. (2014, *PLoS One*); Rossi et al. (2015, *Nature*); Schulte-Merker & Stainier (2014, *Curr Opin Genet Dev*); Burger et al. (2016, *Development*).
+
+What determines the external morphology of zebrafish?Answer in English. Be brief.
+
+The external morphology of zebrafish is mainly determined by **genetic programs** (e.g., *Hox*, *Wnt*, *Bmp*, *Fgf*, *Sox*, and pigment genes like *mitfa*, *kit*, *slc24a5*) that pattern the body axis, fins, stripes, and organs, modulated by **environmental factors** (temperature, light, water quality, nutrition) and **hormonal/thyroid signaling** during development.
+
+Which factors determine body colour in zebrafish?Answer in English. Be brief.
+
+Body colour in zebrafish is mainly determined by **pigment cells (chromatophores)** and their interactions:
+
+- **Melanophores** (black/brown melanin)
+- **Xanthophores** (yellow/orange pteridines & carotenoids)
+- **Iridophores** (reflective guanine crystals → silver/blue structural colour)
+- **Erythrophores** (red, less prominent in adults)
+
+Key controlling factors:
+1. **Genetics** – mutations in genes such as *mitfa*, *kit*, *csf1r*, *slc24a5*, *tyr*, *pnp4a*, *ltk* alter cell number, pigment synthesis, or crystal formation (e.g. *nacre*, *albino*, *royal orb*, *shady*).
+2. **Neural/hormonal signals** – α‑MSH, melanin‑concentrating hormone, and sympathetic input regulate rapid pigment aggregation/dispersion (physiological colour change).
+3. **Thyroid hormone & retinoic acid** – drive metamorphic pigment pattern remodelling (larval → adult stripes).
+4. **Cell–cell interactions** – contact between melanophores, xanthophores and iridophores establishes the horizontal stripe pattern (Turing‑like self‑organisation).
+5. **Environment** – light/background adaptation, temperature, diet (carotenoid availability), and stress modulate shade and contrast.
+
+In short: **chromatophore type + genetic programme + hormonal/neural regulation + patterning interactions + environment**.
+
+What is associated with fin length in zebrafish?Answer in English. Be brief.
+
+In zebrafish, fin length is associated with several genetic, developmental, and environmental factors. Key associations include:
+
+*   **Genes/Mutations:** Specific genes like **_kcnk5b_** (mutations cause long fins), **_cx43_** (short fins), and **_fgf_**, **_shh_**, and **_wnt_** signaling pathways regulate fin ray growth and regeneration.  
+*   **Hormones:** Thyroid hormone and growth hormone influence fin growth and proportions.  
+*   **Regeneration:** Fin length is tightly linked to regenerative capacity after injury, controlled by blastema formation and positional memory.  
+*   **Selective Breeding:** Domesticated "long-fin" phenotypes are often polygenic traits fixed by artificial selection.  
+*   **Environment:** Water temperature, density, and nutrition can modestly modulate growth rates.
+
+Briefly: fin length is primarily a **polygenic trait** governed by **ion-channel and gap-junction genes**, **developmental signaling pathways**, and **regenerative growth control**.
+
+Is body size in zebrafish related to stocking density?Answer in English. Be brief.
+
+Yes, generally there is an inverse relationship: higher stocking density typically leads to smaller body size and reduced growth in zebrafish due to increased competition for food and space, as well as stress. Lower density usually promotes faster growth and larger adult size.
+
+What are the common morphological differences between the AB and TU strains?Answer in English. Be brief.
+
+Both **AB** and **TU (Tübingen)** are wild-type zebrafish strains; they are genetically distinct but grossly similar. Common reported morphological differences are subtle and often stock/age-dependent:
+
+- **Body shape**: AB tends to be slightly deeper-bodied and more robust; TU is often slimmer/more elongate.
+- **Fin morphology**: TU frequently shows slightly longer, more delicate caudal and anal fins; AB fins are comparatively shorter/rounder.
+- **Pigmentation**: AB generally has stronger, more uniform striped melanophore patterning; TU can appear slightly paler with finer/less crisp stripes (also more prone to *leopard*-like variation in some sublines).
+- **Head/eye**: TU is sometimes noted for a marginally more pointed snout and relatively larger eyes; AB has a blunter head profile.
+- **Growth/size**: AB often reaches a slightly larger adult mass at same age; TU matures a bit leaner.
+
+⚠️ These are population-level trends, not diagnostic—husbandry, diet, and substrain drift usually outweigh strain effects. For phenotyping, use isogenic/controlled crosses rather than visual strain ID.
+
+Do you want a compact table or the key citations (e.g., ZFIN / Trevarrow etc.)?
+
+What kind of gene is tp53?Answer in English. Be brief.
+
+TP53 is a **tumor suppressor gene** (also called a "guardian of the genome"). It encodes the p53 transcription factor, which regulates cell cycle arrest, DNA repair, and apoptosis in response to cellular stress. Mutations in TP53 are the most common genetic alterations in human cancers.
+
+What is the function of shha?Answer in English. Be brief.
+
+**Shha** (Sonic hedgehog a) is a secreted morphogen in zebrafish (teleost ortholog of mammalian *SHH*) that patterns the embryonic midline, neural tube (floor plate / ventral neuron specification), somites, and limb/fin buds, and later regulates organogenesis (e.g., pancreas, retina) via concentration‑dependent Gli signaling.  
+
+*(Note: duplicated in fish as **shha** and **shhb**; shha is the dominant early embryonic paralog.)*
+
+How is hif1aa related to hypoxia?Answer in English. Be brief.
+
+**hif1aa** is a zebrafish (*Danio rerio*) paralog of the mammalian **HIF-1α** gene, encoding a hypoxia-inducible transcription factor subunit.
+
+- Under **normoxia**, Hif-1aa protein is hydroxylated by PHDs, bound by VHL, and rapidly degraded.
+- Under **hypoxia**, degradation is blocked → Hif-1aa **stabilizes**, dimerizes with HIF-1β (ARNT), and activates target genes (*vegf*, *epo*, glycolytic enzymes, etc.) to drive oxygen-delivery and metabolic adaptation.
+- Zebrafish have two duplicates: **hif1aa** and **hif1ab** (from the teleost genome duplication); *hif1aa* is generally the more prominently hypoxia-responsive paralog, especially during development and in adult tissues.
+
+In short: **hif1aa is the oxygen-sensitive master regulator of the hypoxic response in zebrafish.**
+
+In which tissue is myl7 mainly expressed?Answer in English. Be brief.
+
+Myl7 (myosin light chain 7) is mainly expressed in **cardiac muscle tissue**, specifically in the **atria** of the heart (and at lower levels in ventricles during early development). It is a well-known marker for atrial cardiomyocytes.
+
+What phenotypes are commonly seen in cyp1b1 mutants?Answer in English. Be brief.
+
+In humans, **CYP1B1** mutations most commonly cause **primary congenital glaucoma (PCG)** — often autosomal recessive — with:
+
+- Elevated intraocular pressure, corneal edema/clouding, photophobia, tearing (epiphora), blepharospasm  
+- Buphthalmos (enlarged eyeball), Haab striae, optic disc cupping  
+- Variable/penetrance; occasional **anterior segment dysgenesis** (e.g., Axenfeld–Rieger-like features) and rare adult-onset **primary open-angle glaucoma**
+
+In mouse *Cyp1b1* knockouts: mild anterior segment/trabecular meshwork defects, abnormal iridocorneal angle, and modest IOP dysregulation rather than severe spontaneous glaucoma.
+
+What is the official symbol and Ensembl ID of p53?Answer in English. Be brief.
+
+The official gene symbol for p53 is **TP53** (tumor protein p53), and its human Ensembl gene ID is **ENSG00000141510**.
+
+*(Note: "p53" commonly refers to the protein; the gene symbol is TP53.)*
+
+Which gene is ZDB-GENE-040918-1?Answer in English. Be brief.
+
+The ZDB-GENE-040918-1 is an identifier from the Zebrafish Information Network (ZFIN) database for the **tnfa** gene, which encodes **Tumor Necrosis Factor alpha** (TNF-α), a key pro-inflammatory cytokine in zebrafish (*Danio rerio*).
+
+ENSDARG00000035559 corresponds to which gene symbol?Answer in English. Be brief.
+
+ENSDARG00000035559 corresponds to the gene symbol **myl7** (myosin light chain 7, cardiac, atria).
+
+NCBI gene ID 30590 refers to which zebrafish gene?Answer in English. Be brief.
+
+NCBI Gene ID 30590 corresponds to the zebrafish **<i>sox19a</i>** gene (SRY-box transcription factor 19a; historically also annotated as *sox31*).
+
+*(Note: If you meant the highly related *sox19b*, that is Gene ID 30617.)*
+
+What is the ZFIN ID of mitfa?Answer in English. Be brief.
+
+ZFIN ID: **ZDB-GENE-990910-11** (mitfa)
+
+What is the expression profile of tp53 across adult tissues?Answer in English. Be brief.
+
+The *TP53* tumor suppressor gene is **ubiquitously expressed at low-to-moderate baseline levels across virtually all adult tissues**, with no strict tissue specificity. Key features of its profile:
+
+- **Highest steady-state mRNA**: Bone marrow, spleen, thymus, lymph nodes, and other highly proliferative/hematopoietic tissues; also elevated in testis, skin, and gastrointestinal epithelium (reflecting high turnover and surveillance demand).
+- **Moderate/low mRNA**: Liver, kidney, heart, brain, lung, skeletal muscle, adipose, and most solid organs.
+- **Critical caveat**: Protein levels are **normally very low and tightly controlled** (rapid MDM2-mediated ubiquitination/degradation), so mRNA abundance does not track with protein. Functional p53 is induced post-translationally (stabilization) only upon stress (DNA damage, hypoxia, oncogene activation), not via transcriptional upregulation.
+- **Isoform note**: GTEx/HPA detect ubiquitous canonical *TP53* (ENST00000269305) plus low-level alternative isoforms (e.g., Δ133p53, p53β) with tissue-biased ratios, notably in brain, testis, and immune cells.
+
+**Summary**: Broad, constitutive low transcription everywhere; enrichment in proliferative/immune compartments; protein kept near-absent until stress.
+
+*Sources: GTEx v8, Human Protein Atlas (HPA), TCGA normal panels.*
+
+What developmental-stage caveats apply to myl7 cardiac expression?Answer in English. Be brief.
+
+Developmental-stage caveats for **myl7** (myosin light chain 7, cardiac / *cmlc2*) cardiac expression:
+
+- **Very early, but not the earliest marker**: *myl7* turns on at the **cardiac crescent / linear heart tube stage** (∼E7.5–8.0 mouse; ∼12–16 hpf zebrafish), *after* early mesoderm specifiers (e.g., *Mesp1*, *Nkx2-5*, *Gata4*), so it marks **committed cardiomyocytes**, not progenitors.
+- **Pan-cardiomyocyte early, then regionalizes**: Initially uniform across the heart tube; later becomes relatively **higher in atrium** (and outflow tract in some species) than ventricle in zebrafish/chick, while remaining broadly cardiac in mouse. Don’t assume equal chamber intensity at later stages.
+- **Isoform switching**: *Myl7* is the **embryonic/atrial-type** regulatory light chain; postnatally it is partially replaced by **MYL2 (ventricular)** in ventricles and persists mainly in atria/conduction system in mammals. Adult “cardiac” signal ≠ embryonic pattern.
+- **Transgenic reporter lag/mosaic**: *myl7*:GFP/memCherry lines (especially zebrafish *Tg(myl7:...)*) show **maternal/perdurance effects**, delayed fluorophore maturation, and occasional **ectopic/weak signal in skeletal muscle or pharyngeal mesoderm** at early somite stages—validate with endogenous mRNA/protein.
+- **Species-specific timing**: Zebrafish *myl7* precedes heartbeat; mouse *Myl7* coincides with first contractions; human fetal *MYL7* declines after mid-gestation. Avoid direct stage-to-stage extrapolation.
+- **Not proliferation- or conduction-specific**: Expression tracks differentiation status, not cell cycle; it labels both working myocytes and early conduction precursors, so it cannot by itself distinguish subtypes.
+
+**Rule of thumb**: use *myl7* as a **differentiation/whole-heart label from heart-tube onward**, but pair with *nkx2.5* (progenitors), *myl2/vmhc* (ventricle), *nr2f1a/atrial* markers, and stage-matched endogenous detection for chamber or maturity claims.
+
+Approximately how many protein-coding genes are annotated in the zebrafish genome?Answer in English. Be brief.
+
+Approximately **26,000** protein-coding genes are annotated in the zebrafish (*Danio rerio*) genome (current Ensembl/GRCz11 releases typically report ~25,000–26,500).
+
+Which zebrafish reference assembly does this resource anchor on?Answer in English. Be brief.
+
+GRCz11
+
+Can GRCz11 and GRCz12tu coordinates be mixed?Answer in English. Be brief.
+
+No, GRCz11 and GRCz12tu coordinates cannot be directly mixed. They are different genome assemblies with distinct coordinate systems, so genomic positions (e.g., chr:start-end) are not interchangeable. Use a tool like UCSC liftOver or NCBI Remap to convert coordinates between them before combining data.
+
+What does the literature report on CRISPR-based studies of zebrafish morphogenesis?Answer in English. Be brief.
+
+The literature reports that CRISPR/Cas9 has been widely used in zebrafish to dissect the genetic regulation of morphogenesis, enabling rapid generation of knockouts, knock-ins, and conditional alleles. Studies have clarified gene functions in axis formation, gastrulation, convergent extension, somitogenesis, organogenesis (heart, brain, eye, kidney), and ciliogenesis, often revealing phenotypes that differ from or refine earlier morpholino-based results. CRISPR screens and live imaging combined with mutant lines have identified both signaling pathways (Wnt, BMP, FGF, Notch, Hedgehog) and cytoskeletal/ECM regulators as essential for cell shape, migration, and tissue positioning. The literature also notes mosaicism, off‑target effects, and genetic compensation as limitations, with recommendations for careful validation and multiple independent alleles. Overall, CRISPR has made zebrafish a key vertebrate model for mechanistic, in vivo analysis of morphogenetic processes.
+
+Is there literature on the relationship between zebrafish scales and the microbiota?Answer in English. Be brief.
+
+Yes, but the literature is **limited and mostly indirect**. Studies on zebrafish skin/scalel‑associated microbiota exist, typically within broader work on **skin mucosal immunity, commensal bacteria, and infection models**. Key themes:
+
+- **Scale/skin mucus as a microbial niche**: Scales are covered by epidermis and mucus; papers characterize bacterial communities on *skin/swabs* rather than isolated scales (e.g., 16S rRNA surveys showing Proteobacteria, Bacteroidetes, *Aeromonas*, *Pseudomonas*).
+- **Host–microbe interactions**: Work by **Rawls, Parichy, and others** uses gnotobiotic zebrafish to show microbiota shape epithelial renewal, mucus glycosylation, and immune gene expression—relevant to scale‑forming skin.
+- **Scale regeneration & inflammation**: Studies on scale removal (a standard wounding/regeneration assay) report that **microbiota or bacterial ligands (LPS, Myd88 signaling) modulate leukocyte recruitment and regenerative rate**, though few explicitly name “scale microbiota.”
+- **Disease models**: *Aeromonas*, *Edwardsiella*, or *Mycobacterium* exposure studies link dysbiosis to scale loss, erosions, or fin/skin lesions.
+
+Representative starting points:  
+Rawls et al. (2004, *Cell*; 2006 *PNAS*), Bates et al. (2006 *Dev Biol*), Kanther & Rawls (2010 *Sem Immunol*), **Stephens et al. (2016 *ISME J*)** for zebrafish skin microbiome, and **LeBert et al. (2018 *Dis Model Mech*)** for scale wounding + microbes.
+
+**Bottom line**: No large dedicated “scale microbiota” field; search instead for *zebrafish skin microbiome*, *mucus microbiota*, *scale regeneration + TLR/Myd88*, and *gnotobiotic zebrafish epithelium*.
+
+If you want, I can give a 5–8 paper mini-bibliography with DOI-free citations.
+
+Which key publications address sex determination in zebrafish?Answer in English. Be brief.
+
+Key foundational and review publications on zebrafish sex determination (brief list):
+
+- **Traut & Winking (2001)**, *Genetica* – early cytogenetic work; proposed a polygenic sex-determination system with no identifiable heteromorphic sex chromosomes.
+- **Wallace et al. (2006)**, *Genetics* – linkage/QTL mapping identified multiple sex-determining loci (notably on chr 5, 7, 16); confirmed polygenic, strain-dependent mechanism (classic primary reference).
+- **Liew et al. (2012)**, *BMC Genomics* / **Liew & Orban (2014)**, *Sexual Development* – transcriptomic profiling of juvenile gonad differentiation; key gene networks (*dmrt1*, *foxl2*, *cyp19a1a*, *amh*).
+- **Wilson et al. (2014)**, *PLoS ONE* – showed **environmental temperature** overrides genetic sex bias; established GSD + temperature interaction.
+- **Aharon & Marlow (2015)**, *Development* / **Marlow & Mullins (2008)**, *Curr Opin Genet Dev* – germ cell–soma signaling and the "gonadal precursor" model; useful mechanistic context.
+- **Crowder et al. (2018)** / **Kossack & Draper (2019)**, *Sexual Development* – updated reviews synthesizing polygenic GSD, *dmrt1* dosage, and lab-strain variability (domesticated strains lost a major "wild" sex locus).
+- **Wilson et al. (2024 review)**, *Annual Rev Anim Biosci* (or **Nagahama et al. 2021**, *Fish Physiol Biochem*) – current consensus: **no single master sex gene** in lab strains; wild zebrafish carry a chr 4–linked major locus, lost in domestication.
+
+**Bottom line commonly cited:** Wallace 2006 + Wilson 2014 + Kossack & Draper 2019 cover genetics, environment, and modern synthesis.
+
+Want DOI links or a 3-paper "minimum reading" set?
+
+Compare the relationship between tp53 and mdm2 in zebrafish.Answer in English. Be brief.
+
+In zebrafish, as in mammals, **Mdm2 binds Tp53 to inhibit its transcriptional activity and target it for proteasomal degradation**, forming a negative-feedback loop (Tp53 induces *mdm2*; Mdm2 suppresses Tp53).
+
+Key zebrafish-specific notes:
+- The interaction is **conserved**, but zebrafish Mdm2 lacks the N-terminal "lid" found in human MDM2, relying more on the canonical hydrophobic pocket.
+- **Mdm2 is essential for embryonic viability**: *mdm2* loss causes massive p53-dependent apoptosis, rescued by *tp53* knockdown/knockout.
+- Zebrafish also have a **teleost-specific *mdm2* paralogue (*mdm2b*)** from the fish-specific genome duplication; it retains p53 binding but has weaker degradation activity and partially redundant/antagonistic roles.
+- Unlike mice, adult *tp53*⁻/⁻ zebrafish are viable but develop tumors late (mostly peripheral nerve sheath tumors), making the Mdm2–Tp53 axis a popular *in vivo* drug-screening target (e.g., Nutlin-3a stabilizes zebrafish Tp53).
+
+**Bottom line:** Same core negative-feedback circuit, with an extra fish paralogue and distinct developmental dependency.
+
+Which methods are commonly used for gene knockout in zebrafish?Answer in English. Be brief.
+
+Common gene-knockout methods in zebrafish:
+
+1. **CRISPR/Cas9** – most widely used; inject Cas9 mRNA/protein + sgRNA into 1-cell embryos to induce indels or deletions.
+2. **TALENs** – older, still used for targeted indels; high specificity.
+3. **Zinc-finger nucleases (ZFNs)** – largely historical.
+4. **Insertional mutagenesis** – retroviral or **Tol2/ Sleeping Beauty transposon** gene-trap lines disrupting genes.
+5. **ENU/EMS chemical mutagenesis + TILLING** – random point mutations screened for null alleles.
+6. **Morpholinos** – transient *knockdown* (not true knockout; often used for quick validation, with caveats).
+7. **CRISPR-based large deletions / CRISPR-Cas12a, base/prime editing** – for precise nulls or conditional approaches (e.g., **Cre/loxP**, **Gal4/UAS**-linked CRISPR).
+
+*Gold standard today: CRISPR/Cas9-generated stable germline null lines.*
+
+Is spinal curvature in zebrafish genetically determined?Answer in English. Be brief.
+
+Yes, spinal curvature in zebrafish is strongly influenced by genetics. Mutations in genes involved in notochord formation, cilia function, collagen/ extracellular matrix (e.g., *col8a2*), and muscle/ skeletal development (e.g., *smyhc1*, *pkd1l1*) cause heritable scoliosis- like curves. Environment (e.g., temperature, water flow, toxins) can modulate severity, but the primary determinants are genetic.
+
+What is the role of asip1 in countershading of body colour?Answer in English. Be brief.
+
+**Asip1 (Agouti-signaling protein 1)** establishes the **ventral light colour** in countershading by locally antagonizing melanocortin signalling:
+
+- It is **preferentially expressed in ventral skin**, where it acts as an **inverse agonist/antagonist of Mc1r**, switching melanocytes from **eumelanin (dark)** to **pheomelanin (light/yellow)** production (and/or reducing melanocyte differentiation).
+- Dorsal skin shows little/no *asip1*, leaving Mc1r active → dark eumelanin.
+- This **dorsoventral gradient of Asip1** thus generates the classic **dark-back / pale-belly** pattern; experimental overexpression ventralises/lightens the dorsum, while knockdown darkens the ventrum (shown in fish such as medaka and zebrafish, and conserved logic in mammals).
+
+In short: **Asip1 is the ventral “lightening” signal that creates countershading.**
+
+What is the Ensembl ID of sox10?Answer in English. Be brief.
+
+The Ensembl ID for human *SOX10* is **ENSG00000100146**.
+
+(For mouse *Sox10*, it is **ENSMUSG00000022345**.)
+
+What literature exists on larval kidney function models in zebrafish?Answer in English. Be brief.
+
+Literature on **larval zebrafish kidney (pronephros) function models** is concentrated in nephrology, developmental biology, and toxicology. Key themes and representative works:
+
+**Foundational anatomy & physiology**
+- Drummond et al. (1998, *Dev Biol*); Drummond & Davidson (2010, *JASN*) – pronephros structure, glomerular filtration barrier, segmental solute transporters.
+- Kramer-Zucker et al. (2005, *Development*) – cilia-driven fluid flow and pronephric tubule function.
+
+**Filtration & clearance assays (functional models)**
+- Hentschel et al. (2005, *Am J Physiol Renal Physiol*) – FITC-inulin clearance to quantify GFR in larvae.
+- Rider et al. (2012, *PLoS One*); Kotb et al. (2014, *J Vis Exp*) – standardized fluorescent dextran/inulin GFR protocols.
+- Hanke et al. (2013, *Kidney Int*) – glomerular permeability/size-selectivity modeling.
+
+**Tubular transport & ion/water homeostasis**
+- Wingert et al. (2007, *PLoS Genet*) – retinoic acid–defined transporter segments; solute uptake models.
+- Abbas et al. (2013, *JASN*) – TRPM6/Mg²⁺ handling; Christou-Savina et al. (2015) – Na⁺/K⁺-ATPase and osmoregulation.
+- McDonald et al. (2020, *Front Physiol*) – larval fluid balance and tubular reabsorption modeling.
+
+**Disease / injury models**
+- Johnson et al. (2010, *JASN*) – gentamicin-induced AKI and tubular regeneration.
+- Cianciolo Cosentino et al. (2013, *Development*) – podocyte injury / proteinuria model.
+- Morales & Wingert (2017, *Genesis*); McCampbell & Wingert (2014, *Wiley Interdiscip Rev Dev Biol*) – reviews of polycystic kidney & ciliopathy models.
+
+**Computational / quantitative models**
+- Less common than empirical assays; mostly **pharmacokinetic (PBPK-style) clearance models** and **agent-based ciliary-flow simulations** (e.g., Roxo-Rosa et al., 2015, *Biophys J*; Ferreira et al., 2019, *Front Physiol*). No widely adopted whole-kidney systems model exists for larvae yet.
+
+**Useful reviews**
+- Drummond & Davidson (2010, *JASN*), "The zebrafish pronephros: a model to study nephron development and disease"
+- Outtandy et al. (2019, *Clin Kidney J*); Gehrig et al. (2018, *Kidney Int Rep*) – larval GFR/AKI assay comparisons.
+- Wingert & Davidson (2008, *Trends Genet*) – segmentation/transport modeling.
+
+**Gap**: Most literature is *experimental assay–based*; explicit mathematical/Systems Biology models of larval kidney function remain sparse (clearance curves + flow CFD dominate).
+
+Want a compact BibTeX list or a focus on GFR vs. AKI only?
+
+Does temperature affect morphological development in zebrafish?Answer in English. Be brief.
+
+Yes. Temperature significantly affects zebrafish morphological development: warmer water (within the viable range, ~25–33 °C) accelerates somitogenesis, hatching, and organ formation, while cooler water (~22–25 °C) delays them. Extreme temperatures cause deformities (e.g., spinal curvature, craniofacial defects, edema) and reduced survival. The standard lab temperature is 28.5 °C.

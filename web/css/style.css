@@ -789,6 +789,12 @@ body.dark .user-chip {
 .auto-tool-section { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border, rgba(255,255,255,.08)); }
 .auto-tool-section:first-of-type { margin-top: 8px; border-top: none; padding-top: 0; }
 .auto-tool-title { font-size: 0.92rem; margin: 0 0 8px; color: var(--accent-2); font-weight: 600; }
+.auto-tool-pre {
+  margin: 0; padding: 10px 12px; border-radius: 8px; background: var(--panel-2);
+  border: 1px solid var(--border); color: var(--ink); font-size: 12px; line-height: 1.6;
+  white-space: pre-wrap; word-break: break-word; max-height: 420px; overflow: auto;
+  font-family: inherit;
+}
 
 .agent-trace { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .agent-step {
@@ -2527,7 +2533,7 @@ body.theme-atelier.dark .feature-empty-state {
   height: 84px;
   border-radius: 24px;
   background-color: transparent;
-  background-image: url("/static/assets/brand/zf-agent-emblem.png?v=20261012a");
+  background-image: url("/static/assets/brand/zf-agent-emblem.png?v=20261109b");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;

@@ -391,7 +391,7 @@ def get_model_status() -> dict:
         "multi_model_ready": remote,
         "llm_mode": mode,
         "api_configured": api_ok,
-        "api_model": os.getenv("LLM_API_MODEL", "deepseek-chat") if api_ok else None,
+        "api_model": os.getenv("LLM_API_MODEL", "deepseek-flash") if api_ok else None,
         "reasoning_remote": remote,
     }
 

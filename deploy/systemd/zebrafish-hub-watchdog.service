@@ -1,0 +1,20 @@
+[Unit]
+Description=Zebrafish Hub 看门狗（Hub 复活 / 冷启动预热 / 内存回收）
+Documentation=file:///data/zoujin/deng/zebrafish_gene_qa/docs/公网访问指南.md
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/data/zoujin/deng/zebrafish_gene_qa
+# 120s 一轮：比 5 分钟更勤，巡检本身很轻（一次 curl + 几次读文件）
+Environment=HUB_WATCH_INTERVAL_SEC=120
+ExecStart=/bin/bash /data/zoujin/deng/zebrafish_runtime/hub_watchdog.sh
+# 看门狗自己挂了也要能回来 —— 这正是不再依赖 root cron 的意义
+Restart=always
+RestartSec=15
+# 停服务时不要连带把 Hub 杀掉（Hub 是独立会话里的进程）
+KillMode=process
+TimeoutStopSec=20
+
+[Install]
+WantedBy=default.target

@@ -30,8 +30,8 @@ SNAP="$RT/hub_watchdog_last.json"
 INTERVAL=${HUB_WATCH_INTERVAL_SEC:-300}      # 5 分钟
 RSS_MAX_MB=${HUB_RSS_MAX_MB:-34000}          # 兜底（冷态约 2.5GB，全热态实测 32GB）
 MIN_UPTIME=${HUB_MIN_UPTIME_SEC:-600}        # 刚起来的别急着回收
-MEM_PCT=${HUB_MEM_PCT:-95}                   # cgroup 匿名内存占用≥此百分比才算「吃紧」（全热态实测约 91%）
-IDLE_SEC=${HUB_IDLE_SEC:-900}                # 至少空闲这么久才允许回收
+MEM_PCT=${HUB_MEM_PCT:-85}                   # cgroup 匿名内存占用≥此百分比才算「吃紧」（全热态实测约 91%）
+IDLE_SEC=${HUB_IDLE_SEC:-300}                # 至少空闲这么久才允许回收
 WARM_DELAY=${HUB_WARM_DELAY_SEC:-90}         # 重启后延迟多久发 warm ping
 WARM_PING_ON=${HUB_WARM_PING:-1}             # 0 = 关闭自动预热
 
@@ -67,12 +67,17 @@ mem_pct() {
   done
   echo 0
 }
-idle_sec() {   # 距上次写 hub.log 多少秒 ≈ 距上次有流量的时间
-  local now mt
-  now=$(date +%s)
-  mt=$(stat -c %Y "$HUB_LOG" 2>/dev/null || echo "$now")
-  echo $((now - mt))
+# 2026-11-12：hub.log 会被 hub_guard 的 /api/health 轮询持续刷新（实测 idle_s 恒为 0），
+# 拿它当「有没有真实用户在问答」的判据，会让「内存吃紧 + 空闲」的主动回收永远不触发，
+# 最终只能等 cgroup OOM killer 把 Hub 杀掉。改为每轮读 health 的问答状态并累计空闲秒数。
+chat_active() {
+  local j
+  j=$(curl -s -m 8 http://127.0.0.1:8080/api/health 2>/dev/null)
+  [ -z "$j" ] && return 1
+  echo "$j" | grep -qE '"chat_busy":true|"chat_running":[1-9]|"chat_queued":[1-9]'
 }
+idle_ticks=0
+idle_sec() { echo "$idle_ticks"; }
 rss_mb() {
   local hp; hp=$(worker_pid)
   [ -z "$hp" ] && { echo 0; return; }
@@ -84,6 +89,12 @@ rss_mb() {
 # 参数：延迟秒数（默认 WARM_DELAY）。循环里发现冷态时用更短的延迟。
 warm_ping() {
   [ "$WARM_PING_ON" = "0" ] && return
+  # 2026-11-12：cgroup 已经吃紧时不要再拉 18GB 重模型，否则
+  # 「OOM -> 重启 -> warm-ping 拉满 -> 再 OOM」会一直循环。
+  if [ "$(mem_pct)" -ge "$MEM_PCT" ]; then
+    echo "[$(date '+%F %T')] warm-ping 跳过：cgroup 内存已吃紧（$(mem_pct)% >= ${MEM_PCT}%）" >> "$LOG"
+    return
+  fi
   local delay=${1:-$WARM_DELAY}
   (
     sleep "$delay"
@@ -132,7 +143,9 @@ while true; do
     if [ -n "$hp" ]; then
       cur_rss=$(rss_mb)
       up_s=$(ps -o etimes= -p "$hp" 2>/dev/null | tr -d ' ')
-      mpct=$(mem_pct); idle=$(idle_sec)
+      mpct=$(mem_pct)
+      if chat_active; then idle_ticks=0; else idle_ticks=$((idle_ticks + INTERVAL)); fi
+      idle=$idle_ticks
       up_s=${up_s:-0}
       # 兜底：单进程 RSS 超过 32GB（已经不可能，但留着防手滑改配置）
       if [ "$cur_rss" -gt $((RSS_MAX_MB * 1024 / 1024)) ]; then
@@ -164,7 +177,7 @@ while true; do
 
   printf '{"ts":"%s","health":"%s","action":"%s","rss_mb":%s,"mem_pct":%s,"idle_s":%s,"supervise":%s}\n' \
     "$TS" "$code" "$action" "$(rss_mb)" "$(mem_pct)" "$(idle_sec)" \
-    "$(pgrep -c -f 'hub_supervise[.]sh' 2>/dev/null || echo 0)" > "$SNAP"
+    "$(pgrep -c -f 'hub_supervise[.]sh' 2>/dev/null || true)" > "$SNAP"
 
   sleep "$INTERVAL"
 done

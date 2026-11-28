@@ -25,6 +25,73 @@ def _env_bool(name: str, default: bool = False) -> bool:
     return raw.strip().lower() in ("1", "true", "yes", "on")
 
 
+_THINKING_EFFORTS = ("low", "high", "max")
+
+
+def _thinking_mode() -> str:
+    """归一化 thinking 开关：on（默认）/ off / auto。"""
+    mode = os.getenv("LLM_API_THINKING", "on").strip().lower()
+    if mode == "auto":
+        return "auto"
+    if mode in ("off", "disabled", "false", "0", "no"):
+        return "off"
+    return "on"
+
+
+def _thinking_payload() -> dict:
+    """构造 thinking 开关与推理强度字段。
+
+    评测口径为「与对手公平对齐」：Kimi K3 / Qwen3.8-Max / Gemini 3.1 Pro 均无法
+    关闭思考，故本平台不再以非推理模式参评，默认同样开启 thinking 并给出等的
+    reasoning_effort（默认 high，即 DeepSeek 官方默认档）。
+
+    LLM_API_THINKING:
+      on（默认）→ {"thinking": {"type": "enabled"}, "reasoning_effort": <档位>}
+      off        → {"thinking": {"type": "disabled"}}，temperature 正常生效
+      auto       → 不下发该字段，交由上游默认（非 DeepSeek 后端用）
+
+    注意：thinking 模式下 temperature / top_p / presence_penalty 均不生效，
+    故 on 档位下不再下发 temperature（见 chat / generate_stream）。
+    """
+    mode = _thinking_mode()
+    if mode == "auto":
+        return {}
+    if mode == "off":
+        return {"thinking": {"type": "disabled"}}
+    effort = os.getenv("LLM_API_REASONING_EFFORT", "high").strip().lower() or "high"
+    if effort not in _THINKING_EFFORTS:
+        effort = "high"
+    return {"thinking": {"type": "enabled"}, "reasoning_effort": effort}
+
+
+def _thinking_budget_floor() -> int:
+    """thinking 模式下 max_tokens 的下限。
+
+    CoT 与正文共用 max_tokens 预算，若沿用 512 会被推理过程吃光、正文变空。
+    V4-Pro 在 effort=high 下推理链显著更长：实测一道多基因对比题
+    reasoning_tokens=10,325、正文 4,474 字符，合计 11,428 —— 4096 预算下
+    finish_reason=length 且正文为空。故下限抬到 16384。
+    """
+    if _thinking_mode() != "on":
+        return 0
+    return int(os.getenv("LLM_API_THINKING_MIN_TOKENS", "16384"))
+
+
+def _sampling_plan(requested_tokens: int) -> tuple:
+    """按单次请求的输出预算决定 thinking 字段、max_tokens 与是否下发 temperature。
+
+    短结构化调用（如 SQL 生成，预算 ≤ LLM_API_THINKING_SHORT_MAX，默认 256）
+    保持关闭思考：这点预算里 CoT 会把正文挤掉，且响应会明显变慢。
+    其余请求按主口径开启 thinking，并把预算抬到下限之上。
+    返回 (thinking 字段, 实际 max_tokens, 是否下发 temperature)。
+    """
+    mode = _thinking_mode()
+    short_max = int(os.getenv("LLM_API_THINKING_SHORT_MAX", "256"))
+    if mode == "on" and 0 < requested_tokens <= short_max:
+        return {"thinking": {"type": "disabled"}}, requested_tokens, True
+    return _thinking_payload(), max(requested_tokens, _thinking_budget_floor()), mode != "on"
+
+
 def _validate_api_base(url: str) -> str:
     """校验上游地址：必须 https，且不得指向内网。
 
@@ -57,8 +124,8 @@ class ApiLLM:
             os.getenv("LLM_API_BASE", "https://api.deepseek.com/v1").rstrip("/")
         )
         self.api_key = os.getenv("LLM_API_KEY", "").strip()
-        self.model = os.getenv("LLM_API_MODEL", "deepseek-chat")
-        self.timeout = int(os.getenv("LLM_API_TIMEOUT", "150"))
+        self.model = os.getenv("LLM_API_MODEL", "deepseek-flash")
+        self.timeout = int(os.getenv("LLM_API_TIMEOUT", "600"))
         if not self.api_key:
             raise ValueError("未配置 LLM_API_KEY")
         logger.info(f"[成功] 云端推理已配置：{self.model} @ {self.base_url}")
@@ -66,15 +133,21 @@ class ApiLLM:
     def chat(self, messages: list, max_new_tokens: int = None) -> str:
         if not messages:
             return "请输入有效问题"
-        max_tokens = max_new_tokens or int(os.getenv("LLM_MAX_NEW_TOKENS", "512"))
+        req_tokens = max_new_tokens or int(os.getenv("LLM_MAX_NEW_TOKENS", "512"))
+        thinking, max_tokens, use_temp = _sampling_plan(req_tokens)
         default_temp = "0.1" if is_academic_mode() else "0.3"
         payload = {
             "model": self.model,
             "messages": messages,
             "max_tokens": max_tokens,
-            "temperature": float(os.getenv("LLM_API_TEMPERATURE", default_temp)),
             "stream": False,
+            **thinking,
         }
+        if use_temp:
+            # thinking 模式下 temperature 无效，显式不下发，避免误读为已设定采样温度
+            payload["temperature"] = float(
+                os.getenv("LLM_API_TEMPERATURE", default_temp)
+            )
         req = urllib.request.Request(
             f"{self.base_url}/chat/completions",
             data=json.dumps(payload).encode("utf-8"),
@@ -129,7 +202,8 @@ class ApiLLM:
 
         if not prompt:
             return
-        max_tokens = max_new_tokens or int(os.getenv("LLM_MAX_NEW_TOKENS", "512"))
+        req_tokens = max_new_tokens or int(os.getenv("LLM_MAX_NEW_TOKENS", "512"))
+        thinking, max_tokens, use_temp = _sampling_plan(req_tokens)
         default_temp = "0.1" if is_academic_mode() else "0.3"
         payload = {
             "model": self.model,
@@ -138,9 +212,13 @@ class ApiLLM:
                 {"role": "user", "content": prompt},
             ],
             "max_tokens": max_tokens,
-            "temperature": float(os.getenv("LLM_API_TEMPERATURE", default_temp)),
             "stream": True,
+            **thinking,
         }
+        if use_temp:
+            payload["temperature"] = float(
+                os.getenv("LLM_API_TEMPERATURE", default_temp)
+            )
         req = urllib.request.Request(
             f"{self.base_url}/chat/completions",
             data=json.dumps(payload).encode("utf-8"),

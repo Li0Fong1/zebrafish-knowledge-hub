@@ -11,6 +11,8 @@
 from __future__ import annotations
 
 import gzip
+import json
+import os
 import re
 from collections import deque
 from functools import lru_cache
@@ -42,14 +44,14 @@ SELECTABLE_BUILDS = (
     "Zv3",
 )
 
-# 2026-10-29 UI：13ab 來源與目標皆暫隱
+# 2026-11-05：放开 13ab 作来源与目标（复用 12ab 的链，见 EDGE_CHAINS 的 13ab 条目）
 # 2026-11-01：放开 12tu／12ab 作来源（反链已重建并实测，见 STRAIN_ASSEMBLIES 的 edges）
 UI_SOURCE_BUILDS = (
-    "GRCz12tu", "GRCz12ab", "GRCz11", "GRCz10",
+    "GRCz13ab", "GRCz12tu", "GRCz12ab", "GRCz11", "GRCz10",
     "Zv9", "Zv8", "Zv7", "Zv6", "Zv5", "Zv4", "Zv3",
 )
 UI_TARGET_BUILDS = (
-    "GRCz12ab", "GRCz12tu", "GRCz11", "GRCz10",
+    "GRCz13ab", "GRCz12ab", "GRCz12tu", "GRCz11", "GRCz10",
     "Zv9", "Zv8", "Zv7", "Zv6", "Zv5", "Zv4", "Zv3",
 )
 
@@ -111,6 +113,14 @@ EDGE_CHAINS: dict[tuple[str, str], str] = {
     ("GRCz10", "Zv9"): "danRer10ToDanRer7.over.chain.gz",
     ("GRCz11", "GRCz12tu"): "danRer11ToGCF_049306965.2.over.chain.gz",
     ("GRCz11", "GRCz12ab"): "danRer11ToGCA_052040795.1.over.chain.gz",
+    # 2026-11-05：GRCz13ab（GCF_052040795.2 / GCA_052040795.2）与 GRCz12ab（GCA_052040795.1）
+    # 是同一 M-AB 单倍型装配的相邻版本，故复用 12ab 的链。注意：13ab 对 chr19 做了重新注释
+    # （NC_141039.1→.2、CM124825.1→.2，坐标整体偏移约 5 kb），因此 chr19 的换算有约 5 kb 的
+    # 系统误差；其余 24 条染色体两版坐标一致，换算精确。12ab 的 chr19 换算不受影响。
+    # 正向走 GCF 链（目标端 NC_141xxx 命名，与 13ab 的 RefSeq 登录号一致）；
+    # 反向走 GCA 链（源端 CM124xxx 命名，13ab 报告 GenBank 列同样收录）。
+    ("GRCz11", "GRCz13ab"): "danRer11ToGCF_052040795.1.over.chain.gz",
+    ("GRCz13ab", "GRCz11"): "GCA_052040795.1ToDanRer11.over.chain.gz",
     ("GRCz11", "GRCz10"): "danRer11ToDanRer10.over.chain.gz",
     ("GRCz11", "Zv9"): "danRer11ToDanRer7.over.chain.gz",
     # chainSwap 自 forward 生成（部署腳本寫入 liftover/）
@@ -227,16 +237,7 @@ def resolve_route(source: str, target: str) -> dict:
         return {"ok": False, "code": "unsupported_build", "chains": [], "hops": []}
     if src == tgt:
         return {"ok": True, "code": "already_on_target_build", "chains": [], "hops": [src]}
-    # GRCz13ab：UI 暫隱；API 亦拒絕（缺 chain／MAF）
-    if src == "GRCz13ab" or tgt == "GRCz13ab":
-        return {
-            "ok": False,
-            "code": "unsupported_build",
-            "chains": [],
-            "hops": [],
-            "detail": "GRCz13ab 暂不可选（本机仅有 chrom.sizes／assembly_report；无 over.chain／MAF）",
-            "maf": "maf_unavailable",
-        }
+    # 2026-11-05：GRCz13ab 已放开（复用 12ab 链 + 13ab 报告），不再拒绝。
     # 2026-11-01：放开 12tu／12ab 作来源——反链（GCF_049306965.[12]To…、
     # GCA_052040795.1ToDanRer11）均已入库并逐链实测，BFS 可直接走。
     if tgt and tgt not in UI_TARGET_BUILDS and tgt not in SELECTABLE_BUILDS:
@@ -590,10 +591,64 @@ def _chain_tnames(chain_name: str) -> tuple[str, ...]:
     2026-11-01：与其按链名猜命名族，不如直接用文件里真实存在的名字。
     MT 这类小染色体尤其容易踩坑（.1 链用 CM_、.2 报告给 NC_，同一显示名对应
     两个 accession 家族），用真实 tName 反查最稳。
+
+    2026-11-12：**加落盘缓存**。取这些名字要把整个 gz 链文件解压扫一遍
+    （GRCz11+GRCz12tu 共 34.7 MB），实测首次 5.0 s / 6.8 s。而「列染色体清单」
+    这个下拉框接口每次都要它 —— 进程一重启，第一个打开 Liftover 页的人就要
+    白等 5~7 s，期间还霸占着单进程 uvicorn 的执行流，把其他请求一起拖慢。
+    链文件内容不会变，把扫出来的名字按「文件名+大小+mtime」落盘后，
+    后续冷启动只需读一个小 JSON（毫秒级）。
     """
     path = CHAIN_DIR / (chain_name or "")
     if not path.is_file():
         return ()
+
+    try:
+        st = path.stat()
+    except OSError:
+        return _scan_chain_tnames(path)
+
+    cache = _tnames_cache_path(chain_name, st)
+    if cache is not None and cache.is_file():
+        try:
+            data = json.loads(cache.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                return tuple(str(x) for x in data)
+        except Exception:
+            pass  # 缓存坏了就当没有，重扫一遍覆盖
+
+    names = _scan_chain_tnames(path)
+    if cache is not None:
+        try:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            tmp = cache.with_suffix(".tmp")
+            tmp.write_text(json.dumps(list(names), ensure_ascii=False), encoding="utf-8")
+            powv = tmp.replace(cache)
+            del powv
+        except Exception:
+            pass  # 目录只读等情况：退化为纯内存缓存，不影响功能
+
+    if os.environ.get("ZF_VERBOSE_CHAIN_CACHE"):
+        import logging
+
+        logging.getLogger(__name__).info(
+            "[liftover] 扫描链名 %s → %d 个（已写缓存）", chain_name, len(names)
+        )
+    return names
+
+
+def _tnames_cache_path(chain_name: str, st) -> "Path | None":
+    """链名清单的落盘缓存路径；目录不可写时由调用方静默跳过。"""
+    if not chain_name:
+        return None
+    safe = re.sub(r"[^A-Za-z0-9._-]+", "_", chain_name)
+    # 大小与 mtime 进文件名：链文件一换就是另一个文件，旧缓存自然不会再被读到，
+    # 也就不会读到过期名单。
+    return CHAIN_DIR / ".cache" / f"{safe}.{st.st_size}.{int(st.st_mtime)}.tnames.json"
+
+
+def _scan_chain_tnames(path: Path) -> tuple[str, ...]:
+    """真正去读链文件取 tName（慢路径，只在缓存缺失时走）。"""
     names: list[str] = []
     seen: set[str] = set()
     try:
@@ -914,12 +969,19 @@ def genome_coord_liftover(text: str) -> dict | None:
     }
 
 
-def explain_coord_question(question: str) -> dict | None:
+def explain_coord_question(question: str, lang: str | None = None) -> dict | None:
+    """坐标换算说明。
+
+    ``lang`` 为界面语言（en/zh）；未传时沿用「按提问语言推断」的旧行为。
+    """
     payload = genome_coord_liftover(question)
     if payload is None:
         return None
     lifted = payload["liftover"]
-    en = _answer_en(question)
+    if lang and str(lang).lower().startswith(("en", "zh")):
+        en = str(lang).lower().startswith("en")
+    else:
+        en = _answer_en(question)
     code = lifted.get("code")
     if code == "already_on_target_build":
         answer = (
@@ -1164,10 +1226,10 @@ def list_supported_pairs() -> dict:
         "routable_pairs": pairs_ok,
         "notes": {
             "chromosomes": "GET /api/genome/chromosomes?build=<build> 给前端染色体下拉；值取自链头 tName",
-            "GRCz13ab": "hidden in UI (source+target); no over.chain/MAF",
+            "GRCz13ab": "source+target (2026-11-05 起放开；复用 12ab 链 + GCA_052040795.2 报告)",
             "GRCz12tu": "source+target (2026-11-01 起可作来源；反链已重建并实测)",
             "GRCz12ab": "source+target (2026-11-01 起可作来源)",
-            "coverage": "sources Zv3–Zv9/GRCz10/GRCz11/GRCz12tu/GRCz12ab → 全部目标；13ab hidden; 12tu chain=.2（12tu↔品系走 .1 链）",
+            "coverage": "sources Zv3–Zv9/GRCz10/GRCz11/GRCz12tu/GRCz12ab/GRCz13ab → 全部目标；12tu chain=.2（12tu↔品系走 .1 链）",
         },
     }
 
@@ -1319,7 +1381,7 @@ def list_build_chromosomes(build: str = "") -> dict:
             "message_en": "Select a source assembly first, then load its chromosomes.",
             "chromosomes": [],
         }
-    if b not in SELECTABLE_BUILDS or b == "GRCz13ab":
+    if b not in SELECTABLE_BUILDS:
         return {
             "ok": False, "code": "unsupported_build", "build": b,
             "message_zh": f"「{b}」未收录，无法列出染色体。",

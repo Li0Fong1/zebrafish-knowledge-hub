@@ -165,6 +165,24 @@ _STOPWORDS = {
     "analysis", "enrichment", "annotation", "database", "database", "atlas", "tool",
     "human", "mouse", "rat", "mammal", "mammalian", "conserved", "homolog", "homology",
     "ortholog", "orthologs", "paralog", "family", "domain", "motif", "binding",
+    # 副词/动词/形容词：这些词不是实体，但会被「≤10 个小写字母」规则收进来，
+    # 于是一篇题名里只要带 "expressed" 就算「命中了实体」，实体阻塞形同虚设
+    # （实测：问 "In which tissue is myl7 mainly expressed?" 抽出的实体是
+    #  ['myl7','mainly','expressed']，12 篇视网膜/黑色素瘤论文全部放行）。
+    "mainly", "primarily", "predominantly", "mostly", "largely", "generally", "typically",
+    "expressed", "expresses", "express", "expressed", "associated", "association",
+    "determine", "determines", "determined", "determinants", "affect", "affects",
+    "affected", "influence", "influences", "influenced", "control", "controls",
+    "controlled", "contribute", "contributes", "mediate", "mediates", "require",
+    "requires", "required", "common", "commonly", "key", "main", "major", "minor",
+    "important", "typical", "different", "difference", "differences", "similar",
+    "related", "relationship", "correlate", "correlation", "known", "reported",
+    "reports", "report", "published", "publication", "publications", "paper", "papers",
+    "study", "studies", "literature", "review", "reviews", "several", "many", "much",
+    "number", "numbers", "roughly", "approximately", "about", "around", "compare",
+    "comparison", "compared", "versus", "across", "between", "during", "after", "before",
+    "determine", "which", "whose", "there", "these", "those", "some", "such", "other",
+    "more", "less", "most", "least", "first", "second", "third", "new", "novel",
 }
 
 

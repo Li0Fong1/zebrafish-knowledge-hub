@@ -5,7 +5,7 @@
 
 | 文件 | 尺寸 | 对标 | 结构 |
 | --- | --- | --- | --- |
-| `FigS4_Pipelines_EN.png` | 13.4 × 3.9 in · 300 dpi（4080 × 1230 px，2026-10-08 改为参考图格式后收紧） | 参考图 Fig. B（英文版） | (A) 文献清洗与向量化 + (B) 提问与作答生成，各一行**左→右** |
+| `FigS4_Pipelines_EN.png` | 13.4 × 3.9 in · 300 dpi（4080 × 1230 px，2026-10-08 改为参考图格式后收紧） | 参考图 Fig. B（英文版） | (A) 论文清洗与向量化 + (B) 斑马鱼知识提问与作答生成，各一行**左→右** |
 | `FigS5_QA_Comparison.png` | 12.4 × 3.9 in · 300 dpi（3780 × 1217 px） | 参考图 Fig. S5 | 提问条 + **三张真实截图**并排（ChatGPT / DeepSeek / Zebrafish Hub），文案英文 |
 | ~~`FigS4_Literature_Pipeline.png`~~ | 12.4 × 4.6 in | 旧中文版 (a)–(j) 蛇形流水线 | 已由英文版取代；需要时运行 `make_figures_pipeline_compare.py` 可再生 |
 
@@ -13,11 +13,11 @@
 
 用词取「**平常词、见名知意**」原则（例：文献解析 → literature parsing，不用抽象词）：
 
-- **(A) Literature cleaning and vectorization**：Literature texts (PDF / XML full text)
+- **(A) Pipeline of paper cleaning and vectorization**：Literature texts (PDF / XML full text)
   → Paragraph cleaning (remove non-scientific paragraphs) → Clean texts (46,904 of 56,122 characters)
   → Vectorize texts (Qwen3-Embedding-4B · 2,048-d) → Store in FAISS (170 shards)
   → Knowledge database (32,532 papers · 7,651,942 chunks)
-- **(B) Query and answer generation**：User input (multi-turn session)
+- **(B) Pipeline of query and answer generation for zebrafish knowledge**：User input (multi-turn session)
   → Rewrite query (DeepSeek · context-aware) → Vectorize query (same 2,048-d model)
   → Retrieve texts (top 500 candidates) → Rerank texts (cross-encoder · top 100)
   → Summarize (Qwen3 · 48,000-char input) → Generate answer (cited, grounded answer)

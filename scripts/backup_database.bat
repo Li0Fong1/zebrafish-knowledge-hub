@@ -4,7 +4,7 @@ cd /d "%~dp0\.."
 set PYTHONIOENCODING=utf-8
 
 set MYSQL_USER=root
-set MYSQL_PASSWORD=123456
+set MYSQL_PASSWORD=%MYSQL_PASSWORD%
 set MYSQL_DATABASE=zebrafish_db
 call "%~dp0_mysql_path.bat"
 

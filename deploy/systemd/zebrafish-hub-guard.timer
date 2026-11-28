@@ -1,0 +1,12 @@
+[Unit]
+Description=每分钟运行一次 Zebrafish Hub 隧道守护
+
+[Timer]
+# 开机 90 秒后先跑一次（等网络就绪），此后每当上一轮结束 60 秒再跑
+OnBootSec=90
+OnUnitActiveSec=60
+AccuracySec=1s
+Unit=zebrafish-hub-guard.service
+
+[Install]
+WantedBy=timers.target

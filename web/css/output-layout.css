@@ -1,0 +1,153 @@
+/* ==========================================================================
+   output-layout.css —— 功能页 / 聊天页「结果区」统一排版（2026-11-18 修订）
+   --------------------------------------------------------------------------
+   历史：
+     2026-11-13 曾把结果条目强制改成「单列纵向」并设 max-height:none / overflow:visible。
+     实测副作用（用户截图反馈）：
+       · 表型标签变成一人一行的超长列表，底部明细表被挤出可视区；
+       · 结果区不再滚动，内容撑破右栏 → 表格与上方文字重叠、下半截看不见。
+     用户明确要求：排版回退到紧凑标签墙（p53 那种：多个短标签 wrap 成几行、
+     明细表在下面完整可见、右侧独立滚动条），并且「不得显示不全」。
+
+   现行规范：
+     1. 结果区给定最大高度 + 内部纵向滚动：再长的内容也不会溢出/重叠/截断；
+     2. 表型标签 / 徽标恢复紧凑 wrap（inline-flex、自动换行），不强制单列；
+     3. 明细表保持二维结构，外层只做横向滚动；
+     4. 摘要、脚注按块级自然排布，块间留白统一。
+   本文件在所有 CSS 之后引入，是结果区的最终覆盖规则。
+   ========================================================================== */
+
+/* ① 结果容器：受限高度 + 内部滚动（杜绝显示不全 / 重叠）。
+   聊天页与功能页两个挂载点统一；高度取视口比例，桌面/窄屏都有上限。 */
+.feature-result-mount .tool-result,
+.chat-tool-result-host .tool-result,
+.about-single .feature-page .tool-result,
+/* 与 ui-2026.css 里 html body.theme-atelier 那条同层级，确保 !important 后定义者胜 */
+html body.theme-atelier .feature-result-mount .tool-result,
+html body.theme-atelier .chat-tool-result-host .tool-result,
+html body .feature-atelier .feature-result-mount .tool-result {
+  max-height: min(64vh, 680px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 14px 16px;
+  box-sizing: border-box;
+}
+
+/* ② 块级排布：结果区直接子元素从上到下，块间留白统一 */
+.feature-result-mount .tool-result > *,
+.chat-tool-result-host .tool-result > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+.feature-result-mount .tool-result > * + *,
+.chat-tool-result-host .tool-result > * + * {
+  margin-top: 14px;
+}
+.tool-result p { margin: 0; }
+.tool-result .tool-hint {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-2, #3b4654);
+}
+.tool-result .tool-summary,
+.tool-result .zf-block-sub { font-size: 13px; margin: 0 0 8px; }
+
+/* ③ 关联表型标签墙：紧凑 wrap（多个短标签一行，自动换行）。
+   全局规则覆盖不挂在 #toolResult 下的结果卡；.tool-result 内再对齐间距。
+   注意：不再写 flex-direction:column / width:100%（那正是单列长列表的成因）。 */
+.zf-pheno-strip { margin: 2px 0 14px; }
+.zf-pheno-strip-head { margin: 0 0 8px; }
+.zf-pheno-tags,
+.zf-pheno-strip .zf-pheno-tags,
+.tool-result .zf-pheno-tags {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+}
+.zf-pheno-tag,
+.tool-result .zf-pheno-tag {
+  display: inline-flex !important;
+  align-items: baseline;
+  gap: 6px;
+  width: auto !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: rgba(29, 111, 184, .08);
+  border: 1px solid rgba(29, 111, 184, .18);
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+.zf-pheno-tag .zf-pheno-part { font-weight: 600; flex: 0 1 auto; }
+.zf-pheno-tag .zf-pheno-qual { color: #2f5d86; flex: 0 1 auto; }
+.zf-pheno-tag .zf-pheno-num {
+  margin-left: 2px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1d6fb8;
+  background: rgba(29, 111, 184, .12);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+.zf-pheno-more {
+  align-self: center;
+  padding: 0 4px;
+  font-size: 12px;
+}
+
+/* 常用术语 / 富集徽标：同样恢复紧凑 wrap（11-13 版本被改成单列 block） */
+.tool-result .zf-chips,
+.tool-result .zf-kv,
+.tool-result .ez-scope-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tool-result .zf-chips .zf-pill,
+.tool-result .ez-scope-chip {
+  display: inline-block;
+  width: auto;
+  box-sizing: border-box;
+  text-align: left;
+}
+.tool-result .ez-item { margin-bottom: 10px; }
+
+/* ④ 明细表：保持二维，外层横向滚动；表格本身不设高度，随内容展开。
+   因为结果容器已能纵向滚动，这里不再需要任何 max-height 截断。 */
+.tool-result .table-wrap { overflow-x: auto; overflow-y: visible; margin: 0; }
+.tool-result table { width: 100%; border-collapse: collapse; }
+.tool-result th,
+.tool-result td { text-align: left; vertical-align: top; }
+.tool-result td.mono { font-variant-numeric: tabular-nums; }
+.tool-result .sgrna-table th { white-space: nowrap; }
+
+/* ⑤ 脚注小字收敛弱化 */
+.tool-result small.pam-flag,
+.tool-result .zf-muted,
+.tool-result .off-gene { font-size: 11.5px; line-height: 1.5; }
+.tool-result .off-genes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+/* ⑥ 窄屏同样保持紧凑 wrap，容器高度略放宽 */
+@media (max-width: 900px) {
+  .feature-result-mount .tool-result,
+  .chat-tool-result-host .tool-result { max-height: min(58vh, 560px) !important; }
+  .tool-result .zf-pheno-tags,
+  .tool-result .zf-chips { flex-direction: row; flex-wrap: wrap; }
+}

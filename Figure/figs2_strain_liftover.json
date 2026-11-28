@@ -1,0 +1,426 @@
+{
+ "selfcheck": {
+  "cyp19a1a": {
+   "cov": 0.825,
+   "got": [
+    "chr18",
+    39620534,
+    39649958
+   ],
+   "expect": [
+    "chr18",
+    39620535,
+    39636348
+   ],
+   "ok": true
+  },
+  "fgf8a": {
+   "cov": 0.998,
+   "got": [
+    "chr13",
+    28475664,
+    28501985
+   ],
+   "expect": [
+    "chr13",
+    28495419,
+    28501985
+   ],
+   "ok": true
+  },
+  "mstnb": {
+   "cov": 1.0,
+   "got": [
+    "chr9",
+    40939336,
+    40942337
+   ],
+   "expect": [
+    "chr9",
+    40939336,
+    40943137
+   ],
+   "ok": true
+  },
+  "shha": {
+   "cov": 0.93,
+   "got": [
+    "chr7",
+    40750559,
+    40891326
+   ],
+   "expect": [
+    "chr7",
+    40884012,
+    40893295
+   ],
+   "ok": true
+  },
+  "tbxta": {
+   "cov": 0.985,
+   "got": [
+    "chr19",
+    14187540,
+    14191592
+   ],
+   "expect": [
+    "chr19",
+    14187540,
+    14191592
+   ],
+   "ok": true
+  },
+  "tp53": {
+   "cov": 1.0,
+   "got": [
+    "chr5",
+    24086227,
+    24097805
+   ],
+   "expect": [
+    "chr5",
+    24086227,
+    24097805
+   ],
+   "ok": true
+  }
+ },
+ "strains": {
+  "ASM1840007v1": {
+   "cyp19a1a": {
+    "seq": "CP068752.1",
+    "chrom": "18",
+    "role": "assembled-molecule",
+    "start": 39583044,
+    "end": 39612517,
+    "cov": 0.825,
+    "same_chrom": true
+   },
+   "fgf8a": {
+    "seq": "CP068747.1",
+    "chrom": "13",
+    "role": "assembled-molecule",
+    "start": 28310646,
+    "end": 28336845,
+    "cov": 0.994,
+    "same_chrom": true
+   },
+   "mstnb": {
+    "seq": "CP068743.1",
+    "chrom": "9",
+    "role": "assembled-molecule",
+    "start": 41077038,
+    "end": 41080065,
+    "cov": 0.998,
+    "same_chrom": true
+   },
+   "shha": {
+    "seq": "CP068741.1",
+    "chrom": "7",
+    "role": "assembled-molecule",
+    "start": 40427050,
+    "end": 40557692,
+    "cov": 0.88,
+    "same_chrom": true
+   },
+   "tbxta": {
+    "seq": "CP068753.1",
+    "chrom": "19",
+    "role": "assembled-molecule",
+    "start": 14305023,
+    "end": 14309066,
+    "cov": 0.985,
+    "same_chrom": true
+   },
+   "tp53": {
+    "seq": "CP068739.1",
+    "chrom": "5",
+    "role": "assembled-molecule",
+    "start": 23555694,
+    "end": 23567267,
+    "cov": 0.994,
+    "same_chrom": true
+   }
+  },
+  "ASM3317019v3": {
+   "cyp19a1a": {
+    "seq": "chr18",
+    "chrom": "chr18",
+    "role": "?",
+    "start": 42534330,
+    "end": 42569034,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "fgf8a": {
+    "seq": "chr13",
+    "chrom": "chr13",
+    "role": "?",
+    "start": 31902407,
+    "end": 31928792,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "mstnb": {
+    "seq": "chr9",
+    "chrom": "chr9",
+    "role": "?",
+    "start": 42797854,
+    "end": 42800855,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "shha": {
+    "seq": "chr7",
+    "chrom": "chr7",
+    "role": "?",
+    "start": 40944204,
+    "end": 41084027,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "tbxta": {
+    "seq": "chr19",
+    "chrom": "chr19",
+    "role": "?",
+    "start": 15332528,
+    "end": 15336640,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "tp53": {
+    "seq": "chr5",
+    "chrom": "chr5",
+    "role": "?",
+    "start": 24554487,
+    "end": 24566065,
+    "cov": 1.0,
+    "same_chrom": true
+   }
+  },
+  "ASM2018471v1": {
+   "cyp19a1a": {
+    "seq": "chr18",
+    "chrom": "chr18",
+    "role": "?",
+    "start": 42598112,
+    "end": 42630230,
+    "cov": 0.884,
+    "same_chrom": true
+   },
+   "fgf8a": {
+    "seq": "chr13",
+    "chrom": "chr13",
+    "role": "?",
+    "start": 31308551,
+    "end": 31336693,
+    "cov": 0.98,
+    "same_chrom": true
+   },
+   "mstnb": {
+    "seq": "chr9",
+    "chrom": "chr9",
+    "role": "?",
+    "start": 42547651,
+    "end": 42550746,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "shha": {
+    "seq": "chr7",
+    "chrom": "chr7",
+    "role": "?",
+    "start": 42093661,
+    "end": 42149464,
+    "cov": 0.329,
+    "same_chrom": true
+   },
+   "tbxta": {
+    "seq": "chr19",
+    "chrom": "chr19",
+    "role": "?",
+    "start": 15674015,
+    "end": 15678191,
+    "cov": 0.998,
+    "same_chrom": true
+   },
+   "tp53": {
+    "seq": "chr5",
+    "chrom": "chr5",
+    "role": "?",
+    "start": 26157902,
+    "end": 26169474,
+    "cov": 0.999,
+    "same_chrom": true
+   }
+  },
+  "fDanRer4.1": {
+   "cyp19a1a": {
+    "seq": "OX063307.1",
+    "chrom": "SUPER_18",
+    "role": "assembled-molecule",
+    "start": 42087913,
+    "end": 42117333,
+    "cov": 0.825,
+    "same_chrom": true
+   },
+   "fgf8a": {
+    "seq": "OX063302.1",
+    "chrom": "SUPER_13",
+    "role": "assembled-molecule",
+    "start": 30846295,
+    "end": 30872678,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "mstnb": {
+    "seq": "OX063298.1",
+    "chrom": "SUPER_9",
+    "role": "assembled-molecule",
+    "start": 41343952,
+    "end": 41346953,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "shha": {
+    "seq": "OX063296.1",
+    "chrom": "SUPER_7",
+    "role": "assembled-molecule",
+    "start": 41178034,
+    "end": 41286159,
+    "cov": 0.623,
+    "same_chrom": true
+   },
+   "tbxta": {
+    "seq": "OX063308.1",
+    "chrom": "SUPER_19",
+    "role": "assembled-molecule",
+    "start": 15281334,
+    "end": 15285444,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "tp53": {
+    "seq": "OX063294.1",
+    "chrom": "SUPER_5",
+    "role": "assembled-molecule",
+    "start": 24602672,
+    "end": 24614250,
+    "cov": 1.0,
+    "same_chrom": true
+   }
+  },
+  "fDreABH1.1": {
+   "cyp19a1a": {
+    "seq": "chr18",
+    "chrom": "chr18",
+    "role": "?",
+    "start": 40900371,
+    "end": 40929792,
+    "cov": 0.78,
+    "same_chrom": true
+   },
+   "fgf8a": {
+    "seq": "chr13",
+    "chrom": "chr13",
+    "role": "?",
+    "start": 28562624,
+    "end": 28590459,
+    "cov": 0.979,
+    "same_chrom": true
+   },
+   "mstnb": {
+    "seq": "chr9",
+    "chrom": "chr9",
+    "role": "?",
+    "start": 41028347,
+    "end": 41031363,
+    "cov": 0.995,
+    "same_chrom": true
+   },
+   "shha": {
+    "seq": "chr7",
+    "chrom": "chr7",
+    "role": "?",
+    "start": 10161306,
+    "end": 10219266,
+    "cov": 0.379,
+    "same_chrom": true
+   },
+   "tbxta": {
+    "seq": "chr19",
+    "chrom": "chr19",
+    "role": "?",
+    "start": 15271233,
+    "end": 15275337,
+    "cov": 0.998,
+    "same_chrom": true
+   },
+   "tp53": {
+    "seq": "chr5",
+    "chrom": "chr5",
+    "role": "?",
+    "start": 25971935,
+    "end": 25983510,
+    "cov": 1.0,
+    "same_chrom": true
+   }
+  },
+  "fDreTuH1.2": {
+   "cyp19a1a": {
+    "seq": "chr18",
+    "chrom": "chr18",
+    "role": "?",
+    "start": 40425779,
+    "end": 40455190,
+    "cov": 0.78,
+    "same_chrom": true
+   },
+   "fgf8a": {
+    "seq": "chr13",
+    "chrom": "chr13",
+    "role": "?",
+    "start": 28653376,
+    "end": 28679734,
+    "cov": 0.999,
+    "same_chrom": true
+   },
+   "mstnb": {
+    "seq": "chr9",
+    "chrom": "chr9",
+    "role": "?",
+    "start": 41151181,
+    "end": 41154182,
+    "cov": 1.0,
+    "same_chrom": true
+   },
+   "shha": {
+    "seq": "chr7",
+    "chrom": "chr7",
+    "role": "?",
+    "start": 39921771,
+    "end": 39974316,
+    "cov": 0.35,
+    "same_chrom": true
+   },
+   "tbxta": {
+    "seq": "chr19",
+    "chrom": "chr19",
+    "role": "?",
+    "start": 14983735,
+    "end": 14987843,
+    "cov": 0.999,
+    "same_chrom": true
+   },
+   "tp53": {
+    "seq": "chr5",
+    "chrom": "chr5",
+    "role": "?",
+    "start": 24398760,
+    "end": 24410336,
+    "cov": 1.0,
+    "same_chrom": true
+   }
+  }
+ }
+}

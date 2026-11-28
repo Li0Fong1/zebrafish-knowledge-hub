@@ -180,6 +180,8 @@ _CAPABILITY_RE = re.compile(
 
 CAPABILITY_REPLY_ZH = """我是在这个平台上工作的斑马鱼（*Danio rerio*）基因与基因组助手。下面是**平台里真有对应工具**的功能，按类别列，细节到什么字段、哪个入口都说清楚。
 
+下面这些功能也可以直接在 Chat 里问出来，例如：「把 GRCz11 chr5:24086227-24097805 换算到 GRCz12tu」「帮我设计 tp53 的 sgRNA」「查一下 shha 有哪些表型」「提取 tp53 的 cDNA 序列」。我会把查到的结果直接写在回答里。
+
 **一、查基因（本地库：3.2 万个基因、14.5 万条别名与同义名）**
 - 符号、别名、历史名解析成官方基因（例如 p53 → tp53，cmlc2 → myl7）
 - 染色体位置、Ensembl ID、ZFIN ID、基因类型、功能描述
@@ -192,7 +194,7 @@ CAPABILITY_REPLY_ZH = """我是在这个平台上工作的斑马鱼（*Danio rer
 - BLAST：blastn，单条或批量 FASTA（≤20 条）；比对库是 GRCz12tu CDS，界面不提供选库开关
 - 序列提取：按基因名取 cDNA / 启动子 / 基因组区段，或按染色体区间取
 - sgRNA 与引物设计：给基因符号（自动取 CDS）或直接粘序列都行；PAM 枚举、规则打分、脱靶筛查（转录组或全基因组）
-- 跨库 ID 映射：Ensembl / NCBI Gene / ZFIN / 基因符号互转，有歧义时列出候选让你选
+- 跨库 ID 转换：Ensembl / NCBI Gene / ZFIN / 基因符号互转，有歧义时列出候选让你选
 
 **三、组学与通路**
 - GO / KEGG 富集：Fisher 精确检验 + BH 校正，结果可导出 TSV
@@ -227,6 +229,8 @@ CAPABILITY_REPLY_ZH = """我是在这个平台上工作的斑马鱼（*Danio rer
 
 CAPABILITY_REPLY_EN = """I'm a zebrafish (*Danio rerio*) gene and genomics assistant working inside this platform. Below is what the platform can actually do — every item maps to a real tool here, with the fields and entry points spelled out.
 
+You can also ask for any of these directly in Chat, e.g. "convert GRCz11 chr5:24086227-24097805 to GRCz12tu", "design sgRNAs for tp53", "which phenotypes are reported for shha", "fetch the tp53 cDNA sequence". The results appear in the reply itself.
+
 **1. Gene lookups (local database: ~32k genes, ~145k alias entries)**
 - Resolve symbols, aliases and historical names to the official gene (p53 → tp53, cmlc2 → myl7)
 - Chromosome location, Ensembl ID, ZFIN ID, gene biotype, functional description
@@ -239,7 +243,7 @@ CAPABILITY_REPLY_EN = """I'm a zebrafish (*Danio rerio*) gene and genomics assis
 - BLAST: blastn, single or batch FASTA (≤20 sequences); always against the GRCz12tu CDS library — no library selector
 - Sequence retrieval: cDNA / promoter / genomic region by gene, or an arbitrary chromosome interval
 - sgRNA and primer design: pass a gene symbol (CDS is fetched for you) or paste a sequence; PAM scan, on-target scoring, off-target scan against transcriptome or genome
-- Cross-database ID mapping: Ensembl / NCBI Gene / ZFIN / symbol, with candidates listed when ambiguous
+- Cross-database ID conversion: Ensembl / NCBI Gene / ZFIN / symbol, with candidates listed when ambiguous
 
 **3. Omics and pathways**
 - GO / KEGG enrichment: Fisher's exact test with BH correction, exportable as TSV
@@ -670,7 +674,18 @@ _PAGE_USAGE_RE = re.compile(
     r"支持哪些|支持什么|有哪些选项|能做什么|可以做什么|能干什么|干什么|有什么用|"
     r"输出什么|返回什么|给出什么|填什么|选什么|要不要|需要什么|"
     r"什么版本|哪个版本|什么库|哪个库|什么格式|什么方法|什么算法|什么统计|用什么|"
-    r"是什么|是不是|吗|？|\?)",
+    r"是什么|是不是)",
+    re.I,
+)
+
+# 弱线索：句末一个问号 / 「吗」本身不足以说明在问用法——它同样可能是纯科学提问
+# （"Approximately how many protein-coding genes are annotated in the genome?" 就因为
+# 句末问号 + 别名里的 "annotate" 被判成「在用注释功能」，答成了一段功能说明）。
+# 弱线索必须叠加显式页面指代才成立。
+_PAGE_USAGE_WEAK_RE = re.compile(r"(吗|？|\?)", re.I)
+_PAGE_EXPLICIT_RE = re.compile(
+    r"(页面|本页|该页|这个页|这个功能|功能页|工具页|入口|界面|面板|按钮|#/|"
+    r"\bpage\b|\btab\b|\btool\b|\bpanel\b|\bbutton\b|\binterface\b|\bui\b)",
     re.I,
 )
 
@@ -747,6 +762,8 @@ def is_hub_product_howto_question(question: str) -> bool:
 
     page = detect_product_page(q)
     if page and _PAGE_USAGE_RE.search(q):
+        return True
+    if page and _PAGE_USAGE_WEAK_RE.search(q) and _PAGE_EXPLICIT_RE.search(q):
         return True
 
     if page and _DATA_SCOPE_RE.search(q):
@@ -1175,18 +1192,31 @@ _BIB_HINT_RE = re.compile(
 
 
 def _meta_after_title(text: str, end: int) -> tuple[str, str]:
-    """题名行之后最多读 8 行，取出期刊和 DOI。"""
+    """题名行之后最多读 8 行，取出期刊和 DOI。
+
+    元信息行的实际形态是「期刊：X · 年份：Y · PMID：Z · https://…」，字段用 `·` 分隔。
+    旧实现 `s.split("：", 1)[-1].split(":", 1)[-1]` 是想兼容「期刊: X」这种半角冒号写法，
+    但它在**整行剩余部分**里找第一个半角冒号 —— 而 `https://` 就带着冒号，于是
+    「问 CRISPR 主题文献」的每条脚注都变成了
+    `[1] 题名. //pubmed.ncbi.nlm.nih.gov/36722224/. 2023.`（刊名是一段残缺 URL）。
+    这里改成「先按 · 切字段、再剥标签」，只认字段内的第一个冒号。
+    """
     journal = ""
     doi = ""
+
+    def _field_value(raw: str) -> str:
+        body = re.sub(r"^[^：:]{1,12}[：:]", "", raw.strip()).strip()
+        return re.split(r"\s*·\s*", body, maxsplit=1)[0].strip()
+
     for line in (text or "")[end:].splitlines()[:8]:
         s = line.strip()
         if not s:
             continue
         if s.startswith("期刊：") or s.startswith("期刊:"):
-            journal = s.split("：", 1)[-1].split(":", 1)[-1].strip()
+            journal = _field_value(s)
             continue
         if s.upper().startswith("DOI：") or s.upper().startswith("DOI:"):
-            doi = s.split("：", 1)[-1].split(":", 1)[-1].strip()
+            doi = _field_value(s)
             continue
         if s.startswith("[") or s.startswith("摘要") or s.startswith("相关段落") or s.startswith("题名"):
             break
@@ -1738,6 +1768,7 @@ def _format_ref_line(
     zfqa: str = "",
     journal: str = "",
     doi: str = "",
+    en: bool = False,
 ) -> str:
     """给人看的一条文献：题名、期刊、年份、原文/检索链接。不写 ZFQA。
 
@@ -1774,11 +1805,14 @@ def _format_ref_line(
         for label, url in original_links(
             title=tbit, journal=jbit, year=y, doi=doi, pmid=pmid
         ):
+            # journal_enrich 返回的是中文标签（"原文"/"检索备选"），英文回答里要换成英文
+            if en:
+                label = {"原文": "source", "检索备选": "search"}.get(label, label)
             bits.append(f"[{label}]({url})")
     else:
         url = _doi_url(doi)
         if url:
-            bits.append(f"[原文]({url})")
+            bits.append(f"[{'source' if en else '原文'}]({url})")
     return " ".join(bits)
 
 
@@ -1796,11 +1830,13 @@ def _peel_after_bib(old_refs: str) -> tuple[str, str]:
     return blob[: m.start()].rstrip(), blob[m.start() :].lstrip("\n")
 
 
-def _rebuild_footer(body: str, use: list, max_n: int) -> str:
-    lines = ["", "参考文献："]
+def _rebuild_footer(body: str, use: list, max_n: int, en: bool = False) -> str:
+    # 英文回答必须给英文表头：原来写死「参考文献：」，一旦英文题走到这条路径
+    # 就会在纯英文答案里冒出一个中文小节名（机制检查 E5 直接判失败）。
+    lines = ["", "References:" if en else "参考文献："]
     for item in use[:max_n]:
         n, year, tag, title, zfqa, journal, doi = _paper_view(item)
-        lines.append(_format_ref_line(n, year, tag, title, zfqa, journal, doi))
+        lines.append(_format_ref_line(n, year, tag, title, zfqa, journal, doi, en=en))
     return body + "\n" + "\n".join(lines)
 
 
@@ -1860,6 +1896,11 @@ def ensure_reference_footer(answer: str, context: str = "", question: str = "") 
     ans = (answer or "").replace("\r\n", "\n").replace("\r", "\n").rstrip()
     if not ans:
         return ans
+    # 回答语言：脚注表头 / 链接文字要跟着走，否则英文答案里会冒出中文小节名
+    try:
+        _ans_en = bool(answer_is_english(question or ans))
+    except Exception:
+        _ans_en = False
     # 证据池编号行里的 `rel=` 是给系统排序用的，模型偶尔会抄进正文 —— 这里清掉
     if "rel=" in ans:
         ans = re.sub(r"\s*\brel=\d+(?:\.\d+)?", "", ans)
@@ -1879,7 +1920,7 @@ def ensure_reference_footer(answer: str, context: str = "", question: str = "") 
     if not papers:
         if alias_refs:
             clean = _strip_citations(_strip_residual_ref_sections(body), "")
-            out = _rebuild_footer(clean, alias_refs, _ref_footer_max(question))
+            out = _rebuild_footer(clean, alias_refs, _ref_footer_max(question), en=_ans_en)
             return out + (("\n\n" + suffix) if suffix else "")
         if old_refs:
             return _strip_citations(body, suffix)
@@ -1932,14 +1973,14 @@ def ensure_reference_footer(answer: str, context: str = "", question: str = "") 
         return _strip_citations(body, suffix) if old_refs else body
 
     body = _apply_cite_map(body, mapping)
-    out = _rebuild_footer(body, use, max_n)
+    out = _rebuild_footer(body, use, max_n, en=_ans_en)
     n_foot = _footer_item_count(out)
     if n_foot > max_n:
         use = use[:max_n]
-        out = _rebuild_footer(body, use, max_n)
+        out = _rebuild_footer(body, use, max_n, en=_ans_en)
     if _footer_item_count(out) > max_n:
         use = use[:max_n]
-        out = _rebuild_footer(body, use, max_n)
+        out = _rebuild_footer(body, use, max_n, en=_ans_en)
     if suffix:
         out = out.rstrip() + "\n\n" + suffix
     return out

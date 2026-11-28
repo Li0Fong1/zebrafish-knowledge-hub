@@ -166,14 +166,14 @@
    "layer": "L6",
    "desc": "箱体像素区间 ↔ 数据 Q1/Q3 区间（包含 且 内缩 ≤ 半线宽+抗锯齿+散点半径）",
    "status": "ok",
-   "detail": "最大越界/超缩 0.0px；中位内缩=3.2px；容差=8.8px（半线宽 2.3 + 抗锯齿 1.0 + 散点半径 5.5）；退化箱 1 个"
+   "detail": "最大越界/超缩 0.0px；中位内缩=3.1px；容差=8.8px（半线宽 2.3 + 抗锯齿 1.0 + 散点半径 5.5）；退化箱 1 个"
   },
   {
    "id": "L6.1b",
    "layer": "L6",
    "desc": "中位线像素位置 ↔ 数据中位数（≤4px）",
    "status": "ok",
-   "detail": "最大Δ=0.9px"
+   "detail": "最大Δ=1.4px"
   },
   {
    "id": "L6.4",
@@ -201,7 +201,7 @@
    "layer": "L7",
    "desc": "重跑出图逐字节一致（确定性渲染）",
    "status": "ok",
-   "detail": "9ddc487123 vs 9ddc487123"
+   "detail": "e0ba6b2d3e vs e0ba6b2d3e"
   },
   {
    "id": "L8.1",
@@ -352,7 +352,7 @@
   "hub_partial": 8,
   "hub_full": 10
  },
- "box_inset_px_median": 3.2276711900276496,
+ "box_inset_px_median": 3.0868875697223075,
  "box_inset_tol_px": 8.803648564717896,
  "n_with_ref_list": 35
 }

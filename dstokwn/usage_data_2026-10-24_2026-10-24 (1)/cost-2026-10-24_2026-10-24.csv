@@ -1,7 +1,0 @@
-﻿user_id,start_time_iso,end_time_iso,model,name,wallet_type,cost,currency
-Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T10:00:00+08:00,2026-10-24T11:00:00+08:00,deepseek-flash,deepseek-flash,Granted,2.3675815600000000,CNY
-Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T11:00:00+08:00,2026-10-24T12:00:00+08:00,deepseek-flash,deepseek-flash,Granted,5.6697537600000000,CNY
-Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T12:00:00+08:00,2026-10-24T13:00:00+08:00,deepseek-flash,deepseek-flash,Granted,8.3289251600000000,CNY
-Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T13:00:00+08:00,2026-10-24T14:00:00+08:00,deepseek-flash,deepseek-flash,Paid,9.0712702800000000,CNY
-Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T13:00:00+08:00,2026-10-24T14:00:00+08:00,deepseek-flash,deepseek-flash,Granted,1.1412668000000000,CNY
-Wechat-31d45866-48b1-4f1a-98d2-30f5e906a4ee,2026-10-24T14:00:00+08:00,2026-10-24T15:00:00+08:00,deepseek-flash,deepseek-flash,Paid,7.5334503600000000,CNY

@@ -890,6 +890,22 @@ html body.theme-atelier .tool-panel .coord-l1-arrow {
   font-size: 13px !important;
   color: var(--ui-ink-3) !important;
 }
+/* 2026-11-07：链方向从 hero 药丸搬进坐标面板，紧接染色体/起点/终点。
+   只占一小列，别把整行撑满，否则和上面三等列的输入区不齐。 */
+html body.theme-atelier .tool-panel .coord-l1-strand {
+  display: flex !important;
+  align-items: flex-end !important;
+  margin: 8px 0 10px !important;
+}
+html body.theme-atelier .tool-panel .coord-l1-strand > label {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  flex: 0 0 170px !important;
+  min-width: 0 !important;
+}
+html body.theme-atelier .tool-panel .coord-l1-strand .zf-sel { display: flex !important; width: 100% !important; }
+html body.theme-atelier .tool-panel .coord-l1-strand .zf-sel > select { width: 100% !important; }
 html body.theme-atelier .tool-panel .coord-l1-interval {
   display: grid !important;
   /* 2026-11-02：染色体一列要放下 "chr5 · CM124811.1"（装配登录号），
@@ -2508,10 +2524,7 @@ body.dark .gene-tab.active { border-color: #5a96e6; }
 
 .gene-pane { display: block; }
 .gene-pane.hidden { display: none; }
-.gene-region-row { align-items: center; }
-.gene-region-row input[type="text"],
-.gene-region-row input[type="number"] { min-width: 0; flex: 1 1 120px; }
-.gene-region-row select { flex: 0 0 132px; }
+/* 2026-11-05：已下架页的 .gene-region-row 相关规则随之移除。 */
 #geneBatchInput { width: 100%; box-sizing: border-box; }
 
 /* 结果区：加高 + 右下角可拖拽（原 62vh/640px 且不可调，用户反馈太矮）。
@@ -2570,16 +2583,6 @@ body.dark .gene-warn { color: #f09595; }
   color: #5b7288; line-height: 1.3;
 }
 body.dark .gene-cell-name { color: #93a8bf; }
-
-/* 功能页顶部的范围声明：这页管什么、不管什么，一眼看清，避免拿错页。 */
-.tool-scope-note {
-  margin: 0 0 10px; padding: 7px 10px; border-radius: 7px; font-size: 12.5px;
-  line-height: 1.55; color: #40566d; background: rgba(29, 111, 184, .06);
-  border-left: 3px solid rgba(29, 111, 184, .45);
-}
-body.dark .tool-scope-note {
-  color: #b9c8da; background: rgba(90, 150, 230, .12); border-left-color: rgba(90, 150, 230, .6);
-}
 
 /* 「N 个名称」开关与展开的别名面板。
    基因别名页的核心内容就是这份清单：一个基因到底有多少种叫法。 */

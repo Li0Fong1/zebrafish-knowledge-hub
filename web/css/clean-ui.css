@@ -677,3 +677,71 @@ body.dark #toolAbout .about-tab.active { background: rgba(90, 150, 230, .18); co
 #toolAbout.hidden .about-tab::after, #toolAbout .hidden .about-tab::after { content: none !important; }
 #toolAbout.hidden .about-tab, #toolAbout.hidden .tool-row { display: none !important; }
 #toolBank .tool-panel, #toolBank .about-tab { display: none !important; }
+
+/* ==========================================================================
+   About 单卡片（2026-11-09）：隐藏旧 tab 面板，结果区自成一张干净卡片
+   ========================================================================== */
+#toolAbout { display: none !important; }
+
+.about-clean { width: 100%; max-width: 860px; margin: 0 auto; }
+.about-clean .about-h {
+  font-size: 15px; font-weight: 750; color: #16233d;
+  margin: 20px 0 8px; letter-spacing: .01em;
+}
+.about-clean .about-h:first-child { margin-top: 0; }
+.about-clean .about-lead {
+  font-size: 14px; line-height: 1.65; color: #33445f; margin: 0;
+}
+.about-clean .about-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.about-clean .about-table th {
+  text-align: left; font-weight: 650; color: #5b6b85;
+  padding: 9px 10px; border-bottom: 1px solid #dfe7f2;
+}
+.about-clean .about-table td {
+  padding: 9px 10px; border-bottom: 1px solid #eef2f8; color: #1f2d45;
+}
+.about-clean .about-table td:first-child { font-weight: 600; width: 42%; }
+.about-clean .about-table tr:last-child td { border-bottom: 0; }
+.about-clean .about-sources { display: flex; flex-wrap: wrap; gap: 8px; }
+.about-clean .about-sources span {
+  font-size: 13px; padding: 6px 12px; color: #24405f;
+  background: #f6fafd; border: 1px solid #dbe5f1; border-radius: 999px;
+}
+.about-clean .about-cite {
+  margin: 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.65;
+  white-space: pre-wrap; word-break: break-word; color: #24405f;
+  background: #f6fafd; border: 1px solid #dbe5f1; border-radius: 10px;
+}
+body.dark .about-clean .about-h { color: #dfe8f6; }
+body.dark .about-clean .about-lead,
+body.dark .about-clean .about-table td,
+body.dark .about-clean .about-sources span,
+body.dark .about-clean .about-cite { color: #dfe8f6; }
+body.dark .about-clean .about-table th { color: #a9bdd8; border-color: #33445f; }
+body.dark .about-clean .about-table td { border-color: #2b3a52; }
+body.dark .about-clean .about-sources span,
+body.dark .about-clean .about-cite { background: rgba(255,255,255,.05); border-color: #33445f; }
+
+/* About 单栏：隐藏左输入卡，只留一张结果卡；内容完整展开不再内部滚动 */
+html body.about-single .feature-page .feature-layout {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+html body.about-single .feature-page .feature-form-card { display: none !important; }
+html body.about-single .feature-page .feature-out-card {
+  width: 100%; max-width: 980px; margin: 0 auto;
+}
+html body.about-single .feature-page .feature-out-card .feature-card-head { display: none; }
+html body.about-single .feature-page .tool-result {
+  max-height: none !important; overflow: visible !important;
+}
+
+/* About：收掉结果卡的 "RESULTS" 小标签，整体留白再紧一点 */
+html body.about-single .feature-page .feature-out-card .feature-card-head,
+html body.about-single .feature-page .feature-out-card > .feature-card-title {
+  display: none !important;
+}
+html body.about-single .about-clean .about-h { margin: 14px 0 6px; }
+html body.about-single .about-clean .about-table th,
+html body.about-single .about-clean .about-table td { padding: 7px 10px; }
+html body.about-single .about-clean .about-sources span { padding: 5px 11px; }
+html body.about-single .about-clean .about-cite { padding: 10px 12px; }

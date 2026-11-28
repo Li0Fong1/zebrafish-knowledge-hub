@@ -20,6 +20,9 @@
   var POLL_MAX = 240;          // 最长跟踪 20 分钟
 
   var timer = null, ticks = 0, lastFeed = null, lastRunning = false;
+  // 用户选中的日期要一直保留：否则 5 分钟一次的软刷新会把列表悄悄拉回"今天"，
+  // 看起来就像"选了没反应"。
+  var selectedDay = '';
 
   /* ---------- 文案：整段由本文件负责，不再依赖 i18n 字典逐词替换 ---------- */
   var TEXT = {
@@ -29,8 +32,13 @@
       loading: '加载中…', dailyUnavailable: '今日研究暂不可用',
       noTitle: '(无标题)', noAbstract: '（该条无摘要）',
       pool: '候选池 {n} 篇 · 来源 catalog {lines} 行 · 缓存 {at}',
-      dayNote: '同候选池内按日期确定性选取',
+      dayNote: '按所选日期查看当日论文',
+      dayShowing: '正在查看 {d} 的 {n} 篇论文',
+      dayLoading: '正在读取该日期的论文…',
       dayAria: '选择日期（查看当天的每日论文）',
+      dayFailed: '该日期的论文加载失败（网络或后端超时），点此重试',
+      dayRetry: '重试',
+      dayFailedKeep: '刷新失败，先显示上一次的结果 · 点此重试',
       linkPubmed: 'PubMed 原文 →', linkDoi: 'DOI 原文 →', linkLit: '问助手这篇 →',
       linkSearch: '按题名检索原文 →', linkFree: '免费全文 →',      linkLocal: '在本库检索 →',      linkNoteSearch: '该条本库无 PMID，改为按题名检索',
       linkNoteDoiBad: '该条 DOI 与题名不符，已停用外链',
@@ -71,8 +79,13 @@
       loading: 'Loading…', dailyUnavailable: "Today's pick is unavailable",
       noTitle: '(untitled)', noAbstract: '(no abstract for this record)',
       pool: 'pool {n} records · catalog {lines} lines · cache {at}',
-      dayNote: 'deterministic pick within the same pool',
-      dayAria: 'Pick a date to view that day\u2019s paper selection',
+      dayNote: 'View the papers selected for the chosen date',
+      dayShowing: 'Showing {n} papers for {d}',
+      dayLoading: 'Loading papers for that date…',
+      dayFailed: 'Could not load this date (network or backend timeout). Click to retry',
+      dayRetry: 'retry',
+      dayFailedKeep: 'Refresh failed; showing the last result · click to retry',
+      dayAria: 'Select a date to view the corresponding paper selection',
       linkPubmed: 'PubMed source →', linkDoi: 'DOI source →', linkLit: 'Ask the assistant →',
       linkSearch: 'Search by title →', linkFree: 'Free full text →',
       linkLocal: 'Search in this library →',
@@ -156,6 +169,16 @@
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
+  /* 库里的题名是 HTML 实体化的（"&lt;i&gt;in vivo&lt;/i&gt;"），再 esc 一次就变成
+     字面量 "&lt;i&gt;" 显示出来了。先解一层实体、再统一转义，输出才是干净的斜体原文。 */
+  function unentity(s) {
+    return String(s == null ? '' : s)
+      .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&apos;/g, "'")
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&');
+  }
+  function clean(s) { return unentity(s); }
   function fmtTime(v) {
     if (v == null || v === '') return '';
     var n = Number(v);
@@ -250,16 +273,26 @@
         : '';
     }
 
-    // 日期下拉框（选中项不覆盖：由后端返回的 day 决定）
+    // 日期下拉框：以服务端"今天"为锚点生成选项，避免浏览器与服务器时区不同
+    // 时把当天选项挤掉；选中的日期由本次响应回显，用户能明确看到切换生效。
     var dateEl = $('homeAgentDate');
+    var iso = (entries[0] && entries[0].date) || (feed && feed.day) || '';
     if (dateEl) {
       dateEl.setAttribute('aria-label', L('dayAria'));
-      var iso = (entries[0] && entries[0].date) || (feed && feed.day) || '';
-      if (!dateEl.options.length) buildDayOptions(iso);
+      var anchor = (feed && feed.server_today) || iso || '';
+      if (!dateEl.options.length || dateEl.getAttribute('data-anchor') !== anchor) {
+        buildDayOptions(iso, anchor);
+        dateEl.setAttribute('data-anchor', anchor || '');
+      }
       if (iso && dateEl.value !== iso) dateEl.value = iso;
+      if (iso) selectedDay = iso;
     }
     var dnote = $('homeAgentDateNote');
-    if (dnote) dnote.textContent = L('dayNote');
+    if (dnote) {
+      dnote.textContent = entries.length && iso
+        ? fmt(L('dayShowing'), { d: fmtDate(iso), n: entries.length })
+        : L('dayNote');
+    }
 
     if (!entries.length) {
       list.innerHTML = '<p class="agent-paper-note">' +
@@ -272,7 +305,7 @@
 
     list.innerHTML = entries.map(function (d) {
       var meta = [];
-      if (d.journal) meta.push(esc(d.journal));
+      if (d.journal) meta.push(esc(clean(d.journal)));
       else if (d.year) meta.push(esc(d.year));
       if (d.pmid) meta.push('PMID ' + esc(d.pmid));
       else if (d.doi) meta.push('DOI ' + esc(d.doi));
@@ -301,9 +334,9 @@
       return '<article class="agent-paper">' +
         '<span class="agent-paper-ico" aria-hidden="true">📄</span>' +
         '<div class="agent-paper-body">' +
-        '<p class="agent-paper-title">' + esc(d.title || L('noTitle')) + '</p>' +
+        '<p class="agent-paper-title">' + esc(clean(d.title) || L('noTitle')) + '</p>' +
         (meta.length ? '<p class="agent-paper-meta">' + meta.join(' | ') + '</p>' : '') +
-        '<p class="agent-paper-abs">' + esc(d.abstract || L('noAbstract')) + '</p>' +
+        '<p class="agent-paper-abs">' + esc(clean(d.abstract) || L('noAbstract')) + '</p>' +
         '<div class="agent-paper-links">' + links + '</div>' +
         '</div></article>';
     }).join('');
@@ -404,19 +437,27 @@
     var day = d.getDate();
     return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
   }
-  function buildDayOptions(selected) {
+  function buildDayOptions(selected, anchorIso) {
     var sel = $('homeAgentDate');
     if (!sel) return;
-    var keep = selected || sel.value || '';
+    var keep = selected || sel.value || selectedDay || '';
+    var base;
+    if (anchorIso && /^\d{4}-\d{2}-\d{2}$/.test(anchorIso)) {
+      var p = anchorIso.split('-');
+      base = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    } else {
+      var now = new Date();
+      base = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    }
     var opts = [];
-    var now = new Date();
     for (var i = 0; i < DAYS; i++) {
-      var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+      var d = new Date(base.getFullYear(), base.getMonth(), base.getDate() - i);
       var iso = isoOf(d);
       opts.push('<option value="' + iso + '">' + esc(fmtDate(iso)) + '</option>');
     }
     sel.innerHTML = opts.join('');
     if (keep) sel.value = keep;
+    if (!sel.value && sel.options.length) sel.value = sel.options[0].value;
   }
 
   function bindDaySelect() {
@@ -424,28 +465,115 @@
     if (!sel) return;
     sel.addEventListener('change', function () {
       var v = sel.value || '';
-      loadFeed(v);
+      if (!v) return;
+      selectedDay = v;
+      var note = $('homeAgentDateNote');
+      if (note) note.textContent = L('dayLoading');
+      var list = $('homePapers');
+      if (list) list.classList.add('is-refreshing');
+      loadFeed(v).then(function () {
+        if (list) list.classList.remove('is-refreshing');
+      });
     });
   }
 
+  /* ---------- 网络层：超时 + 重试 + 通行证恢复 ----------
+     2026-11-11：上面原来的 fetch 既不设超时也不看 r.ok 的具体原因，一旦请求被隧道
+     （服务器 → Cloudflare 海外边缘，RTT 250ms、偶发 5% 丢包）中途掐断，Promise 既不
+     resolve 也不 reject，页面就永远停在「正在读取该日期的论文…」。这里补三件事：
+       ① 12s 超时 abort —— 卡住的请求必须结束；
+       ② 失败自动重试 2 次（0.6s / 1.5s 退避），小抖动用户看不见；
+       ③ 401 且是 api_key_* → 补一张通行证 cookie 再试（与 app.js 同一套逻辑）。 */
+  var FETCH_TIMEOUT_MS = 12000;
+  var RETRY_BACKOFF = [600, 1500];
+
+  function delay(ms) {
+    return new Promise(function (r) { setTimeout(r, ms); });
+  }
+
+  function fetchOnce(url) {
+    var ctl = (typeof AbortController === 'function') ? new AbortController() : null;
+    var tid = ctl ? setTimeout(function () { try { ctl.abort(); } catch (e) {} }, FETCH_TIMEOUT_MS) : 0;
+    var opt = { credentials: 'same-origin', cache: 'no-store' };
+    if (ctl) opt.signal = ctl.signal;
+    return fetch(url, opt).then(function (r) {
+      if (tid) clearTimeout(tid);
+      if (!r.ok) return { status: r.status, data: null };
+      return r.json().then(function (j) { return { status: r.status, data: j }; },
+        function () { return { status: r.status, data: null }; });
+    }, function () {
+      if (tid) clearTimeout(tid);
+      return { status: 0, data: null };            // 0 = 超时 / 连接被掐断
+    });
+  }
+
+  /* 401 时先回首页拿新通行证再重放一次；recoverApiPassAndRetry 由 app.js 提供，
+     加载顺序不同可能还不存在，所以先判类型。 */
+  function fetchOnceWithGate(url) {
+    return fetchOnce(url).then(function (res) {
+      if (res.status !== 401 || typeof recoverApiPassAndRetry !== 'function') return res;
+      return Promise.resolve(recoverApiPassAndRetry(function () { return fetchOnce(url); }))
+        .then(function (r2) { return (r2 && r2.status === 200) ? r2 : res; },
+          function () { return res; });
+    });
+  }
+
+  /* 依次尝试，直到拿到可用数据；全部失败返回 null（调用方负责显示失败态）。 */
+  function fetchFeedJson(url, attempt) {
+    var n = attempt || 0;
+    return fetchOnceWithGate(url).then(function (res) {
+      if (res && res.data && res.data.ok !== false) return res.data;
+      if (n >= RETRY_BACKOFF.length) return null;
+      return delay(RETRY_BACKOFF[n]).then(function () { return fetchFeedJson(url, n + 1); });
+    });
+  }
+
+  /* 失败态：给出可点的重试，别让用户对着「加载中…」发呆 */
+  function showDailyError(keepOld) {
+    var note = $('homeAgentDateNote');
+    var sel = $('homeAgentDate');
+    if (keepOld) {
+      // 列表还是上一天的：下拉框也要退回去，否则「选 11-10、显示 11-09 的论文」更容易误解
+      var shown = (lastFeed && lastFeed.day) || '';
+      if (sel && shown && sel.value !== shown) { sel.value = shown; selectedDay = shown; }
+    }
+    if (note) note.textContent = keepOld ? L('dayFailedKeep') : L('dayFailed');
+    var list = $('homePapers');
+    if (list && !keepOld) {
+      list.innerHTML = '<p class="agent-paper-note"><a href="javascript:void(0)" ' +
+        'class="home-daily-retry">' + esc(L('dayFailed')) + '</a></p>';
+      var a = list.querySelector('.home-daily-retry');
+      if (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (note) note.textContent = L('dayLoading');
+          list.innerHTML = '<p class="agent-paper-note">' + esc(L('loading')) + '</p>';
+          loadFeed(selectedDay);
+        });
+      }
+    }
+  }
+
   function loadFeed(day) {
-    var url = FEED_URL + '?_=' + Date.now() + (day ? '&day=' + encodeURIComponent(day) : '');
-    return fetch(url, { credentials: 'same-origin', cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) {
-        if (!d) return null;
-        lastFeed = d;
-        renderDaily(d);
-        renderUpdates(d);
-        return d;
-      })
-      .catch(function () { return null; });
+    var d = day || selectedDay || '';
+    var url = FEED_URL + '?_=' + Date.now() + (d ? '&day=' + encodeURIComponent(d) : '');
+    return fetchFeedJson(url).then(function (data) {
+      if (!data) {
+        // 失败：已经渲染过内容就保留旧内容，只把提示换成「刷新失败 · 点此重试」
+        showDailyError(!!(lastFeed && (lastFeed.daily_list || []).length));
+        return null;
+      }
+      lastFeed = data;
+      renderDaily(data);
+      renderUpdates(data);
+      return data;
+    });
   }
 
   function rerender() {
     applyStatic();
     syncChipLabels();       // 语言切换时示例 chips 的标签/问题一起换
-    buildDayOptions();      // 日期下拉框的日期格式随语言变
+    buildDayOptions(selectedDay, lastFeed && lastFeed.server_today);  // 日期格式随语言变，锚点仍跟服务端
     if (lastFeed) { renderDaily(lastFeed); renderUpdates(lastFeed); }
     else loadFeed();
   }
@@ -587,6 +715,13 @@
     bindChips();
     bindDaySelect();
     buildDayOptions();
+    // 首屏先给一行占位：请求还没回来时，卡片不能是空的（看起来像坏了）
+    var list = $('homePapers');
+    if (list && !list.innerHTML.trim()) {
+      list.innerHTML = '<p class="agent-paper-note">' + esc(L('loading')) + '</p>';
+      var dn = $('homeAgentDateNote');
+      if (dn && !dn.textContent) dn.textContent = L('dayLoading');
+    }
     loadFeed();
     // 语言切换后按新语言重绘（i18n.js 会派发 hub-lang-change）
     document.addEventListener('hub-lang-change', rerender);

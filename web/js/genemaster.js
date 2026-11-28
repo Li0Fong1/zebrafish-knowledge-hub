@@ -92,7 +92,7 @@
   function renderRows(d) {
     var items = d.items || [];
     if (!items.length) {
-      put('<p class="tool-hint">没有匹配的基因。可去掉「仅功能基因」再试，或换一个符号 / ID。</p>');
+      put('<p class="tool-hint">没有匹配的基因。</p>');
       return;
     }
     var html = '<div class="zf-kv">' +
@@ -120,8 +120,7 @@
     }
     html += "</tbody></table></div>";
     if (d.total > items.length) {
-      html += '<p class="tool-hint">共 ' + num(d.total) + " 条，已显示前 " +
-        items.length + " 条；输入更完整的符号可缩小范围。</p>";
+      html += '<p class="tool-hint">共 ' + num(d.total) + " 条，已显示前 " + items.length + " 条</p>";
     }
     put(html);
   }

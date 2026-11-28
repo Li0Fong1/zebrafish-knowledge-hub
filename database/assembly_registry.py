@@ -118,8 +118,11 @@ def _load_db_rows() -> List[Dict[str, str]]:
     模块常量仅作离线兜底，以避免「表 vs 常量」双源漂移。
     """
     try:
-        from mysql_client import MySQLClient  # type: ignore
-        res = MySQLClient().execute_sql(
+        # 2026-11-13：复用全局单例，别每次 new 一个 engine —— 线上实测曾因
+        # 反复创建连接池把 MySQL 的 151 个连接全部占满（1040 Too many
+        # connections），新访客的首次查询直接拿不到连接。
+        from mysql_client import get_mysql_client  # type: ignore
+        res = get_mysql_client().execute_sql(
             "SELECT assembly_name, ncbi_refseq_accession, ncbi_genbank_accession, "
             "strain, is_local_anchor, is_ncbi_reference, ensembl_assembly, "
             "ensembl_release, notes FROM assembly_registry"

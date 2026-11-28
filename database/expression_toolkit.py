@@ -54,33 +54,47 @@ def resolve_gene(gene: str) -> Optional[dict]:
     return rows[0] if rows else None
 
 
-def gene_profile(gene: str, top_tissues: int = 24) -> dict:
-    """单个基因的表达谱：Bgee 组织分（0–100） + Atlas 胚胎分期 TPM。"""
+def gene_profile(gene: str, top_tissues: int = 24, lang: str = "zh") -> dict:
+    """单个基因的表达谱：Bgee 组织分（0–100） + Atlas 胚胎分期 TPM。
+
+    ``lang='en'`` 时把 Atlas 落库的中文组织/分期按 ZFA 英文名输出（见
+    ``anatomy_i18n``）；默认 zh 时行为与原来逐字一致。
+    """
+    from anatomy_i18n import localize
+
     info = resolve_gene(gene)
     if not info:
-        return {"ok": False, "error": "本地库找不到该基因：%s" % gene}
+        err = ("No such gene in the local library: %s" % gene) if lang == "en" else ("本地库找不到该基因：%s" % gene)
+        return {"ok": False, "error": err}
     gid = info["gene_id"]
     res = _client().execute_sql(
         "SELECT tissue, expression_stage, expression_level, data_source"
         " FROM gene_expression WHERE gene_id = :gid", params={"gid": gid}, max_rows=0)
     rows = res.get("data") or []
 
-    tissues, stages = [], []
+    tissues, stages, zfin = [], [], []
     for r in rows:
         src = (r.get("data_source") or "").strip()
         level = float(r.get("expression_level") or 0)
         if src == "bgee":
-            tissues.append({"tissue": r.get("tissue") or "-", "level": level,
+            tissues.append({"tissue": localize(r.get("tissue") or "-", lang, "tissue"), "level": level,
                             "quality": r.get("expression_stage") or ""})
+        elif src.startswith("zfin"):
+            # ZFIN 表达是定性记录（组织 + 时期 + 检测方法），没有数值分数
+            zfin.append({
+                "tissue": localize(r.get("tissue") or "-", lang, "tissue"),
+                "stage": localize(r.get("expression_stage") or "-", lang, "stage"),
+                "source": src,
+            })
         elif src == "atlas_embryo":
             # 2026-10-28：带上 tissue。
             # 同一个"成体"分期下会挂多条记录（不同成体组织），但原来只返回 stage+level，
             # 界面上就变成两行一模一样的「成体 45.2 / 成体 38.7」，看着像重复数据。
             # tissue 为空时保持原样（胚胎分期本身没有组织维度）。
             t = (r.get("tissue") or "").strip()
-            item = {"stage": r.get("expression_stage") or "-", "level": level}
+            item = {"stage": localize(r.get("expression_stage") or "-", lang, "stage"), "level": level}
             if t and t != "-":
-                item["tissue"] = t
+                item["tissue"] = localize(t, lang, "tissue")
             stages.append(item)
 
     tissues.sort(key=lambda x: -x["level"])
@@ -111,12 +125,21 @@ def gene_profile(gene: str, top_tissues: int = 24) -> dict:
             "n_stages": len(stages),
             "stages": stages,
         },
+        "zfin": {
+            "source": "zfin",
+            "unit": "qualitative (anatomy + stage + assay)",
+            "n_records": len(zfin),
+            "records": zfin[:top_tissues],
+            "all_records": zfin,
+        },
         "n_rows": len(rows),
-        "note": "两组单位不同：Bgee 是 0–100 表达存在性置信分（按组织），"
-                "Expression Atlas 是 TPM（按胚胎分期，仅 marker 基因）。不要跨组比较数值。",
-        "note_en": "The two data sets use different units: Bgee is a 0–100 expression-existence "
-                   "confidence score (by anatomical entity), while Expression Atlas reports TPM by "
-                   "embryonic stage (marker-gene subset only). Do not compare values across the two.",
+        "note": "三组单位不同：Bgee 是 0–100 表达存在性置信分（按组织），"
+                "Expression Atlas 是 TPM（按胚胎分期，仅 marker 基因），ZFIN 是定性的组织与时期记录。"
+                "不要跨组比较数值。",
+        "note_en": "The three data sets use different units: Bgee is a 0–100 expression-existence "
+                   "confidence score (by anatomical entity), Expression Atlas reports TPM by embryonic "
+                   "stage (marker-gene subset only), and ZFIN provides qualitative anatomy and stage "
+                   "records. Do not compare values across the three.",
     }
 
 

@@ -1,7 +1,7 @@
 /* ==========================================================================
    expression.js —— Expression 功能页（组织表达谱）
    --------------------------------------------------------------------------
-   数据来源（本地表达表 gene_expression，319,343 行 / 24,089 个基因）：
+   数据来源（本地表达表 gene_expression，541,347 行 / 25,247 个基因，含 ZFIN 222,004 行）：
      GET /api/expression/tissues            → 组织索引（1,151 个解剖实体 + 覆盖基因数）
      GET /api/expression/gene?name=&top=    → 单基因：Bgee 组织分（0–100）+ Atlas 分期 TPM
      GET /api/expression/top?tissue=&n=     → 某组织里表达最高的基因
@@ -24,6 +24,9 @@
       needTissue: '请先选择一个组织',
       bgeeTitle: 'Bgee 组织表达', bgeeSub: '0–100',
       atlasTitle: 'Expression Atlas 胚胎分期', atlasSub: 'TPM',
+      zfinTitle: 'ZFIN 定性表达记录', zfinSub: '组织', zfinUnit: '条记录',
+      noZfin: '本地表中该基因没有 ZFIN 表达记录',
+      scaledNote: '条长按本组分数范围拉伸',
       topTitle: '组织 Top 基因', topSub: '',
       cmpTitle: '多基因对比', cmpSub: '',
       colGene: '基因', colLevel: '表达分', colStage: '分期', colTpm: 'TPM', colQuality: '质量分',
@@ -36,17 +39,20 @@
     },
     en: {
       loading: 'Querying expression…', fail: 'Query failed: {msg}',
-      needGene: 'Enter a gene name (e.g. tp53, sox9b); in compare mode separate several genes with commas',
-      needTissue: 'Pick a tissue first',
+      needGene: 'Enter a gene symbol (e.g. tp53, sox9b); in compare mode, separate gene symbols with commas',
+      needTissue: 'Select a tissue first',
       bgeeTitle: 'Bgee tissue expression', bgeeSub: '0–100',
       atlasTitle: 'Expression Atlas embryonic stages', atlasSub: 'TPM',
+      zfinTitle: 'ZFIN qualitative expression', zfinSub: 'Anatomy', zfinUnit: 'records',
+      noZfin: 'No ZFIN expression records for this gene in the local table',
+      scaledNote: 'bars scaled within this group',
       topTitle: 'Top genes in a tissue', topSub: '',
       cmpTitle: 'Multi-gene comparison', cmpSub: '',
       colGene: 'Gene', colLevel: 'Score', colStage: 'Stage', colTpm: 'TPM', colQuality: 'Quality',
       colTissue: 'Tissue', colCover: 'Genes', colChr: 'Chr', colSym: 'Symbol',
       kvGene: 'Gene', kvGeneId: 'Library ID', kvCoordLib: 'Coord. library ID', kvChr: 'Chr',
       kvTissues: 'Tissues', kvStages: 'Stages', kvRows: 'Expression rows', kvMax: 'Top tissue',
-      note: 'Note', noRecord: 'no record', noAtlas: 'No Atlas stage rows for this gene in the local table', noBgee: 'No Bgee tissue rows for this gene in the local table',
+      note: 'Note', noRecord: 'No record', noAtlas: 'No Atlas stage rows for this gene in the local table', noBgee: 'No Bgee tissue rows for this gene in the local table',
       pickTissueHint: 'Click a tissue below to query it directly:',
       tissuesLoaded: '{n} tissues loaded', openGene: 'Open gene card'
     }
@@ -77,13 +83,45 @@
     return '<div class="zf-block">' + (title ? '<h4 class="zf-block-title">' + esc(title) + '</h4>' : '') +
       (sub ? '<p class="zf-block-sub">' + esc(sub) + '</p>' : '') + body + '</div>';
   }
-  function barRows(items, max, warm) {
+  /* Bgee 分数常挤在 99.9 附近，按 0–100 归一后所有条几乎等长。
+     stretch=true 时按本组最低 / 最高分拉伸到 10%~100%，只提高视觉区分度，
+     行末仍显示原始分，副标题标注条长口径，避免把放大后的差距读成真实差距。 */
+  function barRows(items, max, warm, stretch) {
+    var vals = items.map(function (it) { return Number(it.level) || 0; });
+    var lo = vals.length ? Math.min.apply(null, vals) : 0;
+    var hi = vals.length ? Math.max.apply(null, vals) : 0;
+    var span = hi - lo;
     return items.map(function (it) {
-      var pct = Math.max(2, Math.round((it.level / (max || 100)) * 100));
+      var pct = (stretch && span > 0.000001)
+        ? 10 + Math.round((((Number(it.level) || 0) - lo) / span) * 90)
+        : Math.max(2, Math.round((it.level / (max || 100)) * 100));
       return '<div class="zf-bar-row"><span class="zf-bar-label" title="' + esc(it.label) + '">' + esc(it.label) + '</span>' +
         '<span class="zf-bar"><span class="zf-bar-fill' + (warm ? ' is-warm' : '') + '" style="width:' + pct + '%"></span></span>' +
         '<span class="zf-bar-val">' + num(it.level) + '</span></div>';
     }).join('');
+  }
+
+  /* ---------------- 渲染：ZFIN 定性表达 ----------------
+     后端 gene_profile 已返回 zfin 组（组织 + 时期 + 来源，无数值分数）。
+     这里按组织聚合成记录条数单独成块，不与 Bgee 分值 / Atlas TPM 同轴比较。 */
+  function renderZfinBlock(d) {
+    var zf = d.zfin || {};
+    var rows = zf.all_records || zf.records || [];
+    var agg = {}, srcs = {};
+    rows.forEach(function (r) {
+      var k = r.tissue || '—';
+      agg[k] = (agg[k] || 0) + 1;
+      var s = r.source || 'zfin';
+      srcs[s] = (srcs[s] || 0) + 1;
+    });
+    var items = Object.keys(agg).map(function (k) { return { label: k, level: agg[k] }; })
+      .sort(function (a, b) { return b.level - a.level; });
+    var srcText = Object.keys(srcs).sort().map(function (s) { return s + ' ' + srcs[s]; }).join(' · ');
+    var sub = T('zfinSub') + ' · ' + (zf.n_records || rows.length) + ' ' + T('zfinUnit') +
+      (srcText ? ' · ' + srcText : '');
+    return block(T('zfinTitle'), sub,
+      items.length ? barRows(items.slice(0, 24), items[0].level || 1, false)
+        : '<p class="tool-hint">' + esc(T('noZfin')) + '</p>');
   }
 
   /* ---------------- 渲染：单基因 ---------------- */
@@ -107,20 +145,18 @@
       '<div class="zf-kv-item"><span class="zf-kv-k">' + esc(T('kvRows')) + '</span><span class="zf-kv-v">' + (d.n_rows || 0) + '</span></div>' +
       '</div>';
 
-    var tissuesAll = (bgee.all_tissues || []);
-    var more = tissuesAll.length > tRows.length
-      ? '<p class="zf-note">' + esc(curLang() === 'zh'
-          ? '共 ' + tissuesAll.length + ' 个组织有记录，此处按分值显示前 ' + tRows.length + ' 个。'
-          : tissuesAll.length + ' tissues have records; the top ' + tRows.length + ' by score are shown.') + '</p>'
-      : '';
+    /* 2026-11-07：用户要求功能页不再出现解释性小字，这段「共 N 个组织…显示前 M 个」
+       说明整段移除；tRows 仍按分值截断，结果本身不变。 */
+    var more = '';
 
     var html = block('', '', head) +
-      block(T('bgeeTitle'), T('bgeeSub'),
-        tRows.length ? barRows(tRows, 100, false) + more
+      block(T('bgeeTitle'), T('bgeeSub') + ' · ' + T('scaledNote'),
+        tRows.length ? barRows(tRows, 100, false, true) + more
           : '<p class="tool-hint">' + esc(T('noBgee')) + '</p>') +
       block(T('atlasTitle'), T('atlasSub'),
         sRows.length ? barRows(sRows, Math.max.apply(null, sRows.map(function (x) { return x.level; }).concat([1])), true)
           : '<p class="tool-hint">' + esc(T('noAtlas')) + '</p>') +
+      renderZfinBlock(d) +
       (d.note ? '<p class="zf-note"><strong>' + esc(T('note')) + (curLang() === 'zh' ? '：' : ': ') + '</strong>' +
         esc(curLang() === 'zh' ? d.note : (d.note_en || d.note)) + '</p>' : '') +
       '<p class="zf-note"><a class="zf-link" href="#/gene/' + encodeURIComponent(g.gene_name || g.gene_symbol || '') + '">' +
@@ -149,8 +185,8 @@
           '<td class="zf-muted">' + esc(r.ensembl_id || r.zfin_id || '—') + '</td></tr>';
       }).join('') + '</tbody></table></div>';
 
-    showResult(block(d.tissue || '', T('topSub') + ' · ' + (d.unit || ''),
-      barRows(items, 100, false) + table));
+    showResult(block(d.tissue || '', T('topSub') + ' · ' + (d.unit || '') + ' · ' + T('scaledNote'),
+      barRows(items, 100, false, true) + table));
   }
 
   /* ---------------- 渲染：多基因对比 ---------------- */
@@ -164,6 +200,8 @@
     var matrixValues = [];
     matrix.forEach(function (row) { row.forEach(function (v) { if (v != null) matrixValues.push(v); }); });
     var max = Math.max.apply(null, matrixValues.concat([1]));
+    var min = matrixValues.length ? Math.min.apply(null, matrixValues) : 0;
+    var span = max - min;
 
     var head = '<tr><th>' + esc(T('colTissue')) + '</th>' + genes.map(function (g) {
       return '<th>' + esc(g) + '</th>';
@@ -173,13 +211,15 @@
       return '<tr><td>' + esc(t) + '</td>' + genes.map(function (g, gi) {
         var v = matrix[gi] ? matrix[gi][ti] : null;
         if (v == null) return '<td class="zf-muted">—</td>';
-        var pct = Math.max(3, Math.round((v / max) * 100));
+        var pct = span > 0.000001
+          ? 8 + Math.round((((v - min) / span) * 92))
+          : Math.max(3, Math.round((v / max) * 100));
         return '<td class="zf-num"><span class="zf-bar" style="display:inline-block;width:46px;vertical-align:middle">' +
           '<span class="zf-bar-fill" style="width:' + pct + '%"></span></span> ' + num(v) + '</td>';
       }).join('') + '</tr>';
     }).join('');
 
-    showResult(block(T('cmpTitle'), T('cmpSub') + ' · ' + (d.unit || ''),
+    showResult(block(T('cmpTitle'), T('cmpSub') + ' · ' + (d.unit || '') + ' · ' + T('scaledNote'),
       '<div class="table-wrap"><table class="zf-matrix"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>'));
   }
 
@@ -194,10 +234,9 @@
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var items = (d && d.tissues) || [];
-        sel.innerHTML = '<option value="">' + esc(curLang() === 'zh' ? '选择组织…' : 'Pick a tissue…') + '</option>' +
+        sel.innerHTML = '<option value="">' + esc(curLang() === 'zh' ? '选择组织…' : 'Select a tissue…') + '</option>' +
           items.map(function (t) {
-            return '<option value="' + esc(t.tissue) + '">' + esc(t.tissue) + ' · ' + t.genes +
-              (curLang() === 'zh' ? ' 基因' : ' genes') + '</option>';
+            return '<option value="' + esc(t.tissue) + '">' + esc(t.tissue) + '</option>';
           }).join('');
         tissuesLoaded = true;
         return items;
@@ -258,7 +297,7 @@
       var isTissue = mode.value === 'tissue';
       if (isTissue) loadTissues(false);
       if (inp) inp.placeholder = isTissue
-        ? (curLang() === 'zh' ? '（组织模式：请用下方下拉框选组织）' : '(tissue mode: pick a tissue from the dropdown)')
+        ? (curLang() === 'zh' ? '（组织模式：请用下方下拉框选组织）' : '(tissue mode: select a tissue from the list)')
         : (curLang() === 'zh' ? '基因名 / 别名 / Ensembl，如 tp53；对比模式用逗号分隔' : 'Gene name / alias / Ensembl, e.g. tp53; commas in compare mode');
     });
     var sel = $('exprTissue');

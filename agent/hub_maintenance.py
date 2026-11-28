@@ -234,8 +234,15 @@ def status() -> dict:
     def due(last: float, interval: int) -> bool:
         return (now - float(last or 0)) >= interval
 
+    # 调度线程是否真的在跑：/api/hub/research-feed 用它做可核查的自证，
+    # 避免"配置了 168 小时但进程里根本没线程"这种空转。
+    alive = any(
+        t.name == "hub-maintenance" and t.is_alive()
+        for t in threading.enumerate()
+    )
     return {
         "enabled": ENABLED,
+        "scheduler_alive": alive and _scheduler_started,
         "now": _now_iso(),
         "intervals_sec": {
             "literature": LIT_INTERVAL_SEC,
@@ -472,6 +479,15 @@ def audit_literature() -> dict:
     faiss_ok = os.path.isdir(FAISS_INDEX_DIR) and any(
         Path(FAISS_INDEX_DIR).glob("*")
     )
+    # 增量向量的真实产物（独立进程写出，供状态接口自证，不显示在页面上）
+    delta_dir = Path(_BASE_DIR) / "data" / "faiss_lit_delta"
+    delta_manifest = {}
+    mf = delta_dir / "manifest.json"
+    if mf.is_file():
+        try:
+            delta_manifest = json.loads(mf.read_text(encoding="utf-8"))
+        except Exception:
+            delta_manifest = {}
     return {
         "ok": True,
         "knowledge_main": {"path": KNOWLEDGE_PATH, "exists": os.path.isfile(KNOWLEDGE_PATH)},
@@ -485,6 +501,13 @@ def audit_literature() -> dict:
         "catalog": {"path": catalog, "lines": catalog_n},
         "progress_pmids": pmid_n,
         "faiss_index": {"path": FAISS_INDEX_DIR, "ready": faiss_ok},
+        "delta_vector": {
+            "ready": bool(delta_manifest.get("ok")),
+            "model": delta_manifest.get("model"),
+            "dim": delta_manifest.get("dim"),
+            "total_chunks": delta_manifest.get("total_chunks"),
+            "built_at": delta_manifest.get("built_at"),
+        },
         "adoption": (
             "上传 → rag/uploads/<tenant_u{id}>/ 原件 + rag/knowledge.d/ 文本；"
             "rebuild_rag_index() 重建 FAISS；Hub RAG / PubmedYes 下次检索即可命中。"

@@ -1,0 +1,14 @@
+[Unit]
+Description=Zebrafish Hub 隧道守护（模式对齐 + 公网可达性自愈）
+Documentation=file:///data/zoujin/deng/zebrafish_gene_qa/docs/域名接入_zebrafish-hub.top.md
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/data/zoujin/deng/zebrafish_gene_qa
+# 只管隧道：Hub 的复活/预热/内存回收由 zebrafish-hub-watchdog.service 负责，
+# 两个脚本同时 kill+重启 Hub 会互相打断。
+Environment=HUB_GUARD_HUB_RESTART=0
+Environment=HUB_GUARD_MEM_RECYCLE=0
+ExecStart=/bin/bash /data/zoujin/deng/zebrafish_runtime/hub_guard.sh
+TimeoutStartSec=300

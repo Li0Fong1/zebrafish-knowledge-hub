@@ -12,7 +12,11 @@ from typing import Any, Optional
 from sqlalchemy import text
 from sqlalchemy.exc import IntegrityError
 
-from mysql_client import MySQLClient
+# 2026-11-13：用全局单例，不要在这里 new 连接。每个 MySQLClient() 会新建
+# 主/只读两个 engine（各 5+10 连接）且从不 dispose，登录/注册请求反复触发会
+# 把 MySQL 的 max_connections=151 全部吃满，外部表现为「新连接建不上、
+# 问答偶发无响应」。
+from mysql_client import get_mysql_client
 
 _USER_RE = re.compile(r"^[a-zA-Z0-9_\u4e00-\u9fff]{2,32}$")
 _SESSION_DAYS = 30
@@ -121,7 +125,7 @@ def register_user(username: str, password: str, display_name: str | None = None)
     dn = (display_name or "").strip()[:64] or username
     salt = secrets.token_hex(16)
     pw_hash = _hash_password(password, salt)
-    client = MySQLClient()
+    client = get_mysql_client()
     db = next(client.get_db())
     try:
         _ensure_schema(db)
@@ -158,7 +162,7 @@ def register_user(username: str, password: str, display_name: str | None = None)
 def login_user(username: str, password: str) -> dict[str, Any]:
     username = _validate_username(username)
     password = _validate_password(password)
-    client = MySQLClient()
+    client = get_mysql_client()
     db = next(client.get_db())
     try:
         _ensure_schema(db)
@@ -187,7 +191,7 @@ def login_user(username: str, password: str) -> dict[str, Any]:
 def logout_session(token: str) -> None:
     if not token:
         return
-    client = MySQLClient()
+    client = get_mysql_client()
     db = next(client.get_db())
     try:
         _ensure_schema(db)
@@ -200,7 +204,7 @@ def logout_session(token: str) -> None:
 def user_from_session(token: str) -> Optional[dict[str, Any]]:
     if not token:
         return None
-    client = MySQLClient()
+    client = get_mysql_client()
     db = next(client.get_db())
     try:
         _ensure_schema(db)
@@ -237,7 +241,7 @@ def user_from_session(token: str) -> Optional[dict[str, Any]]:
 def load_user_conversations(user_id: int) -> Optional[dict[str, Any]]:
     """返回 {activeId, conversations} 或 None。"""
     uid = int(user_id)
-    client = MySQLClient()
+    client = get_mysql_client()
     db = next(client.get_db())
     try:
         _ensure_schema(db)
@@ -260,22 +264,42 @@ def load_user_conversations(user_id: int) -> Optional[dict[str, Any]]:
 
 
 def save_user_conversations(user_id: int, payload: dict[str, Any]) -> None:
-    """按 user_id 覆盖保存对话（专属隔离）。"""
+    """按 user_id 覆盖保存对话（专属隔离）。
+
+    隐私策略（见 core/privacy.py）：
+      · 超出 ``HUB_HISTORY_RETENTION_DAYS``（默认 180 天）的会话不再落库；
+      · 落库前对邮箱/手机号/证件号做确定性脱敏（``HUB_HISTORY_MASK_PII=0`` 可关）；
+      · 最多保留 40 个会话，整体 payload 不超过 4.5MB。
+    """
     import json
+
+    try:
+        from privacy import mask_payload, retention_days, trim_by_retention
+    except ImportError:  # 某些启动方式下 core/ 不在 sys.path
+        from core.privacy import mask_payload, retention_days, trim_by_retention
 
     uid = int(user_id)
     # 限体量：最多 40 会话，单条消息截断由前端保证
     convs = payload.get("conversations") or []
     if not isinstance(convs, list):
         raise ValueError("conversations 格式无效")
+
+    convs, expired = trim_by_retention(convs)
+    if expired:
+        from common_utils import logger
+
+        logger.info(
+            "[历史] 按留存策略丢弃 %d 个过期会话（阈值 %d 天）", len(expired), retention_days()
+        )
+
     slim = {
         "activeId": payload.get("activeId"),
-        "conversations": convs[:40],
+        "conversations": mask_payload(convs[:40]),
     }
     raw = json.dumps(slim, ensure_ascii=False)
     if len(raw.encode("utf-8")) > 4_500_000:
         raise ValueError("对话数据过大，请删除部分历史后再同步")
-    client = MySQLClient()
+    client = get_mysql_client()
     db = next(client.get_db())
     try:
         _ensure_schema(db)

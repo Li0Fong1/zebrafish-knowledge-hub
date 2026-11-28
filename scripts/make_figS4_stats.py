@@ -308,10 +308,10 @@ def main() -> int:
     rec("C-judge", "评委未出现整题作废", "ok" if not skipped else "mismatch",
         f"skipped={skipped}", "high")
 
-    W_IN, H_IN = 13.2, 4.9
+    W_IN, H_IN = 13.2, 6.2
     fig = plt.figure(figsize=(W_IN, H_IN))
-    ax1 = fig.add_axes([0.055, 0.215, 0.415, 0.58])
-    ax2 = fig.add_axes([0.545, 0.215, 0.415, 0.58])
+    ax1 = fig.add_axes([0.055, 0.315, 0.415, 0.52])
+    ax2 = fig.add_axes([0.545, 0.315, 0.415, 0.52])
     pdf = {}
     geom = {"figsize_in": [W_IN, H_IN], "dpi": 300,
             "configs": CFG, "n_per": n_per, "judge_model": sc.get("model")}
@@ -343,7 +343,7 @@ def main() -> int:
     t = fig.text(0.055, 0.975, "Six real, request-level Hub configurations — same 10 fixed questions each",
                  fontsize=11.6, color=C["ink"], fontweight="bold", va="top")
     TEXT_BOXES.append(("suptitle", t))
-    t = fig.text(0.055, 0.145,
+    t = fig.text(0.055, 0.245,
                  f"Configurations = answering route (rag / fusion / hub) × answer depth (partial / full), requested from the production Hub API.\n"
                  f"The knowledge index is identical in all six runs (paragraph sections, 360 / 110 characters, 48-character overlap), so the reference\n"
                  f"figure's segmentation axis cannot be varied here and is not claimed.  n = {n_per[CFG[0]]} questions per configuration, paired across\n"
@@ -359,7 +359,7 @@ def main() -> int:
     holm_all = {p: min(1.0, p * (len(allp) - i)) for i, p in enumerate(allp)}
     sig2 = sorted(p for p in c2_p.values() if p < 0.05)
     p1, p2 = sig2[0], sig2[1]
-    t = fig.text(0.055, 0.062,
+    t = fig.text(0.055, 0.150,
                  "C1: scored blind to configuration with the project's own rubric (0–10, 0.25 steps) by an external model; differences are small and not significant, i.e. the rubric saturates,\n"
                  "and the configuration-level ranking is not reproducible between two independent judges (Spearman −0.03).  C2: an objective count from the same answers — hub answers carry\n"
                  "2.5–3.7× more distinct inline citation markers than rag/fusion, and every hub_full answer backs its markers with an in-text numbered list (hub_partial 8/10, rag/fusion 4–6/10),\n"

@@ -19,7 +19,7 @@
   var EVENTS_URL = '/api/hub/events';
   var POLL_VISIBLE_MS = 20000;   // 可见时轮询间隔
   var POLL_HIDDEN_MS = 120000;   // 后台轮询间隔（一般用不到，后台会直接停）
-  var OFFLINE_AFTER = 2;         // 连续失败几次判定离线
+  var OFFLINE_AFTER = 3;         // 连续失败几次判定离线（2026-11-11: 2→3，隧道偶发抖动不该立刻报离线）
   // 2026-10-28：实测线上 /api/hub/stream-version 要 8-14s（MySQL count + 文件 stat + 共享机器），
   // 原来 8s 超时 → 连续两次就判「离线预览」，健康的后端被当成挂了。放宽到 25s。
   var FETCH_TIMEOUT_MS = 25000;
@@ -44,14 +44,14 @@
     zh: {
       updated: '已更新',
       justNow: '刚刚',
-      offline: '离线预览',
+      offline: '连接中断',
       demo: '演示数据',
       updatedTip: '影像流与统计已自动更新',
-      offlineTip: '未连接到后端（本地预览），实时更新不可用',
+      offlineTip: '与服务器的实时连接中断，正在自动重连；页面内的检索与问答仍可手动重试',
       demoTip: '本地预览：数据为服务器快照（非实时），实时通道已连通',
       sseTip: '实时连接中（SSE）',
       pollTip: '实时连接中（轮询）',
-      offlineNote: '未连接后端，数值不可用',
+      offlineNote: '实时连接中断，数值可能不是最新',
       demoNote: '演示快照（非实时）',
       liveNote: '实时',
       litNew: '文献',
@@ -61,19 +61,19 @@
     en: {
       updated: 'Updated',
       justNow: 'just now',
-      offline: 'Offline preview',
+      offline: 'Reconnecting',
       demo: 'Demo snapshot',
       updatedTip: 'Imagery and stats refreshed automatically',
-      offlineTip: 'No backend (local preview); live updates unavailable',
+      offlineTip: 'Live connection to the server dropped; reconnecting automatically. Search and Q&A still work on demand.',
       demoTip: 'Local preview: data is a captured snapshot (not live); live channel connected',
       sseTip: 'Live (SSE)',
       pollTip: 'Live (polling)',
-      offlineNote: 'no backend - values unavailable',
+      offlineNote: 'live link down - values may be stale',
       demoNote: 'demo snapshot (not live)',
       liveNote: 'live',
       litNew: 'literature',
-      litNewTail: '- click to refresh',
-      litNewTip: 'Library updated; click to re-run your search (results are never replaced silently)'
+      litNewTail: '- select to refresh',
+      litNewTip: 'Library updated; select to re-run the search (results are never replaced silently)'
     }
   };
 

@@ -111,36 +111,43 @@ def _api_get(
     return None
 
 
-def lookup_symbol(symbol: str, species: str = SPECIES, *, silent: bool = False) -> Optional[dict]:
+def lookup_symbol(symbol: str, species: str = SPECIES, *, silent: bool = False,
+                  timeout: int = 0, retries: int = 3) -> Optional[dict]:
+    """`timeout` / `retries`：交互式调用可传小值，避免用户等 3×25s。"""
     sym = symbol.strip()
     if not sym:
         return None
     return _api_get(
         f"/lookup/symbol/{species}/{urllib.parse.quote(sym)}",
         {"expand": 1},
-        silent=silent,
+        silent=silent, timeout=timeout, retries=retries,
     )
 
 
-def lookup_by_xref(symbol: str, species: str = SPECIES) -> Optional[dict]:
+def lookup_by_xref(symbol: str, species: str = SPECIES, *,
+                   timeout: int = 0, retries: int = 3) -> Optional[dict]:
     """通过 Ensembl 外部符号/xref 解析常用别名（如 hsp70→hsp70.1、vegfa→vegfaa）。"""
     sym = symbol.strip()
     if not sym:
         return None
-    xrefs = _api_get(f"/xrefs/symbol/{species}/{urllib.parse.quote(sym)}", silent=True)
+    xrefs = _api_get(f"/xrefs/symbol/{species}/{urllib.parse.quote(sym)}",
+                     silent=True, timeout=timeout, retries=retries)
     if not isinstance(xrefs, list):
         return None
     gene_id = next((x.get("id") for x in xrefs if x.get("type") == "gene" and x.get("id")), None)
     if not gene_id:
         return None
-    return _api_get(f"/lookup/id/{gene_id}", {"expand": 1}, silent=True)
+    return _api_get(f"/lookup/id/{gene_id}", {"expand": 1}, silent=True,
+                    timeout=timeout, retries=retries)
 
 
-def resolve_lookup(symbol: str, species: str = SPECIES) -> Optional[dict]:
-    lookup = lookup_symbol(symbol, species=species)
+def resolve_lookup(symbol: str, species: str = SPECIES, *,
+                   timeout: int = 0, retries: int = 3) -> Optional[dict]:
+    """批量采集默认 3 次重试；工具页传 timeout=6, retries=1 做有界回退。"""
+    lookup = lookup_symbol(symbol, species=species, timeout=timeout, retries=retries)
     if lookup:
         return lookup
-    return lookup_by_xref(symbol, species=species)
+    return lookup_by_xref(symbol, species=species, timeout=timeout, retries=retries)
 
 
 def _parse_xrefs_payload(data: list) -> Tuple[List[dict], Optional[str], List[dict]]:

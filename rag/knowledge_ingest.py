@@ -5,7 +5,10 @@ import bootstrap  # noqa: F401
 import os
 import re
 import shutil
+import subprocess
+import sys
 from datetime import datetime
+from pathlib import Path
 
 from config import KNOWLEDGE_EXTRA_DIR, KNOWLEDGE_UPLOAD_DIR, KNOWLEDGE_PATH
 from common_utils import logger
@@ -117,6 +120,49 @@ def rebuild_rag_index():
     return {"rebuilt": True, "knowledge_main": KNOWLEDGE_PATH}
 
 
+def _queue_delta_vector(files: list) -> dict:
+    """把本周新增文献排进独立进程的向量化队列；本函数只做毫秒级的文件登记。"""
+    if os.getenv("LIT_DELTA_VECTOR", "1").strip().lower() in ("0", "false", "no", "off"):
+        return {"mode": "skip_vector", "chunks": 0, "files": len(files)}
+    try:
+        from scripts.literature_vector_delta import enqueue, DELTA_DIR
+
+        n = enqueue(files)
+        if not n:
+            return {"mode": "skip_vector", "chunks": 0, "files": len(files)}
+        lock = DELTA_DIR / "worker.lock"
+        if not lock.exists():
+            try:
+                lock.mkdir(parents=False)
+            except FileExistsError:
+                return {"mode": "delta_vector_queued", "chunks": 0,
+                        "files": len(files), "queued": n}
+            root = str(Path(__file__).resolve().parents[1])
+            log = DELTA_DIR / "worker.log"
+            try:
+                with log.open("a", encoding="utf-8") as fh:
+                    subprocess.Popen(
+                        [sys.executable, "-m", "scripts.literature_vector_delta", "--pending"],
+                        cwd=root, stdout=fh, stderr=subprocess.STDOUT,
+                        stdin=subprocess.DEVNULL,
+                    )
+                return {"mode": "delta_vector_started", "chunks": 0,
+                        "files": len(files), "queued": n}
+            except Exception as e:  # noqa: BLE001
+                logger.warning(f"[知识库] 增量向量进程启动失败：{e}")
+                try:
+                    lock.rmdir()
+                except OSError:
+                    pass
+                return {"mode": "delta_vector_queued", "chunks": 0,
+                        "files": len(files), "queued": n}
+        return {"mode": "delta_vector_queued", "chunks": 0,
+                "files": len(files), "queued": n}
+    except Exception as e:  # noqa: BLE001
+        logger.warning(f"[知识库] 增量向量登记失败：{e}")
+        return {"mode": "skip_vector", "chunks": 0, "files": len(files)}
+
+
 def append_rag_documents(paths) -> dict:
     """把新入库的文本增量加进现有 FAISS 索引；失败时回退整体重建。
 
@@ -132,7 +178,10 @@ def append_rag_documents(paths) -> dict:
     if not files:
         return {"mode": "skip", "chunks": 0, "files": 0}
     if os.getenv("SKIP_KNOWLEDGE_FAISS_REBUILD", "").strip().lower() in ("1", "true", "yes"):
-        return {"mode": "skip_vector", "chunks": 0, "files": len(files)}
+        # 主索引是 768 维，而常驻大模型是 2048 维，直接 append 会写坏索引；
+        # 但"跳过向量化"不等于"什么都不做"：把新增文本交给独立进程做真实的
+        # 分块 + 稠密向量化，写成独立的增量索引，API 进程既不等也不占内存。
+        return _queue_delta_vector(files)
     try:
         import rag_builder as rb
 

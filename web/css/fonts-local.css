@@ -1,0 +1,39 @@
+/* 自托管 Figtree（2026-11-12）
+   ------------------------------------------------------------------
+   原来 <head> 里直接引用 fonts.googleapis.com 的样式表。那是一个
+   render-blocking 资源，而国内到 Google 的 TLS 连接经常直接失败（实测
+   code=000，握手阶段就断）。浏览器在拿到它之前不会绘制首帧，于是「白屏
+   很久」这件事与站点本身无关，纯粹卡在这一个外链上。
+
+   现在把 woff2 放进 /static/fonts/，由我们自己的源站提供（走 CDN 缓存），
+   首绘不再依赖任何第三方域名。font-display: swap 保证字体没到时先用系统
+   字体画出来，绝不空等。 */
+
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/figtree-latin-400-normal.woff2?v=20261112a") format("woff2");
+}
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/static/fonts/figtree-latin-500-normal.woff2?v=20261112a") format("woff2");
+}
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/fonts/figtree-latin-600-normal.woff2?v=20261112a") format("woff2");
+}
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/static/fonts/figtree-latin-700-normal.woff2?v=20261112a") format("woff2");
+}

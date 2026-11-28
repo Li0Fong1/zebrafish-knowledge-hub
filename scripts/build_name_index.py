@@ -21,7 +21,7 @@ import sys
 import pymysql
 
 DB = dict(host="127.0.0.1", port=3307, user="zebrafish",
-          password="zebrafish_remote_2026", database="zebrafish_db",
+          password=__import__("os").environ["MYSQL_PASSWORD"], database="zebrafish_db",
           charset="utf8mb4", autocommit=True)
 
 APPLY = "--apply" in sys.argv

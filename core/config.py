@@ -11,17 +11,63 @@ def _project_root() -> str:
 
 _BASE_DIR = _project_root()
 
+# ── MySQL 凭据修复（2026-11-06）────────────────────────────────────────────
+# 部分部署环境 / 守护进程会向 worker 注入错误的 MySQL 凭据（root + 错误密码、
+# 端口 3306），而本项目的 MySQL 实际运行在 3307，用户为 zebrafish，口令见 .env。
+# 这里在构造 DB_CONFIG 之前，从项目根 .env 强制载入 MYSQL_*，覆盖被污染的进程
+# 环境变量，保证连接落到正确的实例（zebrafish_db @ 127.0.0.1:3307）。
+# 仅覆盖 MYSQL_*，不动其它配置；.env 缺字段时不改动，沿用环境变量 / 默认值。
+def _apply_mysql_from_env_file() -> None:
+    env_file = os.path.join(_BASE_DIR, ".env")
+    try:
+        with open(env_file, encoding="utf-8-sig", errors="ignore") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, _, v = line.partition("=")
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k in ("MYSQL_HOST", "MYSQL_PORT", "MYSQL_USER",
+                         "MYSQL_PASSWORD", "MYSQL_DATABASE"):
+                    os.environ[k] = v
+    except OSError:
+        pass
+
+
+_apply_mysql_from_env_file()
+
 # MySQL
-# 密码必须来自 .env / 环境变量：不设弱口令默认值，缺失时连接会显式失败，
-# 避免配置丢失后静默回退到旧密码（也不会在源码中出现任何口令）。
+# 密码必须来自 .env / 环境变量，源码中不出现任何口令。
+# 默认值与生产实例保持一致（3307 / zebrafish），避免 .env 缺失时静默连到
+# 本机另一个 MySQL 实例而毫无察觉。
 DB_CONFIG = {
     "host": os.getenv("MYSQL_HOST", "localhost"),
-    "port": int(os.getenv("MYSQL_PORT", "3306")),
-    "user": os.getenv("MYSQL_USER", "root"),
+    "port": int(os.getenv("MYSQL_PORT", "3307")),
+    "user": os.getenv("MYSQL_USER", "zebrafish"),
     "password": os.getenv("MYSQL_PASSWORD", ""),
     "database": os.getenv("MYSQL_DATABASE", "zebrafish_db"),
     "charset": "utf8mb4",
 }
+
+# 可选严格模式：生产部署设置 ZF_REQUIRE_DB_CONFIG=1 后，凭据缺失立即报错，
+# 不再允许以空口令尝试连接（默认关闭，不影响离线脚本与单元测试）。
+if os.getenv("ZF_REQUIRE_DB_CONFIG") == "1" and not DB_CONFIG["password"]:
+    raise RuntimeError("MYSQL_PASSWORD 未配置：请检查项目根 .env 或环境变量")
+
+# 只读账号（可选，需 DBA 建号）：配置后所有 SELECT 走只读连接，写入仍用主账号。
+# 未配置（MYSQL_RO_USER 为空）时退回主账号，行为与以前一致。
+# 目的：纵深防御 —— 即使某处 SQL 拼接失控，也只可能"读错"，不可能改坏数据。
+DB_READONLY_CONFIG = None
+if (os.getenv("MYSQL_RO_USER") or "").strip():
+    DB_READONLY_CONFIG = {
+        "host": os.getenv("MYSQL_RO_HOST", DB_CONFIG["host"]),
+        "port": int(os.getenv("MYSQL_RO_PORT", str(DB_CONFIG["port"]))),
+        "user": os.getenv("MYSQL_RO_USER", "").strip(),
+        "password": os.getenv("MYSQL_RO_PASSWORD", ""),
+        "database": os.getenv("MYSQL_RO_DATABASE", DB_CONFIG["database"]),
+        "charset": "utf8mb4",
+    }
 
 # Web 服务
 WEB_HOST = os.getenv("WEB_HOST", "127.0.0.1")
@@ -47,7 +93,7 @@ RAG_CONTEXT_MAX_CHARS = int(os.getenv("RAG_CONTEXT_MAX_CHARS", "48000"))
 ANSWER_MAX_CHARS = int(os.getenv("ANSWER_MAX_CHARS", "8000"))
 
 # 云端/深度推理单次最大生成 token（20 条参考文献需要远大于 1200）
-LLM_REASONING_MAX_TOKENS = int(os.getenv("LLM_REASONING_MAX_TOKENS", os.getenv("LLM_MAX_NEW_TOKENS", "4096")))
+LLM_REASONING_MAX_TOKENS = int(os.getenv("LLM_REASONING_MAX_TOKENS", os.getenv("LLM_MAX_NEW_TOKENS", "16384")))
 
 # 回答模式：balanced=完整通俗（DeepSeek 网页版风格，默认）| academic=论文精准
 ANSWER_MODE = os.getenv("ANSWER_MODE", "balanced").lower()
@@ -58,8 +104,25 @@ FAST_MODE = os.getenv("FAST_MODE", "1") not in ("0", "false", "False")
 # 大模型：local=仅本地 | api=仅云端 | hybrid=云端优先、失败回退本地
 LLM_MODE = os.getenv("LLM_MODE", "hybrid").lower()
 LLM_API_BASE = os.getenv("LLM_API_BASE", "https://api.deepseek.com/v1")
-LLM_API_MODEL = os.getenv("LLM_API_MODEL", "deepseek-chat")
-LLM_API_TIMEOUT = int(os.getenv("LLM_API_TIMEOUT", "150"))
+# deepseek-chat / deepseek-reasoner 已于 2026-07-24 停服。
+# 档位二选一（API 仅暴露这两个）：
+#   deepseek-flash   = DeepSeek-V4.1-Flash（快速档）
+#   deepseek-v4-pro  = DeepSeek-V4 深度档（0.801 基准 / 49 题双评委 / 24.1s 中位实测档）
+# 切换记录：2026-11-09 18:32 切 flash；11-09 21:19 回切 v4-pro；
+#           2026-11-12 10:55 切回 deepseek-flash（快速档，与论文口径一致）。
+# 注意：线上 4 个 .py 的兜底默认值从 11-09 起就一直是 flash，回切时只改了
+# .env 没同步代码，造成本地/线上代码漂移 —— 本次已统一为 flash。
+# 实际生效永远以 .env 的 LLM_API_MODEL 为准，此处仅兜底。
+LLM_API_MODEL = os.getenv("LLM_API_MODEL", "deepseek-flash")
+LLM_API_TIMEOUT = int(os.getenv("LLM_API_TIMEOUT", "600"))
+# thinking 开关：on=开启推理并给出 reasoning_effort（默认，与无法关思考的对手公平对齐）
+#                off=关闭（temperature 恢复生效）| auto=不下发，交由上游默认
+# DeepSeek V4 系列默认开启 thinking，且 thinking 模式下 temperature/top_p 均不生效
+LLM_API_THINKING = os.getenv("LLM_API_THINKING", "on").strip().lower()
+# 推理强度：low | high（官方默认档）| max
+LLM_API_REASONING_EFFORT = os.getenv("LLM_API_REASONING_EFFORT", "high").strip().lower()
+# thinking 模式下 max_tokens 下限（CoT 与正文共用预算）。V4-Pro 实测需 ~11.4K，取 16384 兜底
+LLM_API_THINKING_MIN_TOKENS = int(os.getenv("LLM_API_THINKING_MIN_TOKENS", "16384"))
 
 # 参考基因组（本地库锚定 GRCz11；NCBI Datasets 现行参考 GRCz12tu）
 TAXON_ID = 7955

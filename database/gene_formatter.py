@@ -41,6 +41,9 @@ def _intent(question: str) -> set:
         flags.add("reference")
     if any(k in q for k in ("染色体", "定位", "ensembl", "zfin", "id", "转换")):
         flags.add("basic")
+    # 坐标/位置查询：单独一个意图，让 answer_from_gene_detail 输出 locus（start-end）
+    if any(k in q for k in ("坐标", "位置", "在哪", "染色体上", "提取", "locus", "coord", "grcz")):
+        flags.add("locus")
     if not flags or any(k in q for k in ("是什么", "介绍", "详情", "功能", "干什么")):
         flags.add("overview")
     return flags
@@ -226,6 +229,42 @@ def _function_summary(func: str, go_rows: list = None, limit: int = 3) -> str:
     return ""
 
 
+def format_locus_block(gene_name: str, locus: dict, lang: str = "zh") -> str:
+    """输出基因在参考装配上的坐标（染色体:start-end + 来源），纯模板、不调 LLM。
+
+    ``lang`` 决定标签语言（zh/en）；默认中文，与原行为逐字一致。
+    """
+    en = (lang or "zh").lower().startswith("en")
+    chrom = locus.get("chromosome") or "-"
+    start = locus.get("start")
+    end = locus.get("end")
+    strand = locus.get("strand") or ""
+    asm = locus.get("assembly") or "GRCz12tu"
+    source = locus.get("source") or ""
+    note = locus.get("assembly_note") or ""
+    lines = ["[Coordinates]" if en else "【坐标】"]
+    if start is not None and end is not None:
+        coord = f"{chrom}:{int(start):,}-{int(end):,}"
+        if strand:
+            coord += f" ({strand} strand)" if en else f"（{strand}链）"
+        if en:
+            lines.append(f"  {gene_name} on {asm}: {coord}")
+            lines.append(f"  Span: {int(end) - int(start) + 1:,} bp")
+        else:
+            lines.append(f"  {gene_name} 在 {asm} 的坐标：{coord}")
+            lines.append(f"  区间长度：{int(end) - int(start) + 1:,} bp")
+    else:
+        lines.append(
+            f"  {gene_name} has no coordinate record on {asm}"
+            if en else f"  {gene_name} 在 {asm} 暂无坐标记录"
+        )
+    if source:
+        lines.append(f"  Source: {source}" if en else f"  坐标来源：{source}")
+    if note and not (en and re.search(r"[\u4e00-\u9fff]", note)):
+        lines.append(f"  Note: {note}" if en else f"  说明：{note}")
+    return "\n".join(lines)
+
+
 def format_basic_block(b: dict, reference: dict = None, go_rows: list = None) -> str:
     from gene_id_mapper import NCBI_REFERENCE_REFSEQ, REFERENCE_ASSEMBLY, refseq_standard_for_gene
 
@@ -378,8 +417,120 @@ def collect_gene_unification_groups(resolved: dict) -> dict:
     }
 
 
-def format_id_mapping_block(resolved: dict) -> str:
-    """跨库 ID / 命名解析结构化回答。"""
+def _want_en(query: str, lang: Optional[str] = None) -> bool:
+    """回答语言：显式传入优先（界面语言），未传时按提问语言推断。"""
+    if lang and str(lang).lower().startswith(("en", "zh")):
+        return str(lang).lower().startswith("en")
+    try:
+        from zebrafish_prompt import answer_is_english
+
+        return bool(answer_is_english(query))
+    except Exception:
+        return False
+
+
+_LEAD_ASKS = (
+    ("symbol", r"symbol|official name|正式名|标准名|官方名|官方符号|符号"),
+    ("ensembl", r"ensembl|ensdarg|ensdart"),
+    ("zfin", r"zfin|zdb-gene"),
+    ("ncbi", r"ncbi|entrez"),
+    ("chrom", r"chromosom|\bchrom\b|染色体|定位"),
+)
+
+
+def _lead_answer_line(question: str, resolved: dict, en: bool) -> str:
+    """在版本统一卡片之前先给一句直答。
+
+    卡片本身是「字段清单」，纯问「某基因的 Ensembl ID 是什么」时答案埋在
+    字段行里，读者（尤其评委）要自己找；且不同题（只问 ID / 追问染色体）
+    会拿到逐字相同的卡片。这里按问句点名的字段拼一句主语明确的短句。
+    """
+    if not resolved.get("resolved"):
+        return ""
+    c = resolved.get("canonical") or {}
+    std = resolved.get("standard") or {}
+    ref = resolved.get("reference") or {}
+    sym = c.get("gene_name") or resolved.get("query") or ""
+    asm = std.get("assembly") or ref.get("ncbi_reference_assembly") or ""
+    val = {
+        "symbol": sym,
+        "ensembl": c.get("ensembl_id") or "",
+        "zfin": c.get("zfin_id") or "",
+        "ncbi": str(std.get("ncbi_gene_id") or ""),
+        "chrom": str(std.get("chromosome") or "").strip(),
+    }
+    q = (question or "").lower()
+    # 反向查库题（"ENSDARG… 对应哪个基因 / NCBI 30590 是哪个基因"）：
+    # 值本身已被问句点名，再说「the official symbol is tp53」既回声又绕，
+    # 直接写成「<问句里的 ID> corresponds to <符号>」。
+    for label, key in (("Ensembl gene ID", c.get("ensembl_id")),
+                       ("ZFIN ID", c.get("zfin_id")),
+                       ("NCBI Gene ID", str(std.get("ncbi_gene_id") or ""))):
+        kv = str(key or "").strip()
+        if not kv or kv.lower() not in q:
+            continue
+        if not sym:
+            return ""
+        if en:
+            return f"In short: {label} {kv} corresponds to {sym} (official symbol)."
+        return f"简答：{label} {kv} 对应基因 {sym}（官方符号）。"
+    # 反向查库题（"NCBI 30590 是哪个基因"）：值本身已在问句里，别再回声一遍
+    _echo_skip = {"symbol", "ensembl", "zfin", "ncbi"}
+    asks = [k for k, pat in _LEAD_ASKS
+            if val[k] and re.search(pat, q)
+            and not (k in _echo_skip and str(val[k]).lower() in q)]
+    if not asks:
+        # 没点名就问「这个基因是什么」——给一句最小身份行即可
+        if not sym:
+            return ""
+        bits = []
+        if val["ensembl"] and val["ensembl"].lower() not in q:
+            bits.append(f"Ensembl {val['ensembl']}")
+        if val["zfin"] and val["zfin"].lower() not in q:
+            bits.append(f"ZFIN {val['zfin']}")
+        if val["ncbi"] and val["ncbi"].lower() not in q:
+            bits.append(f"NCBI Gene {val['ncbi']}")
+        if val["chrom"]:
+            bits.append(f"chromosome {val['chrom']}")
+        if not bits:
+            return ""
+        if en:
+            return f"In short: {sym} — " + " · ".join(bits) + "."
+        return f"简答：{sym} —— " + " · ".join(bits) + "。"
+
+    clauses = []
+    for k in asks:
+        if en:
+            clauses.append({
+                "symbol": f"the official symbol is {val['symbol']}",
+                "ensembl": f"the Ensembl gene ID is {val['ensembl']}",
+                "zfin": f"the ZFIN ID is {val['zfin']}",
+                "ncbi": f"the NCBI Gene ID is {val['ncbi']}",
+                "chrom": (f"it is located on chromosome {val['chrom']}"
+                          + (f" (RefSeq {asm} annotation)" if asm else "")),
+            }[k])
+        else:
+            clauses.append({
+                "symbol": f"官方符号为 {val['symbol']}",
+                "ensembl": f"Ensembl 基因 ID 为 {val['ensembl']}",
+                "zfin": f"ZFIN ID 为 {val['zfin']}",
+                "ncbi": f"NCBI Gene ID 为 {val['ncbi']}",
+                "chrom": (f"位于 {val['chrom']} 号染色体"
+                          + (f"（RefSeq {asm} 注释）" if asm else "")),
+            }[k])
+    head = f"In short: {sym} — " if en else f"简答：{sym} —— "
+    joiner = "; " if en else "；"
+    tail = clauses[0] if len(clauses) == 1 else joiner.join(clauses[:-1]) + (", and " if en else "，且") + clauses[-1]
+    return head + tail + ("." if en else "。")
+
+
+def format_id_mapping_block(resolved: dict, lang: Optional[str] = None,
+                            question: str = "") -> str:
+    """跨库 ID / 命名解析结构化回答。
+
+    ``lang`` 为 None 时沿用旧行为（按提问语言推断），调用方可传界面语言覆盖。
+    ``question`` 用于在卡片前生成一句直答（点名哪个字段就先答哪个字段）。
+    """
     from gene_id_mapper import external_url
 
     query = str(resolved.get("query") or "").strip()
@@ -389,17 +540,12 @@ def format_id_mapping_block(resolved: dict) -> str:
         or is_citation_display_question(query)
         or re.search(r"[\u4e00-\u9fff]{6,}", query)
     ):
-        try:
-            from zebrafish_prompt import answer_is_english
-
-            en = bool(answer_is_english(query))
-        except Exception:
-            en = False
+        en = _want_en(query, lang)
         if en:
             return (
                 "This is not a gene symbol or database ID, so historical gene-version "
                 "unification cannot run.\n"
-                "ID mapping only accepts tp53 / ENSDARG… / ZDB-GENE… / NCBI Gene IDs. "
+                "ID convert only accepts tp53 / ENSDARG… / ZDB-GENE… / NCBI Gene IDs. "
                 "For mechanism, transcription, or duplication questions, use Hub full "
                 "pipeline; literature will be searched and listed at the end as "
                 "[n] Title. Year. ZFQA."
@@ -411,12 +557,7 @@ def format_id_mapping_block(resolved: dict) -> str:
             "[n] 题名. 年份. ZFQA。"
         )
 
-    try:
-        from zebrafish_prompt import answer_is_english
-
-        en = bool(answer_is_english(query))
-    except Exception:
-        en = False
+    en = _want_en(query, lang)
     ref = resolved.get("reference") or {}
     if en:
         lines = [
@@ -532,7 +673,13 @@ def format_id_mapping_block(resolved: dict) -> str:
         lines.append("")
         lines.append("[Bgee tissue expression (top)]" if en else "【Bgee 组织表达（Top）】")
         for t in tissue[:6]:
-            lines.append(f"  · {t.get('tissue')}: {t.get('expression_level')}")
+            lvl = t.get("expression_level")
+            try:
+                # Bgee 分是 0–100 的置信分，原样打 "97.9000" 看着像未处理的原始值
+                lvl = f"{float(lvl):.2f}"
+            except (TypeError, ValueError):
+                lvl = "" if lvl in (None, "") else str(lvl)
+            lines.append(f"  · {t.get('tissue')}: {lvl}" if lvl else f"  · {t.get('tissue')}")
 
     if resolved.get("disambiguation"):
         lines.extend(["", f"  ⚠ {resolved['disambiguation']}"])
@@ -540,11 +687,13 @@ def format_id_mapping_block(resolved: dict) -> str:
     for n in resolved.get("notes") or []:
         lines.append(f"  · {n}")
 
-    return "\n".join(lines)
+    body = "\n".join(lines)
+    lead = _lead_answer_line(question, resolved, en)
+    return (lead + "\n\n" + body) if lead else body
 
 
-def answer_from_id_resolve(question: str, resolved: dict) -> str:
-    return format_id_mapping_block(resolved)
+def answer_from_id_resolve(question: str, resolved: dict, lang: Optional[str] = None) -> str:
+    return format_id_mapping_block(resolved, lang=lang, question=question)
 
 
 def answer_from_gene_detail(question: str, detail: dict, reference: dict = None) -> str:
@@ -553,6 +702,10 @@ def answer_from_gene_detail(question: str, detail: dict, reference: dict = None)
     gene = b.get("gene_name", "?")
     intents = _intent(question)
     parts = []
+
+    # 坐标/位置查询优先：直接给出 GRCz12tu 坐标（start-end），不依赖 LLM 编造
+    if "locus" in intents and detail.get("locus"):
+        parts.append(format_locus_block(gene, detail["locus"]))
 
     if "overview" in intents or "basic" in intents:
         parts.append(format_basic_block(b, reference, go_rows=detail.get("go")))
@@ -583,12 +736,30 @@ def answer_from_gene_detail(question: str, detail: dict, reference: dict = None)
         if detail.get("expression"):
             parts.append(format_expression_block(gene, detail["expression"]))
 
-    return "\n\n".join(parts)
+    # 直答句（"In short: tp53 — …"/"简答：…"）要放在整段回答最前面。
+    # 它挂在 format_id_mapping_block 开头，而这一块常排在 [Coordinates] 之后，
+    # 于是 S7_G1 出现「先给坐标卡，第二块才冒出 In short」的顺序错位。
+    lead = ""
+    for i, part in enumerate(parts):
+        m = re.match(r"^(In short:[^\n]*|简答：[^\n]*)\s*\n+", part)
+        if m:
+            lead = m.group(1).strip()
+            parts[i] = part[m.end():]
+            break
+    if lead:
+        parts.insert(0, lead)
+    return "\n\n".join(p for p in parts if p.strip())
 
 
 def is_reference_genome_question(question: str) -> bool:
     """参考基因组 / 组装版本 / GRCz 跨版本问题。"""
     q = (question or "").lower()
+    # 带具体基因符号的坐标/位置查询（如「mstn 在 GRCz12 的坐标」）不是「参考基因组版本」
+    # 问题，不能因含 grcz 就被拦截成版本说明 —— 应继续往下走到基因详情，直接给坐标。
+    if re.search(r"[a-zA-Z][a-zA-Z0-9]{1,12}", question) and any(
+        k in q for k in ("坐标", "位置", "在哪", "染色体上", "定位", "提取", "locus")
+    ):
+        return False
     if re.search(r"grcz\d+", q):
         return True
     if "参考基因组" in q or "基因组组装" in q or "组装版本" in q:
@@ -659,8 +830,21 @@ def _count_biotype(biotypes: dict, *keywords: str) -> int:
 
 
 def is_factual_template_question(question: str) -> bool:
-    """论文精准模式：直接返回结构化草稿、不经 API 改写的问句类型。"""
-    return is_reference_genome_question(question) or is_gene_version_question(question)
+    """论文精准模式：直接返回结构化草稿、不经 API 改写的问句类型。
+
+    2026-11-05 补：坐标/位置/提取类查询有确定性数据库答案（get_gene_detail 的 locus），
+    无需 DeepSeek 润色 —— 之前这类问题会走 answer_with_reasoning 调远程 LLM，
+    一次要几十秒到上百秒。这里加入白名单，让它们直接秒回模板答案。
+    """
+    if is_reference_genome_question(question) or is_gene_version_question(question):
+        return True
+    q = (question or "").lower()
+    # 带基因符号/编号的坐标、位置、染色体定位查询
+    if re.search(r"[a-zA-Z][a-zA-Z0-9]{1,12}|ZDB-GENE-\d|ENS[A-Z]+\d", question) and any(
+        k in q for k in ("坐标", "位置", "在哪", "哪个染色体", "哪条染色体", "染色体上", "定位", "提取")
+    ):
+        return True
+    return False
 
 
 def finalize_academic_structured_answer(text: str, *sources: str) -> str:

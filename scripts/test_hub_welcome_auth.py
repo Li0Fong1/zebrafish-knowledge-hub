@@ -92,7 +92,7 @@ def test_username_rules():
 
 
 def test_password_rules():
-    assert _validate_password("123456") == "123456"
+    assert _validate_password(__import__("os").environ["MYSQL_PASSWORD"]) == __import__("os").environ["MYSQL_PASSWORD"]
     assert _validate_password("密" * 6) == "密" * 6
     assert _validate_password("x" * 72) == "x" * 72
     _expect_value_error(_validate_password, "12345")

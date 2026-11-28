@@ -150,10 +150,13 @@ def section_b_tables(db) -> None:
             rec("PASS" if n else "WARN", f"B {t}", f"{n:,} 行（{why}）")
         else:
             rec("FAIL", f"B {t}", f"表不存在 → 影响：{why}")
+    # information_schema.table_rows 是 InnoDB 估算值，仅用于按规模排序巡检；
+    # 对外展示口径一律用上面的 SELECT COUNT(*) 精确值（见 docs/数据库最终整理方案_20261104.md
+    # 顶部「口径校准」），禁止把这里的数字抄进页面、图注或论文。
     extra = rows(db, "SELECT table_name, table_rows FROM information_schema.tables "
                      "WHERE table_schema=DATABASE() AND table_type='BASE TABLE' "
                      "ORDER BY table_rows DESC", limit=40)
-    print("  全部表（行数，前 40）：", flush=True)
+    print("  全部表（估算行数，仅供巡检排序，不作对外口径，前 40）：", flush=True)
     for r in extra:
         print(f"    {r[0]:<32} {r[1] if r[1] is not None else '?'}", flush=True)
 

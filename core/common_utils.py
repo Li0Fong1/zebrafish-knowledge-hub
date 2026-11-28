@@ -7,6 +7,7 @@ import re
 import sys
 import threading
 from functools import lru_cache
+from typing import Optional
 
 
 # ===================== 日志密钥脱敏 =====================
@@ -207,6 +208,31 @@ logging.basicConfig(level=logging.INFO, handlers=[_handler], force=True)
 logger = logging.getLogger(__name__)
 
 
+class _RedactFilter(logging.Filter):
+    """日志出口统一打码。
+
+    覆盖 uvicorn 访问日志里的整条 URL —— 若调用方用 ``?api_key=…&access_token=…``
+    传凭据，原样落盘会把密钥写进访问日志，这里在写handler之前替换掉。
+    """
+
+    def filter(self, record: logging.LogRecord) -> bool:  # noqa: A003
+        try:
+            msg = record.getMessage()
+            clean = redact_secrets(msg)
+            if clean != msg:
+                record.msg = clean
+                record.args = ()
+        except Exception:  # noqa: BLE001 - 打码失败不应影响日志本身
+            pass
+        return True
+
+
+_SECRET_FILTER = _RedactFilter()
+_handler.addFilter(_SECRET_FILTER)
+for _lg_name in ("uvicorn.access", "uvicorn.error", "uvicorn"):
+    logging.getLogger(_lg_name).addFilter(_SECRET_FILTER)
+
+
 def is_exit_command(text: str) -> bool:
     """判断用户是否要退出。"""
     return text.strip().lower() in {"exit", "quit", "q", "退出", "再见"}
@@ -363,7 +389,18 @@ def _run_db_pipeline(question: str, light_llm, heavy_llm) -> dict:
                     build_db_user_prompt(question, data_preview),
                     max_new_tokens=_reasoning_max_tokens(),
                 )
-            result["answer"] = f"{final_ans}\n（依据全库统计：基因 {res['data'][0].get('gene_count') if res['data'] else '?'} 个 / 表达记录 {res['data'][0].get('expr_count') if res['data'] else '?'} 条）"
+            _g = res["data"][0].get("gene_count") if res["data"] else "?"
+            _e = res["data"][0].get("expr_count") if res["data"] else "?"
+            try:
+                from zebrafish_prompt import current_answer_language
+
+                _en = current_answer_language(question) == "en"
+            except Exception:  # noqa: BLE001
+                _en = False
+            if _en:
+                result["answer"] = f"{final_ans}\n(Counts from the full local library: {_g} genes / {_e} expression records)"
+            else:
+                result["answer"] = f"{final_ans}\n（依据全库统计：基因 {_g} 个 / 表达记录 {_e} 条）"
             return result
 
     # 兜底：无基因符号且非全库统计的问题，数据库结构化查询无意义（无法定位基因），
@@ -702,39 +739,61 @@ def is_sql_valid(sql: str) -> bool:
 
 
 def _build_corpus_stats_sql() -> str:
-    """全库统计：基因数、表达记录数、GO 数、同源数、文献数（一行多列）。"""
+    """全库统计：基因数、表达记录数、GO 数、同源数、文献数（一行多列）。
+
+    口径与 ``chat_tool_dispatch._exec_platform_stats`` 对齐：文献统一取
+    ``literature_paper``（现行文献主表）。此前这里用 ``gene_reference``（旧表），
+    同一句「库里有多少文献」走不同路径会得到两个不同数字。
+    """
     return (
         "SELECT "
         "(SELECT COUNT(*) FROM gene_basic) AS gene_count, "
         "(SELECT COUNT(*) FROM gene_expression) AS expr_count, "
         "(SELECT COUNT(*) FROM gene_go) AS go_count, "
         "(SELECT COUNT(*) FROM homology_gene) AS homo_count, "
-        "(SELECT COUNT(*) FROM gene_reference) AS ref_count;"
+        "(SELECT COUNT(*) FROM literature_paper) AS ref_count;"
     )
+
+
+def _safe_gene_token(raw: str) -> Optional[str]:
+    """从任意输入里取出一个可用于 SQL 标识符/字面量的安全基因名。
+
+    仅允许字母、数字、点，长度 1–40，且必须出自基因抽取器或经白名单校验；
+    任何含引号、空白、SQL 关键字碎片的输入一律返回 None（交由安全兜底 SQL）。
+    """
+    if not raw:
+        return None
+    tok = (raw or "").strip().replace("'", "''")
+    if not tok or len(tok) > 40:
+        return None
+    if re.fullmatch(r"[A-Za-z][A-Za-z0-9.]*", tok):
+        return tok
+    return None
 
 
 def build_fallback_sql(question: str) -> str:
     from gene_toolkit import extract_gene_from_question, normalize_gene_name
     gene = extract_gene_from_question(question)
     if gene:
-        safe_name = normalize_gene_name(gene).replace("'", "''")
-        q = question.lower()
-        if any(k in q for k in ("表达", "组织", "fpkm", "tpm", "时期", "阶段")):
+        safe_name = _safe_gene_token(normalize_gene_name(gene))
+        if safe_name:
+            q = question.lower()
+            if any(k in q for k in ("表达", "组织", "fpkm", "tpm", "时期", "阶段")):
+                return (
+                    f"SELECT ge.expression_stage, ge.tissue, ge.expression_level "
+                    f"FROM gene_basic gb JOIN gene_expression ge ON gb.gene_id=ge.gene_id "
+                    f"WHERE gb.gene_name = '{safe_name}' OR gb.gene_symbol = '{safe_name}' "
+                    f"ORDER BY ge.expression_level DESC;"
+                )
             return (
-                f"SELECT ge.expression_stage, ge.tissue, ge.expression_level "
-                f"FROM gene_basic gb JOIN gene_expression ge ON gb.gene_id=ge.gene_id "
-                f"WHERE gb.gene_name = '{safe_name}' OR gb.gene_symbol = '{safe_name}' "
-                f"ORDER BY ge.expression_level DESC;"
+                f"SELECT gb.gene_name, gb.chromosome, gb.gene_function, gb.expression_summary, "
+                f"gb.ensembl_id, gb.zfin_id FROM gene_basic gb "
+                f"WHERE gb.gene_name = '{safe_name}' OR gb.gene_symbol = '{safe_name}' LIMIT 1;"
             )
-        return (
-            f"SELECT gb.gene_name, gb.chromosome, gb.gene_function, gb.expression_summary, "
-            f"gb.ensembl_id, gb.zfin_id FROM gene_basic gb "
-            f"WHERE gb.gene_name = '{safe_name}' OR gb.gene_symbol = '{safe_name}' LIMIT 1;"
-        )
-    gene_match = re.search(r'([a-zA-Z][a-zA-Z0-9]*)', question)
+    gene_match = re.search(r'([a-zA-Z][a-zA-Z0-9.]*)', question)
     if gene_match:
-        gene_name = normalize_gene_name(gene_match.group(1).strip()).replace("'", "''")
-        if re.fullmatch(r'[a-zA-Z][a-zA-Z0-9.]*', gene_name):
+        gene_name = _safe_gene_token(normalize_gene_name(gene_match.group(1).strip()))
+        if gene_name:
             return (
                 f"SELECT ge.expression_stage, ge.tissue, ge.expression_level "
                 f"FROM gene_basic gb JOIN gene_expression ge ON gb.gene_id=ge.gene_id "

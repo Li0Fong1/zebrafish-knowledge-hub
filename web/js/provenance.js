@@ -12,8 +12,8 @@
       sources: ["local", "ensembl", "zfin", "ncbi_refseq"],
       how: [
         "基因身份以 ZFIN / Ensembl 为准；符号按 NCBI RefSeq GRCz12tu 归一，坐标与注释保留 GRCz11（release 116）",
-        "表达分两组，单位不同：Bgee Expression Score（0–100，表达存在性置信分）、Expression Atlas TPM（整张图以整胚时间序列为主）",
-        "GO / 通路 / 同源来自 Ensembl、QuickGO、KEGG/WikiPathways 的本地镜像表"
+        "表达分三组，单位不同：Bgee Expression Score（0–100，表达存在性置信分）、Expression Atlas TPM（整胚时间序列为主）、ZFIN 定性组织与时期记录",
+        "GO 注释来自 Ensembl 与 ZFIN gene-to-GO 的合并去重集；通路与同源来自 Ensembl、QuickGO、KEGG/WikiPathways 的本地镜像表"
       ]
     },
     toolBlast: {
@@ -26,18 +26,20 @@
       ]
     },
     toolEnrich: {
-      title: "GO 富集",
-      sources: ["quickgo", "kegg", "wikipathways", "local"],
+      title: "GO",
+      sources: ["ensembl", "zfin", "local"],
       how: [
-        "背景集 = 本地注释库全部有 GO/KEGG 注释的基因（非全基因组）",
+        "输入口径：1 个基因 → 该基因的 GO 注释明细（不做统计）；≥2 个基因 → ORA 富集",
+        "GO 注释由 Ensembl 注释与 ZFIN gene-to-GO 文件合并去重得到，本地 gene_go 表就是这份并集，富集背景也用它",
         "统计：Fisher 精确检验 + Benjamini–Hochberg 校正，报告校正后 q 值",
-        "通路成员来自 KEGG dre / WikiPathways zebrafish / Reactome 镜像"
+        "单基因不做检验：前景 n=1 时 GeneRatio 恒为 1/n，p 值没有判别力"
       ]
     },
     toolKegg: {
-      title: "通路浏览",
+      title: "通路富集",
       sources: ["kegg", "wikipathways", "local"],
       how: [
+        "输入口径与 GO 页一致：1 个基因 → 所在通路清单；≥2 个基因 → 通路 ORA 富集",
         "通路分类与编号直接采用 KEGG dre / WikiPathways 原始编号，便于对照原站",
         "基因–通路关系来自本地镜像表，覆盖度以本地快照为准"
       ]
@@ -51,11 +53,12 @@
       ]
     },
     toolSequence: {
-      title: "位置查找序列",
+      title: "序列提取",
       sources: ["ensembl", "ncbi_refseq", "local"],
       how: [
-        "以 GRCz11 坐标从参考 cDNA / 基因组 FASTA 提取，正反向链与坐标一并返回",
-        "未做坐标转换的序列不标注为 GRCz12tu"
+        "序列来源随所选版本：GRCz12tu = 本地 RefSeq CDS / NCBI EFetch；GRCz11 = Ensembl REST",
+        "选「自动」时按类型取（cDNA=GRCz12tu，启动子/基因体=GRCz11），每条结果都标注实际 assembly",
+        "按染色体区间且来源≠目标时，先用 UCSC chain 换算坐标再取序列，结果同时给出换算前后区间"
       ]
     },
     toolAnnotate: {
@@ -108,9 +111,10 @@
     },
     toolExpression: {
       title: "表达",
-      sources: ["bgee", "atlas", "local"],
+      sources: ["bgee", "atlas", "zfin", "local"],
       how: [
-        "两组数据单位不同，分开呈现：Bgee 为表达分 0–100（表达存在性置信分，按解剖实体）；Expression Atlas 为 TPM（按胚胎分期，仅 marker 基因子集）",
+        "三组数据单位不同，分开呈现：Bgee 为表达分 0–100（表达存在性置信分，按解剖实体）；Expression Atlas 为 TPM（按胚胎分期，仅 marker 基因子集）；ZFIN 为定性的组织与时期记录，来自野生型与表达表型文件",
+        "表达表合并 Bgee v15.2、Expression Atlas E-ERAD-475 与 ZFIN 三类记录，每条都带来源标记；ZFIN 定性记录单独成块，只列组织和时期，不给数值，不与 Bgee 分值或 Atlas TPM 放进同一坐标轴",
         "Bgee 行里 expression_stage 存的是质量分而非分期，所以不把两者混进同一个坐标轴；单位在每个区块标题旁标注",
         "表达谱按分值降序，取分值最高的组织；多基因对比只使用共同覆盖的组织，未覆盖处写「无记录」而不补 0",
         "基因名先经本地基因库解析（符号 / 别名 / 跨库 ID）再查表达，避免同名或旧符号错配"
@@ -152,8 +156,8 @@
       title: "Gene locus",
       how: [
         "Gene identity follows ZFIN / Ensembl; symbols are normalized to NCBI RefSeq GRCz12tu, while coordinates and annotations stay on GRCz11 (release 116)",
-        "Expression comes in two groups with different units: Bgee Expression Score (0–100, confidence that expression exists) and Expression Atlas TPM (mostly whole-embryo time series)",
-        "GO / pathway / ortholog annotations come from local mirrors of Ensembl, QuickGO and KEGG/WikiPathways"
+        "Expression comes in three groups with different units: Bgee Expression Score (0–100, confidence that expression exists), Expression Atlas TPM (mostly whole-embryo time series) and qualitative ZFIN anatomy / stage records",
+        "GO terms are the deduplicated union of Ensembl annotations and the ZFIN gene-to-GO file; pathway and ortholog annotations come from local mirrors of Ensembl, QuickGO and KEGG/WikiPathways"
       ]
     },
     toolBlast: {
@@ -165,46 +169,50 @@
       ]
     },
     toolEnrich: {
-      title: "GO enrichment",
+      title: "GO",
       how: [
-        "Background set = every gene with GO/KEGG annotation in the local annotation library (not the whole genome)",
+        "Input rule: 1 gene returns its GO terms (no statistics); 2+ genes run ORA",
+        "GO terms were merged from Ensembl annotations and the ZFIN gene-to-GO file; the deduplicated union is stored in the local gene_go table and used as the enrichment background (not the whole genome)",
         "Statistics: Fisher's exact test + Benjamini–Hochberg correction; adjusted q values are reported",
-        "Pathway members come from local mirrors of KEGG dre / WikiPathways zebrafish / Reactome"
+        "Single genes are not tested: with foreground n=1 the GeneRatio is always 1/n and p values carry no signal"
       ]
     },
     toolKegg: {
-      title: "Pathway browser",
+      title: "Pathway enrichment",
       how: [
+        "Same input rule as the GO page: 1 gene lists its pathways; 2+ genes run pathway ORA",
         "Pathway categories and IDs keep the original KEGG dre / WikiPathways numbering so they can be checked against the source sites",
         "Gene–pathway relations come from local mirror tables; coverage follows the local snapshot"
       ]
     },
     toolIdResolve: {
-      title: "Cross-DB ID resolution",
+      title: "Cross-database identifier resolution",
       how: [
         "Three-level resolution: unique hit / one-to-many ambiguity (candidates listed) / not found (never guessed)",
         "Ensembl ↔ ZFIN ↔ RefSeq ↔ UniProt mapping follows the mirror tables; GRCz12tu symbols and GRCz11 IDs are labelled separately"
       ]
     },
     toolSequence: {
-      title: "Sequence by locus",
+      title: "Sequence extraction",
       how: [
-        "Extracted with GRCz11 coordinates from the reference cDNA / genome FASTA; both strands and coordinates are returned",
-        "Sequences without coordinate conversion are never labelled as GRCz12tu"
+        "Source follows the chosen assembly: GRCz12tu = local RefSeq CDS / NCBI EFetch; GRCz11 = Ensembl REST",
+        "“Auto” picks per sequence type (cDNA = GRCz12tu, promoter / gene body = GRCz11); every record states the assembly actually used",
+        "Builds without sequence data, and builds whose chain lifting is too slow to finish within the request budget, are omitted; sources keep only assemblies verified to return reliably, while the target lists only GRCz11 / GRCz12tu",
+        "In interval mode, a source ≠ target pair lifts coordinates with UCSC chains first; both the original and converted spans are reported"
       ]
     },
     toolAnnotate: {
       title: "One-shot annotation",
       how: [
         "Collects identity, expression, GO, pathways, orthologs and literature under one consistent set of source badges",
-        "Every value carries its unit and source in the UI; missing entries are shown as “no record” and never filled with guesses"
+        "Every value carries its unit and source in the UI; missing entries are shown as “No record” and never imputed"
       ]
     },
     toolRetrieval: {
       title: "News search",
       how: [
         "Sources: PubMed / Europe PMC (ingested after filtering for studies that use zebrafish as subject or model) plus locally uploaded documents",
-        "Pipeline: per-paper FAISS coarse ranking top 500 → bge-reranker-base cross-encoder top 100 → packed to 48,000 characters by relevance and section weight",
+        "Pipeline: per-paper FAISS coarse ranking of 500 records → bge-reranker-base cross-encoder reranking to 100 → context assembly up to 48,000 characters, ordered by relevance and section weight",
         "Index qwen3_4b_v2_short_section: 360/110-character chunks, overlap 48, 2048 dimensions, 170 shards",
         "Table scores are adjusted_L2 = raw_L2 / section weight (title 2.0, abstract 1.5, conclusion 1.5, results 1.45 …) and are only comparable within the same index"
       ]
@@ -230,7 +238,7 @@
     toolGenomes: {
       title: "Liftover",
       how: [
-        "Chromosome length / GC: measured by scanning the local GRCz12tu genome FASTA sequence by sequence (no catalogue values, no CSV assumptions); the cache invalidates on mtime change",
+        "Chromosome length / GC: measured by scanning the local GRCz12tu genome FASTA sequence by sequence (without relying on catalogue values or precomputed CSV files); the cache invalidates on mtime change",
         "Chromosome numbers are parsed from FASTA headers (e.g. “chromosome 5”), never assigned from line order; the RefSeq accessions (NC_…) can be checked directly at NCBI",
         "Gene counts come from GROUP BY on the chromosome column of the local GRCz11 r116 annotation library; GRCz12tu lengths and GRCz11 gene counts use different coordinate systems, which is stated on the page instead of being silently converted",
         "Library sizes are read from the local BLAST database files (cDNA / genome nucleotide libraries and CDS), matching the libraries actually used for searches"
@@ -239,10 +247,11 @@
     toolExpression: {
       title: "Expression",
       how: [
-        "Two data sets with different units are kept apart: Bgee reports an expression score 0–100 (confidence that expression exists, by anatomical entity); Expression Atlas reports TPM (by embryonic stage, marker-gene subset only)",
+        "Three data sets with different units are kept apart: Bgee reports an expression score 0–100 (confidence that expression exists, by anatomical entity); Expression Atlas reports TPM (by embryonic stage, marker-gene subset only); ZFIN provides qualitative anatomy and stage records from its wild-type and expression-phenotype files",
+        "The expression table merges Bgee v15.2, Expression Atlas E-ERAD-475 and ZFIN records, each tagged with its source. ZFIN records are shown in their own block as anatomy and stage only, without numeric values, and are never plotted on the same axis as Bgee scores or Atlas TPM",
         "In Bgee rows the expression_stage column holds a quality score rather than a stage, so the two are never plotted on one axis; each block is labelled with its unit",
-        "Profiles are sorted by score and show the highest-scoring tissues; multi-gene comparison only uses tissues covered by all genes, and uncovered ones read “no record” rather than a filled-in zero",
-        "Gene names are first resolved through the local gene library (symbol / alias / cross-DB ID) before expression is queried, avoiding same-name or outdated-symbol mismatches"
+        "Profiles are sorted by score and show the highest-scoring tissues; multi-gene comparison only uses tissues covered by all genes, and uncovered tissues are reported as “No record” rather than a zero value",
+        "Gene names are first resolved through the local gene library (symbol / alias / cross-database identifier) before expression is queried, avoiding same-name or outdated-symbol mismatches"
       ]
     },
     toolPhenotype: {
@@ -259,8 +268,8 @@
       how: [
         "Data scale figures are measured snapshots of the local libraries (annotation, aliases/homology, expression, ZFIN phenotype index, FASTA-measured chromosomes, BLAST libraries, literature)",
         "External data is used as a version-labelled local mirror (Ensembl GRCz11 r116 for coordinates, NCBI RefSeq GRCz12tu for symbols and sequences), so two coordinate systems are never mixed silently",
-        "Algorithms and their conventions are listed explicitly: BLAST+ 2.17.0+, ORA with Fisher + Benjamini–Hochberg, coarse-500 → rerank-100 literature retrieval, multi-candidate phenotype symbol matching",
-        "Units are stated per block: Bgee reports a 0–100 expression-existence score while Expression Atlas reports TPM; missing data is shown as “no record”, never zero-filled"
+        "Algorithms and their conventions are listed explicitly: BLAST+ 2.17.0+, ORA with Fisher + Benjamini–Hochberg, literature retrieval with coarse ranking of 500 records and reranking of 100, multi-candidate phenotype symbol matching",
+        "Units are stated per block: Bgee reports a 0–100 expression-existence score while Expression Atlas reports TPM; missing data is reported as “No record” and is never replaced by zero"
       ]
     }
   };
@@ -300,7 +309,7 @@
       '<div class="prov-head"><strong>' + (zh ? "快照" : "Snapshot") + '</strong><span>' + (d.snapshot || "—") + "</span></div>" +
       '<div class="prov-head"><strong>' + (zh ? "说明" : "Note") + "</strong><span>" +
       (zh ? "单位为原始库单位；跨库数值不可直接比较，缺记录处不填充推测值。"
-          : "Values use each source's native units; cross-database numbers are not directly comparable, and missing records are never filled with guesses.") +
+          : "Values are reported in the native units of each source; cross-database numbers are not directly comparable, and missing records are never imputed.") +
       "</span></div>";
     return el;
   }

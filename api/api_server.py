@@ -10,6 +10,7 @@ import json
 import os
 import queue
 import re
+import signal
 import threading
 import time
 from contextlib import asynccontextmanager
@@ -20,7 +21,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from pydantic import BaseModel, Field
 
 from config import WEB_HOST, WEB_PORT, _BASE_DIR
@@ -39,6 +40,30 @@ from web_security import (
 )
 
 WEB_DIR = os.path.join(_BASE_DIR, "web")
+
+# woff2/woff 在部分 Python 版本的 mimetypes 里没有登记，会退化成
+# application/octet-stream。浏览器虽然能按 format("woff2") 解析，但规范起见补上。
+import mimetypes as _mimetypes  # noqa: E402
+
+_mimetypes.add_type("font/woff2", ".woff2")
+_mimetypes.add_type("font/woff", ".woff")
+
+
+def gene_not_found_hint(name: str) -> str:
+    """查不到基因时，给 404 文案补上「是不是想查」候选（纯本地库，不发网络请求）。
+
+    统一各工具页的失败态：以前 my17 在十来个接口上只得到「未找到基因」，
+    用户无从判断是打错字还是系统坏了。
+    """
+    try:
+        from sequence_toolkit import suggest_gene_symbols
+
+        s = [str(x.get("symbol") or "") for x in suggest_gene_symbols(name, 5)]
+        s = [x for x in s if x]
+        return ("。是不是想查：" + "、".join(s)) if s else ""
+    except Exception:  # noqa: BLE001
+        return ""
+
 
 _warmup_lock = threading.Lock()
 _warmup_started = False
@@ -172,6 +197,86 @@ def _reclaim_memory() -> float:
     except Exception:  # noqa: BLE001
         pass
     return _mem_headroom_mb()
+
+
+# 2026-11-06：原先「每次问答结束都同步 gc.collect() + malloc_trim()」，
+# 在 36GB 常驻堆上实测单次 8~10 秒，且这笔时间算在用户等待里 —— 即使答案
+# 是毫秒级的模板直出也要等十秒。改成：余量充足完全不动；确实偏紧时最多
+# 每 5 分钟回收一次，并丢到后台线程，不阻塞响应。
+_reclaim_lock = threading.Lock()
+_last_reclaim_ts = 0.0
+_RECLAIM_GAP_SEC = 300
+_RECLAIM_TRIGGER_MB = 2500
+
+
+def _reclaim_memory_async() -> None:
+    global _last_reclaim_ts
+    now = time.time()
+    if now - _last_reclaim_ts < _RECLAIM_GAP_SEC:
+        return
+    try:
+        if _mem_headroom_mb() > _RECLAIM_TRIGGER_MB:
+            return
+    except Exception:
+        return
+    with _reclaim_lock:
+        if now - _last_reclaim_ts < _RECLAIM_GAP_SEC:
+            return
+        _last_reclaim_ts = now
+    threading.Thread(target=_reclaim_memory, name="mem-trim", daemon=True).start()
+
+
+# ── 优雅重启（替代原来的 os._exit(0) 自杀式硬杀）────────────────────────────
+# 旧实现：threading.Timer(2, lambda: os._exit(0)) —— 进程被瞬间杀死，不看是否有
+# 正在提交的事务、不冲刷日志、不给网关留摘流窗口，supervisor 立刻拉起（冷启动约 20s），
+# 期间任何排队请求都直接失败。
+# 新实现四步：① 置 draining 标志，/api/health 立刻 503（网关停止转发）；
+#            ② 回收堆、释放数据库连接池；
+#            ③ 给自己发 SIGTERM，让 uvicorn 走正常 graceful shutdown；
+#            ④ 若 grace_sec 内仍未退出，才兜底 os._exit(0)（保证一定重启）。
+_SHUTTING_DOWN = threading.Event()
+
+
+def _is_shutting_down() -> bool:
+    return _SHUTTING_DOWN.is_set()
+
+
+def _graceful_restart(reason: str, grace_sec: float = 20.0) -> bool:
+    """请求进程优雅退出（幂等）；返回 False 表示此前已进入退出流程。"""
+    if _SHUTTING_DOWN.is_set():
+        return False
+    _SHUTTING_DOWN.set()
+    logger.warning("[内存] %s：进入优雅重启（摘流 → 释放资源 → SIGTERM）", reason)
+
+    def _job():
+        try:
+            _reclaim_memory()
+        except Exception:  # noqa: BLE001
+            pass
+        try:
+            from mysql_client import get_mysql_client
+
+            _c = get_mysql_client()
+            for _eng in (getattr(_c, "engine", None), getattr(_c, "ro_engine", None)):
+                if _eng is not None:
+                    try:
+                        _eng.dispose()
+                    except Exception:  # noqa: BLE001
+                        pass
+        except Exception:  # noqa: BLE001
+            pass
+        time.sleep(2.0)  # 给健康检查/网关留出「看到 draining」的时间
+        try:
+            os.kill(os.getpid(), signal.SIGTERM)
+        except Exception:  # noqa: BLE001
+            os._exit(0)
+            return
+        time.sleep(max(5.0, float(grace_sec)))
+        logger.error("[内存] SIGTERM 后 %.0fs 仍未退出，兜底硬退", grace_sec)
+        os._exit(0)
+
+    threading.Thread(target=_job, name="graceful-restart", daemon=True).start()
+    return True
 
 
 def _mem_fields() -> dict:
@@ -336,6 +441,16 @@ def _warmup_resources():
         logger.warning(f"[预热] PubmedYes 补预热异常：{e}")
 
 
+def _pubmed_async_status() -> dict:
+    """后台单飞预热状态；导入失败也不影响 /api/health。"""
+    try:
+        from rag.pubmed_yes_retriever import pubmed_yes_async_status
+
+        return pubmed_yes_async_status()
+    except Exception as e:  # noqa: BLE001
+        return {"ready": False, "error": str(e)}
+
+
 def _pubmed_status_label() -> str:
     """供运维/前端区分：pending → warming → ready | failed | low_mem | on_demand。
 
@@ -360,8 +475,42 @@ def _ensure_warmup_started():
             return
         _warmup_started = True
         threading.Thread(target=_warmup_resources, daemon=True).start()
+        threading.Thread(target=_prime_liftover_chromosomes, daemon=True,
+                         name="prime-chrom").start()
         if os.getenv("GPU1_BURN", "0").lower() in ("1", "true", "yes"):
             threading.Thread(target=_gpu1_burn_loop, daemon=True, name="gpu1-burn").start()
+
+
+def _prime_liftover_chromosomes() -> None:
+    """启动时先把各装配的染色体清单扫一遍。
+
+    2026-11-12：`/api/genome/chromosomes` 要解压扫整份 gz 链文件才能列出染色体，
+    冷启动实测 GRCz11 5.0 s、GRCz12tu 6.8 s。这条又正好是 Liftover 页打开时就
+    发的第一个请求，等于「第一个访问者负责等」。这里是单进程 uvicorn，那 5~7 秒
+    还会顺带堵住别的请求，看起来就像「整站卡住」。
+
+    现在改成：进程起来后在后台线程里提前把常用装配扫好（结果同时落盘，
+    下次重启只是读小 JSON）。用户来的永远是热路径。
+    """
+    try:
+        time.sleep(3)  # 别和模型/FAISS 加载抢 IO
+        from coord_liftover import SELECTABLE_BUILDS, list_build_chromosomes
+
+        # 只预热真的存在链的装配，避免对空装配反复试错
+        for build in ("GRCz11", "GRCz12tu", "GRCz12ab", "GRCz13ab",
+                      "GRCz10", "Zv9"):
+            if build not in SELECTABLE_BUILDS:
+                continue
+            try:
+                t0 = time.time()
+                data = list_build_chromosomes(build)
+                n = len(data.get("chromosomes") or [])
+                logger.info("[prime] chromosomes %s → %d 条，%.2fs", build, n,
+                            time.time() - t0)
+            except Exception as e:
+                logger.warning("[prime] chromosomes %s 失败：%s", build, e)
+    except Exception as e:
+        logger.warning("[prime] 染色体预热跳过：%s", e)
 
 
 def _gpu1_burn_loop() -> None:
@@ -453,6 +602,194 @@ class _AccessLogMiddleware(BaseHTTPMiddleware):
                 host = request.client.host if request.client else "-"
                 logger.info(f"[访问] {host} {request.method} {path} → {response.status_code} ({ms}ms)")
         return response
+
+
+class _StaticNoCacheMiddleware(BaseHTTPMiddleware):
+    """静态资源缓存策略（2026-11-09 重写）。
+
+    【原来的问题】所有 /static/ 一律 no-cache，而首页引用了 44 个静态文件、
+    未压缩合计 1.6 MB。于是每次打开页面都要把这 1.6 MB 完整重下一遍；在跨境
+    丢包的链路上（实测毛字节传到一半就断），页面的 js/css 必然加载不全 ——
+    表现为「白屏 / 卡住 / 打不开」。
+
+    【现在的策略】
+      · 带 ?v=xxx 的 URL：内容版本化（改文件必然改 v），长缓存 + immutable，
+        重复访问零请求，弱网下也不会再拉一遍；
+      · 不带 ?v= 的 URL：保持 no-cache 回源校验，改完立即生效，作为兜底。
+
+    发布时务必同步提升 index.html 里的 ?v= 版本号，否则浏览器会按旧版本
+    继续用缓存。可用 `python scripts/check_static_version.py` 在发布前自检。
+    """
+
+    _IMMUTABLE = "public, max-age=31536000, immutable"
+    _REVALIDATE = "no-cache, must-revalidate"
+    # 文件名里带内容哈希的产物（web/dist/app.<hash>.css|js）等价于版本化 URL，
+    # 不必再挂 ?v=，一样可以 immutable 长缓存。
+    _HASHED_PREFIX = "/static/dist/"
+
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith("/static/"):
+            if request.query_params.get("v") or request.url.path.startswith(self._HASHED_PREFIX):
+                response.headers["Cache-Control"] = self._IMMUTABLE
+                if "Pragma" in response.headers:
+                    del response.headers["Pragma"]
+            else:
+                response.headers["Cache-Control"] = self._REVALIDATE
+                response.headers["Pragma"] = "no-cache"
+        return response
+
+
+app.add_middleware(_StaticNoCacheMiddleware)
+
+
+# ── 回源压缩（2026-11-11 起，2026-11-12 升级为 brotli 优先）───────────────
+# 公网入口是 Cloudflare 隧道，出口在洛杉矶（实测 RTT 210~250 ms、丢包约 10%）。
+# 隧道里跑的只有首页 HTML、/static 的 JS/CSS 和 /api/* 的 JSON，全是可高度压缩
+# 的文本：
+#   · 首页 68 384 字节 → gzip 13 KB / brotli 11 KB；
+#   · 打包后的 app.js 748 KB → gzip 236 KB / brotli 约 190 KB。
+# 丢包链路上「包数」比「字节数」更要命，少 4/5 的包能显著提高整包成功率
+# （此前 68 KB 的首页经常传不完，浏览器表现为一直转圈 / 打不开）。
+#
+# 2026-11-12：实测 CF 回给浏览器的是 gzip —— 因为源站只产出 gzip，边缘就只
+# 缓存 gzip 变体，即使浏览器声明支持 br 也拿不到。这里改成「浏览器要 br 就给
+# br」，让 CF 缓存 brotli 变体，JS/CSS 再省 15~20%。
+# SSE 必须排除：压缩会把逐条推送攒成批，对话就变成「等半天一次性蹦出来」。
+_COMPRESS_ERR = {"logged": False}
+
+
+class _OriginCompressMiddleware:
+    _SKIP_PATHS = ("/api/chat/stream", "/api/hub/events")
+    # 已经是压缩格式的二进制再压一次只会浪费 CPU、且体积反而略增
+    _SKIP_EXT = (".woff2", ".woff", ".png", ".jpg", ".jpeg", ".webp", ".gif",
+                 ".ico", ".mp4", ".zip", ".gz", ".br")
+    # 只压文本类，避免把下载型接口整体攒进内存
+    _OK_TYPES = ("text/", "application/json", "application/javascript",
+                 "application/x-javascript", "application/xml",
+                 "image/svg+xml")
+    _MAX_BYTES = 4 * 1024 * 1024
+
+    def __init__(self, app, minimum_size: int = 700, gzip_level: int = 6,
+                 br_quality: int = 5):
+        self.app = app
+        self.minimum_size = minimum_size
+        self.gzip_level = gzip_level
+        self.br_quality = br_quality
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http":
+            return await self.app(scope, receive, send)
+        path = scope.get("path", "")
+        if not path or path in self._SKIP_PATHS or path.lower().endswith(self._SKIP_EXT):
+            return await self.app(scope, receive, send)
+
+        headers = {k.decode("latin-1").lower(): v.decode("latin-1")
+                   for k, v in (scope.get("headers") or [])}
+        accept = (headers.get("accept-encoding") or "").lower()
+        if "br" in accept:
+            mode = "br"
+        elif "gzip" in accept:
+            mode = "gzip"
+        else:
+            return await self.app(scope, receive, send)
+
+        state = {"start": None, "skip": False}
+        buf = bytearray()
+
+        async def send_wrapper(message):
+            nonlocal mode          # 压缩失败时会改成 "gzip"/""，必须声明
+            mtype = message["type"]
+            if mtype == "http.response.start":
+                state["start"] = message
+                raw = {k.decode("latin-1").lower(): v for k, v in
+                       (message.get("headers") or [])}
+                ctype = raw.get("content-type", b"").decode("latin-1").lower()
+                if ("content-encoding" in raw
+                        or not any(ctype.startswith(t) for t in self._OK_TYPES)):
+                    state["skip"] = True
+                    await send(message)
+                return
+            if mtype != "http.response.body":
+                await send(message)
+                return
+            if state["skip"]:
+                await send(message)
+                return
+            buf.extend(message.get("body", b""))
+            if message.get("more_body"):
+                if len(buf) > self._MAX_BYTES:      # 太大就放弃压缩，原样转发
+                    state["skip"] = True
+                    if state["start"] is not None:
+                        await send(state["start"])
+                    await send({"type": "http.response.body", "body": bytes(buf),
+                                "more_body": True})
+                    buf.clear()
+                return
+
+            body = bytes(buf)
+            if len(body) < self.minimum_size:
+                start = dict(state["start"])
+                start["headers"] = list(start.get("headers") or [])
+                await send(start)
+                await send({"type": "http.response.body", "body": body})
+                return
+
+            packed = None
+            err = None
+            if mode == "br":
+                try:
+                    import brotli
+                    packed = brotli.compress(body, quality=self.br_quality)
+                except Exception as exc:            # 没装 brotli / 参数不支持
+                    err = exc
+                    packed = None
+            if packed is None:                      # 退回 gzip（只用 zlib）
+                try:
+                    packed = gzip_compress(body, self.gzip_level)
+                    mode = "gzip"
+                except Exception as exc:
+                    err = err or exc
+                    packed = None
+            if packed is None or len(packed) >= len(body):
+                packed, mode = body, ""
+            if err is not None and not _COMPRESS_ERR.get("logged"):
+                _COMPRESS_ERR["logged"] = True
+                logger.warning(f"[压缩] brotli 不可用，已回退 gzip：{type(err).__name__}: {err}")
+
+            start = dict(state["start"])
+            new_headers = []
+            for k, v in (start.get("headers") or []):
+                lk = k.decode("latin-1").lower()
+                if lk in ("content-length", "content-encoding", "vary"):
+                    continue
+                new_headers.append((k, v))
+            new_headers.append((b"vary", b"Accept-Encoding"))
+            if mode:
+                new_headers.append((b"content-encoding", mode.encode()))
+            new_headers.append((b"content-length", str(len(packed)).encode()))
+            start["headers"] = new_headers
+            await send(start)
+            await send({"type": "http.response.body", "body": packed})
+
+        await self.app(scope, receive, send_wrapper)
+
+
+try:
+    import zlib
+
+    def gzip_compress(data: bytes, level: int = 6) -> bytes:  # noqa: D401
+        co = zlib.compressobj(level, zlib.DEFLATED, 16 + zlib.MAX_WBITS)
+        return co.compress(data) + co.flush()
+
+    app.add_middleware(_OriginCompressMiddleware)
+    try:
+        import brotli  # noqa: F401
+        logger.info("[启动] 回源压缩已开启：brotli 优先，gzip 兜底（流式接口除外）")
+    except Exception:
+        logger.info("[启动] 回源压缩已开启：仅 gzip（未装 brotli）")
+except Exception as _gz_err:  # 压缩不可用绝不阻断启动
+    logger.warning(f"[启动] 回源压缩未启用：{_gz_err}")
 
 
 if os.getenv("PUBLIC_TUNNEL", "").lower() in ("1", "true", "yes"):
@@ -569,23 +906,34 @@ def _blast_health_fields() -> dict:
 
 
 def _resolve_public_url() -> str:
-    """当前对外访问地址。
+    """当前对外访问地址。页面「复制分享链接」用的就是这个字段。
 
     2026-11-04：原来直接读 HUB_PUBLIC_URL 环境变量，但 cloudflared 每次重启都会
-    换域名，写死在 .env 里必然过期——实测 health 返回的地址已 502，而真正可用的
-    新域名只在 zebrafish_runtime/tunnel_url.txt 里。页面「复制分享链接」用的就是
-    这个字段，所以改成运行时优先读文件，环境变量只作兜底。
+    换域名，写死在 .env 里必然过期，改成运行时读文件、环境变量只作兜底。
+
+    2026-11-12：接入命名隧道后固定域名是 zebrafish-hub.top，由 hub_guard.sh 写进
+    public_url.txt；而 tunnel_url.txt 是 quick 隧道时代从日志抓取的残留文件，仍留着
+    早已失效的随机 *.trycloudflare.com 地址。旧逻辑优先读 tunnel_url.txt，导致 health
+    一直报旧域名。现在按「固定域名优先」裁决：先收集两个文件里的合法 URL，优先返回
+    不含 trycloudflare.com 的那个；若都是随机域名（quick 模式）则以 public_url.txt
+    为准。这样命名隧道与 quick 隧道两种模式都不会把分享链接指向过期地址。
     """
     runtime = os.environ.get("ZF_RUNTIME_DIR") or os.path.join(
         os.path.dirname(_BASE_DIR), "zebrafish_runtime")
-    for name in ("tunnel_url.txt", "public_url.txt"):
+    candidates = []
+    for name in ("public_url.txt", "tunnel_url.txt"):
         try:
             with open(os.path.join(runtime, name), "r", encoding="utf-8") as fh:
                 url = (fh.readline() or "").strip()
         except Exception:
             continue
         if url.startswith("http"):
-            return url.rstrip("/")
+            candidates.append(url.rstrip("/"))
+    for url in candidates:
+        if "trycloudflare.com" not in url:
+            return url
+    if candidates:
+        return candidates[0]
     return os.getenv("HUB_PUBLIC_URL", "").strip().rstrip("/")
 
 
@@ -637,6 +985,8 @@ def _get_system_status() -> dict:
         "pubmed_skip_reason": _pubmed_warmup_skip_reason,
         "pubmed_warmup_error": _pubmed_warmup_error,
         "pubmed_status": _pubmed_status_label(),
+        # 首问冷启动治理：真实索引是否就绪、后台预热是否在跑、为何放弃重索引
+        "pubmed_async": _pubmed_async_status(),
         "warmup_error": _warmup_error,
         **_chat_busy_fields(),
         "light_model": model["light_loaded"],
@@ -709,6 +1059,36 @@ def gate_state():
     from api_gate import gate_status
 
     return gate_status()
+
+
+@app.get("/api/gate/pass")
+def gate_pass(request: Request):
+    """浏览器静默补票：只下发通行证 cookie，返回极小 JSON。
+
+    2026-11-12 加。首页接入 Cloudflare 缓存规则之后，HIT 的响应会被边缘
+    剥离 ``Set-Cookie``，于是**新访客**打开页面拿不到通行证，所有 ``/api/*``
+    一律 401；而前端原有的自动恢复逻辑是「重新 GET 首页」，拿到的还是 HIT
+    副本，等于补不上票，用户会看到「接口通行证已过期，请刷新页面」——
+    刷新也没用，还是缓存副本。
+
+    这个端点专门解决它：
+      · 在 api_gate._EXEMPT_PATHS 里（自身不需要通行证，不会递归 401）；
+      · 在限流豁免里（补票不该被业务限流挡住）；
+      · ``Cache-Control: no-store`` 且路径是 /api/，永远回源、不被边缘缓存；
+      · 不带任何业务数据，响应只有 ``{"ok":true}``。
+
+    已有有效通行证时 set_pass_cookie 会跳过重签，所以重复调用是幂等的。
+    """
+    from starlette.responses import JSONResponse
+
+    resp = JSONResponse({"ok": True})
+    try:
+        from api_gate import set_pass_cookie
+        set_pass_cookie(resp, request)
+    except Exception as e:  # 下发失败不能让补票端点变成 500
+        logger.warning(f"[安全] 通行证补发失败：{e}")
+    resp.headers["Cache-Control"] = "no-store"
+    return resp
 
 
 def _hub_token_from_request(request: Request) -> str:
@@ -1045,6 +1425,13 @@ def workflow_run_execute(req: WorkflowRunRequest, request: Request):
 
 @app.get("/api/health")
 def health():
+    # 优雅重启窗口内明确告知「正在摘流」：网关/巡检看到 503 就不再转发新请求，
+    # 避免重启前几秒还有流量打进来又被断开。
+    if _is_shutting_down():
+        return JSONResponse(
+            status_code=503,
+            content={"status": "draining", "reason": "memory_reclaim", **_get_system_status()},
+        )
     return {"status": "ok", **_get_system_status()}
 
 
@@ -1209,6 +1596,13 @@ def _run_chat_core(req: "ChatRequest", request=None) -> dict:
     if not question:
         raise HTTPException(status_code=400, detail="问题不能为空")
 
+    # 已在优雅重启流程中：不再接新问答，避免请求排队到进程被杀那一刻才失败
+    if _is_shutting_down():
+        raise HTTPException(
+            status_code=503,
+            detail="服务正在重启以回收内存，约 20 秒后自动恢复，请稍后重试；这不是限流。",
+        )
+
     # 内存护栏：余量太低先回收；回收后仍不足就明确拒绝，而不是让内核把整站 OOM 掉
     # 2026-10-30 修订：并发闸放开到多车道后，这里不能再闭眼"主动重启"——那会把正在
     # 回答的其他用户一起杀掉（他们可能已经等了几十秒，重启等于白等）。改为分两种：
@@ -1216,7 +1610,7 @@ def _run_chat_core(req: "ChatRequest", request=None) -> dict:
     #   · 完全空闲且余量极低 → 才重启清堆，此时重启不伤任何人。
     try:
         if _mem_headroom_mb() < 2500:
-            _reclaim_memory()
+            _reclaim_memory_async()
         _low = float(os.getenv("HUB_LOW_MEM_RESTART_MB", "1200"))
         _hdr = _mem_headroom_mb()
         if _hdr < _low:
@@ -1228,14 +1622,9 @@ def _run_chat_core(req: "ChatRequest", request=None) -> dict:
             except Exception:  # noqa: BLE001
                 pass
             if _running == 0 and _low > 0:
-                # 空闲 + 余量低：冷启动约 20s，之后又能正常问答。
+                # 空闲 + 余量低：优雅重启（摘流 → 释放 → SIGTERM → 兜底硬退）。
                 # HUB_LOW_MEM_RESTART_MB=0 可关闭此行为。
-                logger.warning(
-                    "[内存] 空闲且余量 %.0fMB < %.0fMB，重启进程清堆（约 20s 恢复）",
-                    _hdr,
-                    _low,
-                )
-                threading.Timer(2.0, lambda: os._exit(0)).start()
+                _graceful_restart("空闲且余量 %.0fMB < %.0fMB" % (_hdr, _low))
                 raise HTTPException(
                     status_code=503,
                     detail="服务正在回收内存，约 20 秒后自动恢复，请稍后重试；这不是限流。",
@@ -1390,7 +1779,7 @@ def _run_chat_core(req: "ChatRequest", request=None) -> dict:
         # 2026-10-28：每次问答结束把空闲堆还给系统。实测这批模型常驻约 31GB，
         # trim 只能回收一小部分，但先做总比不做好（配合入口的低内存重启闸）。
         try:
-            _reclaim_memory()
+            _reclaim_memory_async()
         except Exception:  # noqa: BLE001
             pass
     try:
@@ -1399,7 +1788,12 @@ def _run_chat_core(req: "ChatRequest", request=None) -> dict:
 
             result = enrich_chat_result(question, result)
     except Exception as e:
-        logger.warning(f"[enrich] 回答增强失败（已返回原文）：{e}")
+        import traceback
+
+        logger.warning(
+            f"[enrich] 回答增强失败（已返回原文）：{e}\n"
+            + "".join(traceback.format_exception(type(e), e, e.__traceback__, limit=8))
+        )
     # 最后一道：任何路径都保证「正文 [n] ⇄ 文末参考文献」成对出现
     try:
         if isinstance(result, dict):
@@ -1449,6 +1843,16 @@ def _english_leak_guard(answer: str, question: str) -> str:
         return answer
     if current_answer_language(question) != "en":
         return answer
+    # 稀疏泄漏：几个中文字散在几千字英文里，占比够不上「整段中文」阈值，
+    # 整段翻译不会触发。这里先用术语表做确定性清洗（只换已知术语 + 全角标点）。
+    try:
+        from en_output import sanitize_en
+
+        answer, _left = sanitize_en(answer)
+        if _left:
+            logger.warning("[语言] 英文模式仍有未收录中文：%s" % "、".join(_left[:10]))
+    except Exception as e:  # noqa: BLE001
+        logger.warning(f"[语言] 英文清洗失败（保留原文）：{e}")
     if not _answer_is_mostly_chinese(answer):
         return answer
 
@@ -1797,7 +2201,8 @@ def gene_detail(gene_name: str):
         raise HTTPException(status_code=400, detail=err)
     detail = get_gene_detail(safe_name)
     if not detail:
-        raise HTTPException(status_code=404, detail=f"未找到基因：{normalize_gene_name(safe_name)}")
+        raise HTTPException(status_code=404, detail=f"未找到基因：{normalize_gene_name(safe_name)}"
+                              + gene_not_found_hint(safe_name))
     # 坐标由 gene_toolkit.get_gene_detail 统一挂载（locus 字段），此处不再重复查一次。
     return detail
 
@@ -1905,6 +2310,15 @@ def gene_search(q: str = "", limit: int = 20, browse: int = 0, scope: str = "all
                              scope="same" if scope == "same" else "all")
     data["count"] = len(data.get("results") or [])
     data["browse"] = bool(browse)
+    # 0 命中时给相近符号：用户打错一个字符不该只看到「没有命中」。
+    if not data.get("count") and safe_q.strip() and not browse:
+        from sequence_toolkit import suggest_gene_symbols
+
+        sugg = suggest_gene_symbols(safe_q, 6)
+        if sugg:
+            data["suggestions"] = sugg
+            data["note"] = ((data.get("note") or "") + " 是不是想查：" +
+                            "、".join(str(x.get("symbol") or "") for x in sugg))
     return data
 
 
@@ -2006,7 +2420,8 @@ def gene_orthologs(name: str):
     block = co_orthologs_by_human(safe_name)
     block["mode"] = "human_symbol"
     if not block.get("groups"):
-        raise HTTPException(status_code=404, detail=f"未找到同源关系：{normalized}")
+        raise HTTPException(status_code=404, detail=f"未找到同源关系：{normalized}"
+                              + gene_not_found_hint(safe_name))
     return _attach_copy_roles(block)
 
 
@@ -2026,7 +2441,8 @@ def gene_alias_literature(name: str):
 
     ev = build_alias_evidence(safe_name)
     if not ev:
-        raise HTTPException(status_code=404, detail=f"未找到基因：{safe_name}")
+        raise HTTPException(status_code=404, detail=f"未找到基因：{safe_name}"
+                              + gene_not_found_hint(safe_name))
 
     ft = ev.get("fulltext") or {}
     if ft.get("items"):
@@ -2259,11 +2675,12 @@ def hub_research_feed(updates: int = 6, top_years: int = 6, day: str = ""):
       · 维护状态  ← agent/hub_maintenance.status() + audit_literature()
     可选参数 day=YYYY-MM-DD：在同一候选池内按该日期做确定性选取（首页日期下拉框）。
     """
-    import hashlib
+    import math
     from datetime import datetime, date
 
     # 日期下拉框：day=YYYY-MM-DD 时按该日期做确定性选取（同一候选池）
-    pick_day = date.today()
+    server_today = date.today()
+    pick_day = server_today
     day_arg = (day or "").strip()
     if day_arg:
         try:
@@ -2272,7 +2689,7 @@ def hub_research_feed(updates: int = 6, top_years: int = 6, day: str = ""):
             pick_day = date.today()
 
     out: dict = {"ok": True, "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                 "day": pick_day.isoformat()}
+                 "day": pick_day.isoformat(), "server_today": server_today.isoformat()}
 
     # —— 每日一文（确定性按日期选取）——
     try:
@@ -2294,7 +2711,19 @@ def hub_research_feed(updates: int = 6, top_years: int = 6, day: str = ""):
             d = json.loads(cache.read_text(encoding="utf-8"))
             papers = [p for p in (d.get("papers") or []) if p.get("title")]
             if papers:
-                idx = int(hashlib.md5(pick_day.isoformat().encode()).hexdigest(), 16) % len(papers)
+                # 2026-11-06：原来的 md5(day) % N 会让相邻日期撞到同一组论文
+                # （实测 11-02 与 11-06 完全一样），用户选了日期却"没任何变化"。
+                # 改成与 N 互质的固定步长 × 日期序号：任意连续 N 天都不会重复，
+                # 仍然是可复现的确定性选取，且不同日期一定换一批。
+                n_papers = len(papers)
+                step = 1
+                for cand in (37, 41, 53, 67, 79, 97, 1):
+                    if cand < n_papers and math.gcd(cand, n_papers) == 1:
+                        step = cand
+                        break
+                idx = (pick_day.toordinal() * step) % n_papers
+                out["pick_index"] = idx
+                out["pool_size"] = n_papers
 
                 def _pack_row(row: dict) -> dict:
                     """单条论文的对外结构（链接优先级：缓存的 url > PubMed > DOI）。"""
@@ -2391,6 +2820,13 @@ def hub_research_feed(updates: int = 6, top_years: int = 6, day: str = ""):
             "running": (st.get("running") or {}).get("literature"),
             "due": (st.get("due") or {}).get("literature"),
             "interval_hours": round(float((st.get("intervals_sec") or {}).get("literature") or 0) / 3600.0, 2),
+            # 可核查的周期信息：上次是不是自动跑的、下次自动检查大约在什么时候
+            "last_trigger": last.get("trigger"),
+            "next_run_at": datetime.fromtimestamp(
+                float(state.get("literature_last_ts") or 0)
+                + float((st.get("intervals_sec") or {}).get("literature") or 0)
+            ).strftime("%Y-%m-%d %H:%M:%S") if state.get("literature_last_ts") else None,
+            "scheduler_alive": bool(st.get("scheduler_alive")),
             "last_ts": state.get("literature_last_ts"),
             "last_result": last,
             # 首页徽章直接读这两个：跑过一次 ≠ 采到过文献，0 篇时不能说「已是最新」
@@ -2401,6 +2837,7 @@ def hub_research_feed(updates: int = 6, top_years: int = 6, day: str = ""):
             "runs": state.get("runs"),
             "catalog_lines": (au.get("catalog") or {}).get("lines"),
             "knowledge_d_files": (au.get("knowledge_d") or {}).get("file_count"),
+            "delta_vector": au.get("delta_vector") or {},
             "progress_pmids": au.get("progress_pmids"),
         }
     except Exception as e:
@@ -2467,10 +2904,17 @@ def retrieval_debug(req: RetrievalDebugRequest):
     if not safe_q:
         raise HTTPException(status_code=400, detail="查询不能为空")
     try:
-        from rag.pubmed_yes_retriever import get_pubmed_yes_retriever
+        from rag.pubmed_yes_retriever import (
+            ensure_pubmed_yes_retriever_async,
+            peek_pubmed_yes_retriever,
+        )
         from config import PUBMED_YES_PACK_CHARS, PUBMED_YES_RERANK_TOP_N
 
-        r = get_pubmed_yes_retriever()
+        # 调试接口同样不允许把 140s 的分片冷载压在一次 HTTP 请求里。
+        r = peek_pubmed_yes_retriever()
+        if r is None:
+            ensure_pubmed_yes_retriever_async()
+            raise HTTPException(status_code=503, detail="PubmedYes FAISS 未就绪")
         if not r.ready:
             raise HTTPException(status_code=503, detail="PubmedYes FAISS 未就绪")
         top_k = req.top_k
@@ -2502,6 +2946,13 @@ def tools_stats():
 
 class BatchIdRequest(BaseModel):
     identifiers: list[str] = Field(..., min_length=1, max_length=200)
+    # 版本维度（可选）：不传时等价于原来的同库互查，老调用方不受影响。
+    # 2026-11-12：与坐标换算一致，18 个装配任选来源/目标；只有 GRCz11/GRCz12tu
+    # 有本地基因 ID 对照表，其余装配输出稳定标识符 + UCSC chain 换算坐标。
+    # 2026-11-13：版本维度扩到「18 个 NCBI 装配 + 5 个 Ensembl release」，
+    # 两类值可以混选（如 GRCz11 → ens:80）；Ensembl 值统一形如 ens:54 / ens:116。
+    source_build: Optional[str] = Field(None, description="原版本：18 个装配之一，或 Ensembl release（ens:54 … ens:116）")
+    target_build: Optional[str] = Field(None, description="目标版本：18 个装配之一，或 Ensembl release（ens:54 … ens:116）")
 
 
 class IdConvertTextRequest(BaseModel):
@@ -2510,18 +2961,35 @@ class IdConvertTextRequest(BaseModel):
 
 @app.post("/api/tools/id-convert/batch")
 def tools_id_convert_batch(req: BatchIdRequest):
-    from gene_toolkit import batch_id_convert
-    return batch_id_convert(req.identifiers)
+    """批量 ID 互转；18 个装配任选来源/目标，跨版本时带坐标换算。"""
+    from id_version_map import convert_batch
+
+    try:
+        return convert_batch(req.identifiers, req.source_build, req.target_build)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/tools/id-convert/builds")
+def tools_id_convert_builds():
+    """批量 ID 互转支持的装配清单与能力口径（前端 / 清查用）。"""
+    from id_version_map import build_capabilities
+
+    return build_capabilities()
 
 
 @app.get("/api/tools/id-convert/batch")
-def tools_id_convert_batch_get(ids: str = ""):
+def tools_id_convert_batch_get(ids: str = "", source_build: str = "", target_build: str = ""):
     """GET 批量 ID 解析（ids 逗号/换行分隔，兼容旧前端）。"""
-    from gene_toolkit import batch_id_convert
+    from id_version_map import convert_batch
+
     id_list = [x.strip() for x in re.split(r"[,;\n、，；]+", ids) if x.strip()]
     if not id_list:
         raise HTTPException(status_code=400, detail="请提供 ids 参数")
-    return batch_id_convert(id_list[:200])
+    try:
+        return convert_batch(id_list[:200], source_build, target_build)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 @app.post("/api/tools/id-convert/text")
@@ -2889,7 +3357,9 @@ def expression_gene(name: str, top: int = 24):
 
         out = gene_profile(name, top_tissues=max(4, min(int(top or 24), 80)))
         if not out.get("ok"):
-            raise HTTPException(status_code=404, detail=out.get("error") or "未找到表达数据")
+            raise HTTPException(status_code=404,
+                             detail=(out.get("error") or "未找到表达数据")
+                                    + gene_not_found_hint(name))
         return out
     except HTTPException:
         raise
@@ -3048,44 +3518,91 @@ def tools_enrichment(
     padj: float = 0.05,
     top_n: int = 20,
 ):
+    """GO 查询统一入口（2026-11-07）：
+    · 1 个基因  → 该基因的 GO 注释明细（mode=annotation）
+    · ≥2 个基因 → ORA 富集（mode=enrichment）
+    与 /api/tools/kegg 的口径完全一致，避免「一个页面是富集、另一个是关键词检索」。
+    """
     from enrichment_toolkit import (
-        go_enrichment,
-        kegg_enrichment,
+        go_lookup,
+        kegg_lookup,
         enrichment_tsv_export,
+        format_annotation_answer,
         format_enrichment_answer,
     )
-    gene_list = [g.strip() for g in genes.split(",") if g.strip()] if genes else None
+    gene_list = [g.strip() for g in re.split(r"[,，;；\s]+", genes) if g.strip()] if genes else None
+    # 空基因列表会让 go_lookup(None) 走「全表 ORA」，实测 >45s 直接超时；
+    # 工具页本来就会带基因，这里短路成明确提示，不再扫全库。
+    if not gene_list:
+        empty = {"success": False, "mode": "enrichment",
+                 "error": "请提供至少一个基因名（多个用逗号分隔）"}
+        out = {"go": dict(empty), "kegg": dict(empty)}
+        out["mode"] = "enrichment"
+        out["summary"] = "请提供至少一个基因名（多个用逗号分隔）"
+        out["tsv"] = ""
+        return out
     out = {}
     if type in ("go", "both"):
-        out["go"] = go_enrichment(gene_list, top_n=top_n, padj_cutoff=padj)
+        out["go"] = go_lookup(gene_list, top_n=top_n, padj_cutoff=padj)
     if type in ("kegg", "both"):
         out["kegg"] = (
-            kegg_enrichment(gene_list, top_n=top_n, padj_cutoff=padj)
+            kegg_lookup(gene_list, top_n=top_n, padj_cutoff=padj)
             if gene_list
-            else {"success": False, "error": "KEGG 需指定基因"}
+            else {"success": False, "mode": "enrichment", "error": "KEGG 需指定基因"}
         )
-    out["tsv"] = enrichment_tsv_export(out.get("go"), out.get("kegg"))
-    out["summary"] = format_enrichment_answer(out.get("go"), out.get("kegg"))
+
+    ann = None
+    for key in ("go", "kegg"):
+        r = out.get(key)
+        if isinstance(r, dict) and r.get("mode") == "annotation":
+            ann = r
+            break
+    if ann is not None:
+        # 单基因查询：没有可导出的统计表，只给注释摘要
+        out["mode"] = "annotation"
+        out["summary"] = format_annotation_answer(ann)
+    else:
+        out["mode"] = "enrichment"
+        out["tsv"] = enrichment_tsv_export(out.get("go"), out.get("kegg"))
+        out["summary"] = format_enrichment_answer(out.get("go"), out.get("kegg"))
     return out
 
 
 @app.get("/api/tools/kegg")
-def tools_kegg(q: str = "", genes: str = ""):
-    from enrichment_toolkit import kegg_pathway_search
-    gene_list = [g.strip() for g in genes.split(",") if g.strip()]
-    return kegg_pathway_search(q, gene_list or None)
+def tools_kegg(q: str = "", genes: str = "", padj: float = 0.05, top_n: int = 15):
+    """KEGG 查询统一入口（2026-11-07）：
+    · 传 genes（1 个）  → 该基因所在通路注释（mode=annotation）
+    · 传 genes（≥2 个） → 通路 ORA 富集（mode=enrichment）
+    · 只传 q           → 按通路名/编号关键词检索（mode=keyword，保留给聊天侧与旧书签）
+    """
+    from enrichment_toolkit import kegg_lookup, kegg_pathway_search
+
+    gene_list = [g.strip() for g in re.split(r"[,，;；\s]+", genes) if g.strip()]
+    if gene_list:
+        return kegg_lookup(gene_list, top_n=top_n, padj_cutoff=padj)
+    data = kegg_pathway_search(q, None)
+    data["mode"] = "keyword"
+    return data
 
 
 @app.get("/api/tools/sequence")
-def tools_sequence(gene: str, types: str = "cdna,promoter"):
+def tools_sequence(gene: str, types: str = "cdna,promoter", assembly: str = "auto"):
     from file_security import validate_path_param
-    from sequence_toolkit import extract_sequences, format_sequence_answer
+    from sequence_toolkit import extract_sequences, format_sequence_answer, norm_region_assembly
 
     safe, err = validate_path_param(gene, label="基因名", max_len=64)
     if err:
         raise HTTPException(status_code=400, detail=err)
+    # 2026-11-07：版本下拉现在列出全部装配，但只有 GRCz11 / GRCz12tu 有序列数据。
+    # 不认识的装配明确拒绝，不能让 _norm_assembly 悄悄退回 auto 混版取序列。
+    asm_key = (assembly or "auto").strip().lower()
+    if asm_key not in ("auto", "default", "") and not norm_region_assembly(assembly):
+        raise HTTPException(
+            status_code=400,
+            detail="装配 %s 没有本地序列数据（仅 GRCz11 / GRCz12tu / 自动）" % assembly,
+        )
     kinds = [k.strip() for k in types.split(",") if k.strip()]
-    data = extract_sequences(safe, kinds=kinds or ["cdna", "promoter"])
+    data = extract_sequences(safe, kinds=kinds or ["cdna", "promoter"], assembly=assembly)
     data["summary"] = format_sequence_answer(data)
     return data
 
@@ -3097,11 +3614,64 @@ def tools_sequence_region(
     end: int,
     strand: str = "+",
     assembly: str = "GRCz12tu",
+    source_build: str = "",
 ):
-    """按染色体坐标取序列：默认 GRCz12tu（NCBI RefSeq，与 BLAST/cDNA 同版），可选 GRCz11（Ensembl）。"""
-    from sequence_toolkit import fetch_region_sequence
+    """按染色体坐标取序列。
 
-    data = fetch_region_sequence(chrom, start, end, strand=strand, assembly=assembly)
+    2026-11-07：与 Liftover 页面统一口径 —— ``source_build`` 是输入坐标所属装配，
+    ``assembly`` 是取序列所用的目标装配。两者不同时先用 UCSC chain 换算坐标，
+    再按目标装配取碱基，并在结果里带回换算前后的区间，便于核对。
+
+    只有 GRCz11（Ensembl）/ GRCz12tu（RefSeq）有序列数据源；其它装配只有坐标
+    chain，不能取序列，一律明确报错，绝不静默当成某一版输出错误碱基。
+    """
+    from sequence_toolkit import fetch_region_sequence, norm_region_assembly
+    from coord_liftover import normalize_build as norm_coord_build
+
+    tgt_raw = (assembly or "GRCz12tu").strip()
+    tgt = norm_region_assembly(tgt_raw)
+    if not tgt:
+        raise HTTPException(
+            status_code=400,
+            detail="目标装配 %s 没有本地序列数据（仅 GRCz11 / GRCz12tu）；"
+                   "请先用坐标换算把区间转到这两版之一" % tgt_raw,
+        )
+
+    src_raw = (source_build or "").strip()
+    src_norm = norm_coord_build(src_raw) if src_raw else ""
+    tgt_norm = norm_coord_build(tgt) or tgt
+    converted = bool(src_norm and src_norm != tgt_norm)
+
+    lifted = None
+    if converted:
+        from coord_liftover import lift_region
+
+        lifted = lift_region(src_raw, chrom, start, end, strand=strand, target_build=tgt)
+        if not lifted.get("ok"):
+            code = lifted.get("code") or "liftover_failed"
+            return {
+                "success": False,
+                "error": "坐标换算失败（%s）：%s %s → %s，未取序列" % (
+                    code, src_norm, lifted.get("source_span") or "", tgt_norm),
+                "liftover": lifted,
+                "source_build": src_norm,
+                "target_build": tgt_norm,
+                "converted": True,
+            }
+        chrom = lifted.get("chromosome") or chrom
+        start = int(lifted.get("start") or start)
+        end = int(lifted.get("end") or end)
+        strand = lifted.get("strand") or strand
+
+    data = fetch_region_sequence(chrom, start, end, strand=strand, assembly=tgt)
+    data["source_build"] = src_norm or tgt_norm
+    data["target_build"] = tgt_norm
+    data["converted"] = converted
+    if converted:
+        data["source_span"] = lifted.get("source_span")
+        data["target_span"] = lifted.get("target_span")
+        data["liftover_chain"] = lifted.get("chain") or ""
+        data["route_hops"] = lifted.get("route_hops") or []
     return data
 
 
@@ -3410,22 +3980,102 @@ async def hub_events():
 
 @app.get("/")
 def index(request: Request):
+    """首页。
+
+    2026-11-12：改成 CDN 可缓存 + 弱 ETag 协商。
+    ────────────────────────────────────────────────────────────────
+    链路上一次回源要「客户端→Cloudflare(美国)→隧道→源站(国内)」跑两趟太平
+    洋，实测首页整包要 2~8 s，链路抖动时 50 s 以上都传不完 18 KB（gzip 后）。
+
+    两条要点（缺一不可）：
+
+    1. ``Cache-Control`` 必须是可缓存语义。旧值 ``no-cache, must-revalidate``
+       等于告诉 CDN「每次都回源」，于是首页永远 DYNAMIC。现在用
+       ``s-maxage`` 让边缘缓存 + ``stale-while-revalidate`` 让过期后先给旧的、
+       后台再刷新 —— 用户端从此不再等待回源。
+    2. 不能再带 ``Pragma: no-cache``（HTTP/1.0 遗留，部分节点会据此判不可缓存）。
+
+    一旦没有可缓存规则，浏览器仍走 ETag：第二次起发 If-None-Match，源站回
+    304（几十字节），只花一个往返，不重传正文。
+    """
     index_path = os.path.join(WEB_DIR, "index.html")
-    if os.path.isfile(index_path):
-        # 首页必须每次回源校验，否则改完 HTML 里的 ?v= 版本号用户也拿不到
-        resp = FileResponse(index_path, headers={
-            "Cache-Control": "no-cache, must-revalidate",
-            "Pragma": "no-cache",
-        })
-        # API 密码锁通行证：浏览器打开页面即获得，后续同源请求自动携带，
-        # 前端代码无需改动；未配置 API_GATE_KEY 时不做任何事。
-        try:
-            from api_gate import set_pass_cookie
-            set_pass_cookie(resp, request)
-        except Exception as e:  # 通行证失败不能影响页面本身
-            logger.warning(f"[安全] 通行证下发失败（不影响页面访问）：{e}")
-        return resp
-    return {"message": "前端未找到，请确认 web/index.html 存在"}
+    if not os.path.isfile(index_path):
+        return {"message": "前端未找到，请确认 web/index.html 存在"}
+
+    try:
+        st = os.stat(index_path)
+        etag = 'W/"%x-%x"' % (st.st_mtime_ns, st.st_size)
+    except OSError:
+        etag = None
+
+    # 缓存语义：浏览器 30 s 内直接用；边缘 120 s 内命中；过期后最多 5 分钟
+    # 的陈旧副本可先给用户、后台异步回源刷新（用户零等待）。
+    # 2026-11-12 收紧：原 swr=86400（1 天）在本链路（回源慢、后台刷新常失败）
+    # 实测会让首页停留在 20 分钟前的旧版本，发版后用户长期拿到旧 JS。
+    cache_control = "public, max-age=30, s-maxage=120, stale-while-revalidate=300"
+
+    if etag:
+        inm = request.headers.get("if-none-match") or ""
+        if any(t.strip() == etag for t in inm.split(",")):
+            not_modified = Response(status_code=304, headers={
+                "ETag": etag,
+                "Cache-Control": cache_control,
+                "Vary": "Accept-Encoding",
+            })
+            try:
+                from api_gate import set_pass_cookie
+                set_pass_cookie(not_modified, request)
+            except Exception:  # 通行证失败不影响 304 本身
+                pass
+            return not_modified
+
+    headers = {
+        "Cache-Control": cache_control,
+        "Vary": "Accept-Encoding",
+    }
+    if etag:
+        headers["ETag"] = etag
+    # 2026-11-12 晚：FileResponse 是流式（Transfer-Encoding: chunked，无
+    # Content-Length）。本链路隧道丢包高，一旦回源传输中断，边缘可能缓存一份
+    # 缺尾的 HTML —— 截断恰好砍掉页底三个 <script>，页面能画出来但按钮全死，
+    # 用户侧表现为「进不去、卡死」。改成整包 Response 自带 Content-Length，
+    # CDN / 浏览器都能按长度校验完整性，残缺响应不再被当正常副本缓存。
+    try:
+        with open(index_path, "rb") as _fh:
+            _body = _fh.read()
+    except OSError:
+        return {"message": "前端未找到，请确认 web/index.html 可读"}
+    resp = Response(content=_body, media_type="text/html; charset=utf-8",
+                    headers=headers)
+    # API 密码锁通行证：浏览器打开页面即获得，后续同源请求自动携带，
+    # 前端代码无需改动；未配置 API_GATE_KEY 时不做任何事。
+    try:
+        from api_gate import set_pass_cookie
+        set_pass_cookie(resp, request)
+    except Exception as e:  # 通行证失败不能影响页面本身
+        logger.warning(f"[安全] 通行证下发失败（不影响页面访问）：{e}")
+    return resp
+
+
+@app.get("/sw.js")
+def service_worker():
+    """Service Worker 脚本。
+
+    必须是根路径（作用域才是整站），且**不能被长缓存** —— 否则改了 SW
+    策略用户永远拿不到新版。浏览器对 SW 脚本本身有 24 h 上限，这里再
+    显式 no-cache 把它压到每次导航都校验。
+    """
+    sw_path = os.path.join(WEB_DIR, "sw.js")
+    if not os.path.isfile(sw_path):
+        return Response(status_code=404)
+    return FileResponse(
+        sw_path,
+        media_type="application/javascript; charset=utf-8",
+        headers={
+            "Cache-Control": "no-cache, max-age=0, must-revalidate",
+            "Service-Worker-Allowed": "/",
+        },
+    )
 
 
 if os.path.isdir(WEB_DIR):

@@ -34,6 +34,17 @@ _SUSPICIOUS_PATH = re.compile(
     r"(\.\.|%2e%2e|%252e|\\x00|%00|/etc/passwd|/proc/|\.env|\.git|web\.config)",
     re.I,
 )
+# /static 直接挂的是整个 web/ 目录，历史上那里堆过 index.html.bak-fish、
+# index.src.html、_probe_*.html 这类工作文件。这些不是机密，但暴露了源码
+# 结构与调试入口，属于白白增加的攻击面。这里按后缀/前缀直接拒掉，避免以后
+# 有人顺手把备份文件扔进 web/ 就公网可读。
+_STATIC_DENY = re.compile(
+    r"(\.(bak|orig|old|swp|swo|tmp|map|log|sql|py|sh)$"
+    r"|\.bak[-\w.]*$"
+    r"|\.src\.html$"
+    r"|/_probe)",
+    re.I,
+)
 
 
 def _env_bool(name: str, default: bool = False) -> bool:
@@ -236,6 +247,16 @@ def note_hub_login_ok(request: Request) -> None:
 
 
 def _client_ip(request: Request) -> str:
+    """真实客户端 IP：优先 Cloudflare 写入的 CF-Connecting-IP。
+
+    2026-11-09 修：原先非严格模式直接信 X-Forwarded-For，而这个头客户端
+    可任意伪造 —— 换一个假 IP 就能绕过按 IP 的限流与封禁。源站只监听
+    127.0.0.1、只经 Cloudflare 隧道对外，CF-Connecting-IP 由 Cloudflare
+    在入口覆盖写入，外界无法伪造，是唯一可信来源。
+    """
+    cf_ip = (request.headers.get("cf-connecting-ip") or "").strip()
+    if cf_ip:
+        return cf_ip
     if is_strict_mode():
         return request.client.host if request.client else "unknown"
     forwarded = request.headers.get("x-forwarded-for", "")
@@ -277,6 +298,8 @@ def _path_is_safe(path: str) -> bool:
     decoded = unquote(path)
     if _SUSPICIOUS_PATH.search(decoded):
         return False
+    if _STATIC_DENY.search(decoded):
+        return False
     if ".." in decoded or "\\" in decoded:
         return False
     return True
@@ -315,20 +338,44 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-        response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        response.headers["Permissions-Policy"] = (
+            "geolocation=(), microphone=(), camera=(), payment=(), usb=(), "
+            "magnetometer=(), gyroscope=(), accelerometer=()"
+        )
         response.headers["X-XSS-Protection"] = "0"
+        response.headers["X-Permitted-Cross-Domain-Policies"] = "none"
+
+        # 2026-11-12 安全加固：
+        # · HSTS 从 180 天提到 1 年并加 includeSubDomains —— 全站（含 www）只经
+        #   Cloudflare 的 HTTPS 对外，不存在明文回退路径，没有理由再留短有效期。
+        #   暂不加 preload：preload 列表移除要走数周流程，域名将来若要迁到
+        #   非 HTTPS 环境会被锁死，作为一个长期权衡先不开。
+        # · COOP/CORP 防止跨站窗口引用与资源盗链（本站不对外提供素材）。
+        response.headers["Strict-Transport-Security"] = (
+            "max-age=31536000; includeSubDomains"
+        )
+        response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+        response.headers["Cross-Origin-Resource-Policy"] = "same-site"
+
+        _csp = (
+            "default-src 'self'; "
+            "script-src 'self' 'unsafe-inline'; "
+            "style-src 'self' 'unsafe-inline'; "
+            "img-src 'self' data: https:; "
+            "font-src 'self' data:; "
+            "connect-src 'self'; "
+            "object-src 'none'; "
+            "frame-ancestors 'none'; "
+            "base-uri 'self'; "
+            "form-action 'self'"
+        )
         if is_strict_mode():
-            response.headers["Content-Security-Policy"] = (
-                "default-src 'self'; "
-                "script-src 'self' 'unsafe-inline'; "
-                "style-src 'self' 'unsafe-inline'; "
-                "img-src 'self' data: https:; "
-                "connect-src 'self'; "
-                "frame-ancestors 'none'; "
-                "base-uri 'self'; "
-                "form-action 'self'"
-            )
+            response.headers["Content-Security-Policy"] = _csp
             response.headers["Cache-Control"] = "no-store"
+        else:
+            # 非严格模式先用「只报告不拦截」上线 CSP：浏览器只在控制台报违规，
+            # 页面照常渲染，确认没有误伤后再改成强制模式（把 -Report-Only 去掉）。
+            response.headers["Content-Security-Policy-Report-Only"] = _csp
         return response
 
 
@@ -382,8 +429,10 @@ class WebSecurityMiddleware(BaseHTTPMiddleware):
     """令牌验证 + 按 IP 限流 + 封禁。"""
 
     # health 高频轮询不计入限流，避免预热期把桶打满后误伤 /api/chat
-    _PUBLIC_PATHS = frozenset({"/api/auth/config", "/api/health"})
-    _RATE_EXEMPT_PATHS = frozenset({"/api/health", "/api/auth/config"})
+    # /api/gate/pass 是基础设施端点（只下发通行证 cookie），不该被业务限流
+    # 拦住，否则「补票失败 → 所有接口继续 401」会变成一个死结。
+    _PUBLIC_PATHS = frozenset({"/api/auth/config", "/api/health", "/api/gate/pass"})
+    _RATE_EXEMPT_PATHS = frozenset({"/api/health", "/api/auth/config", "/api/gate/pass"})
 
     async def dispatch(self, request: Request, call_next):
         path = request.url.path

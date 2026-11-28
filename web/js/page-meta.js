@@ -24,8 +24,8 @@
       ['本地 BLAST 库', 'BLAST libraries', 'cdna 51.9 MB / genome 345.5 MB']
     ],
     expression: [
-      ['表达记录', 'Expression rows', '319,343'],
-      ['基因数', 'Genes', '24,089'],
+      ['表达记录', 'Expression rows', '541,347'],
+      ['基因数', 'Genes', '25,247'],
       ['组织 / 解剖实体', 'Tissues (Bgee)', '1,151'],
       ['Bgee 单位', 'Bgee unit', 'score 0–100'],
       ['Atlas 单位', 'Atlas unit', 'TPM (E-ERAD-475)']
@@ -43,7 +43,7 @@
       ['同源 / 复制体', 'Orthologs / paralogs', '31,456'],
       ['坐标版本', 'Coordinate assembly', 'NCBI RefSeq GRCz12tu'],
       ['符号版本', 'Symbol assembly', 'NCBI RefSeq GRCz12tu'],
-      ['命中口径', 'Match fields', 'symbol / alias / cross-DB ID']
+      ['命中口径', 'Match fields', 'symbol / alias / cross-database identifier']
     ],
     genes: [
       ['基因库', 'Genes', '21,088'],
@@ -53,8 +53,8 @@
     ],
     blast: [
       ['引擎', 'Engine', 'BLAST+ 2.17.0+'],
-      ['转录组库', 'Transcriptome DB', 'cdna_db · 51.9 MB'],
-      ['基因组库', 'Genome DB', 'genome_db · 345.5 MB'],
+      ['转录组库', 'Transcriptome database', 'cdna_db · 51.9 MB'],
+      ['基因组库', 'Genome database', 'genome_db · 345.5 MB'],
       ['建库源序列', 'Source FASTA', 'GRCz12tu CDS / genome'],
       ['跨装配回退', 'Cross-assembly fallback', 'off（需显式开启）']
     ],
@@ -65,15 +65,15 @@
       ['版本标注', 'Version tag', 'yes']
     ],
     enrich: [
+      ['输入口径', 'Input rule', '1 个基因 → 注释 / ≥2 个 → ORA'],
       ['统计方法', 'Statistics', 'ORA · Fisher + Benjamini–Hochberg'],
       ['背景集', 'Background set', '本地有注释的基因'],
-      ['注释来源', 'Annotation', 'GO + KEGG / WikiPathways'],
-      ['通路条目', 'Gene–pathway rows', '36,793']
+      ['注释来源', 'Annotation', '本地 gene_go']
     ],
     kegg: [
-      ['通路编号', 'Pathway IDs', 'KEGG dre / WikiPathways'],
-      ['基因–通路条目', 'Gene–pathway rows', '36,793'],
-      ['GO 注释条目', 'GO annotations', '110,632']
+      ['输入口径', 'Input rule', '1 个基因 → 注释 / ≥2 个 → ORA'],
+      ['通路编号', 'Pathway IDs', 'KEGG dre / WikiPathways / Reactome'],
+      ['基因–通路条目', 'Gene–pathway rows', '36,793']
     ],
     idresolve: [
       ['覆盖库', 'Databases', 'Ensembl / ZFIN / NCBI / UniProt'],
@@ -88,12 +88,12 @@
       ['引擎', 'Engine', '本地引擎（透明规则）'],
       ['PAM', 'PAMs', 'NGG / NAG / TTTV / NNGRRT'],
       ['打分维度', 'Scoring axes', 'GC · poly-T · 二级结构 · 位置权重'],
-      ['脱靶筛查库', 'Off-target DBs', 'cdna_db / genome_db']
+      ['脱靶筛查库', 'Off-target databases', 'cdna_db / genome_db']
     ],
     retrieval: [
-      ['文献库', 'Library', '32,549 篇元数据'],
-      ['全文金标', 'Full-text gold', '29,221 篇'],
-      ['粗排 → 精排', 'Coarse → rerank', '500 → 100'],
+      ['文献库', 'Library', '32,964 篇题录'],
+      ['全文金标', 'Full-text gold', '32,549 篇'],
+      ['粗排 → 精排', 'Coarse ranking → reranking', '500 → 100'],
       ['打包上限', 'Packed size', '48,000 字符'],
       ['索引分片', 'Index shards', '170']
     ],
@@ -135,8 +135,8 @@
       url: '/api/expression/tissues',
       map: function (d) {
         return [
-          ['表达记录', 'Expression rows', '319,343'],
-          ['基因数', 'Genes', '24,089'],
+          ['表达记录', 'Expression rows', '541,347'],
+          ['基因数', 'Genes', '25,247'],
           ['组织 / 解剖实体', 'Tissues (Bgee)', String((d && d.count) || '1,151')],
           ['Bgee 单位', 'Bgee unit', 'score 0–100'],
           ['Atlas 单位', 'Atlas unit', 'TPM (E-ERAD-475)']
@@ -161,9 +161,9 @@
       url: '/api/hub/research-feed',      map: function (d) {
         var st = d.stats || {};
         var facts = [
-          ['文献库', 'Library', '32,549 篇元数据'],
-          ['全文金标', 'Full-text gold', '29,221 篇'],
-          ['粗排 → 精排', 'Coarse → rerank', '500 → 100']
+          ['文献库', 'Library', '32,964 篇题录'],
+          ['全文金标', 'Full-text gold', '32,549 篇'],
+          ['粗排 → 精排', 'Coarse ranking → reranking', '500 → 100']
         ];
         if (st.pool != null) {
           facts.push(['当日候选池', "Today's pool",
@@ -205,11 +205,11 @@
     '本地有注释的基因': 'locally annotated genes',
     '唯一命中 / 一对多 / 未命中': 'unique / one-to-many / not found',
     '身份 · 表达 · GO · 通路 · 同源 · 文献': 'identity · expression · GO · pathways · orthologs · literature',
-    '写「无记录」，不填充推测值': 'shown as “no record”, never filled with guesses',
+    '写「无记录」，不填充推测值': 'Missing values are shown as “No record” and are never imputed',
     '本地引擎（透明规则）': 'local engine (transparent rules)',
     'GC · poly-T · 二级结构 · 位置权重': 'GC · poly-T · secondary structure · position weight',
-    '32,549 篇元数据': '32,549 records',
-    '29,221 篇': '29,221 full-text',
+    '32,964 篇题录': '32,964 records',
+    '32,549 篇': '32,549 full-text entries',
     '48,000 字符': '48,000 chars',
     '360 / 110 字符 · overlap 48': '360 / 110 chars · overlap 48',
     '重建向量分片': 'vector shards rebuild',
@@ -218,7 +218,7 @@
     '不返回、不展示任何 IP 明细': 'no IP details returned or shown',
     '见「引用方式」章节': 'see the Citation section',
     'GRCz11（含链方向）': 'GRCz11 (strand included)',
-    'off（需显式开启）': 'off (explicit opt-in)',
+    'off（需显式开启）': 'disabled (explicit opt-in required)',
     '30,525 条': '30,525',
     '25 条 / 1.45 Gb': '25 / 1.45 Gb'
   };

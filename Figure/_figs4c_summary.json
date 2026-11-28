@@ -1,7 +1,7 @@
 {
  "figsize_in": [
   13.2,
-  4.9
+  6.2
  ],
  "dpi": 300,
  "configs": [
@@ -288,8 +288,8 @@
  "transforms": {
   "C1": {
    "capture_dpi": 100.0,
-   "disp_y_at_ymin_in": 1.0535,
-   "disp_y_at_ymax_in": 3.8955,
+   "disp_y_at_ymin_in": 1.953,
+   "disp_y_at_ymax_in": 5.177,
    "disp_x_centers_in": {
     "rag_partial": 1.219918032786885,
     "rag_full": 2.117950819672131,
@@ -300,17 +300,17 @@
    },
    "axes_rect_frac": [
     0.055,
-    0.215,
+    0.315,
     0.415,
-    0.58
+    0.52
    ],
    "axes_left_in": 0.726,
-   "axes_bottom_in": 1.0535
+   "axes_bottom_in": 1.953
   },
   "C2": {
    "capture_dpi": 100.0,
-   "disp_y_at_ymin_in": 1.0535,
-   "disp_y_at_ymax_in": 3.8955,
+   "disp_y_at_ymin_in": 1.953,
+   "disp_y_at_ymax_in": 5.177,
    "disp_x_centers_in": {
     "rag_partial": 7.687918032786886,
     "rag_full": 8.585950819672131,
@@ -321,19 +321,19 @@
    },
    "axes_rect_frac": [
     0.545,
-    0.215,
+    0.315,
     0.4149999999999999,
-    0.58
+    0.52
    ],
    "axes_left_in": 7.194,
-   "axes_bottom_in": 1.0535
+   "axes_bottom_in": 1.953
   }
  },
  "tight_bbox_in": [
   0.3192958984375001,
-  -0.456450922309028,
+  0.1697490776909721,
   12.352704101562502,
-  5.233950922309028
+  5.875250922309029
  ],
  "pad_inches": 0.1
 }

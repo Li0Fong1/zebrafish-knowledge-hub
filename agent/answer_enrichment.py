@@ -295,7 +295,14 @@ def _mapping_rows(detail: dict) -> list[dict]:
                 "external": _ext("uniprot", b.get("uniprot_id")),
             }
         )
-    for x in (detail.get("xrefs") or [])[:8]:
+    xrefs = detail.get("xrefs")
+    if isinstance(xrefs, dict):
+        xrefs = [{"db_name": k, "db_id": v} for k, v in xrefs.items()]
+    elif not isinstance(xrefs, (list, tuple)):
+        xrefs = []
+    for x in xrefs[:8]:
+        if not isinstance(x, dict):
+            continue
         db = str(x.get("db_name") or "")
         did = str(x.get("db_id") or "")
         if not did:
@@ -308,26 +315,112 @@ def _mapping_rows(detail: dict) -> list[dict]:
                 "external": _ext(db, did),
             }
         )
-    # aliases
-    for a in (detail.get("aliases") or [])[:6]:
-        al = a.get("alias") if isinstance(a, dict) else str(a)
-        if al:
+    # aliases：gene_detail 里可能是 list[dict]、dict（分组别名）、逗号串，
+    # 甚至只有单个字符串。旧代码直接 [:6]，遇到 dict 就抛
+    # "unhashable type: 'slice'"，导致整个回答增强静默失效。
+    raw_aliases = detail.get("aliases")
+    alias_items: list = []
+    if isinstance(raw_aliases, dict):
+        for v in raw_aliases.values():
+            if isinstance(v, (list, tuple, set)):
+                alias_items.extend(v)
+            elif v not in (None, "", [], {}):
+                alias_items.append(v)
+    elif isinstance(raw_aliases, (list, tuple, set)):
+        alias_items.extend(raw_aliases)
+    elif raw_aliases:
+        alias_items.append(raw_aliases)
+
+    alias_seen: set[str] = set()
+    for a in alias_items:
+        if isinstance(a, dict):
+            al = str(a.get("alias") or a.get("name") or a.get("symbol") or "").strip()
+        else:
+            al = str(a or "").strip()
+        # 分组里常见 "p53, Trp53" 这种整串，拆开才能逐条出链接
+        for piece in (p.strip() for p in al.split(",")):
+            if not piece or piece in alias_seen or len(alias_seen) >= 6:
+                continue
+            alias_seen.add(piece)
             rows.append(
                 {
                     "role": "别名",
-                    "value": al,
-                    "local": local_gene_url(al),
+                    "value": piece,
+                    "local": local_gene_url(piece),
                     "external": None,
                 }
             )
+        if len(alias_seen) >= 6:
+            break
     return rows
 
 
-def _merged_info_markdown(detail: dict, budget: Optional[_LinkBudget] = None) -> str:
+def _alias_names(detail: dict) -> set[str]:
+    """detail 里登记的全部别名（小写集合）。"""
+    raw_aliases = detail.get("aliases")
+    items: list = []
+    if isinstance(raw_aliases, dict):
+        for v in raw_aliases.values():
+            if isinstance(v, (list, tuple, set)):
+                items.extend(v)
+            elif v not in (None, "", [], {}):
+                items.append(v)
+    elif isinstance(raw_aliases, (list, tuple, set)):
+        items.extend(raw_aliases)
+    elif raw_aliases:
+        items.append(raw_aliases)
+    out: set[str] = set()
+    for a in items:
+        if isinstance(a, dict):
+            al = str(a.get("alias") or a.get("name") or a.get("symbol") or "").strip()
+        else:
+            al = str(a or "").strip()
+        for piece in al.split(","):
+            piece = piece.strip()
+            if piece:
+                out.add(piece.lower())
+    return out
+
+
+def _preferred_symbol(detail: dict, asked: list | None = None, question: str = "") -> str:
+    """决定「本地资料补全」里显示哪个基因符号。
+
+    本地库 gene_card 存的是建库时的写法（myl7 存成 cmlc2），直接拿它当标题
+    会出现「问 myl7，补全块却写 cmlc2」的错位。规则：
+      1. 问句里实际出现的符号（且确属这个基因：本名/标准名/别名）→ 用它
+      2. 候选里第一个属于这个基因的符号
+      3. 标准符号（standard_symbol）→ 本地库写法
+    """
+    b = detail.get("basic") or {}
+    std = detail.get("standard") or {}
+    db_name = str(b.get("gene_symbol") or b.get("gene_name") or "").strip()
+    std_name = str(std.get("gene_symbol") or "").strip()
+    known = {n.lower() for n in (db_name, std_name) if n}
+    aliases = _alias_names(detail)
+    cands: list[str] = []
+    for cand in asked or []:
+        c = str(cand or "").strip()
+        if not c:
+            continue
+        low = c.lower()
+        if (low in known or low in aliases) and c not in cands:
+            cands.append(c)
+    if question:
+        ql = question.lower()
+        for c in cands:
+            if re.search(r"(?<![a-z0-9])" + re.escape(c.lower()) + r"(?![a-z0-9])", ql):
+                return c
+    if cands:
+        return cands[0]
+    return std_name or db_name
+
+
+def _merged_info_markdown(detail: dict, budget: Optional[_LinkBudget] = None,
+                          display_name: str = "") -> str:
     budget = budget or _LinkBudget()
     b = detail.get("basic") or {}
     lines = ["", f"### {_t('本地资料补全', 'Local data supplement')}", ""]
-    name = b.get("gene_symbol") or b.get("gene_name") or "?"
+    name = display_name or b.get("gene_symbol") or b.get("gene_name") or "?"
     lines.append(f"**{_t('基因', 'Gene')}** {_md_dual(name, local_gene_url(name), _gene_ext_pairs(detail), budget)}")
     if b.get("chromosome"):
         lines.append(
@@ -405,9 +498,14 @@ def _merged_info_markdown(detail: dict, budget: Optional[_LinkBudget] = None) ->
                 bits.append(f"{tis} {val}{unit}")
             chunks.append(f"{title}：" + "、".join(bits))
         if chunks:
+            # 服务器是 Python 3.10：f-string 表达式里不能换行（PEP 701 是 3.12+）。
+            # 本地 3.13 能跑、线上却 SyntaxError，曾导致整个回答增强模块静默失效。
+            _expr_label = _t(
+                "表达（数值已带单位与来源；Bgee 为 0–100 的表达存在性置信分，不是丰度）",
+                "Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance)",
+            )
             lines.append(
-                f"- {_t('表达（数值已带单位与来源；Bgee 为 0–100 的表达存在性置信分，不是丰度）',
-                        'Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance)')}："
+                f"- {_expr_label}："
                 + "；".join(chunks)
                 + " · "
                 + _md_dual(_t("组学表达库", "omics expression databases"), "", expr_ext, budget)
@@ -885,9 +983,17 @@ def _linkify_gene_symbols(
         chosen.append((start, end, sym, text))
         occupied = end
     repls: list[tuple[int, int, str]] = []
+    prev_end = -1
     for start, end, sym, text in chosen:
         detail = details_by_sym.get(sym.lower()) or details_by_sym.get(sym) or {}
         ext_pairs = _gene_ext_pairs(detail) if detail else []
+        # 符号被反引号包成行内代码时（模型常写 `nanog`），把反引号一起吃掉再插链。
+        # 否则会生成 "`[nanog](#/gene/nanog)`"，markdown 里代码片段内的链接不渲染，
+        # 还会把整段粗体的收尾反引号顶到句末（实测 S5_K1 首段变成 `**… ` … **`）。
+        if (start > prev_end + 1 and end < len(body)
+                and body[start - 1] == "`" and body[end] == "`"):
+            start, end = start - 1, end + 1
+        prev_end = end
         repls.append((start, end, _md_dual(text, local_gene_url(sym), ext_pairs, budget)))
     for start, end, repl in reversed(repls):
         body = body[:start] + repl + body[end:]
@@ -990,15 +1096,15 @@ def linkify_answer_body(
         detail = details_by_sym.get(sym.lower()) or {}
         eid = ((detail.get("basic") or {}).get("ensembl_id") or "") if detail else ""
         tip = (
-            "\n\n> 查序列："
+            "\n\n" + _t("> 查序列：", "> Get sequence:")
             + _md_dual(
-                sym + " 序列工具",
+                _t(sym + " 序列工具", sym + " sequence tool"),
                 local_seq_url(sym),
                 [("Ensembl", _ext("ensembl", eid) or "")] if eid else [],
                 budget,
             )
         )
-        if "查序列：" not in body:
+        if "查序列：" not in body and "Get sequence:" not in body:
             body = body.rstrip() + tip
 
     body = _restore_links(body, slots)
@@ -1062,7 +1168,8 @@ def enrich_chat_result(question: str, result: dict) -> dict:
 
     extras: list[str] = []
     if wants_db and primary:
-        extras.append(_merged_info_markdown(primary, link_budget))
+        extras.append(_merged_info_markdown(
+            primary, link_budget, _preferred_symbol(primary, symbols, question)))
     if wants_map and mapping_rows:
         extras.append(_mapping_markdown(mapping_rows))
 

@@ -68,18 +68,54 @@ def annotate_gene(gene: str) -> Dict[str, Any]:
     }
 
 
-def format_annotator_answer(data: dict) -> str:
+def _summary_en(data: Dict[str, Any]) -> str:
+    """英文版概览（与中文 summary 同源字段，避免中英混排）。"""
+    detail = data.get("detail") or {}
+    b = detail.get("basic") or {}
+    mapping = data.get("id_mapping") or {}
+    canon = mapping.get("canonical") or {}
+    std = mapping.get("standard") or {}
+    std_name = (std.get("gene_symbol") or "").strip() if std.get("mapped") else ""
+    gene_name = data.get("gene") or b.get("gene_name") or "?"
+    lines = [
+        "Canonical name (RefSeq GCF_049306965.2): "
+        + (std_name or f"{gene_name} (no unique RefSeq annotation; local primary name kept)"),
+        f"Local primary name: {gene_name}",
+        f"Ensembl: {b.get('ensembl_id') or canon.get('ensembl_id') or '-'}",
+        f"ZFIN: {b.get('zfin_id') or canon.get('zfin_id') or '-'}",
+        f"Chromosome: {b.get('chromosome') or canon.get('chromosome') or '-'}",
+        f"GO annotations (local): {len(detail.get('go') or [])}",
+        f"Tissue expression records: {len(detail.get('expression') or [])}",
+        f"Orthologues: {len(detail.get('homology') or [])}",
+        f"Linked publications: {len(detail.get('references') or [])}",
+    ]
+    top = data.get("expression_top") or []
+    if top:
+        lines.append(
+            "Top tissue expression: " + ", ".join(
+                f"{t.get('tissue')}({float(t.get('expression_level') or 0):.0f})"
+                for t in top[:5]
+            )
+        )
+    return "\n".join(lines)
+
+
+def format_annotator_answer(data: dict, lang: str = "zh") -> str:
+    en = (lang or "zh").lower().startswith("en")
     if not data.get("success"):
-        return data.get("error") or "注释失败"
-    lines = ["【基因注释报告】", data.get("summary", "")]
+        return data.get("error") or ("Annotation failed" if en else "注释失败")
+    lines = [
+        "[Gene annotation report]" if en else "【基因注释报告】",
+        _summary_en(data) if en else data.get("summary", ""),
+    ]
     go = data.get("go_annotations") or []
     if go:
-        lines.append("\nGO（库内 Top）：")
+        lines.append("\nGO (top in local library):" if en else "\nGO（库内 Top）：")
         for g in go[:8]:
             lines.append(f"  · [{g.get('go_category') or '?'}] {g.get('go_term', '')[:70]}")
     refs = data.get("references") or []
     if refs:
-        lines.append("\n文献（Top）：")
+        lines.append("\nPublications (top):" if en else "\n文献（Top）：")
         for r in refs[:5]:
             pm = r.get("pubmed_id") or "?"
             lines.append(f"  · PMID {pm}: {(r.get('title') or '')[:60]}")

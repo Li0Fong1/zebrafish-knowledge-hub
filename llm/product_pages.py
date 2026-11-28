@@ -105,18 +105,18 @@ PAGES = {
         "aliases": r"(liftover|坐标换算|坐标转换|坐标映射|登录号|accession|批量\s*id\s*互转|id\s*互转)",
         "zh": """**Liftover（#/liftover）** —— 一页两个模式：坐标换算 / 批量 ID 互转。
 
-- **坐标换算**：先选来源版本 → 目标版本，再选染色体、填起止、选链。版本含 GRCz12ab / GRCz12tu / GRCz11 / GRCz10、Zv9–Zv3，以及 NCBI 品系装配 ASM1840007v1(T5D) / ASM3317019v3(Tubingen) / ASM2018471v1(AB) / fDanRer4.1 / fDreABH1.1 / fDreTuH1.2。
+- **坐标换算**：先选来源版本 → 目标版本，再选染色体、填起止、选链。来源与目标各有 18 个装配：GRCz13ab / GRCz12ab / GRCz12tu / GRCz11 / GRCz10、Zv9–Zv3，以及 NCBI 品系装配 ASM1840007v1(T5D) / ASM3317019v3(Tubingen) / ASM2018471v1(AB) / fDanRer4.1 / fDreABH1.1 / fDreTuH1.2。
 - **染色体下拉随来源版本变**：每项带该装配自己的登录号（如 `chr5 · CM124811.1`）。不同装配的 1–25 号是同源染色体，编号相同、序列不同，只能靠登录号区分。
-- **算法**：UCSC over.chain，可多跳、碱基级；本地 34 条链覆盖 272 组版本对。
-- **批量 ID 互转**：符号 / 别名 / Ensembl / ZFIN / NCBI Gene 互查，一次 ≤200 条。
+- **算法**：UCSC over.chain，可多跳、碱基级；本地 36 条链让 306 个有序版本对全部可达。
+- **批量 ID 互转**：符号 / 别名 / Ensembl / ZFIN / NCBI Gene / UniProt 互查，一次 ≤200 条；来源与目标同样各有 18 个装配，任意组合都能转换。GRCz11 / GRCz12tu 有本地基因注释表，给出版本专属 ID；其余 16 个装配没有独立注释表，返回跨版本稳定标识符 + 由 chain 换算到该版本的坐标，结果中会标注数据口径。chain 换算失败只让坐标留空，不编造 ID。
 - **装配对照**：本页结果区还给 GRCz12tu ↔ GRCz11 的逐染色体长度与基因数、本地 BLAST 库状态。
 - **别误读**：换算只保证坐标对应，不保证区间还是同一个基因（品系装配有片段级增删），结果会把两端的基因一起给出。""",
         "en": """**Liftover (#/liftover)** — two modes on one page: coordinate liftover and batch ID conversion.
 
-- **Coordinate liftover**: pick source → target assembly, then chromosome, start/end and strand. Assemblies include GRCz12ab / GRCz12tu / GRCz11 / GRCz10, Zv9–Zv3, and NCBI strain assemblies ASM1840007v1(T5D) / ASM3317019v3(Tubingen) / ASM2018471v1(AB) / fDanRer4.1 / fDreABH1.1 / fDreTuH1.2.
+- **Coordinate liftover**: pick source → target assembly, then chromosome, start/end and strand. Source and target each offer 18 assemblies: GRCz13ab / GRCz12ab / GRCz12tu / GRCz11 / GRCz10, Zv9–Zv3, and NCBI strain assemblies ASM1840007v1(T5D) / ASM3317019v3(Tubingen) / ASM2018471v1(AB) / fDanRer4.1 / fDreABH1.1 / fDreTuH1.2.
 - **The chromosome list follows the source assembly**, and each entry carries that assembly's own accession (e.g. `chr5 · CM124811.1`). Chromosomes 1–25 are homologous across assemblies: same number, different sequence, distinguishable only by accession.
-- **Method**: UCSC over.chain, multi-hop, base level; 34 chains cover 272 assembly pairs.
-- **Batch ID conversion**: symbol / alias / Ensembl / ZFIN / NCBI Gene, up to 200 IDs per run.
+- **Method**: UCSC over.chain, multi-hop, base level; 36 local chains make all 306 ordered assembly pairs routable.
+- **Batch ID conversion**: symbol / alias / Ensembl / ZFIN / NCBI Gene / UniProt, up to 200 IDs per run. Source and target each offer the same 18 assemblies and any pair works. GRCz11 / GRCz12tu have local gene annotation tables and return assembly-specific IDs; the other 16 have no independent annotation table, so they return version-stable identifiers plus coordinates lifted to that assembly by chain, with the basis labelled in the result. A failed lift leaves coordinates blank rather than inventing an ID.
 - **Caveat**: a lift guarantees the coordinate, not the same gene (strain assemblies have megabase-scale indels), so both genes are reported.""",
     },
     "sequence-region": {
@@ -286,18 +286,18 @@ PAGES = {
 - **Output**: primer pairs with Tm, GC and dimer checks.""",
     },
     "id": {
-        "title_zh": "跨库 ID 映射",
-        "title_en": "ID mapping",
+        "title_zh": "跨库 ID 转换",
+        "title_en": "Batch ID convert",
         "route": "#/id",
         "aliases": r"(跨库\s*id|id\s*(映射|转换|解析)|id\s*resolve|id\s*mapping|跨库)",
-        "zh": """**跨库 ID 映射（#/id）** —— 符号、ZFIN、Entrez、Ensembl、UniProt 之间互转。
+        "zh": """**跨库 ID 转换（#/id）** —— 符号、ZFIN、Entrez、Ensembl、UniProt 之间互转。
 
 - **入口**：已从 Tools 菜单移出，路由保留，旧书签和 `#/id/<ID>` 直达仍可用。
 - **两种模式**：跨库（目标库选 ZFIN / NCBI Gene / Ensembl / UniProt / 符号 GRCz12tu 或 GRCz11）；跨组装（来源组装可「自动识别」，目标组装必选）。
 - **输入**：单个或批量 ID，批量每行一个。
 - **消歧三态**：唯一命中 / 一对多（列候选）/ 未命中。
 - **口径**：装配映射表 22,721 条。""",
-        "en": """**ID mapping (#/id)** — convert between symbol, ZFIN, Entrez, Ensembl and UniProt.
+        "en": """**Batch ID convert (#/id)** — convert between symbol, ZFIN, Entrez, Ensembl and UniProt.
 
 - **Entry**: removed from the Tools menu but the route stays live; old bookmarks and `#/id/<ID>` still work.
 - **Two modes**: cross-database (target: ZFIN / NCBI Gene / Ensembl / UniProt / symbol in GRCz12tu or GRCz11) and cross-assembly (source can be auto-detected, target required).
@@ -309,7 +309,7 @@ PAGES = {
         "title_zh": "一键注释",
         "title_en": "One-click annotation",
         "route": "#/annotate",
-        "aliases": r"(一键注释|注释页|annotate)",
+        "aliases": r"(一键注释|注释页|注释功能|注释工具|#/annotate|annotate(?!d))",
         "zh": """**一键注释（#/annotate）** —— 一个基因，把各层信息汇总成一页。
 
 - **输入**：基因符号。
@@ -397,7 +397,7 @@ OVERVIEW_ZH = """这是本平台的功能地图（都从顶部导航进），说
 **Chat** —— 唯一问答入口；右侧「回答详情」里有 9 个工具页签。
 
 **Omics › Genome**
-- **Liftover**：坐标换算（UCSC over.chain，可多跳）与批量 ID 互转（≤200 条）两个模式。
+- **Liftover**：坐标换算（UCSC over.chain，可多跳）与批量 ID 互转（≤200 条）两个模式；两者的来源 / 目标都各有 18 个装配，任意组合可转换。
 - **位置查序列**：按基因取 cDNA / 启动子 / 基因体，或按染色体区间取，批量 ≤50 条。
 
 **Omics › Gene**
@@ -421,7 +421,7 @@ OVERVIEW_EN = """Here is the platform map (all under the top navigation); this i
 **Chat** — the single question entry point; “Answer details” on the right has 9 tool tabs.
 
 **Omics › Genome**
-- **Liftover**: coordinate liftover (UCSC over.chain, multi-hop) and batch ID conversion (≤200 IDs).
+- **Liftover**: coordinate liftover (UCSC over.chain, multi-hop) and batch ID conversion (≤200 IDs); both offer 18 source and 18 target assemblies, and any pair works.
 - **Sequence by region**: cDNA / promoter / gene body by gene, or by chromosome interval; batch up to 50.
 
 **Omics › Gene**

@@ -377,54 +377,125 @@ def _expand_phenotype_query(key: str) -> tuple[list[list[str]], bool]:
     return groups[:3], True
 
 
+def _search_conditions(key: str) -> tuple[str, list, dict]:
+    """把用户输入编译成 (WHERE 子句, 参数, 说明)。
+
+    覆盖三类输入（这是 2026-11-18 修复的核心：旧版只搜名字三列，
+    编号 ZFA:0009256 / PATO:xxx 一律 0 命中，英文多词整串 LIKE 也 0 命中）：
+      1. 本体编号：ZFA:ddddddd / PATO:ddddddd —— 直接精确匹配 ao_id / pato_id；
+         也接受裸数字编号（如 0009256）与无冒号写法（ZFA0009256）。
+      2. 中文：走 _expand_phenotype_query 词面翻译，组间 AND、组内 OR。
+      3. 英文：先尝试整串精确短语；多词再拆成逐词 AND（每词匹配名字/质量/编号），
+         这样 "increased heart size" 不会被当成一个不存在的完整短语。
+    """
+    meta = {"kind": "text", "terms": []}
+
+    # ① 本体编号识别（ZFA / PATO，大小写不敏感，容忍缺冒号）
+    m = re.match(r"^\s*(ZFA|PATO)\s*:?\s*([0-9]{4,})\s*$", key, re.I)
+    if m:
+        prefix, digits = m.group(1).upper(), m.group(2)
+        # ZFIN 库里编号形如 ZFA:0009256；兼容存储时有没有前缀两种写法
+        col = "ao_id" if prefix == "ZFA" else "pato_id"
+        canon = "%s:%s" % (prefix, digits)
+        meta.update(kind="id", terms=[canon])
+        where = ("%s = ? OR %s = ? OR %s LIKE ?" % (col, col, col),)
+        return where[0], [canon, digits, "%" + digits + "%"], meta
+
+    # ② 中文 → 英文词组
+    if re.search(r"[\u4e00-\u9fff]", key):
+        groups, _translated = _expand_phenotype_query(key)
+        conds, params = [], []
+        for alts in groups:
+            ors = []
+            for k in alts:
+                ors.append("ao_name LIKE ? OR pato_name LIKE ? OR quality LIKE ?"
+                           " OR ao_id LIKE ? OR pato_id LIKE ?")
+                params.extend(["%" + k + "%"] * 5)
+            conds.append("(" + " OR ".join(ors) + ")")
+        meta.update(kind="zh", terms=[w for grp in groups for w in grp])
+        return " AND ".join(conds), params, meta
+
+    # ③ 英文：整串作为一个词组；多词再补一组「逐词 AND」由调用方合并（见 term_search）
+    conds, params = [], []
+    for k in [key]:
+        ors = []
+        for col in ("ao_name", "pato_name", "quality", "ao_id", "pato_id"):
+            ors.append(col + " LIKE ?")
+            params.append("%" + k + "%")
+        conds.append("(" + " OR ".join(ors) + ")")
+    meta["terms"] = [key]
+    return " AND ".join(conds), params, meta
+
+
+def _term_rows(conn, where: str, params: list, limit: int, limit_genes: int) -> tuple[list, list]:
+    """按统一 WHERE 取表型条目与候选基因（供短语/拆词两轮复用）。"""
+    terms: list[dict] = []
+    genes: list[dict] = []
+    seen_t: set = set()
+    for r in conn.execute(
+        "SELECT ao_name, ao_id, pato_name, pato_id, quality, COUNT(*) n,"
+        " COUNT(DISTINCT symbol) g FROM pheno WHERE " + where +
+        " GROUP BY ao_name, pato_name, ao_id, pato_id ORDER BY g DESC, n DESC LIMIT ?",
+        (*params, limit),
+    ):
+        d = dict(r)
+        sig = (d.get("ao_id"), d.get("ao_name"), d.get("pato_id"), d.get("pato_name"))
+        if sig in seen_t:
+            continue
+        seen_t.add(sig)
+        terms.append(d)
+    seen_g: set = set()
+    for r in conn.execute(
+        "SELECT symbol, MIN(zfin_gene_id) zfin_gene_id, COUNT(*) n,"
+        " COUNT(DISTINCT pato_name) p FROM pheno WHERE " + where +
+        " GROUP BY symbol ORDER BY n DESC LIMIT ?",
+        (*params, limit_genes),
+    ):
+        d = dict(r)
+        if d.get("symbol") in seen_g:
+            continue
+        seen_g.add(d.get("symbol"))
+        genes.append(d)
+    return terms, genes
+
+
 def term_search(q: str, limit: int = 40) -> dict:
-    """表型关键词 → 命中表型条目 + 候选基因（ZFIN）。"""
+    """表型关键词 → 命中表型条目 + 候选基因（ZFIN）。
+
+    支持：ZFA/PATO 编号、中文词面翻译、英文短语与英文多词拆词 AND。
+    英文多词用「先整串、不足再拆词」两轮，既保住精确短语，又避免整串 0 命中。
+    """
     key = (q or "").strip()
     if not key:
         return {"ok": False, "error": "缺少关键词"}
     if not os.path.isfile(_sqlite_path()):
         return {"ok": False, "ready": False, "error": "ZFIN 表型索引尚未构建", "genes": [], "terms": []}
-    groups, translated = _expand_phenotype_query(key)
-    # 中文问「心脏畸形」时，ZFIN 里只有 heart / abnormal heart morphology，
-    # 直接 LIKE '%心脏%' 必然 0 命中；所以先换成英文词组，组间 AND、组内 OR。
-    # quality 列很重要：ZFIN 里「abnormal / decreased / absent」这些词落在 quality 上，
-    # pato_name 里是「process characteristic」这种本体名。只搜前两列时
-    # 「心脏畸形」翻译成 heart + abnormal 后会 0 命中。
-    conds, params = [], []
-    for alts in groups:
-        ors = []
-        for k in alts:
-            ors.append("ao_name LIKE ? OR pato_name LIKE ? OR quality LIKE ?")
-            params.extend([f"%{k}%", f"%{k}%", f"%{k}%"])
-        conds.append("(" + " OR ".join(ors) + ")")
-    where = " AND ".join(conds)
+
+    where, params, meta = _search_conditions(key)
     terms: list[dict] = []
     genes: list[dict] = []
-    seen_t, seen_g = set(), set()
     with _conn() as conn:
-        for r in conn.execute(
-            "SELECT ao_name, ao_id, pato_name, pato_id, quality, COUNT(*) n, COUNT(DISTINCT symbol) g"
-            f" FROM pheno WHERE {where}"
-            " GROUP BY ao_name, pato_name ORDER BY g DESC, n DESC LIMIT ?",
-            (*params, limit),
-        ):
-            d = dict(r)
-            sig = (d.get("ao_name"), d.get("pato_name"))
-            if sig in seen_t:
-                continue
-            seen_t.add(sig)
-            terms.append(d)
-        for r in conn.execute(
-            "SELECT symbol, MIN(zfin_gene_id) zfin_gene_id, COUNT(*) n, COUNT(DISTINCT pato_name) p"
-            f" FROM pheno WHERE {where}"
-            " GROUP BY symbol ORDER BY n DESC LIMIT ?",
-            (*params, limit),
-        ):
-            d = dict(r)
-            if d.get("symbol") in seen_g:
-                continue
-            seen_g.add(d.get("symbol"))
-            genes.append(d)
+        terms, genes = _term_rows(conn, where, params, limit, limit)
+
+        # 英文多词：整串命中不足时，拆成逐词 AND 再查一轮并合并。
+        if meta["kind"] == "text" and len(key.split()) >= 2 and len(terms) < 3:
+            words = [w for w in re.split(r"[\s,;、，；]+", key) if len(w) >= 2]
+            if len(words) >= 2:
+                conds, wparams = [], []
+                for w in words:
+                    ors = []
+                    for col in ("ao_name", "pato_name", "quality", "ao_id", "pato_id"):
+                        ors.append(col + " LIKE ?")
+                        wparams.append("%" + w + "%")
+                    conds.append("(" + " OR ".join(ors) + ")")
+                t2, g2 = _term_rows(conn, " AND ".join(conds), wparams, limit, limit)
+                have_t = {(d.get("ao_id"), d.get("pato_id")) for d in terms}
+                have_g = {d.get("symbol") for d in genes}
+                terms += [d for d in t2 if (d.get("ao_id"), d.get("pato_id")) not in have_t]
+                genes += [d for d in g2 if d.get("symbol") not in have_g]
+                meta["terms"] = words
+                meta["kind"] = "words"
+
     genes.sort(key=lambda d: -int(d.get("n") or 0))
     out = {
         "ok": True,
@@ -433,10 +504,10 @@ def term_search(q: str, limit: int = 40) -> dict:
         "terms": terms[:limit],
         "genes": genes[:limit],
         "source": "ZFIN phenoGeneCleanData_fish",
+        "match_kind": meta["kind"],
     }
-    if translated:
-        out["query_en"] = [w for grp in groups for w in grp]
-        out["translated"] = True
+    if meta["terms"]:
+        out["query_terms"] = meta["terms"]
     return out
 
 

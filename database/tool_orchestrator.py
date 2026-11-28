@@ -51,9 +51,21 @@ def detect_auto_tools(question: str, primary_task_type: str = "") -> List[str]:
         tools.append("blast")
 
     if genes:
-        tools.extend(["gene", "id_resolve", "enrichment", "kegg", "annotator"])
-        if any(k in q for k in _SEQ_KW) or len(genes) == 1:
+        # 基础工具：gene（基因详情）+ id_resolve（ID 解析），这两个是轻量数据库查询。
+        # 之前这里无条件 extend enrichment / kegg / annotator，任何单基因问题（如
+        # 「提取 mstn 坐标」「tp53 的功能」）都会触发 GO/KEGG ORA 富集 + 一键注释 + 序列提取，
+        # 一堆重计算并行跑，是 chat 慢的主要来源。改为按关键词条件触发。
+        tools.extend(["gene", "id_resolve"])
+        # 只在明确要序列时才提取序列。之前 `or len(genes) == 1` 会让任何单基因问题
+        # 都触发 sequence 工具，去本地 FASTA 里查 CDS/启动子序列 —— 重计算（CPU 拉满）。
+        if any(k in q for k in _SEQ_KW):
             tools.append("sequence")
+        if any(k in q for k in _ENRICH_KW):
+            tools.append("enrichment")
+        if any(k in q for k in _KEGG_KW):
+            tools.append("kegg")
+        if any(k in q for k in _ANNOT_KW):
+            tools.append("annotator")
     else:
         id_like = (
             any(k in q for k in _ID_KW)
@@ -64,13 +76,6 @@ def detect_auto_tools(question: str, primary_task_type: str = "") -> List[str]:
         )
         if id_like:
             tools.append("id_resolve")
-
-    if genes and any(k in q for k in _ENRICH_KW):
-        if "enrichment" not in tools:
-            tools.append("enrichment")
-    if genes and any(k in q for k in _KEGG_KW):
-        if "kegg" not in tools:
-            tools.append("kegg")
 
     if primary_task_type == "序列比对" and "blast" in tools:
         tools.remove("blast")
@@ -103,28 +108,38 @@ def _run_id_resolve(token: str) -> dict:
 
 
 def _run_enrichment(genes: List[str]) -> dict:
-    from enrichment_toolkit import go_enrichment, kegg_enrichment, format_enrichment_answer
+    from enrichment_toolkit import (
+        go_lookup, kegg_lookup, format_enrichment_answer, format_annotation_answer,
+    )
 
-    go_res = go_enrichment(genes)
-    kegg_res = kegg_enrichment(genes)
+    # 2026-11-07：与工具页统一口径 —— 单个基因给注释，多个基因给富集
+    go_res = go_lookup(genes)
+    kegg_res = kegg_lookup(genes)
+    ann = next(
+        (r for r in (go_res, kegg_res) if isinstance(r, dict) and r.get("mode") == "annotation"),
+        None,
+    )
     return {
         "go": go_res,
         "kegg": kegg_res,
-        "summary": format_enrichment_answer(go_res, kegg_res),
+        "mode": "annotation" if ann else "enrichment",
+        "summary": format_annotation_answer(ann) if ann else format_enrichment_answer(go_res, kegg_res),
     }
 
 
 def _run_kegg(question: str, genes: List[str]) -> dict:
-    from enrichment_toolkit import kegg_pathway_search
+    from enrichment_toolkit import kegg_lookup, kegg_pathway_search
 
+    # 2026-11-07：有基因就按基因查（1 个给通路注释、多个给通路富集），与工具页同一口径。
+    # 以前把问题里的泛词「通路」当成关键词去过滤英文通路名，几乎必然过滤成空结果。
+    if genes:
+        return kegg_lookup(genes)
     kw = ""
     for k in _KEGG_KW:
-        if k in question.lower():
+        if k in question.lower() and len(k) >= 4:
             kw = k
             break
-    if not kw and genes:
-        kw = genes[0]
-    return kegg_pathway_search(kw, genes or None)
+    return kegg_pathway_search(kw, None)
 
 
 def _run_blast(seq: str) -> dict:

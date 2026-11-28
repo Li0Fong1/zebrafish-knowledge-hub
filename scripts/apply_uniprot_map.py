@@ -22,7 +22,7 @@ DB = dict(
     host=os.environ.get("MYSQL_HOST", "127.0.0.1"),
     port=int(os.environ.get("MYSQL_PORT", "3307")),
     user=os.environ.get("MYSQL_USER", "zebrafish"),
-    password=os.environ.get("MYSQL_PASSWORD", "zebrafish_remote_2026"),
+    password=__import__("os").environ["MYSQL_PASSWORD"],
     database=os.environ.get("MYSQL_DATABASE", "zebrafish_db"),
     charset="utf8mb4",
 )

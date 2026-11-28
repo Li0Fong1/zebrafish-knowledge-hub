@@ -263,6 +263,8 @@ class ZebraFishRAG:
         self.retriever = None
         self._init_knowledge_file()
         self._paragraphs = self._load_paragraphs()
+        self._para_mtime = self._knowledge_mtime()
+        self._para_check_ts = time.time()
         logger.info(f"[成功] 知识库已加载 {len(self._paragraphs)} 段，关键词检索立即可用")
         threading.Thread(target=self._build_rag_safe, daemon=True, name="rag-faiss").start()
 
@@ -464,15 +466,48 @@ class ZebraFishRAG:
         logger.info(f"[知识库] 增量索引完成：{len(files)} 个文件 / {len(chunks)} 段")
         return len(chunks)
 
+    def _maybe_reload_paragraphs(self) -> None:
+        """增量文献写进 knowledge.d 后，常驻进程要能当次检索到，不必等重启。
+
+        指纹检查 30s 一次，只 stat 目录里的文本文件，成本可忽略；
+        真正重新分段只在文件变动时发生。
+        """
+        now = time.time()
+        if now - getattr(self, "_para_check_ts", 0.0) < 30:
+            return
+        self._para_check_ts = now
+        try:
+            stamp = self._knowledge_mtime()
+        except Exception:
+            return
+        if abs(stamp - getattr(self, "_para_mtime", 0.0)) < 0.001:
+            return
+        try:
+            self._paragraphs = self._load_paragraphs()
+            self._para_mtime = stamp
+            logger.info(f"[知识库] 检测到新增文献，已热加载 {len(self._paragraphs)} 段")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[知识库] 段落热加载失败：{e}")
+
     def get_context(self, question: str) -> str:
+        self._maybe_reload_paragraphs()
         context = self._keyword_retrieve(question)
         pubmed_ctx = ""
         if os.getenv("PUBMED_YES_RAG", "1") not in ("0", "false", "False"):
             try:
-                from rag.pubmed_yes_retriever import get_pubmed_yes_retriever, peek_pubmed_yes_retriever
+                from rag.pubmed_yes_retriever import (
+                    ensure_pubmed_yes_retriever_async,
+                    peek_pubmed_yes_retriever,
+                )
 
-                pr = peek_pubmed_yes_retriever() or get_pubmed_yes_retriever()
-                if pr.ready:
+                # 2026-11-06：旧写法 `peek() or get_pubmed_yes_retriever()` 会在
+                # 关键词检索这次请求里同步冷载 170 个分片（实测 140s），把
+                # /api/chat 直接拖到 524。只取已就绪的单例；未就绪就触发后台
+                # 单飞预热，本轮用关键词上下文出答。
+                pr = peek_pubmed_yes_retriever()
+                if pr is None:
+                    ensure_pubmed_yes_retriever_async()
+                elif pr.ready:
                     pubmed_ctx = pr.get_context(question, top_k=max(RAG_TOP_K, 5))
             except Exception as e:
                 logger.warning(f"PubMed YES 向量检索失败：{e}")

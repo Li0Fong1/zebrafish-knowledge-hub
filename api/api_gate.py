@@ -35,6 +35,9 @@ _EXEMPT_PATHS = frozenset(
         "/api/auth/config",
         "/api/gate/unlock",
         "/api/gate/status",
+        # 2026-11-12：首页进 CDN 缓存后，HIT 响应不再带 Set-Cookie，
+        # 需要一个「专门只发票」的公开端点给前端补票用。
+        "/api/gate/pass",
     }
 )
 
@@ -89,8 +92,16 @@ def gate_key() -> str:
 
 
 def gate_enabled() -> bool:
-    """总开关。``API_GATE_ENABLED=0`` 可整体关闭（排障用），密钥缺失时自动不启用。"""
-    if not _env_bool("API_GATE_ENABLED", True):
+    """总开关：**默认关闭，需显式开启**。
+
+    2026-11-25 变更：原来默认 ``True``（只要配了 ``API_GATE_KEY`` 就生效），
+    导致其他机器首次访问时拿不到通行证 cookie，而工具栏工具走的是裸 ``fetch``、
+    不会触发 ``apiFetch`` 的补票重试，于是所有工具页一律 401「此接口需要 API 密钥」。
+
+    现在改为 opt-in：只有 ``API_GATE_ENABLED=1`` **且** 配了密钥才启用。
+    不写这一行、或写成 0，站点就是完全开放的（页面与接口都免密钥）。
+    """
+    if not _env_bool("API_GATE_ENABLED", False):
         return False
     return bool(gate_key())
 
@@ -214,10 +225,33 @@ def check_request(request, path: str) -> Tuple[bool, str, str]:
 
 
 def set_pass_cookie(response, request) -> None:
-    """首页响应时下发通行证；仅在启用时设置。"""
+    """首页响应时下发通行证；仅在启用时设置。
+
+    2026-11-12：**已有有效通行证就不再重签**。
+
+    原因不是省一次 HMAC，而是 CDN 缓存。Cloudflare 对任何带 ``Set-Cookie`` 的
+    响应一律不缓存（即使配了 Cache Rule）。旧写法每次打开首页都签发一枚新的、
+    带全新过期时间的 cookie，于是 **每一次**首页响应都带 Set-Cookie —— 首页在
+    CDN 上永远是 DYNAMIC，每次打开都得穿过洛杉矶隧道回源，实测 2~8 s，
+    链路差时 50 s 以上才传完 18 KB（gzip 后）。
+
+    现在只有「没有 cookie / cookie 过期 / 剩余有效期不足 1/3」时才续签，
+    正常用户 24 小时内只会在第一次拿到 Set-Cookie，之后首页就是一个纯静态
+    响应，CDN 可以正常缓存。
+    """
     if not gate_enabled():
         return
     ttl = max(60, _env_int("API_GATE_PASS_TTL", _DEFAULT_TTL))
+
+    existing = request.cookies.get(COOKIE_NAME, "")
+    if existing and _verify_pass(existing, request):
+        try:
+            exp = int(existing.split(".")[1])
+        except (IndexError, ValueError):
+            exp = 0
+        if exp - int(time.time()) > ttl // 3:  # 余量充足，不必续签
+            return
+
     secure = (request.url.scheme or "").lower() == "https"
     response.set_cookie(
         COOKIE_NAME,

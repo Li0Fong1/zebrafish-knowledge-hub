@@ -1391,3 +1391,102 @@ def peek_pubmed_yes_retriever() -> Optional["PubmedYesRetriever"]:
 
 def pubmed_yes_loading() -> bool:
     return _loading and _default_retriever is None
+
+
+# ---------------------------------------------------------------------------
+# 2026-11-06 首问冷启动治理
+#
+# 线上实测：170 个分片首次冷载耗时 139.8s（内存不足时只装 62 片也一样慢），
+# 而旧逻辑把它放在 /api/chat 请求线程里同步执行 → 用户看到的就是 90s 超时。
+# 更讽刺的是，基因类问题随后走 gene_pubmed 候选、根本不做全库召回，这 140 秒
+# 白花了。现在改为：请求线程绝不加载，只触发后台单飞预热；本轮立刻用
+# gene_pubmed / Hub 小库出答。预热只在真实内存余量够时才启动，避免把 36GB
+# cgroup 顶穿导致整站 OOM。
+# ---------------------------------------------------------------------------
+# 默认跟随 HUB_PUBMED_WARMUP：运维把预热关掉（共享服务器省内存档）时，
+# 后台也不该偷偷拉起 20GB 的分片库，否则 36GB cgroup 一样会被顶穿。
+_ASYNC_WARM_ENABLED = os.getenv(
+    "PUBMED_YES_ASYNC_WARMUP",
+    os.getenv("HUB_PUBMED_WARMUP", "0"),
+).strip().lower() in ("1", "true", "yes")
+_ASYNC_WARM_MIN_MB = float(os.getenv("PUBMED_YES_ASYNC_MIN_MB", "30000"))
+_ASYNC_WARM_RETRY_SEC = float(os.getenv("PUBMED_YES_ASYNC_RETRY_SEC", "1800"))
+_async_warm_lock = threading.Lock()
+_async_warm_started = False
+_async_warm_done = False
+_async_warm_error = ""
+_async_warm_skipped = ""
+_async_warm_last_ts = 0.0
+
+
+def ensure_pubmed_yes_retriever_async() -> bool:
+    """后台单飞预热 PubmedYes；绝不阻塞当前请求。
+
+    返回 True：已就绪 / 已启动加载 / 正在加载。
+    返回 False：内存闸门判定装不下，本轮（及后续）主动放弃重索引，
+                对话稳定走 gene_pubmed 快答路径。
+    """
+    global _async_warm_started, _async_warm_done, _async_warm_error
+    global _async_warm_skipped, _async_warm_last_ts
+    if _default_retriever is not None:
+        return True
+    if not _ASYNC_WARM_ENABLED:
+        if _async_warm_skipped != "disabled":
+            print(
+                "[文献向量库] 后台预热按配置关闭（HUB_PUBMED_WARMUP=0）；"
+                "文献问答走 gene_pubmed 快答，不加载 170 分片",
+                flush=True,
+            )
+        _async_warm_skipped = "disabled"
+        return False
+    with _async_warm_lock:
+        if _default_retriever is not None or _async_warm_started:
+            return True
+        now = time.time()
+        if _async_warm_error and now - _async_warm_last_ts < _ASYNC_WARM_RETRY_SEC:
+            return True  # 失败冷却期内不反复拉起重载
+        try:
+            headroom = _mem_headroom_mb()
+        except Exception:
+            headroom = float("inf")
+        if headroom < _ASYNC_WARM_MIN_MB:
+            if _async_warm_skipped != "low_mem":
+                print(
+                    f"[文献向量库] 余量 {headroom:.0f}MB < {_ASYNC_WARM_MIN_MB:.0f}MB，"
+                    "跳过后台重索引预热；文献问答走 gene_pubmed 快答（不会 OOM）",
+                    flush=True,
+                )
+            _async_warm_skipped = "low_mem"
+            return False
+        _async_warm_started = True
+        _async_warm_error = ""
+        _async_warm_last_ts = now
+
+    def _worker() -> None:
+        global _async_warm_started, _async_warm_done, _async_warm_error, _async_warm_last_ts
+        try:
+            get_pubmed_yes_retriever()
+            _async_warm_done = True
+            print("[文献向量库] 后台预热完成，后续文献问答启用完整语义召回", flush=True)
+        except Exception as e:  # noqa: BLE001
+            _async_warm_error = str(e)
+            print(f"[文献向量库] 后台预热失败（不影响对话）：{e}", flush=True)
+        finally:
+            _async_warm_last_ts = time.time()
+            with _async_warm_lock:
+                _async_warm_started = False
+
+    threading.Thread(target=_worker, name="pubmed-async-warm", daemon=True).start()
+    return True
+
+
+def pubmed_yes_async_status() -> dict:
+    """给 /api/health 用的自证字段：预热是否启动、是否完成、放弃原因。"""
+    return {
+        "ready": _default_retriever is not None,
+        "warming": _async_warm_started or pubmed_yes_loading(),
+        "done": _async_warm_done,
+        "skipped": _async_warm_skipped,
+        "error": _async_warm_error,
+        "min_headroom_mb": int(_ASYNC_WARM_MIN_MB),
+    }

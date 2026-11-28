@@ -132,3 +132,39 @@
 .score-mid { background: #fff6e6; color: #8a5a12; }
 .score-lo { background: #fdf0f0; color: #9b3b3b; }
 .pam-flag { font-size: 11px; color: var(--agent-ink-3); }
+
+/* 查不到基因时的「是不是想查」候选（crispr.js 渲染） */
+.sug-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 2px; }
+.sug-lead { font-size: 11.5px; color: var(--agent-ink-3); }
+.sug-chip {
+  font: inherit; font-size: 12px; line-height: 1.2; cursor: pointer;
+  padding: 3px 10px; border-radius: 999px;
+  border: 1px solid rgba(31, 122, 152, .28);
+  background: rgba(31, 122, 152, .07);
+  color: #17607b;
+  transition: background .15s ease, border-color .15s ease;
+}
+.sug-chip:hover { background: rgba(31, 122, 152, .16); border-color: rgba(31, 122, 152, .45); }
+.sug-chip:active { transform: translateY(1px); }
+@media (prefers-color-scheme: dark) {
+  .sug-chip { color: #a8dcec; border-color: rgba(140, 210, 235, .3); background: rgba(140, 210, 235, .1); }
+}
+
+/* 流式回答中途断连：保留已生成正文，末尾追加的中断说明（app.js 渲染） */
+.chat-partial-note {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-left: 3px solid #f59e0b;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, .10);
+  color: #8a5a12;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+@media (prefers-color-scheme: dark) {
+  .chat-partial-note {
+    background: rgba(245, 158, 11, .13);
+    color: #f7c877;
+    border-left-color: #fbbf24;
+  }
+}

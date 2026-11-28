@@ -13,7 +13,9 @@ RT=/data/zoujin/deng/zebrafish_runtime
 PY=/data/zoujin/deng/miniconda3/envs/zebrafish/bin/python
 
 export PYTHONPATH="$BASE:$BASE/core:$BASE/database"
-export CUDA_VISIBLE_DEVICES=
+# 2026-11-07 与服务器对齐：线上实际是 CUDA_VISIBLE_DEVICES=1（本机仓库曾写成空值，
+# 若照仓库重新部署会把 GPU 绑定丢掉，变成抢占 0 号卡）。服务器上的这份为准。
+export CUDA_VISIBLE_DEVICES=1
 export BGE_RERANKER_PATH="$BASE/models/bge-reranker-base"
 export HF_ENDPOINT=https://hf-mirror.com
 export PYTHONIOENCODING=utf-8

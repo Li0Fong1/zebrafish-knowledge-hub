@@ -1,0 +1,1113 @@
+============================================================================
+斑马鱼基因问答体 · 五系统横向评测 · S0（ZRA Hub / deepseek-v4-pro）
+题源：问题集.docx（39 题，按文档章节顺序）
+口径：mode=hub, answer_depth=full, lang=en，每题独立会话
+份数：39/39   生成时间：2026-11-08 20:35
+字数：中位 1183 / 最短 227 / 最长 4556
+============================================================================
+
+
+##########  章节 2.1  ##########
+
+============================================================================
+[01/39]  S5_K1    （2.1 · K1）
+----------------------------------------------------------------------------
+Q: What are the functions of the zebrafish nanog gene? Answer briefly.
+----------------------------------------------------------------------------
+**Zebrafish nanog (UniProt · Bgee · Expression Atlas) encodes a maternal/zygotic homeodomain transcription factor that maintains pluripotency and coordinates early embryonic genome activation, cell viability, and patterning.**
+
+- Maintains stem cell population and regulates DNA-templated transcription via RNA Pol II cis-regulatory regions (ENSDARG00000075113 (Ensembl); ZFIN ZDB-GENE-030131-5486 (ZFIN)).
+- Maternal Nanog promotes oogenesis and is required for embryo architecture and cell viability during gastrulation.
+- With Pou5f3/SoxB1/Sox19b, Nanog remodels chromatin and primes genes for zygotic genome activation.
+- Nanog restricts maternal β-catenin/TCF activity, preventing excessive mesendoderm induction; Pou5f3–Nanog complexes pattern dorsoventral mesendoderm.
+- It limits primordial germ cell number by suppressing vasa via nlk1, and has a primary role in extra-embryonic tissue.
+
+nanog references — 78 papers linked to this gene in NCBI Gene, 12 shown below.
+- Nanog organizes transcription bodies · 2023
+- Ventx Family and Its Functional Similarities with Nanog: Involvement in Embryonic Development and Cancer Progression · 2022
+- Translational control by maternal Nanog promotes oogenesis and early embryonic development · 2022
+- Nile tilapia (Oreochromis niloticus) Nanog co-expression with Pou5f3, transcriptional regulation and biological activity in embyonic development and embryonic cells · 2023
+- Nanog safeguards early embryogenesis against global activation of maternal β-catenin activity by interfering with TCF factors · 2020
+- Pou5f3, SoxB1, and Nanog remodel chromatin on high nucleosome affinity regions at zygotic genome activation · 2019
+- Quantitative imaging reveals real-time Pou5f3-Nanog complexes driving dorsoventral mesendoderm patterning in zebrafish · 2016
+- The primary role of zebrafish nanog is in extra-embryonic tissue · 2018
+- Maternal Nanog is required for zebrafish embryo architecture and for cell viability during gastrulation · 2018
+- Knockdown of zebrafish Nanog increases primordial germ cells during early embryonic development · 2016
+- Chromatin accessibility established by Pou5f3, Sox19b and Nanog primes genes for activity during zebrafish genome activation · 2020
+- Nanog suppresses the expression of vasa by directly regulating nlk1 in the early zebrafish embryo · 2017
+
+### Local data supplement
+
+Gene nanog
+- Chromosome: 24 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: stem cell population maintenance; transcription factor activity; GO:0003677 (QuickGO); GO:0006355 (QuickGO); GO:0005634 (QuickGO); GO:0000978 (QuickGO)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): early embryo 99.75/100, cleaving embryo 99.62/100, mature ovarian follicle 99.42/100, ovary 98.9/100, bone element 92.78/100; Expression Atlas TPM (mostly whole-embryo series): 256-cell · blastula 210.5 TPM, 50% epiboly · gastrula 185.3 TPM · omics expression databases
+
+============================================================================
+[02/39]  S5_K2    （2.1 · K2）
+----------------------------------------------------------------------------
+Q: What factors determine the external morphology (body shape and pigmentation) of zebrafish? Answer briefly.
+----------------------------------------------------------------------------
+External morphology (body shape and pigmentation) in zebrafish is determined by genetic/developmental programs, endocrine regulation—especially thyroid hormone—and environmental/chemical exposures.
+
+- Genetic factors establish the baseline body plan, fin/body proportions, and pigment-cell development.
+- Thyroid endocrine status influences body shape; thyroid disruption is associated with altered external morphology [1].
+- Environmental/chemical exposures can modify morphology, such as glyphosate/Roundup altering body shape and behavior [3].
+- Some external compounds may have little effect: N-2-fluorophenyl-D-gluconamide did not affect zebrafish embryogenesis in one study [2].
+
+References:
+[1] Thyroid endocrine disruption and external body morphology of Zebrafish. General and comparative endocrinology. 2016. source
+[2] External N-2-fluorophenyl-D-gluconamide does not affect zebrafish embryogenesis. Cryobiology. 2026. source
+[3] Glyphosate and Roundup(®) alter morphology and behavior in zebrafish. Toxicology. 2017. source
+
+============================================================================
+[03/39]  S5_K3    （2.1 · K3）
+----------------------------------------------------------------------------
+Q: What does the literature report on CRISPR-based studies of zebrafish morphogenesis? Provide inline citations.
+----------------------------------------------------------------------------
+CRISPR-based studies in zebrafish have been used to phenocopy morphogenesis defects in F0 embryos and to screen for genes required for organ morphogenesis. Predesigned in vitro transcribed sgRNAs targeting Rx3 in F0 embryos partially recapitulated Rx3-dependent eye morphogenesis defects [1]. A rapid CRISPR/Cas mutagenesis assay was also applied to identify genes involved in thyroid morphogenesis and function [2]. These reports indicate that transient F0 CRISPR knockout is feasible for candidate validation and screening in zebrafish morphogenesis.
+
+References:
+[1] CRISPR-Cas9 F0 knockout approach using predesigned in vitro transcribed guide RNAs partially recapitulates Rx3 function in eye morphogenesis. Journal of genetics. 2023. source
+[2] A Rapid CRISPR/Cas-based Mutagenesis Assay in Zebrafish for Identification of Genes Involved in Thyroid Morphogenesis and Function. Scientific reports. 2018. source
+
+
+##########  章节 2.2  ##########
+
+============================================================================
+[04/39]  S7_G1    （2.2 · G1）
+----------------------------------------------------------------------------
+Q: Give the official ZFIN ID, NCBI Gene ID, Ensembl gene ID and GRCz12tu coordinates of zebrafish tp53.
+----------------------------------------------------------------------------
+In short: tp53 — the Ensembl gene ID is ENSDARG00000035559; the ZFIN ID is ZDB-GENE-990415-270, and the NCBI Gene ID is 30590.
+
+[Coordinates]
+ tp53 on GRCz12tu: 5:24,742,747-24,754,325 (+ strand)
+ Span: 11,579 bp
+ Source: RefSeq GCF_049306965.2
+
+[Aliases and IDs]
+[Historical gene-version unification]
+ Query: tp53
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. p53 (gene_basic.gene_symbol)
+ 2. brp53 (synonym)
+ 3. cellular tumor antigen p53 (other)
+ 4. delta113 p53 (other)
+ 5. drp53 (synonym)
+ 6. etid22686.5 (synonym)
+ 7. fb40d06 (synonym)
+ 8. tumor protein p53 (full_name)
+ 9. tumor suppressor p53 (other)
+ 10. wu:fb40d06 (synonym)
+ 11. zdb-gene-990415-270 (zfin_id)
+ 12. zgc:111919 (synonym)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: tp53
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 30590
+ · RefSeq chromosome: 5
+ · Local Ensembl (GRCz11): ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270
+
+[Original Ensembl versions]
+ 1. ENSDARG00000004359, release 116
+ 2. ENSDARG00000035559, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000035559 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270 → https://zfin.org/ZDB-GENE-990415-270
+ · NCBI Gene: 30590 → https://www.ncbi.nlm.nih.gov/gene/30590
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000035559
+ · ensembl: ENSDARG00180036740
+ · ncbi_gene: 30590
+ · ncbi_gene_grcz12tu: 30590
+ · uniprot: P79734
+ · zfin: ZDB-GENE-990415-270
+
+[Bgee tissue expression (top)]
+ · cleaving embryo: 97.90
+ · tail bud paraxial mesoderm: 97.40
+ · presomitic mesoderm: 96.77
+ · paraxial mesoderm: 96.75
+ · early embryo: 95.42
+ · granulocyte: 94.98
+
+============================================================================
+[05/39]  S7_G2    （2.2 · G2）
+----------------------------------------------------------------------------
+Q: Which gene does ZDB-GENE-040918-1 correspond to? Report its current official symbol and Ensembl gene ID.
+----------------------------------------------------------------------------
+ZDB-GENE-040918-1 is not present in the local zebrafish gene annotation, so it could not be mapped to a gene symbol. A ZFIN ID in this form usually means the record has been retired or the ID was mistyped — check it first, or ask with the gene symbol, Ensembl ID or RefSeq accession instead. (ZFIN itself answers "Record Not Found" for IDs it does not hold.)
+
+============================================================================
+[06/39]  S7_G3    （2.2 · G3）
+----------------------------------------------------------------------------
+Q: What is the Ensembl gene ID of zebrafish sox10, and on which chromosome is it located?
+----------------------------------------------------------------------------
+In short: sox10 — the Ensembl gene ID is ENSDARG00000077467, and it is located on chromosome 3 (RefSeq GRCz12tu annotation).
+
+[Historical gene-version unification]
+ Query: sox10
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. cls (other)
+ 2. cls/sox10 (synonym)
+ 3. colorless (other)
+ 4. colourless (other)
+ 5. colourless/sox10 (other)
+ 6. golas (other)
+ 7. gos (other)
+ 8. sox10b (other)
+ 9. sry (sex determining region y)-box 10 (other)
+ 10. sry-box containing gene 10 (other)
+ 11. sry-box transcription factor 10 (full_name)
+ 12. transcription factor sox-10 (other)
+ 13. zdb-gene-011207-1 (zfin_id)
+ 14. zgc:100757 (synonym)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: sox10
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 140616
+ · RefSeq chromosome: 3
+ · Local Ensembl (GRCz11): ENSDARG00000077467
+ · ZFIN: ZDB-GENE-011207-1
+
+[Original Ensembl versions]
+ 1. ENSDARG00000077467, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000077467 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000077467
+ · ZFIN: ZDB-GENE-011207-1 → https://zfin.org/ZDB-GENE-011207-1
+ · NCBI Gene: 140616 → https://www.ncbi.nlm.nih.gov/gene/140616
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000077467
+ · ensembl: ENSDARG00180042718
+ · ncbi_gene: 140616
+ · ncbi_gene_grcz12tu: 140616
+ · uniprot: Q90XD1
+ · zfin: ZDB-GENE-011207-1
+
+[Bgee tissue expression (top)]
+ · region of neural crest: 98.89
+ · cranial neural crest: 95.84
+ · migratory neural crest cell: 92.86
+ · neural crest cell: 92.31
+ · glial cell: 89.28
+ · migratory cranial neural crest cell: 83.34
+
+
+##########  章节 2.3  ##########
+
+============================================================================
+[07/39]  S8_S1    （2.3 · S1）
+----------------------------------------------------------------------------
+Q: Extract the coding sequence (CDS) of zebrafish tp53 and give its RefSeq accession.
+----------------------------------------------------------------------------
+[Sequence] tp53
+ · CDS/cDNA: 1125 bp [GRCz12tu · local_fasta · NM_001271820.1, RefSeq mRNA] (ENSDARG00000035559)
+ coding sequence (CDS) from the start codon, not the full-length transcript
+
+ATGGCGCAAAACGACAGCCAAGAGTTCGCGGAGCTCTGGGAGAAGAATTTGATAAGTATT
+CAGCCCCCAGGTGGTGGCTCTTGCTGGGACATCATTAATGATGAGGAGTACTTGCCGGGA
+TCGTTTGACCCCAATTTTTTTGAAAATGTGCTTGAAGAACAGCCTCAGCCATCCACTCTC
+CCACCAACATCCACTGTTCCGGAGACAAGCGACTATCCCGGCGATCATGGATTTAGGCTC
+AGGTTCCCGCAGTCTGGCACAGCAAAATCTGTAACTTGCACTTATTCACCGGACCTGAAT
+AAACTCTTCTGTCAGCTGGCAAAAACTTGCCCCGTTCAAATGGTGGTGGACGTTGCCCCT
+CCACAGGGCTCCGTGGTTCGAGCCACTGCCATCTATAAGAAGTCCGAGCATGTGGCTGAA
+GTGGTCCGCAGATGCCCCCATCATGAGCGAACCCCGGATGGAGATAACTTGGCGCCTGCT
+GGTCATTTGATAAGAGTGGAGGGCAATCAGCGAGCAAATTACAGGGAAGATAACATCACT
+TTAAGGCATAGTGTTTTTGTCCCATATGAAGCACCACAGCTTGGTGCTGAATGGACAACT
+GTGCTACTAAACTACATGTGCAATAGCAGCTGCATGGGGGGGATGAACCGCAGGCCCATC
+CTCACAATCATCACTCTGGAGACTCAGGAAGGTCAGTTGCTGGGCCGGAGGTCTTTTGAG
+GTGCGTGTGTGTGCATGTCCAGGCAGAGACAGGAAAACTGAGGAGAGCAACTTCAAGAAA
+GACCAAGAGACCAAAACCATGGCCAAAACCACCACTGGGACCAAACGTAGTTTGGTGAAA
+GAATCTTCTTCAGCTACATTACGACCTGAGGGGAGCAAAAAGGCCAAGGGCTCCAGCAGC
+GATGAGGAGATCTTTACCCTGCAGGTGAGGGGCAGGGAGCGTTATGAAATTTTAAAGAAA
+TTGAACGACAGTCTGGAGTTAAGTGATGTGGTGCCTGCCTCAGATGCTGAAAAGTATCGT
+CAGAAATTCATGACAAAAAACAAAAAAGAGAATCGTGAATCATCTGAGCCCAAACAGGGA
+AAGAAGCTGATGGTGAAGGACGAAGGAAGAAGCGACTCTGATTAA
+
+============================================================================
+[08/39]  S8_S2    （2.3 · S2）
+----------------------------------------------------------------------------
+Q: Return the 2 kb promoter sequence upstream of zebrafish myl7 on GRCz12tu, with its coordinates and accession.
+----------------------------------------------------------------------------
+[Coordinates]
+ myl7 on GRCz12tu: 8:48,893,898-48,901,725 (- strand)
+ Span: 7,828 bp
+ Source: RefSeq GCF_049306965.2
+
+[Sequence] myl7 · GRCz12tu
+ · promoter: 2000 bp [GRCz12tu · ncbi_efetch · NC_133183.1] (8:48901726-48903725:-)
+
+GCATCCACTGTGTAAAACTTGCTGGATAAGTTGGCAGTTCACAGGGAGACTAAATTACTT
+AACTTGGGAAACCTGTAACACTAACTTGATCATGTGAAGAATGTTCAATCACATAGTGGC
+TTTTGGTCTCCTTCCCTGTACTGCCATTGAGGCAGCATTAGCATTAGCCATTTTGCTTTT
+TAGGCTAATCATTTCATGGCTGACGACCAAGCCTGTGCAAAACAGGAAAAACAAGAACAT
+TTATTTTGCATTTCAGAAACTGCTGATCTACAGGGATTTTCACATACAGAGAATAATCTG
+AAAAAAGGGGAAATGTTATTCTACATTTTTTCTGTTCTGTGGGTAAAAATGTCTTTTGGA
+TGCCAAACAGATTAAACAGCTGGTTCAGCTGATGACGAAAGTAACTCAAACAACCACTTG
+TTACAACCAAGCTCTGGAATAGAGCATATACAACAAATTTCTTGAAACAAGTGAGCTACA
+GCAGCAGCAGAAGAAGAGCAAGAATGGTGCACTCACACTAGACCCTAATTAAACACACCT
+GATCTTACTTATTGAGTCCTTGAAACCTACAGGTGAAGCTAGGATCACACTTGACTTTTC
+TCCCCATGGACTTTCATTCATGCGCCCGCAAATGCGTCAGACCACAAACGCAGGGTCATG
+CGTTAAGTTTCACAGGTCGCTGCAGTGCAAAGTTTAAGCTTGGTAAACTCTGACCTGCGA
+AATCGCATCCCCTTTTCGCAGCGCCGTACGACAGAATTTCGCACACACAAACTCTAGTGT
+GACCGCAGCTTAAGTGTGTTGAAGCAGGGTTGGAACTAAACTGTGCAGGGTTGCGGCCCT
+TCAGGATCTAAGTTTGACACCCCTTGACTATCCGAACCATGCACGGTTCGTTTGACAAGT
+ATGAGTGCTCTAAATCAGGCCCAGGTGCGGTTCAGTTGGCCGGCCATGGCTTGGTTGGAA
+GAGGTGTGCCAAAGCTCAGTTCGGTTGGGTTTTGGCACGGTACGCTTGTAGTGTAAGCGC
+AGAGCACGTCTGTGCCCATAATGCCTACTGATTAATTTGGCCTTGGGTTCAAGGCAGCTG
+TACCTAGTGTGTGTACACCCTAAGAATAAGAAACTGAATCTACAATTTACACAAGATCAT
+AATTGCAGTTAGACTGGACAGTAGACTAGAAAAACATTTATACACTCACTTCATCGACGT
+CTAATAATTTATTTTATTTTTTTTTAATCTCAGCCCTTTCTGCAGCTTTGTTTCACATGC
+TCAAACACTAGTTTGACCAAAGCTTAAATCAGTTGTGTTAAATAAGAGACATTCAAAATA
+AATGTAAATGAGCTCTCCAAATCAGCAGACTTAACATTCTTTAAAATGATTGATTCAATA
+GTGATAAAAATCAGGCATAGCCAGTTGTAACTTTAGATAAATTACAGAAAATGTCAAATA
+CAGAGAACCGATTCTTTTTTATGATACATCCAAGCACACATTTAACACAATCCAGGCAAA
+CCCCGAATTTCACAGTCACAAGCACTGTTTGTACAAGAGCTTTGCCTAAGGACACACAGT
+CTCTATAAGTCCAGGTCGTTGGTTTCACTCTTATTTTAAACATGTGACATTTTTCCTGCC
+ATCCTGTCTTAGGCTGCTGTTTGCTTCATTCCATGTCACATTAATTTCCTCAGTAGCACC
+TTTTACACACACAGCCAATCTTTTCCAGAAAATTCAATTGCTTTGAAAAGATAATGTGTG
+AACAAATCCATTTAGAAAAGGAAAATTAAGAATTTGTAAAATCATCTGTAAATTGTTGGC
+ATTCTTCTGTATATGAACATCACATCATTTACAGGTAAAGGTCTGGTCATTAATTATATG
+ACAATTTACTGGTATTATTTTGTGAAAGGGGCTATTTTCAATGCATTCATCCATCCTTTT
+CATCCCTCAAATCTCTCATTCACGTCCCCCTCCCCATCTGCACACTTTATCTCATTTTCC
+ACCCTGCTGGAATCTGAGCA
+
+============================================================================
+[09/39]  S8_S3    （2.3 · S3）
+----------------------------------------------------------------------------
+Q: Provide the protein sequence of zebrafish shha with its UniProt accession.
+----------------------------------------------------------------------------
+[Sequence] shha
+ · protein: 418 aa [uniprot_rest · Q92008, UniProt]
+ UniProt canonical protein sequence
+
+MRLLTRVLLVSLLTLSLVVSGLACGPGRGYGRRRHPKKLTPLAYKQFIPNVAEKTLGASG
+RYEGKITRNSERFKELTPNYNPDIIFKDEENTGADRLMTQRCKDKLNSLAISVMNHWPGV
+KLRVTEGWDEDGHHFEESLHYEGRAVDITTSDRDKSKYGTLSRLAVEAGFDWVYYESKAH
+IHCSVKAENSVAAKSGGCFPGSALVSLQDGGQKAVKDLNPGDKVLAADSAGNLVFSDFIM
+FTDRDSTTRRVFYVIETQEPVEKITLTAAHLLFVLDNSTEDLHTMTAAYASSVRAGQKVM
+VVDDSGQLKSVIVQRIYTEEQRGSFAPVTAHGTIVVDRILASCYAVIEDQGLAHLAFAPA
+RLYYYVSSFLFPQNSSSRSNATLQQEGVHWYSRLLYQMGTWLLDSNMLHPLGMSVNSS
+
+
+##########  章节 2.4  ##########
+
+============================================================================
+[10/39]  Q01    （2.4 · T1-1）
+----------------------------------------------------------------------------
+Q: What determines the external morphology of zebrafish?
+----------------------------------------------------------------------------
+Zebrafish external morphology is determined by genotype, environment, and their interaction (phenotype = genotype + environment + G×E).
+
+- Genotype: developmental gene regulatory networks specify body axis, fin position/shape, craniofacial structures, and pigmentation; genetic variation produces heritable morphological differences.
+- Endocrine environment: thyroid hormone status influences body morphology; thyroid endocrine disruption alters zebrafish external body morphology [1].
+- Chemical environment: exposure to glyphosate or Roundup® changes morphology [3]; effects are compound-specific, since N-2-fluorophenyl-D-gluconamide did not affect embryogenesis [2].
+- G×E: the same genetic background can show different morphology depending on exposure, and different genotypes can differ in susceptibility.
+
+References:
+[1] Thyroid endocrine disruption and external body morphology of Zebrafish. General and comparative endocrinology. 2016. source
+[2] External N-2-fluorophenyl-D-gluconamide does not affect zebrafish embryogenesis. Cryobiology. 2026. source
+[3] Glyphosate and Roundup(®) alter morphology and behavior in zebrafish. Toxicology. 2017. source
+
+============================================================================
+[11/39]  Q02    （2.4 · T1-2）
+----------------------------------------------------------------------------
+Q: Which factors determine body colour in zebrafish?
+----------------------------------------------------------------------------
+Zebrafish body colour is determined mainly by chromatophore type, number and spatial patterning under genetic control, with environmental light/background and temperature as modulating factors.
+
+- Genetic/developmental factors: melanophores, iridophores and xanthophores interact to form stripes; iridophore proliferation and aggregation prefigure striped colouration [4].
+- Background adaptation: background colour alters melanophore responses, and cyclical training enhances these physiological colour changes [2].
+- Physical environment: LED light colour and increasing temperature co-exposure can alter pigmentation-related molecular, metabolomic and behavioural endpoints in larvae [1].
+- Natural/sexual selection: colouration pattern variation is associated with reproductive success, which can shape colour traits in populations [3].
+
+References:
+[1] Co-exposure effect of different colour of LED lights and increasing temperature on zebrafish larvae (Danio rerio): Immunohistochemical, metabolomics, molecular and behaviour approaches. The Science of the total environment. 2024. source
+[2] Cyclical training enhances the melanophore responses of zebrafish to background colours. Pigment cell & melanoma research. 2008. source
+[3] 'Love at first sight': The effect of personality and colouration patterns in the reproductive success of zebrafish (Danio rerio). PloS one. 2018. source
+[4] Proliferation, dispersal and patterned aggregation of iridophores in the skin prefigure striped colouration of zebrafish. Nature cell biology. 2014. source
+
+============================================================================
+[12/39]  Q04    （2.4 · T1-4）
+----------------------------------------------------------------------------
+Q: Is body size in zebrafish related to stocking density?
+----------------------------------------------------------------------------
+Yes—body size in zebrafish is related to stocking density.
+Higher stocking density generally reduces growth rate and final body size through increased competition for food, crowding stress, and poorer water quality.
+Lower density usually allows greater food intake per fish and less stress, so fish tend to grow larger.
+
+============================================================================
+[13/39]  Q07    （2.4 · T1-7）
+----------------------------------------------------------------------------
+Q: What is the function of shha?
+----------------------------------------------------------------------------
+shha (UniProt (Q92008) · Bgee · Expression Atlas) encodes zebrafish Sonic hedgehog a (Shha), a secreted Hedgehog morphogen that patterns the neural tube, brain, retina, pharyngeal arches, and fin/scale structures.
+
+- Gene/ID: shha (ENSDARG00000068567 (Ensembl); ZFIN: ZDB-GENE-980526-166 (ZFIN)), chromosome 7.
+- Neural tube: Shha from notochord/floor plate induces floor plate and motor neuron formation.
+- Forebrain: shha-expressing cells mark the teleost pallidal signaling center and contribute to preglomerular complex and posterior tubercular dopamine cells.
+- Retina: Shh promotes cell-cycle exit by activating p57Kip2.
+- Pharyngeal arches: Bmp and Shh signaling regulate satb2 expression.
+- Fin/limb and scales: Shh functions in fin/limb patterning networks involving 5'Hox and Gli3, and is expressed during scale development.
+
+Genome duplication & functional partitioning
+
+| Zebrafish copy | Human/mouse ortholog | Identity | Evidence |
+|---|---|---|---|
+| shha | Human SHH / Mouse Shh | 82.1% / 81.5% | Retains major Hedgehog patterning roles: neural tube, forebrain, retina, pharyngeal arches, fin/scale development. |
+| shhb | Human SHH | 62.3% | Functional specialization not reported in the provided local evidence; no inferred subfunctionalization. |
+
+shha references — 854 papers linked to this gene in NCBI Gene, 10 shown below.
+- Fins into limbs: Autopod acquisition and anterior elements reduction by modifying gene networks involving 5'Hox, Gli3, and Shh · 2016
+- Sonic hedgehog expression in zebrafish forebrain identifies the teleostean pallidal signaling center and shows preglomerular complex and posterior tubercular dopamine cells to arise from shh cells · 2020
+- Specified neural progenitors sort to form sharp domains after noisy Shh signaling · 2013
+- Comparative genomics of the Hedgehog loci in chordates and the origins of Shh regulatory novelties · 2012
+- Bmp and Shh signaling mediate the expression of satb2 in the pharyngeal arches · 2013
+- Floor plate and motor neuron induction by vhh-1, a vertebrate homolog of hedgehog expressed by the notochord · 1994
+- Heterozygous mutations in the FGF8, SHH and nodal/transforming growth factor beta pathways do not confer increased dopaminergic neuron vulnerability--a zebrafish study · 2013
+- Conservation of shh cis-regulatory architecture of the coelacanth is consistent with its ancestral phylogenetic position · 2010
+- Shh directs cell-cycle exit by activating p57Kip2 in the zebrafish retina · 2005
+- Scale development in fish: a review, with description of sonic hedgehog (shh) expression in the zebrafish (Danio rerio) · 2004
+
+### Local data supplement
+
+Gene shha
+- Chromosome: 7 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl_havana
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: pattern specification process; signaling receptor binding; GO:0016539 (QuickGO); GO:0016540 (QuickGO); GO:0007275 (QuickGO); GO:0007267 (QuickGO)
+- KEGG: Hedgehog signaling pathway (KEGG); Hedgehog ligand biogenesis (KEGG); Release of Hh-Np from the secreting cell (KEGG); Ligand-receptor interactions (KEGG); Nodal signaling pathway (KEGG)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): tail bud paraxial mesoderm 91.64/100, caudal fin 71.72/100, paraxial mesoderm 63.96/100, larva 62.45/100, presomitic mesoderm 60.22/100; Expression Atlas TPM (mostly whole-embryo series): 24hpf · neural tube 340.2 TPM, 24hpf · somite 280.5 TPM, larval day 5 (whole embryo) 6 TPM, larval day 4 (whole embryo) 5 TPM, larval protruding mouth (whole embryo) 3 TPM · omics expression databases
+
+============================================================================
+[14/39]  Q08    （2.4 · T1-8）
+----------------------------------------------------------------------------
+Q: How is hif1aa related to hypoxia?
+----------------------------------------------------------------------------
+hif1aa (UniProt · Bgee · Expression Atlas) encodes zebrafish hypoxia-inducible factor 1-alpha a (ENSDARG00000006181 (Ensembl); ZDB-GENE-080917-55 (ZFIN)), the oxygen-sensitive subunit of HIF-1, and is a central mediator of the hypoxia response.
+
+- Under normoxia, hif1aa protein is hydroxylated and targeted for degradation, keeping HIF-1 activity low.
+- Under hypoxia, degradation is inhibited, allowing hif1aa to stabilize, enter the nucleus, and dimerize with the HIF-1β partner.
+- The resulting complex binds hypoxia-response elements and activates genes for angiogenesis, erythropoiesis, and metabolic adaptation; in zebrafish, hif1a/VEGF-A signaling promotes hypoxia-related angiogenesis.
+- Its GO annotation includes DNA binding and regulation of DNA-templated transcription, consistent with an oxygen-regulated transcription factor.
+
+hif1aa references — 77 papers linked to this gene in NCBI Gene, 2 shown below.
+- LPS disrupts erythroid-myeloid balance in zebrafish via Jak2/Stat3-Hif1a signaling · 2025
+- Nanocurcumin Inhibits Angiogenesis via Down-regulating hif1a/VEGF-A Signaling in Zebrafish · 2020
+
+### Local data supplement
+
+Gene hif1aa
+- Chromosome: 13 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl_havana
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: GO:0003677 (QuickGO); GO:0006355 (QuickGO); GO:0005634 (QuickGO); GO:0005737 (QuickGO); GO:0046983 (QuickGO); GO:0000977 (QuickGO)
+- KEGG: Mitophagy - animal (KEGG); Autophagy - animal (KEGG); Efferocytosis (KEGG); Regulation of gene expression by Hypoxia-inducible Factor (KEGG); Oxygen-dependent proline hydroxylation of Hypoxia-inducible Factor Alpha (KEGG)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): retina 90.88/100, mature ovarian follicle 84.74/100, heart 82.71/100, early embryo 68.69/100, ovary 65.03/100 · omics expression databases
+
+============================================================================
+[15/39]  Q09    （2.4 · T1-9）
+----------------------------------------------------------------------------
+Q: In which tissue is myl7 mainly expressed?
+----------------------------------------------------------------------------
+myl7 (ZFIN (ZDB-GENE-991019-3) · Ensembl (ENSDARG00000019096) · UniProt (Q801M3) · Bgee · Expression Atlas) is mainly expressed in the heart, especially cardiac muscle and ventricular myocardium.
+
+- Highest Bgee expression confidence: cardiac ventricle = 99.99/100
+- Other cardiac sites: heart = 99.96/100, heart tube = 98.22/100, myocardium = 96.67/100
+- Also detected in primitive heart tube, cardiac muscle tissue, heart primordium, and cardiac muscle cells
+
+These Bgee scores reflect expression confidence, not mRNA abundance/TPM.
+
+### Local data supplement
+
+Gene myl7
+- Chromosome: 8 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl_havana
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: cardiac muscle contraction; heart development; GO:0005737 (QuickGO); GO:0046872 (QuickGO); GO:0005509 (QuickGO); GO:0045214 (QuickGO)
+- KEGG: Focal adhesion (KEGG); Adherens junction (KEGG); Regulation of actin cytoskeleton (KEGG); Motor proteins (KEGG); Cytoskeleton in muscle cells (KEGG)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): cardiac ventricle 99.99/100, heart 99.96/100, heart tube 98.22/100, myocardium 96.67/100, primitive heart tube 96.3/100; Expression Atlas TPM (mostly whole-embryo series): 48hpf · heart 5200 TPM, adult heart 4800 TPM · omics expression databases
+
+============================================================================
+[16/39]  Q12    （2.4 · T1-12）
+----------------------------------------------------------------------------
+Q: Which gene is ZDB-GENE-040918-1?
+----------------------------------------------------------------------------
+ZDB-GENE-040918-1 is not present in the local zebrafish gene annotation, so it could not be mapped to a gene symbol. A ZFIN ID in this form usually means the record has been retired or the ID was mistyped — check it first, or ask with the gene symbol, Ensembl ID or RefSeq accession instead. (ZFIN itself answers "Record Not Found" for IDs it does not hold.)
+
+============================================================================
+[17/39]  Q19    （2.4 · T1-19）
+----------------------------------------------------------------------------
+Q: Which zebrafish reference assembly does this resource anchor on?
+----------------------------------------------------------------------------
+This resource anchors on GRCz12tu (GCF_049306965.2).
+Gene models, expression, and GO/KEGG annotations are derived from Ensembl release 116, originally built on GRCz11 (GCF_000002035.6), with coordinates lifted over to GRCz12tu.
+
+============================================================================
+[18/39]  Q20    （2.4 · T1-20）
+----------------------------------------------------------------------------
+Q: Can GRCz11 and GRCz12tu coordinates be mixed?
+----------------------------------------------------------------------------
+No — GRCz11 and GRCz12tu coordinates cannot be mixed directly. They are different genome assemblies with different coordinate systems and some changed Ensembl IDs.
+
+- GRCz12tu is the current NCBI reference assembly (RefSeq GCF_049306965.2), used here for standard gene names, BLAST, and cDNA extraction.
+- GRCz11 is the Ensembl-based assembly (release 116, GCF_000002035.6), used here for local gene IDs, expression, GO, and KEGG annotations.
+- GRCz11, GRCz10, and GRCz12tu coordinates must be mapped/liftover before comparison; do not mix them directly.
+- Ensembl IDs can carry version suffixes and may change after assembly remapping, so coordinate conversion alone is not always sufficient.
+
+============================================================================
+[19/39]  Q21    （2.4 · T1-21）
+----------------------------------------------------------------------------
+Q: What does the literature report on CRISPR-based studies of zebrafish morphogenesis?
+----------------------------------------------------------------------------
+Literature reports that CRISPR/Cas9 in zebrafish is used for rapid F0 phenotypic analysis and mutagenesis screens in morphogenesis, with examples in eye and thyroid development.
+
+- In eye morphogenesis, CRISPR-Cas9 F0 knockouts using predesigned in vitro transcribed sgRNAs partially recapitulate Rx3 function, indicating F0 crispants can reveal early morphogenetic gene roles [1].
+- In thyroid morphogenesis, a rapid CRISPR/Cas-based mutagenesis assay was used to identify genes involved in thyroid morphogenesis and function [2].
+- F0/mosaic approaches enable faster screening than stable mutant lines, but F0 phenotypes may only partially recapitulate full knockout effects [1].
+
+References:
+[1] CRISPR-Cas9 F0 knockout approach using predesigned in vitro transcribed guide RNAs partially recapitulates Rx3 function in eye morphogenesis. Journal of genetics. 2023. source
+[2] A Rapid CRISPR/Cas-based Mutagenesis Assay in Zebrafish for Identification of Genes Involved in Thyroid Morphogenesis and Function. Scientific reports. 2018. source
+
+
+##########  章节 2.5  ##########
+
+============================================================================
+[20/39]  Q03    （2.5 · T7-3）
+----------------------------------------------------------------------------
+Q: What is associated with fin length in zebrafish?
+----------------------------------------------------------------------------
+Bmp signaling and finfold size are associated with fin length in zebrafish. Bmp signaling modulates finfold size, which is linked to final fin length and fin-to-limb differences [5]. Regeneration-related processes—tissue-scale cell dynamics and regeneration-associated silencers [2][4], plus age-related angiogenesis defects [1]—are also associated with regenerative fin outgrowth.
+
+References:
+[1] Impaired fin regeneration and angiogenesis in aged zebrafish and turquoise killifish. Biology open. 2023. source
+[2] Zebrafish tailfin as an in vivo model for capturing tissue-scale cell dynamics. Seminars in cell & developmental biology. 2025. source
+[3] DjFNDC3A is associated with DjSmad4 to regulate cranial nerve regeneration in planarian (Dugesia japonica). International journal of biological macromolecules. 2026. source
+[4] A screen for regeneration-associated silencer regulatory elements in zebrafish. Developmental cell. 2024. source
+[5] Bmp-signaling and the finfold size in zebrafish: implications for the fin-to-limb transition. Evolution; international journal of organic evolution. 2023. source
+
+============================================================================
+[21/39]  Q05    （2.5 · T7-5）
+----------------------------------------------------------------------------
+Q: What are the common morphological differences between the AB and TU strains?
+----------------------------------------------------------------------------
+In zebrafish, AB and TU are both wild-type laboratory strains and look broadly similar. The usual morphological differences are subtle:
+
+- AB adults tend to be slightly larger / stockier, with more regular lateral stripes.
+- TU (Tübingen) adults are often a bit smaller, and their stripe pattern can be more variable or interrupted.
+
+These are not absolute differences and can be affected by rearing conditions and subline background, so they are not reliable for strain identification by appearance alone.
+
+============================================================================
+[22/39]  Q06    （2.5 · T7-6）
+----------------------------------------------------------------------------
+Q: What kind of gene is tp53?
+----------------------------------------------------------------------------
+tp53 (UniProt (P79734) · Bgee · Expression Atlas) is a protein-coding tumor suppressor gene encoding the p53 transcription factor. In zebrafish, it is the ortholog of human TP53, located on chromosome 5 (Ensembl ENSDARG00000035559 (Ensembl); ZFIN ZDB-GENE-990415-270 (ZFIN)), and mediates DNA damage response, apoptosis, and transcriptional regulation.
+
+tp53 references — 1049 papers linked to this gene in NCBI Gene, 12 shown below.
+- Triclosan induces spermatogenic damage via the oxidative stress-P53-apoptosis pathway in zebrafish · 2026
+- A Robust Closed-Tube Method for Resolving tp53(M214K) Genotypes · 2024
+- TP53 Mutant Versus Wild-Type Zebrafish Larvae Under Starvation Stress: Larvae Can Live Up to 17 Days Post-Fertilization Without Food · 2022
+- Okadaic acid induces oxidative stress and immunotoxicity in zebrafish: involvement of the p53 pathway and behavioral alterations · 2026
+- Identification and characterization of a novel upstream promoter of zebrafish p53 gene · 2024
+- TDMPP activation of estrogen receptor 2a regulates smc2 and p53 signaling to interfere with liver development in zebrafish (Danio rerio) · 2024
+- Conservation of Affinity Rather Than Sequence Underlies a Dynamic Evolution of the Motif-Mediated p53/MDM2 Interaction in Ray-Finned Fishes · 2024
+- SBDS(R126T) rescues survival of sbds (-/-) zebrafish in a dose-dependent manner independently of Tp53 · 2023
+- PLAAT1 promotes p53 degradation via autophagy-lysosome pathway in zebrafish · 2022
+- Mammalian eIF4E2-GSK3β maintains basal phosphorylation of p53 to resist senescence under hypoxia · 2022
+- Host tp53 mutation induces gut dysbiosis eliciting inflammation through disturbed sialic acid metabolism · 2022
+- Effect of adenosine monophosphate-activated protein kinase-p53-Krüppel-like factor 2a pathway in hyperglycemia-induced cardiac remodeling in adult zebrafish · 2021
+
+### Local data supplement
+
+Gene tp53
+- Chromosome: 5 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl_havana
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: DNA damage response; regulation of apoptotic process; p53 binding; GO:0006915 (QuickGO); GO:0000976 (QuickGO); GO:0003700 (QuickGO)
+- KEGG: MAPK signaling pathway (KEGG); Cell cycle (KEGG); p53 signaling pathway (KEGG); Mitophagy - animal (KEGG); Apoptosis (KEGG)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): cleaving embryo 97.9/100, tail bud paraxial mesoderm 97.4/100, presomitic mesoderm 96.77/100, paraxial mesoderm 96.75/100, early embryo 95.42/100; Expression Atlas TPM (mostly whole-embryo series): adult thymus 45.2 TPM, adult testis 38.7 TPM, 24hpf (whole embryo) 12.3 TPM · omics expression databases
+
+============================================================================
+[23/39]  Q10    （2.5 · T7-10）
+----------------------------------------------------------------------------
+Q: What phenotypes are commonly seen in cyp1b1 mutants?
+----------------------------------------------------------------------------
+cyp1b1 has 26 phenotype records; merged by anatomy · phenotype into 17 groups:
+
+- pericardium · edematous (3 records; 2 developmental stages)
+- eye · spatial pattern (2 records; 1 developmental stage)
+- optic fissure · morphology (2 records; 1 developmental stage)
+- fertilized egg · decreased volume (2 records; 1 developmental stage)
+- swim bladder development · disrupted (2 records; 1 developmental stage)
+- swim bladder development · delayed (2 records; 1 developmental stage)
+- eye · decreased size (2 records; 1 developmental stage)
+- ventral mandibular arch · immature (2 records; 1 developmental stage)
+- migratory neural crest · increased amount (1 record; 1 developmental stage)
+- embryo development · delayed (1 record; 1 developmental stage)
+- eye · increased amount (1 record; 1 developmental stage)
+- quadrate · curvature (1 record; 1 developmental stage)
+- male organism · decreased magnitude (1 record; 1 developmental stage)
+- whole organism · decreased distance (1 record; 1 developmental stage)
+- retinal pigmented epithelium · decreased amount (1 record; 1 developmental stage)
+- whole organism · increased behavioural activity (1 record; 1 developmental stage)
+- palatoquadrate cartilage · curvature (1 record; 1 developmental stage)
+
+============================================================================
+[24/39]  Q11    （2.5 · T7-11）
+----------------------------------------------------------------------------
+Q: What is the official symbol and Ensembl ID of p53?
+----------------------------------------------------------------------------
+In short: tp53 — the official symbol is tp53, and the Ensembl gene ID is ENSDARG00000035559.
+
+[Historical gene-version unification]
+ Query: p53
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. p53 (query input)
+ 2. brp53 (synonym)
+ 3. cellular tumor antigen p53 (other)
+ 4. delta113 p53 (other)
+ 5. drp53 (synonym)
+ 6. etid22686.5 (synonym)
+ 7. fb40d06 (synonym)
+ 8. tumor protein p53 (full_name)
+ 9. tumor suppressor p53 (other)
+ 10. wu:fb40d06 (synonym)
+ 11. zdb-gene-990415-270 (zfin_id)
+ 12. zgc:111919 (synonym)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: tp53
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 30590
+ · RefSeq chromosome: 5
+ · Local Ensembl (GRCz11): ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270
+
+[Original Ensembl versions]
+ 1. ENSDARG00000004359, release 116
+ 2. ENSDARG00000035559, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000035559 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270 → https://zfin.org/ZDB-GENE-990415-270
+ · NCBI Gene: 30590 → https://www.ncbi.nlm.nih.gov/gene/30590
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000035559
+ · ensembl: ENSDARG00180036740
+ · ncbi_gene: 30590
+ · ncbi_gene_grcz12tu: 30590
+ · uniprot: P79734
+ · zfin: ZDB-GENE-990415-270
+
+[Bgee tissue expression (top)]
+ · cleaving embryo: 97.90
+ · tail bud paraxial mesoderm: 97.40
+ · presomitic mesoderm: 96.77
+ · paraxial mesoderm: 96.75
+ · early embryo: 95.42
+ · granulocyte: 94.98
+ · ZFIN alias p53 → tp53
+
+============================================================================
+[25/39]  Q13    （2.5 · T7-13）
+----------------------------------------------------------------------------
+Q: ENSDARG00000035559 corresponds to which gene symbol?
+----------------------------------------------------------------------------
+In short: Ensembl gene ID ENSDARG00000035559 corresponds to tp53 (official symbol).
+
+[Historical gene-version unification]
+ Query: ENSDARG00000035559
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. ENSDARG00000035559 (query input)
+ 2. p53 (gene_basic.gene_symbol)
+ 3. brp53 (synonym)
+ 4. cellular tumor antigen p53 (other)
+ 5. delta113 p53 (other)
+ 6. drp53 (synonym)
+ 7. etid22686.5 (synonym)
+ 8. fb40d06 (synonym)
+ 9. tumor protein p53 (full_name)
+ 10. tumor suppressor p53 (other)
+ 11. wu:fb40d06 (synonym)
+ 12. zdb-gene-990415-270 (zfin_id)
+ 13. zgc:111919 (synonym)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: tp53
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 30590
+ · RefSeq chromosome: 5
+ · Local Ensembl (GRCz11): ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270
+
+[Original Ensembl versions]
+ 1. ENSDARG00000004359, release 116
+ 2. ENSDARG00000035559, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000035559 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270 → https://zfin.org/ZDB-GENE-990415-270
+ · NCBI Gene: 30590 → https://www.ncbi.nlm.nih.gov/gene/30590
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000035559
+ · ensembl: ENSDARG00180036740
+ · ncbi_gene: 30590
+ · ncbi_gene_grcz12tu: 30590
+ · uniprot: P79734
+ · zfin: ZDB-GENE-990415-270
+
+[Bgee tissue expression (top)]
+ · cleaving embryo: 97.90
+ · tail bud paraxial mesoderm: 97.40
+ · presomitic mesoderm: 96.77
+ · paraxial mesoderm: 96.75
+ · early embryo: 95.42
+ · granulocyte: 94.98
+
+============================================================================
+[26/39]  Q14    （2.5 · T7-14）
+----------------------------------------------------------------------------
+Q: NCBI gene ID 30590 refers to which zebrafish gene?
+----------------------------------------------------------------------------
+In short: NCBI Gene ID 30590 corresponds to tp53 (official symbol).
+
+[Historical gene-version unification]
+ Query: 30590
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. 30590 (query input)
+ 2. p53 (gene_basic.gene_symbol)
+ 3. brp53 (synonym)
+ 4. cellular tumor antigen p53 (other)
+ 5. delta113 p53 (other)
+ 6. drp53 (synonym)
+ 7. etid22686.5 (synonym)
+ 8. fb40d06 (synonym)
+ 9. tumor protein p53 (full_name)
+ 10. tumor suppressor p53 (other)
+ 11. wu:fb40d06 (synonym)
+ 12. zdb-gene-990415-270 (zfin_id)
+ 13. zgc:111919 (synonym)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: tp53
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 30590
+ · RefSeq chromosome: 5
+ · Local Ensembl (GRCz11): ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270
+
+[Original Ensembl versions]
+ 1. ENSDARG00000004359, release 116
+ 2. ENSDARG00000035559, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000035559 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000035559
+ · ZFIN: ZDB-GENE-990415-270 → https://zfin.org/ZDB-GENE-990415-270
+ · NCBI Gene: 30590 → https://www.ncbi.nlm.nih.gov/gene/30590
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000035559
+ · ensembl: ENSDARG00180036740
+ · ncbi_gene: 30590
+ · ncbi_gene_grcz12tu: 30590
+ · uniprot: P79734
+ · zfin: ZDB-GENE-990415-270
+
+[Bgee tissue expression (top)]
+ · cleaving embryo: 97.90
+ · tail bud paraxial mesoderm: 97.40
+ · presomitic mesoderm: 96.77
+ · paraxial mesoderm: 96.75
+ · early embryo: 95.42
+ · granulocyte: 94.98
+
+============================================================================
+[27/39]  Q15    （2.5 · T7-15）
+----------------------------------------------------------------------------
+Q: What is the ZFIN ID of mitfa?
+----------------------------------------------------------------------------
+In short: mitfa — the ZFIN ID is ZDB-GENE-990910-11.
+
+[Historical gene-version unification]
+ Query: mitfa
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. nacre (gene_basic.gene_symbol)
+ 2. melanocyte inducing transcription factor a (other)
+ 3. microphthalmia-associated transcription factor a (other)
+ 4. microphthalmia-related protein (other)
+ 5. mitf-related (other)
+ 6. mitf2 (other)
+ 7. nac (other)
+ 8. z3a.1 (synonym)
+ 9. zdb-gene-990910-11 (zfin_id)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: mitfa
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 30080
+ · RefSeq chromosome: 6
+ · Local Ensembl (GRCz11): ENSDARG00000003732
+ · ZFIN: ZDB-GENE-990910-11
+
+[Original Ensembl versions]
+ 1. ENSDARG00000054567, release 116
+ 2. ENSDARG00000003732, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000003732 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000003732
+ · ZFIN: ZDB-GENE-990910-11 → https://zfin.org/ZDB-GENE-990910-11
+ · NCBI Gene: 30080 → https://www.ncbi.nlm.nih.gov/gene/30080
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000003732
+ · ensembl: ENSDARG00180009659
+ · ncbi_gene: 30080
+ · ncbi_gene_grcz12tu: 30080
+ · uniprot: Q9PWC2
+ · zfin: ZDB-GENE-990910-11
+
+[Bgee tissue expression (top)]
+ · melanocyte: 87.50
+ · melanoblast: 83.33
+ · pigment cell: 83.32
+ · neural crest cell: 80.76
+ · region of neural crest: 77.75
+ · post-anal tail: 64.45
+
+============================================================================
+[28/39]  Q16    （2.5 · T7-16）
+----------------------------------------------------------------------------
+Q: What is the expression profile of tp53 across adult tissues?
+----------------------------------------------------------------------------
+Expression data for tp53 (p53): 21 records.
+
+By tissue (Bgee confidence score 0–100, top 18):
+- cleaving embryo: 97.9
+- tail bud paraxial mesoderm: 97.4
+- presomitic mesoderm: 96.77
+- paraxial mesoderm: 96.75
+- early embryo: 95.42
+- granulocyte: 94.98
+- zone of skin: 93.96
+- integument: 93.85
+- intestine: 93.1
+- somite: 93.05
+- pharyngeal gill: 93.01
+- testis: 92.94
+
+By embryonic stage (Expression Atlas, TPM):
+- adult / thymus: 45.2 TPM
+- adult / testis: 38.7 TPM
+- 24hpf / embryo: 12.3 TPM
+
+Note: Bgee scores are 0–100 confidence; Atlas values are TPM. The two are not directly comparable.
+
+============================================================================
+[29/39]  Q17    （2.5 · T7-17）
+----------------------------------------------------------------------------
+Q: What developmental-stage caveats apply to myl7 cardiac expression?
+----------------------------------------------------------------------------
+Expression data for myl7 (cmlc2): 20 records.
+
+By tissue (Bgee confidence score 0–100, top 18):
+- cardiac ventricle: 99.99
+- heart: 99.96
+- heart tube: 98.22
+- myocardium: 96.67
+- primitive heart tube: 96.3
+- cardiac muscle tissue: 95.46
+- heart primordium: 94.74
+- cardiac muscle cell: 92.86
+- cardiac atrium: 91.67
+- heart rudiment: 91.37
+- muscle organ: 90.6
+- myocardial precursor (Danio): 90.0
+
+By embryonic stage (Expression Atlas, TPM):
+- 48hpf / heart: 5200.0 TPM
+- adult / heart: 4800.0 TPM
+
+Note: Bgee scores are 0–100 confidence; Atlas values are TPM. The two are not directly comparable.
+
+============================================================================
+[30/39]  Q18    （2.5 · T7-18）
+----------------------------------------------------------------------------
+Q: Approximately how many protein-coding genes are annotated in the zebrafish genome?
+----------------------------------------------------------------------------
+Approximately 26,000 protein-coding genes are annotated in the zebrafish genome; the reference genome annotation reported 26,206 protein-coding genes [1].
+
+[1] The zebrafish reference genome sequence and its relationship to the human genome. Nature, 2013. https://pubmed.ncbi.nlm.nih.gov/23594743/
+
+References:
+[1] The zebrafish reference genome sequence and its relationship to the human genome. Nature. 2013. source
+[2] Deletion upstream of MAB21L2 highlights the importance of evolutionarily conserved non-coding sequences for eye development. Nature communications. 2024. source
+
+============================================================================
+[31/39]  Q22    （2.5 · T7-22）
+----------------------------------------------------------------------------
+Q: Is there literature on the relationship between zebrafish scales and the microbiota?
+----------------------------------------------------------------------------
+There is little direct literature specifically linking zebrafish scales to the microbiota; most relevant work is indirect.
+
+- Zebrafish scales are dermal bone plates covered by epidermis and mucus, so microbial interactions are usually studied at the skin/mucus microbiome level rather than as a scale-specific niche.
+- Scale regeneration, osteoblast/osteoclast activity, and immune responses are well studied, but these are generally separate from microbiota research.
+- In my current evidence base, no direct study on scale–microbiota interactions was retrieved, so I cannot cite a specific paper on that exact relationship.
+
+============================================================================
+[32/39]  Q23    （2.5 · T7-23）
+----------------------------------------------------------------------------
+Q: Which key publications address sex determination in zebrafish?
+----------------------------------------------------------------------------
+Key publications addressing zebrafish sex determination include:
+
+- "Genetic regulation of sex determination and maintenance in zebrafish (Danio rerio)" — Current Topics in Developmental Biology, 2019 [1].
+- "Zebrafish sex determination and differentiation: involvement of FTZ-F1 genes" — Reproductive Biology and Endocrinology, 2005 [2].
+- "Effects of homozygosity on sex determination in zebrafish Danio rerio" — Journal of Fish Biology, 2018 [3].
+- "Cellular retinoic acid-binding proteins regulate germ cell proliferation and sex determination in zebrafish" — Development, 2024 [4].
+- "Levonorgestrel and dydrogesterone affect sex determination via different pathways in zebrafish" — Aquatic Toxicology, 2021 [5].
+
+References:
+[1] Genetic regulation of sex determination and maintenance in zebrafish (Danio rerio). Current topics in developmental biology. 2019. source
+[2] Zebrafish sex determination and differentiation: involvement of FTZ-F1 genes. Reproductive biology and endocrinology: RB&E. 2005. source
+[3] Effects of homozygosity on sex determination in zebrafish Danio rerio. Journal of fish biology. 2018. source
+[4] Cellular retinoic acid-binding proteins regulate germ cell proliferation and sex determination in zebrafish. Development (Cambridge, England). 2024. source
+[5] Levonorgestrel and dydrogesterone affect sex determination via different pathways in zebrafish. Aquatic toxicology (Amsterdam, Netherlands). 2021. source
+
+============================================================================
+[33/39]  Q24    （2.5 · T7-24）
+----------------------------------------------------------------------------
+Q: Compare the relationship between tp53 and mdm2 in zebrafish.
+----------------------------------------------------------------------------
+In zebrafish, tp53 (UniProt (P79734) · Bgee · Expression Atlas) and mdm2 (ZFIN (ZDB-GENE-990415-153) · Ensembl (ENSDARG00000033443) · UniProt · Bgee · Expression Atlas) form a conserved negative-regulatory axis: Mdm2 is the main p53 suppressor, and loss or dysregulation of mdm2 releases p53-dependent growth suppression and apoptosis.
+
+- Zebrafish tp53 (ENSDARG00000035559 (Ensembl); ZFIN ZDB-GENE-990415-270 (ZFIN)) is the tumor suppressor, while mdm2 acts as its p53-negative regulator.
+- In mdm2/mdm4 mutant zebrafish, p53 tumor-suppressive signaling is activated, showing that Mdm2 normally keeps p53 in check.
+- Liver-specific mdm2 expression causes growth retardation and liver fragility, whereas early embryonic mdm2 overexpression did not induce tumors.
+- The zebrafish p53–Mdm2 interaction is conserved mainly at the level of functional binding affinity rather than strict sequence identity of the binding motif.
+- Alternative splicing and promoter usage can co-regulate tp53 and mdm2 expression in zebrafish.
+
+tp53 references — 1049 papers linked to this gene in NCBI Gene, 12 shown below.
+- Triclosan induces spermatogenic damage via the oxidative stress-P53-apoptosis pathway in zebrafish · 2026
+- A Robust Closed-Tube Method for Resolving tp53(M214K) Genotypes · 2024
+- TP53 Mutant Versus Wild-Type Zebrafish Larvae Under Starvation Stress: Larvae Can Live Up to 17 Days Post-Fertilization Without Food · 2022
+- Okadaic acid induces oxidative stress and immunotoxicity in zebrafish: involvement of the p53 pathway and behavioral alterations · 2026
+- Identification and characterization of a novel upstream promoter of zebrafish p53 gene · 2024
+- TDMPP activation of estrogen receptor 2a regulates smc2 and p53 signaling to interfere with liver development in zebrafish (Danio rerio) · 2024
+- Conservation of Affinity Rather Than Sequence Underlies a Dynamic Evolution of the Motif-Mediated p53/MDM2 Interaction in Ray-Finned Fishes · 2024
+- SBDS(R126T) rescues survival of sbds (-/-) zebrafish in a dose-dependent manner independently of Tp53 · 2023
+- PLAAT1 promotes p53 degradation via autophagy-lysosome pathway in zebrafish · 2022
+- Mammalian eIF4E2-GSK3β maintains basal phosphorylation of p53 to resist senescence under hypoxia · 2022
+- Host tp53 mutation induces gut dysbiosis eliciting inflammation through disturbed sialic acid metabolism · 2022
+- Effect of adenosine monophosphate-activated protein kinase-p53-Krüppel-like factor 2a pathway in hyperglycemia-induced cardiac remodeling in adult zebrafish · 2021
+mdm2 references — 208 papers linked to this gene in NCBI Gene, 10 shown below.
+- Identification of a Catalytic Active but Non-Aggregating MDM2 RING Domain Variant · 2021
+- Splicing factor DHX15 affects tp53 and mdm2 expression via alternate splicing and promoter usage · 2019
+- Dysfunction of the MDM2/p53 axis is linked to premature aging · 2017
+- MDM2 prevents spontaneous tubular epithelial cell death and acute kidney injury · 2016
+- Liver-specific expression of p53-negative regulator mdm2 leads to growth retardation and fragile liver in zebrafish · 2008
+- Tumor-specific signaling to p53 is mimicked by Mdm2 inactivation in zebrafish: insights from mdm2 and mdm4 mutant zebrafish · 2015
+- The Mdm2 and p53 genes are conserved in the Arachnids · 2010
+- Mdm2 and p53 are highly conserved from placozoans to man · 2010
+- The Mdm2 gene of zebrafish (Danio rerio): preferential expression during development of neural and muscular tissues, and absence of tumor formation after overexpression of its cDNA during early embryogenesis · 2000
+- Mdm2: keeping p53 under control · 1997
+
+### Local data supplement
+
+Gene tp53
+- Chromosome: 5 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl_havana
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: DNA damage response; regulation of apoptotic process; p53 binding; GO:0006915 (QuickGO); GO:0000976 (QuickGO); GO:0003700 (QuickGO)
+- KEGG: MAPK signaling pathway (KEGG); Cell cycle (KEGG); p53 signaling pathway (KEGG); Mitophagy - animal (KEGG); Apoptosis (KEGG)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): cleaving embryo 97.9/100, tail bud paraxial mesoderm 97.4/100, presomitic mesoderm 96.77/100, paraxial mesoderm 96.75/100, early embryo 95.42/100; Expression Atlas TPM (mostly whole-embryo series): adult thymus 45.2 TPM, adult testis 38.7 TPM, 24hpf (whole embryo) 12.3 TPM · omics expression databases
+
+============================================================================
+[34/39]  Q25    （2.5 · T7-25）
+----------------------------------------------------------------------------
+Q: Which methods are commonly used for gene knockout in zebrafish?
+----------------------------------------------------------------------------
+The standard gene knockout method in zebrafish is CRISPR-Cas9 mutagenesis, with invertible gene-trap and zMADM mosaic approaches used for more specialized purposes.
+
+- CRISPR-Cas9 knockout: sgRNA and Cas9 are microinjected into one-cell embryos to generate indels and knockout founder lines [1].
+- Conditional knockout: an invertible gene-trap cassette enables tissue- or stage-specific gene disruption after inversion [2].
+- Single-cell/mosaic knockout: zMADM (zebrafish mosaic analysis with double markers) allows single-cell gene knockout and dual-lineage tracing [3].
+
+References:
+[1] CRISPR-Cas9-induced gene knockout in zebrafish. STAR protocols. 2022. source
+[2] Zebrafish her3 knockout impacts developmental and cancer-related gene signatures. Developmental biology. 2023. source
+[3] CTCF knockout in zebrafish induces alterations in regulatory landscapes and developmental gene expression. Nature communications. 2021. source
+
+============================================================================
+[35/39]  Q26    （2.5 · T7-26）
+----------------------------------------------------------------------------
+Q: Is spinal curvature in zebrafish genetically determined?
+----------------------------------------------------------------------------
+Yes — spinal curvature in zebrafish can be genetically determined, but it is not exclusively genetic.
+
+- Zebrafish mutants affecting planar cell polarity, cilia, notochord, or extracellular matrix genes can develop heritable scoliosis/kyphosis-like curvature; for example, ptk7 mutant zebrafish show late-onset spinal curvature.
+- Similar curvature can also arise from non-genetic causes, such as vitamin C deficiency, nutritional imbalance, toxins, or poor husbandry.
+- Therefore, a curved spine alone should not be assumed to be genetic; heritability, segregation, or identification of a known mutation is needed to confirm genetic determination.
+
+============================================================================
+[36/39]  Q27    （2.5 · T7-27）
+----------------------------------------------------------------------------
+Q: What is the role of asip1 in countershading of body colour?
+----------------------------------------------------------------------------
+asip1 (UniProt · Bgee · Expression Atlas) establishes countershading by creating a dorsoventral gradient of pigment-cell differentiation: higher Asip1 activity ventrally suppresses melanophore differentiation, producing a pale belly, while lower Asip1 dorsally permits melanophores and a dark back.
+
+- Gene identity: asip1 / agouti signaling protein 1; Ensembl ENSDARG00000077858 (Ensembl), ZFIN ZDB-GENE-060215-1 (ZFIN), chromosome 6. It encodes a secreted melanocortin-pathway regulator with annotations for pigmentation, receptor binding, and neuropeptide hormone activity.
+- Pigment-cell gradient: In zebrafish, Asip1 controls the dorsoventral gradient of pigment-cell differentiation rather than simply total pigmentation, generating the dark dorsal / pale ventral countershading pattern.
+- Conserved mechanism: This is consistent with ASIP acting through melanocortin signaling as a secreted regulator/antagonist in fish; asip1 overexpression also alters melanocortin-system outputs.
+
+asip1 references — 17 papers linked to this gene in NCBI Gene, 4 shown below.
+- Role of melanocortin system in the locomotor activity rhythms and melatonin secretion as revealed by agouti-signalling protein (asip1) overexpression in zebrafish · 2024
+- Countershading in zebrafish results from an Asip1 controlled dorsoventral gradient of pigment cell differentiation · 2019
+- Growth Performance After Agouti-Signaling Protein 1 (Asip1) Overexpression in Transgenic Zebrafish · 2020
+- Agouti-related proteins (AGRPs) and agouti-signaling peptide (ASIP) in fish and chicken · 2005
+
+### Local data supplement
+
+Gene asip1
+- Chromosome: 6 (GRCz11 coordinates — not interchangeable with GRCz12tu)
+- Function: protein_coding · ensembl_havana
+- Expression summary: Ensembl GRCz11 release-116 · protein_coding
+- GO: GO:0043473 (QuickGO); GO:0005576 (QuickGO); GO:0005615 (QuickGO); GO:0005102 (QuickGO); GO:0005184 (QuickGO); GO:0009755 (QuickGO)
+- KEGG: Melanogenesis (KEGG)
+- Expression (units and sources included; Bgee is a 0–100 expression-presence score, not abundance): Bgee expression score (0–100, not abundance): zone of skin 73.46/100, dermis 60/100, opercle 54.99/100 · omics expression databases
+
+============================================================================
+[37/39]  Q28    （2.5 · T7-28）
+----------------------------------------------------------------------------
+Q: What is the Ensembl ID of sox10?
+----------------------------------------------------------------------------
+In short: sox10 — the Ensembl gene ID is ENSDARG00000077467.
+
+[Historical gene-version unification]
+ Query: sox10
+ Reference genome: GRCz11 (NCBI GCF_000002035.6, taxon 7955)
+ Canonical name source: RefSeq GCF_049306965.2 (GRCz12tu)
+ Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_049306965.2/
+ Local library anchor: GRCz11 / Ensembl release 116
+
+[Original / historical symbols]
+ 1. cls (other)
+ 2. cls/sox10 (synonym)
+ 3. colorless (other)
+ 4. colourless (other)
+ 5. colourless/sox10 (other)
+ 6. golas (other)
+ 7. gos (other)
+ 8. sox10b (other)
+ 9. sry (sex determining region y)-box 10 (other)
+ 10. sry-box containing gene 10 (other)
+ 11. sry-box transcription factor 10 (full_name)
+ 12. transcription factor sox-10 (other)
+ 13. zdb-gene-011207-1 (zfin_id)
+ 14. zgc:100757 (synonym)
+
+[Canonical name / version]
+ · RefSeq GCF_049306965.2 canonical symbol: sox10
+ · Standard assembly: GRCz12tu (GCF_049306965.2)
+ · NCBI Gene: 140616
+ · RefSeq chromosome: 3
+ · Local Ensembl (GRCz11): ENSDARG00000077467
+ · ZFIN: ZDB-GENE-011207-1
+
+[Original Ensembl versions]
+ 1. ENSDARG00000077467, release 116
+
+[Cross-DB ID chain]
+ · Ensembl: ENSDARG00000077467 → https://www.ensembl.org/Danio_rerio/Gene/Summary?g=ENSDARG00000077467
+ · ZFIN: ZDB-GENE-011207-1 → https://zfin.org/ZDB-GENE-011207-1
+ · NCBI Gene: 140616 → https://www.ncbi.nlm.nih.gov/gene/140616
+
+[Cross-DB IDs]
+ · ensembl: ENSDARG00000077467
+ · ensembl: ENSDARG00180042718
+ · ncbi_gene: 140616
+ · ncbi_gene_grcz12tu: 140616
+ · uniprot: Q90XD1
+ · zfin: ZDB-GENE-011207-1
+
+[Bgee tissue expression (top)]
+ · region of neural crest: 98.89
+ · cranial neural crest: 95.84
+ · migratory neural crest cell: 92.86
+ · neural crest cell: 92.31
+ · glial cell: 89.28
+ · migratory cranial neural crest cell: 83.34
+
+============================================================================
+[38/39]  Q29    （2.5 · T7-29）
+----------------------------------------------------------------------------
+Q: What literature exists on larval kidney function models in zebrafish?
+----------------------------------------------------------------------------
+Larval zebrafish kidney function is modeled mainly in toxicology and imaging-based phenotyping studies, with glomerular filtration rate as a key functional readout.
+
+- Corticosteroid exposure alters kidney development and increases glomerular filtration rate in larval zebrafish, supporting the larval kidney as a functional model [1].
+- Organic UV filters have been tested in embryo-larval zebrafish for kidney toxicity alongside thyroid and neurodevelopmental endpoints [2].
+- An automated imaging pipeline has been developed for quantitative analysis of the zebrafish larval kidney, enabling higher-throughput functional/phenotypic screening [3].
+
+References:
+[1] Corticosteroids alter kidney development and increase glomerular filtration rate in larval zebrafish (Danio rerio). Toxicological sciences: an official journal of the Society of Toxicology. 2024. source
+[2] Thyroid, neurodevelopmental, and kidney toxicities of common organic UV filters in embryo-larval zebrafish (Danio rerio), and their potential links. Environment international. 2024. source
+[3] Development of an automated imaging pipeline for the analysis of the zebrafish larval kidney. PloS one. 2013. source
+
+============================================================================
+[39/39]  Q30    （2.5 · T7-30）
+----------------------------------------------------------------------------
+Q: Does temperature affect morphological development in zebrafish?
+----------------------------------------------------------------------------
+Yes, temperature affects zebrafish morphological development. Zebrafish are ectothermic, so developmental rate and morphology are temperature-sensitive.
+
+- Developmental rate: Higher temperatures within the tolerable range accelerate somitogenesis, hatching, and overall growth; lower temperatures slow development. Standard zebrafish husbandry uses ~28.5°C.
+- Morphological defects: Elevated or fluctuating temperatures during early development can cause axial curvature, shorter body length, craniofacial abnormalities, and cardiac edema.
+- Pigmentation and sex differentiation: Temperature can also influence pigmentation and, in some strains/conditions, sex determination or gonadal differentiation.
+
+Extreme heat stress is teratogenic, while mild changes mainly alter developmental timing and body size.
+

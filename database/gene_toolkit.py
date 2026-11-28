@@ -697,42 +697,160 @@ def _is_gene_stopword(cand: str) -> bool:
         "grcz", "grcz10", "grcz11", "grcz12", "grcz12tu", "assembly",
         "pcr", "gfp", "rfp", "gpu", "cpu", "cuda", "pdf", "pmc",
         "ab", "tu", "hub", "rag", "llm", "sql", "api",
+        # ── 2026-11-08 英文功能词 ────────────────────────────────────────────
+        # 背景：`_gene_token_pattern` 匹配任何 2–16 字母的单词，靠这张表过滤。
+        # 表里缺 be 动词/助动词时，英文题干开头的 is / are / has / can 会被当成基因名，
+        # 下游直接回 "Could not resolve are to a gene"、"No expression data found for is"，
+        # 整题报废。实测 30 道英文评测题里有 8 道因此答错，故补全。
+        "is", "are", "was", "were", "be", "been", "being", "am",
+        "has", "have", "had", "having", "do", "does", "did", "done",
+        "can", "could", "will", "would", "shall", "should", "may", "might",
+        "must", "need", "not", "yes", "if", "then", "than", "as", "at", "by",
+        "in", "on", "of", "to", "up", "out", "off", "over", "under",
+        "also", "just", "only", "very", "more", "most", "much", "many",
+        "some", "any", "all", "each", "every", "such", "so", "too", "thus",
+        "while", "when", "where", "which", "who", "whom", "whose", "why", "how",
+        "because", "before", "after", "during", "between", "among", "about",
+        "into", "onto", "per", "via", "etc", "eg", "ie",
+        # ── 2026-11-08 生物语境里的通用名词/动词（不是基因符号）────────────
+        "question", "answer", "tell", "give", "describe", "explain", "list",
+        "provide", "show", "find", "get", "make", "use", "used", "using",
+        "relate", "related", "relationship", "determine", "determines",
+        "determined", "affect", "affects", "affected", "function", "functions",
+        "functional", "role", "roles", "genes", "protein", "proteins",
+        "expression", "expressed", "phenotype", "phenotypes", "phenotypic",
+        "mutant", "mutants", "mutation", "mutations", "stage", "stages",
+        "tissue", "tissues", "cell", "cells", "development", "developmental",
+        "embryonic", "embryo", "adult", "larval", "common", "commonly",
+        "seen", "observed", "reported", "known", "official", "symbol",
+        "symbols", "corresponding", "correspond", "reference", "coordinate",
+        "coordinates", "genome", "annotation", "annotated", "roughly",
+        "approximately", "kind", "type", "factors", "factor", "profile",
+        "mainly", "involved", "support", "supports", "key", "paper", "papers",
     }
+
+
+_RESOLVE_CACHE: dict = {}
+
+
+def _resolves_to_gene(cand: str):
+    """候选能否真的解析到一个基因。三态：True / False / None(=无法判定, 数据库查询失败)。
+
+    查 gene_basic 的符号、名称、Ensembl、ZFIN 四个字段，再兜别名表；
+    纯数字再当 NCBI Gene ID 查一次 gene_assembly_xref。
+    大小写要试几种写法：候选统一按小写收集，但 ZDB-GENE-… / ENSDARG… 在库里是带大小写的。
+    带进程内缓存：同一批题目里 "gene"/"zebrafish" 这类词会被反复问到。
+    """
+    raw = (cand or "").strip()
+    if not raw:
+        return False
+    key = raw.lower()
+    if key in _RESOLVE_CACHE:
+        return _RESOLVE_CACHE[key]
+
+    forms = []
+    for f in (raw, raw.upper(), key):
+        if f and f not in forms:
+            forms.append(f)
+
+    verdict = None
+    try:
+        verdict = False
+        for f in forms:
+            res = _client().execute_sql(
+                "SELECT 1 FROM gene_basic WHERE gene_name = :n OR gene_symbol = :n "
+                "OR ensembl_id = :n OR zfin_id = :n LIMIT 1",
+                params={"n": f},
+            )
+            if res.get("success") and res.get("data"):
+                verdict = True
+                break
+            res2 = _client().execute_sql(
+                "SELECT 1 FROM gene_alias WHERE alias = :n OR alias = :nl LIMIT 1",
+                params={"n": f, "nl": f.lower()},
+            )
+            if res2.get("success") and res2.get("data"):
+                verdict = True
+                break
+        # 纯数字：问 "NCBI gene ID 30590" 时，候选就是那串数字
+        if not verdict and raw.isdigit():
+            res3 = _client().execute_sql(
+                "SELECT 1 FROM gene_assembly_xref WHERE ncbi_gene_id = :n LIMIT 1",
+                params={"n": raw},
+            )
+            if res3.get("success") and res3.get("data"):
+                verdict = True
+    except Exception:
+        verdict = None
+    if verdict is not None and len(_RESOLVE_CACHE) < 50000:
+        _RESOLVE_CACHE[key] = verdict
+    return verdict
+
+
+def _standalone_id(question: str) -> Optional[str]:
+    """题干里独立出现的权威 ID（ZFIN / Ensembl / RefSeq / NCBI Gene）。
+
+    这类 ID 优先于任何符号猜测：问 "Which zebrafish gene has NCBI gene ID 30590?"
+    时正确答案就是那个数字本身，去猜 "has" 之类的词必然答错。
+    """
+    m = re.search(r"ZDB-GENE-\d+-\d+", question, re.I)
+    if m:
+        return m.group(0)
+    m = re.search(r"ENS[A-Z]+\d+(?:\.\d+)?", question, re.I)
+    if m:
+        return m.group(0)
+    m = re.search(r"(?:NM|NR|NP|XM|XR|NC|NG)_\d+(?:\.\d+)?", question, re.I)
+    if m:
+        return m.group(0)
+    m = re.search(r"\b(\d{4,9})\b", question)
+    if m and any(k in question.lower() for k in (
+        "ncbi", "gene id", "基因id", "gi:", "id转换", "转换", "entrez",
+    )):
+        return m.group(1)
+    return None
 
 
 def extract_gene_from_question(question: str) -> Optional[str]:
     """从问题中提取基因符号或数据库 ID（支持命名混乱场景）。"""
     if not question:
         return None
-    # ZFIN
-    m = re.search(r"ZDB-GENE-\d+-\d+", question, re.I)
-    if m:
-        return m.group(0)
-    # Ensembl 基因/转录本
-    m = re.search(r"ENS[A-Z]+\d+(?:\.\d+)?", question, re.I)
-    if m:
-        return m.group(0)
-    # RefSeq
-    m = re.search(r"(?:NM|NR|NP|XM|XR|NC|NG)_\d+(?:\.\d+)?", question, re.I)
-    if m:
-        return m.group(0)
-    # NCBI Gene ID（需上下文或单独出现）
-    m = re.search(r"\b(\d{4,9})\b", question)
-    if m and any(k in question.lower() for k in (
-        "ncbi", "gene id", "基因id", "gi:", "id转换", "转换", "entrez",
-    )):
-        return m.group(1)
+    sid = _standalone_id(question)
+    if sid:
+        return sid
     # 引号内符号
     m = re.search(r"['\"]([a-zA-Z][a-zA-Z0-9.-]{1,20})['\"]", question)
     if m:
         return m.group(1)
-    # 基因符号（兼容 tp53在哪些组织 等中英文连写，以及任意数字开头的名称）
-    found = extract_genes_from_question(question, limit=1)
-    return found[0] if found else None
+    # 基因符号（兼容 tp53在哪些组织 等中英文连写，以及任意数字开头的名称）。
+    # 候选必须真的能解析到基因才算数：旧实现取"位置最靠前的非停用词"，于是
+    # "What are the official gene symbol and Ensembl ID corresponding to p53?"
+    # 会把 are 当成基因，真正的 p53 反而没被选中，整题答成 "Could not resolve are"。
+    # 现在按候选顺序逐个查库，第一个能解析的胜出；全都解析不了返回 None，
+    # 让上层走"非基因题"路径，而不是硬回一句 Could not resolve。
+    found = extract_genes_from_question(question, limit=12)
+    unknown = 0
+    for cand in found:
+        verdict = _resolves_to_gene(cand)
+        if verdict is None:
+            unknown += 1
+            continue
+        if verdict:
+            return cand
+    if found and unknown and unknown == len(found):
+        # 数据库连不上，全部无法判定 —— 退回旧行为，不能因此让整站退化成"无基因"
+        return found[0]
+    return None
 
 
-def extract_genes_from_question(question: str, limit: int = 5) -> list:
-    """从问题中提取多个基因符号（用于比较/并列查询）。"""
+def extract_genes_from_question(question: str, limit: int = 5,
+                                resolve: bool = True) -> list:
+    """从问题中提取多个基因符号（用于比较/并列查询）。
+
+    resolve=True（默认）时只保留**确实能解析到基因**的候选：否则
+    "Compare the relationship between tp53 and mdm2" 会返回 ['compare','tp53']，
+    compare 这种词被当成基因一路带下去。数据库查询失败时不做过滤（退回旧行为），
+    避免一次连库异常让整站认不出任何基因。
+    """
     if not question:
         return []
     ranked = []
@@ -741,14 +859,22 @@ def extract_genes_from_question(question: str, limit: int = 5) -> list:
 
     def add(pos: int, cand: str) -> None:
         text = (cand or "").strip().lower()
-        if _is_gene_stopword(text) or text in seen or len(text) < 2:
+        if text in seen or len(text) < 2:
             return
         seen.add(text)
-        ranked.append((pos, text))
+        # 停用词不直接丢掉，只排到候选末尾。直接丢会让 "What is the function of has?"
+        # 这类**真的**在问 has 基因的句子提取不到任何东西；排到后面后，
+        # 由 *_resolves_to_gene* 逐个查库来裁决，查不到的（is/are/can）自然被跳过。
+        ranked.append((1 if _is_gene_stopword(text) else 0, pos, text))
 
     whole = whole_digit_leading_query(question)
     if whole:
         add(0, whole)
+    # 权威 ID 优先：问 "NCBI gene ID 30590 对应哪个基因" 时，候选应是 30590 本身，
+    # 而不是句中的 has / gene 这些词（has 恰好是个真实基因别名，会把答案带偏）。
+    sid = _standalone_id(question)
+    if sid:
+        add(0, sid)
     for match in re.finditer(_digit_leading_pattern(), question):
         tok = match.group(1)
         if is_digit_leading_gene_token(tok):
@@ -759,8 +885,22 @@ def extract_genes_from_question(question: str, limit: int = 5) -> list:
         if any(span_start <= start < span_end for span_start, span_end in covered):
             continue
         add(start, match.group(1))
-    ranked.sort(key=lambda item: item[0])
-    return [text for _, text in ranked[:limit]]
+    ranked.sort()
+    texts = [text for _, _, text in ranked[:limit]]
+    if not resolve or not texts:
+        return texts
+
+    kept, unknown = [], 0
+    for t in texts:
+        verdict = _resolves_to_gene(t)
+        if verdict is None:      # 无法判定：保留，交给上层用
+            unknown += 1
+            kept.append(t)
+        elif verdict:
+            kept.append(t)
+    if unknown and unknown == len(texts):
+        return texts             # 数据库不可用，退回不过滤
+    return kept
 
 
 def question_has_digit_leading_gene(question: str) -> bool:
